@@ -85,7 +85,7 @@ function saveCredentials(credentials) {
     mode: 0o600
   });
   
-  console.log('✅ Credentials saved securely');
+  console.log(' Credentials saved securely');
 }
 
 /**
@@ -113,7 +113,7 @@ function credentialsExist() {
 function deleteCredentials() {
   if (fs.existsSync(CREDS_PATH)) {
     fs.unlinkSync(CREDS_PATH);
-    console.log('✅ Credentials deleted');
+    console.log(' Credentials deleted');
   }
 }
 
@@ -153,7 +153,7 @@ async function interactiveSetup() {
     readline.question(prompt, resolve);
   });
   
-  console.log('\n🔧 Kit Email Operator - Credential Setup\n');
+  console.log('\n Kit Email Operator - Credential Setup\n');
   console.log('Get your credentials from: https://app.kit.com/account_settings/advanced_settings\n');
   
   const apiKey = await question('Kit API Key (v4, starts with "kit_"): ');
@@ -168,9 +168,9 @@ async function interactiveSetup() {
   try {
     validateCredentials(credentials);
     saveCredentials(credentials);
-    console.log('\n✅ Setup complete! You can now use the Kit Email Operator.\n');
+    console.log('\n Setup complete! You can now use the Kit Email Operator.\n');
   } catch (error) {
-    console.error(`\n❌ Error: ${error.message}\n`);
+    console.error(`\n Error: ${error.message}\n`);
     process.exit(1);
   }
   
@@ -186,11 +186,11 @@ if (require.main === module) {
   } else if (command === 'test') {
     try {
       const creds = loadCredentials();
-      console.log('✅ Credentials loaded successfully');
+      console.log(' Credentials loaded successfully');
       console.log(`API Key: ${creds.apiKey.substring(0, 10)}...`);
       console.log(`Created: ${creds.createdAt}`);
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(` Error: ${error.message}`);
       process.exit(1);
     }
   } else if (command === 'delete') {

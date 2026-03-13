@@ -20,7 +20,7 @@ async function main() {
   const config = loadConfig();
   const { publicClient, account } = getClients(config);
 
-  console.log('🦎 Gekko Yield — Moonwell USDC Vault Status\n');
+  console.log(' Gekko Yield — Moonwell USDC Vault Status\n');
   console.log(`Wallet: ${account.address}`);
   console.log(`Vault:  ${VAULT_ADDRESS}`);
   console.log(`Chain:  Base (8453)\n`);
@@ -85,13 +85,13 @@ async function main() {
   const sharePriceFloat = Number(sharePrice) / 1e18;
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('💰 Wallet Balances');
+  console.log(' Wallet Balances');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`USDC (available):  ${formatUSDC(usdcBalance)} USDC`);
   console.log(`ETH (for gas):     ${(Number(ethBalance) / 1e18).toFixed(6)} ETH`);
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('🏦 Vault Position');
+  console.log(' Vault Position');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`Vault:             ${vaultName}`);
   console.log(`Your shares:       ${formatUSDC(vaultShares)} mwUSDC`);
@@ -99,7 +99,7 @@ async function main() {
   console.log(`Share price:       ${sharePriceFloat.toFixed(6)} USDC/share`);
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📈 Vault Stats');
+  console.log(' Vault Stats');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`Total TVL:         ${formatUSDC(totalAssets)} USDC`);
   console.log(`Total shares:      ${formatUSDC(totalSupply)} mwUSDC`);
@@ -121,13 +121,13 @@ async function main() {
 
   // Warnings and tips
   if (Number(ethBalance) < 1e14) {
-    console.log('\n⚠️  Warning: Low ETH balance for gas. Add ETH to continue transacting.');
+    console.log('\n  Warning: Low ETH balance for gas. Add ETH to continue transacting.');
   }
 
   if (vaultShares === 0n && usdcBalance > 0n) {
-    console.log('\n💡 You have USDC available. Run deposit.ts to earn yield!');
+    console.log('\n You have USDC available. Run deposit.ts to earn yield!');
   } else if (vaultShares > 0n) {
-    console.log('\n✨ Your USDC is earning yield in the Moonwell vault!');
+    console.log('\n Your USDC is earning yield in the Moonwell vault!');
   }
   
   // Explicitly exit to close any open connections

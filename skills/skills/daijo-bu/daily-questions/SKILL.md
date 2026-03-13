@@ -36,7 +36,7 @@ For each question:
    - Button A: First option
    - Button B: Second option  
    - Button C: Third option
-   - ✏️ Type my own: For custom/granular answers
+   -  Type my own: For custom/granular answers
 
 3. **Send using the message tool** with buttons. Use **unique callback IDs per question** to avoid conflicts when users tap old buttons:
 
@@ -53,7 +53,7 @@ For each question:
       { "text": "C", "callback_data": "dq_r1q1_c" }
     ],
     [
-      { "text": "✏️ Type my own", "callback_data": "dq_r1q1_custom" }
+      { "text": " Type my own", "callback_data": "dq_r1q1_custom" }
     ]
   ]
 }

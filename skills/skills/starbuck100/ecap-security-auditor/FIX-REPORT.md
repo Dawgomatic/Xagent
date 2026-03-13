@@ -5,7 +5,7 @@
 
 ---
 
-## Fix 1: Report JSON Format ✅ FIXED
+## Fix 1: Report JSON Format  FIXED
 
 **Problem:** SKILL.md and audit-prompt.md documented a wrong JSON format with `risk_score` and `recommendation` nested inside `summary`. The API requires them as top-level fields. `findings_count` was required but undocumented.
 
@@ -13,11 +13,11 @@
 - `SKILL.md` → Report JSON Format section: replaced nested `summary` format with correct top-level fields (`skill_slug`, `risk_score`, `result`, `findings_count`, `findings`). Added warning note.
 - `prompts/audit-prompt.md` → Step 4 output format: same fix, added note about required fields.
 
-**Test:** Uploaded test report via `upload.sh` with new format → HTTP 201, Report ID 39, finding ECAP-2026-0828 created. ✅
+**Test:** Uploaded test report via `upload.sh` with new format → HTTP 201, Report ID 39, finding ECAP-2026-0828 created. 
 
 ---
 
-## Fix 2: verify.sh Hardcoded Package ✅ FIXED
+## Fix 2: verify.sh Hardcoded Package  FIXED
 
 **Problem:** `PACKAGE="ecap-security-auditor"` was hardcoded. SKILL.md documented `verify.sh <package>` but the script ignored it.
 
@@ -26,13 +26,13 @@
 - `SKILL.md` → Updated usage to `bash scripts/verify.sh <package-name> [api-url]`
 
 **Tests:**
-- `bash scripts/verify.sh ecap-security-auditor` → ✅ Runs, checks 6 files
-- `bash scripts/verify.sh unknown-package` → ✅ "API request failed" (expected)
-- `bash scripts/verify.sh` (no args) → ✅ Shows usage error
+- `bash scripts/verify.sh ecap-security-auditor` →  Runs, checks 6 files
+- `bash scripts/verify.sh unknown-package` →  "API request failed" (expected)
+- `bash scripts/verify.sh` (no args) →  Shows usage error
 
 ---
 
-## Fix 3: Trust Score Endpoint ✅ FIXED
+## Fix 3: Trust Score Endpoint  FIXED
 
 **Problem:** Decision Table referenced Trust Scores but no API endpoint returns one. Tested `/api/trust-score`, `/api/score`, `/api/packages/:name` — all 404.
 
@@ -47,7 +47,7 @@
 
 ---
 
-## Fix 4: Medium Issues ✅ FIXED
+## Fix 4: Medium Issues  FIXED
 
 - **Package Slug:** Added guidance to use exact package names; check via `/api/findings?package=<name>` to verify existence
 - **Package Location for Auto-Audit:** Added table (skills → `skills/<name>/`, npm → `node_modules/<name>/`, pip → `pip show` + Location)
@@ -59,12 +59,12 @@
 
 | Test | Result |
 |------|--------|
-| Upload report with correct JSON format | ✅ Report ID 39, 1 finding created |
-| verify.sh with package argument | ✅ Works (hash mismatch expected due to local edits) |
-| verify.sh without argument | ✅ Shows usage error |
-| verify.sh with unknown package | ✅ Shows API error |
-| Query uploaded findings | ✅ Finding returned correctly |
-| Trust Score calculation from findings | ✅ Documented, no API dependency |
+| Upload report with correct JSON format |  Report ID 39, 1 finding created |
+| verify.sh with package argument |  Works (hash mismatch expected due to local edits) |
+| verify.sh without argument |  Shows usage error |
+| verify.sh with unknown package |  Shows API error |
+| Query uploaded findings |  Finding returned correctly |
+| Trust Score calculation from findings |  Documented, no API dependency |
 
 **Files Modified:**
 1. `scripts/verify.sh` — Package argument support

@@ -1,4 +1,4 @@
-# 💳 Payment Information
+#  Payment Information
 
 ## Accepted Payment Methods
 
@@ -6,12 +6,12 @@
 
 We accept stablecoin payments on multiple chains:
 
-- ✅ Polygon
-- ✅ BSC (Binance Smart Chain)
-- ✅ Ethereum
-- ✅ Arbitrum
-- ✅ Optimism
-- ✅ Base
+-  Polygon
+-  BSC (Binance Smart Chain)
+-  Ethereum
+-  Arbitrum
+-  Optimism
+-  Base
 
 **Supported Tokens:** USDT or USDC
 
@@ -29,13 +29,13 @@ Send payment to:
 
 ## Pricing
 
-### 💎 Pro - $9/month (or $90/year)
+###  Pro - $9/month (or $90/year)
 - Unlimited bookmarks
 - Automated monitoring  
 - Full AI analysis
 - Telegram notifications
 
-### 🚀 Enterprise - $29/month (or $290/year)
+###  Enterprise - $29/month (or $290/year)
 - Everything in Pro +
 - Team collaboration (5 users)
 - Custom AI models

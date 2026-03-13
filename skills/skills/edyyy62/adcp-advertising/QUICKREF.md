@@ -6,7 +6,7 @@ Fast reference for common AdCP operations. Keep this handy when working with adv
 **Quick Reference**: https://docs.adcontextprotocol.org/docs/media-buy/quick-reference  
 **Complete Index**: https://docs.adcontextprotocol.org/llms.txt
 
-## 🚀 Getting Started (30 seconds)
+##  Getting Started (30 seconds)
 
 ```javascript
 // 1. Check what agent supports
@@ -33,7 +33,7 @@ await agent.createMediaBuy({
 });
 ```
 
-## 📋 The 8 Core Tasks
+##  The 8 Core Tasks
 
 | Task | Purpose | Time | Auth |
 |------|---------|------|------|
@@ -46,7 +46,7 @@ await agent.createMediaBuy({
 | `list_creatives` | Query library | ~1s | Yes |
 | `get_media_buy_delivery` | Track performance | ~60s | Yes |
 
-## 🎯 Common Workflows
+##  Common Workflows
 
 ### Launch Campaign
 ```javascript
@@ -67,7 +67,7 @@ await agent.createMediaBuy({
 5. getMediaBuyDelivery()     // Verify improvements
 ```
 
-## 🔑 Key Concepts
+##  Key Concepts
 
 ### Status Values
 - `completed` - Operation finished
@@ -100,7 +100,7 @@ await agent.createMediaBuy({
 }
 ```
 
-## 🎨 Creative Formats
+##  Creative Formats
 
 ### Display
 - `display_300x250` - Medium Rectangle
@@ -113,7 +113,7 @@ await agent.createMediaBuy({
 - `video_standard_30s` - 30 second
 - `video_standard_60s` - 60 second
 
-## 🎯 Targeting
+##  Targeting
 
 ```javascript
 targeting_overlay: {
@@ -136,7 +136,7 @@ targeting_overlay: {
 }
 ```
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 ```javascript
 const delivery = await agent.getMediaBuyDelivery({
@@ -153,7 +153,7 @@ console.log(delivery.delivery.cpm);          // Cost per thousand
 console.log(delivery.pacing.spend_pacing);   // Budget pacing %
 ```
 
-## 🛠️ Common Operations
+##  Common Operations
 
 ### Pause Campaign
 ```javascript
@@ -192,11 +192,11 @@ const pacing = delivery.pacing.spend_pacing;
 const timeProgress = delivery.pacing.percent_complete;
 
 if (Math.abs(pacing - timeProgress) > 0.15) {
-  console.log('⚠️ Campaign pacing is off');
+  console.log(' Campaign pacing is off');
 }
 ```
 
-## 🧪 Test Agent
+##  Test Agent
 
 **Quick test without setup:**
 
@@ -214,7 +214,7 @@ const result = await testAgent.getProducts({
 - Token: `1v8tAhASaUYYp4odoQ1PnMpdqNaMiTrCRqYo9OJp6IQ`
 - Testing: [testing.adcontextprotocol.org](https://testing.adcontextprotocol.org)
 
-## ⚠️ Common Errors
+##  Common Errors
 
 ### 400 Bad Request
 ```javascript
@@ -234,7 +234,7 @@ const result = await testAgent.getProducts({
 { error: { code: 'NOT_FOUND', message: 'Product not found' } }
 ```
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Always start with capabilities** - Know what the agent supports
 2. **Check status** - Handle `pending` operations properly
@@ -244,7 +244,7 @@ const result = await testAgent.getProducts({
 6. **Test creatives** - A/B test everything
 7. **Start broad** - Narrow targeting based on data
 
-## 📚 Documentation
+##  Documentation
 
 ### Official AdCP Documentation
 - **Main Docs**: https://docs.adcontextprotocol.org
@@ -261,7 +261,7 @@ const result = await testAgent.getProducts({
 - **Targeting**: [TARGETING.md](TARGETING.md)
 - **Creatives**: [CREATIVE.md](CREATIVE.md)
 
-## 🆘 Quick Help
+##  Quick Help
 
 **Need help?**
 - **Official Docs**: https://docs.adcontextprotocol.org

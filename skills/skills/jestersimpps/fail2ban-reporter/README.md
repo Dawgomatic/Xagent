@@ -1,4 +1,4 @@
-# 🛡️ Clawdbot fail2ban Reporter
+#  Clawdbot fail2ban Reporter
 
 Auto-report fail2ban banned IPs to [AbuseIPDB](https://www.abuseipdb.com), protecting the community from brute-force attackers.
 
@@ -111,4 +111,4 @@ Attacker → SSH brute-force → fail2ban bans IP → report-single.sh
 
 ## License
 
-MIT — report those attackers, protect the community! 🛡️
+MIT — report those attackers, protect the community! 

@@ -39,7 +39,7 @@ function extractVideoId(url) {
  * Get transcript using video-transcript-downloader
  */
 async function getTranscript(videoUrl) {
-  console.log('📥 Fetching transcript...');
+  console.log(' Fetching transcript...');
   
   const scriptPath = path.join(CONFIG.transcriptSkill, 'scripts', 'vtd.js');
   if (!fs.existsSync(scriptPath)) {
@@ -53,7 +53,7 @@ async function getTranscript(videoUrl) {
     );
     return output.trim();
   } catch (error) {
-    console.error('❌ Failed to get transcript:', error.message);
+    console.error(' Failed to get transcript:', error.message);
     throw error;
   }
 }
@@ -62,7 +62,7 @@ async function getTranscript(videoUrl) {
  * Clean transcript - remove ads, sponsorships, filler
  */
 function cleanTranscript(transcript) {
-  console.log('🧹 Cleaning transcript...');
+  console.log(' Cleaning transcript...');
   
   let cleaned = transcript;
   
@@ -97,7 +97,7 @@ function cleanTranscript(transcript) {
  * In production, this would call an AI model
  */
 function analyzeTranscript(transcript) {
-  console.log('🔍 Analyzing content...');
+  console.log(' Analyzing content...');
   
   const analysis = {
     keyPoints: [],
@@ -165,7 +165,7 @@ function generateSummary(transcript) {
  * Main analysis function
  */
 async function analyzeVideo(videoUrl) {
-  console.log(`\n🎬 TubeClaw analyzing: ${videoUrl}\n`);
+  console.log(`\n TubeClaw analyzing: ${videoUrl}\n`);
   
   const videoId = extractVideoId(videoUrl);
   if (!videoId) {
@@ -201,19 +201,19 @@ async function analyzeVideo(videoUrl) {
  */
 function formatOutput(result) {
   let output = '\n' + '='.repeat(60) + '\n';
-  output += '🎯 TUBECLAW ANALYSIS\n';
+  output += ' TUBECLAW ANALYSIS\n';
   output += '='.repeat(60) + '\n\n';
   
-  output += '📝 SUMMARY:\n';
+  output += ' SUMMARY:\n';
   output += result.summary + '\n\n';
   
   if (result.topics.length > 0) {
-    output += '🏷️  TOPICS:\n';
+    output += '  TOPICS:\n';
     output += result.topics.join(', ') + '\n\n';
   }
   
   if (result.resources.length > 0) {
-    output += '🔗 RESOURCES:\n';
+    output += ' RESOURCES:\n';
     result.resources.slice(0, 10).forEach((res, i) => {
       if (res.url) {
         output += `  ${i + 1}. ${res.url}\n`;
@@ -224,8 +224,8 @@ function formatOutput(result) {
     output += '\n';
   }
   
-  output += `📊 Transcript length: ${result.transcriptLength} chars\n`;
-  output += `🎬 Video: ${result.videoUrl}\n`;
+  output += ` Transcript length: ${result.transcriptLength} chars\n`;
+  output += ` Video: ${result.videoUrl}\n`;
   output += '='.repeat(60) + '\n';
   
   return output;
@@ -250,10 +250,10 @@ if (require.main === module) {
       // Save to file
       const outputPath = path.join(CONFIG.tempDir, `analysis-${result.videoId}.json`);
       fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
-      console.log(`\n💾 Full analysis saved to: ${outputPath}`);
+      console.log(`\n Full analysis saved to: ${outputPath}`);
     })
     .catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
 }

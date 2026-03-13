@@ -68,9 +68,9 @@ Idea Coach helps you:
 ## Attributes
 
 ### Types
-- 💡 **idea** — Something to build or create
-- 🔧 **problem** — Something to fix or solve
-- 🎯 **challenge** — Something to overcome
+-  **idea** — Something to build or create
+-  **problem** — Something to fix or solve
+-  **challenge** — Something to overcome
 
 ### Status Flow
 ```

@@ -9,7 +9,7 @@ version: 1.2.2
 homepage: https://github.com/odrobnik/printer-skill
 metadata:
   openclaw:
-    emoji: "🖨️"
+    emoji: ""
     requires:
       bins:
         - python3

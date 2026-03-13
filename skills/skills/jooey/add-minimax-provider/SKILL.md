@@ -51,8 +51,8 @@ https://platform.minimaxi.com/subscribe/coding-plan?code=2vNMQFJrZt&source=link
 
 | 模型 ID | 名称 | Context | reasoning | 说明 |
 |---------|------|---------|-----------|------|
-| `MiniMax-M2.1` | MiniMax M2.1 | 200K | ❌ | 主力模型，综合能力强 |
-| `MiniMax-M2.1-lightning` | MiniMax M2.1 Lightning | 200K | ❌ | 轻量快速版（仅 portal 确认可用） |
+| `MiniMax-M2.1` | MiniMax M2.1 | 200K |  | 主力模型，综合能力强 |
+| `MiniMax-M2.1-lightning` | MiniMax M2.1 Lightning | 200K |  | 轻量快速版（仅 portal 确认可用） |
 
 > **注意**：MiniMax 可能随时上线新模型。添加前务必先测试可用性。
 
@@ -222,7 +222,7 @@ curl -s --max-time 15 https://api.minimaxi.com/v1/chat/completions \
 
 配置后用户可以在聊天中用 `/model Minimax`、`/model minimax-lightning` 切换模型。
 
-### ⚠️ 别名配置的唯一合法字段是 `alias`
+###  别名配置的唯一合法字段是 `alias`
 
 ```
 agents.defaults.models.<model-id>.alias     <-- 唯一合法字段
@@ -330,7 +330,7 @@ tail -20 ~/.openclaw/logs/gateway.err.log
 | 每日理论上限 | ~7200 次 |
 | 窗口计算 | 每次调用倒算前 5 小时消耗（滑动窗口） |
 
-### ⚠️ 额度查询 API 不可信
+###  额度查询 API 不可信
 
 API 端点 `GET /v1/api/openplatform/coding_plan/remains` 存在已知问题：
 - 窗口切换后 `current_interval_usage_count` 不刷新（惰性更新）

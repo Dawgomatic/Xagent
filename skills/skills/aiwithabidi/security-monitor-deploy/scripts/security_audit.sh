@@ -35,22 +35,22 @@ log() {
 
 pass() {
     local category="$1" msg="$2"
-    PASSES+=("[$category] ✅ $msg")
-    log "[$category] ✅ $msg"
+    PASSES+=("[$category]  $msg")
+    log "[$category]  $msg"
 }
 
 warn() {
     local category="$1" msg="$2" deduct="${3:-5}"
-    WARNINGS+=("[$category] ⚠️  $msg")
+    WARNINGS+=("[$category]   $msg")
     SCORE=$((SCORE - deduct))
-    log "[$category] ⚠️  $msg (-$deduct)"
+    log "[$category]   $msg (-$deduct)"
 }
 
 fail() {
     local category="$1" msg="$2" deduct="${3:-10}"
-    ISSUES+=("[$category] ❌ $msg")
+    ISSUES+=("[$category]  $msg")
     SCORE=$((SCORE - deduct))
-    log "[$category] ❌ $msg (-$deduct)"
+    log "[$category]  $msg (-$deduct)"
 }
 
 should_check() {
@@ -177,7 +177,7 @@ check_ssh() {
     fi
 
     if [ -z "$sshd_config" ] || [ ! -f "$sshd_config" ]; then
-        log "[SSH] ℹ️  sshd_config not found (may be running in container)"
+        log "[SSH]   sshd_config not found (may be running in container)"
         return
     fi
 
@@ -328,13 +328,13 @@ should_check "files" && check_files
 
 # Rating
 if [ "$SCORE" -ge 90 ]; then
-    RATING="🟢 Excellent"
+    RATING=" Excellent"
 elif [ "$SCORE" -ge 70 ]; then
-    RATING="🟡 Good"
+    RATING=" Good"
 elif [ "$SCORE" -ge 50 ]; then
-    RATING="🟠 Fair"
+    RATING=" Fair"
 else
-    RATING="🔴 Critical"
+    RATING=" Critical"
 fi
 
 # Output

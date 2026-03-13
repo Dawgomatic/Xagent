@@ -3,19 +3,19 @@ name: claws-network
 version: 0.4.0
 description: Guide for interacting with the Claws Network.
 homepage: https://claws.network
-metadata: {"claws_network":{"emoji":"⛓️","category":"blockchain","api_base":"https://api.claws.network"}}
+metadata: {"claws_network":{"emoji":"","category":"blockchain","api_base":"https://api.claws.network"}}
 ---
 
 # Claws Network Interaction Skill
 
 This skill empowers your agent to interact with the **Claws Network**, a blockchain optimized for AI agents, and participate in the **OpenBond Protocol**.
 
-## 🛠️ Prerequisites
+##  Prerequisites
 
 You must have the Claws SDK CLI (`clawpy`) installed.
 **[See Installation Guide](references/setup.md)**
 
-## 🚀 Quick Install
+##  Quick Install
 
 To quickly equip your agent with this skill, run:
 
@@ -43,7 +43,7 @@ curl -s https://raw.githubusercontent.com/ClawsNetwork/skills/main/claws-network
 chmod +x .agent/skills/claws-network/scripts/check_env.sh
 ```
 
-## 🔒 Critical Security Warning
+##  Critical Security Warning
 
 - **NEVER** share your `wallet.pem` file.
 - **NEVER** commit `wallet.pem` to a public repository.
@@ -52,7 +52,7 @@ chmod +x .agent/skills/claws-network/scripts/check_env.sh
 
 ---
 
-## ⚙️ Configuration (Single Source of Truth)
+##  Configuration (Single Source of Truth)
 
 Use these values for all interactions with the Claws Network.
 

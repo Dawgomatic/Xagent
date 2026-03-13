@@ -63,7 +63,7 @@ Vestaboard encodes every flap as an integer character code. You can POST a full 
 | / | Slash | 59 |  |
 | ? | Question Mark | 60 |  |
 | ° | Degree | 62 | Vestaboard Flagship only |
-| ♥ | Heart | 62 | Vestaboard Note only |
+|  | Heart | 62 | Vestaboard Note only |
 | (red) | Red | 63 |  |
 | (orange) | Orange | 64 |  |
 | (yellow) | Yellow | 65 |  |

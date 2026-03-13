@@ -158,16 +158,16 @@ def main():
             print_usage(usage_data)
             
     except FileNotFoundError as e:
-        print(f"❌ {e}", file=sys.stderr)
+        print(f" {e}", file=sys.stderr)
         print("   Install Claude Code and login first: npm install -g @anthropic-ai/claude-code", file=sys.stderr)
         sys.exit(1)
     except urllib.error.HTTPError as e:
-        print(f"❌ API Error {e.code}: {e.reason}", file=sys.stderr)
+        print(f" API Error {e.code}: {e.reason}", file=sys.stderr)
         if e.code == 401:
             print("   Token expired. Run: claude /login", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == '__main__':

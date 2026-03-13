@@ -6,7 +6,7 @@ author: Lokoweb3
 homepage: https://github.com/Lokoweb3/x1-vault-memory
 metadata:
   clawdbot:
-    emoji: "🦞"
+    emoji: ""
 requires:
   env: ["PINATA_JWT"]
   primaryEnv: "PINATA_JWT"
@@ -31,11 +31,11 @@ Encrypted, decentralized memory backup for OpenClaw agents — powered by IPFS a
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `PINATA_JWT` | ✅ Yes | — | Your Pinata API token for IPFS uploads. Get it at https://app.pinata.cloud |
-| `X1_RPC_URL` | ❌ No | `https://rpc.mainnet.x1.xyz` | The X1 RPC endpoint. Change only if using testnet or custom endpoint |
-| `x1_vault_cli/wallet.json` | ✅ Yes | — | Your X1 wallet keypair file. Used for encryption and blockchain anchoring. |
+| `PINATA_JWT` |  Yes | — | Your Pinata API token for IPFS uploads. Get it at https://app.pinata.cloud |
+| `X1_RPC_URL` |  No | `https://rpc.mainnet.x1.xyz` | The X1 RPC endpoint. Change only if using testnet or custom endpoint |
+| `x1_vault_cli/wallet.json` |  Yes | — | Your X1 wallet keypair file. Used for encryption and blockchain anchoring. |
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ---
 
@@ -59,9 +59,9 @@ Servers die. Containers get wiped. One bad rm -rf and your agent's identity is g
 
 ### New in v1.1.2
 
-- ✅ Security fixes: removed "curl | sh" Solana CLI install suggestion
-- ✅ Declared environment variables clearly in skill metadata
-- ✅ Added opt-in note for heartbeat auto-restore
+-  Security fixes: removed "curl | sh" Solana CLI install suggestion
+-  Declared environment variables clearly in skill metadata
+-  Added opt-in note for heartbeat auto-restore
 - Updated package.json with required env vars in config section
 
 ### New in v1.1.0
@@ -79,9 +79,9 @@ Servers die. Containers get wiped. One bad rm -rf and your agent's identity is g
 - **Solana Wallet** — keypair JSON file (free to create via @solana/web3.js)
 - **XNT Tokens** — about 0.002 XNT per backup for on-chain fees
 
-✅ **No Solana CLI required** — we use `@solana/web3.js` directly.
+ **No Solana CLI required** — we use `@solana/web3.js` directly.
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ---
 
@@ -122,7 +122,7 @@ The JWT token does not expire unless you manually revoke it in the Pinata dashbo
 
 ## Setup
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ### 1. Install Node dependencies
 
@@ -230,7 +230,7 @@ node src/heartbeat.js
 
 Monitors agent file integrity. If critical files are missing or corrupted, automatically triggers a restore from the latest backup.
 
-> ⚠️ **Opt-in Only** — Heartbeat auto-restore must be explicitly scheduled via cron. It is NOT automatic.
+>  **Opt-in Only** — Heartbeat auto-restore must be explicitly scheduled via cron. It is NOT automatic.
 > 
 > **Add to crontab:**
 > ```bash
@@ -277,7 +277,7 @@ Shows which files would be backed up without uploading or spending tokens.
 - CID anchored on X1 blockchain for tamper-proof records
 - Never share your `wallet.json` or `PINATA_JWT`
 
-> 🔴 **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
+>  **SECURITY WARNING:** Use a dedicated wallet with minimal XNT. Never use your primary wallet.
 
 ---
 

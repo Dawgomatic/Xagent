@@ -292,11 +292,11 @@ See [hubspot-workflows.md](references/hubspot-workflows.md) for workflow templat
 
 ```
 Required:
-✅ Job title: Director+ or budget authority
-✅ Company size: 50-5000 employees
-✅ Budget: $10k+ annual
-✅ Timeline: Buying within 90 days
-✅ Engagement: Demo requested or high-intent action
+ Job title: Director+ or budget authority
+ Company size: 50-5000 employees
+ Budget: $10k+ annual
+ Timeline: Buying within 90 days
+ Engagement: Demo requested or high-intent action
 ```
 
 ### SLA

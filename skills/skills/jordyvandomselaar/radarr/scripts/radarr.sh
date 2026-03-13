@@ -101,12 +101,12 @@ case "$cmd" in
     result=$(curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" -d "$addRequest" "$API/movie")
     
     if echo "$result" | jq -e '.id' > /dev/null 2>&1; then
-      echo "✅ Added: $(echo "$result" | jq -r '.title') ($(echo "$result" | jq -r '.year'))"
+      echo " Added: $(echo "$result" | jq -r '.title') ($(echo "$result" | jq -r '.year'))"
       if [ "$searchFlag" = "true" ]; then
-        echo "🔍 Search started"
+        echo " Search started"
       fi
     else
-      echo "❌ Failed to add movie"
+      echo " Failed to add movie"
       echo "$result" | jq -r '.message // .'
     fi
     ;;
@@ -123,7 +123,7 @@ case "$cmd" in
       fi
     done
     
-    echo "🔍 Finding movies in collection..."
+    echo " Finding movies in collection..."
     
     # Try getting collection name from Radarr's collection list first
     collections=$(curl -s -H "$AUTH" "$API/collection")
@@ -137,7 +137,7 @@ case "$cmd" in
     
     # If no search term yet, use the provided one or fail
     if [ -z "$searchTerm" ]; then
-      echo "❌ Could not determine collection name. Please provide search term."
+      echo " Could not determine collection name. Please provide search term."
       echo "Usage: add-collection <collectionTmdbId> <searchTerm> [--no-search]"
       exit 1
     fi
@@ -150,11 +150,11 @@ case "$cmd" in
     movieCount=$(echo "$moviesToAdd" | jq 'length')
     
     if [ "$movieCount" = "0" ]; then
-      echo "❌ No movies found for collection $collectionTmdbId"
+      echo " No movies found for collection $collectionTmdbId"
       exit 1
     fi
     
-    echo "📦 Found $movieCount movies in collection"
+    echo " Found $movieCount movies in collection"
     
     # Get default root folder and quality profile
     rootFolder=$(curl -s -H "$AUTH" "$API/rootfolder" | jq -r '.[0].path')
@@ -172,7 +172,7 @@ case "$cmd" in
       # Check if already exists
       existing=$(curl -s -H "$AUTH" "$API/movie?tmdbId=$tmdbId")
       if [ "$existing" != "[]" ]; then
-        echo "⏭️  $title ($year) - already in library"
+        echo "  $title ($year) - already in library"
         skipped=$((skipped + 1))
         continue
       fi
@@ -192,17 +192,17 @@ case "$cmd" in
       result=$(curl -s -X POST -H "$AUTH" -H "Content-Type: application/json" -d "$addRequest" "$API/movie")
       
       if echo "$result" | jq -e '.id' > /dev/null 2>&1; then
-        echo "✅ $title ($year)"
+        echo " $title ($year)"
         added=$((added + 1))
       else
-        echo "❌ $title ($year) - $(echo "$result" | jq -r '.message // "failed"')"
+        echo " $title ($year) - $(echo "$result" | jq -r '.message // "failed"')"
       fi
     done
     
     echo ""
-    echo "📊 Added: $added | Skipped: $skipped"
+    echo " Added: $added | Skipped: $skipped"
     if [ "$searchFlag" = "true" ] && [ "$added" -gt 0 ]; then
-      echo "🔍 Search started for new movies"
+      echo " Search started for new movies"
     fi
     
     # Monitor the collection for future movies
@@ -219,7 +219,7 @@ case "$cmd" in
       updateResult=$(curl -s -X PUT -H "$AUTH" -H "Content-Type: application/json" -d "$updatePayload" "$API/collection/$collectionId")
       
       if echo "$updateResult" | jq -e '.monitored' > /dev/null 2>&1; then
-        echo "👁️ Collection monitored (new releases auto-added)"
+        echo " Collection monitored (new releases auto-added)"
       fi
     fi
     ;;
@@ -235,7 +235,7 @@ case "$cmd" in
     movie=$(curl -s -H "$AUTH" "$API/movie?tmdbId=$tmdbId")
     
     if [ "$movie" = "[]" ]; then
-      echo "❌ Movie not found in library"
+      echo " Movie not found in library"
       exit 1
     fi
     
@@ -247,9 +247,9 @@ case "$cmd" in
     curl -s -X DELETE -H "$AUTH" "$API/movie/$movieId?deleteFiles=$deleteFiles" > /dev/null
     
     if [ "$deleteFiles" = "true" ]; then
-      echo "🗑️ Removed: $title ($year) + deleted files"
+      echo " Removed: $title ($year) + deleted files"
     else
-      echo "🗑️ Removed: $title ($year) (files kept)"
+      echo " Removed: $title ($year) (files kept)"
     fi
     ;;
     

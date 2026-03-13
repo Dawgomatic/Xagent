@@ -93,8 +93,8 @@ Priority task list - single source of truth. Format:
 ### Topic Scope Test
 
 Can you describe the topic in one sentence without "and"?
-- ✅ "User authentication with JWT and session management"
-- ❌ "Auth, profiles, and billing" → 3 topics
+-  "User authentication with JWT and session management"
+-  "Auth, profiles, and billing" → 3 topics
 
 ### AGENTS.md - Operational Guide
 
@@ -169,11 +169,11 @@ Each sub-agent iteration:
 ### Stopping Conditions
 
 Loop ends when:
-- ✅ All IMPLEMENTATION_PLAN.md tasks completed
-- ✅ All acceptance criteria met
-- ✅ Tests passing, no blocking issues
-- ⚠️ Max iterations reached (configure limit)
-- 🛑 Manual stop (Ctrl+C)
+-  All IMPLEMENTATION_PLAN.md tasks completed
+-  All acceptance criteria met
+-  Tests passing, no blocking issues
+-  Max iterations reached (configure limit)
+-  Manual stop (Ctrl+C)
 
 ## Completion Criteria
 
@@ -393,7 +393,7 @@ Example completion PROGRESS.md:
 ```markdown
 # Ralph: Influencer Detail Page
 
-## Status: COMPLETE ✅
+## Status: COMPLETE 
 
 **Finished:** [ISO timestamp]
 
@@ -518,7 +518,7 @@ Each Ralph iteration gets ONE file. Not "all errors", not "check then decide". O
 ```markdown
 ## Iteration [N] - [Timestamp]
 
-### Status: Complete ✅ | Blocked ⛔ | Failed ❌
+### Status: Complete  | Blocked  | Failed 
 
 ### What Was Done
 - [Specific changes made]

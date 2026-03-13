@@ -34,7 +34,7 @@ homeycli status
 
 Output:
 ```
-🏠 Homey Status:
+ Homey Status:
 
   Name: Home
   Connection: local (http://192.168.1.50)

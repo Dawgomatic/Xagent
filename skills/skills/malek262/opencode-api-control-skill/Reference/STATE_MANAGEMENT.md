@@ -158,7 +158,7 @@ echo "Project: $PROJECT_PATH"
 
 ## Best Practices
 
-### ✅ DO
+###  DO
 
 1. **Load state at workflow start**:
 ```bash
@@ -185,7 +185,7 @@ echo "Project: $PROJECT_PATH"
    fi
 ```
 
-### ❌ DON'T
+###  DON'T
 
 1. **Don't assume variables persist**:
 ```bash

@@ -1,12 +1,12 @@
 ---
 name: BaseMail
-description: "📬 BaseMail - Onchain Email for AI Agents on Base. Get yourname@basemail.ai linked to your Basename (.base.eth). SIWE wallet auth, no CAPTCHA, no passwords. Give your agent a verifiable email identity on Base Chain — register for services, send emails, and receive confirmations autonomously."
+description: " BaseMail - Onchain Email for AI Agents on Base. Get yourname@basemail.ai linked to your Basename (.base.eth). SIWE wallet auth, no CAPTCHA, no passwords. Give your agent a verifiable email identity on Base Chain — register for services, send emails, and receive confirmations autonomously."
 version: 1.8.0
 homepage: https://basemail.ai
 repository: https://github.com/dAAAb/BaseMail-Skill
 metadata:
   openclaw:
-    emoji: "📬"
+    emoji: ""
     requires:
       bins: ["node"]
       env: ["BASEMAIL_PRIVATE_KEY"]
@@ -25,7 +25,7 @@ metadata:
       No financial transactions are performed — this skill only signs authentication messages, never sends funds.
 ---
 
-# 📬 BaseMail - Onchain Email for AI Agents on Base
+#  BaseMail - Onchain Email for AI Agents on Base
 
 > Your agent gets a real email address, linked to its onchain identity. No human needed.
 
@@ -40,8 +40,8 @@ metadata:
 - **Verifiable identity** — Your email is cryptographically linked to your Base wallet address
 
 BaseMail gives AI agents verifiable email identities on **Base Chain**:
-- ✨ **Basename holders** → `yourname.base.eth` → `yourname@basemail.ai`
-- 🔗 **Any Base wallet** → `0xwallet@basemail.ai`
+-  **Basename holders** → `yourname.base.eth` → `yourname@basemail.ai`
+-  **Any Base wallet** → `0xwallet@basemail.ai`
 
 ### How it works
 
@@ -53,9 +53,9 @@ Basename (.base.eth)                              Send & receive email autonomou
 
 ---
 
-## 🔐 Wallet Setup (Choose One)
+##  Wallet Setup (Choose One)
 
-### Option A: Environment Variable (Recommended ✅)
+### Option A: Environment Variable (Recommended )
 
 If you already have a wallet, just set the env var — **no private key stored to file**:
 
@@ -64,7 +64,7 @@ export BASEMAIL_PRIVATE_KEY="0x..."
 node scripts/register.js
 ```
 
-> ✅ Safest method: private key exists only in memory.
+>  Safest method: private key exists only in memory.
 
 ---
 
@@ -76,7 +76,7 @@ Point to your existing private key file:
 node scripts/register.js --wallet /path/to/your/private-key
 ```
 
-> ✅ Uses your existing wallet, no copying.
+>  Uses your existing wallet, no copying.
 
 ---
 
@@ -89,7 +89,7 @@ node scripts/setup.js --managed
 node scripts/register.js
 ```
 
-> ✅ **Always encrypted** — Private key protected with AES-256-GCM
+>  **Always encrypted** — Private key protected with AES-256-GCM
 > - You'll set a password during setup (min 8 chars, must include letter + number)
 > - Password required each time you use the wallet
 > - Mnemonic displayed once for manual backup (never saved to file)
@@ -97,7 +97,7 @@ node scripts/register.js
 
 ---
 
-## ⚠️ Security Guidelines
+##  Security Guidelines
 
 1. **Never** commit private keys to git
 2. **Never** share private keys or mnemonics publicly
@@ -119,9 +119,9 @@ node scripts/register.js
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
-### 1️⃣ Register
+###  Register
 
 ```bash
 # Using environment variable
@@ -132,13 +132,13 @@ node scripts/register.js
 node scripts/register.js --basename yourname.base.eth
 ```
 
-### 2️⃣ Send Email
+###  Send Email
 
 ```bash
-node scripts/send.js "friend@basemail.ai" "Hello!" "Nice to meet you 🦞"
+node scripts/send.js "friend@basemail.ai" "Hello!" "Nice to meet you "
 ```
 
-### 3️⃣ Check Inbox
+###  Check Inbox
 
 ```bash
 node scripts/inbox.js              # List emails
@@ -147,20 +147,20 @@ node scripts/inbox.js <email_id>   # Read specific email
 
 ---
 
-## 📦 Scripts
+##  Scripts
 
 | Script | Purpose | Needs Private Key |
 |--------|---------|-------------------|
-| `setup.js` | Show help | ❌ |
-| `setup.js --managed` | Generate wallet (always encrypted) | ❌ |
-| `register.js` | Register email address | ✅ |
-| `send.js` | Send email | ❌ (uses token) |
-| `inbox.js` | Check inbox | ❌ (uses token) |
-| `audit.js` | View audit log | ❌ |
+| `setup.js` | Show help |  |
+| `setup.js --managed` | Generate wallet (always encrypted) |  |
+| `register.js` | Register email address |  |
+| `send.js` | Send email |  (uses token) |
+| `inbox.js` | Check inbox |  (uses token) |
+| `audit.js` | View audit log |  |
 
 ---
 
-## 📍 File Locations
+##  File Locations
 
 ```
 ~/.basemail/
@@ -172,7 +172,7 @@ node scripts/inbox.js <email_id>   # Read specific email
 
 ---
 
-## 🎨 Get a Basename-Linked Email
+##  Get a Basename-Linked Email
 
 Want `yourname@basemail.ai` instead of `0x...@basemail.ai`?
 
@@ -183,7 +183,7 @@ Your Basename is your onchain identity on Base — and BaseMail turns it into a 
 
 ---
 
-## 🔧 API Reference
+##  API Reference
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
@@ -199,7 +199,7 @@ Your Basename is your onchain identity on Base — and BaseMail turns it into a 
 
 ---
 
-## 🌐 Links
+##  Links
 
 - Website: https://basemail.ai
 - API: https://api.basemail.ai
@@ -210,16 +210,16 @@ Your Basename is your onchain identity on Base — and BaseMail turns it into a 
 
 ---
 
-## 📝 Changelog
+##  Changelog
 
 ### v1.8.0 (2026-02-18)
-- 📝 Enhanced description: emphasize Base Chain and Basename (.base.eth) integration
-- 📝 Added architecture diagram showing wallet → SIWE → email flow
-- 📝 Better explanation of onchain identity and verifiable email
-- 🔗 Added source repo and Base Chain links
+-  Enhanced description: emphasize Base Chain and Basename (.base.eth) integration
+-  Added architecture diagram showing wallet → SIWE → email flow
+-  Better explanation of onchain identity and verifiable email
+-  Added source repo and Base Chain links
 
 ### v1.7.0 (2026-02-18)
-- 🔐 **Security hardening** (addresses ClawHub "Suspicious" classification):
+-  **Security hardening** (addresses ClawHub "Suspicious" classification):
   - Added OpenClaw metadata: declares `BASEMAIL_PRIVATE_KEY` in `requires.env`
   - Password input now masked in terminal (characters hidden as `*`)
   - Stronger password requirements: min 8 chars, must include letter + number
@@ -228,24 +228,24 @@ Your Basename is your onchain identity on Base — and BaseMail turns it into a 
   - Removed `--no-encrypt` option — managed wallets are always encrypted
   - Mnemonic is displayed once and never saved to file (removed save-to-file prompt)
   - Removed legacy plaintext key file references
-- 📝 Added `notes` in metadata clarifying: this skill only signs SIWE messages, never sends funds
-- 📝 Updated security guidelines and file locations documentation
+-  Added `notes` in metadata clarifying: this skill only signs SIWE messages, never sends funds
+-  Updated security guidelines and file locations documentation
 
 ### v1.4.0 (2026-02-08)
-- ✨ Better branding and descriptions
-- 📝 Full English documentation
+-  Better branding and descriptions
+-  Full English documentation
 
 ### v1.1.0 (2026-02-08)
-- 🔐 Security: opt-in private key storage
-- ✨ Support env var, path, auto-detect
-- 🔒 Encrypted storage option (--encrypt)
-- 📊 Audit logging
+-  Security: opt-in private key storage
+-  Support env var, path, auto-detect
+-  Encrypted storage option (--encrypt)
+-  Audit logging
 
 ### v1.6.0 (Security Update)
-- 🔐 **Breaking**: `--managed` now encrypts by default
-- 🔐 Removed auto-detection of external wallet paths (security improvement)
-- 🔐 Mnemonic no longer auto-saved; displayed once for manual backup
-- 📝 Updated documentation for clarity
+-  **Breaking**: `--managed` now encrypts by default
+-  Removed auto-detection of external wallet paths (security improvement)
+-  Mnemonic no longer auto-saved; displayed once for manual backup
+-  Updated documentation for clarity
 
 ### v1.0.0
-- 🎉 Initial release
+-  Initial release

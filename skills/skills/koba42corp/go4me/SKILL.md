@@ -89,7 +89,7 @@ Parse amount: if contains "XCH", multiply by 10^12. Default unit is mojos for sm
 | Field | Example |
 |-------|---------|
 | `username` | DracattusDev |
-| `fullName` | 🌱Drac 🍊 |
+| `fullName` | Drac  |
 | `xchAddress` | xch1rvgc3naytvzhv4lxhzphrdr2fzj2ka340tdj8fflt4872t2wqveq9lwz7t |
 | `description` | Bio text |
 | `avatarUrl` | Profile image URL |

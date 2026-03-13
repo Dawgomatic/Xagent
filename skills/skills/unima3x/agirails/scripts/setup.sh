@@ -20,7 +20,7 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 WORKSPACE="${1:-${OPENCLAW_WORKSPACE:-$HOME/.openclaw/workspace}}"
 TREASURY_DIR="$WORKSPACE/agents/treasury"
 
-echo -e "${GREEN}🚀 AGIRAILS Treasury Agent Setup${NC}"
+echo -e "${GREEN} AGIRAILS Treasury Agent Setup${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "Skill directory: $SKILL_DIR"
@@ -30,17 +30,17 @@ echo ""
 
 # Check if workspace exists
 if [ ! -d "$WORKSPACE" ]; then
-    echo -e "${RED}❌ Workspace not found: $WORKSPACE${NC}"
+    echo -e "${RED} Workspace not found: $WORKSPACE${NC}"
     echo "Please provide a valid workspace path or set OPENCLAW_WORKSPACE"
     exit 1
 fi
 
 # Create Treasury agent directory
-echo -e "${YELLOW}📁 Creating Treasury agent workspace...${NC}"
+echo -e "${YELLOW} Creating Treasury agent workspace...${NC}"
 mkdir -p "$TREASURY_DIR/memory"
 
 # Copy SOUL.md
-echo -e "${YELLOW}📜 Installing SOUL.md...${NC}"
+echo -e "${YELLOW} Installing SOUL.md...${NC}"
 if [ -f "$SKILL_DIR/openclaw/SOUL-treasury.md" ]; then
     cp "$SKILL_DIR/openclaw/SOUL-treasury.md" "$TREASURY_DIR/SOUL.md"
     echo "   ✓ SOUL.md installed"
@@ -49,7 +49,7 @@ else
 fi
 
 # Create providers.json (empty whitelist)
-echo -e "${YELLOW}📋 Creating providers whitelist...${NC}"
+echo -e "${YELLOW} Creating providers whitelist...${NC}"
 if [ ! -f "$TREASURY_DIR/providers.json" ]; then
     cat > "$TREASURY_DIR/providers.json" << 'EOF'
 [
@@ -67,16 +67,16 @@ if [ ! -f "$TREASURY_DIR/providers.json" ]; then
 EOF
     echo "   ✓ providers.json created (empty)"
 else
-    echo "   ⏭ providers.json already exists, skipping"
+    echo "    providers.json already exists, skipping"
 fi
 
 # Create transaction log
-echo -e "${YELLOW}📊 Creating transaction log...${NC}"
+echo -e "${YELLOW} Creating transaction log...${NC}"
 touch "$TREASURY_DIR/memory/transactions.jsonl"
 echo "   ✓ transactions.jsonl created"
 
 # Create daily spend tracker
-echo -e "${YELLOW}💰 Creating daily spend tracker...${NC}"
+echo -e "${YELLOW} Creating daily spend tracker...${NC}"
 if [ ! -f "$TREASURY_DIR/memory/daily-spend.json" ]; then
     cat > "$TREASURY_DIR/memory/daily-spend.json" << 'EOF'
 {
@@ -87,11 +87,11 @@ if [ ! -f "$TREASURY_DIR/memory/daily-spend.json" ]; then
 EOF
     echo "   ✓ daily-spend.json created"
 else
-    echo "   ⏭ daily-spend.json already exists, skipping"
+    echo "    daily-spend.json already exists, skipping"
 fi
 
 # Create AGENTS.md
-echo -e "${YELLOW}📖 Creating AGENTS.md...${NC}"
+echo -e "${YELLOW} Creating AGENTS.md...${NC}"
 cat > "$TREASURY_DIR/AGENTS.md" << 'EOF'
 # Treasury Agent Workspace
 
@@ -120,7 +120,7 @@ echo "   ✓ AGENTS.md created"
 
 # Summary
 echo ""
-echo -e "${GREEN}✅ Setup complete!${NC}"
+echo -e "${GREEN} Setup complete!${NC}"
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Next steps:"
@@ -141,5 +141,5 @@ echo ""
 echo "5. Test it:"
 echo "   openclaw run --agent treasury \"Check my balance\""
 echo ""
-echo -e "${YELLOW}⚠️  Remember to test on testnet first!${NC}"
+echo -e "${YELLOW}  Remember to test on testnet first!${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

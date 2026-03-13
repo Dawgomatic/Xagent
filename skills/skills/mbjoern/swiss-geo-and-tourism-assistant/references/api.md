@@ -10,7 +10,7 @@ Vollständige Doku: https://api3.geo.admin.ch/
 | 2056 | LV95 | Schweizer Landeskoordinaten (E/N) |
 | 21781 | LV03 | Altes CH-System (y/x) |
 
-### Umrechnung WGS84 ↔ LV95
+### Umrechnung WGS84  LV95
 
 **Grobe Näherung (±100m Genauigkeit):**
 ```

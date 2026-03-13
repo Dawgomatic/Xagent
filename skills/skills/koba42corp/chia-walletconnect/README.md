@@ -1,4 +1,4 @@
-# 🌱 Chia WalletConnect - Telegram Signature Verification
+#  Chia WalletConnect - Telegram Signature Verification
 
 **Verify Chia wallet ownership via Telegram using WalletConnect and Sage Wallet.**
 
@@ -6,19 +6,19 @@ A Telegram Web App (Mini App) that enables seamless wallet signature verificatio
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔗 **WalletConnect v2 Integration** — Industry-standard wallet connection protocol
-- 📱 **Telegram Mini App** — Native in-app experience
-- 🔐 **Signature Verification** — Cryptographic proof of wallet ownership
-- ✅ **MintGarden API** — Trusted signature validation
-- 🎯 **CHIP-0002 Support** — Sage Wallet compatibility
-- 💚 **Mobile-First** — Optimized for Telegram mobile clients
-- 🚀 **Zero Manual Copy/Paste** — Seamless user experience
+-  **WalletConnect v2 Integration** — Industry-standard wallet connection protocol
+-  **Telegram Mini App** — Native in-app experience
+-  **Signature Verification** — Cryptographic proof of wallet ownership
+-  **MintGarden API** — Trusted signature validation
+-  **CHIP-0002 Support** — Sage Wallet compatibility
+-  **Mobile-First** — Optimized for Telegram mobile clients
+-  **Zero Manual Copy/Paste** — Seamless user experience
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐
@@ -69,7 +69,7 @@ A Telegram Web App (Mini App) that enables seamless wallet signature verificatio
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -114,7 +114,7 @@ node cli.js server
 
 ---
 
-## 📱 Telegram Bot Integration
+##  Telegram Bot Integration
 
 ### Step 1: Deploy Web App
 
@@ -176,7 +176,7 @@ bot.onText(/\/verify/, async (msg) => {
     reply_markup: {
       inline_keyboard: [[
         {
-          text: '🌱 Verify Wallet',
+          text: ' Verify Wallet',
           web_app: { url: 'https://your-app.vercel.app' }
         }
       ]]
@@ -197,27 +197,27 @@ bot.on('web_app_data', async (msg) => {
   
   const { address, message, signature, publicKey, userId } = data;
   
-  console.log(`🔐 Received signature from ${address}`);
+  console.log(` Received signature from ${address}`);
   
   // Verify signature with MintGarden API
   const { verifySignature } = require('./lib/verify');
   const result = await verifySignature(address, message, signature, publicKey);
   
   if (result.verified) {
-    bot.sendMessage(chatId, `✅ Wallet verified!\n\nAddress: ${address}`);
+    bot.sendMessage(chatId, ` Wallet verified!\n\nAddress: ${address}`);
     
     // Store verification in your database
     // await saveVerification(userId, address);
     
   } else {
-    bot.sendMessage(chatId, `❌ Verification failed: ${result.error}`);
+    bot.sendMessage(chatId, ` Verification failed: ${result.error}`);
   }
 });
 ```
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -254,7 +254,7 @@ const WALLETCONNECT_PROJECT_ID = 'your-project-id-here';
 
 ---
 
-## 🛠️ API Reference
+##  API Reference
 
 ### MintGarden Signature Verification
 
@@ -289,7 +289,7 @@ The skill uses these WalletConnect methods for Sage Wallet:
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 chia-walletconnect/
@@ -311,7 +311,7 @@ chia-walletconnect/
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Test Locally
 
@@ -349,9 +349,9 @@ chia-walletconnect/
 
 ---
 
-## 🔐 Security Considerations
+##  Security Considerations
 
-### ✅ What's Secure
+###  What's Secure
 
 - **Challenge Nonces** — Prevents replay attacks
 - **Timestamp Validation** — Challenges expire after 5 minutes
@@ -359,7 +359,7 @@ chia-walletconnect/
 - **HTTPS Required** — Telegram enforces HTTPS for Web Apps
 - **No Private Keys** — Never requests or stores private keys
 
-### ⚠️ Important Notes
+###  Important Notes
 
 1. **Store Verifications Securely**
    - Use encrypted database
@@ -381,7 +381,7 @@ chia-walletconnect/
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 ### 1. **NFT Gated Chats**
 Verify users own a specific NFT before granting access to Telegram groups.
@@ -400,7 +400,7 @@ Authenticate voters based on token holdings.
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Problem: WalletConnect URI Not Working
 
@@ -435,7 +435,7 @@ Authenticate voters based on token holdings.
 
 ---
 
-## 🔄 Workflow Diagram
+##  Workflow Diagram
 
 ```
 User              Telegram           Web App          Sage Wallet      MintGarden
@@ -449,13 +449,13 @@ User              Telegram           Web App          Sage Wallet      MintGarde
  │                   │<─ sendData() ────┤                   │               │
  │                   ├──────────────────────── verify ──────────────────────>│
  │                   │<──────────────────────── verified ────────────────────┤
- │<─ ✅ Verified ────┤                  │                   │               │
+ │<─  Verified ────┤                  │                   │               │
  │                   │                  │                   │               │
 ```
 
 ---
 
-## 📊 Performance
+##  Performance
 
 ### Metrics
 
@@ -476,7 +476,7 @@ User              Telegram           Web App          Sage Wallet      MintGarde
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -487,7 +487,7 @@ Contributions welcome! Please:
 
 ---
 
-## 📜 License
+##  License
 
 **MIT License** — Koba42 Corp
 
@@ -495,7 +495,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **MintGarden API:** https://api.mintgarden.io/docs
 - **WalletConnect:** https://docs.walletconnect.com/
@@ -505,7 +505,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 ---
 
-## 🌟 Credits
+##  Credits
 
 **Built by:** Koba42 Corp  
 **Inspired by:** Dracattus Web App WalletConnect implementation  
@@ -515,7 +515,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 <div align="center">
 
-**🌱 Verify with confidence. Own with proof. 🌱**
+** Verify with confidence. Own with proof. **
 
 [![ClawdHub](https://img.shields.io/badge/ClawdHub-chia--walletconnect-green)](https://clawdhub.com)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)

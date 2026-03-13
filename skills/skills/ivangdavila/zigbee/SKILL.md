@@ -1,7 +1,7 @@
 ---
 name: Zigbee
 description: Deploy and troubleshoot Zigbee mesh networks for home automation.
-metadata: {"clawdbot":{"emoji":"🐝","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Mesh Network Traps

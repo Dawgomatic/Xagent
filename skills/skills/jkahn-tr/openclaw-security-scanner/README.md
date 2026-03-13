@@ -4,9 +4,9 @@ A comprehensive, local-only security assessment tool for OpenClaw installations.
 
 ## Philosophy
 
-- **🔒 Local-only** — Zero network calls. No data leaves your machine. No telemetry, no phoning home.
-- **👀 Read-only by default** — Only observes and reports. Changes require explicit `--fix` flag.
-- **👤 Owner-only** — Designed to be run by the OpenClaw owner on their own machine.
+- ** Local-only** — Zero network calls. No data leaves your machine. No telemetry, no phoning home.
+- ** Read-only by default** — Only observes and reports. Changes require explicit `--fix` flag.
+- ** Owner-only** — Designed to be run by the OpenClaw owner on their own machine.
 
 ## Quick Start
 
@@ -43,10 +43,10 @@ chmod +x oc-security-scan.sh
 ## Output
 
 ```
-🔴 CRITICAL  — Immediate action required. Active exploit risk.
-🟡 WARNING   — Should be fixed. Reduces attack surface.
-🟢 PASS      — Check passed. No action needed.
-⚪ INFO      — Informational. Context for the operator.
+ CRITICAL  — Immediate action required. Active exploit risk.
+ WARNING   — Should be fixed. Reduces attack surface.
+ PASS      — Check passed. No action needed.
+ INFO      — Informational. Context for the operator.
 ```
 
 A summary score (0–100) is printed at the end.

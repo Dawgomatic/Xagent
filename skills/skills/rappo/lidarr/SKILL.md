@@ -2,7 +2,7 @@
 name: lidarr
 version: 1.0.0
 description: Search and add music to Lidarr. Supports artists, albums, and quality profiles (FLAC preferred).
-metadata: {"openclaw":{"emoji":"🎵","requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Lidarr

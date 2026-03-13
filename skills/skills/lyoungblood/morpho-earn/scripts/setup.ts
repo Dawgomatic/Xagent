@@ -124,13 +124,13 @@ async function main() {
     output: process.stdout,
   });
   
-  console.log('🌜🌛 Morpho Yield Skill Setup\n');
+  console.log(' Morpho Yield Skill Setup\n');
   console.log('This will configure your wallet and preferences for the Moonwell USDC vault.\n');
   
   // Check existing config
   let config: Config | null = null;
   if (fs.existsSync(CONFIG_PATH)) {
-    console.log('✅ Existing wallet configuration found.\n');
+    console.log(' Existing wallet configuration found.\n');
     config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8')) as Config;
   } else {
     console.log('No wallet configured yet.\n');
@@ -175,7 +175,7 @@ async function main() {
         };
       }
     } catch (err) {
-      console.error(`\n❌ ${err instanceof Error ? err.message : String(err)}`);
+      console.error(`\n ${err instanceof Error ? err.message : String(err)}`);
       rl.close();
       process.exit(1);
     }
@@ -183,7 +183,7 @@ async function main() {
     // Save config with restrictive permissions
     fs.mkdirSync(CONFIG_DIR, { recursive: true, mode: 0o700 });
     fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2), { mode: 0o600 });
-    console.log(`\n✅ Config saved to ${CONFIG_PATH}\n`);
+    console.log(`\n Config saved to ${CONFIG_PATH}\n`);
   }
   
   // Preferences
@@ -218,7 +218,7 @@ async function main() {
   };
   
   fs.writeFileSync(PREFS_PATH, JSON.stringify(prefs, null, 2), { mode: 0o600 });
-  console.log(`\n✅ Preferences saved to ${PREFS_PATH}\n`);
+  console.log(`\n Preferences saved to ${PREFS_PATH}\n`);
   
   // Generate HEARTBEAT.md entry
   const { description } = getCompoundFrequency(depositSize);
@@ -249,14 +249,14 @@ async function main() {
       // Add new entry
       content = content.trimEnd() + '\n' + heartbeatEntry;
       fs.writeFileSync(heartbeatPath, content);
-      console.log('✅ Added to HEARTBEAT.md\n');
+      console.log(' Added to HEARTBEAT.md\n');
     } else {
-      console.log(`⚠️ HEARTBEAT.md not found at ${heartbeatPath}`);
+      console.log(` HEARTBEAT.md not found at ${heartbeatPath}`);
       console.log('Please add the entry manually.\n');
     }
   }
   
-  console.log('🎉 Setup complete!\n');
+  console.log(' Setup complete!\n');
   console.log('Next steps:');
   console.log('  1. Fund your wallet with USDC and ETH (for gas) on Base');
   console.log('  2. Run: npx tsx deposit.ts <amount>');
@@ -266,6 +266,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('❌ Setup failed:', err instanceof Error ? err.message : String(err));
+  console.error(' Setup failed:', err instanceof Error ? err.message : String(err));
   process.exit(1);
 });

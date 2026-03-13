@@ -86,12 +86,12 @@ function formatResult(result: SearchResult, index: number): string {
 
   let output = `${index + 1}. **${result.title}**\n`;
   output += `   ${result.snippet}\n`;
-  output += `   📄 ${result.publicationTitle}`;
+  output += `    ${result.publicationTitle}`;
   if (result.shortlabels?.Versions) {
     output += ` (${result.shortlabels.Versions})`;
   }
-  output += `\n   🔗 ${toPublicUrl(result.link)}\n`;
-  output += `   📅 Updated: ${date}\n`;
+  output += `\n    ${toPublicUrl(result.link)}\n`;
+  output += `    Updated: ${date}\n`;
 
   return output;
 }
@@ -117,7 +117,7 @@ async function searchDocs(query: string, limit: number = 10, version?: string): 
       return `No results found for "${query}". Try different search terms.`;
     }
 
-    let output = `🔍 **Search Results for "${query}"**\n`;
+    let output = ` **Search Results for "${query}"**\n`;
     output += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
 
     results.forEach((result, index) => {
@@ -184,7 +184,7 @@ async function suggestDevDocs(term: string): Promise<string> {
       return `No suggestions found for "${term}".`;
     }
 
-    let output = `🔎 **Developer Docs Suggestions for "${term}"**\n`;
+    let output = ` **Developer Docs Suggestions for "${term}"**\n`;
     output += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
     results.slice(0, 10).forEach((item, index) => {
       output += `${index + 1}. ${item}\n`;
@@ -228,8 +228,8 @@ async function getDevGuide(path: string, release: string = DEFAULT_RELEASE): Pro
     const content = kbText ? cleanHtml(kbText) : description;
     const guideUrl = `https://developer.servicenow.com/dev.do#!/guides/${release}/${cleanPath}`;
 
-    let output = `📚 **${title}**\n`;
-    output += `🔗 ${guideUrl}\n\n`;
+    let output = ` **${title}**\n`;
+    output += ` ${guideUrl}\n\n`;
     if (content) {
       output += content.slice(0, 4000);
     }
@@ -293,14 +293,14 @@ async function searchDevDocsWithUrls(query: string, limit: number = 10): Promise
       })
       .slice(0, limit);
 
-    let output = `🔍 **Developer Docs Results for "${query}"**\n`;
+    let output = ` **Developer Docs Results for "${query}"**\n`;
     output += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
 
     results.forEach((result, index) => {
       output += `${index + 1}. **${result.title}**\n`;
       if (result.snippet) output += `   ${result.snippet}\n`;
-      if (result.tableName) output += `   📁 ${result.tableName}\n`;
-      if (result.url) output += `   🔗 ${result.url}\n`;
+      if (result.tableName) output += `    ${result.tableName}\n`;
+      if (result.url) output += `    ${result.url}\n`;
       output += '\n';
     });
 
@@ -362,8 +362,8 @@ async function getArticle(url: string): Promise<string> {
       content = content.substring(0, 3000) + '...';
     }
 
-    let output = `📄 **${title}**\n`;
-    output += `🔗 ${toPublicUrl(url)}\n\n`;
+    let output = ` **${title}**\n`;
+    output += ` ${toPublicUrl(url)}\n\n`;
 
     if (content) {
       output += `${content}`;
@@ -388,11 +388,11 @@ async function listVersions(): Promise<string> {
     { name: 'Xanadu', code: 'xanadu', status: 'Legacy' },
   ];
 
-  let output = `📚 **ServiceNow Documentation Versions**\n`;
+  let output = ` **ServiceNow Documentation Versions**\n`;
   output += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
 
   versions.forEach((v) => {
-    const icon = v.status === 'Latest' ? '✅' : v.status === 'Previous' ? '📗' : '📙';
+    const icon = v.status === 'Latest' ? '' : v.status === 'Previous' ? '' : '';
     output += `${icon} ${v.name} (${v.code})\n`;
   });
 
@@ -445,13 +445,13 @@ async function getLatestReleaseNotes(): Promise<string> {
     day: 'numeric'
   });
 
-  let output = `📦 **Latest ServiceNow Release Notes**\n`;
+  let output = ` **Latest ServiceNow Release Notes**\n`;
   output += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
-  output += `🎯 **${latestVersion}** (Latest Release)\n\n`;
-  output += `📄 ${latestResult.title}\n`;
+  output += ` **${latestVersion}** (Latest Release)\n\n`;
+  output += ` ${latestResult.title}\n`;
   output += `${latestResult.snippet}\n\n`;
-  output += `🔗 ${toPublicUrl(latestResult.link)}\n`;
-  output += `📅 Updated: ${date}`;
+  output += ` ${toPublicUrl(latestResult.link)}\n`;
+  output += ` Updated: ${date}`;
 
   return output;
 }

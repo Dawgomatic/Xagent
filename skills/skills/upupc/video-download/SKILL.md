@@ -6,7 +6,7 @@ metadata:
     "openclaw":
       {
         "homepage": "https://github.com/upupc/video-download",
-        "emoji": "🎬",
+        "emoji": "",
         "requires": { "bins": ["python3", "ffmpeg"], "env": [] },
         "primaryEnv": "",
         "install": [

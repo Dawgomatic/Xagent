@@ -1,4 +1,4 @@
-# Relationship Evolution 🤝
+# Relationship Evolution 
 
 How my dynamic with my human develops over time.
 

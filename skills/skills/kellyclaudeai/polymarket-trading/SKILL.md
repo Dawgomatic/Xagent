@@ -5,12 +5,12 @@
 ## Overview
 
 This skill provides AI agents with the ability to:
-- 📊 Fetch live market data and odds
-- 💰 Place buy/sell orders autonomously
-- 📈 Monitor positions and P&L
-- 🎯 Execute trading strategies
-- ⚖️ Manage risk and portfolio allocation
-- 🔔 Get alerts on market movements
+-  Fetch live market data and odds
+-  Place buy/sell orders autonomously
+-  Monitor positions and P&L
+-  Execute trading strategies
+-  Manage risk and portfolio allocation
+-  Get alerts on market movements
 
 ## Prerequisites
 
@@ -325,12 +325,12 @@ Test strategies on historical data:
 ## Market Categories
 
 Polymarket offers markets in:
-- 🏛️ **Politics**: Elections, policy outcomes
-- 💰 **Crypto**: Bitcoin price, ETH milestones
-- ⚽ **Sports**: Game outcomes, championships
-- 📈 **Economics**: Fed decisions, GDP growth
-- 🎬 **Entertainment**: Awards, box office
-- 🌍 **World Events**: Geopolitics, disasters
+-  **Politics**: Elections, policy outcomes
+-  **Crypto**: Bitcoin price, ETH milestones
+-  **Sports**: Game outcomes, championships
+-  **Economics**: Fed decisions, GDP growth
+-  **Entertainment**: Awards, box office
+-  **World Events**: Geopolitics, disasters
 
 ## Understanding Polymarket Mechanics
 

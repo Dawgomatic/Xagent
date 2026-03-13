@@ -18,7 +18,7 @@ fi
 API_ID=$1
 shift
 if [ "$1" != "--params" ]; then
-  echo "❌ Expected --params flag"
+  echo " Expected --params flag"
   exit 1
 fi
 shift
@@ -26,7 +26,7 @@ PARAMS=$1
 
 # Load wallet
 if [ ! -f "$WALLET_FILE" ]; then
-  echo "❌ Wallet not found. Run ./setup-wallet.sh first"
+  echo " Wallet not found. Run ./setup-wallet.sh first"
   exit 1
 fi
 
@@ -49,18 +49,18 @@ if [ "$HTTP_CODE" == "200" ]; then
   # Extract price from response header (if available)
   PRICE=$(echo "$BODY" | jq -r '.meta.price_paid_usdc // 0.001')
   echo ""
-  echo "✅ Paid: \$$PRICE USDC"
+  echo " Paid: \$$PRICE USDC"
 elif [ "$HTTP_CODE" == "402" ]; then
-  echo "❌ Payment required but failed"
+  echo " Payment required but failed"
   echo "$BODY" | jq
   echo ""
   echo "Check your USDC balance: ./check-balance.sh"
 elif [ "$HTTP_CODE" == "404" ]; then
-  echo "❌ API not found: $API_ID"
+  echo " API not found: $API_ID"
   echo ""
   echo "Available APIs:"
   ./list-apis.sh
 else
-  echo "❌ Request failed (HTTP $HTTP_CODE)"
+  echo " Request failed (HTTP $HTTP_CODE)"
   echo "$BODY" | jq
 fi

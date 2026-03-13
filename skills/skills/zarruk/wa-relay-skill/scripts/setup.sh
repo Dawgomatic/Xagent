@@ -40,11 +40,11 @@ You are a message relay. Nothing more.
 ## How to forward
 Use the \`sessions_send\` tool with:
 - sessionKey: "agent:main:main"
-- message: "📩 RELAY de [sender number]: [exact message]"
+- message: " RELAY de [sender number]: [exact message]"
 
 Example:
 \`\`\`
-sessions_send sessionKey="agent:main:main" message="📩 RELAY de +15551234567: Hola, ¿estás disponible?"
+sessions_send sessionKey="agent:main:main" message=" RELAY de +15551234567: Hola, ¿estás disponible?"
 \`\`\`
 
 ## Response to sender
@@ -61,14 +61,14 @@ AGENTS
 echo "③ Adding relay section to main agent SOUL.md ..."
 RELAY_SECTION="## Relay de WhatsApp
 
-Cuando reciba un mensaje inter-session del relay con prefijo \"📩 RELAY de [número]: [mensaje]\", debo:
+Cuando reciba un mensaje inter-session del relay con prefijo \" RELAY de [número]: [mensaje]\", debo:
 1. Reenviar la notificación al owner por WhatsApp
 2. Incluir una propuesta de respuesta basada en el contexto del mensaje
 3. Formato:
 
-📩 [número]: [mensaje]
+ [número]: [mensaje]
 
-💬 Respuesta sugerida: [mi propuesta]
+ Respuesta sugerida: [mi propuesta]
 
 El owner ($OWNER) decide si usa la sugerencia, la modifica, o dice otra cosa."
 
@@ -83,7 +83,7 @@ if [[ -f "$MAIN_SOUL" ]]; then
   printf '\n%s\n' "$RELAY_SECTION" >> "$MAIN_SOUL"
   echo "   ✓ Relay section added to $MAIN_SOUL"
 else
-  echo "   ⚠ Main SOUL.md not found at $MAIN_SOUL"
+  echo "    Main SOUL.md not found at $MAIN_SOUL"
   echo "     Add the relay section manually."
 fi
 
@@ -100,11 +100,11 @@ if [[ -f "$MAIN_AUTH" ]]; then
     cp "$MAIN_AUTH" "$RELAY_AUTH_DIR/auth-profiles.json"
     echo "   ✓ Credentials copied."
   else
-    echo "   ⚠ Skipped. The relay agent won't be able to authenticate with any model provider."
+    echo "    Skipped. The relay agent won't be able to authenticate with any model provider."
     echo "     Copy manually: cp $MAIN_AUTH $RELAY_AUTH_DIR/auth-profiles.json"
   fi
 else
-  echo "   ⚠ auth-profiles.json not found at $MAIN_AUTH"
+  echo "    auth-profiles.json not found at $MAIN_AUTH"
   echo "     You'll need to copy it manually after locating it."
 fi
 
@@ -131,7 +131,7 @@ for candidate in \
 done
 
 if [[ -z "$OPENCLAW_DIST" ]]; then
-  echo "   ⚠ Could not find OpenClaw dist directory."
+  echo "    Could not find OpenClaw dist directory."
   echo "     Locate paths-*.js files and change [a-z0-9._-] → [a-z0-9._:+\\-]"
 else
   NEEDS_PATCH=0
@@ -163,7 +163,7 @@ if (c.includes(old)) {
   fs.writeFileSync('$f', c);
   console.log('  ✓ Patched: $f');
 } else {
-  console.log('  ⚠ Pattern not found in $f');
+  console.log('   Pattern not found in $f');
 }
 "
           PATCHED=$((PATCHED + 1))
@@ -171,13 +171,13 @@ if (c.includes(old)) {
       done
       echo "   ✓ Patched $PATCHED file(s). Backups created (.bak)"
     else
-      echo "   ⚠ Skipped. Multi-agent routing will fail without this patch."
+      echo "    Skipped. Multi-agent routing will fail without this patch."
     fi
   fi
 fi
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next step: run configure.sh to generate the routing config:"
 echo "  bash scripts/configure.sh $OWNER"

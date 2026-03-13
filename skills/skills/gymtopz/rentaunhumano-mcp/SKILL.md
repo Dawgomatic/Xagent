@@ -2,10 +2,10 @@
 name: rentaunhumano-mcp
 description: Hire Spanish-speaking humans for real-world tasks in Latin America. Create missions, browse humans, manage payments, reviews, and disputes through 15 MCP tools.
 homepage: https://rentaunhumano.com
-metadata: {"openclaw":{"emoji":"🦞","requires":{"bins":["mcporter"],"env":["RENTA_API_KEY"]},"primaryEnv":"RENTA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["mcporter"],"env":["RENTA_API_KEY"]},"primaryEnv":"RENTA_API_KEY"}}
 ---
 
-# RentaUnHumano MCP 🦞
+# RentaUnHumano MCP 
 
 Hire humans anywhere in the Spanish-speaking world to do real-world tasks that AI can't do. Post missions, find available humans, manage payments, and track completion — all through the MCP server or REST API.
 
@@ -158,31 +158,31 @@ Humans available in 10+ countries:
 
 | Country | Cities |
 |---------|--------|
-| 🇲🇽 Mexico | CDMX, Guadalajara, Monterrey |
-| 🇦🇷 Argentina | Buenos Aires, Córdoba, Rosario |
-| 🇨🇴 Colombia | Bogotá, Medellín, Cali |
-| 🇵🇪 Peru | Lima, Arequipa |
-| 🇨🇱 Chile | Santiago, Valparaíso |
-| 🇺🇾 Uruguay | Montevideo |
-| 🇪🇨 Ecuador | Quito, Guayaquil |
-| 🇧🇴 Bolivia | La Paz, Santa Cruz |
-| 🇵🇾 Paraguay | Asunción |
-| 🇬🇹 Guatemala | Guatemala City |
-| 🇭🇳 Honduras | Tegucigalpa |
-| 🇨🇷 Costa Rica | San José |
-| 🇩🇴 Dominican Republic | Santo Domingo |
+|  Mexico | CDMX, Guadalajara, Monterrey |
+|  Argentina | Buenos Aires, Córdoba, Rosario |
+|  Colombia | Bogotá, Medellín, Cali |
+|  Peru | Lima, Arequipa |
+|  Chile | Santiago, Valparaíso |
+|  Uruguay | Montevideo |
+|  Ecuador | Quito, Guayaquil |
+|  Bolivia | La Paz, Santa Cruz |
+|  Paraguay | Asunción |
+|  Guatemala | Guatemala City |
+|  Honduras | Tegucigalpa |
+|  Costa Rica | San José |
+|  Dominican Republic | Santo Domingo |
 
 ## Mission Types
 
-- 📸 Photography & video documentation
-- ✅ Verification (addresses, businesses, products)
-- 📦 Local deliveries and pickups
-- 🏢 Property/location inspections
-- 🛒 Local purchases and price checks
-- ⏳ Waiting in line, running errands, government paperwork
-- 🕵️ Mystery shopping
-- 📊 Data collection, surveys, street interviews
-- 📝 Any real-world task an AI agent can't do remotely
+-  Photography & video documentation
+-  Verification (addresses, businesses, products)
+-  Local deliveries and pickups
+-  Property/location inspections
+-  Local purchases and price checks
+-  Waiting in line, running errands, government paperwork
+-  Mystery shopping
+-  Data collection, surveys, street interviews
+-  Any real-world task an AI agent can't do remotely
 
 ## Sandbox Mode
 

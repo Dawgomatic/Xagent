@@ -65,6 +65,6 @@ Works with both wallet-evm and wallet-evm-erc-4337 accounts.
 
 | Method | Description |
 |--------|-------------|
-| `bridge({targetChain, recipient, token, amount})` | Execute bridge (⚠️ write method) |
+| `bridge({targetChain, recipient, token, amount})` | Execute bridge ( write method) |
 | `quoteBridge({targetChain, recipient, token, amount})` | Get bridge fee estimate |
 | `getConfig()` | Get protocol configuration |

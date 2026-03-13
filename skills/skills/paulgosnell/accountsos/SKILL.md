@@ -397,7 +397,7 @@ Never miss a filing:
 deadlines = accountsos.get_deadlines()
 for d in deadlines:
     if d.days_until < 7:
-        alert(f"⚠️ {d.type} due in {d.days_until} days")
+        alert(f" {d.type} due in {d.days_until} days")
 ```
 
 ### Expense Categorization
@@ -470,26 +470,26 @@ def call_tool(name, args={}):
 
 # 1. Check balance
 balance = call_tool("get_balance")
-print(f"💰 Current balance: £{balance['amount']}")
+print(f" Current balance: £{balance['amount']}")
 
 # 2. This week's transactions
 week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
 transactions = call_tool("get_transactions", {"from_date": week_ago})
 income = sum(t["amount"] for t in transactions if t["direction"] == "in")
 expenses = sum(t["amount"] for t in transactions if t["direction"] == "out")
-print(f"📈 Week: +£{income} / -£{expenses}")
+print(f" Week: +£{income} / -£{expenses}")
 
 # 3. Upcoming deadlines
 deadlines = call_tool("get_deadlines")
 urgent = [d for d in deadlines if d["days_until"] < 14]
 if urgent:
-    print(f"⚠️ {len(urgent)} deadlines in next 2 weeks")
+    print(f" {len(urgent)} deadlines in next 2 weeks")
     for d in urgent:
         print(f"  - {d['type']}: {d['due_date']}")
 
 # 4. VAT position
 vat = call_tool("get_vat_summary")
-print(f"🧾 VAT owed: £{vat['amount_owed']}")
+print(f" VAT owed: £{vat['amount_owed']}")
 ```
 
 ---

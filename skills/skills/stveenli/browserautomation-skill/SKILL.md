@@ -10,7 +10,7 @@ read_when:
   - Logging into web applications
   - Taking screenshots or PDF snapshots
   - Recording browser sessions
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":["node","npm"]},"priority":"high"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","npm"]},"priority":"high"}}
 allowed-tools: Bash(agent-browser:*)
 ---
 

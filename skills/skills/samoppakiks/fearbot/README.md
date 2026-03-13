@@ -1,4 +1,4 @@
-# FearBot 🧠
+# FearBot 
 
 **CBT-based therapy for anxiety, depression, stress & trauma**
 
@@ -11,12 +11,12 @@
 
 FearBot turns your OpenClaw agent into a structured CBT (Cognitive Behavioral Therapy) companion for the full spectrum of common mental health concerns. It provides:
 
-- 📊 **Validated Assessments** — GAD-7, PHQ-9, DASS-21, PCL-5 with clinical scoring
-- 🔍 **Differential Diagnosis** — Screens for anxiety, depression, panic, OCD, PTSD
-- 📝 **Session Tracking** — Persistent history, mood logs, homework assignments  
-- 💭 **Thought Records** — Quick logging for any distressing moment
-- 🚨 **Crisis Detection** — Three-tier safety system with automatic escalation
-- 🧠 **CBT Techniques** — Cognitive restructuring, behavioral activation, exposure, grounding
+-  **Validated Assessments** — GAD-7, PHQ-9, DASS-21, PCL-5 with clinical scoring
+-  **Differential Diagnosis** — Screens for anxiety, depression, panic, OCD, PTSD
+-  **Session Tracking** — Persistent history, mood logs, homework assignments  
+-  **Thought Records** — Quick logging for any distressing moment
+-  **Crisis Detection** — Three-tier safety system with automatic escalation
+-  **CBT Techniques** — Cognitive restructuring, behavioral activation, exposure, grounding
 
 ## The Context Advantage
 
@@ -24,7 +24,7 @@ Traditional therapy apps don't know your life. FearBot works best with a fully-i
 
 **No cold start. No "catch me up." Your agent already knows your week.**
 
-## ⚠️ Important
+##  Important
 
 **This is NOT a replacement for professional mental health care.**
 

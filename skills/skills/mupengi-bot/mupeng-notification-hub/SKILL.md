@@ -1,18 +1,18 @@
 ---
 name: notification-hub
 description: Unified notification hub collecting all skill alerts and delivering by priority
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
 # notification-hub
 
 **Notification Integration** — Collects all skill notifications centrally and delivers by priority to reduce notification fatigue.
 
-## 🎯 Purpose
+##  Purpose
 
 Centrally manage diverse notifications from all skills and deliver at appropriate timing and channels based on importance.
 
-## 📥 Notification Sources
+##  Notification Sources
 
 Collect all event files from `events/` directory:
 
@@ -25,7 +25,7 @@ events/
   └── workflow-2026-02-14.json       (skill-composer)
 ```
 
-## 🚦 Priority Filtering
+##  Priority Filtering
 
 ### 1. `urgent` — Immediate Discord DM
 
@@ -41,7 +41,7 @@ events/
 
 **Example:**
 ```
-🚨 Urgent: Browser disconnected
+ Urgent: Browser disconnected
 Port 18800 not responding. Auto-recovery attempted but failed.
 Manual check needed: openclaw browser start
 ```
@@ -60,11 +60,11 @@ Manual check needed: openclaw browser start
 
 **Example:**
 ```
-📢 3 Updates
+ 3 Updates
 
-📩 2 Instagram DMs (iam.dawn.kim, partner_xyz)
-📈 Trend: "AI agent" surging (+150%)
-🔄 Git: 12 commits waiting for push
+ 2 Instagram DMs (iam.dawn.kim, partner_xyz)
+ Trend: "AI agent" surging (+150%)
+ Git: 12 commits waiting for push
 ```
 
 ### 3. `info` — Include in daily-report only
@@ -81,15 +81,15 @@ Manual check needed: openclaw browser start
 
 **Example:**
 ```
-📊 Daily Report (2026-02-14)
+ Daily Report (2026-02-14)
 
-✅ 3 workflows completed
-📊 Tokens: 45,230 / 100,000 (45%)
-📝 Memory: 3.2 GB
-🔧 Health check: OK
+ 3 workflows completed
+ Tokens: 45,230 / 100,000 (45%)
+ Memory: 3.2 GB
+ Health check: OK
 ```
 
-## 🔕 Duplicate Prevention
+##  Duplicate Prevention
 
 Never send notification more than once for same event.
 
@@ -128,7 +128,7 @@ memory/notifications/
 }
 ```
 
-## 📢 Delivery Channels
+##  Delivery Channels
 
 ### Discord DM
 - **Channel ID**: Configure in `TOOLS.md`
@@ -143,7 +143,7 @@ memory/notifications/
 - **Purpose**: info notification summary
 - **Format**: Structured section organization
 
-## 🎤 Triggers
+##  Triggers
 
 Activate skill with these keywords:
 
@@ -152,7 +152,7 @@ Activate skill with these keywords:
 - "check notifications"
 - "anything new"
 
-## 🚀 Usage Examples
+##  Usage Examples
 
 ### Check Notifications
 ```
@@ -172,7 +172,7 @@ Activate skill with these keywords:
 → Read memory/notifications/sent-2026-02-14.json
 ```
 
-## ⚙️ Implementation Guide
+##  Implementation Guide
 
 ### 1. Collect Events
 ```javascript
@@ -220,7 +220,7 @@ if (info.length > 0) {
 saveSentHistory(today, newlySentNotifications);
 ```
 
-## 📊 Event Priority Guide
+##  Event Priority Guide
 
 Guide each skill to include `priority` field when creating events:
 
@@ -236,4 +236,4 @@ Guide each skill to include `priority` field when creating events:
 
 ---
 
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill

@@ -4,7 +4,7 @@ version: 1.1.0
 description: Minimal secure secret handoff. Zero external deps. Human opens browser form, submits secret, agent receives it via temp file. Secret NEVER appears in stdout/logs.
 ---
 
-# Side_Peace 🍒
+# Side_Peace 
 
 Dead simple secret handoff from human to AI. No npm packages to trust — just Node.js built-ins.
 
@@ -58,7 +58,7 @@ cat /tmp/side-peace-xxx.secret | xargs -I{} npx clawhub login --token {} --no-br
 ## Output
 
 ```
-🍒 Side_Peace waiting...
+ Side_Peace waiting...
    Label: CLAWHUB_TOKEN
    Output: /tmp/side-peace-a1b2c3d4.secret
 

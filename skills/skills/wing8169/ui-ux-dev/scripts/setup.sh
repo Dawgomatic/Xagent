@@ -29,7 +29,7 @@ cat > "$SERVE_DIR/index.html" << 'WELCOME'
 </head>
 <body class="bg-gray-950 text-white min-h-screen flex items-center justify-center">
   <div class="text-center space-y-6 p-8">
-    <div class="text-6xl">🎨</div>
+    <div class="text-6xl"></div>
     <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
       UI Designer
     </h1>

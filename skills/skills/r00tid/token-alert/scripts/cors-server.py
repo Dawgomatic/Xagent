@@ -18,6 +18,6 @@ class CORSRequestHandler(SimpleHTTPRequestHandler):
 if __name__ == '__main__':
     port = 8765
     server = HTTPServer(('localhost', port), CORSRequestHandler)
-    print(f"✅ CORS-enabled server running on http://localhost:{port}")
-    print(f"📊 Dashboard: http://localhost:{port}/dashboard-v3.html")
+    print(f" CORS-enabled server running on http://localhost:{port}")
+    print(f" Dashboard: http://localhost:{port}/dashboard-v3.html")
     server.serve_forever()

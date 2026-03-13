@@ -1,7 +1,7 @@
 # GTM System Setup Report
 
 **Date:** 2026-02-06
-**Status:** ✅ Operational
+**Status:**  Operational
 
 ## Executive Summary
 
@@ -26,13 +26,13 @@ I evaluated `chapter-gtm/chapter` and determined it's **NOT suitable** for your 
 A lightweight, self-contained GTM system that:
 
 ### Features
-- ✅ **Daily action lists** - "What should I do today?"
-- ✅ **Contact/company tracking** with pipeline stages
-- ✅ **Follow-up reminders** with due date tracking
-- ✅ **Opportunity crawlers** - HN, Reddit, GitHub (expandable)
-- ✅ **Keyword-based relevance scoring** - Pre-configured for Bacalhau/Expanso
-- ✅ **Telegram integration** via OpenClaw cron jobs
-- ✅ **Zero external API costs** - Uses only free APIs
+-  **Daily action lists** - "What should I do today?"
+-  **Contact/company tracking** with pipeline stages
+-  **Follow-up reminders** with due date tracking
+-  **Opportunity crawlers** - HN, Reddit, GitHub (expandable)
+-  **Keyword-based relevance scoring** - Pre-configured for Bacalhau/Expanso
+-  **Telegram integration** via OpenClaw cron jobs
+-  **Zero external API costs** - Uses only free APIs
 
 ### Architecture
 ```
@@ -77,8 +77,8 @@ The system tracks mentions of:
 
 ### Initial Crawl Results
 First crawl found **58 signals** including:
-- Your own Bacalhau repo (sanity check ✅)
-- Ray Project (⭐41k) - competitor/adjacent
+- Your own Bacalhau repo (sanity check )
+- Ray Project (41k) - competitor/adjacent
 - WebAssembly sandboxing projects - relevant tech
 - Various data engineering discussions
 

@@ -3,7 +3,7 @@ name: Workflow
 slug: workflow
 version: 1.0.0
 description: Build automated pipelines with reusable components, data flow between nodes, and state management.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["jq","yq","curl","uuidgen","flock"]},"os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["jq","yq","curl","uuidgen","flock"]},"os":["linux","darwin"]}}
 ---
 
 ## Architecture

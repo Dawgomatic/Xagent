@@ -19,11 +19,11 @@ ipfs pin add QmHash
 
 ## Key Features
 
-- **🚀 Full node operations:** Content publishing, pinning, IPNS publishing
-- **🌐 Gateway services:** Run local or public IPFS HTTP gateways
-- **🔧 Network management:** Peer connections, bootstrap nodes, private networks
-- **📌 Content lifecycle:** Add, pin, garbage collect, remote pinning services
-- **🔐 Security:** Private networks, API access control, content policies
+- ** Full node operations:** Content publishing, pinning, IPNS publishing
+- ** Gateway services:** Run local or public IPFS HTTP gateways
+- ** Network management:** Peer connections, bootstrap nodes, private networks
+- ** Content lifecycle:** Add, pin, garbage collect, remote pinning services
+- ** Security:** Private networks, API access control, content policies
 
 ## Requirements
 

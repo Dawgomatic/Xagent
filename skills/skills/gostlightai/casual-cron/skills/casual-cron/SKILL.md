@@ -1,7 +1,7 @@
 ---
 name: casual-cron
 description: "Create Clawdbot cron jobs from natural language with strict run-guard rules. Use when: users ask to schedule reminders or messages (recurring or one-shot), especially via Telegram, or when they use /at or /every. Examples: 'Create a daily reminder at 8am', 'Remind me in 20 minutes', 'Send me a Telegram message at 3pm', '/every 2h'."
-metadata: {"openclaw":{"emoji":"⏰","requires":{"bins":["python3","openclaw"],"env":["CRON_DEFAULT_CHANNEL"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3","openclaw"],"env":["CRON_DEFAULT_CHANNEL"]}}}
 ---
 
 # Casual Cron

@@ -71,10 +71,10 @@ async function bulkDistribute(filePath, amount = '0.1', masterAccount) {
         const cmd = `near send ${masterAccount} ${subaccountId} ${amount} ${networkFlag}`;
         await execAsync(cmd);
         results.push({ account: subaccountId, status: 'success' });
-        console.log(`✅ Sent ${amount} NEAR to ${subaccountId}`);
+        console.log(` Sent ${amount} NEAR to ${subaccountId}`);
       } catch (error) {
         results.push({ account: subaccountId, status: 'failed', error: error.message });
-        console.error(`❌ Failed to send to ${subaccountId}: ${error.message}`);
+        console.error(` Failed to send to ${subaccountId}: ${error.message}`);
       }
     }
 
@@ -105,7 +105,7 @@ async function main() {
         }
         console.log(`Creating subaccount ${arg1}.${arg2}...`);
         const created = await createSubaccount(arg1, arg2);
-        console.log(`✅ Created: ${created}`);
+        console.log(` Created: ${created}`);
         break;
 
       case 'list':
@@ -137,7 +137,7 @@ async function main() {
         }
         console.log(`Deleting ${arg1}...`);
         await deleteSubaccount(arg1, arg2);
-        console.log(`✅ Deleted: ${arg1}`);
+        console.log(` Deleted: ${arg1}`);
         break;
 
       case 'distribute':

@@ -126,7 +126,7 @@ async function setup() {
         body: 'Generate an eye-catching header image for the blog post. The image should be visually appealing, professional, and relevant to the blog topic.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the data flow
+    //  CRITICAL: Edges define the data flow
     edges: [
       { from: 'trigger:webhook', to: 'task:analyze' },
       { from: 'task:analyze', to: 'task:write' },

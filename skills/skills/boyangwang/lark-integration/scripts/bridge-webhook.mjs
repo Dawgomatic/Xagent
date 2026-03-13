@@ -1,5 +1,5 @@
 /**
- * Feishu/Lark ↔ OpenClaw Bridge (Webhook Mode)
+ * Feishu/Lark  OpenClaw Bridge (Webhook Mode)
  *
  * For Lark international which doesn't support WebSocket long-connection.
  * Receives messages via HTTP webhook, forwards to OpenClaw Gateway.

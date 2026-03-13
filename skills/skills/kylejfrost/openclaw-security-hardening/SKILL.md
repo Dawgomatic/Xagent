@@ -74,9 +74,9 @@ Scans all installed skill files for malicious patterns including prompt injectio
 - Social engineering ("don't tell the user", "secretly", "without mentioning")
 
 **Severity levels:**
-- 🔴 **CRITICAL** — Likely malicious, immediate action needed
-- 🟡 **WARNING** — Suspicious, review manually
-- 🔵 **INFO** — Noteworthy but probably benign
+-  **CRITICAL** — Likely malicious, immediate action needed
+-  **WARNING** — Suspicious, review manually
+-  **INFO** — Noteworthy but probably benign
 
 ---
 
@@ -103,10 +103,10 @@ Creates SHA256 hash baselines of all skill files and detects unauthorized modifi
 ```
 
 **Reports:**
-- ✅ Unchanged files
-- ⚠️ Modified files (hash mismatch)
-- 🆕 New files (not in baseline)
-- ❌ Removed files (in baseline but missing)
+-  Unchanged files
+-  Modified files (hash mismatch)
+-  New files (not in baseline)
+-  Removed files (in baseline but missing)
 
 **Automation:** Add to your heartbeat or cron to run daily:
 ```bash

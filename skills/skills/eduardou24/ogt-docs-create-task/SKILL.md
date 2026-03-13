@@ -566,19 +566,19 @@ Create generic file/data validation CLI tools under `ogt check`.
 
 ```bash
 $ ogt check --help
-# ✅ Shows subcommands: assets, slugs, indexed, data, from-list
+#  Shows subcommands: assets, slugs, indexed, data, from-list
 
 $ ogt check assets --help
-# ✅ Shows usage and flags
+#  Shows usage and flags
 
 $ ogt check slugs --help
-# ✅ Shows usage and flags
+#  Shows usage and flags
 
 $ ogt check indexed --help
-# ✅ Shows usage and flags
+#  Shows usage and flags
 
 $ ogt check data --help
-# ✅ Shows usage and flags
+#  Shows usage and flags
 ```
 ````
 
@@ -586,23 +586,23 @@ $ ogt check data --help
 
 ```bash
 $ ogt check indexed creatures
-# ✅ Returns JSON with 197 total, 197 passed
+#  Returns JSON with 197 total, 197 passed
 
 $ ogt check slugs front/data/app-creatures -r
-# ✅ Returns JSON with slug validation results
+#  Returns JSON with slug validation results
 
 $ ogt check assets static/public/creatures portrait.png -r
-# ✅ Returns JSON listing missing portraits
+#  Returns JSON listing missing portraits
 ```
 
 ### Exit Codes
 
 ```bash
 $ ogt check indexed creatures && echo "pass"
-# ✅ Exits 0, prints "pass"
+#  Exits 0, prints "pass"
 
 $ ogt check indexed nonexistent || echo "fail"
-# ✅ Exits 1, prints "fail"
+#  Exits 1, prints "fail"
 ```
 
 ## Verification Result

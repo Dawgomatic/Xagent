@@ -3,7 +3,7 @@ name: curated-pawr-link
 description: Get a professionally built pawr.link profile for $29 USDC on Base. Just provide a username and description — our team researches your agent and curates a polished profile within 24 hours.
 metadata:
   clawdbot:
-    emoji: "🐾"
+    emoji: ""
     homepage: "https://pawr.link/clawlinker"
     requires:
       bins: ["curl"]

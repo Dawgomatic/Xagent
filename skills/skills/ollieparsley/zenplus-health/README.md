@@ -4,10 +4,10 @@ Bring your wellness data into OpenClaw. Access notifications, timeline, and task
 
 ## What This Skill Does
 
-- 📬 **Notifications**: Get your latest wellness notifications and reminders
-- 📅 **Timeline**: View your activity history and progress tracking  
-- 📚 **Catalogue**: Browse available wellness tasks and activities
-- 👤 **Profile**: Access your user profile and preferences
+-  **Notifications**: Get your latest wellness notifications and reminders
+-  **Timeline**: View your activity history and progress tracking  
+-  **Catalogue**: Browse available wellness tasks and activities
+-  **Profile**: Access your user profile and preferences
 
 ## Quick Start
 
@@ -24,10 +24,10 @@ Bring your wellness data into OpenClaw. Access notifications, timeline, and task
 
 ## Security
 
-✅ **Read-only access** - API keys cannot modify your data  
-✅ **Revocable** - Disable keys instantly from your settings  
-✅ **Hashed** - Keys are securely hashed server-side  
-✅ **Scoped permissions** - Only request what you need
+ **Read-only access** - API keys cannot modify your data  
+ **Revocable** - Disable keys instantly from your settings  
+ **Hashed** - Keys are securely hashed server-side  
+ **Scoped permissions** - Only request what you need
 
 See [SECURITY.md](./SECURITY.md) for full security details.
 
@@ -52,11 +52,11 @@ See [SECURITY.md](./SECURITY.md) for full security details.
 
 ## Links
 
-- 🏠 [Zen+ Health](https://zenplus.health)
-- 🔧 [Install OpenClaw Skill](https://zenplus.health/openclaw)
-- 📖 [API Documentation](https://zenplus.health/api/docs)
-- 🔐 [Manage API Keys](https://zenplus.health/settings/api-keys)
-- 💬 [Support](https://zenplus.health/support)
+-  [Zen+ Health](https://zenplus.health)
+-  [Install OpenClaw Skill](https://zenplus.health/openclaw)
+-  [API Documentation](https://zenplus.health/api/docs)
+-  [Manage API Keys](https://zenplus.health/settings/api-keys)
+-  [Support](https://zenplus.health/support)
 
 ## Distribution
 
@@ -65,4 +65,4 @@ See [SECURITY.md](./SECURITY.md) for full security details.
 
 ## License
 
-Proprietary - © Zen+ Health
+Proprietary -  Zen+ Health

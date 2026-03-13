@@ -9,7 +9,7 @@ metadata: {"openclaw":{"requires":{"bins":["python3"],"note":"No API keys needed
 
 Track your favorite teams across **multiple sports** with **FREE live alerts**!
 
-Supports: ⚽ Soccer • 🏈 NFL • 🏀 NBA • 🏒 NHL • ⚾ MLB • 🏎 F1
+Supports:  Soccer •  NFL •  NBA •  NHL •  MLB •  F1
 
 ## First Run (Onboarding)
 
@@ -20,11 +20,11 @@ python3 scripts/setup.py
 ```
 
 **The wizard asks:**
-1. 📺 **Which sports?** — Pick from Soccer, NFL, NBA, NHL, MLB, F1
-2. 🏆 **Which teams?** — Choose from popular teams or search for any team
-3. 🔔 **Alert style?** — Live scores, final only, or daily digest
-4. ⏰ **Game-day reminders?** — Get a heads-up 30 mins before kick-off
-5. 🌙 **Quiet hours?** — Pause alerts while you sleep
+1.  **Which sports?** — Pick from Soccer, NFL, NBA, NHL, MLB, F1
+2.  **Which teams?** — Choose from popular teams or search for any team
+3.  **Alert style?** — Live scores, final only, or daily digest
+4.  **Game-day reminders?** — Get a heads-up 30 mins before kick-off
+5.  **Quiet hours?** — Pause alerts while you sleep
 
 After setup, your `config.json` is ready and you can start tracking!
 
@@ -55,14 +55,14 @@ python3 scripts/ticker.py
   "teams": [
     {
       "name": "Barcelona",
-      "emoji": "🔵🔴",
+      "emoji": "",
       "sport": "soccer",
       "espn_id": "83",
       "espn_leagues": ["esp.1", "uefa.champions"]
     },
     {
       "name": "Lakers",
-      "emoji": "🏀💜💛",
+      "emoji": "",
       "sport": "basketball",
       "espn_id": "13",
       "espn_leagues": ["nba"]
@@ -85,14 +85,14 @@ python3 scripts/ticker.py league nba basketball
 python3 scripts/ticker.py league nfl football
 python3 scripts/ticker.py league eng.1 soccer
 
-# 📅 Schedule - View upcoming fixtures (NEW in v3!)
+#  Schedule - View upcoming fixtures (NEW in v3!)
 python3 scripts/schedule.py                    # All teams, next 14 days
 python3 scripts/schedule.py --days 30          # Look further ahead
 python3 scripts/schedule.py --team spurs       # Specific team
 python3 scripts/schedule.py --compact          # One-liner format
 python3 scripts/schedule.py --json             # JSON output
 
-# 🤖 Auto Setup Crons - Generate match-day crons (NEW in v3!)
+#  Auto Setup Crons - Generate match-day crons (NEW in v3!)
 python3 scripts/auto_setup_crons.py            # All teams, next 7 days
 python3 scripts/auto_setup_crons.py --team spurs --days 14
 python3 scripts/auto_setup_crons.py --json     # Machine-readable
@@ -106,11 +106,11 @@ python3 scripts/espn.py search "Chiefs" football
 
 ## Alert Types
 
-- 🏟 Game start (kick-off / tip-off)
-- ⚽🏈🏀⚾ Scoring plays (goals, touchdowns, 3-pointers, home runs)
-- 🟥 Red cards / Ejections
-- ⏸ Halftime / Period breaks
-- 🏁 Final results (WIN/LOSS/DRAW)
+-  Game start (kick-off / tip-off)
+-  Scoring plays (goals, touchdowns, 3-pointers, home runs)
+-  Red cards / Ejections
+-  Halftime / Period breaks
+-  Final results (WIN/LOSS/DRAW)
 
 ## ESPN API (Free!)
 

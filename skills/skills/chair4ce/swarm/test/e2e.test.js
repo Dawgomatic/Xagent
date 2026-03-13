@@ -26,19 +26,19 @@ async function test(name, fn, timeout = 30000) {
 }
 
 async function main() {
-console.log('\n🚀 END-TO-END TESTS\n');
+console.log('\n END-TO-END TESTS\n');
 
 // Check for API key
 const hasApiKey = !!process.env.GEMINI_API_KEY;
 const skipE2E = process.env.SKIP_E2E === '1';
 
 if (skipE2E) {
-  console.log('⏭️  Skipping E2E tests (SKIP_E2E=1)\n');
+  console.log('  Skipping E2E tests (SKIP_E2E=1)\n');
   process.exit(0);
 }
 
 if (!hasApiKey) {
-  console.log('⚠️  GEMINI_API_KEY not set - E2E tests will be skipped');
+  console.log('  GEMINI_API_KEY not set - E2E tests will be skipped');
   console.log('   Set GEMINI_API_KEY to run full E2E tests\n');
   process.exit(0);
 }
@@ -49,7 +49,7 @@ let failed = 0;
 // ============================================
 // parallel() Helper Tests
 // ============================================
-console.log('⚡ parallel() Helper');
+console.log(' parallel() Helper');
 
 // Test: Simple parallel prompts
 if (await test('parallel() executes multiple prompts', async () => {
@@ -102,7 +102,7 @@ if (await test('parallel() shows user feedback', async () => {
 // ============================================
 // research() Helper Tests
 // ============================================
-console.log('\n🔬 research() Helper');
+console.log('\n research() Helper');
 
 // Test: Research single subject
 if (await test('research() works with single subject', async () => {
@@ -117,7 +117,7 @@ if (await test('research() works with single subject', async () => {
 // ============================================
 // Speedup Verification
 // ============================================
-console.log('\n📊 Speedup Verification');
+console.log('\n Speedup Verification');
 
 // Test: Parallel is faster than sequential
 if (await test('Parallel execution faster than estimated sequential', async () => {
@@ -146,7 +146,7 @@ if (await test('Parallel execution faster than estimated sequential', async () =
 // ============================================
 // Error Handling
 // ============================================
-console.log('\n🛡️  Error Handling');
+console.log('\n  Error Handling');
 
 // Test: Handles invalid input gracefully
 if (await test('Handles empty input array', async () => {
@@ -160,7 +160,7 @@ if (await test('Handles empty input array', async () => {
 // ============================================
 // Display Output Verification
 // ============================================
-console.log('\n🖥️  Display Output');
+console.log('\n  Display Output');
 
 // Test: Dispatcher produces visible output when not silent
 if (await test('Dispatcher shows progress (visual check)', async () => {

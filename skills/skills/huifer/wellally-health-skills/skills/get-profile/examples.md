@@ -7,15 +7,15 @@ Invoke: get-profile
 
 Output:
 ╔══════════════════════════════════════════════════╗
-║                 👤 Personal Health Profile       ║
+║                  Personal Health Profile       ║
 ╠══════════════════════════════════════════════════╣
-║  📋 Basic Information                           ║
+║   Basic Information                           ║
 ║  Height:      ████ 175 cm                       ║
 ║  Weight:      ██████ 70 kg                      ║
 ║  Age:         35 years                         ║
 ╠══════════════════════════════════════════════════╣
-║  📊 Health Indicators                          ║
-║  BMI Index: 22.9 [Normal]✅                     ║
+║   Health Indicators                          ║
+║  BMI Index: 22.9 [Normal]                     ║
 ║  Body Surface Area: 1.85 m²                     ║
 ╚══════════════════════════════════════════════════╝
 ```
@@ -26,9 +26,9 @@ Output:
 Invoke: get-profile (BMI=25.5)
 
 Output:
-║  BMI Index: 25.5 [Overweight]⚠️               ║
+║  BMI Index: 25.5 [Overweight]               ║
 ║                                                  ║
-║  💡 Recommendation: Control diet, increase exercise ║
+║   Recommendation: Control diet, increase exercise ║
 ```
 
 ## Example 3: Data Not Set
@@ -38,7 +38,7 @@ Invoke: get-profile (no data)
 
 Output:
 ┌────────────────────────────────────┐
-│       ⚠️  Data Not Set              │
+│         Data Not Set              │
 ├────────────────────────────────────┤
 │  Personal health profile not set   │
 │                                    │
@@ -52,9 +52,9 @@ Output:
 Invoke: get-profile (with history)
 
 Output:
-📈 Weight History Trend (Last 5)
+ Weight History Trend (Last 5)
 2025-12-31  →  70.0 kg
 2025-11-15  →  71.5 kg
 ...
-📊 Change: -4.0 kg (-5.4%)
+ Change: -4.0 kg (-5.4%)
 ```

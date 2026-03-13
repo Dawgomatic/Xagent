@@ -82,24 +82,24 @@ When used, the reference is analyzed for pose, photographic style, and location 
 
 ---
 
-## ⚠️ CRITICAL: Required Inputs Checklist
+##  CRITICAL: Required Inputs Checklist
 
 Before running ANY ad generation, ensure these are provided:
 
 | Input | Required? | How to Get It |
 |-------|-----------|---------------|
-| `--product-url` | ✅ ALWAYS | User provides the product page URL |
-| `--product-image` | ✅ ALWAYS | Download from the product page, or user provides |
-| `--brand-profile` | ✅ NEVER EMPTY | Pick from catalog or run brand-analyzer first. NEVER leave as "No Brand" if a brand is known |
-| `--prompt-profile` | ✅ ALWAYS | Choose based on campaign objective |
+| `--product-url` |  ALWAYS | User provides the product page URL |
+| `--product-image` |  ALWAYS | Download from the product page, or user provides |
+| `--brand-profile` |  NEVER EMPTY | Pick from catalog or run brand-analyzer first. NEVER leave as "No Brand" if a brand is known |
+| `--prompt-profile` |  ALWAYS | Choose based on campaign objective |
 | `--aspect-ratio` | Default: 4:5 | Change if needed for platform |
-| `--model` | 🔶 OPTIONAL | Model/talent face. Ads with talent perform much better. Empty = product-only ad (no person). When used, pick from `~/clawd/models-catalog/catalog/images/` (114 models available) |
-| `--logo` | 🔶 OPTIONAL | Try to find it. Use if good quality & easy to get. Skip if low-res or hard to find. Empty = bypassed |
-| `--reference` | 🔶 OPTIONAL (off) | Only when user explicitly asks to clone a reference ad. Empty = bypassed |
-| `--creative-brief` | 🔶 ON-DEMAND | Only when user gives explicit creative direction. Omit to let pipeline auto-generate from brand profile |
-| `--language` | 🔶 ON-DEMAND | Only when user requests a specific language. Omit to use default (es) |
+| `--model` |  OPTIONAL | Model/talent face. Ads with talent perform much better. Empty = product-only ad (no person). When used, pick from `~/clawd/models-catalog/catalog/images/` (114 models available) |
+| `--logo` |  OPTIONAL | Try to find it. Use if good quality & easy to get. Skip if low-res or hard to find. Empty = bypassed |
+| `--reference` |  OPTIONAL (off) | Only when user explicitly asks to clone a reference ad. Empty = bypassed |
+| `--creative-brief` |  ON-DEMAND | Only when user gives explicit creative direction. Omit to let pipeline auto-generate from brand profile |
+| `--language` |  ON-DEMAND | Only when user requests a specific language. Omit to use default (es) |
 
-### 🚨 NEVER Skip These Steps:
+###  NEVER Skip These Steps:
 
 1. **Product image** — Download the main product photo from the product URL. The scraper is fragile; always provide a product image explicitly.
 2. **Brand profile** — If the brand doesn't exist in the catalog, run `brand-analyzer` skill FIRST to generate one. Never submit with "No Brand" when a brand is known.
@@ -130,12 +130,12 @@ When the user asks to generate an ad:
    → Save to /tmp/ad-ready-logo.png
 
 5. SELECT prompt profile based on objective:
-   → 🎨 Morfeo_Creative: DEFAULT — cinematic, narrative-rich, slightly surreal. Best visuals.
+   →  Morfeo_Creative: DEFAULT — cinematic, narrative-rich, slightly surreal. Best visuals.
    → Awareness: brand discovery, dynamic scenes, world-building, scroll-stoppers
    → Interest: sustained attention, micro-world hinting at use-case
    → Consideration: feature communication, proof cues, informative
    → Evaluation: trust, authority, reviews, certifications
-   → Conversion: ⚠️ MINIMAL by design — clean, CTA-dominant, white backgrounds
+   → Conversion:  MINIMAL by design — clean, CTA-dominant, white backgrounds
    → Retention: post-purchase confidence, onboarding
    → Loyalty: editorial, lifestyle, emotional bond
    → Advocacy: share-worthy, community, belonging
@@ -283,7 +283,7 @@ uv run {baseDir}/scripts/generate.py --list-brands
 **CTA:** Optional or absent: Join the Movement, Part of Us
 **Visual Hierarchy:** Mood → Talent (identity proxy) → Product (symbol) → Brand
 
-### 09 — Morfeo Creative 🎨 (DEFAULT)
+### 09 — Morfeo Creative  (DEFAULT)
 **Goal:** Maximum visual impact, narrative-rich, cinematic quality
 **Reject:** White backgrounds, studio shots, "product on table", generic poses, sterile compositions
 **Strategy:** Build immersive WORLDS, not backgrounds. Talent is a CHARACTER with emotion and action. Subtle surreal/magical elements elevate the mundane. Think movie stills + magical realism + high fashion.
@@ -397,7 +397,7 @@ The skill includes reference copies of all pipeline configuration files:
 │   ├── Master_prompt_06_Retention.json
 │   ├── Master_prompt_07_Loyalty.json
 │   ├── Master_prompt_08_Advocacy.json
-│   └── Master_prompt_09_Morfeo_Creative.json  # 🎨 DEFAULT — cinematic, surreal, narrative
+│   └── Master_prompt_09_Morfeo_Creative.json  #  DEFAULT — cinematic, surreal, narrative
 └── Reference_Analyzer/
     └── reference_analysis_prompt.txt   # Pose/style/location analysis prompt
 ```

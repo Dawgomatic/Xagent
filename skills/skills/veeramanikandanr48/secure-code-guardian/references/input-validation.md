@@ -26,22 +26,22 @@ if (!result.success) {
 ## SQL Injection Prevention
 
 ```typescript
-// ❌ NEVER do this
+//  NEVER do this
 const bad = `SELECT * FROM users WHERE id = ${userId}`;
 const bad2 = `SELECT * FROM users WHERE name = '${name}'`;
 
-// ✅ Parameterized queries
+//  Parameterized queries
 const good = await db.query(
   'SELECT * FROM users WHERE id = $1 AND name = $2',
   [userId, name]
 );
 
-// ✅ Use ORM
+//  Use ORM
 const user = await prisma.user.findFirst({
   where: { id: userId, name: name }
 });
 
-// ✅ Query builder
+//  Query builder
 const user = await knex('users')
   .where({ id: userId, name: name })
   .first();
@@ -52,10 +52,10 @@ const user = await knex('users')
 ```typescript
 import path from 'path';
 
-// ❌ Vulnerable
+//  Vulnerable
 const vulnerable = path.join('/uploads', userInput);
 
-// ✅ Safe - validate and sanitize
+//  Safe - validate and sanitize
 function getSecurePath(baseDir: string, userInput: string): string {
   // Remove any path traversal attempts
   const sanitized = path.basename(userInput);
@@ -76,15 +76,15 @@ function getSecurePath(baseDir: string, userInput: string): string {
 ```typescript
 import { execFile } from 'child_process';
 
-// ❌ Never use exec with user input
+//  Never use exec with user input
 exec(`convert ${userInput}`); // Vulnerable!
 
-// ✅ Use execFile with arguments array
+//  Use execFile with arguments array
 execFile('convert', ['-resize', '100x100', safeFilename], (error, stdout) => {
   // ...
 });
 
-// ✅ Better: Use library functions instead of shell
+//  Better: Use library functions instead of shell
 import sharp from 'sharp';
 await sharp(inputPath).resize(100, 100).toFile(outputPath);
 ```

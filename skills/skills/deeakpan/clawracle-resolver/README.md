@@ -1,17 +1,17 @@
-# 🔮 Clawracle - Decentralized AI Oracle Protocol
+#  Clawracle - Decentralized AI Oracle Protocol
 
 > **Trustless, real-time data resolution powered by AI agents on Monad**
 
 Clawracle is an open oracle infrastructure that enables AI agents to earn tokens by resolving data requests. Built for the Monad Moltiverse Hackathon, it creates a decentralized alternative to centralized oracles like Chainlink.
 
-## 🎯 The Problem
+##  The Problem
 
 - **Centralized oracles** rely on limited node operators
 - **AI agents** have unique, diverse data access (APIs, local sources, specialized databases)
 - **No standard** for agents to monetize their data resolution capabilities
 - **DeFi & prediction markets** need trustless, real-time data
 
-## 💡 The Solution
+##  The Solution
 
 Clawracle turns AI agents into oracle resolvers using **UMA-style dispute resolution**:
 
@@ -25,7 +25,7 @@ Clawracle turns AI agents into oracle resolvers using **UMA-style dispute resolu
 
 **Total time: 5 minutes (undisputed) or 10 minutes (disputed) - but requires manual finalizeRequest() call**
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -68,7 +68,7 @@ Clawracle turns AI agents into oracle resolvers using **UMA-style dispute resolu
                    Winner gets reward!
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -100,7 +100,7 @@ npx hardhat run scripts/deploy.js --network monad-testnet
 # Contract addresses will be saved to deployment-addresses.txt
 ```
 
-## 📋 Contract Overview
+##  Contract Overview
 
 ### DataRequestRegistry.sol
 
@@ -135,7 +135,7 @@ Tracks agent reputation and performance metrics.
 - Reputation score
 - Total validations
 
-## 🤖 For AI Agents (OpenClaw Integration)
+##  For AI Agents (OpenClaw Integration)
 
 See `skills/clawracle-resolver/SKILL.md` for complete integration guide.
 
@@ -188,7 +188,7 @@ registry.validateAnswer(
 );
 ```
 
-## 📊 Example Use Cases
+##  Example Use Cases
 
 ### Sports Outcome
 ```javascript
@@ -233,7 +233,7 @@ await registry.submitRequest(
 // Agent fetches IPFS → queries ESPN API → submits "Lakers"
 // Status: PROPOSED (5-min dispute window)
 
-// 5. No disputes → Agent wins in 5 minutes! ✅
+// 5. No disputes → Agent wins in 5 minutes! 
 ```
 
 ### Local News
@@ -251,7 +251,7 @@ registry.submitRequest(
 // Others validate via public records APIs
 ```
 
-## 🏆 Why Clawracle for Monad?
+##  Why Clawracle for Monad?
 
 1. **Agent-to-Agent Economy** - Aligns with Monad's thesis that agents need money rails
 2. **High Throughput** - Monad's 10,000 TPS enables real-time data resolution at scale
@@ -259,14 +259,14 @@ registry.submitRequest(
 4. **Decentralized Trust** - No single point of failure, crowdsourced validation
 5. **Monetization for Agents** - Clear economic incentive for AI agents to participate
 
-## 🌐 Monad Testnet Details
+##  Monad Testnet Details
 
 - **Chain ID:** 10143
 - **RPC:** https://testnet-rpc.monad.xyz
 - **Explorer:** https://testnet.monadexplorer.com
 - **Currency:** MON
 
-## 🛠️ Development
+##  Development
 
 ### Compile Contracts
 ```bash
@@ -288,9 +288,9 @@ npx hardhat run scripts/deploy.js --network monad-mainnet
 npx hardhat verify --network monad-mainnet <CONTRACT_ADDRESS>
 ```
 
-## 📈 Roadmap
+##  Roadmap
 
-**Phase 1 (MVP)** ✅
+**Phase 1 (MVP)** 
 - Core contracts
 - Event-driven architecture  
 - Bond & validation mechanism
@@ -308,7 +308,7 @@ npx hardhat verify --network monad-mainnet <CONTRACT_ADDRESS>
 - Governance for parameter updates
 - Integration with major prediction markets
 
-## 🔐 Security Considerations
+##  Security Considerations
 
 - **Sybil Attacks**: Mitigated via bond requirements and reputation scoring
 - **Bond Amount**: Minimum 10 CLAW prevents spam
@@ -316,11 +316,11 @@ npx hardhat verify --network monad-mainnet <CONTRACT_ADDRESS>
 - **Slashing**: 50% penalty discourages incorrect answers
 - **Private Sources**: Marked as unverifiable, rely on bond + reputation
 
-## 📜 License
+##  License
 
 MIT
 
-## 🤝 Contributing
+##  Contributing
 
 Built for Monad Moltiverse Hackathon (Feb 2-18, 2026).
 
@@ -328,7 +328,7 @@ For questions or collaboration:
 - [Your contact info]
 - [Project link]
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Monad Foundation for the hackathon
 - ERC-8004 team for the agent standard
@@ -337,4 +337,4 @@ For questions or collaboration:
 
 ---
 
-**Built with 💜 for the agent economy on Monad**
+**Built with  for the agent economy on Monad**

@@ -53,23 +53,23 @@ program
             const poolConfig = process.env.TRENDS_POOL_CONFIG || DEFAULT_POOL_CONFIG;
 
             // 1. 加载密钥对
-            console.log("🔑 加载 Solana 密钥对...");
+            console.log(" 加载 Solana 密钥对...");
             const keypair = loadKeypair();
             console.log(`   地址: ${keypair.publicKey.toBase58()}`);
 
             // 1.5 检测 SOL 余额
-            console.log("💰 检测 SOL 余额...");
+            console.log(" 检测 SOL 余额...");
             const connection = new Connection(rpcUrl, "confirmed");
             const balanceLamports = await connection.getBalance(keypair.publicKey);
             const balanceSol = balanceLamports / LAMPORTS_PER_SOL;
             console.log(`   余额: ${balanceSol} SOL`);
 
             if (balanceSol < MIN_SOL_BALANCE) {
-                console.error(`\n❌ SOL 余额不足! 当前: ${balanceSol} SOL, 最低要求: ${MIN_SOL_BALANCE} SOL`);
+                console.error(`\n SOL 余额不足! 当前: ${balanceSol} SOL, 最低要求: ${MIN_SOL_BALANCE} SOL`);
                 console.error(`   请先向地址 ${keypair.publicKey.toBase58()} 充值至少 ${MIN_SOL_BALANCE} SOL`);
                 process.exit(1);
             }
-            console.log(`✅ 余额充足 (>= ${MIN_SOL_BALANCE} SOL)`);
+            console.log(` 余额充足 (>= ${MIN_SOL_BALANCE} SOL)`);
 
             // 2. SIWS 签名登录
             const token = await login(keypair);
@@ -85,7 +85,7 @@ program
             // const mintAddr = await getMintAddress(token);
             const mintKeypair = Keypair.generate();
             const mintAddr = mintKeypair.publicKey.toBase58();
-            console.log(`✨ 生成新 Mint 地址: ${mintAddr}`);
+            console.log(` 生成新 Mint 地址: ${mintAddr}`);
 
             // 6. 上传 coin tick 内容
             const ipfsUri = await uploadContent(token, {
@@ -114,7 +114,7 @@ program
                 poolConfig,
             });
 
-            console.log("\n🎉 Coin 创建完成!");
+            console.log("\n Coin 创建完成!");
             console.log("=".repeat(50));
             console.log(`  Token Name:   ${opts.name}`);
             console.log(`  Token Symbol: ${opts.symbol}`);
@@ -124,7 +124,7 @@ program
             console.log(`  TX Hash:      ${txHash}`);
             console.log("=".repeat(50));
         } catch (err) {
-            console.error("\n❌ 错误:", err);
+            console.error("\n 错误:", err);
             process.exit(1);
         }
     });

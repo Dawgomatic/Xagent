@@ -37,7 +37,7 @@ Create Twitter content from analyst research PDFs, validated against KSVC holdin
 
 **Never skip steps 4a-4d. Use 1a for multi-PDF screening, 1b for deep extraction, 1c for cross-doc synthesis, 4a for verification, 4a.5 for web cross-validation, 4b for final holdings check, 4c for character voice, 4d for AI pattern removal.**
 
-**⚠️ CRITICAL: Step 1b extracts data. Step 1c synthesizes across docs. Step 4a VERIFIES the written content. Step 4a.5 CROSS-VALIDATES inferences.**
+** CRITICAL: Step 1b extracts data. Step 1c synthesizes across docs. Step 4a VERIFIES the written content. Step 4a.5 CROSS-VALIDATES inferences.**
 - 1b: "What does each PDF say?" (per-doc extraction)
 - 1c: "What patterns emerge across PDFs?" (cross-doc synthesis)
 - 4a: "Does my draft accurately reflect the sources?" (source-locked verification)
@@ -59,10 +59,10 @@ Then subagents Read from `.claude/pdfs-scan/filename.pdf` — this works because
 
 | Access Method | `/Users/Shared/` path | Symlinked project path |
 |--------------|----------------------|----------------------|
-| Subagent Read tool (PDF) | ❌ Auto-denied | ✅ Works |
-| Subagent Read tool (images) | ❌ Auto-denied | ✅ Works |
-| Main agent Read tool | ✅ User approves | ✅ Works |
-| Bash → RLM | ✅ Any path | ✅ Any path |
+| Subagent Read tool (PDF) |  Auto-denied |  Works |
+| Subagent Read tool (images) |  Auto-denied |  Works |
+| Main agent Read tool |  User approves |  Works |
+| Bash → RLM |  Any path |  Any path |
 
 **Discovered 2026-02-07:** Subagents fail with `"Permission to use Read has been auto-denied (prompts unavailable)"` on `/Users/Shared/` paths. Symlink into project dir = full Read access. Tested: 19 PDFs, medium thoroughness, 125k tokens, zero errors.
 
@@ -101,7 +101,7 @@ Use Explore agents for **broad screening** when you have many PDFs to review. Th
 
 ### Step 1a.0: Check Published Threads (MANDATORY - DO FIRST)
 
-**⚠️ Before scanning any PDFs, check what Kirk has already posted.**
+** Before scanning any PDFs, check what Kirk has already posted.**
 
 ```bash
 # List all published threads
@@ -233,7 +233,7 @@ After scanning, you'll know:
 - **Thesis recommendations** (2-3 angles to explore)
 - Which to deep-extract with RLM
 
-**⚠️ WARNING: Explore agents can hallucinate specific numbers.** Treat all numbers from Explore summaries as "unverified claims" until RLM grep confirms them. Component counts, percentages, and market sizing are especially prone to errors.
+** WARNING: Explore agents can hallucinate specific numbers.** Treat all numbers from Explore summaries as "unverified claims" until RLM grep confirms them. Component counts, percentages, and market sizing are especially prone to errors.
 
 **Capacity (tested 2026-02-07):** Single Explore agent (haiku) handled 19 PDFs at medium thoroughness in 83 seconds, using 125k tokens (~4k tokens/PDF for pages 1-5). 3 agents in parallel = ~30-40s for the same batch.
 
@@ -279,7 +279,7 @@ Charts often contain key data (P/B trends, margin history, capacity timelines) t
 
 ### Extraction Validation (MANDATORY)
 
-**⚠️ After EVERY `rlm_repl.py init`, validate the extraction actually worked.**
+** After EVERY `rlm_repl.py init`, validate the extraction actually worked.**
 
 RLM reports `chars_extracted` after init. A multi-page analyst report should yield thousands of chars. If you get suspiciously few, the PDF is likely image-based and RLM only extracted metadata/headers.
 
@@ -287,9 +287,9 @@ RLM reports `chars_extracted` after init. A multi-page analyst report should yie
 
 | Chars Extracted | Expected Report Type | Action |
 |----------------|---------------------|--------|
-| > 5,000 | Multi-page report | ✅ Proceed with grep |
-| 1,000 - 5,000 | Short note / partial | ⚠️ Check `list_images()` — if many images, trigger fallback |
-| < 1,000 | Image-based PDF | ❌ **MUST use Read tool fallback** |
+| > 5,000 | Multi-page report |  Proceed with grep |
+| 1,000 - 5,000 | Short note / partial |  Check `list_images()` — if many images, trigger fallback |
+| < 1,000 | Image-based PDF |  **MUST use Read tool fallback** |
 
 **The threshold is context-dependent.** A 20-page Goldman Sachs report yielding 666 chars is obviously broken. A 1-page pricing table yielding 800 chars might be fine. Use judgment, but when in doubt, fallback.
 
@@ -313,7 +313,7 @@ python3 rlm_repl.py exec -c "print(list_images())"
 # Read(file_path=".claude/pdfs-scan/report.pdf", pages="11-20")
 ```
 
-**⚠️ Path rule:** Subagents must Read PDFs via the symlinked project path (`.claude/pdfs-scan/`), NOT from `/Users/Shared/`. See "Subagent Permissions" section above.
+** Path rule:** Subagents must Read PDFs via the symlinked project path (`.claude/pdfs-scan/`), NOT from `/Users/Shared/`. See "Subagent Permissions" section above.
 
 **Why this exists (Case Study — ABF Substrate Shortage, 2026-02-07):**
 
@@ -356,7 +356,7 @@ Use cross-doc to verify:
 
 ## Step 1b.5: Build Extraction Cache (MANDATORY)
 
-**⚠️ Why this step exists:** RLM creates `state.pkl` during extraction, but the writing phase (Step 3) doesn't access it. Without a persistent cache, writers rely on memory, leading to errors like wrong product types, missing time periods, or source attribution mistakes.
+** Why this step exists:** RLM creates `state.pkl` during extraction, but the writing phase (Step 3) doesn't access it. Without a persistent cache, writers rely on memory, leading to errors like wrong product types, missing time periods, or source attribution mistakes.
 
 **What this does:** Extracts from `state.pkl` (RLM's internal format) into structured JSON with context labels that the writing phase can reference.
 
@@ -415,9 +415,9 @@ python3 build_extraction_cache.py \
 ```
 
 **What auto-generates:**
-- ✅ Source tags from PDF filenames ("GFHK - Memory.pdf" → tag: "GFHK")
-- ✅ Topics with primary_source, key_metrics, source_context
-- ✅ Extraction entries with full context labels (product_type, time_period, units, scope)
+-  Source tags from PDF filenames ("GFHK - Memory.pdf" → tag: "GFHK")
+-  Topics with primary_source, key_metrics, source_context
+-  Extraction entries with full context labels (product_type, time_period, units, scope)
 
 ### Cache Format
 
@@ -681,7 +681,7 @@ These synthesized claims require cross-doc verification in Step 4b:
 
 ### Integration with Audit (Step 4a)
 
-**⚠️ CRITICAL:** Synthesized claims from Step 1c MUST be flagged for cross-doc audit in Step 4a.
+** CRITICAL:** Synthesized claims from Step 1c MUST be flagged for cross-doc audit in Step 4a.
 
 In the audit manifest, mark these claims with `cross-doc: true`:
 
@@ -720,7 +720,7 @@ Go beyond surface numbers. Extract:
 
 ## Step 2: Check KSVC Holdings (Initial)
 
-**⚠️ CRITICAL:** This is a preliminary check. You MUST run Step 4c (Final Holdings Verification) after writing content to catch any tickers discovered during extraction.
+** CRITICAL:** This is a preliminary check. You MUST run Step 4c (Final Holdings Verification) after writing content to catch any tickers discovered during extraction.
 
 ### All Models (7 Total)
 - **US Models:** usa-model1 ~ usa-model5 (5 models)
@@ -767,13 +767,13 @@ curl -s "https://kicksvc.online/api/twse-model2" | \
 #   "ticker": 6285,
 #   "enterDate": "Wed, 28 Jan 2026 00:00:00 GMT",
 #   "enterPrice": 162.0,
-#   "todayPrice": 207.5,  # ⚠️ May be stale! Use Yahoo Finance for current
-#   "profitPercent": 28.09,  # ⚠️ Based on stale todayPrice
+#   "todayPrice": 207.5,  #  May be stale! Use Yahoo Finance for current
+#   "profitPercent": 28.09,  #  Based on stale todayPrice
 #   "exitDate": null  # null = still holding
 # }
 ```
 
-**⚠️ CRITICAL: API's `todayPrice` and `profitPercent` can be STALE (hours or days old). Always verify current price with Yahoo Finance API (Step 2d).**
+** CRITICAL: API's `todayPrice` and `profitPercent` can be STALE (hours or days old). Always verify current price with Yahoo Finance API (Step 2d).**
 
 **FALLBACK: Check equitySeries (slower, less data)**
 
@@ -890,15 +890,15 @@ done
 **Output format (with accurate data):**
 ```markdown
 **KSVC Holdings Check:**
-- ✅ WNC (6285.TW) - Held in TWSE Model 2
+-  WNC (6285.TW) - Held in TWSE Model 2
   - Entry: Jan 28, 2026 @ NT$162
   - Current: NT$187 (Yahoo Finance)
   - Gain: +15.4% (actual, not API's stale 28%)
-- ✅ UMT (3491.TWO) - Held in TWSE Model 2
+-  UMT (3491.TWO) - Held in TWSE Model 2
   - Entry: Jan 28, 2026 @ NT$1,120
   - Current: NT$1,280 (Yahoo Finance)
   - Gain: +14.3% (actual, not API's stale 23%)
-- ❌ Not held in TWSE Model 1 or USA Models 1-5
+-  Not held in TWSE Model 1 or USA Models 1-5
 
 **Note:** API's equitySeries and tradebook.todayPrice can lag hours/days behind market.
 Always use Yahoo Finance for current prices.
@@ -907,7 +907,7 @@ Always use Yahoo Finance for current prices.
 **If NOT held in any model:**
 ```markdown
 **KSVC Holdings Check:**
-- ❌ Not held in any of 7 models (checked USA 1-5, TWSE 1-2)
+-  Not held in any of 7 models (checked USA 1-5, TWSE 1-2)
 - Content angle: Industry analysis / Market observation
 ```
 
@@ -922,7 +922,7 @@ Always use Yahoo Finance for current prices.
 
 ### Step 2d: Current Price Check (Yahoo Finance API - REQUIRED)
 
-**⚠️ CRITICAL:** ALWAYS use Yahoo Finance for current prices. KSVC API's `todayPrice` can be stale.
+** CRITICAL:** ALWAYS use Yahoo Finance for current prices. KSVC API's `todayPrice` can be stale.
 
 **US stocks:**
 ```bash
@@ -996,13 +996,13 @@ echo "Entry: NT\$$ENTRY | Current: NT\$$CURRENT | Gain: $(awk "BEGIN {printf \"%
 **Format preference:** Use `/` not `)` - it's the established Twitter thread convention.
 
 ```
-✅ Recommended:
+ Recommended:
 Humanoid robots going from science fair to factory floor. Taiwan supply chain getting interesting.
 
 2/ TLDR:
 - Market: $5.3B (2025) to $32.4B (2029)...
 
-❌ Avoid:
+ Avoid:
 1/ Humanoid robots going from science fair...
 ```
 
@@ -1013,13 +1013,13 @@ Humanoid robots going from science fair to factory floor. Taiwan supply chain ge
 
 ### Technical Specificity
 
-❌ Vague: "NAND supply is tight"
+ Vague: "NAND supply is tight"
 
-✅ Specific: "YMTC adding 135k WPM at Wuhan Fab 3. Still won't close the gap - Samsung X2 conversion delayed to Q2."
+ Specific: "YMTC adding 135k WPM at Wuhan Fab 3. Still won't close the gap - Samsung X2 conversion delayed to Q2."
 
-❌ Vague: "HBM margins are good"
+ Vague: "HBM margins are good"
 
-✅ Specific: "SK Hynix HBM yields at 80-90%. Samsung stuck at 60% on 1c DRAM."
+ Specific: "SK Hynix HBM yields at 80-90%. Samsung stuck at 60% on 1c DRAM."
 
 Always include: specific numbers, time frames, fab names, comparisons.
 
@@ -1029,10 +1029,10 @@ Always include: specific numbers, time frames, fab names, comparisons.
 
 In thread format, each tweet may be read semi-independently. If earlier tweets discuss a concept as a category (e.g., "ASIC revenue"), don't suddenly refer to it as "the project" in a later tweet — the reader has no antecedent for "the project."
 
-❌ Vague: "MS thinks the project is the 3nm Google TPU"
+ Vague: "MS thinks the project is the 3nm Google TPU"
 (What project? The thread never introduced "a project.")
 
-✅ Clear: "MS thinks the main client/program is the 3nm Google TPU"
+ Clear: "MS thinks the main client/program is the 3nm Google TPU"
 (Names what MS is identifying — who's buying and what they're building.)
 
 **Rule:** When a shorthand ("the project", "this deal", "the play") saves words but costs clarity, it's not saving anything. Name the thing directly. A few extra words that prevent the reader from pausing to re-read are always worth it.
@@ -1043,9 +1043,9 @@ In thread format, each tweet may be read semi-independently. If earlier tweets d
 
 ## Step 4a: Audit (MANDATORY — MUST USE SUBAGENTS)
 
-**⚠️ WHY THIS STEP EXISTS:** We learned that RLM extraction (Step 1b) is not the same as verification. Explore agents hallucinate numbers. Writers make inferences. This step catches errors BEFORE publishing.
+** WHY THIS STEP EXISTS:** We learned that RLM extraction (Step 1b) is not the same as verification. Explore agents hallucinate numbers. Writers make inferences. This step catches errors BEFORE publishing.
 
-**⚠️ STRUCTURAL GATE:** You (the main agent) are the WRITER. You cannot also be the AUDITOR. You MUST delegate audit to fresh-context subagents. See the "WARM STATE TRAP" section in the audit-content skill for why.
+** STRUCTURAL GATE:** You (the main agent) are the WRITER. You cannot also be the AUDITOR. You MUST delegate audit to fresh-context subagents. See the "WARM STATE TRAP" section in the audit-content skill for why.
 
 ### Step 4a Process (3 actions, in order)
 
@@ -1062,7 +1062,7 @@ Each agent gets: the manifest + its assigned PDF path + claim list.
 Each agent returns: JSON with PASS/FAIL/UNSOURCED per claim.
 ```
 
-**⚠️ WARM STATE TRAP:** If RLM is already loaded from Step 1b, you WILL be tempted to "just grep it yourself." DO NOT. The audit-content skill explains why: you wrote the draft, so you already "know" the answers. Self-auditing is confirmation bias, not verification.
+** WARM STATE TRAP:** If RLM is already loaded from Step 1b, you WILL be tempted to "just grep it yourself." DO NOT. The audit-content skill explains why: you wrote the draft, so you already "know" the answers. Self-auditing is confirmation bias, not verification.
 
 **Self-check:** If you are about to type `rlm_repl.py exec` during Step 4a, STOP. You are skipping the gate.
 
@@ -1103,7 +1103,7 @@ If audit_agent_ids is empty, the audit is invalid.
 
 ## Step 4a.5: Gemini Web Cross-Validation (RECOMMENDED)
 
-**⚠️ WHY THIS STEP EXISTS:** RLM audit (Step 4a) is source-locked — it only checks claims against the cited PDF. This over-flags reasonable inferences that go beyond one report but are well-documented publicly. Step 4a.5 gives flagged claims a second chance via web-grounded search.
+** WHY THIS STEP EXISTS:** RLM audit (Step 4a) is source-locked — it only checks claims against the cited PDF. This over-flags reasonable inferences that go beyond one report but are well-documented publicly. Step 4a.5 gives flagged claims a second chance via web-grounded search.
 
 **Case Study (Old Memory Squeeze, 2026-02-07):**
 - Draft said "capacity getting cannibalized for HBM and DDR5"
@@ -1173,7 +1173,7 @@ Include Gemini's sources in the audit resolution log:
 
 ## Step 4b: Final Holdings Verification (MANDATORY)
 
-**⚠️ CRITICAL:** This is the FINAL holdings check. You MUST run this after writing content because:
+** CRITICAL:** This is the FINAL holdings check. You MUST run this after writing content because:
 1. Tickers/stock codes may be discovered during extraction (Step 1b)
 2. Company names may be clarified during audit (Step 4b)
 3. Step 2 was a preliminary check with limited information
@@ -1185,9 +1185,9 @@ Include Gemini's sources in the audit resolution log:
 **Example - GUC Case:**
 - Step 1b: Learn company is "Global Unichip (GUC)"
 - Step 1b: Extract ticker "3443 TW" from report
-- Step 2: ❌ Assumed "not held" without actually checking TWSE models
+- Step 2:  Assumed "not held" without actually checking TWSE models
 - Step 3: Wrote "I don't have a position here"
-- **Step 4c: ✅ Discovered GUC IS held in TWSE Model 1 (+2.22%)**
+- **Step 4c:  Discovered GUC IS held in TWSE Model 1 (+2.22%)**
 - **Result:** Had to rewrite content to reflect actual position
 
 ### Step 4c Process
@@ -1229,7 +1229,7 @@ done
 **Holdings Verification:**
 
 Step 2 (Initial): Claimed "Not held"
-Step 4c (Final): ✅ Found in TWSE Model 1 (+2.22%)
+Step 4c (Final):  Found in TWSE Model 1 (+2.22%)
 
 **Action Required:** Update draft to reflect actual position
 ```
@@ -1248,22 +1248,22 @@ Step 4c (Final): ✅ Found in TWSE Model 1 (+2.22%)
 
 | Step 2 | Step 4c | Action |
 |--------|---------|--------|
-| Not held | Not held | ✅ No change needed |
-| Not held | **HELD** | ❌ **UPDATE DRAFT** - change content angle |
-| Held | Held | ✅ Verify return % is current |
-| Held | **Not held** | ❌ **UPDATE DRAFT** - position was closed |
+| Not held | Not held |  No change needed |
+| Not held | **HELD** |  **UPDATE DRAFT** - change content angle |
+| Held | Held |  Verify return % is current |
+| Held | **Not held** |  **UPDATE DRAFT** - position was closed |
 
 ### Output Format
 
 ```markdown
 **Step 4c: Final Holdings Verification**
 
-✅ Verified ALL 7 models (USA 1-5, TWSE 1-2)
+ Verified ALL 7 models (USA 1-5, TWSE 1-2)
 
 **Tickers checked:**
-- 3443 (GUC): ✅ Found in TWSE Model 1 (+2.22%)
-- $MU: ❌ Not held
-- $AMD: ✅ Found in USA Model 3 (+12.5%)
+- 3443 (GUC):  Found in TWSE Model 1 (+2.22%)
+- $MU:  Not held
+- $AMD:  Found in USA Model 3 (+12.5%)
 
 **Changes required:**
 - Update draft line 32: Add KSVC position note for GUC
@@ -1422,8 +1422,8 @@ Create `README.md` in the assets folder to document the work:
 
 | File | Description | Status |
 |------|-------------|--------|
-| YYYY-MM-DD-topic.md | Original draft | ✅ APPROVED |
-| YYYY-MM-DD-topic-citrini7.md | Citrini7 rewrite | ✅ APPROVED |
+| YYYY-MM-DD-topic.md | Original draft |  APPROVED |
+| YYYY-MM-DD-topic-citrini7.md | Citrini7 rewrite |  APPROVED |
 
 ---
 
@@ -1572,7 +1572,7 @@ Draft complete → identify chartable claims
                         ↓
               Pull data from RLM cache (NOT from draft text)
                         ↓
-              ⚠️ DECLARE SOURCE (state metric + page + exact values)
+               DECLARE SOURCE (state metric + page + exact values)
                         ↓
               Save source image FIRST (before generating)
                         ↓
@@ -1585,7 +1585,7 @@ Draft complete → identify chartable claims
 
 ### Source Declaration (LEARNED FROM MISTAKE)
 
-**⚠️ Why this exists:** We once created a "component count" chart but saved a "cost %" source image. The metrics didn't match, making the source invalid for verification.
+** Why this exists:** We once created a "component count" chart but saved a "cost %" source image. The metrics didn't match, making the source invalid for verification.
 
 **Before generating ANY chart, you MUST:**
 
@@ -1605,7 +1605,7 @@ Draft complete → identify chartable claims
 
 ### Company & Ticker Verification
 
-**⚠️ LEARNED FROM MISTAKE:** We fabricated "Chuing" for 祺驊 (4571). Official name is "KHGEARS".
+** LEARNED FROM MISTAKE:** We fabricated "Chuing" for 祺驊 (4571). Official name is "KHGEARS".
 
 ```bash
 # Always verify Taiwan company names via TWSE API
@@ -1723,10 +1723,10 @@ After approval, publish clean version to `/Users/Shared/ksvc/threads/`.
 ```
 
 **Rules:**
-- ✅ Flat structure: `YYYY-MM-DD-topic/` at root level (not nested in `2026-02/`)
-- ✅ Charts directly in folder (not in `charts/` subfolder)
-- ✅ `thread.md` = clean content only (no metadata header)
-- ✅ `_metadata.md` = internal reference (sources, audit, not for posting)
+-  Flat structure: `YYYY-MM-DD-topic/` at root level (not nested in `2026-02/`)
+-  Charts directly in folder (not in `charts/` subfolder)
+-  `thread.md` = clean content only (no metadata header)
+-  `_metadata.md` = internal reference (sources, audit, not for posting)
 
 ### thread.md Format
 
@@ -1762,8 +1762,8 @@ Internal reference file (prefixed with `_` to indicate not for posting):
 - [Source 2 PDF name] ([Date])
 
 ## KSVC Holdings Check
-- ✅ Held in [Model name] (+X.X% since entry) OR
-- ❌ Not held in any of 7 models (checked USA 1-5, TWSE 1-2)
+-  Held in [Model name] (+X.X% since entry) OR
+-  Not held in any of 7 models (checked USA 1-5, TWSE 1-2)
 - Integration strategy: [Personal stakes | Industry framing | Victory lap]
 
 ## Audit Log
@@ -1822,14 +1822,14 @@ cp draft/YYYY-MM-DD-topic-assets/chart*.png \
 ## Quality Checklist
 
 **Extraction (Step 1a/1b):**
-- [ ] **⚠️ Checked published threads** (`/Users/Shared/ksvc/threads/`) before topic selection
+- [ ] ** Checked published threads** (`/Users/Shared/ksvc/threads/`) before topic selection
 - [ ] Topic does NOT duplicate a recently published thread (same source + same angle = reject)
 - [ ] Scanned recent PDF folders (at least 3) with Explore agents
 - [ ] Identified cross-document connections
 - [ ] Deep extracted key reports with RLM
 - [ ] Charts/images extracted and reviewed (use `--extract-images`)
-- [ ] **⚠️ Extraction validation:** Every PDF's `chars_extracted` checked against expected size
-- [ ] **⚠️ Read tool fallback used** for any PDF with < 1000 chars (or suspiciously low for page count)
+- [ ] ** Extraction validation:** Every PDF's `chars_extracted` checked against expected size
+- [ ] ** Read tool fallback used** for any PDF with < 1000 chars (or suspiciously low for page count)
 - [ ] **Key numbers verified via RLM grep** (not just Explore summary)
 
 **Cross-Doc Synthesis (Step 1c):**
@@ -1875,9 +1875,9 @@ cp draft/YYYY-MM-DD-topic-assets/chart*.png \
 **Charts (Step 6):**
 - [ ] Identified chartable claims in draft
 - [ ] Data pulled from RLM cache (not draft text)
-- [ ] **⚠️ SOURCE DECLARED** before generating (metric + page + exact values)
-- [ ] **⚠️ Source image saved FIRST** (before chart generation)
-- [ ] **⚠️ Source image contains same metric** as chart (not transformed)
+- [ ] ** SOURCE DECLARED** before generating (metric + page + exact values)
+- [ ] ** Source image saved FIRST** (before chart generation)
+- [ ] ** Source image contains same metric** as chart (not transformed)
 - [ ] If data transformed, transformation documented and justified
 - [ ] Used chart-factory with theme-factory theme
 - [ ] Verification agent confirmed data→chart integrity

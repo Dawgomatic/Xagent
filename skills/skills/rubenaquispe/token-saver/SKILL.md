@@ -6,7 +6,7 @@ description: "Reduce OpenClaw AI costs with model-aware optimization. Features d
 
 # Token Saver v3
 
-> **💡 Did you know?** Every API call sends your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, etc.) along with your message. These files count toward your context window, slowing responses and costing real money on every message.
+> ** Did you know?** Every API call sends your workspace files (SOUL.md, USER.md, MEMORY.md, AGENTS.md, etc.) along with your message. These files count toward your context window, slowing responses and costing real money on every message.
 
 Token Saver v3 is **model-aware** — it knows your model's context window and adapts recommendations accordingly. Using Gemini's 1M context? Presets scale up. On GPT-4o's 128K? Presets adjust down.
 
@@ -34,16 +34,16 @@ Token Saver v3 is **model-aware** — it knows your model's context window and a
 
 ## Features
 
-### 📊 Model-Aware Dashboard
+###  Model-Aware Dashboard
 Shows current model, context window, and usage percentage:
 ```
-🤖 Model: Claude Opus 4.5 (200K context)
+ Model: Claude Opus 4.5 (200K context)
    Detected: openclaw.json
 
-📊 Context Usage: [████████░░░░░░░░░░░░] 42% (84K/200K)
+ Context Usage: [████████░░░░░░░░░░░░] 42% (84K/200K)
 ```
 
-### 📁 Workspace File Compression
+###  Workspace File Compression
 Scans all `.md` files, shows token count and potential savings. Smart bypass skips already-optimized files.
 
 **File-aware compression:**
@@ -52,7 +52,7 @@ Scans all `.md` files, shows token count and potential savings. Smart bypass ski
 - **USER.md / MEMORY.md** — Heavy compression, key:value format
 - **PROJECTS.md** — No compression (user structure preserved)
 
-### 💬 Dynamic Compaction Presets
+###  Dynamic Compaction Presets
 Presets adapt to your model's context window:
 
 | Preset | % of Context | Claude 200K | GPT-4o 128K | Gemini 1M |
@@ -62,14 +62,14 @@ Presets adapt to your model's context window:
 | Conservative | 80% | 160K | 102K | 800K |
 | Off | 95% | 190K | 122K | 950K |
 
-### 🤖 Model Registry
+###  Model Registry
 24+ models with context windows, pricing, and aliases:
 - **Claude:** Opus 4.6 (1M), Opus 4.5, Sonnet 4.5, Sonnet 4, Haiku 4.5, Haiku 3.5 (200K)
 - **OpenAI:** GPT-5.2, GPT-5.1, GPT-5-mini, GPT-5-nano (256K), GPT-4.1, GPT-4o (128K), o1, o3, o4-mini
 - **Gemini:** 3 Pro (2M), 2.5 Pro, 2.0 Flash (1M)
 - **Others:** DeepSeek V3 (64K), Kimi K2.5 (128K), Llama 3.3 70B, Mistral Large
 
-### 🔍 Robust Model Detection
+###  Robust Model Detection
 Detection priority:
 1. Runtime injection (`--model=...`)
 2. Environment variables (`SKILL_MODEL`, `OPENCLAW_MODEL`)
@@ -82,7 +82,7 @@ Detection priority:
 - Unknown models get safe defaults (200K context) + warning
 - Easy to add new models to `scripts/models.json`
 
-### 📝 Persistent Mode
+###  Persistent Mode
 Adds writing guidance to AGENTS.md for continued token efficiency:
 
 | File | Writing Style |

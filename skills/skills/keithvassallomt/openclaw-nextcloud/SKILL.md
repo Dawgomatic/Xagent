@@ -229,50 +229,50 @@ When displaying data to the user, format it in a readable way. Output may be sen
 - Group related items logically
 
 ### Emoji Reference
-Tasks: ✅ (completed), ⬜ (pending), 🔴 (high priority), 🟡 (medium), 🟢 (low)
-Calendar: 📅 (event), ⏰ (time), 📍 (location)
-Notes: 📝 (note), 📁 (category)
-Files: 📄 (file), 📂 (folder), 💾 (size)
-Contacts: 👤 (person), 📧 (email), 📱 (phone), 🏢 (organization)
-Status: ✨ (created), ✏️ (updated), 🗑️ (deleted), ❌ (error)
+Tasks:  (completed),  (pending),  (high priority),  (medium),  (low)
+Calendar:  (event),  (time),  (location)
+Notes:  (note),  (category)
+Files:  (file),  (folder),  (size)
+Contacts:  (person),  (email),  (phone),  (organization)
+Status:  (created),  (updated),  (deleted),  (error)
 
 ### Example Presentations
 
 Tasks:
 ```
-📋 Your Tasks
+ Your Tasks
 
-⬜ 🔴 Buy groceries — Due: Tomorrow 3:30 PM
-⬜ 🟡 Review PR #42 — Due: Feb 5
-✅ Send email to client
+  Buy groceries — Due: Tomorrow 3:30 PM
+  Review PR #42 — Due: Feb 5
+ Send email to client
 ```
 
 Calendar Events:
 ```
-📅 Upcoming Events
+ Upcoming Events
 
-🗓️ Team Standup
-   ⏰ Mon, Feb 3 • 10:00 AM - 10:30 AM
-   📍 Zoom
+ Team Standup
+    Mon, Feb 3 • 10:00 AM - 10:30 AM
+    Zoom
 
-🗓️ Project Review
-   ⏰ Wed, Feb 5 • 2:00 PM - 3:00 PM
+ Project Review
+    Wed, Feb 5 • 2:00 PM - 3:00 PM
 ```
 
 Contacts:
 ```
-👤 John Doe
-   📧 john@example.com
-   📱 +1 234 567 890
-   🏢 ACME Inc — Developer
+ John Doe
+    john@example.com
+    +1 234 567 890
+    ACME Inc — Developer
 ```
 
 Files:
 ```
-📂 Documents/
-   📄 report.pdf (2.3 MB)
-   📄 notes.txt (4 KB)
-   📂 Archive/
+ Documents/
+    report.pdf (2.3 MB)
+    notes.txt (4 KB)
+    Archive/
 ```
 
 ### Date/Time Formatting

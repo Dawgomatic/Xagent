@@ -106,17 +106,17 @@ if __name__ == "__main__":
     suggestions = suggest_improvements(text)
     
     if issues:
-        print("⚠️  ISSUES FOUND:")
+        print("  ISSUES FOUND:")
         for issue in issues:
             print(f"  • {issue}")
     
     if suggestions:
-        print("\n💡 SUGGESTIONS:")
+        print("\n SUGGESTIONS:")
         for suggestion in suggestions:
             print(f"  • {suggestion}")
     
     if not issues and not suggestions:
-        print("✅ No basic issues found")
+        print(" No basic issues found")
     
     # Exit code: 0 if no issues, 1 if issues found
     sys.exit(1 if issues else 0)

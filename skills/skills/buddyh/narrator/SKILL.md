@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎙️",
+        "emoji": "",
         "requires": {
           "bins": ["python3", "tmux", "peekaboo"],
           "env": ["GEMINI_API_KEY", "ELEVENLABS_API_KEY"]

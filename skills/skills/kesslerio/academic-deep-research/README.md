@@ -1,4 +1,4 @@
-# Academic Deep Research 🔬
+# Academic Deep Research 
 
 **Transparent, rigorous, self-contained research** — not a black-box API wrapper.
 
@@ -7,11 +7,11 @@
 Most "deep research" tools are wrappers around external APIs. You send a query, get a report, and have no idea what happened in between.
 
 **This skill is different:**
-- ✅ **Full methodology visible** — Every step documented, reproducible
-- ✅ **No external dependencies** — Runs entirely on OpenClaw native tools
-- ✅ **User control** — 3 explicit checkpoints for approval
-- ✅ **Academic rigor** — APA citations, evidence hierarchy, confidence levels
-- ✅ **Works offline** — No API keys, no cloud services
+-  **Full methodology visible** — Every step documented, reproducible
+-  **No external dependencies** — Runs entirely on OpenClaw native tools
+-  **User control** — 3 explicit checkpoints for approval
+-  **Academic rigor** — APA citations, evidence hierarchy, confidence levels
+-  **Works offline** — No API keys, no cloud services
 
 ## Comparison with Cloud-Based Research Tools
 
@@ -19,12 +19,12 @@ Most "deep research" tools are wrappers around external APIs. You send a query, 
 |---------|------------|-------------------|
 | Methodology | Fully documented | Black box |
 | Dependencies | None | External API + key |
-| Offline | ✅ Yes | ❌ No |
+| Offline |  Yes |  No |
 | User Checkpoints | 3 approval points | Usually none |
 | Citation Format | APA 7th edition | Varies/unspecified |
 | Evidence Hierarchy | Explicit (meta-analyses → opinion) | Unspecified |
 | Output Control | Strict prose, no bullet points | Varies |
-| Reproducibility | ✅ Same inputs = same process | ❓ Unknown |
+| Reproducibility |  Same inputs = same process |  Unknown |
 
 ## Core Features
 

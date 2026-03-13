@@ -66,8 +66,8 @@ Keep context clean:
 - Reference docs/files instead of pasting content
 
 ```
-❌ "First, let me explain how our API works..."
-✅ "Check src/api/README.md, then add new endpoint"
+ "First, let me explain how our API works..."
+ "Check src/api/README.md, then add new endpoint"
 ```
 
 ## AGENTS.md / CLAUDE.md

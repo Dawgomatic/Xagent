@@ -78,7 +78,7 @@ Nova Act is a browser automation tool, not a reasoning engine. The agent handles
 
 ### `enhanced_report_generator.py` (+278 lines)
 - Added `goal_achieved` field support
-- Added "⏳ PENDING" status for un-interpreted tests
+- Added " PENDING" status for un-interpreted tests
 - Added "Awaiting agent interpretation" step warnings
 - Fixed recording numbering: globally sequential (not per-test)
 - Dynamic site category detection (sports, ecommerce, news, etc.)
@@ -134,9 +134,9 @@ Nova Act is a browser automation tool, not a reasoning engine. The agent handles
 
 | Status | Meaning |
 |--------|---------|
-| ✅ PASSED | Agent interpreted, goals achieved |
-| ❌ FAILED | Agent interpreted, goals not achieved |
-| ⏳ PENDING | Awaiting agent interpretation |
+|  PASSED | Agent interpreted, goals achieved |
+|  FAILED | Agent interpreted, goals not achieved |
+|  PENDING | Awaiting agent interpretation |
 
 ---
 

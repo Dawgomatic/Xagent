@@ -7,7 +7,7 @@ compatibility: Python 3.10+, OpenRouter API key
 metadata: {"openclaw": {"emoji": "\ud83d\udd2c", "requires": {"env": ["OPENROUTER_API_KEY"]}, "primaryEnv": "OPENROUTER_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# Model Audit 📊
+# Model Audit 
 
 **Audit your LLM stack against current pricing and alternatives.**
 
@@ -52,9 +52,9 @@ Your Models:
   google/gemini-2.0-flash     $0.10/$0.40 per 1M tokens
 
 Recommendations:
-  💡 For fast tasks: gemini-2.0-flash is 50x cheaper than opus
-  💡 Consider: deepseek/deepseek-r1 for reasoning at $0.55/$2.19
-  💡 Your stack covers: reasoning ✓, code ✓, fast ✓, vision ✓
+   For fast tasks: gemini-2.0-flash is 50x cheaper than opus
+   Consider: deepseek/deepseek-r1 for reasoning at $0.55/$2.19
+   Your stack covers: reasoning ✓, code ✓, fast ✓, vision ✓
 ```
 
 ## Environment
@@ -66,4 +66,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

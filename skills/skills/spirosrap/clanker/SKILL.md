@@ -1,7 +1,7 @@
 ---
 name: clanker
 description: Deploy ERC20 tokens on Base using Clanker SDK. Create tokens with built-in Uniswap V4 liquidity pools. Supports Base mainnet and Sepolia testnet. Requires PRIVATE_KEY in config.
-metadata: {"clawdbot":{"emoji":"🪙","homepage":"https://clanker.world","requires":{"bins":["curl","jq","python3"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://clanker.world","requires":{"bins":["curl","jq","python3"]}}}
 ---
 
 # Clanker Skill
@@ -214,21 +214,21 @@ Or with initial liquidity:
 
 ## Test Results
 
-### Read-Only Operations ✅
+### Read-Only Operations 
 
 | Command | Network | Result |
 |---------|---------|--------|
-| `info` (WETH) | mainnet | ✅ Works - Shows correct name, symbol, supply |
-| `get-token` | mainnet | ✅ Works - Returns deployer stats |
-| `status` | mainnet | ✅ Works - Handles pending/not found tx |
+| `info` (WETH) | mainnet |  Works - Shows correct name, symbol, supply |
+| `get-token` | mainnet |  Works - Returns deployer stats |
+| `status` | mainnet |  Works - Handles pending/not found tx |
 
-### Deployment ⚠️
+### Deployment 
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Python deployment helper | ⚠️ Placeholder | Requires Clanker factory address |
-| Web-based deployment | ✅ Recommended | Use https://clanker.world |
-| Direct contract call | 🔲 Not implemented | Would need factory ABI |
+| Python deployment helper |  Placeholder | Requires Clanker factory address |
+| Web-based deployment |  Recommended | Use https://clanker.world |
+| Direct contract call |  Not implemented | Would need factory ABI |
 
 **Note:** Full deployment requires the actual Clanker factory contract address on Base Sepolia. The protocol is relatively new, and contract addresses may change. For production deployment, check the official documentation.
 

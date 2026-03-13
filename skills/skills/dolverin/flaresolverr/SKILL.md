@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🛡️",
+        "emoji": "",
         "requires": { "bins": ["curl", "jq"], "env": ["FLARESOLVERR_URL"] },
         "primaryEnv": "FLARESOLVERR_URL",
       },

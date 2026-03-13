@@ -206,9 +206,9 @@ if __name__ == "__main__":
     
     result = bfs_search(args.query, args.root)
     
-    print(f"\n📁 Root: {result['root'] or 'All'}")
-    print(f"🔗 Matched Paths: {', '.join(result['matched_paths'][:5])}")
-    print(f"📊 Found: {result['count']} memories\n")
+    print(f"\n Root: {result['root'] or 'All'}")
+    print(f" Matched Paths: {', '.join(result['matched_paths'][:5])}")
+    print(f" Found: {result['count']} memories\n")
     
     if args.verbose:
         for i, r in enumerate(result['results'][:5], 1):

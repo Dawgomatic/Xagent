@@ -81,19 +81,19 @@ def list_picks(agent_id: str = None, status: str = None, sport: str = None, limi
         lost = [p for p in picks if p.get("status") == "lost"]
         
         if live:
-            print("🔴 LIVE:")
+            print(" LIVE:")
             for pick in live:
                 print_pick(pick)
             print()
         
         if pending:
-            print("⏳ PENDING:")
+            print(" PENDING:")
             for pick in pending:
                 print_pick(pick)
             print()
         
         if won:
-            print("✅ WON:")
+            print(" WON:")
             for pick in won[:5]:  # Show last 5
                 print_pick(pick)
             if len(won) > 5:
@@ -101,7 +101,7 @@ def list_picks(agent_id: str = None, status: str = None, sport: str = None, limi
             print()
         
         if lost:
-            print("❌ LOST:")
+            print(" LOST:")
             for pick in lost[:5]:  # Show last 5
                 print_pick(pick)
             if len(lost) > 5:
@@ -124,12 +124,12 @@ def print_pick(pick: dict):
     amount = pick.get("amount", 100)
     
     sport_emoji = {
-        "CBB": "🏀",
-        "NBA": "🏀",
-        "NHL": "🏒",
-        "SOCCER": "⚽",
-        "NFL": "🏈"
-    }.get(sport.upper() if sport else "", "🎯")
+        "CBB": "",
+        "NBA": "",
+        "NHL": "",
+        "SOCCER": "",
+        "NFL": ""
+    }.get(sport.upper() if sport else "", "")
     
     print(f"  {sport_emoji} {game}")
     print(f"     Pick: {pick_str} ({odds}) - ${amount}")

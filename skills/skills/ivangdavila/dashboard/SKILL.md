@@ -4,7 +4,7 @@ slug: dashboard
 version: 1.0.1
 description: Build custom dashboards from any data source with local hosting and visual QA loops.
 changelog: User-driven data source model, explicit credential handling
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -23,9 +23,9 @@ Create on first use: `mkdir -p ~/dashboard`
 ## Scope
 
 This skill:
-- ✅ Generates static HTML dashboards
-- ✅ Creates fetch scripts user can run
-- ✅ Stores dashboards in ~/dashboard/
+-  Generates static HTML dashboards
+-  Creates fetch scripts user can run
+-  Stores dashboards in ~/dashboard/
 
 **User-driven model:**
 - User specifies data sources
@@ -34,9 +34,9 @@ This skill:
 - Skill generates HTML and fetch scripts
 
 This skill does NOT:
-- ❌ Access credentials without user providing them
-- ❌ Run automated fetches (user's cron runs scripts)
-- ❌ Scrape services without user consent
+-  Access credentials without user providing them
+-  Run automated fetches (user's cron runs scripts)
+-  Scrape services without user consent
 
 ## Quick Reference
 

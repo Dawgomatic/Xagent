@@ -27,14 +27,14 @@ if [[ "$SECTION" == "all" || "$SECTION" == "outdated" ]]; then
     brew outdated --json 2>/dev/null || echo '[]'
     echo '}'
   else
-    echo "📦 OUTDATED PACKAGES"
+    echo " OUTDATED PACKAGES"
     echo "===================="
     OUTDATED=$(brew outdated --verbose 2>/dev/null)
     if [[ -z "$OUTDATED" ]]; then
-      echo "  ✅ All packages up to date"
+      echo "   All packages up to date"
     else
       echo "$OUTDATED" | while read -r line; do
-        echo "  ⚠️  $line"
+        echo "    $line"
       done
       echo ""
       COUNT=$(echo "$OUTDATED" | wc -l | tr -d ' ')
@@ -47,15 +47,15 @@ fi
 # Cleanup opportunities
 if [[ "$SECTION" == "all" || "$SECTION" == "cleanup" ]]; then
   if ! $JSON; then
-    echo "🧹 CLEANUP OPPORTUNITIES"
+    echo " CLEANUP OPPORTUNITIES"
     echo "========================"
     CLEANUP=$(brew cleanup --dry-run 2>/dev/null)
     if [[ -z "$CLEANUP" ]]; then
-      echo "  ✅ Nothing to clean"
+      echo "   Nothing to clean"
     else
       BYTES=$(brew cleanup --dry-run 2>/dev/null | tail -1 | grep -o '[0-9.]*[KMGT]*B' || echo "unknown")
       COUNT=$(echo "$CLEANUP" | grep -c "Would remove" || echo "0")
-      echo "  🗑️  $COUNT items removable (~$BYTES)"
+      echo "    $COUNT items removable (~$BYTES)"
       echo "  Run: brew cleanup"
     fi
     echo ""
@@ -65,14 +65,14 @@ fi
 # Doctor check
 if [[ "$SECTION" == "all" || "$SECTION" == "doctor" ]]; then
   if ! $JSON; then
-    echo "🩺 HEALTH CHECK"
+    echo " HEALTH CHECK"
     echo "==============="
     DOCTOR=$(brew doctor 2>&1 || true)
     if echo "$DOCTOR" | grep -q "ready to brew"; then
-      echo "  ✅ Your system is ready to brew"
+      echo "   Your system is ready to brew"
     else
       echo "$DOCTOR" | head -20 | while read -r line; do
-        echo "  ⚠️  $line"
+        echo "    $line"
       done
     fi
     echo ""
@@ -83,7 +83,7 @@ fi
 if ! $JSON && [[ "$SECTION" == "all" ]]; then
   TOTAL=$(brew list --formula | wc -l | tr -d ' ')
   CASKS=$(brew list --cask | wc -l | tr -d ' ')
-  echo "📊 SUMMARY"
+  echo " SUMMARY"
   echo "=========="
   echo "  Formulae: $TOTAL"
   echo "  Casks: $CASKS"

@@ -1,4 +1,4 @@
-# 🎯 Customer Support Command Center — by AfrexAI
+#  Customer Support Command Center — by AfrexAI
 
 Turn your AI agent into a full support operations lead. Not just polite replies — real ticket triage, escalation workflows, CSAT tracking, churn prevention, and knowledge base management.
 
@@ -34,7 +34,7 @@ Most support skills give you "be empathetic" advice. This gives you:
 - **Ticket routing YAML** you can adapt to your actual team structure
 - **Real templates** — not "write something nice," but actual copy you customize
 
-## ⚡ Level Up — Full Industry Context
+##  Level Up — Full Industry Context
 
 This skill handles universal support operations. Want support frameworks tailored to your industry?
 
@@ -45,12 +45,12 @@ This skill handles universal support operations. Want support frameworks tailore
 - Competitive landscape for smart responses
 
 Best matches:
-- 🚀 **SaaS Context Pack** — PLG support, trial conversion, feature-gating
-- 💼 **Professional Services Pack** — client management, SOW disputes
-- 🏥 **Healthcare Pack** — HIPAA-compliant support workflows
-- ⚖️ **Legal Pack** — client confidentiality, matter-based support
+-  **SaaS Context Pack** — PLG support, trial conversion, feature-gating
+-  **Professional Services Pack** — client management, SOW disputes
+-  **Healthcare Pack** — HIPAA-compliant support workflows
+-  **Legal Pack** — client confidentiality, matter-based support
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — ICP-driven prospecting with 100-point scoring
 - [afrexai-seo-content-engine](https://clawhub.com/skills/afrexai-seo-content-engine) — Keyword research to published article

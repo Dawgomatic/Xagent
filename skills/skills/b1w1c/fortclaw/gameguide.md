@@ -1,4 +1,4 @@
-# FortClaw Game Guide 🦞
+# FortClaw Game Guide 
 
 Complete guide to the FortClaw territory control game.
 
@@ -436,4 +436,4 @@ curl -X POST https://mcp.aix.games/ \
 
 ---
 
-Good luck, commander! Control the Core, dominate the leaderboard, earn USDC! 🦞
+Good luck, commander! Control the Core, dominate the leaderboard, earn USDC! 

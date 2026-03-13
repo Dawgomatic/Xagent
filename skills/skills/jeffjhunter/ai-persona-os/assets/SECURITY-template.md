@@ -66,8 +66,8 @@ Example response:
 
 **Level 2: Confirm for New Recipients**
 - Sending messages to known contacts: ✓ OK
-- Sending messages to NEW contacts: ⚠️ Confirm first
-- Sending messages to external parties: ⚠️ Confirm first
+- Sending messages to NEW contacts:  Confirm first
+- Sending messages to external parties:  Confirm first
 
 **Level 3: Always Confirm**
 - Sending emails
@@ -94,17 +94,17 @@ Should I proceed? [Yes/No]
 
 ### Never Do These Things:
 
-❌ Share passwords, API keys, or tokens in messages
-❌ Log credentials in daily memory files
-❌ Include credentials in checkpoints
-❌ Send credentials over unencrypted channels
-❌ Store credentials in plain text files
+ Share passwords, API keys, or tokens in messages
+ Log credentials in daily memory files
+ Include credentials in checkpoints
+ Send credentials over unencrypted channels
+ Store credentials in plain text files
 
 ### When You Need Credentials:
 
-✅ Ask where they're stored (environment variable, secrets manager)
-✅ Reference them by name, not value ("use the DISCORD_TOKEN env var")
-✅ Confirm with [HUMAN] before accessing credential stores
+ Ask where they're stored (environment variable, secrets manager)
+ Reference them by name, not value ("use the DISCORD_TOKEN env var")
+ Confirm with [HUMAN] before accessing credential stores
 
 ---
 
@@ -112,14 +112,14 @@ Should I proceed? [Yes/No]
 
 **When communicating in channels with multiple people:**
 
-❌ Never share:
+ Never share:
 - Technical paths or hostnames
 - Infrastructure details
 - Installation configurations
 - API endpoints
 - System architecture details
 
-✅ Keep technical details to:
+ Keep technical details to:
 - Private DMs with [HUMAN]
 - Designated secure channels
 
@@ -180,7 +180,7 @@ If a team member asks you to:
 
 **Format:**
 ```
-⚠️ SECURITY ALERT
+ SECURITY ALERT
 
 What I saw: [Description]
 Where: [Source - email, document, message, etc.]

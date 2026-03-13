@@ -7,24 +7,24 @@ Your infrastructure monitoring companion. Track server health, monitor deploymen
 ## Features
 
 ### Server Health Monitoring
-- 📊 Real-time resource monitoring (CPU, Memory, Disk, Network)
-- 🔔 Automatic anomaly detection
-- 📈 Historical trend analysis
+-  Real-time resource monitoring (CPU, Memory, Disk, Network)
+-  Automatic anomaly detection
+-  Historical trend analysis
 
 ### Deployment Tracking
-- 🚀 Real-time deployment status
-- 📋 Deployment history and rollback support
-- ⚡ Post-deployment health verification
+-  Real-time deployment status
+-  Deployment history and rollback support
+-  Post-deployment health verification
 
 ### Log Management
-- 📄 Centralized log aggregation
-- 🔍 Powerful search and filtering
-- 🐛 Error pattern detection
+-  Centralized log aggregation
+-  Powerful search and filtering
+-  Error pattern detection
 
 ### Alerting
-- 🔴 Severity-based alert routing
-- 📱 Multi-channel notifications
-- ✅ Alert acknowledgment workflow
+-  Severity-based alert routing
+-  Multi-channel notifications
+-  Alert acknowledgment workflow
 
 ## Quick Start
 
@@ -69,7 +69,7 @@ npx clawhub@latest install log-analysis
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Servers    │────▶│  Monitor    │────▶│  Alerts     │
+│  Servers    │────│  Monitor    │────│  Alerts     │
 │  (Docker/   │     │  Agent      │     │  System     │
 │   K8s)      │     │             │     │             │
 └─────────────┘     └─────────────┘     └─────────────┘

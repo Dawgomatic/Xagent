@@ -176,33 +176,33 @@ def format_output(data, from_city=None, to_city=None, road_filter=None):
     """Format conditions for display"""
     
     if not data['success']:
-        return f"❌ Error: {data['error']}"
+        return f" Error: {data['error']}"
     
     conditions = data.get('filtered') or (data['closures'] + data['barriers'])
     
     if not conditions:
         if from_city and to_city:
-            return f"✅ No road closures reported between {from_city} and {to_city}."
+            return f" No road closures reported between {from_city} and {to_city}."
         elif road_filter:
-            return f"✅ No closures reported on {road_filter}."
+            return f" No closures reported on {road_filter}."
         else:
-            return "✅ No road closures or barriers currently reported in Norway."
+            return " No road closures or barriers currently reported in Norway."
     
     lines = []
     
     if from_city and to_city:
-        lines.append(f"🚧 {len(conditions)} closure(s)/barrier(s) on route {from_city} → {to_city}\n")
+        lines.append(f" {len(conditions)} closure(s)/barrier(s) on route {from_city} → {to_city}\n")
     elif road_filter:
-        lines.append(f"🚧 {len(conditions)} issue(s) matching '{road_filter}'\n")
+        lines.append(f" {len(conditions)} issue(s) matching '{road_filter}'\n")
     else:
-        lines.append(f"🚧 Road conditions in Norway\n")
+        lines.append(f" Road conditions in Norway\n")
         lines.append(f"   • {len(data['closures'])} scheduled closures")
         lines.append(f"   • {len(data['barriers'])} physical barriers\n")
     
     # Show closures
     closures_to_show = [c for c in conditions if c['type'] == 'closure'][:8]
     if closures_to_show:
-        lines.append("🔴 ROAD CLOSURES:")
+        lines.append(" ROAD CLOSURES:")
         for c in closures_to_show:
             county = c.get('county', 'Unknown')
             lines.append(f"  • {c['description']} [{county}]")
@@ -211,7 +211,7 @@ def format_output(data, from_city=None, to_city=None, road_filter=None):
     # Show barriers
     barriers_to_show = [c for c in conditions if c['type'] == 'barrier'][:3]
     if barriers_to_show:
-        lines.append("⚠️  PHYSICAL BARRIERS:")
+        lines.append("  PHYSICAL BARRIERS:")
         for b in barriers_to_show:
             county = b.get('county', 'Unknown')
             lines.append(f"  • {b['description']} [{county}]")

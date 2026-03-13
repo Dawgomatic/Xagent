@@ -39,7 +39,7 @@ def alice_handler(msg):
 print("Sending messages…")
 alice.send("bob",   text="Hello Bob!  This is an encrypted message.")
 bob.send("alice",  text="Hi Alice!   Got your message loud and clear.")
-alice.send("bob",   text="Great!  Nobody else can read this 😎")
+alice.send("bob",   text="Great!  Nobody else can read this ")
 bob.send("alice",  text="End-to-end encryption FTW!")
 
 print()

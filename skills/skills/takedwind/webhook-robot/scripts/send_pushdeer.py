@@ -22,9 +22,9 @@ def send_pushdeer_msg(key, content, title=None):
         req = urllib.request.Request(url, data=data)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ PushDeer Message sent. Response: {result}")
+            print(f" PushDeer Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send PushDeer message: {e}")
+        print(f" Failed to send PushDeer message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

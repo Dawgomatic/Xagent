@@ -39,21 +39,21 @@ Do a deep security review of src/auth/
 
 | Feature | Others | AfrexAI |
 |---------|--------|---------|
-| Scoring system | ❌ | ✅ SPEAR 0-100 |
+| Scoring system |  |  SPEAR 0-100 |
 | Language patterns | 2-3 | 5+ languages, 60+ patterns |
-| Security depth levels | ❌ | ✅ 4 levels |
-| Architecture review | ❌ | ✅ coupling, layers, complexity |
-| Business logic review | ❌ | ✅ spec matching, edge cases |
-| Operability review | ❌ | ✅ rollback, monitoring, flags |
-| No dependencies | ❌ (needs scripts) | ✅ pure agent skill |
+| Security depth levels |  |  4 levels |
+| Architecture review |  |  coupling, layers, complexity |
+| Business logic review |  |  spec matching, edge cases |
+| Operability review |  |  rollback, monitoring, flags |
+| No dependencies |  (needs scripts) |  pure agent skill |
 
-## ⚡ Level Up
+##  Level Up
 
 Want code review as part of a complete engineering workflow? Check out our **SaaS Context Pack** — includes code review, incident response, deployment checklists, and more.
 
-👉 [Browse Context Packs ($47)](https://afrexai-cto.github.io/context-packs/)
+ [Browse Context Packs ($47)](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skill/afrexai-lead-hunter) — ICP-driven lead generation
 - [afrexai-seo-content-engine](https://clawhub.com/skill/afrexai-seo-content-engine) — SEO content creation

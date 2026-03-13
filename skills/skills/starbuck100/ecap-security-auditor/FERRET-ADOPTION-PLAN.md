@@ -5,7 +5,7 @@
 
 ---
 
-## 🟢 Quick Wins (Prompt-Erweiterung, je 15-30min)
+##  Quick Wins (Prompt-Erweiterung, je 15-30min)
 
 ### QW-1: AI-Specific Attack Patterns (NEU — Kategorie `AI_ATTACK`)
 
@@ -14,7 +14,7 @@
 **Warum wichtig:** Das ist unser Kerngebiet. Ferret hat 17 dedizierte Rules, wir haben nur "SOCIAL_ENG" als Sammelkategorie.
 
 **Prompt-Formulierung:**
-> ### 🔴 AI-SPECIFIC ATTACKS (any severity up to CRITICAL)
+> ###  AI-SPECIFIC ATTACKS (any severity up to CRITICAL)
 >
 > Check all text content (SKILL.md, README, configs, comments in code) for:
 >
@@ -58,7 +58,7 @@
 **Warum wichtig:** Komplett fehlende Kategorie. Ein Skill der einen Git-Hook oder Crontab installiert kann sich nach Deinstallation halten.
 
 **Prompt-Formulierung (neue HIGH-Sektion):**
-> ### 🟠 PERSISTENCE — Mechanisms that survive beyond package execution
+> ###  PERSISTENCE — Mechanisms that survive beyond package execution
 >
 > - **Crontab modification**: Any `crontab -e`, `crontab -l | ... | crontab -`, or writes to `/var/spool/cron/`
 > - **Shell RC file modification**: Appending to or modifying `~/.bashrc`, `~/.zshrc`, `~/.profile`, `~/.bash_profile`, or `/etc/profile`
@@ -128,7 +128,7 @@
 
 ---
 
-## 🟡 Medium (1-2h Aufwand je)
+##  Medium (1-2h Aufwand je)
 
 ### M-1: Credential-Detection erweitern
 
@@ -214,7 +214,7 @@
 
 ---
 
-## 🔵 Nice-to-Have (>2h oder Architektur-Änderung)
+##  Nice-to-Have (>2h oder Architektur-Änderung)
 
 ### NH-1: Pre-Scan Regex-Schnellcheck
 
@@ -267,17 +267,17 @@
 
 | # | Item | Aufwand | Impact |
 |---|------|---------|--------|
-| 1 | QW-1: AI-Specific Attack Patterns | 30min | 🔴 Sehr hoch |
-| 2 | QW-2: Obfuscation konkretisieren | 15min | 🔴 Hoch |
-| 3 | QW-3: Persistence-Detection | 15min | 🟠 Hoch |
-| 4 | QW-4: Cross-File Correlation | 15min | 🟠 Hoch |
-| 5 | QW-6: Component-Type Weighting | 15min | 🟡 Mittel |
-| 6 | QW-5: False-Positive Guidance | 15min | 🟡 Mittel |
-| 7 | M-5: Permission-Detection Claude | 30min | 🟠 Hoch |
-| 8 | M-1: Credential-Detection | 30min | 🟡 Mittel |
-| 9 | M-3: Supply-Chain konkretisieren | 30min | 🟡 Mittel |
-| 10 | M-2: Exfiltration-Detection | 30min | 🟡 Mittel |
-| 11 | M-4: Backdoor-Detection | 30min | 🟡 Mittel |
+| 1 | QW-1: AI-Specific Attack Patterns | 30min |  Sehr hoch |
+| 2 | QW-2: Obfuscation konkretisieren | 15min |  Hoch |
+| 3 | QW-3: Persistence-Detection | 15min |  Hoch |
+| 4 | QW-4: Cross-File Correlation | 15min |  Hoch |
+| 5 | QW-6: Component-Type Weighting | 15min |  Mittel |
+| 6 | QW-5: False-Positive Guidance | 15min |  Mittel |
+| 7 | M-5: Permission-Detection Claude | 30min |  Hoch |
+| 8 | M-1: Credential-Detection | 30min |  Mittel |
+| 9 | M-3: Supply-Chain konkretisieren | 30min |  Mittel |
+| 10 | M-2: Exfiltration-Detection | 30min |  Mittel |
+| 11 | M-4: Backdoor-Detection | 30min |  Mittel |
 
 **Gesamt Quick Wins:** ~2h → deckt die 6 größten Gaps ab
 **Gesamt Medium:** ~2.5h → rundet die Abdeckung ab

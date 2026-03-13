@@ -1,4 +1,4 @@
-# moltbot-ha 🏠
+# moltbot-ha 
 
 **Home Assistant control CLI for Moltbot agents and humans.**
 
@@ -9,18 +9,18 @@ Control your smart home via Home Assistant REST API with powerful safety feature
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🎮 **Full Control**: Lights, switches, covers, scenes, climate, and all Home Assistant domains
-- 🛡️ **Safety First**: 3-level safety system with confirmations for critical actions (locks, alarms, garage doors)
-- 🤖 **Agent-Friendly**: Designed for AI agents with clear error messages and confirmation workflows
-- ⚙️ **Configurable**: Flexible allowlist/blocklist, custom critical domains, logging
-- 🚀 **Fast**: Direct REST API calls with retry logic and connection pooling
-- 📊 **Output Formats**: Human-readable tables or JSON for programmatic use
+-  **Full Control**: Lights, switches, covers, scenes, climate, and all Home Assistant domains
+-  **Safety First**: 3-level safety system with confirmations for critical actions (locks, alarms, garage doors)
+-  **Agent-Friendly**: Designed for AI agents with clear error messages and confirmation workflows
+-  **Configurable**: Flexible allowlist/blocklist, custom critical domains, logging
+-  **Fast**: Direct REST API calls with retry logic and connection pooling
+-  **Output Formats**: Human-readable tables or JSON for programmatic use
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Via uv (recommended)
 ```bash
@@ -41,7 +41,7 @@ uv tool install .
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Initialize Configuration
 ```bash
@@ -88,7 +88,7 @@ moltbot-ha test
 
 ---
 
-## 📖 Usage
+##  Usage
 
 ### Discovery
 
@@ -133,7 +133,7 @@ moltbot-ha call script.turn_on --json '{"entity_id": "script.bedtime", "variable
 
 ---
 
-## 🛡️ Safety System
+##  Safety System
 
 moltbot-ha implements a **3-level safety system** to prevent accidental or dangerous actions.
 
@@ -141,10 +141,10 @@ moltbot-ha implements a **3-level safety system** to prevent accidental or dange
 
 | Level | Behavior |
 |-------|----------|
-| 0 | No safety checks (⚠️ dangerous!) |
+| 0 | No safety checks ( dangerous!) |
 | 1 | Log actions only, no confirmations |
 | 2 | Confirm all write operations |
-| 3 | Confirm critical operations only (🏅 **recommended**) |
+| 3 | Confirm critical operations only ( **recommended**) |
 
 ### Level 3 (Default): Critical Domains
 
@@ -162,7 +162,7 @@ $ moltbot-ha on cover.garage
 
 2. **Tool returns error:**
 ```
-⚠️  CRITICAL ACTION REQUIRES CONFIRMATION
+  CRITICAL ACTION REQUIRES CONFIRMATION
 
 Action: turn_on on cover.garage
 
@@ -208,7 +208,7 @@ allowed_entities = [
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Full configuration file (`~/.config/moltbot-ha/config.toml`):
 
@@ -250,12 +250,12 @@ level = "INFO"
 Environment variables override config file settings:
 
 - `HA_URL`: Home Assistant URL
-- `HA_TOKEN`: Long-lived access token (⭐ **recommended** for security)
+- `HA_TOKEN`: Long-lived access token ( **recommended** for security)
 - `HA_CTL_CONFIG`: Custom config file path
 
 ---
 
-## 🐳 Docker / Moltbot Integration
+##  Docker / Moltbot Integration
 
 If running inside Docker (e.g., Moltbot gateway):
 
@@ -291,7 +291,7 @@ HA_TOKEN=your_token_here
 
 ---
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Connection Refused
 
@@ -336,7 +336,7 @@ Entity not found: light.kitche
 
 **Symptom:**
 ```
-❌ Entity switch.main_breaker is BLOCKED in configuration
+ Entity switch.main_breaker is BLOCKED in configuration
 ```
 
 **Solution:**
@@ -346,7 +346,7 @@ Entity not found: light.kitche
 
 ---
 
-## 📝 Examples
+##  Examples
 
 ### Morning Routine Script
 ```bash
@@ -386,7 +386,7 @@ moltbot-ha call climate.set_temperature entity_id=climate.bedroom temperature=18
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 
@@ -398,13 +398,13 @@ Contributions welcome! Please:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Home Assistant](https://www.home-assistant.io/) for the amazing smart home platform
 - [Moltbot](https://molt.bot/) for agent infrastructure
@@ -413,7 +413,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🔗 Links
+##  Links
 
 - [Home Assistant REST API Docs](https://developers.home-assistant.io/docs/api/rest/)
 - [Moltbot Documentation](https://docs.molt.bot/)
@@ -421,4 +421,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**Made with ❤️ for smart homes and AI agents**
+**Made with  for smart homes and AI agents**

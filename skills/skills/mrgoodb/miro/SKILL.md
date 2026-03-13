@@ -1,7 +1,7 @@
 ---
 name: miro
 description: Manage Miro boards, sticky notes, and shapes via Miro API. Create collaborative whiteboards programmatically.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"env":["MIRO_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["MIRO_ACCESS_TOKEN"]}}}
 ---
 
 # Miro

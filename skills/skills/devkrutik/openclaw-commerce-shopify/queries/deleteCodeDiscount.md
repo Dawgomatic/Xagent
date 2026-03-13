@@ -93,7 +93,7 @@ When a user requests to delete code discounts or manage code discount data remov
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes discount with excessive return fields
+   #  HIGH COST - Deletes discount with excessive return fields
    mutation discountCodeDelete($input: DiscountCodeDeleteInput!) {
      discountCodeDelete(input: $input) {
        deletedDiscountId
@@ -102,7 +102,7 @@ When a user requests to delete code discounts or manage code discount data remov
      }
    }
    
-   # ✅ LOW COST - Deletes discount with essential fields only
+   #  LOW COST - Deletes discount with essential fields only
    mutation discountCodeDelete($input: DiscountCodeDeleteInput!) {
      discountCodeDelete(input: $input) {
        deletedDiscountId
@@ -206,7 +206,7 @@ When generating a code discount delete mutation for the user:
 ```
 I'll help you delete a discount code from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the discount code and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the discount code and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

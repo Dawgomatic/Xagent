@@ -140,7 +140,7 @@ function formatToolResult(result: CallToolResult): void {
     } else if (item.type === "resource" && "resource" in item) {
       const resource = item.resource as { _meta?: { name?: string }; text?: string };
       if (resource._meta?.name === "authorization_url") {
-        console.log("\n⚠️  AUTHORIZATION REQUIRED");
+        console.log("\n  AUTHORIZATION REQUIRED");
         console.log(`\nPlease visit this URL to authorize:\n${resource.text}\n`);
       } else if (resource._meta?.name === "continue_job_id") {
         console.log(`\nAfter authorizing, run:`);

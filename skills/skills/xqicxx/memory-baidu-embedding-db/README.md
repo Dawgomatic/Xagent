@@ -4,18 +4,18 @@
 
 A semantic memory system for Clawdbot that uses Baidu's Embedding-V1 model to store and retrieve memories based on meaning rather than keywords. Designed as a secure, locally-stored replacement for traditional vector databases like LanceDB.
 
-## 🚀 Features
+##  Features
 
-✅ **Semantic Memory Search** - Find memories based on meaning, not just keywords  
-✅ **Baidu Embedding Integration** - Uses Baidu's powerful Embedding-V1 model  
-✅ **SQLite Persistence** - Local, secure storage without external dependencies  
-✅ **Zero Data Leakage** - All processing happens locally with your API credentials  
-✅ **Flexible Tagging System** - Organize memories with custom tags and metadata  
-✅ **High Performance** - Optimized vector similarity calculations  
-✅ **Easy Migration** - Drop-in replacement for memory-lancedb systems
-✅ **Robust Error Handling** - Comprehensive error handling with user-friendly messages  
+ **Semantic Memory Search** - Find memories based on meaning, not just keywords  
+ **Baidu Embedding Integration** - Uses Baidu's powerful Embedding-V1 model  
+ **SQLite Persistence** - Local, secure storage without external dependencies  
+ **Zero Data Leakage** - All processing happens locally with your API credentials  
+ **Flexible Tagging System** - Organize memories with custom tags and metadata  
+ **High Performance** - Optimized vector similarity calculations  
+ **Easy Migration** - Drop-in replacement for memory-lancedb systems
+ **Robust Error Handling** - Comprehensive error handling with user-friendly messages  
 
-## 🔧 Why Choose This Over Traditional Memory Systems?
+##  Why Choose This Over Traditional Memory Systems?
 
 ### Traditional Keyword-Based Systems:
 - Only match exact words or phrases
@@ -29,13 +29,13 @@ A semantic memory system for Clawdbot that uses Baidu's Embedding-V1 model to st
 - Works with natural language queries
 - Learns semantic relationships
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Clawdbot installation
 - Baidu Qianfan API credentials (API Key and Secret Key)
 - Python 3.8+
 
-## 🛠️ Installation
+##  Installation
 
 ### Method 1: Manual Installation
 
@@ -56,7 +56,7 @@ cd ~/clawd/skills  # or your workspace directory
 clawdhub install memory-baidu-embedding-db
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### 1. Get Baidu Qianfan API Credentials
 
@@ -78,7 +78,7 @@ export BAIDU_API_STRING='${BAIDU_API_STRING}'
 export BAIDU_SECRET_KEY='${BAIDU_SECRET_KEY}'
 ```
 
-## 🚀 Usage
+##  Usage
 
 ### Basic Usage
 
@@ -165,21 +165,21 @@ app.on('message', async (msg) => {
 });
 ```
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 - **Vector Dimension**: 384 (Baidu Embedding-V1 output)
 - **Storage**: SQLite database (~1MB per 1000 memories)
 - **Search Speed**: ~50ms for 1000 memories (on typical hardware)
 - **API Latency**: Depends on Baidu API response time (typically <500ms)
 
-## 🔐 Security Features
+##  Security Features
 
 - **Local Storage**: All memories stored in local SQLite database
 - **Encrypted API Keys**: Credentials stored securely in environment variables
 - **No External Sharing**: Memories never leave your system
 - **Selective Access**: Granular control over what gets stored
 
-## 🔄 Migration Guide
+##  Migration Guide
 
 ### From memory-lancedb to memory-baidu-embedding-db:
 
@@ -221,7 +221,7 @@ if __name__ == "__main__":
     migrate_from_old_system()
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run the built-in tests to verify functionality:
 
@@ -237,7 +237,7 @@ This will run a complete demonstration of all features including:
 - Similarity calculations
 - Statistics reporting
 
-## 🛡️ Error Handling and Robustness
+##  Error Handling and Robustness
 
 Our system includes comprehensive error handling to prevent crashes and provide helpful feedback:
 
@@ -257,7 +257,7 @@ All errors provide clear, actionable feedback:
 
 Example error message:
 ```
-❌ 错误: 缺少必要的API凭据!
+ 错误: 缺少必要的API凭据!
    请设置以下环境变量:
    export BAIDU_API_STRING='your_bce_v3_api_string'
    export BAIDU_SECRET_KEY='${BAIDU_SECRET_KEY}'
@@ -269,7 +269,7 @@ Example error message:
 - No unexpected program termination
 - Graceful degradation of functionality
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Here are some ways you can help:
 
@@ -293,11 +293,11 @@ pip install -r requirements.txt  # if exists
 python3 memory_baidu_embedding_db.py
 ```
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🆘 Support
+##  Support
 
 If you encounter issues:
 
@@ -308,7 +308,7 @@ If you encounter issues:
 
 For additional support, please open an issue in the repository or contact the maintainers.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Thanks to Baidu for providing the Embedding-V1 model
 - Inspired by modern vector database implementations

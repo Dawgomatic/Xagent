@@ -11,7 +11,7 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const MODEL = 'anthropic/claude-sonnet-4';
 
 if (!OPENROUTER_API_KEY) {
-  console.error('❌ Set OPENROUTER_API_KEY environment variable');
+  console.error(' Set OPENROUTER_API_KEY environment variable');
   process.exit(1);
 }
 
@@ -123,7 +123,7 @@ async function callLLM(prompt) {
 
 // ============== MAIN TEST ==============
 async function runTest() {
-  console.log('🧪 AAP v2.0 - Real LLM Batch Test\n');
+  console.log(' AAP v2.0 - Real LLM Batch Test\n');
   console.log(`Model: ${MODEL}`);
   console.log('='.repeat(60));
 
@@ -145,7 +145,7 @@ async function runTest() {
   const validators = [];
   const expectedAnswers = [];
 
-  console.log('📋 Generating Batch Challenges...\n');
+  console.log(' Generating Batch Challenges...\n');
 
   for (let i = 0; i < 3; i++) {
     const offsetNonce = nonce.slice(i * 2) + nonce.slice(0, i * 2);
@@ -169,7 +169,7 @@ async function runTest() {
   batchPrompt += `\nRespond with ONLY a JSON array like: [{"result": ...}, {"items": [...]}, {"answer": "..."}]\nNo other text, just the JSON array.`;
 
   console.log('='.repeat(60));
-  console.log('🤖 Calling LLM...\n');
+  console.log(' Calling LLM...\n');
 
   const startTime = Date.now();
   
@@ -184,18 +184,18 @@ async function runTest() {
     // Parse solutions
     const arrayMatch = llmResponse.match(/\[[\s\S]*\]/);
     if (!arrayMatch) {
-      console.log('❌ Failed to extract JSON array from response');
+      console.log(' Failed to extract JSON array from response');
       return;
     }
 
     const solutions = JSON.parse(arrayMatch[0]);
-    console.log('\n✅ Parsed Solutions:');
+    console.log('\n Parsed Solutions:');
     solutions.forEach((s, i) => {
       console.log(`  [${i}] ${JSON.stringify(s)}`);
     });
 
     // Validate each solution
-    console.log('\n📊 Validation Results:\n');
+    console.log('\n Validation Results:\n');
     let passed = 0;
 
     for (let i = 0; i < 3; i++) {
@@ -205,28 +205,28 @@ async function runTest() {
       console.log(`  [${i}] ${challenges[i].type}:`);
       console.log(`      Expected: ${JSON.stringify(expectedAnswers[i])}`);
       console.log(`      Got: ${JSON.stringify(solutions[i])}`);
-      console.log(`      ${valid ? '✅ PASS' : '❌ FAIL'}`);
+      console.log(`      ${valid ? ' PASS' : ' FAIL'}`);
       
       if (valid) passed++;
     }
 
     console.log('\n' + '='.repeat(60));
-    console.log(`\n📈 Results:`);
+    console.log(`\n Results:`);
     console.log(`   Passed: ${passed}/3`);
     console.log(`   Response Time: ${responseTimeMs}ms`);
     console.log(`   Time Limit: 12000ms`);
-    console.log(`   ${responseTimeMs < 12000 ? '✅ Within time limit' : '❌ Exceeded time limit'}`);
+    console.log(`   ${responseTimeMs < 12000 ? ' Within time limit' : ' Exceeded time limit'}`);
 
     // Final verdict
     const verified = passed === 3 && responseTimeMs < 12000;
-    console.log(`\n🎯 VERIFICATION: ${verified ? '✅ PASSED' : '❌ FAILED'}`);
+    console.log(`\n VERIFICATION: ${verified ? ' PASSED' : ' FAILED'}`);
 
     if (verified) {
-      console.log('\n🎉 This agent is verified as AI_AGENT!');
+      console.log('\n This agent is verified as AI_AGENT!');
     }
 
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
   }
 }
 

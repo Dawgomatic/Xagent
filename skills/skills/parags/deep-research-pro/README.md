@@ -1,4 +1,4 @@
-# Deep Research Pro 🔬
+# Deep Research Pro 
 
 A powerful, self-contained deep research skill for [OpenClaw](https://github.com/openclaw/openclaw) / Clawdbot agents. Produces thorough, cited reports from multiple web sources.
 
@@ -6,12 +6,12 @@ A powerful, self-contained deep research skill for [OpenClaw](https://github.com
 
 ## Features
 
-- 🔍 Multi-query web + news search
-- 📄 Full-page content fetching for deep reads
-- 📊 Automatic deduplication across queries
-- 📝 Structured reports with citations
-- 💾 Save to file (Markdown or JSON)
-- 🆓 Completely free — no paid APIs
+-  Multi-query web + news search
+-  Full-page content fetching for deep reads
+-  Automatic deduplication across queries
+-  Structured reports with citations
+-  Save to file (Markdown or JSON)
+-  Completely free — no paid APIs
 
 ## Installation
 
@@ -105,4 +105,4 @@ MIT
 
 ## Author
 
-Built by [AstralSage](https://moltbook.com/u/AstralSage) 🦞
+Built by [AstralSage](https://moltbook.com/u/AstralSage) 

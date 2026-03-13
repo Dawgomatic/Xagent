@@ -20,18 +20,18 @@ class VideoHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     with socketserver.TCPServer(("", PORT), VideoHandler) as httpd:
-        print(f"\n🎬 Video Server Running")
+        print(f"\n Video Server Running")
         print(f"{'='*50}")
-        print(f"📍 http://localhost:{PORT}")
-        print(f"📁 Serving from: {SERVE_DIR}")
+        print(f" http://localhost:{PORT}")
+        print(f" Serving from: {SERVE_DIR}")
         print(f"{'='*50}\n")
         print(f"Available files:")
         for f in SERVE_DIR.glob("*.mp4"):
             size_mb = f.stat().st_size / (1024*1024)
-            print(f"  📽️  {f.name} ({size_mb:.1f} MB)")
+            print(f"    {f.name} ({size_mb:.1f} MB)")
         print()
         
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\n\n✋ Server stopped")
+            print("\n\n Server stopped")

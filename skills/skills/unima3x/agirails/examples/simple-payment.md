@@ -27,9 +27,9 @@ console.log(`State: ${result.state}`);  // "COMMITTED"
 ```
 
 **What happened:**
-1. ✅ Transaction created (INITIATED)
-2. ✅ Escrow locked (COMMITTED)
-3. ⏳ Waiting for provider to complete work...
+1.  Transaction created (INITIATED)
+2.  Escrow locked (COMMITTED)
+3.  Waiting for provider to complete work...
 
 **What Basic API does NOT do:**
 - Does not wait for provider to finish

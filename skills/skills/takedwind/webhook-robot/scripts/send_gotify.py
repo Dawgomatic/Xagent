@@ -29,9 +29,9 @@ def send_gotify_msg(url, token, title, content, priority=5):
         req = urllib.request.Request(url, data=json.dumps(data).encode('utf-8'), headers=headers)
         with urllib.request.urlopen(req) as response:
             result = response.read().decode('utf-8')
-            print(f"✅ Gotify Message sent. Response: {result}")
+            print(f" Gotify Message sent. Response: {result}")
     except Exception as e:
-        print(f"❌ Failed to send Gotify message: {e}")
+        print(f" Failed to send Gotify message: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

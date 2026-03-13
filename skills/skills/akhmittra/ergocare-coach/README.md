@@ -1,4 +1,4 @@
-# 👁️ ErgoCare Coach
+#  ErgoCare Coach
 
 Your personal desk health coach with **automated break reminders** that actually work!
 
@@ -8,14 +8,14 @@ ErgoCare Coach is the most comprehensive desk health skill for OpenClaw. Unlike 
 
 ### Key Features
 
-- 👁️ **20-20-20 Rule Implementation** - Scientifically-proven eye care
-- 🔔 **Platform-Specific Scripts** - Bash (Linux/Mac) and PowerShell (Windows)
-- 🤸 **Comprehensive Exercise Library** - Eyes, neck, back, shoulders, wrists
-- ⏰ **Automated Notifications** - Desktop alerts, sounds, countdowns
-- 📋 **Customizable Schedules** - Light, moderate, heavy computer users
-- 🎯 **Smart Break Routines** - 30 seconds to 10 minutes
-- 🏢 **Ergonomic Workspace Guidance** - Proper setup prevents problems
-- 📊 **Break Logging** - Track your health habits (optional)
+-  **20-20-20 Rule Implementation** - Scientifically-proven eye care
+-  **Platform-Specific Scripts** - Bash (Linux/Mac) and PowerShell (Windows)
+-  **Comprehensive Exercise Library** - Eyes, neck, back, shoulders, wrists
+-  **Automated Notifications** - Desktop alerts, sounds, countdowns
+-  **Customizable Schedules** - Light, moderate, heavy computer users
+-  **Smart Break Routines** - 30 seconds to 10 minutes
+-  **Ergonomic Workspace Guidance** - Proper setup prevents problems
+-  **Break Logging** - Track your health habits (optional)
 
 ## Two Modes of Operation
 
@@ -40,7 +40,7 @@ AI: Here's what you need RIGHT NOW:
 Your eyes will feel better in 3 minutes!
 ```
 
-### Mode 2: Automated Reminder Scripts ⭐ **UNIQUE!**
+### Mode 2: Automated Reminder Scripts  **UNIQUE!**
 
 Get custom scripts that run in background and notify you automatically:
 
@@ -168,13 +168,13 @@ POMODORO INTEGRATION:
 | Feature | eyeCare Extension | ErgoCare Coach |
 |---------|------------------|----------------|
 | Platform | Browser only | System-wide |
-| Runs when browser closed? | ❌ No | ✅ Yes |
+| Runs when browser closed? |  No |  Yes |
 | Exercise instructions | Basic | Comprehensive |
-| Lower back exercises | ❌ No | ✅ Yes |
-| Wrist/RSI prevention | Limited | ✅ Yes |
-| Custom scripts | ❌ No | ✅ Yes |
-| Ergonomic guidance | ❌ No | ✅ Yes |
-| Multiple OS support | ❌ No | ✅ Yes |
+| Lower back exercises |  No |  Yes |
+| Wrist/RSI prevention | Limited |  Yes |
+| Custom scripts |  No |  Yes |
+| Ergonomic guidance |  No |  Yes |
+| Multiple OS support |  No |  Yes |
 
 ### Compared to Break Reminder Apps
 
@@ -183,9 +183,9 @@ POMODORO INTEGRATION:
 | Exercise database | Limited | 30+ exercises |
 | Medical accuracy | Basic | Research-based |
 | Customization | Moderate | Full |
-| Script generation | ❌ No | ✅ Yes |
+| Script generation |  No |  Yes |
 | Work integration | Basic | Advanced |
-| Learning mode | ❌ No | ✅ Yes |
+| Learning mode |  No |  Yes |
 
 ## Script Features in Detail
 
@@ -339,28 +339,28 @@ AI: Let's optimize your workspace! Answer these:
 ## Health Benefits (Scientifically Proven)
 
 ### Eye Health
-- 📉 Reduces digital eye strain by 50-70%
-- 📉 Prevents dry eyes (increases blink rate)
-- 📉 Reduces headache frequency by 60%
-- 🔬 Source: American Optometric Association
+-  Reduces digital eye strain by 50-70%
+-  Prevents dry eyes (increases blink rate)
+-  Reduces headache frequency by 60%
+-  Source: American Optometric Association
 
 ### Back & Spine Health
-- 📉 Reduces lower back pain by 35-60%
-- 📉 Improves spinal mobility
-- 📉 Prevents chronic issues
-- 🔬 Source: Journal of Occupational Health
+-  Reduces lower back pain by 35-60%
+-  Improves spinal mobility
+-  Prevents chronic issues
+-  Source: Journal of Occupational Health
 
 ### RSI Prevention
-- 📉 Reduces carpal tunnel risk by 40%
-- 📉 Prevents tendonitis and trigger finger
-- 📉 Maintains hand/wrist flexibility
-- 🔬 Source: Ergonomics International
+-  Reduces carpal tunnel risk by 40%
+-  Prevents tendonitis and trigger finger
+-  Maintains hand/wrist flexibility
+-  Source: Ergonomics International
 
 ### Productivity
-- 📈 Increases focus by 20-30%
-- 📈 Reduces fatigue by 40%
-- 📈 Improves work quality
-- 🔬 Source: Corporate Wellness Studies
+-  Increases focus by 20-30%
+-  Reduces fatigue by 40%
+-  Improves work quality
+-  Source: Corporate Wellness Studies
 
 ## Requirements
 
@@ -375,16 +375,16 @@ AI: Let's optimize your workspace! Answer these:
 ## Safety & Disclaimers
 
 ### ErgoCare Coach IS:
-✅ Preventive health guidance
-✅ Exercise instruction tool
-✅ Break scheduling assistant
-✅ Ergonomic education
+ Preventive health guidance
+ Exercise instruction tool
+ Break scheduling assistant
+ Ergonomic education
 
 ### ErgoCare Coach IS NOT:
-❌ Medical diagnosis tool
-❌ Treatment for existing injuries
-❌ Replacement for medical care
-❌ Physical therapy
+ Medical diagnosis tool
+ Treatment for existing injuries
+ Replacement for medical care
+ Physical therapy
 
 ### When to See a Doctor
 - Persistent pain (> 6 weeks)
@@ -480,9 +480,9 @@ Based on research from:
 
 **"Your health is your most valuable asset. Small breaks today prevent big problems tomorrow."**
 
-👁️ Take care of your eyes  
-🦴 Protect your spine  
-💪 Build sustainable habits  
-🔔 Let ErgoCare Coach remind you automatically!
+ Take care of your eyes  
+ Protect your spine  
+ Build sustainable habits  
+ Let ErgoCare Coach remind you automatically!
 
 **Ready to start? Install now and ask for your custom break script!**

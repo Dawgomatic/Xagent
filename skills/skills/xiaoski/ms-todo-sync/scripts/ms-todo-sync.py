@@ -180,7 +180,7 @@ class MicrosoftTodoClient:
             os.remove(self.cache_file)
             print("✓ Login information cleared")
         else:
-            print("⚠️  No cached login information found")
+            print("  No cached login information found")
 
     def is_authenticated(self) -> bool:
         """
@@ -201,7 +201,7 @@ class MicrosoftTodoClient:
         url = f"{self.graph_endpoint}{endpoint}"
 
         if self.debug:
-            print(f"\n🔍 [DEBUG] API Request:")
+            print(f"\n [DEBUG] API Request:")
             print(f"  Method: {method}")
             print(f"  URL: {url}")
             if data:
@@ -219,7 +219,7 @@ class MicrosoftTodoClient:
             raise ValueError(f"Unsupported HTTP method: {method}")
 
         if self.debug:
-            print(f"\n🔍 [DEBUG] API Response:")
+            print(f"\n [DEBUG] API Response:")
             print(f"  Status Code: {response.status_code}")
             print(f"  Headers: {dict(response.headers)}")
 
@@ -550,7 +550,7 @@ def _parse_recurrence(recurrence_str: str, start_date: datetime) -> Optional[Dic
         recurrence["pattern"]["type"] = "absoluteMonthly"
         recurrence["pattern"]["dayOfMonth"] = start_date.day
     else:
-        print(f"❌ Invalid recurrence pattern: {pattern_type}")
+        print(f" Invalid recurrence pattern: {pattern_type}")
         print("   Supported: daily, weekdays, weekly, monthly")
         print("   With interval: daily:2, weekly:3, monthly:2")
         return None
@@ -560,12 +560,12 @@ def _parse_recurrence(recurrence_str: str, start_date: datetime) -> Optional[Dic
 
 def _error_list_not_found(list_name: str):
     """Helper function to display list not found error"""
-    print(f"❌ List not found: {list_name}")
+    print(f" List not found: {list_name}")
 
 
 def _error_task_not_found(task_name: str):
     """Helper function to display task not found error"""
-    print(f"❌ Task not found: {task_name}")
+    print(f" Task not found: {task_name}")
 
 
 def _get_list_or_error(client, list_name: str) -> Optional[Dict[str, Any]]:
@@ -592,7 +592,7 @@ def cmd_lists(args, client):
         print("No task lists found")
         return
 
-    print(f"\n📋 Task Lists ({len(lists)} total):\n")
+    print(f"\n Task Lists ({len(lists)} total):\n")
     for i, lst in enumerate(lists, 1):
         print(f"{i}. {lst['displayName']}")
         if args.verbose:
@@ -613,16 +613,16 @@ def cmd_tasks(args, client):
         tasks = [t for t in tasks if t.get("status") != "completed"]
 
     if not tasks:
-        print(f'\n📋 No tasks in list "{args.list}"')
+        print(f'\n No tasks in list "{args.list}"')
         return
 
-    print(f'\n📋 Tasks in list "{args.list}" ({len(tasks)} total):\n')
+    print(f'\n Tasks in list "{args.list}" ({len(tasks)} total):\n')
 
     for i, task in enumerate(tasks, 1):
         title = task.get("title", "Untitled")
         status = "[Completed]" if task.get("status") == "completed" else "[In Progress]"
         priority = task.get("importance", "normal")
-        priority_icon = "⭐" if priority == "high" else ""
+        priority_icon = "" if priority == "high" else ""
 
         print(f"{i}. {status} {title} {priority_icon}")
 
@@ -649,7 +649,7 @@ def cmd_add(args, client):
         # No list specified, use default list
         task_list = client.get_default_list()
         if not task_list:
-            print("❌ No task lists found. Please create a list first.")
+            print(" No task lists found. Please create a list first.")
             return
 
     # Calculate due date (Microsoft To Do API only supports date, not time)
@@ -661,7 +661,7 @@ def cmd_add(args, client):
                 days = int(args.due[:-1])
                 due_datetime = datetime.now() + timedelta(days=days)
             except ValueError:
-                print(f"❌ Invalid format for due date days: {args.due}")
+                print(f" Invalid format for due date days: {args.due}")
                 return
         elif args.due.isdigit():
             # Plain number means days
@@ -672,7 +672,7 @@ def cmd_add(args, client):
             try:
                 due_datetime = datetime.fromisoformat(args.due)
             except ValueError:
-                print(f"❌ Invalid date format for due date: {args.due}")
+                print(f" Invalid date format for due date: {args.due}")
                 print("   Use YYYY-MM-DD, or relative format like '2d' or just '3'.")
                 return
         
@@ -688,14 +688,14 @@ def cmd_add(args, client):
                 hours = int(args.reminder[:-1])
                 reminder_datetime = datetime.now() + timedelta(hours=hours)
             except ValueError:
-                print(f"❌ Invalid format for reminder hours: {args.reminder}")
+                print(f" Invalid format for reminder hours: {args.reminder}")
                 return
         elif args.reminder.endswith("d"):
             try:
                 days = int(args.reminder[:-1])
                 reminder_datetime = datetime.now() + timedelta(days=days)
             except ValueError:
-                print(f"❌ Invalid format for reminder days: {args.reminder}")
+                print(f" Invalid format for reminder days: {args.reminder}")
                 return
         else:
             # Try to parse as datetime string
@@ -713,7 +713,7 @@ def cmd_add(args, client):
                         date_only = datetime.strptime(args.reminder, "%Y-%m-%d")
                         reminder_datetime = date_only.replace(hour=9, minute=0, second=0)
                     except ValueError:
-                        print(f"❌ Invalid datetime format for reminder: {args.reminder}")
+                        print(f" Invalid datetime format for reminder: {args.reminder}")
                         print("   Supported formats:")
                         print("   - Relative: '3h' (3 hours), '2d' (2 days)")
                         print("   - Date+Time: '2026-12-31 14:30' or '2026-12-31T14:30:00'")
@@ -758,7 +758,7 @@ def cmd_add(args, client):
 
     print(f"\n✓ Task added: {task['title']}")
     if recurrence:
-        print("  🔄 Recurring task created")
+        print("   Recurring task created")
     if args.verbose:
         print(f"  ID: {task['id']}")
         print(f"  Priority: {task['importance']}")
@@ -782,7 +782,7 @@ def cmd_complete(args, client):
         task_list = client.get_default_list()
     
     if not task_list:
-        print("❌ No task lists found")
+        print(" No task lists found")
         return
 
     task = _get_task_or_error(client, task_list["id"], args.title)
@@ -802,7 +802,7 @@ def cmd_delete(args, client):
         task_list = client.get_default_list()
     
     if not task_list:
-        print("❌ No task lists found")
+        print(" No task lists found")
         return
 
     task = _get_task_or_error(client, task_list["id"], args.title)
@@ -834,14 +834,14 @@ def cmd_search(args, client):
                 results.append((list_name, task))
 
     if not results:
-        print(f'\n🔍 No tasks found containing "{args.keyword}"')
+        print(f'\n No tasks found containing "{args.keyword}"')
         return
 
-    print(f"\n🔍 Search results ({len(results)} found):\n")
+    print(f"\n Search results ({len(results)} found):\n")
 
     for list_name, task in results:
         status = "[Completed]" if task.get("status") == "completed" else "[In Progress]"
-        priority = "⭐" if task.get("importance") == "high" else ""
+        priority = "" if task.get("importance") == "high" else ""
         print(f"{status} {task['title']} {priority}")
         print(f"   List: {list_name}")
         if args.verbose and task.get("body", {}).get("content"):
@@ -866,13 +866,13 @@ def cmd_today(args, client):
                     today_tasks.append((list_name, task))
 
     if not today_tasks:
-        print("\n📅 No tasks due today")
+        print("\n No tasks due today")
         return
 
-    print(f"\n📅 Tasks due today ({len(today_tasks)} total):\n")
+    print(f"\n Tasks due today ({len(today_tasks)} total):\n")
 
     for list_name, task in today_tasks:
-        priority = "⭐" if task.get("importance") == "high" else ""
+        priority = "" if task.get("importance") == "high" else ""
         print(f"[In Progress] {task['title']} {priority}")
         print(f"   List: {list_name}")
 
@@ -901,10 +901,10 @@ def cmd_overdue(args, client):
     # Sort by overdue days
     overdue_tasks.sort(key=lambda x: x[2], reverse=True)
 
-    print(f"\n⚠️  Overdue tasks ({len(overdue_tasks)} total):\n")
+    print(f"\n  Overdue tasks ({len(overdue_tasks)} total):\n")
 
     for list_name, task, days in overdue_tasks:
-        priority = "⭐" if task.get("importance") == "high" else ""
+        priority = "" if task.get("importance") == "high" else ""
         print(f"[In Progress] {task['title']} {priority}")
         print(f"   List: {list_name}")
         print(f"   Overdue: {days} days")
@@ -926,14 +926,14 @@ def cmd_pending(args, client):
 
     # Group by list display
     if args.group:
-        print(f"\n📋 All incomplete tasks ({len(pending_tasks)} total):\n")
+        print(f"\n All incomplete tasks ({len(pending_tasks)} total):\n")
         current_list = None
         for list_name, task in pending_tasks:
             if current_list != list_name:
                 current_list = list_name
-                print(f"\n📂 {list_name}:")
+                print(f"\n {list_name}:")
 
-            priority = "⭐" if task.get("importance") == "high" else ""
+            priority = "" if task.get("importance") == "high" else ""
             print(f"  [In Progress] {task['title']} {priority}")
 
             if args.verbose:
@@ -944,9 +944,9 @@ def cmd_pending(args, client):
                     print(f"      Notes: {task['body']['content'][:50]}...")
     else:
         # Flat display
-        print(f"\n📋 All incomplete tasks ({len(pending_tasks)} total):\n")
+        print(f"\n All incomplete tasks ({len(pending_tasks)} total):\n")
         for list_name, task in pending_tasks:
-            priority = "⭐" if task.get("importance") == "high" else ""
+            priority = "" if task.get("importance") == "high" else ""
             print(f"[In Progress] {task['title']} {priority}")
             print(f"   List: {list_name}")
             if args.verbose and task.get("dueDateTime"):
@@ -985,7 +985,7 @@ def cmd_stats(args, client):
                     if task_date < now:
                         overdue_count += 1
 
-    print("\n📊 Task Statistics:\n")
+    print("\n Task Statistics:\n")
     print(f"  Total lists: {total_lists}")
     print(f"  Total tasks: {total_tasks}")
     print(f"  Completed: {completed}")
@@ -1041,7 +1041,7 @@ def cmd_detail(args, client):
         task_list = client.get_default_list()
     
     if not task_list:
-        print("❌ No task lists found")
+        print(" No task lists found")
         return
 
     tasks = client.get_tasks(task_list["id"])
@@ -1057,57 +1057,57 @@ def cmd_detail(args, client):
         if pending:
             pending.sort(key=lambda x: x.get("lastModifiedDateTime", ""), reverse=True)
             task = pending[0]
-            print(f"ℹ️  Found {len(matched)} matching tasks ({len(pending)} incomplete), showing latest incomplete")
+            print(f"  Found {len(matched)} matching tasks ({len(pending)} incomplete), showing latest incomplete")
         else:
             matched.sort(key=lambda x: x.get("lastModifiedDateTime", ""), reverse=True)
             task = matched[0]
-            print(f"ℹ️  Found {len(matched)} matching tasks (all completed), showing latest completed")
+            print(f"  Found {len(matched)} matching tasks (all completed), showing latest completed")
     else:
         task = matched[0]
 
     # Display task details
     print("\n" + "=" * 60)
-    print("📌 Task Details")
+    print(" Task Details")
     print("=" * 60 + "\n")
 
     # Basic info
-    print(f"📋 Title: {task.get('title', 'Untitled')}")
+    print(f" Title: {task.get('title', 'Untitled')}")
     status = "[Completed]" if task.get("status") == "completed" else "[In Progress]"
-    print(f"🔖 Status: {status}")
+    print(f" Status: {status}")
 
     # Priority
     importance = task.get("importance", "normal")
-    importance_map = {"high": "⭐ High", "normal": "Normal", "low": "Low"}
-    print(f"⚡ Priority: {importance_map.get(importance, importance)}")
+    importance_map = {"high": " High", "normal": "Normal", "low": "Low"}
+    print(f" Priority: {importance_map.get(importance, importance)}")
 
     # Dates
     if task.get("createdDateTime"):
         created = task["createdDateTime"].replace("T", " ").replace("Z", "")
-        print(f"📅 Created: {created}")
+        print(f" Created: {created}")
 
     if task.get("lastModifiedDateTime"):
         modified = task["lastModifiedDateTime"].replace("T", " ").replace("Z", "")
-        print(f"📝 Modified: {modified}")
+        print(f" Modified: {modified}")
 
     if task.get("dueDateTime"):
         due = task["dueDateTime"]["dateTime"].replace("T", " ")
-        print(f"⏰ Due: {due}")
+        print(f" Due: {due}")
 
     if task.get("reminderDateTime"):
         reminder = task["reminderDateTime"]["dateTime"].replace("T", " ")
-        print(f"🔔 Reminder: {reminder}")
+        print(f" Reminder: {reminder}")
 
     if task.get("completedDateTime"):
         completed = task["completedDateTime"]["dateTime"].replace("T", " ")
-        print(f"✅ Completed: {completed}")
+        print(f" Completed: {completed}")
 
     # Notes
     if task.get("body", {}).get("content"):
-        print(f"\n📝 Notes:\n{task['body']['content']}")
+        print(f"\n Notes:\n{task['body']['content']}")
 
     # Categories
     if task.get("categories"):
-        print(f"\n🏷️  Categories: {', '.join(task['categories'])}")
+        print(f"\n  Categories: {', '.join(task['categories'])}")
 
     # Recurrence info
     if task.get("recurrence"):
@@ -1115,7 +1115,7 @@ def cmd_detail(args, client):
         pattern_type = pattern.get("type", "unknown")
         interval = pattern.get("interval", 1)
         
-        print(f"\n🔄 Recurrence:")
+        print(f"\n Recurrence:")
         if pattern_type == "daily":
             if interval == 1:
                 print("   Every day")
@@ -1146,7 +1146,7 @@ def cmd_detail(args, client):
     # Technical info
     if args.verbose:
         print("\n" + "─" * 60)
-        print("🔧 Technical Info")
+        print(" Technical Info")
         print("─" * 60)
         print(f"ID: {task.get('id', 'N/A')}")
         print(f"List ID: {task_list['id']}")
@@ -1289,7 +1289,7 @@ def main():
             elif args.login_action == "verify":
                 cmd_login_verify(args, client)
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             if args.verbose:
                 import traceback
 
@@ -1299,7 +1299,7 @@ def main():
 
     # Other commands need authentication
     if not client.authenticate():
-        print("\n❌ Not logged in")
+        print("\n Not logged in")
         print("\nPlease use the following commands to login:")
         print("  Step 1: Get authentication info")
         print("    ms-todo-sync.py login get")
@@ -1329,7 +1329,7 @@ def main():
         try:
             commands[args.command](args, client)
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             if args.verbose:
                 import traceback
 

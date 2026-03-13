@@ -78,12 +78,12 @@ Curate genuinely useful tools (not affiliate link dumps).
 
 **Don't create these.** They waste your time and bore your audience:
 
-❌ **"Grateful for the journey" posts** — Nobody cares. Show the work.
-❌ **Generic motivational quotes** — Add your take or skip it.
-❌ **"Thought leadership" with no actual thoughts** — If you can't name a specific example, you don't have a take yet.
-❌ **Engagement bait with no value** — "Agree?" posts are lazy. Earn the engagement.
-❌ **Content you "should" create but don't care about** — Your apathy will show.
-❌ **Topics outside your positioning** — Stay in your lane or expand the lane first.
+ **"Grateful for the journey" posts** — Nobody cares. Show the work.
+ **Generic motivational quotes** — Add your take or skip it.
+ **"Thought leadership" with no actual thoughts** — If you can't name a specific example, you don't have a take yet.
+ **Engagement bait with no value** — "Agree?" posts are lazy. Earn the engagement.
+ **Content you "should" create but don't care about** — Your apathy will show.
+ **Topics outside your positioning** — Stay in your lane or expand the lane first.
 
 **The test:** Would you read this if someone else posted it? No? Don't post it.
 

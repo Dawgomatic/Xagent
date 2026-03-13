@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SkillShield v4.0.0 — Ultimate Edition 🛡️
+"""SkillShield v4.0.0 — Ultimate Edition 
 Advanced security scanner for OpenClaw skills.
 Python 3 stdlib only. Single file. Zero dependencies.
 65+ security checks. SARIF v2.1.0 output. CI/CD ready."""
@@ -21,7 +21,7 @@ import platform
 # ── Version ──────────────────────────────────────────────────────────────────
 
 VERSION = "4.0.0"
-BANNER = f"SkillShield v{VERSION} — Ultimate Edition 🛡️"
+BANNER = f"SkillShield v{VERSION} — Ultimate Edition "
 
 # ── Colours ──────────────────────────────────────────────────────────────────
 
@@ -1793,24 +1793,24 @@ class SkillScanner:
         s = self.score()
         has_revshell = any('reverse shell' in f.desc.lower() for f in self.findings)
         if has_revshell:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         if self._has_sensitive_access and self._has_outbound:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         has_combo = any('COMBO' in f.desc or 'BEHAVIORAL' in f.desc for f in self.findings)
         if has_combo and s >= 30:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         if self.campaign_matches:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         # Check for C2 IPs or known malicious actors
         has_c2 = any('SS-045' == f.check_id for f in self.findings)
         has_actor = any('SS-062' == f.check_id for f in self.findings)
         if has_c2 or has_actor:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         if s >= 41:
-            return "🔴 MALICIOUS"
+            return " MALICIOUS"
         if s >= 16:
-            return "🟡 SUSPICIOUS"
-        return "🟢 CLEAN"
+            return " SUSPICIOUS"
+        return " CLEAN"
 
     def to_dict(self):
         return {
@@ -1848,7 +1848,7 @@ def print_result(scanner):
     if scanner.campaign_matches:
         for c in scanner.campaign_matches:
             camp_desc = CAMPAIGNS[c]["description"]
-            print(f"  {RED(f'⚡ CAMPAIGN MATCH: {c} — {camp_desc}')} ")
+            print(f"  {RED(f' CAMPAIGN MATCH: {c} — {camp_desc}')} ")
 
     if not scanner.findings:
         print(f"  {GREEN('No findings.')}")
@@ -1862,7 +1862,7 @@ def print_result(scanner):
             cid = f" [{f.check_id}]" if f.check_id else ""
             print(f"  {color(f'[{f.level:8s}]')}{DIM(cid)} {f.desc}{DIM(loc)}")
             if f.recommendation:
-                print(f"             💡 {DIM(f.recommendation)}")
+                print(f"              {DIM(f.recommendation)}")
 
     print(f"\n  Score: {BOLD(str(score))}/100 (higher = more dangerous)\n")
 
@@ -1876,14 +1876,14 @@ def print_summary_table(results):
         print(f"  {s.name:<30} {s.score():>5}  {s.reputation_grade:>5}  {s.risk_label()}")
     print(f"{'═' * 60}")
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious = sum(1 for s in results if '' in s.risk_label())
     print(f"  Total: {total} | {GREEN(f'Clean: {clean}')} | {YELLOW(f'Suspicious: {suspicious}')} | {RED(f'Malicious: {malicious}')}")
 
-    malicious_skills = [s for s in results if '🔴' in s.risk_label()]
+    malicious_skills = [s for s in results if '' in s.risk_label()]
     if malicious_skills:
-        print(f"\n  {RED('⚠️  MALICIOUS SKILLS DETECTED — consider quarantining:')}")
+        print(f"\n  {RED('  MALICIOUS SKILLS DETECTED — consider quarantining:')}")
         for s in malicious_skills:
             print(f"    {RED('→')} skillguard.py quarantine {s.name}")
     print()
@@ -1917,9 +1917,9 @@ def output_json(results):
         "skills": [s.to_dict() for s in results],
         "summary": {
             "total": len(results),
-            "clean": sum(1 for s in results if '🟢' in s.risk_label()),
-            "suspicious": sum(1 for s in results if '🟡' in s.risk_label()),
-            "malicious": sum(1 for s in results if '🔴' in s.risk_label()),
+            "clean": sum(1 for s in results if '' in s.risk_label()),
+            "suspicious": sum(1 for s in results if '' in s.risk_label()),
+            "malicious": sum(1 for s in results if '' in s.risk_label()),
         }
     }
     print(json.dumps(data, indent=2))
@@ -2074,7 +2074,7 @@ if [ -z "$CHANGED_SKILLS" ]; then
     exit 0
 fi
 
-echo "🛡️  SkillShield: Scanning changed skills..."
+echo "  SkillShield: Scanning changed skills..."
 
 EXIT_CODE=0
 for skill_dir in $CHANGED_SKILLS; do
@@ -2085,20 +2085,20 @@ for skill_dir in $CHANGED_SKILLS; do
 
         SKILL_NAME=$(basename "$skill_dir")
         if [ "$MALICIOUS" -gt 0 ]; then
-            echo "🔴 BLOCKED: $SKILL_NAME is MALICIOUS"
+            echo " BLOCKED: $SKILL_NAME is MALICIOUS"
             EXIT_CODE=2
         elif [ "$SUSPICIOUS" -gt 0 ]; then
-            echo "🟡 WARNING: $SKILL_NAME is SUSPICIOUS"
+            echo " WARNING: $SKILL_NAME is SUSPICIOUS"
             [ $EXIT_CODE -lt 1 ] && EXIT_CODE=1
         else
-            echo "🟢 CLEAN: $SKILL_NAME"
+            echo " CLEAN: $SKILL_NAME"
         fi
     fi
 done
 
 if [ $EXIT_CODE -eq 2 ]; then
     echo ""
-    echo "❌ Commit blocked — malicious skill detected!"
+    echo " Commit blocked — malicious skill detected!"
     echo "   Run: python3 skills/skill-guard/scripts/skillguard.py check <skill> for details"
     exit 2
 fi
@@ -2113,9 +2113,9 @@ exit 0
 def write_report(results, path):
     lines = [f"# SkillShield Security Report\n", f"**Version:** {VERSION}\n"]
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious = sum(1 for s in results if '' in s.risk_label())
     lines.append(f"\n## Summary\n")
     lines.append(f"- **Total skills:** {total}\n")
     lines.append(f"- **Clean:** {clean}\n")
@@ -2133,16 +2133,16 @@ def write_report(results, path):
                 cid = f" [{f.check_id}]" if f.check_id else ""
                 lines.append(f"- **[{f.level}]**{cid} {f.desc}{loc}\n")
                 if f.recommendation:
-                    lines.append(f"  - 💡 {f.recommendation}\n")
+                    lines.append(f"  -  {f.recommendation}\n")
     Path(path).write_text(''.join(lines))
     print(f"Report written to {path}")
 
 
 def write_html_report(results, path):
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious = sum(1 for s in results if '' in s.risk_label())
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
     def esc(t):
@@ -2151,7 +2151,7 @@ def write_html_report(results, path):
     skills_html = []
     for s in sorted(results, key=lambda x: x.score(), reverse=True):
         risk = s.risk_label()
-        risk_class = "malicious" if "🔴" in risk else "suspicious" if "🟡" in risk else "clean"
+        risk_class = "malicious" if "" in risk else "suspicious" if "" in risk else "clean"
         score_pct = min(s.score(), 100)
         score_color = "#ff4444" if score_pct >= 41 else "#ffaa00" if score_pct >= 16 else "#44ff44"
 
@@ -2161,7 +2161,7 @@ def write_html_report(results, path):
             for f in sorted_f:
                 level_class = f.level.lower()
                 loc = f" — {esc(f.file)}:{f.line}" if f.file else ""
-                rec = f'<div class="rec">💡 {esc(f.recommendation)}</div>' if f.recommendation else ""
+                rec = f'<div class="rec"> {esc(f.recommendation)}</div>' if f.recommendation else ""
                 campaign_tag = f' <span class="campaign-tag">{esc(f.campaign)}</span>' if f.campaign else ""
                 cid = f' <span class="check-id">[{f.check_id}]</span>' if f.check_id else ""
                 findings_html += f'<div class="finding {level_class}"><span class="level">[{f.level}]</span>{cid} {esc(f.desc)}{campaign_tag}<span class="loc">{loc}</span>{rec}</div>\n'
@@ -2171,7 +2171,7 @@ def write_html_report(results, path):
         campaign_badges = ""
         if s.campaign_matches:
             for c in s.campaign_matches:
-                campaign_badges += f'<span class="campaign-badge">⚡ {esc(c)}</span> '
+                campaign_badges += f'<span class="campaign-badge"> {esc(c)}</span> '
 
         skills_html.append(f'''
         <div class="skill-card {risk_class}">
@@ -2233,7 +2233,7 @@ body{{background:#0a0e17;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemF
 .footer{{text-align:center;padding:2rem 0;border-top:1px solid #21262d;margin-top:2rem;color:#484f58;font-size:.8rem}}
 @media(max-width:768px){{.cards{{grid-template-columns:repeat(2,1fr)}}}}
 </style></head><body>
-<div class="header"><h1>🛡️ SkillShield Security Report</h1>
+<div class="header"><h1> SkillShield Security Report</h1>
 <div class="subtitle">Comprehensive skill security audit — {TOTAL_CHECKS} checks</div>
 <div class="version">SkillShield v{VERSION} — Ultimate Edition</div></div>
 <div class="cards">
@@ -2296,7 +2296,7 @@ def cmd_list_quarantine(args):
         return
     print(BOLD("Quarantined skills:"))
     for name in sorted(items):
-        print(f"  🔒 {name}")
+        print(f"   {name}")
     print(f"\n  Total: {len(items)}")
     if QUARANTINE_LOG.exists():
         print(f"\n  Log: {QUARANTINE_LOG}")
@@ -2351,7 +2351,7 @@ def cmd_diff(args):
                 if re.search(r'\b(eval|exec)\s*\(', text): suspicious.append("Contains eval/exec")
                 if re.search(r'\b(ssh|aws|wallet|MetaMask)', text, re.I): suspicious.append("References sensitive paths")
                 if suspicious:
-                    print(RED(f"    ⚠️  {', '.join(suspicious)}"))
+                    print(RED(f"      {', '.join(suspicious)}"))
     for fp in changed:
         print(YELLOW(f"  CHANGED: {fp}"))
         fpath = skill_dir / fp
@@ -2363,7 +2363,7 @@ def cmd_diff(args):
                     if not is_known_domain(d): suspicious.append(f"Unknown domain: {d}")
                 if re.search(r'\b(eval|exec)\s*\(', new_text): suspicious.append("Contains eval/exec")
                 for s in suspicious:
-                    print(RED(f"    ⚠️  {s}"))
+                    print(RED(f"      {s}"))
 
     print(f"\n  Summary: {len(changed)} changed, {len(added)} added, {len(removed)} removed")
 
@@ -2465,7 +2465,7 @@ def interactive_scan(results):
             loc = f" — {f.file}:{f.line}" if f.file else ""
             print(f"\n  {color(f'[{f.level}]')} {f.desc}{DIM(loc)}")
             if f.recommendation:
-                print(f"  💡 {DIM(f.recommendation)}")
+                print(f"   {DIM(f.recommendation)}")
 
             while True:
                 try:
@@ -2581,8 +2581,8 @@ def scan_directory(target_dir, exclude_self=True, check_baseline=True, show_prog
 
 def determine_exit_code(results):
     """Exit 0=clean, 1=warnings only, 2=critical/malicious."""
-    has_malicious = any('🔴' in s.risk_label() for s in results)
-    has_suspicious = any('🟡' in s.risk_label() for s in results)
+    has_malicious = any('' in s.risk_label() for s in results)
+    has_suspicious = any('' in s.risk_label() for s in results)
     if has_malicious:
         return 2
     elif has_suspicious:
@@ -2712,17 +2712,17 @@ def cmd_watch(args):
                              max_depth=opts['max_depth'])
 
     total = len(results)
-    clean = sum(1 for s in results if '🟢' in s.risk_label())
-    suspicious = sum(1 for s in results if '🟡' in s.risk_label())
-    malicious_count = sum(1 for s in results if '🔴' in s.risk_label())
+    clean = sum(1 for s in results if '' in s.risk_label())
+    suspicious = sum(1 for s in results if '' in s.risk_label())
+    malicious_count = sum(1 for s in results if '' in s.risk_label())
     tampered = [s for s in results if s.tamper_detected]
-    malicious_skills = [s for s in results if '🔴' in s.risk_label()]
+    malicious_skills = [s for s in results if '' in s.risk_label()]
 
     alerts = []
     for s in tampered:
-        alerts.append(f"⚠️ SkillShield ALERT: {s.name} files changed since baseline!")
+        alerts.append(f" SkillShield ALERT: {s.name} files changed since baseline!")
     for s in malicious_skills:
-        alerts.append(f"🔴 SkillShield ALERT: {s.name} scored MALICIOUS!")
+        alerts.append(f" SkillShield ALERT: {s.name} scored MALICIOUS!")
 
     if alerts:
         print('\n'.join(alerts))

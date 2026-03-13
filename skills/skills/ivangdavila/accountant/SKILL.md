@@ -1,7 +1,7 @@
 ---
 name: Accountant
 description: Manage bookkeeping, financial statements, and tax planning with sound accounting practices.
-metadata: {"clawdbot":{"emoji":"📊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Accounting Rules

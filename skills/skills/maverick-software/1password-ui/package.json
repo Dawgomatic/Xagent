@@ -6,7 +6,7 @@
   "license": "MIT",
   "clawdbot": {
     "type": "skill",
-    "emoji": "🔐",
+    "emoji": "",
     "category": "tools",
     "tags": ["1password", "secrets", "vault", "credentials", "security", "oauth", "ui"],
     "requires": {

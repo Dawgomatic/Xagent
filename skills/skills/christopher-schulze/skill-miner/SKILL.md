@@ -9,7 +9,7 @@ description: Professional skill discovery and clean-skill creation from ClawHub 
 
 Systematic approach to discovering skills on ClawHub and building your own implementations. Instead of downloading potentially risky code, use this skill to research existing solutions, understand their approaches, and create your own clean, safe version.
 
-*Trust but verify, built but owned.* 🦞
+*Trust but verify, built but owned.* 
 
 ---
 
@@ -37,7 +37,7 @@ Use this skill when:
 - Suspicious = potential malware/risk (ew, no thanks)
 - Building yourself = 100% clean & safe (sleep well at night)
 - Generic = works for everyone (share the love)
-- Your code, your rules 🦞
+- Your code, your rules 
 
 ---
 
@@ -342,4 +342,4 @@ Before publishing:
 
 ---
 
-*From Claws - for Claws.* 🦞
+*From Claws - for Claws.* 

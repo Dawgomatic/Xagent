@@ -1,13 +1,13 @@
 # Clawdbot Update to v2026.1.8 - Checklist
 
-## ✅ Pre-Update Checklist
+##  Pre-Update Checklist
 
 - [ ] **Backup created**: `/tmp/backup-clawdbot-full.sh`
 - [ ] **Gateway stopped**: `pnpm clawdbot gateway stop`
 - [ ] **Backup validated**: All important files present
 - [ ] **Time window**: 45-60 minutes planned
 
-## 📦 Backup Locations
+##  Backup Locations
 
 ```bash
 # Backup Script
@@ -20,7 +20,7 @@
 ~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS/
 ```
 
-## 🚀 Update Steps
+##  Update Steps
 
 ### 1. Backup (10 min)
 ```bash
@@ -99,7 +99,7 @@ pnpm clawdbot gateway start --daemon
 pnpm clawdbot gateway status
 ```
 
-## 🆘 Rollback
+##  Rollback
 
 ```bash
 # Restore Script
@@ -113,7 +113,7 @@ cp ~/.clawdbot-backups/pre-update-*/clawdbot.json ~/.clawdbot/
 pnpm clawdbot gateway restart
 ```
 
-## ⚠️ Breaking Changes Check
+##  Breaking Changes Check
 
 - [ ] **DM Policy**: Check pairing vs allowlist
 - [ ] **Groups**: Verify allowlists (add `"*"` for all)
@@ -122,7 +122,7 @@ pnpm clawdbot gateway restart
 - [ ] **Slash Commands**: Authorization works
 - [ ] **Model Config**: Doctor migrated
 
-## 📊 Monitoring (24h)
+##  Monitoring (24h)
 
 ### Logs
 ```bash
@@ -143,7 +143,7 @@ pnpm clawdbot agents list
 - [ ] Sandbox containers run
 - [ ] Sessions route correctly
 
-## 📝 Configuration Examples
+##  Configuration Examples
 
 ### Multi-Agent Example
 ```json
@@ -180,17 +180,17 @@ pnpm clawdbot agents list
 }
 ```
 
-## 🎯 Success Criteria
+##  Success Criteria
 
-✅ Gateway runs stable  
-✅ Provider DMs + Groups work  
-✅ Multi-Agent routing works (if configured)  
-✅ Sandbox isolation works (if configured)  
-✅ No auth errors  
-✅ No stuck typing indicators  
-✅ New CLI tools work  
+ Gateway runs stable  
+ Provider DMs + Groups work  
+ Multi-Agent routing works (if configured)  
+ Sandbox isolation works (if configured)  
+ No auth errors  
+ No stuck typing indicators  
+ New CLI tools work  
 
-## 📞 If Problems
+##  If Problems
 
 1. **Logs**: `pnpm clawdbot logs --grep error`
 2. **Doctor**: `pnpm clawdbot doctor`

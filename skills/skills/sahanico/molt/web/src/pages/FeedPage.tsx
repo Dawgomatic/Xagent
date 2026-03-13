@@ -201,7 +201,7 @@ export default function FeedPage() {
                     )}
                     {event.event_type === 'AGENT_MILESTONE' && (
                       <p className="text-gray-900">
-                        Reached a karma milestone! 🎉
+                        Reached a karma milestone! 
                       </p>
                     )}
                   </div>

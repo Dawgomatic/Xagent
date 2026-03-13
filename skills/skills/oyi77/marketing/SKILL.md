@@ -5,7 +5,7 @@ description: "Social media automation, content scheduling, analytics tracking, a
 author: openclaw
 ---
 
-# Marketing Skill 📢
+# Marketing Skill 
 
 **Turn your AI agent into a strategic marketing partner.**
 
@@ -15,12 +15,12 @@ Handle social media, content scheduling, analytics, and campaign management acro
 
 ## What This Skill Does
 
-✅ **Content Creation** — Generate posts, threads, newsletters, and visual content descriptions
-✅ **Multi-Platform Management** — Twitter/X, LinkedIn, Instagram, Facebook, newsletters
-✅ **Scheduling & Automation** — Plan content calendars, schedule posts, maintain consistency
-✅ **Analytics Tracking** — Monitor engagement, track KPIs, identify trends
-✅ **Campaign Management** — Plan campaigns, track performance, A/B testing insights
-✅ **Brand Voice Consistency** — Maintain tone and style across all content
+ **Content Creation** — Generate posts, threads, newsletters, and visual content descriptions
+ **Multi-Platform Management** — Twitter/X, LinkedIn, Instagram, Facebook, newsletters
+ **Scheduling & Automation** — Plan content calendars, schedule posts, maintain consistency
+ **Analytics Tracking** — Monitor engagement, track KPIs, identify trends
+ **Campaign Management** — Plan campaigns, track performance, A/B testing insights
+ **Brand Voice Consistency** — Maintain tone and style across all content
 
 ---
 

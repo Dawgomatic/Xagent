@@ -1,5 +1,5 @@
 /**
- * 🔒 Auto Hardener
+ *  Auto Hardener
  * 
  * Automatically applies security fixes to OpenClaw configuration
  */

@@ -105,35 +105,35 @@ def run_model_tests(model_key: str, config: Dict) -> bool:
     all_passed = True
     
     # 测试定价信息展示
-    print(f"\n  📋 定价信息展示:")
+    print(f"\n   定价信息展示:")
     pricing = test_pricing_display(model_id)
     if "error" in pricing:
-        print(f"    ❌ 获取失败: {pricing['error']}")
+        print(f"     获取失败: {pricing['error']}")
         all_passed = False
     else:
         price_type = pricing.get('price_type', 'N/A')
         print(f"    类型: {price_type}")
         print(f"    说明: {pricing.get('price_description', 'N/A')}")
         if price_type == "duration_price":
-            print(f"    结果: ✅ PASS")
+            print(f"    结果:  PASS")
         else:
-            print(f"    结果: ⚠️ 类型不是 duration_price")
+            print(f"    结果:  类型不是 duration_price")
     
     # 测试扣费
-    print(f"\n  🧪 扣费测试:")
+    print(f"\n   扣费测试:")
     for case in test_cases:
         result = test_task_create(model_id, case["params"])
         
         if result.get("code") == 200:
             actual = result["data"]["price"]
             expected = case["expected"]
-            status = "✅" if actual == expected else "❌"
+            status = "" if actual == expected else ""
             if actual != expected:
                 all_passed = False
             print(f"    {status} {case['name']}: 预期 {expected}, 实际 {actual}")
         else:
             error = result.get('detail', result.get('message', result.get('error', 'Unknown')))
-            print(f"    ⚠️ {case['name']}: 请求失败 - {error}")
+            print(f"     {case['name']}: 请求失败 - {error}")
     
     return all_passed
 
@@ -177,14 +177,14 @@ def main():
     all_passed = all(results.values())
     
     for model_key, passed in results.items():
-        status = "✅ PASS" if passed else "❌ FAIL"
+        status = " PASS" if passed else " FAIL"
         print(f"  {TEST_CASES[model_key]['name']}: {status}")
     
     print()
     if all_passed:
-        print("  ✅ 所有测试通过！")
+        print("   所有测试通过！")
     else:
-        print("  ❌ 部分测试失败")
+        print("   部分测试失败")
     
     print("\n" + "="*60 + "\n")
     

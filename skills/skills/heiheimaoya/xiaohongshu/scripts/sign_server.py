@@ -40,14 +40,14 @@ async def init_browser():
     
     cookie_str = os.getenv('XHS_COOKIE', '')
     if not cookie_str:
-        print("❌ 未设置 XHS_COOKIE 环境变量")
+        print(" 未设置 XHS_COOKIE 环境变量")
         sys.exit(1)
     
     cookie_dict = parse_cookie_string(cookie_str)
     a1 = cookie_dict.get('a1', '')
     
-    print(f"🚀 启动浏览器...")
-    print(f"📝 a1 值: {a1[:20]}...")
+    print(f" 启动浏览器...")
+    print(f" a1 值: {a1[:20]}...")
     
     playwright = await async_playwright().start()
     browser = await playwright.chromium.launch(headless=True)
@@ -56,12 +56,12 @@ async def init_browser():
     # 加载 stealth.js
     if STEALTH_JS.exists():
         await context.add_init_script(path=str(STEALTH_JS))
-        print(f"✅ 加载 stealth.js")
+        print(f" 加载 stealth.js")
     
     page = await context.new_page()
     
     # 访问小红书
-    print(f"🌐 访问小红书...")
+    print(f" 访问小红书...")
     await page.goto("https://www.xiaohongshu.com")
     
     # 设置 cookies
@@ -75,13 +75,13 @@ async def init_browser():
         })
     
     await context.add_cookies(cookies_to_add)
-    print(f"🍪 设置了 {len(cookies_to_add)} 个 cookies")
+    print(f" 设置了 {len(cookies_to_add)} 个 cookies")
     
     # 刷新页面使 cookies 生效
     await page.reload()
     await asyncio.sleep(2)
     
-    print(f"✅ 浏览器初始化完成")
+    print(f" 浏览器初始化完成")
     return a1
 
 async def sign_request(request):
@@ -118,7 +118,7 @@ async def sign_request(request):
                 'x-t': str(result.get('X-t', ''))
             })
         except Exception as e:
-            print(f"⚠️ 签名失败: {e}")
+            print(f" 签名失败: {e}")
             # 尝试刷新页面
             await page.reload()
             await asyncio.sleep(1)
@@ -143,8 +143,8 @@ async def main():
     site = web.TCPSite(runner, '127.0.0.1', PORT)
     await site.start()
     
-    print(f"\n🎉 签名服务已启动: http://127.0.0.1:{PORT}")
-    print(f"📝 使用的 a1: {a1[:20]}...")
+    print(f"\n 签名服务已启动: http://127.0.0.1:{PORT}")
+    print(f" 使用的 a1: {a1[:20]}...")
     print(f"\n按 Ctrl+C 停止服务\n")
     
     # 保持运行
@@ -155,4 +155,4 @@ if __name__ == '__main__':
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n👋 服务已停止")
+        print("\n 服务已停止")

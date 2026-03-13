@@ -1,22 +1,22 @@
-# 🌅 Morning Briefing Cron Job - Complete System
+#  Morning Briefing Cron Job - Complete System
 
 A comprehensive, autonomous morning briefing system that delivers consolidated daily intelligence plus automated skill discovery to your Telegram every day at **10:15 AM Mountain Standard Time**.
 
-## ✨ Features
+##  Features
 
-### 🎯 Daily Consolidated Briefing
-- **📺 YouTube Analytics**: Last 24h performance, top videos, subscriber changes
-- **📧 Email Summary**: Unread count, important senders, key messages
-- **🌤️ Weather**: Current Denver conditions + today's forecast
-- **📅 Calendar**: Today's events + upcoming 48 hours
-- **🔗 News Briefs**: Tech, maker, AI trending topics with links
-- **📚 Research Briefs**: 
+###  Daily Consolidated Briefing
+- ** YouTube Analytics**: Last 24h performance, top videos, subscriber changes
+- ** Email Summary**: Unread count, important senders, key messages
+- ** Weather**: Current Denver conditions + today's forecast
+- ** Calendar**: Today's events + upcoming 48 hours
+- ** News Briefs**: Tech, maker, AI trending topics with links
+- ** Research Briefs**: 
   - 3D printing (products, techniques, announcements)
   - Agentic coding (Claude, AutoGPT, reasoning patterns)
   - Clawdbot ecosystem (new features, community updates)
   - Trending Clawdbot skills (top installed, new releases)
 
-### 🤖 Autonomous Skill Discovery (Async Sub-Agent)
+###  Autonomous Skill Discovery (Async Sub-Agent)
 - Analyzes your workspace context (MEMORY.md, daily logs, etc.)
 - Searches ClawdHub for relevant skills matching your interests
 - Validates skill age (≥2 days old)
@@ -25,7 +25,7 @@ A comprehensive, autonomous morning briefing system that delivers consolidated d
 - Reports CAUTION/DANGEROUS findings without installing
 - Delivers summary: "X reviewed, Y installed, Z rejected"
 
-## 📋 Quick Start
+##  Quick Start
 
 ### One-Command Install
 
@@ -48,7 +48,7 @@ crontab -e
 crontab -l
 ```
 
-## 🗂️ What's Included
+##  What's Included
 
 | File | Purpose |
 |------|---------|
@@ -63,7 +63,7 @@ crontab -l
 | `MORNING-BRIEFING-ARCHITECTURE.md` | Technical architecture & internals |
 | `logs/morning-briefing.log` | Execution logs (created on first run) |
 
-## 🚀 How It Works
+##  How It Works
 
 ```
 10:15 AM (Daily)
@@ -82,33 +82,33 @@ morning-briefing.sh
         └─ Sends summary to Telegram
 ```
 
-## 📊 Example Output
+##  Example Output
 
 ### Message 1: Consolidated Briefing
 
 ```
 ═══════════════════════════════════════════════════════════
-🌅 MORNING BRIEFING - Wednesday, January 29
+ MORNING BRIEFING - Wednesday, January 29
 ═══════════════════════════════════════════════════════════
 
-📺 YouTube Analytics:
+ YouTube Analytics:
   Last 24h: 1,234 views, 45 engagements
   Top videos: "3D Printing Timelapse", "AI Agent Deep Dive"
   Subscribers: +12 new subscribers
 
-📧 Email Summary:
+ Email Summary:
   Unread: 8 messages
   Important from: OpenAI, Printables, Clawdbot
   Key: "New Haiku model release", "Trending skill: claude-coder"
 
-🌤️ Weather: Denver, CO
+ Weather: Denver, CO
   Current: 28°F, Cloudy
   Today: High 32°F, Low 22°F, 20% chance snow
   
 [... continued for Calendar, News, Research Briefs ...]
 
 ═══════════════════════════════════════════════════════════
-✨ Skill Discovery Summary Incoming...
+ Skill Discovery Summary Incoming...
 ═══════════════════════════════════════════════════════════
 ```
 
@@ -116,29 +116,29 @@ morning-briefing.sh
 
 ```
 ═══════════════════════════════════════════════════════════
-🎯 SKILL DISCOVERY SUMMARY
+ SKILL DISCOVERY SUMMARY
 ═══════════════════════════════════════════════════════════
 
-📊 Results:
+ Results:
   • Skills reviewed: 5
   • Skills installed: 2
   • Skills rejected: 3
 
-✅ Successfully installed:
+ Successfully installed:
   • claude-agentic-loop
   • esp32-telemetry
 
-❌ Rejected skills:
+ Rejected skills:
   • klipper-3d-monitor: Too new (<2 days)
   • openai-reasoning: CAUTION - Requires elevated permissions
   • clawdbot-hub-search: DANGEROUS - Unverified dependency
 
 ═══════════════════════════════════════════════════════════
-✨ Skill discovery complete!
+ Skill discovery complete!
 ═══════════════════════════════════════════════════════════
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Change Schedule
 
@@ -186,7 +186,7 @@ const topics = [
 ];
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Test Manually
 
@@ -208,7 +208,7 @@ tail -f /Users/ericwoodard/clawd/logs/morning-briefing.log
 grep ERROR /Users/ericwoodard/clawd/logs/morning-briefing.log
 ```
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 | Problem | Solution |
 |---------|----------|
@@ -218,13 +218,13 @@ grep ERROR /Users/ericwoodard/clawd/logs/morning-briefing.log
 | Skills not available | Install them: `clawdbot skills install youtube-analytics` |
 | Check logs | `tail -f /Users/ericwoodard/clawd/logs/morning-briefing.log` |
 
-## 📚 Documentation
+##  Documentation
 
 - **MORNING-BRIEFING-QUICK-START.md** - 2-minute TL;DR
 - **MORNING-BRIEFING-SETUP.md** - Full setup & configuration guide
 - **MORNING-BRIEFING-ARCHITECTURE.md** - Technical deep dive & internals
 
-## 🎯 Key Design Decisions
+##  Key Design Decisions
 
 1. **Consolidated Message**: Single report (not scattered notifications)
 2. **Async Sub-Agent**: Skill discovery doesn't block briefing delivery
@@ -234,7 +234,7 @@ grep ERROR /Users/ericwoodard/clawd/logs/morning-briefing.log
 6. **Local Context Analysis**: Interests detected from your workspace files
 7. **Extensible**: Easy to add new briefing components or discovery interests
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Install**: `bash scripts/install-morning-briefing.sh`
 2. **Verify**: `crontab -l` (confirm job is there)
@@ -242,7 +242,7 @@ grep ERROR /Users/ericwoodard/clawd/logs/morning-briefing.log
 4. **Monitor**: `tail -f logs/morning-briefing.log`
 5. **Wait**: First briefing arrives at 10:15 AM tomorrow!
 
-## ❓ FAQ
+##  FAQ
 
 **Q: What timezone does the cron job use?**  
 A: System timezone (should be America/Denver). Verify with `date`.
@@ -265,7 +265,7 @@ A: `/Users/ericwoodard/clawd/logs/morning-briefing.log`
 **Q: How do I remove the cron job?**  
 A: `crontab -e` and delete the morning-briefing line.
 
-## 📧 Support
+##  Support
 
 Check the logs: `tail -f /Users/ericwoodard/clawd/logs/morning-briefing.log`
 
@@ -278,4 +278,4 @@ For detailed help, see the documentation files above.
 **Status**: Ready for deployment  
 **License**: Personal use
 
-Enjoy your daily AI-powered briefings! 🌅
+Enjoy your daily AI-powered briefings! 

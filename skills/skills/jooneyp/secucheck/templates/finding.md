@@ -9,7 +9,7 @@ Use this structure for each security finding.
 ```markdown
 ### {emoji} {title}
 
-**위험도**: {🔴 심각 | 🟠 높음 | 🟡 중간 | 🟢 낮음}
+**위험도**: { 심각 |  높음 |  중간 |  낮음}
 **영역**: {채널 | 에이전트 | 크론 | 스킬 | 세션 | 네트워크}
 **위치**: `{config path or file}`
 
@@ -36,7 +36,7 @@ Use this structure for each security finding.
 {alternative approach}
 
 #### 주의사항
-⚠️ {Any functional impact of the fix}
+ {Any functional impact of the fix}
 ```
 
 ## Simple Format (Beginners)
@@ -61,17 +61,17 @@ Use this structure for each security finding.
 
 ## Severity Emoji Guide
 
-- 🔴 심각 (Critical): 즉시 조치 필요
-- 🟠 높음 (High): 빠른 조치 권장
-- 🟡 중간 (Medium): 계획적 조치 필요
-- 🟢 낮음 (Low): 권장사항
+-  심각 (Critical): 즉시 조치 필요
+-  높음 (High): 빠른 조치 권장
+-  중간 (Medium): 계획적 조치 필요
+-  낮음 (Low): 권장사항
 
 ## Example: Full Finding
 
 ```markdown
-### 🔴 공개 채널에서 exec 도구 허용
+###  공개 채널에서 exec 도구 허용
 
-**위험도**: 🔴 심각
+**위험도**:  심각
 **영역**: 채널
 **위치**: `channels.slack.channels.#public-help.tools`
 
@@ -118,7 +118,7 @@ channels:
 ```
 
 #### 주의사항
-⚠️ 이 설정을 적용하면 #public-help에서 더 이상 코드 실행 요청을 
+ 이 설정을 적용하면 #public-help에서 더 이상 코드 실행 요청을 
 처리할 수 없습니다. 해당 기능이 필요하다면 별도의 제한된 에이전트를 
 사용하는 것을 권장합니다.
 ```
@@ -126,9 +126,9 @@ channels:
 ## Example: Simple Finding
 
 ```markdown
-### 🔴 위험한 채널 설정
+###  위험한 채널 설정
 
-**위험도**: 🔴 심각 - 지금 바로 고쳐야 해요!
+**위험도**:  심각 - 지금 바로 고쳐야 해요!
 
 #### 무엇이 문제인가요?
 아무나 들어올 수 있는 채널에서 AI가 컴퓨터 명령어를 

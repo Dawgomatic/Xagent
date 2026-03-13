@@ -105,15 +105,15 @@ async function search(indexPath, query, options = {}) {
 function formatResults(results, query) {
   const lines = [];
   
-  lines.push(`🔍 Query: ${query}\n`);
+  lines.push(` Query: ${query}\n`);
   
   if (results.length === 0) {
-    lines.push('❌ No matching docs found');
+    lines.push(' No matching docs found');
     return lines.join('\n');
   }
   
   const best = results[0];
-  lines.push(`🎯 Best match:`);
+  lines.push(` Best match:`);
   lines.push(`   ${best.relPath}`);
   if (best.title) lines.push(`   "${best.title}"`);
   if (best.matchedKeywords.length > 0) {
@@ -123,7 +123,7 @@ function formatResults(results, query) {
   lines.push('');
   
   if (results.length > 1) {
-    lines.push(`📄 Also relevant:`);
+    lines.push(` Also relevant:`);
     for (const result of results.slice(1)) {
       lines.push(`   ${result.relPath} (${result.score.toFixed(2)})`);
       if (result.matchedKeywords.length > 0) {
@@ -133,7 +133,7 @@ function formatResults(results, query) {
     lines.push('');
   }
   
-  lines.push(`💡 Read with:`);
+  lines.push(` Read with:`);
   lines.push(`   cat ${best.path}`);
   
   return lines.join('\n');

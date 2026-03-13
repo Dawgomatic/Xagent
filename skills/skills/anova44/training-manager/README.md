@@ -1,4 +1,4 @@
-# 🧠 Training Manager
+#  Training Manager
 
 An OpenClaw skill that helps you set up, train, and maintain your agent's workspace — through conversation, not configuration files.
 

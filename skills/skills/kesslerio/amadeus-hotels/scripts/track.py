@@ -150,7 +150,7 @@ def add_hotel(
     save_tracked(data)
     
     price_str = f"${current_price:.0f}" if current_price else "unknown"
-    print(f"✅ Now tracking {hotel_id}")
+    print(f" Now tracking {hotel_id}")
     print(f"   Dates: {check_in} → {check_out}")
     print(f"   Current price: {price_str}/night")
     print(f"   Target: ${target_price:.0f}/night")
@@ -165,7 +165,7 @@ def remove_hotel(hotel_id: str) -> None:
     
     if len(data["hotels"]) < original_count:
         save_tracked(data)
-        print(f"✅ Removed {hotel_id} from tracking")
+        print(f" Removed {hotel_id} from tracking")
     else:
         print(f"Hotel {hotel_id} not found in tracking list")
 
@@ -178,7 +178,7 @@ def list_tracked() -> None:
         print("No hotels being tracked.")
         return
     
-    print(f"📋 Tracking {len(data['hotels'])} hotel(s):\n")
+    print(f" Tracking {len(data['hotels'])} hotel(s):\n")
     
     for hotel in data["hotels"]:
         hotel_id = hotel["hotelId"]
@@ -190,10 +190,10 @@ def list_tracked() -> None:
         
         price_str = f"${last_price:.0f}" if last_price else "unknown"
         
-        print(f"🏨 {hotel_id}")
-        print(f"   📅 {checkin} → {checkout}")
-        print(f"   💰 Last: {price_str}/night | Target: ${target:.0f}/night")
-        print(f"   🕐 Last checked: {last_check[:10] if last_check != 'never' else 'never'}")
+        print(f" {hotel_id}")
+        print(f"    {checkin} → {checkout}")
+        print(f"    Last: {price_str}/night | Target: ${target:.0f}/night")
+        print(f"    Last checked: {last_check[:10] if last_check != 'never' else 'never'}")
         print()
 
 
@@ -250,11 +250,11 @@ def check_prices() -> None:
     
     # Output alerts (for notification systems)
     for alert in alerts:
-        print(f"🚨 PRICE DROP: {alert['hotelId']} now ${alert['price']:.0f}/night "
+        print(f" PRICE DROP: {alert['hotelId']} now ${alert['price']:.0f}/night "
               f"(target: ${alert['target']:.0f}) for {alert['checkin']} → {alert['checkout']}")
     
     for change in changes:
-        print(f"📉 Price dropped: {change['hotelId']} now ${change['price']:.0f}/night "
+        print(f" Price dropped: {change['hotelId']} now ${change['price']:.0f}/night "
               f"(was ${change['was']:.0f}, target: ${change['target']:.0f})")
     
     if not alerts and not changes:

@@ -1,10 +1,10 @@
-# ⚓ Workspace Anchor
+#  Workspace Anchor
 
 > **Multi-Agent Semantic Orientation & Boundary System**
 
 Workspace Anchor is a lightweight coordination layer designed to prevent AI agents from "drifting" outside of their intended project boundaries. It provides semantic orientation and path validation for autonomous workflows.
 
-## 🌟 Why this exists
+##  Why this exists
 
 When working with autonomous agents, context is everything. Without an anchor, agents can easily:
 1. Edit files in the wrong repository.
@@ -13,21 +13,21 @@ When working with autonomous agents, context is everything. Without an anchor, a
 
 **Workspace Anchor** solves this by establishing a standardized `.project-lock` file that defines boundaries, naming, and ignore rules.
 
-## 🚀 Features
+##  Features
 
 - **Semantic Discovery**: Automatically find all projects in your workspace, regardless of folder depth.
 - **Context Guardrails**: Validate every file operation before it happens.
 - **Environment Agnostic**: Uses path expansion (`~`, `$HOME`, `$USER`) so configurations work across different machines.
 - **Zero-Config Switching**: Jump between projects with a single command, updating the agent's internal "Project Header."
 
-## 📦 Installation
+##  Installation
 
 This is an OpenClaw-native skill. To install:
 1. Drop the `workspace-anchor` folder into your `skills/` directory.
 
-## 🛠 Usage
+##  Usage
 
-### 🔍 Discovery & Status
+###  Discovery & Status
 ```bash
 # Find all projects on your system
 node cli.js discover
@@ -39,7 +39,7 @@ node cli.js list
 node cli.js status
 ```
 
-### ⚓ Managing Context
+###  Managing Context
 ```bash
 # Switch active project context
 node cli.js switch stacean-repo
@@ -48,13 +48,13 @@ node cli.js switch stacean-repo
 node cli.js validate /home/user/stacean-repo/src/index.js
 ```
 
-### 🆕 Onboarding
+###  Onboarding
 ```bash
 # Create a new anchor in a directory
 node cli.js create ~/my-new-app
 ```
 
-## 📄 The `.project-lock` Format
+##  The `.project-lock` Format
 
 Workspace Anchor uses a simple, human-readable (and agent-readable) format:
 
@@ -65,7 +65,7 @@ ROOT: ~/projects/my-cool-app
 IGNORE: node_modules, .git, dist, .env
 ```
 
-## 🤖 Agent Instructions (Internal)
+##  Agent Instructions (Internal)
 
 **CRITICAL:** Agents reading this skill MUST identify the correct absolute paths for the current environment. Do not rely on hardcoded examples. Use `find` or `ls` to locate `.project-lock` files if the environment variables are not yet mapped.
 

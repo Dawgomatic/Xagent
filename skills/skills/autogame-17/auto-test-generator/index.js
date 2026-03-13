@@ -39,9 +39,9 @@ try {
   // Just verify it runs without crashing immediately (or with --help)
   // If it requires args, this might fail, but it's a start.
   execSync(\`node \${indexJs} --help\`, { stdio: 'pipe' });
-  console.log('✅ Basic execution test passed');
+  console.log(' Basic execution test passed');
 } catch (e) {
-  console.log('⚠️ Basic execution failed (might need args):', e.message.split('\\n')[0]);
+  console.log(' Basic execution failed (might need args):', e.message.split('\\n')[0]);
 }
 `;
   fs.writeFileSync(testJsPath, testContent);
@@ -55,12 +55,12 @@ console.log('Testing ${TARGET_SKILL}...');
 
 try {
   assert.ok(skill, 'Module should export something');
-  console.log('✅ Export check passed');
+  console.log(' Export check passed');
   
   // specific logic would go here
   
 } catch (e) {
-  console.error('❌ Test failed:', e);
+  console.error(' Test failed:', e);
   process.exit(1);
 }
 `;
@@ -72,8 +72,8 @@ console.log('Running test...');
 
 try {
   execSync(`node ${testJsPath}`, { stdio: 'inherit' });
-  console.log('✅ Test run successful.');
+  console.log(' Test run successful.');
 } catch (e) {
-  console.error('❌ Test run failed.');
+  console.error(' Test run failed.');
   process.exit(1);
 }

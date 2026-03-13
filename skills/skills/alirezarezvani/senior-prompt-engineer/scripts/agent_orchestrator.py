@@ -314,9 +314,9 @@ def generate_ascii_diagram(config: AgentConfig) -> str:
 
         if config.tools:
             for tool in config.tools[:6]:
-                lines.append(" " * (width // 2 - 8) + f"├──▶ [{tool.name}]")
+                lines.append(" " * (width // 2 - 8) + f"├── [{tool.name}]")
             if len(config.tools) > 6:
-                lines.append(" " * (width // 2 - 8) + "├──▶ [...]")
+                lines.append(" " * (width // 2 - 8) + "├── [...]")
 
     # Final answer
     lines.append(" " * (width // 2) + "│")
@@ -417,42 +417,42 @@ def format_validation_report(config: AgentConfig, result: ValidationResult) -> s
     lines.append("=" * 50)
     lines.append("")
 
-    lines.append(f"📋 AGENT INFO")
+    lines.append(f" AGENT INFO")
     lines.append(f"  Name:    {config.name}")
     lines.append(f"  Pattern: {config.pattern.value}")
     lines.append(f"  Model:   {config.model}")
     lines.append("")
 
-    lines.append(f"🔧 TOOLS ({len(config.tools)} registered)")
+    lines.append(f" TOOLS ({len(config.tools)} registered)")
     for tool in config.tools:
         status = result.tool_status.get(tool.name, "Unknown")
-        emoji = "✅" if status.startswith("OK") else "⚠️"
+        emoji = "" if status.startswith("OK") else ""
         lines.append(f"  {emoji} {tool.name} - {status}")
     lines.append("")
 
-    lines.append("📊 FLOW ANALYSIS")
+    lines.append(" FLOW ANALYSIS")
     lines.append(f"  Max iterations:      {result.max_depth}")
     lines.append(f"  Estimated tokens:    {result.estimated_tokens_per_run[0]:,} - {result.estimated_tokens_per_run[1]:,}")
-    lines.append(f"  Potential loop:      {'⚠️ Yes' if result.potential_infinite_loop else '✅ No'}")
+    lines.append(f"  Potential loop:      {' Yes' if result.potential_infinite_loop else ' No'}")
     lines.append("")
 
     if result.errors:
-        lines.append(f"❌ ERRORS ({len(result.errors)})")
+        lines.append(f" ERRORS ({len(result.errors)})")
         for error in result.errors:
             lines.append(f"  • {error}")
         lines.append("")
 
     if result.warnings:
-        lines.append(f"⚠️ WARNINGS ({len(result.warnings)})")
+        lines.append(f" WARNINGS ({len(result.warnings)})")
         for warning in result.warnings:
             lines.append(f"  • {warning}")
         lines.append("")
 
     # Overall status
     if result.is_valid:
-        lines.append("✅ VALIDATION PASSED")
+        lines.append(" VALIDATION PASSED")
     else:
-        lines.append("❌ VALIDATION FAILED")
+        lines.append(" VALIDATION FAILED")
 
     lines.append("")
     lines.append("=" * 50)
@@ -539,7 +539,7 @@ tools:
             output_parts.append(json.dumps(costs, indent=2))
         else:
             output_parts.append("")
-            output_parts.append("💰 COST ESTIMATION")
+            output_parts.append(" COST ESTIMATION")
             output_parts.append(f"  Model: {costs['model']}")
             output_parts.append(f"  Tokens per run: {costs['tokens_per_run']['min']:,} - {costs['tokens_per_run']['max']:,}")
             output_parts.append(f"  Cost per run: ${costs['cost_per_run']['min']:.4f} - ${costs['cost_per_run']['max']:.4f}")

@@ -78,47 +78,47 @@ What do you need?
 
 ### Wrong: Ignoring PAINS alerts
 ```
-❌ Proceeding with compound showing PAINS alert
+ Proceeding with compound showing PAINS alert
 ```
 **Why wrong**: PAINS compounds often show false positive activity in assays.
 
 ```
-✅ Always check: get_structural_alerts_from_smiles
+ Always check: get_structural_alerts_from_smiles
    If alerts found → investigate mechanism or choose different scaffold
 ```
 
 ### Wrong: Trusting LogP without context
 ```
-❌ "LogP is 4.5, within Rule of 5, so it's fine"
+ "LogP is 4.5, within Rule of 5, so it's fine"
 ```
 **Why wrong**: High LogP causes solubility issues, metabolic instability.
 
 ```
-✅ Optimal LogP: 1-3
+ Optimal LogP: 1-3
    LogP > 4: Expect solubility issues
    LogP > 5: High metabolic clearance likely
 ```
 
 ### Wrong: Not canonicalizing SMILES
 ```
-❌ Comparing SMILES strings directly
+ Comparing SMILES strings directly
    "c1ccccc1" vs "C1=CC=CC=C1" → appear different
 ```
 
 ```
-✅ Always canonicalize first:
+ Always canonicalize first:
    validate_and_canonicalize_smiles
    Then compare canonical forms
 ```
 
 ### Wrong: Using MW as only filter
 ```
-❌ Rejecting 550 Da compound automatically
+ Rejecting 550 Da compound automatically
 ```
 **Why wrong**: Natural products, PPI inhibitors routinely exceed 500 Da.
 
 ```
-✅ Consider target class:
+ Consider target class:
    - Standard targets: Lipinski rules
    - PPIs, macrocycles: Extended rules (bRo5)
    - CNS: Stricter (MW < 400, TPSA < 90)

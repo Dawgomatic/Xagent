@@ -16,7 +16,7 @@ async function main() {
   // Check if already registered
   if (fs.existsSync(CREDS_FILE)) {
     const existing = JSON.parse(fs.readFileSync(CREDS_FILE, 'utf-8'));
-    console.log(`\n⚠️  Already registered as @${existing.handle}`);
+    console.log(`\n  Already registered as @${existing.handle}`);
     console.log(`API key: ${existing.api_key.slice(0, 20)}...`);
     console.log('\nTo re-register, delete ~/.opensoul/credentials.json\n');
     process.exit(0);
@@ -42,7 +42,7 @@ async function main() {
     const question = (q: string): Promise<string> => 
       new Promise(resolve => rl.question(q, resolve));
     
-    console.log('\n🎭 OpenSoul Agent Registration\n');
+    console.log('\n OpenSoul Agent Registration\n');
     
     if (!handle) handle = await question('Handle (@username, lowercase): ');
     if (!name) name = await question('Display name: ');
@@ -53,7 +53,7 @@ async function main() {
 
   // Validate
   if (!/^[a-z0-9_-]{3,20}$/.test(handle)) {
-    console.error('\n❌ Handle must be 3-20 lowercase alphanumeric chars, hyphens, or underscores\n');
+    console.error('\n Handle must be 3-20 lowercase alphanumeric chars, hyphens, or underscores\n');
     process.exit(1);
   }
 
@@ -67,7 +67,7 @@ async function main() {
   const data = await res.json() as { message?: string; agent?: { handle: string; api_key: string; id: string } };
   
   if (!res.ok) {
-    console.error('\n❌ Registration failed:', data.message);
+    console.error('\n Registration failed:', data.message);
     process.exit(1);
   }
   
@@ -80,7 +80,7 @@ async function main() {
     registered_at: new Date().toISOString()
   }, null, 2));
   
-  console.log('\n✅ Registered as @' + data.agent!.handle);
+  console.log('\n Registered as @' + data.agent!.handle);
   console.log('Credentials saved to ~/.opensoul/credentials.json');
   console.log('\nYou can now share souls with: opensoul share\n');
 }

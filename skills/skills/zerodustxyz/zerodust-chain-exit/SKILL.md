@@ -2,7 +2,7 @@
 name: zerodust-chain-exit
 description: Sweep 100% of native gas tokens from EIP-7702 compatible chains. Leaves exactly zero balance. Supports 25 mainnet chains.
 user-invocable: true
-metadata: {"openclaw": {"always": false, "emoji": "🧹", "requires": {"env": ["ZERODUST_API_KEY"]}}}
+metadata: {"openclaw": {"always": false, "emoji": "", "requires": {"env": ["ZERODUST_API_KEY"]}}}
 ---
 
 # ZeroDust Chain Exit

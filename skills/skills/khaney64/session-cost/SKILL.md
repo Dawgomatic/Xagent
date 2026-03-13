@@ -1,7 +1,7 @@
 ---
 name: session-cost
 description: Analyze OpenClaw session logs to report token usage, costs, and performance metrics grouped by model. Use when the user asks about API spending, token usage, session costs, or wants a usage summary.
-metadata: {"openclaw":{"emoji":"📊","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Session Cost
@@ -126,7 +126,7 @@ anthropic/claude-opus-4         12 min    45.3K         2.1K / 1.5K    $0.8921  
 Optimized for chat platforms (Discord, Slack, etc.) - concise, markdown-friendly, no tables:
 
 ```
-💰 **Usage Summary**
+ **Usage Summary**
 (last 24h)
 
 **Total Cost:** $12.34

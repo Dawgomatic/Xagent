@@ -8,7 +8,7 @@
 
 ## Critical Fixes
 
-### 1. Post-Compaction Amnesia (FIXED ✅)
+### 1. Post-Compaction Amnesia (FIXED )
 
 **Before 2026.2.9:**
 - Agents lost memory after context compaction
@@ -24,7 +24,7 @@
 
 ---
 
-### 2. Live Config Updates (NEW ✅)
+### 2. Live Config Updates (NEW )
 
 **Before 2026.2.9:**
 - Binding changes required gateway restart
@@ -49,7 +49,7 @@ openclaw gateway config.patch
 
 ---
 
-### 3. Context Overflow Recovery (NEW ✅)
+### 3. Context Overflow Recovery (NEW )
 
 **Before 2026.2.9:**
 - Oversized tool results caused session failures

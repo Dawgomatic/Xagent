@@ -201,9 +201,9 @@ async function recordQuotaUsage(units) {
     const percentUsed = (quotaState.used / quotaState.dailyQuota) * 100;
 
     if (percentUsed > 95) {
-      logger.error(`⚠️ CRITICAL: Quota usage at ${percentUsed.toFixed(1)}%`);
+      logger.error(` CRITICAL: Quota usage at ${percentUsed.toFixed(1)}%`);
     } else if (percentUsed > 80) {
-      logger.warn(`⚠️ Warning: Quota usage at ${percentUsed.toFixed(1)}%`);
+      logger.warn(` Warning: Quota usage at ${percentUsed.toFixed(1)}%`);
     }
   } catch (error) {
     logger.error('Failed to record quota usage', error);

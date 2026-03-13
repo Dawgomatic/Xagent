@@ -1,7 +1,7 @@
 ---
 name: Geology
 description: Explain Earth's rocks, processes, and history from field trips to research.
-metadata: {"clawdbot":{"emoji":"🪨","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

@@ -211,7 +211,7 @@ class RouterHook:
         
         # Console output for dry run visibility
         if self.mode == "dry_run":
-            switch_marker = "🔄 WOULD SWITCH" if would_switch else "✓ MATCH"
+            switch_marker = " WOULD SWITCH" if would_switch else "✓ MATCH"
             logger.info(
                 f"{switch_marker}: {decision.intent.name}/{decision.complexity.name} "
                 f"-> {decision.selected_model} (current: {current_alias}) "
@@ -243,7 +243,7 @@ class RouterHook:
         ]
         
         if would_switch:
-            lines.append(f"│  Status:       🔄 WOULD SWITCH to {decision.selected_model:<19}│")
+            lines.append(f"│  Status:        WOULD SWITCH to {decision.selected_model:<19}│")
         else:
             lines.append(f"│  Status:       ✓ Current model is optimal{' '*12}│")
         
@@ -347,7 +347,7 @@ class DryRunMonitor:
         used = entry.get("model_used", "?")
         reason = entry.get("reason", "")
         
-        switch = "🔄" if selected != used else "✓"
+        switch = "" if selected != used else "✓"
         
         print(f"[{timestamp}] {switch} {intent}/{complexity} -> {selected}")
         print(f"           Reason: {reason}")
@@ -429,7 +429,7 @@ def main():
             print(f"Recent {len(decisions)} routing decisions:")
             print("-" * 60)
             for d in decisions:
-                switch = "🔄" if d["model_selected"] != d["model_used"] else "✓"
+                switch = "" if d["model_selected"] != d["model_used"] else "✓"
                 print(f"[{d['timestamp'][:19]}] {switch} {d['intent']}/{d['complexity']} -> {d['model_selected']}")
         return
     

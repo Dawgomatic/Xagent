@@ -67,7 +67,7 @@ def main():
     args = parser.parse_args()
 
     if not args.code and not args.name:
-        print("❌ --code 또는 --name 중 하나를 입력하세요.")
+        print(" --code 또는 --name 중 하나를 입력하세요.")
         parser.print_help()
         sys.exit(1)
 
@@ -75,8 +75,8 @@ def main():
     if args.name:
         code = resolve_code(args.name)
         if not code:
-            print(f"❌ '{args.name}'에 해당하는 종목을 찾을 수 없습니다.")
-            print("💡 종목코드를 직접 입력하세요: --code 005930")
+            print(f" '{args.name}'에 해당하는 종목을 찾을 수 없습니다.")
+            print(" 종목코드를 직접 입력하세요: --code 005930")
             sys.exit(1)
 
     cfg = load_config(args.config)
@@ -100,7 +100,7 @@ def main():
     market_cap = safe_int(out.get('hts_avls'))  # 시가총액(억원)
 
     sign = out.get('prdy_vrss_sign', '3')
-    emoji = {'1': '🔺', '2': '🔼', '4': '🔻', '5': '🔽'}.get(sign, '➡️')
+    emoji = {'1': '', '2': '', '4': '', '5': ''}.get(sign, '')
 
     print(f"{emoji} {name} ({code})")
     print(f"  현재가: {fmt_price(cur_price)} ({'+' if change >= 0 else ''}{fmt_num(change)}원, {fmt_rate(change_rate)})")

@@ -214,27 +214,27 @@ def generate_recommendations(issues: List[Dict]) -> List[str]:
         severity_counts[severity] = severity_counts.get(severity, 0) + 1
 
     if severity_counts.get('CRITICAL', 0) > 0:
-        recommendations.append("🚨 CRITICAL: Immediate action required. Review and fix all critical issues before deploying.")
+        recommendations.append(" CRITICAL: Immediate action required. Review and fix all critical issues before deploying.")
 
     if severity_counts.get('HIGH', 0) > 0:
-        recommendations.append("⚠️  HIGH: Multiple high-severity issues found. Prioritize fixes before public release.")
+        recommendations.append("  HIGH: Multiple high-severity issues found. Prioritize fixes before public release.")
 
     # Check for specific issue types
     issue_types = [issue['issue'].lower() for issue in issues]
     if any('credential' in it or 'secret' in it or 'key' in it for it in issue_types):
-        recommendations.append("🔑 Remove all hardcoded credentials. Use environment variables or secret management.")
+        recommendations.append(" Remove all hardcoded credentials. Use environment variables or secret management.")
 
     if any('eval' in it or 'exec' in it or 'system' in it for it in issue_types):
-        recommendations.append("⚡ Avoid dynamic code execution. Use safer alternatives or validate all inputs thoroughly.")
+        recommendations.append(" Avoid dynamic code execution. Use safer alternatives or validate all inputs thoroughly.")
 
     if any('file' in it and ('upload' in it or 'download' in it) for it in issue_types):
-        recommendations.append("📁 Validate all file operations. Restrict file types, check file sizes, and sanitize paths.")
+        recommendations.append(" Validate all file operations. Restrict file types, check file sizes, and sanitize paths.")
 
     if any('network' in it or 'url' in it or 'request' in it for it in issue_types):
-        recommendations.append("🌐 Validate all network inputs. Use allowlists, sanitize URLs, and implement rate limiting.")
+        recommendations.append(" Validate all network inputs. Use allowlists, sanitize URLs, and implement rate limiting.")
 
     if 'SKILL.md' in str(issue_types):
-        recommendations.append("📝 Ensure SKILL.md is complete with proper frontmatter (name and description fields).")
+        recommendations.append(" Ensure SKILL.md is complete with proper frontmatter (name and description fields).")
 
     return recommendations
 
@@ -293,10 +293,10 @@ def format_audit_report(findings: AuditFindings, output_format: str = 'text'):
 
         # Severity summary
         md += "## Severity Summary\n\n"
-        md += f"- 🚨 **CRITICAL:** {len(findings.critical_issues)}\n"
-        md += f"- ⚠️  **HIGH:** {len(findings.high_issues)}\n"
-        md += f"- ⚡ **MEDIUM:** {len(findings.medium_issues)}\n"
-        md += f"- ℹ️  **LOW:** {len(findings.low_issues)}\n\n"
+        md += f"-  **CRITICAL:** {len(findings.critical_issues)}\n"
+        md += f"-   **HIGH:** {len(findings.high_issues)}\n"
+        md += f"-  **MEDIUM:** {len(findings.medium_issues)}\n"
+        md += f"-   **LOW:** {len(findings.low_issues)}\n\n"
 
         # Findings by severity
         if findings.critical_issues:
@@ -342,10 +342,10 @@ def format_audit_report(findings: AuditFindings, output_format: str = 'text'):
     text += "-"*60 + "\n"
     text += "SEVERITY SUMMARY\n"
     text += "-"*60 + "\n"
-    text += f"🚨 CRITICAL: {len(findings.critical_issues)}\n"
-    text += f"⚠️  HIGH:     {len(findings.high_issues)}\n"
-    text += f"⚡ MEDIUM:   {len(findings.medium_issues)}\n"
-    text += f"ℹ️  LOW:      {len(findings.low_issues)}\n\n"
+    text += f" CRITICAL: {len(findings.critical_issues)}\n"
+    text += f"  HIGH:     {len(findings.high_issues)}\n"
+    text += f" MEDIUM:   {len(findings.medium_issues)}\n"
+    text += f"  LOW:      {len(findings.low_issues)}\n\n"
 
     if findings.critical_issues:
         text += "-"*60 + "\n"

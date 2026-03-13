@@ -44,7 +44,7 @@ scripts/fc_cast.sh --text "gm" --channel "base"
 scripts/fc_cast.sh --text "Great point!" --parent "0xabcdef1234..."
 
 # Quote-cast (embed another cast)
-scripts/fc_cast.sh --text "This 👆" --embed-cast "0xabcdef1234..." --embed-cast-fid 12345
+scripts/fc_cast.sh --text "This " --embed-cast "0xabcdef1234..." --embed-cast-fid 12345
 ```
 
 Output: JSON `{success, hash}`.
@@ -149,7 +149,7 @@ scripts/fc_channels.sh --trending --limit 10
 ### Thread a multi-cast announcement
 
 ```bash
-HASH1=$(scripts/fc_cast.sh --text "Thread 🧵 1/3: Big news!" --channel "base" | jq -r .hash)
+HASH1=$(scripts/fc_cast.sh --text "Thread  1/3: Big news!" --channel "base" | jq -r .hash)
 HASH2=$(scripts/fc_cast.sh --text "2/3: Details here..." --parent "$HASH1" | jq -r .hash)
 scripts/fc_cast.sh --text "3/3: Link below" --parent "$HASH2" --embed "https://example.com"
 ```
@@ -181,16 +181,16 @@ Not all endpoints are available on Neynar's free plan.
 
 | Feature | Script | Free? |
 |---------|--------|-------|
-| Post cast | fc_cast.sh | ✅ |
-| User casts feed | fc_feed.sh --fid | ✅ |
-| User lookup (username/FID/address) | fc_user.sh | ✅ |
-| Like / recast | fc_react.sh | ✅ |
-| Following feed | fc_feed.sh --following | ✅ |
-| Channel feed | fc_feed.sh --channel | ❌ Paid |
-| Cast search | fc_search.sh | ❌ Paid |
-| Channel search/details/trending | fc_channels.sh | ❌ Paid |
-| Delete cast | fc_delete.sh | ❌ Paid |
-| Thread/conversation | fc_feed.sh --thread | ✅ |
+| Post cast | fc_cast.sh |  |
+| User casts feed | fc_feed.sh --fid |  |
+| User lookup (username/FID/address) | fc_user.sh |  |
+| Like / recast | fc_react.sh |  |
+| Following feed | fc_feed.sh --following |  |
+| Channel feed | fc_feed.sh --channel |  Paid |
+| Cast search | fc_search.sh |  Paid |
+| Channel search/details/trending | fc_channels.sh |  Paid |
+| Delete cast | fc_delete.sh |  Paid |
+| Thread/conversation | fc_feed.sh --thread |  |
 
 Scripts that hit paid endpoints will exit non-zero with a clear `402 PaymentRequired` error.
 

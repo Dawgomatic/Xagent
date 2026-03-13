@@ -76,7 +76,7 @@ swiggy dineout book <restaurant-id> --date 2026-01-30 --time 20:00 --guests 2 --
 
 ## CRITICAL: Safety Rules
 
-### ⚠️ NEVER Auto-Order
+###  NEVER Auto-Order
 **ALWAYS get explicit confirmation before placing orders.**
 
 1. **Show cart preview first:**
@@ -213,4 +213,4 @@ Swiggy MCP uses OAuth. First use will trigger auth flow. The `swiggy` CLI handle
 
 ---
 
-**Remember: Confirmation BEFORE ordering. Every. Single. Time.** 🐾
+**Remember: Confirmation BEFORE ordering. Every. Single. Time.** 

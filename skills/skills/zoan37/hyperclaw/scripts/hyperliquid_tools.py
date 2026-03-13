@@ -612,7 +612,7 @@ def cmd_check(args):
 
             if warnings:
                 for w in warnings:
-                    print(f"    {Colors.YELLOW}⚠ {w}{Colors.END}")
+                    print(f"    {Colors.YELLOW} {w}{Colors.END}")
 
             print()
 

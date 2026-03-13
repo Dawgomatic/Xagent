@@ -3,7 +3,7 @@ name: slides-cog
 description: "Great slides need two things: content worth presenting and design worth looking at. #1 on DeepResearch Bench (Feb 2026) — CellCog researches and fills content mindfully from minimal prompts, no filler. State-of-the-art PDF generation for presentations, pitch decks, keynotes, and slideshows you can present as-is."
 metadata:
   openclaw:
-    emoji: "📽️"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---
@@ -148,9 +148,9 @@ CellCog presentations can include:
 
 | Format | Quality | When to Use |
 |--------|---------|-------------|
-| **PDF** | ⭐⭐⭐⭐⭐ Excellent | **Default for everything** |
-| **Interactive HTML** | ⭐⭐⭐⭐ Great | Web-based presentations, internal tools |
-| **PPTX** | ⭐⭐ Limited | Only when explicitly requested AND editing in PowerPoint is absolutely required |
+| **PDF** |  Excellent | **Default for everything** |
+| **Interactive HTML** |  Great | Web-based presentations, internal tools |
+| **PPTX** |  Limited | Only when explicitly requested AND editing in PowerPoint is absolutely required |
 
 ---
 

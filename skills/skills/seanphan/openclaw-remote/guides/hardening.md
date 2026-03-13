@@ -2,7 +2,7 @@
 
 Based on the AI SAFE2 framework. Focuses on proven, working security measures.
 
-## ⚠️ IMPORTANT: OpenClaw Security Reality
+##  IMPORTANT: OpenClaw Security Reality
 
 **OpenClaw already has strong security defaults built-in:**
 - Secure authentication required by default
@@ -61,11 +61,11 @@ ls -la ~/.openclaw/ | head -5
 
 ## Step 3: Run Security Audit (2 min)
 
-⚠️ **SKIP manual config edits for tool restrictions.** OpenClaw's config schema doesn't support the following fields:
-- ❌ `logging.redactSensitive`
-- ❌ `logging.enabled`
-- ❌ `agents.defaults.tools`
-- ❌ `agents.defaults.sandbox`
+ **SKIP manual config edits for tool restrictions.** OpenClaw's config schema doesn't support the following fields:
+-  `logging.redactSensitive`
+-  `logging.enabled`
+-  `agents.defaults.tools`
+-  `agents.defaults.sandbox`
 
 These fields will cause config validation errors. OpenClaw has built-in security controls that work differently.
 
@@ -104,7 +104,7 @@ export ANTHROPIC_API_KEY="sk-..."
 
 3. Delete old keys from provider console
 
-**⚠️ IMPORTANT:** Do NOT modify shell startup files (`~/.bashrc`, `~/.zshrc`) directly. Instead:
+** IMPORTANT:** Do NOT modify shell startup files (`~/.bashrc`, `~/.zshrc`) directly. Instead:
 - Use OpenClaw's `openclaw models auth` command for permanent storage
 - Or set environment variables in your current terminal session only
 
@@ -144,7 +144,7 @@ openclaw doctor --fix  # Validate after rollback
 
 ## Step 6: Optional Backups
 
-**⚠️ MANUAL SETUP REQUIRED:** This skill does NOT automatically set up cron jobs or modify system schedules for security reasons.
+** MANUAL SETUP REQUIRED:** This skill does NOT automatically set up cron jobs or modify system schedules for security reasons.
 
 If you want automated backups, manually create a backup script and schedule it yourself:
 
@@ -214,19 +214,19 @@ openclaw health
 
 You don't need to manually configure these - they're built-in:
 
-✅ Secure authentication required by default  
-✅ Strong account/workspace isolation across all actions  
-✅ CSRF protections for state-changing requests  
-✅ Strict origin checks to block cross-site attacks  
-✅ WebSocket origin validation to prevent hijacking  
-✅ Rate limiting and abuse prevention on sensitive endpoints  
-✅ Secrets encrypted at rest  
-✅ Secrets transmitted securely and never logged  
-✅ Short-lived/rotating access credentials where applicable  
-✅ Private-by-default networking  
-✅ Tight allowlists for any browser-accessible control surfaces  
-✅ Secure OAuth flows (state/PKCE) for supported providers  
-✅ Security-focused HTTP headers (CSP, clickjacking, etc.)  
-✅ Least-privilege runtime (non-root) for services  
+ Secure authentication required by default  
+ Strong account/workspace isolation across all actions  
+ CSRF protections for state-changing requests  
+ Strict origin checks to block cross-site attacks  
+ WebSocket origin validation to prevent hijacking  
+ Rate limiting and abuse prevention on sensitive endpoints  
+ Secrets encrypted at rest  
+ Secrets transmitted securely and never logged  
+ Short-lived/rotating access credentials where applicable  
+ Private-by-default networking  
+ Tight allowlists for any browser-accessible control surfaces  
+ Secure OAuth flows (state/PKCE) for supported providers  
+ Security-focused HTTP headers (CSP, clickjacking, etc.)  
+ Least-privilege runtime (non-root) for services  
 
 **Your job:** Verify these are working, lock down file permissions, and maintain good operational security practices.

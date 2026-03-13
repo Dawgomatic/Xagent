@@ -309,7 +309,7 @@ impl Alerter {
         match channel {
             AlertChannel::ClawdbotWake { gateway_url } => {
                 let message = format!(
-                    "🚨 Security Alert: {} — {} ({})",
+                    " Security Alert: {} — {} ({})",
                     payload.alert.rule_id,
                     payload.alert.description,
                     payload.event_summary

@@ -30,7 +30,7 @@ def with_fallback(fallback_func=None):
                 return func(*args, **kwargs)
             except Exception as e:
                 if fallback_func:
-                    print(f"⚠️  主功能失败，使用降级功能: {str(e)}")
+                    print(f"  主功能失败，使用降级功能: {str(e)}")
                     return fallback_func(*args, **kwargs)
                 else:
                     raise
@@ -58,7 +58,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
         
         # 检查API凭据是否存在
         if not api_string or not secret_key:
-            print("⚠️  警告: 缺少百度API凭据，将使用降级模式!")
+            print("  警告: 缺少百度API凭据，将使用降级模式!")
             print("   请设置以下环境变量以启用完整功能:")
             print("   export BAIDU_API_STRING='your_bce_v3_api_string'")
             print("   export BAIDU_SECRET_KEY='${BAIDU_SECRET_KEY}'")
@@ -67,7 +67,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
             try:
                 self.client = BaiduEmbeddingBCEV3(api_string, secret_key)
             except Exception as e:
-                print(f"⚠️  百度API客户端初始化失败: {str(e)}，使用降级模式")
+                print(f"  百度API客户端初始化失败: {str(e)}，使用降级模式")
                 self.client = None
         
         # 设置数据库路径
@@ -114,12 +114,12 @@ class EnhancedMemoryBaiduEmbeddingDB:
             conn.commit()
             conn.close()
         except sqlite3.Error as e:
-            print(f"❌ 数据库初始化错误: {str(e)}")
+            print(f" 数据库初始化错误: {str(e)}")
             print(f"   请检查数据库路径是否有效: {self.db_path}")
             print("   可能的原因: 权限不足、磁盘空间不足或路径不存在")
             raise
         except Exception as e:
-            print(f"❌ 初始化数据库时发生未知错误: {str(e)}")
+            print(f" 初始化数据库时发生未知错误: {str(e)}")
             print("   详细错误信息:")
             traceback.print_exc()
             raise
@@ -207,46 +207,46 @@ class EnhancedMemoryBaiduEmbeddingDB:
         try:
             # 输入验证
             if not content or not isinstance(content, str):
-                print("❌ 错误: 内容不能为空且必须是字符串")
+                print(" 错误: 内容不能为空且必须是字符串")
                 return False
             
             if len(content) > 10000:  # 限制内容长度
-                print("❌ 错误: 内容过长，请保持在10000字符以内")
+                print(" 错误: 内容过长，请保持在10000字符以内")
                 return False
                 
             if tags is not None and not isinstance(tags, list):
-                print("❌ 错误: 标签必须是字符串列表")
+                print(" 错误: 标签必须是字符串列表")
                 return False
                 
             if metadata is not None and not isinstance(metadata, dict):
-                print("❌ 错误: 元数据必须是字典类型")
+                print(" 错误: 元数据必须是字典类型")
                 return False
 
             # 检查内容是否已存在
             content_hash = self._get_content_hash(content)
             if self._content_exists(content_hash):
-                print(f"⚠️  内容已存在，跳过重复添加: {content[:50]}...")
+                print(f"  内容已存在，跳过重复添加: {content[:50]}...")
                 return True
 
             # 生成向量表示
             cached_embedding = self._get_from_cache(content)
             if cached_embedding:
                 embedding = cached_embedding
-                print("🔄 使用缓存的嵌入向量")
+                print(" 使用缓存的嵌入向量")
             else:
                 if self.client:
                     embedding = self.client.get_embedding_vector(content, model="embedding-v1")
                     if not embedding:
-                        print(f"❌ 无法为内容生成向量，尝试降级模式: {content[:50]}...")
+                        print(f" 无法为内容生成向量，尝试降级模式: {content[:50]}...")
                         embedding = self._generate_embedding_fallback(content)
                         if not embedding:
-                            print("❌ 降级模式也无法生成向量")
+                            print(" 降级模式也无法生成向量")
                             return False
                 else:
                     # 降级模式
                     embedding = self._generate_embedding_fallback(content)
                     if not embedding:
-                        print("❌ 降级模式也无法生成向量")
+                        print(" 降级模式也无法生成向量")
                         return False
                 
                 # 添加到缓存
@@ -258,7 +258,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
                 tags_str = ",".join(tags) if tags else ""
                 metadata_json = json.dumps(metadata) if metadata else "{}"
             except TypeError as e:
-                print(f"❌ 数据序列化错误: {str(e)}")
+                print(f" 数据序列化错误: {str(e)}")
                 return False
         
             # 插入数据库
@@ -274,20 +274,20 @@ class EnhancedMemoryBaiduEmbeddingDB:
                 conn.commit()
                 
                 if cursor.rowcount > 0:
-                    print(f"✅ 已添加记忆: {content[:50]}{'...' if len(content) > 50 else ''}")
+                    print(f" 已添加记忆: {content[:50]}{'...' if len(content) > 50 else ''}")
                     return True
                 else:
-                    print(f"⚠️  内容已存在: {content[:50]}...")
+                    print(f"  内容已存在: {content[:50]}...")
                     return True
             except sqlite3.Error as e:
-                print(f"❌ 数据库插入错误: {str(e)}")
+                print(f" 数据库插入错误: {str(e)}")
                 print("   可能原因: 数据库权限不足、磁盘空间不足或数据库损坏")
                 return False
             finally:
                 conn.close()
                 
         except Exception as e:
-            print(f"❌ 添加记忆时发生未知错误: {str(e)}")
+            print(f" 添加记忆时发生未知错误: {str(e)}")
             print("   详细错误信息:")
             traceback.print_exc()
             return False
@@ -297,17 +297,17 @@ class EnhancedMemoryBaiduEmbeddingDB:
         try:
             # 输入验证
             if not content or not isinstance(content, str):
-                print("❌ 降级模式 - 内容不能为空且必须是字符串")
+                print(" 降级模式 - 内容不能为空且必须是字符串")
                 return False
             
             if len(content) > 10000:  # 限制内容长度
-                print("❌ 降级模式 - 内容过长，请保持在10000字符以内")
+                print(" 降级模式 - 内容过长，请保持在10000字符以内")
                 return False
 
             # 检查内容是否已存在
             content_hash = self._get_content_hash(content)
             if self._content_exists(content_hash):
-                print(f"⚠️  降级模式 - 内容已存在，跳过重复添加: {content[:50]}...")
+                print(f"  降级模式 - 内容已存在，跳过重复添加: {content[:50]}...")
                 return True
 
             # 不生成向量，只存储内容
@@ -315,7 +315,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
                 tags_str = ",".join(tags) if tags else ""
                 metadata_json = json.dumps(metadata) if metadata else "{}"
             except TypeError as e:
-                print(f"❌ 降级模式 - 数据序化错误: {str(e)}")
+                print(f" 降级模式 - 数据序化错误: {str(e)}")
                 return False
         
             # 插入数据库（embedding_json为NULL）
@@ -331,19 +331,19 @@ class EnhancedMemoryBaiduEmbeddingDB:
                 conn.commit()
                 
                 if cursor.rowcount > 0:
-                    print(f"✅ 降级模式 - 已添加记忆: {content[:50]}{'...' if len(content) > 50 else ''}")
+                    print(f" 降级模式 - 已添加记忆: {content[:50]}{'...' if len(content) > 50 else ''}")
                     return True
                 else:
-                    print(f"⚠️  降级模式 - 内容已存在: {content[:50]}...")
+                    print(f"  降级模式 - 内容已存在: {content[:50]}...")
                     return True
             except sqlite3.Error as e:
-                print(f"❌ 降级模式 - 数据库插入错误: {str(e)}")
+                print(f" 降级模式 - 数据库插入错误: {str(e)}")
                 return False
             finally:
                 conn.close()
                 
         except Exception as e:
-            print(f"❌ 降级模式 - 添加记忆时发生未知错误: {str(e)}")
+            print(f" 降级模式 - 添加记忆时发生未知错误: {str(e)}")
             return False
     
     def _content_exists(self, content_hash: str) -> bool:
@@ -376,15 +376,15 @@ class EnhancedMemoryBaiduEmbeddingDB:
         try:
             # 输入验证
             if not query or not isinstance(query, str):
-                print("❌ 错误: 查询不能为空且必须是字符串")
+                print(" 错误: 查询不能为空且必须是字符串")
                 return []
                 
             if limit <= 0 or limit > 100:
-                print("❌ 错误: 结果数量限制必须在1-100之间")
+                print(" 错误: 结果数量限制必须在1-100之间")
                 return []
                 
             if tags is not None and not isinstance(tags, list):
-                print("❌ 错误: 标签必须是字符串列表")
+                print(" 错误: 标签必须是字符串列表")
                 return []
 
             # 生成查询向量
@@ -399,7 +399,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
                     query_embedding = self._generate_embedding_fallback(query)
                 
                 if not query_embedding:
-                    print("❌ 无法为查询生成向量，使用关键词匹配")
+                    print(" 无法为查询生成向量，使用关键词匹配")
                     return self._keyword_search(query, limit, tags)
 
             # 从数据库获取所有有向量的记忆
@@ -430,7 +430,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
                 
                 rows = cursor.fetchall()
             except sqlite3.Error as e:
-                print(f"❌ 数据库查询错误: {str(e)}")
+                print(f" 数据库查询错误: {str(e)}")
                 print("   可能原因: 数据库损坏、权限问题或SQL语法错误")
                 return []
             finally:
@@ -452,10 +452,10 @@ class EnhancedMemoryBaiduEmbeddingDB:
                         "metadata": json.loads(row[5]) if row[5] else {},
                     })
                 except json.JSONDecodeError:
-                    print(f"⚠️ 警告: 无法解析记忆ID {row[0]} 的嵌入向量，跳过该记录")
+                    print(f" 警告: 无法解析记忆ID {row[0]} 的嵌入向量，跳过该记录")
                     continue
                 except Exception as e:
-                    print(f"⚠️ 警告: 处理记忆ID {row[0]} 时出错: {str(e)}，跳过该记录")
+                    print(f" 警告: 处理记忆ID {row[0]} 时出错: {str(e)}，跳过该记录")
                     continue
             
             # 按相似性排序并返回前N个结果
@@ -463,7 +463,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
             return results[:limit]
             
         except Exception as e:
-            print(f"❌ 搜索记忆时发生未知错误: {str(e)}")
+            print(f" 搜索记忆时发生未知错误: {str(e)}")
             print("   详细错误信息:")
             traceback.print_exc()
             return []
@@ -529,7 +529,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
             return results[:limit]
             
         except Exception as e:
-            print(f"❌ 关键词搜索时发生错误: {str(e)}")
+            print(f" 关键词搜索时发生错误: {str(e)}")
             return []
     
     def get_all_memories(self) -> List[Dict]:
@@ -564,7 +564,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
                         "metadata": json.loads(row[5]) if row[5] else {},
                     })
                 except json.JSONDecodeError:
-                    print(f"⚠️ 警告: 无法解析记忆ID {row[0]} 的元数据，使用空字典")
+                    print(f" 警告: 无法解析记忆ID {row[0]} 的元数据，使用空字典")
                     results.append({
                         "id": row[0],
                         "content": row[1],
@@ -574,17 +574,17 @@ class EnhancedMemoryBaiduEmbeddingDB:
                         "metadata": {},
                     })
                 except Exception as e:
-                    print(f"⚠️ 警告: 处理记忆ID {row[0]} 时出错: {str(e)}，跳过该记录")
+                    print(f" 警告: 处理记忆ID {row[0]} 时出错: {str(e)}，跳过该记录")
                     continue
             
             return results
             
         except sqlite3.Error as e:
-            print(f"❌ 获取所有记忆时数据库错误: {str(e)}")
+            print(f" 获取所有记忆时数据库错误: {str(e)}")
             print("   可能原因: 数据库损坏、权限问题或连接失败")
             return []
         except Exception as e:
-            print(f"❌ 获取所有记忆时发生未知错误: {str(e)}")
+            print(f" 获取所有记忆时发生未知错误: {str(e)}")
             print("   详细错误信息:")
             traceback.print_exc()
             return []
@@ -631,7 +631,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
             }
             
         except sqlite3.Error as e:
-            print(f"❌ 获取统计数据时数据库错误: {str(e)}")
+            print(f" 获取统计数据时数据库错误: {str(e)}")
             print("   可能原因: 数据库损坏、权限问题或连接失败")
             return {
                 "total_memories": 0,
@@ -643,7 +643,7 @@ class EnhancedMemoryBaiduEmbeddingDB:
                 "fallback_mode": True
             }
         except Exception as e:
-            print(f"❌ 获取统计数据时发生未知错误: {str(e)}")
+            print(f" 获取统计数据时发生未知错误: {str(e)}")
             print("   详细错误信息:")
             traceback.print_exc()
             return {
@@ -661,14 +661,14 @@ def main():
     """
     主函数 - 演示增强版百度Embedding内存数据库功能
     """
-    print("🤖 增强版百度Embedding内存数据库")
+    print(" 增强版百度Embedding内存数据库")
     print("="*60)
     
     try:
         # 创建内存数据库实例
         mem_db = EnhancedMemoryBaiduEmbeddingDB()
         
-        print("\n📊 数据库统计信息:")
+        print("\n 数据库统计信息:")
         stats = mem_db.get_statistics()
         print(f"  总记忆数: {stats['total_memories']}")
         print(f"  有嵌入的记忆数: {stats['memories_with_embeddings']}")
@@ -678,7 +678,7 @@ def main():
         print(f"  最早记忆: {stats['earliest_memory']}")
         print(f"  最新记忆: {stats['latest_memory']}")
         
-        print("\n📝 添加记忆示例:")
+        print("\n 添加记忆示例:")
         # 添加一些示例记忆
         examples = [
             {
@@ -704,9 +704,9 @@ def main():
                 example["tags"],
                 example["metadata"]
             )
-            print(f"  添加记忆: {'✅' if success else '❌'} - {example['content'][:30]}...")
+            print(f"  添加记忆: {'' if success else ''} - {example['content'][:30]}...")
         
-        print("\n🔍 语义搜索示例:")
+        print("\n 语义搜索示例:")
         # 搜索相关记忆
         search_queries = [
             "用户健身偏好",
@@ -723,12 +723,12 @@ def main():
             else:
                 print("    未找到相关记忆")
         
-        print(f"\n🎉 增强版百度Embedding内存数据库演示完成！")
+        print(f"\n 增强版百度Embedding内存数据库演示完成！")
         print(f"  工作模式: {'完整功能' if not stats['fallback_mode'] else '降级模式'}")
         print("已成功实现基于向量相似性的智能记忆管理功能")
         
     except Exception as e:
-        print(f"\n❌ 演示过程中发生错误: {str(e)}")
+        print(f"\n 演示过程中发生错误: {str(e)}")
         print("   详细错误信息:")
         traceback.print_exc()
         return 1

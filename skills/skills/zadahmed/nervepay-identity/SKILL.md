@@ -1,7 +1,7 @@
 ---
 name: nervepay-identity
 description: Agent identity layer. Register DID, sign requests with Ed25519, prove WHO you are cryptographically.
-metadata: {"openclaw":{"emoji":"🆔","requires":{"bins":["node","curl"],"env":["NERVEPAY_DID","NERVEPAY_PRIVATE_KEY"]},"primaryEnv":"NERVEPAY_PRIVATE_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","curl"],"env":["NERVEPAY_DID","NERVEPAY_PRIVATE_KEY"]},"primaryEnv":"NERVEPAY_PRIVATE_KEY"}}
 ---
 
 # NervePay Identity — Agent Instructions

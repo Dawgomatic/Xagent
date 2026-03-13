@@ -1,6 +1,6 @@
 # Notion IDs (DIY_PC) - LOCAL ONLY
 
-⚠️ Do not publish this file with real IDs.
+ Do not publish this file with real IDs.
 
 Copy `references/config.example.json` to `~/.config/diy-pc-ingest/config.json` and put IDs there.
 

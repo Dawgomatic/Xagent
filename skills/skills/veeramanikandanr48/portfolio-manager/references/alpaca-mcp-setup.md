@@ -36,7 +36,7 @@ Generate API keys from your Alpaca dashboard:
 4. Click "Generate New Key"
 5. Save your API credentials
 
-⚠️ **Security Note:** Never share your Secret Key or commit it to version control. Treat it like a password.
+ **Security Note:** Never share your Secret Key or commit it to version control. Treat it like a password.
 
 ## Installation
 

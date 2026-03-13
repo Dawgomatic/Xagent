@@ -517,7 +517,7 @@ export function onWindowResize(resizeCanvasCallback) {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 
-  // 手機 ↔ 桌面切換時更新 camera 距離
+  // 手機  桌面切換時更新 camera 距離
   const isMobile = window.innerWidth <= 768;
   const newZ = isMobile ? 14 : 10;
   const newY = isMobile ? 1.2 : 0;

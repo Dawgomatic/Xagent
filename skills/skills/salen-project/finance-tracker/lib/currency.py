@@ -223,7 +223,7 @@ class CurrencyConverter:
         currency = currency.upper()
         
         if currency not in rates and currency not in self.FALLBACK_RATES:
-            return f"❌ Unknown currency: {currency}"
+            return f" Unknown currency: {currency}"
         
         rate = rates.get(currency, self.FALLBACK_RATES.get(currency))
         
@@ -231,15 +231,15 @@ class CurrencyConverter:
         uzs_rate = rates.get("UZS", self.FALLBACK_RATES["UZS"])
         
         if currency == "USD":
-            return f"💱 1 USD = {uzs_rate:,.0f} UZS"
+            return f" 1 USD = {uzs_rate:,.0f} UZS"
         elif currency == "UZS":
             usd_per_uzs = 1 / uzs_rate
-            return f"💱 1,000,000 UZS = ${1000000 * usd_per_uzs:,.2f} USD"
+            return f" 1,000,000 UZS = ${1000000 * usd_per_uzs:,.2f} USD"
         else:
             # Convert to UZS
             uzs_per_unit, _ = self.convert(1, currency, "UZS")
             usd_per_unit, _ = self.convert(1, currency, "USD")
-            return f"💱 1 {currency} = {uzs_per_unit:,.0f} UZS (${usd_per_unit:.2f})"
+            return f" 1 {currency} = {uzs_per_unit:,.0f} UZS (${usd_per_unit:.2f})"
     
     def get_rates_report(self) -> str:
         """Generate a report of common exchange rates."""
@@ -247,9 +247,9 @@ class CurrencyConverter:
         uzs_rate = rates.get("UZS", self.FALLBACK_RATES["UZS"])
         
         lines = [
-            "💱 Exchange Rates",
+            " Exchange Rates",
             "━━━━━━━━━━━━━━━━━━━━━",
-            f"📅 Base: 1 USD = {uzs_rate:,.0f} UZS",
+            f" Base: 1 USD = {uzs_rate:,.0f} UZS",
             ""
         ]
         
@@ -270,7 +270,7 @@ class CurrencyConverter:
                 cached_at = datetime.fromisoformat(data["cached_at"])
                 age = datetime.now() - cached_at
                 lines.append("")
-                lines.append(f"⏰ Updated: {age.seconds // 3600}h {(age.seconds % 3600) // 60}m ago")
+                lines.append(f" Updated: {age.seconds // 3600}h {(age.seconds % 3600) // 60}m ago")
             except:
                 pass
         

@@ -115,7 +115,7 @@ Replace standard Python types with GenVM storage-compatible types:
 | `str` | `str` | Strings (unchanged) |
 | `bool` | `bool` | Booleans (unchanged) |
 
-**⚠️ `int` is NOT supported!** Always use sized integers.
+** `int` is NOT supported!** Always use sized integers.
 
 ### Address Type
 ```python
@@ -204,7 +204,7 @@ result = gl.vm.run_nondet(
 | `gl.nondet.exec_prompt(prompt)` | Execute LLM prompt |
 | `gl.nondet.web.render(url, mode)` | Fetch web page (`mode="text"` or `"html"`) |
 
-**⚠️ Rules:**
+** Rules:**
 - Must be called inside equivalence principle functions
 - Cannot access storage directly
 - Copy storage data to memory first with `gl.storage.copy_to_memory()`

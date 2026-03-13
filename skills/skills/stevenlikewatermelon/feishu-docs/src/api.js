@@ -781,7 +781,7 @@ class FeishuDocsAPI {
           
         case 'callout': {
           const calloutText = this._extractBlockText(block, 'callout');
-          markdown += '> 💡 ' + calloutText + '\n\n';
+          markdown += '>  ' + calloutText + '\n\n';
           lastType = 'callout';
           orderedIndex = 1;
           break;

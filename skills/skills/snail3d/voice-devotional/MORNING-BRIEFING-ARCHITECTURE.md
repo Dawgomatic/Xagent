@@ -1,4 +1,4 @@
-# 🏗️ Morning Briefing - Architecture & Technical Details
+#  Morning Briefing - Architecture & Technical Details
 
 ## System Architecture
 
@@ -236,7 +236,7 @@ try {
   const result = await getYouTubeAnalytics();
   return result;
 } catch (error) {
-  return `📺 YouTube Analytics: Skill not available\n`;
+  return ` YouTube Analytics: Skill not available\n`;
   // Briefing continues with missing component noted
 }
 ```

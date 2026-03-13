@@ -3,7 +3,7 @@
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 ```
 ┌─────────────────┐
@@ -26,7 +26,7 @@
 
 ---
 
-## 🔧 Implementation Checklist
+##  Implementation Checklist
 
 ### Phase 1: Basic Integration
 - [ ] Obtain API credentials
@@ -52,7 +52,7 @@
 
 ---
 
-## 💻 SDK Examples
+##  SDK Examples
 
 ### Python SDK
 
@@ -349,7 +349,7 @@ app.listen(3000, () => {
 
 ---
 
-## 🤖 AI Agent Patterns
+##  AI Agent Patterns
 
 ### Pattern 1: Autonomous Customer Support Agent
 
@@ -597,14 +597,14 @@ class CallQueueManager {
 
 ---
 
-## 🔐 Security Best Practices
+##  Security Best Practices
 
 ### 1. API Key Management
 ```python
-# ❌ DON'T: Hardcode API keys
+#  DON'T: Hardcode API keys
 client = RingezClient(api_key="sk_live_abc123")
 
-# ✅ DO: Use environment variables
+#  DO: Use environment variables
 import os
 client = RingezClient(api_key=os.getenv('RINGEZ_API_KEY'))
 ```
@@ -655,7 +655,7 @@ def validate_phone_number(number):
 
 ---
 
-## 📊 Monitoring & Analytics
+##  Monitoring & Analytics
 
 ### Custom Analytics Dashboard
 ```python
@@ -749,7 +749,7 @@ class CallQualityMonitor {
 
 ---
 
-## 🧪 Testing Strategies
+##  Testing Strategies
 
 ### Unit Tests
 ```python
@@ -831,7 +831,7 @@ async def test_complete_call_flow(client):
 
 ---
 
-## 🚀 Deployment Considerations
+##  Deployment Considerations
 
 ### Docker Deployment
 ```dockerfile

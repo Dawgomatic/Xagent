@@ -435,7 +435,7 @@ async def run_with_retry(
 ### Connection Reuse
 
 ```python
-# ✅ Good: Reuse provider and client
+#  Good: Reuse provider and client
 async with (
     AzureCliCredential() as credential,
     AzureAIAgentsProvider(credential=credential) as provider,
@@ -448,7 +448,7 @@ async with (
     for query in queries:
         await agent1.run(query)
 
-# ❌ Bad: Creating new provider for each request
+#  Bad: Creating new provider for each request
 for query in queries:
     async with AzureAIAgentsProvider(credential=credential) as provider:
         agent = await provider.create_agent(...)

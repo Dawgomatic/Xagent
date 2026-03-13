@@ -11,7 +11,7 @@ const OWNER_NAME = 'YOUR_OWNER_NAME'; // Replace with your owner's name
 
 const AGENT_SIGNATURE = `
 ---
-🤖 AI Agent | Representing: ${OWNER_NAME}
+ AI Agent | Representing: ${OWNER_NAME}
 — not affiliated with this platform.
 `;
 
@@ -50,10 +50,10 @@ function openProticoPanel() {
   const frame = document.getElementById('protico-frame');
   if (frame) {
     frame.click();
-    console.log('✅ Protico panel opened!');
+    console.log(' Protico panel opened!');
     return true;
   }
-  console.log('❌ Protico frame not found');
+  console.log(' Protico frame not found');
   return false;
 }
 
@@ -152,7 +152,7 @@ async function getCommunityFeed(roomUrl) {
     
     return await response.json();
   } catch (error) {
-    console.error('❌ Failed to fetch community feed:', error);
+    console.error(' Failed to fetch community feed:', error);
     return null;
   }
 }
@@ -207,11 +207,11 @@ function initProticoDetection() {
  */
 function checkForProtico() {
   if (hasProtico()) {
-    console.log('✅ Protico detected on this page!');
-    console.log('📍 Room URL:', getProticoRoomUrl());
-    console.log('💡 Call openProticoPanel() to open the community');
+    console.log(' Protico detected on this page!');
+    console.log(' Room URL:', getProticoRoomUrl());
+    console.log(' Call openProticoPanel() to open the community');
   } else {
-    console.log('ℹ️ No Protico integration found on this page');
+    console.log(' No Protico integration found on this page');
   }
 }
 

@@ -68,7 +68,7 @@ def search_jobs(params: JobSearchParams) -> List[Dict]:
     Returns:
         List of job postings matching criteria
     """
-    print(f"🔍 Searching for '{params.title}' jobs...")
+    print(f" Searching for '{params.title}' jobs...")
     print(f"   Platforms: {[p.value for p in params.platforms]}")
     print(f"   Location: {params.location or 'Remote/Any'}")
     
@@ -93,7 +93,7 @@ def search_jobs(params: JobSearchParams) -> List[Dict]:
         "salary_range": "$100k - $150k",
     }
     
-    print(f"✅ Found {len(jobs)} jobs (example mode)")
+    print(f" Found {len(jobs)} jobs (example mode)")
     return jobs
 
 
@@ -163,7 +163,7 @@ def apply_to_job(job: Dict, profile: ApplicantProfile, dry_run: bool = True) -> 
     Returns:
         Application result
     """
-    print(f"\n📝 {'[DRY RUN] ' if dry_run else ''}Applying to: {job['title']} at {job['company']}")
+    print(f"\n {'[DRY RUN] ' if dry_run else ''}Applying to: {job['title']} at {job['company']}")
     print(f"   Platform: {job['platform']}")
     print(f"   URL: {job['url']}")
     
@@ -184,9 +184,9 @@ def apply_to_job(job: Dict, profile: ApplicantProfile, dry_run: bool = True) -> 
     }
     
     if dry_run:
-        print("   ⚠️  DRY RUN - Application not submitted")
+        print("     DRY RUN - Application not submitted")
     else:
-        print("   ✅ Application submitted successfully")
+        print("    Application submitted successfully")
     
     return result
 
@@ -213,7 +213,7 @@ def auto_apply_workflow(
     Returns:
         Summary of applications submitted
     """
-    print("🚀 Starting automated job application workflow\n")
+    print(" Starting automated job application workflow\n")
     print(f"   Max applications: {max_applications}")
     print(f"   Min match score: {min_match_score}")
     print(f"   Dry run: {dry_run}")
@@ -223,7 +223,7 @@ def auto_apply_workflow(
     jobs = search_jobs(search_params)
     
     if not jobs:
-        print("❌ No jobs found matching your criteria")
+        print(" No jobs found matching your criteria")
         return {"applications": [], "total": 0}
     
     applications = []
@@ -231,18 +231,18 @@ def auto_apply_workflow(
     
     for job in jobs:
         if applied_count >= max_applications:
-            print(f"\n✋ Reached maximum application limit ({max_applications})")
+            print(f"\n Reached maximum application limit ({max_applications})")
             break
         
         # Analyze compatibility
         compatibility = analyze_job_compatibility(job, profile)
         
         if compatibility["match_score"] < min_match_score:
-            print(f"\n⏭️  Skipping: {job['title']} at {job['company']}")
+            print(f"\n  Skipping: {job['title']} at {job['company']}")
             print(f"   Match score too low: {compatibility['match_score']}")
             continue
         
-        print(f"\n✨ Good match found!")
+        print(f"\n Good match found!")
         print(f"   Score: {compatibility['match_score']}")
         print(f"   Matches: {', '.join(compatibility['key_matches'][:3])}")
         
@@ -253,7 +253,7 @@ def auto_apply_workflow(
         if require_confirmation and not dry_run:
             response = input(f"\n   Apply to this job? (y/n): ")
             if response.lower() != 'y':
-                print("   ⏭️  Skipped by user")
+                print("     Skipped by user")
                 continue
         
         # Apply to job
@@ -267,7 +267,7 @@ def auto_apply_workflow(
     
     # Summary
     print("\n" + "="*60)
-    print("📊 APPLICATION SUMMARY")
+    print(" APPLICATION SUMMARY")
     print("="*60)
     print(f"Jobs found: {len(jobs)}")
     print(f"Applications submitted: {applied_count}")
@@ -322,7 +322,7 @@ def main():
     with open("application_results.json", "w") as f:
         json.dump(results, f, indent=2)
     
-    print(f"\n💾 Results saved to application_results.json")
+    print(f"\n Results saved to application_results.json")
 
 
 if __name__ == "__main__":

@@ -6,19 +6,19 @@
 DRY_RUN=false
 if [ "$1" = "--dry-run" ]; then
   DRY_RUN=true
-  echo "🔍 DRY RUN MODE - No changes will be made"
+  echo " DRY RUN MODE - No changes will be made"
   echo "=========================================="
   echo ""
 fi
 
-echo "🧹 System Cleanup"
+echo " System Cleanup"
 echo "=================="
 echo ""
 
 # Check for sudo (skip in dry-run mode)
 if [ "$DRY_RUN" = false ]; then
   if [ "$EUID" -ne 0 ]; then
-    echo "⚠️  This script requires sudo privileges"
+    echo "  This script requires sudo privileges"
     echo ""
     read -p "Continue with sudo? [y/N] " -n 1 -r
     echo
@@ -132,7 +132,7 @@ fi
 # Dry run exit
 if [ "$DRY_RUN" = true ]; then
   echo ""
-  echo "🔍 Dry run complete. Run without --dry-run to apply cleanup."
+  echo " Dry run complete. Run without --dry-run to apply cleanup."
   exit 0
 fi
 
@@ -145,10 +145,10 @@ echo ""
 echo "Disk space after: $(df -h / | awk 'NR==2 {print $4}') available"
 
 if [ $SPACE_SAVED -gt 0 ]; then
-  echo "✅ Saved: ${SPACE_SAVED_MB}MB"
+  echo " Saved: ${SPACE_SAVED_MB}MB"
 else
-  echo "ℹ️  No significant space saved"
+  echo "  No significant space saved"
 fi
 
 echo ""
-echo "✅ Cleanup complete!"
+echo " Cleanup complete!"

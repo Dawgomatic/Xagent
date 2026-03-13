@@ -70,7 +70,7 @@ def main():
             f.write("\n\n--- Updated by ui-designer ---\n")
         f.write(rules_to_add)
     
-    print(f"✅ Successfully applied {args.style} style with {args.palette} palette to {rules_file}")
+    print(f" Successfully applied {args.style} style with {args.palette} palette to {rules_file}")
 
 if __name__ == "__main__":
     main()

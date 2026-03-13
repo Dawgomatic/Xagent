@@ -17,10 +17,10 @@ Gather all perspective outputs in one place.
 
 ### 2. Categorize Feedback
 ```
-🔴 Critical — Must address (safety, legal, blocking)
-🟡 Important — Should address (usability, major UX)
-🟢 Nice-to-have — Consider (polish, edge cases)
-⚪ Conflicting — Needs decision
+ Critical — Must address (safety, legal, blocking)
+ Important — Should address (usability, major UX)
+ Nice-to-have — Consider (polish, edge cases)
+ Conflicting — Needs decision
 ```
 
 ### 3. Find Patterns
@@ -48,8 +48,8 @@ Rationale: [why]
 - [things all perspectives agreed on]
 
 ## Key Concerns
-- 🔴 [critical issues]
-- 🟡 [important issues]
+-  [critical issues]
+-  [important issues]
 
 ## Resolved Trade-offs
 - [conflict] → [decision] because [rationale]

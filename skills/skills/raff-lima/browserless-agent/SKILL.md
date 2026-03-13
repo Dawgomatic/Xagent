@@ -3,14 +3,14 @@ name: browserless-agent
 description: Professional web automation with headless browser - navigate, scrape, automate, test, and interact with any website.
 homepage: https://github.com/openclaw/browserless-agent
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🌐", "requires": {"env": ["BROWSERLESS_URL"]}, "primaryEnv": "BROWSERLESS_URL"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["BROWSERLESS_URL"]}, "primaryEnv": "BROWSERLESS_URL"}}
 ---
 
-# Browserless Agent 🌐
+# Browserless Agent 
 
 A comprehensive web automation skill for OpenClaw that provides 30+ browser actions including navigation, data extraction, form filling, screenshot capture, PDF generation, file handling, and advanced web scraping capabilities.
 
-## 🚀 Features
+##  Features
 
 - **Navigation**: Full control over page navigation, redirects, and history
 - **Data Extraction**: Get text, attributes, HTML, computed styles, and structured data
@@ -25,7 +25,7 @@ A comprehensive web automation skill for OpenClaw that provides 30+ browser acti
 - **iFrames**: Interact with nested frame content
 - **Browser State**: Emulate devices, set geolocation, handle dialogs
 
-## 🔧 Configuration
+##  Configuration
 
 This skill requires the `BROWSERLESS_URL` environment variable to be configured in OpenClaw.
 Optionally, you can also set `BROWSERLESS_TOKEN` for authentication.
@@ -64,7 +64,7 @@ Get your Browserless service at: [browserless.io](https://browserless.io)
 
 Get your Browserless service at: [browserless.io](https://browserless.io)
 
-## 📖 Available Actions
+##  Available Actions
 
 ### Navigation & Page Control
 
@@ -552,7 +552,7 @@ Set how to handle JavaScript dialogs (alert/confirm/prompt).
 ```
 Actions: accept, dismiss
 
-## 💡 Usage Examples
+##  Usage Examples
 
 ### Example 1: Web Scraping
 ```bash
@@ -597,7 +597,7 @@ python main.py pdf '{
 }'
 ```
 
-## 🎯 OpenClaw Integration
+##  OpenClaw Integration
 
 To use this skill from OpenClaw, the agent can automatically invoke these actions. Examples:
 
@@ -610,14 +610,14 @@ To use this skill from OpenClaw, the agent can automatically invoke these action
 **User:** "Search for 'Python' on Google and get the first result link"  
 **Agent:** Navigates to Google, types in search, clicks search, extracts first result
 
-## 🔒 Security Notes
+##  Security Notes
 
 - Browserless connection uses WebSocket over TLS (wss://)
 - Credentials are never logged or exposed in responses
 - All browser actions are isolated in the Browserless container
 - No local browser installation required
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Connection fails:**
 - Verify `BROWSERLESS_WS` URL is correct
@@ -634,7 +634,7 @@ To use this skill from OpenClaw, the agent can automatically invoke these action
 - Wait for element to load with `wait_for_selector`
 - Check if element is inside an iframe
 
-## 📚 Resources
+##  Resources
 
 - [Playwright Documentation](https://playwright.dev)
 - [CSS Selectors Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)

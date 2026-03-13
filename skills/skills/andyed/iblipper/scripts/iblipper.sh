@@ -23,7 +23,7 @@ USAGE:
 
 OPTIONS:
     --gif           Output GIF export URL (requires browser to download)
-    --markdown, -m  Output as markdown link with ▶️ prefix
+    --markdown, -m  Output as markdown link with  prefix
     --help, -h      Show this help
 
 ARGUMENTS:
@@ -103,7 +103,7 @@ fi
 
 # Output
 if $MARKDOWN; then
-    echo "[▶️ ${MESSAGE}](${URL})"
+    echo "[ ${MESSAGE}](${URL})"
 else
     echo "$URL"
 fi

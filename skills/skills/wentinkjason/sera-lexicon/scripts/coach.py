@@ -32,8 +32,8 @@ def get_coaching(history_text):
 if __name__ == "__main__":
     # Test with a rapid escalation
     mock_history = """
-    Turn 1: [SERA] 🐙 | C:0.98 P:0.22 κ:1.45 V:+0.90 |
-    Turn 2: [SERA] 🐙 | C:0.99 P:0.25 κ:1.85 V:+0.92 |
+    Turn 1: [SERA]  | C:0.98 P:0.22 κ:1.45 V:+0.90 |
+    Turn 2: [SERA]  | C:0.99 P:0.25 κ:1.85 V:+0.92 |
     """
     advice = get_coaching(mock_history)
     print(f"--- UD Coaching Output ---")

@@ -11,7 +11,7 @@ Explore the Chia blockchain via Spacescan.io API.
 - Track CAT tokens and NFTs
 - Get XCH price
 
-## ⚠️ API Key Required
+##  API Key Required
 
 Spacescan requires an API key. Get yours at: https://www.spacescan.io/apis
 

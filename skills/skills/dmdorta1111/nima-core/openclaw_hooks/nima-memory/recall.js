@@ -344,7 +344,7 @@ export function formatForContext(recallResult, fullText = false) {
     lines.push(`\n--- Memory (${ts}) [affect: ${affectTag}] ---`);
 
     for (const [layerName, layer] of Object.entries(memory.layers || {})) {
-      const icon = layerName === "input" ? "👂" : layerName === "contemplation" ? "💭" : "💬";
+      const icon = layerName === "input" ? "" : layerName === "contemplation" ? "" : "";
       const text = fullText ? layer.text : layer.summary;
       if (text) {
         const who = layer.who && layer.who !== "self" ? ` (${layer.who})` : "";

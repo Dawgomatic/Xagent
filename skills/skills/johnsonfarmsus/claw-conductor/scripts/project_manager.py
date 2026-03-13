@@ -51,7 +51,7 @@ class ProjectManager:
         workspace_path = Path(workspace)
 
         # Create project structure
-        print(f"📁 Creating project workspace: {workspace}")
+        print(f" Creating project workspace: {workspace}")
         workspace_path.mkdir(parents=True, exist_ok=True)
 
         # Create .claw-conductor directory for state
@@ -59,7 +59,7 @@ class ProjectManager:
         conductor_dir.mkdir(exist_ok=True)
 
         # Initialize git repository
-        print(f"🔧 Initializing git repository...")
+        print(f" Initializing git repository...")
         self._init_git(workspace_path)
 
         # Create GitHub repository (if user provided)
@@ -67,7 +67,7 @@ class ProjectManager:
         if github_user:
             try:
                 github_repo = self._create_github_repo(name, github_user)
-                print(f"🐙 GitHub repository created: {github_repo}")
+                print(f" GitHub repository created: {github_repo}")
 
                 # Set remote
                 subprocess.run(
@@ -76,7 +76,7 @@ class ProjectManager:
                     check=False  # May already exist
                 )
             except Exception as e:
-                print(f"⚠️  GitHub repo creation failed: {e}")
+                print(f"  GitHub repo creation failed: {e}")
 
         # Create project metadata
         project = {
@@ -237,7 +237,7 @@ if __name__ == '__main__':
         github_user=None  # Skip GitHub for test
     )
 
-    print(f"\n✅ Project created:")
+    print(f"\n Project created:")
     print(f"   ID: {project['project_id']}")
     print(f"   Workspace: {project['workspace']}")
     print(f"   Status: {project['status']}")

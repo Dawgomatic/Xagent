@@ -2,7 +2,7 @@
 name: "price-api"
 description: "Fetch construction material prices from open APIs. Track price trends, regional variations, and update cost databases."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🌐", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Price API for Construction Materials
 

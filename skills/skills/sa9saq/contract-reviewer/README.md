@@ -1,4 +1,4 @@
-# ⚖️ contract-reviewer
+#  contract-reviewer
 
 Automatically detect risk clauses, summarize terms, and rate legal documents.
 

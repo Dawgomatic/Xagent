@@ -4,7 +4,7 @@ description: Work with Notion pages and databases via the official Notion API.
 homepage: https://developers.notion.com
 metadata:
   clawdbot:
-    emoji: 🧠
+    emoji: 
     requires:
       env:
         - NOTION_API_KEY

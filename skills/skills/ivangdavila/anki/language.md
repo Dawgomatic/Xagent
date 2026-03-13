@@ -31,16 +31,16 @@
 ## Sentence Cards vs Word Cards
 
 **Word cards (isolated vocabulary):**
-- ✅ Fast to create
-- ✅ Good for recognition
-- ❌ No context = poor production
-- ❌ Interference between similar words
+-  Fast to create
+-  Good for recognition
+-  No context = poor production
+-  Interference between similar words
 
 **Sentence cards (word in context):**
-- ✅ Shows real usage
-- ✅ Tests comprehension
-- ❌ Slower to create
-- ❌ Might pass by understanding context, not word
+-  Shows real usage
+-  Tests comprehension
+-  Slower to create
+-  Might pass by understanding context, not word
 
 **Best approach:** Start with word + example sentence. Add sentence cards for confusing words.
 

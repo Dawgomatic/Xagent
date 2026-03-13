@@ -204,7 +204,7 @@ class TestFormatters(unittest.TestCase):
         self.assertIn("첫 평가", text)
 
     def test_format_xp_gain(self):
-        text = format_xp_gain(20, ["🏆 첫 평가"], True, "🌿 초기창업자")
+        text = format_xp_gain(20, [" 첫 평가"], True, " 초기창업자")
         self.assertIn("+20 XP", text)
         self.assertIn("레벨 업", text)
         self.assertIn("첫 평가", text)

@@ -8,7 +8,7 @@ license: MIT
 keywords: [llm, proxy, routing, caching, cost-optimization, memory, anthropic, openrouter]
 metadata:
   openclaw:
-    emoji: "⚡"
+    emoji: ""
     category: ai-tools
     requires:
       env: []

@@ -418,7 +418,7 @@ def format_results(results, quiet=False, json_output=False):
         print(f"{overall} {max_score}")
         return
     
-    print("\n🧠 Memory Security Scan")
+    print("\n Memory Security Scan")
     print("━" * 60)
     print()
     
@@ -429,7 +429,7 @@ def format_results(results, quiet=False, json_output=False):
         file_path = result.get("file", "unknown")
         rel_path = os.path.relpath(file_path, WORKSPACE)
         
-        icon = "✓" if severity == SAFE else "⚠"
+        icon = "✓" if severity == SAFE else ""
         print(f"{icon} {rel_path} - {severity}")
         
         threats = result.get("threats", [])

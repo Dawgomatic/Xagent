@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🏛️  ClawTrial Installed');
+console.log('  ClawTrial Installed');
 
 // Get package paths
 const packagePath = path.join(__dirname, '..');
@@ -27,7 +27,7 @@ if (!fs.existsSync(usrBinPath)) {
 }
 
 console.log('');
-console.log('📋 Next Steps:');
+console.log(' Next Steps:');
 console.log('  1. Run setup:');
 console.log('     clawtrial setup');
 console.log('');

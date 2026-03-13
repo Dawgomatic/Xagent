@@ -11,7 +11,7 @@ Sends personalized LinkedIn messages to existing 1st-degree connections. Each me
 
 ---
 
-## ⚠️ Pre-flight Checklist — Confirm Before Starting
+##  Pre-flight Checklist — Confirm Before Starting
 
 ### 1. Connection List
 Ask the user for their data file or list. Must include (or be added):
@@ -51,11 +51,11 @@ If the user skips this, fall back to local `linkedin_dm_progress.json` but remin
 
 ### 6. Ready Check
 Only proceed once:
-- ✅ List is ready
-- ✅ Sender profile has been read
-- ✅ Pitch is confirmed by user
-- ✅ Browser is open with LinkedIn logged in
-- ✅ Sheet ID confirmed (or sidecar fallback acknowledged)
+-  List is ready
+-  Sender profile has been read
+-  Pitch is confirmed by user
+-  Browser is open with LinkedIn logged in
+-  Sheet ID confirmed (or sidecar fallback acknowledged)
 
 ---
 

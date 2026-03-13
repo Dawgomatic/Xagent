@@ -17,7 +17,7 @@ from pathlib import Path
 def print_banner():
     print("""
 ╔══════════════════════════════════════╗
-║     🤖 Holocube Emotes Setup 🤖     ║
+║      Holocube Emotes Setup      ║
 ║  Give your AI a face on the cube!   ║
 ╚══════════════════════════════════════╝
 """)
@@ -78,7 +78,7 @@ CHARACTER_PRESETS = {
 
 def pick_character():
     """Let user choose or describe a character."""
-    print("\n🎨 Choose your character:\n")
+    print("\n Choose your character:\n")
     presets = list(CHARACTER_PRESETS.items())
     for i, (key, preset) in enumerate(presets, 1):
         print(f"  {i}. {preset['name']}")
@@ -123,7 +123,7 @@ def generate_sprites(character_desc, output_dir, api_key):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    print("\n⏳ Generating base character (this takes ~15 seconds)...")
+    print("\n Generating base character (this takes ~15 seconds)...")
     base = generate_base(output_dir, character_desc, api_key, script)
     if not base:
         return False
@@ -134,7 +134,7 @@ def generate_sprites(character_desc, output_dir, api_key):
     emotes_to_gen = {k: v for k, v in EMOTES.items() if k != "neutral"}
     total = len(emotes_to_gen)
 
-    print(f"\n⏳ Generating {total} emote variations (~15 sec each)...")
+    print(f"\n Generating {total} emote variations (~15 sec each)...")
     for i, (emote, desc) in enumerate(emotes_to_gen.items(), 1):
         print(f"  [{i}/{total}] {emote}...")
         generate_emote(base, emote, desc, output_dir, character_desc, api_key, script)
@@ -147,12 +147,12 @@ def convert_and_upload(sprites_dir, ip):
     from generate_sprites import convert_to_holocube
 
     sprites_dir = Path(sprites_dir)
-    print("\n🎬 Creating animations...")
+    print("\n Creating animations...")
     convert_to_holocube(sprites_dir)
 
     gif_dir = sprites_dir / "gif"
 
-    print(f"\n📡 Uploading to holocube at {ip}...")
+    print(f"\n Uploading to holocube at {ip}...")
 
     # Clear device
     urllib.request.urlopen(f"http://{ip}/set?clear=image", timeout=5)
@@ -239,7 +239,7 @@ def main():
     # Step 3: Check API key
     api_key = get_api_key()
     if not api_key:
-        print("\n⚠️  No Gemini API key found.")
+        print("\n  No Gemini API key found.")
         api_key = input("Enter your GEMINI_API_KEY: ").strip()
         if not api_key:
             print("Cannot generate sprites without an API key.")
@@ -261,7 +261,7 @@ def main():
     # Done
     print(f"""
 ╔══════════════════════════════════════╗
-║          ✅ Setup Complete!          ║
+║           Setup Complete!          ║
 ╠══════════════════════════════════════╣
 ║  Your holocube now has a face!      ║
 ║                                     ║

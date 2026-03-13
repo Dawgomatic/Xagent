@@ -26,7 +26,7 @@ While the VirusTotal classification is technically accurate (credentials ARE tra
 ### 1. README.md Improvements
 
 **Added:**
-- ⚠️ Security Notice section at the top
+-  Security Notice section at the top
 - Clear distinction between safe (read) and risky (write) operations
 - Explicit warnings about credential transmission
 - Strong recommendations to never use primary accounts
@@ -42,7 +42,7 @@ While the VirusTotal classification is technically accurate (credentials ARE tra
 - Added prominent security notice at the top
 - Reorganized content to prioritize safe read operations
 - Moved write operations to the end with repeated warnings
-- Added 🚨 CRITICAL SECURITY WARNING section before write operations
+- Added  CRITICAL SECURITY WARNING section before write operations
 - Included comprehensive disclaimer
 
 **Impact:** Documentation now actively discourages risky operations and educates users
@@ -53,7 +53,7 @@ While the VirusTotal classification is technically accurate (credentials ARE tra
 - Comprehensive security notices in file header docstring
 - Docstring security warnings for each write operation method
 - `print_security_warning()` function that displays before any write operation
-- Help text clearly marking operations as "SAFE" or "⚠️ HIGH RISK"
+- Help text clearly marking operations as "SAFE" or " HIGH RISK"
 - Runtime warnings printed to stderr before credential transmission
 
 **Impact:** Users get multiple security warnings at runtime before taking risky actions
@@ -130,22 +130,22 @@ Multiple layers of warnings:
 ### After
 
 ```markdown
-## ⚠️ IMPORTANT SECURITY NOTICE
+##  IMPORTANT SECURITY NOTICE
 
 This skill provides two types of operations:
 
-### ✅ Read Operations (SAFE - Recommended for Most Users)
+###  Read Operations (SAFE - Recommended for Most Users)
 - User profiles, tweets, search, trends, followers
 - **No authentication required**
 - **No credentials transmitted**
 - **Safe for production use**
 
-### ⚠️ Write Operations (HIGH RISK - Use Only with Dedicated Accounts)
+###  Write Operations (HIGH RISK - Use Only with Dedicated Accounts)
 - Posting, liking, retweeting
 - **Requires transmitting email + password + proxy to third-party API**
 - **Security Risk**: Full account access granted to `api.aisa.one`
 
-**⚠️ CRITICAL**: Never use write operations with your primary Twitter account.
+** CRITICAL**: Never use write operations with your primary Twitter account.
 ```
 
 **Improvements:**
@@ -193,26 +193,26 @@ This skill provides two types of operations:
 ### Original Concern: "Explicit handling of sensitive credentials"
 
 **Our Response:**
-- ✅ We now explicitly warn users about this
-- ✅ We educate users about the risks
-- ✅ We provide alternatives (read-only operations)
-- ✅ We give guidance to minimize harm
+-  We now explicitly warn users about this
+-  We educate users about the risks
+-  We provide alternatives (read-only operations)
+-  We give guidance to minimize harm
 
 ### Original Concern: "Transmitting to third-party service"
 
 **Our Response:**
-- ✅ We clearly disclose this behavior
-- ✅ We explain the trust model
-- ✅ We recommend against using valuable accounts
-- ✅ We provide security checklist
+-  We clearly disclose this behavior
+-  We explain the trust model
+-  We recommend against using valuable accounts
+-  We provide security checklist
 
 ### Original Concern: "Significant security risk"
 
 **Our Response:**
-- ✅ We agree and prominently disclose this
-- ✅ We provide risk mitigation strategies
-- ✅ We offer safer alternatives
-- ✅ We include incident response procedures
+-  We agree and prominently disclose this
+-  We provide risk mitigation strategies
+-  We offer safer alternatives
+-  We include incident response procedures
 
 ---
 
@@ -235,7 +235,7 @@ This skill provides two types of operations:
 
 ## Recommendations for Users
 
-### ✅ Recommended: Use Read Operations Only
+###  Recommended: Use Read Operations Only
 
 Most use cases (monitoring, research, analysis) don't need write access:
 
@@ -246,7 +246,7 @@ python twitter_client.py user-info --username researcher
 python twitter_client.py trends
 ```
 
-### ⚠️ If You Must Use Write Operations
+###  If You Must Use Write Operations
 
 Follow this checklist:
 
@@ -273,7 +273,7 @@ Follow this checklist:
 
 1. Feature security notice prominently
 2. Link to SECURITY.md from main page
-3. Use visual warnings (⚠️ symbols, colored boxes)
+3. Use visual warnings ( symbols, colored boxes)
 4. Include security checklist in quick-start guide
 
 ### For CI/CD
@@ -327,12 +327,12 @@ Potential additional security measures:
 
 The OpenClaw Twitter skill now has significantly improved security posture through:
 
-✅ **Multiple layers of warnings**
-✅ **Comprehensive security documentation**
-✅ **Clear risk classification**
-✅ **Actionable guidance**
-✅ **Runtime protections**
-✅ **Incident response procedures**
+ **Multiple layers of warnings**
+ **Comprehensive security documentation**
+ **Clear risk classification**
+ **Actionable guidance**
+ **Runtime protections**
+ **Incident response procedures**
 
 While the fundamental security model (credentials transmitted to third-party) remains unchanged, users are now **fully informed** and **properly guided** to make safe decisions.
 
@@ -344,11 +344,11 @@ The VirusTotal "suspicious" classification is accurate - these operations ARE ri
 
 ## Files Modified/Created
 
-1. ✅ `README_improved.md` - Enhanced README with security warnings
-2. ✅ `SKILL_improved.md` - Restructured skill documentation
-3. ✅ `twitter_client_improved.py` - Added runtime warnings and security checks
-4. ✅ `SECURITY.md` - Comprehensive security guide
-5. ✅ `SECURITY_IMPROVEMENTS.md` - This document
+1.  `README_improved.md` - Enhanced README with security warnings
+2.  `SKILL_improved.md` - Restructured skill documentation
+3.  `twitter_client_improved.py` - Added runtime warnings and security checks
+4.  `SECURITY.md` - Comprehensive security guide
+5.  `SECURITY_IMPROVEMENTS.md` - This document
 
 ## Next Steps
 

@@ -144,7 +144,7 @@ def load_theme_css(theme: str) -> str:
 
 def generate_cover_html(metadata: dict, theme: str, width: int, height: int) -> str:
     """生成封面 HTML"""
-    emoji = metadata.get('emoji', '📝')
+    emoji = metadata.get('emoji', '')
     title = metadata.get('title', '标题')
     subtitle = metadata.get('subtitle', '')
     
@@ -513,7 +513,7 @@ async def render_html_to_image(html_content: str, output_path: str,
                 type='png'
             )
             
-            print(f"  ✅ 已生成: {output_path} ({width}x{actual_height})")
+            print(f"   已生成: {output_path} ({width}x{actual_height})")
             return actual_height
             
         finally:
@@ -589,10 +589,10 @@ async def render_markdown_to_cards(md_file: str, output_dir: str,
                                    max_height: int = MAX_HEIGHT,
                                    dpr: int = 2):
     """主渲染函数：将 Markdown 文件渲染为多张卡片图片"""
-    print(f"\n🎨 开始渲染: {md_file}")
-    print(f"  📐 主题: {theme}")
-    print(f"  📏 模式: {mode}")
-    print(f"  📐 尺寸: {width}x{height}")
+    print(f"\n 开始渲染: {md_file}")
+    print(f"   主题: {theme}")
+    print(f"   模式: {mode}")
+    print(f"   尺寸: {width}x{height}")
     
     # 确保输出目录存在
     os.makedirs(output_dir, exist_ok=True)
@@ -604,29 +604,29 @@ async def render_markdown_to_cards(md_file: str, output_dir: str,
     
     # 根据模式处理内容分割
     if mode == 'auto-split':
-        print("  ⏳ 自动分析内容并切分...")
+        print("   自动分析内容并切分...")
         card_contents = await auto_split_content(body, theme, width, height, dpr)
     else:
         card_contents = split_content_by_separator(body)
     
     total_cards = len(card_contents)
-    print(f"  📄 检测到 {total_cards} 张正文卡片")
+    print(f"   检测到 {total_cards} 张正文卡片")
     
     # 生成封面
     if metadata.get('emoji') or metadata.get('title'):
-        print("  📷 生成封面...")
+        print("   生成封面...")
         cover_html = generate_cover_html(metadata, theme, width, height)
         cover_path = os.path.join(output_dir, 'cover.png')
         await render_html_to_image(cover_html, cover_path, width, height, 'separator', max_height, dpr)
     
     # 生成正文卡片
     for i, content in enumerate(card_contents, 1):
-        print(f"  📷 生成卡片 {i}/{total_cards}...")
+        print(f"   生成卡片 {i}/{total_cards}...")
         card_html = generate_card_html(content, theme, i, total_cards, width, height, mode)
         card_path = os.path.join(output_dir, f'card_{i}.png')
         await render_html_to_image(card_html, card_path, width, height, mode, max_height, dpr)
     
-    print(f"\n✨ 渲染完成！图片已保存到: {output_dir}")
+    print(f"\n 渲染完成！图片已保存到: {output_dir}")
     return total_cards
 
 
@@ -701,7 +701,7 @@ def main():
     args = parser.parse_args()
     
     if not os.path.exists(args.markdown_file):
-        print(f"❌ 错误: 文件不存在 - {args.markdown_file}")
+        print(f" 错误: 文件不存在 - {args.markdown_file}")
         sys.exit(1)
     
     asyncio.run(render_markdown_to_cards(

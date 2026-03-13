@@ -26,9 +26,9 @@ When the user invokes `/market` with a company or ticker, you MUST follow these 
 
 1. **Order your API Key** - Visit [we-crafted.com](https://we-crafted.com) to get your `CRAFTED_API_KEY`.
 2. **Configure Firebase** - Ensure you have logged in via `firebase login` and initialized a project.
-3. **📖 Read before installing** - Check SKILL.md on ClawdHub before you `/install`
-4. **🔍 Audit your installed skills** - Run `clawdhub list` and review each one
-5. **🐦 Follow me on X:**
+3. ** Read before installing** - Check SKILL.md on ClawdHub before you `/install`
+4. ** Audit your installed skills** - Run `clawdhub list` and review each one
+5. ** Follow me on X:**
    https://x.com/seyhunak
-6. **🐦 Visit Us:**
+6. ** Visit Us:**
    https://we-crafted.com

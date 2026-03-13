@@ -59,7 +59,7 @@ def cmd_radarr_download(args):
         print(f"Error: {result['error']}")
     else:
         title = result.get('title', 'Movie')
-        print(f"✅ Added to download queue: {title}")
+        print(f" Added to download queue: {title}")
         print("   Radarr will search and download the best available quality.")
 
 
@@ -72,11 +72,11 @@ def cmd_radarr_queue(args):
         return
     records = queue.get("records", [])
     if not records:
-        print("Queue is empty. 🎉")
+        print("Queue is empty. ")
         return
     print("\nDownload Queue:\n")
     for item in records[:10]:
-        print(f"📥 {item.get('title', 'Unknown')}")
+        print(f" {item.get('title', 'Unknown')}")
         print(f"   Status: {item.get('status', 'N/A')}")
         print(f"   Progress: {item.get('progress', 0):.0f}%")
         print()
@@ -91,11 +91,11 @@ def cmd_radarr_wanted(args):
         return
     records = wanted.get("records", [])
     if not records:
-        print("No wanted movies! 🎉")
+        print("No wanted movies! ")
         return
     print("\nWanted Movies:\n")
     for movie in records[:10]:
-        print(f"🎬 {movie.get('title', 'Unknown')} ({movie.get('year', 'N/A')})")
+        print(f" {movie.get('title', 'Unknown')} ({movie.get('year', 'N/A')})")
         print(f"   ID: {movie.get('id')}")
         print()
 
@@ -108,7 +108,7 @@ def cmd_radarr_status(args):
         print(f"Connection Error: {status['error']}")
     else:
         version = status.get('version', 'Unknown')
-        print(f"✅ Radarr connected")
+        print(f" Radarr connected")
         print(f"   Version: {version}")
 
 
@@ -134,7 +134,7 @@ def cmd_sonarr_download(args):
         print(f"Error: {result['error']}")
     else:
         title = result.get('title', 'Series')
-        print(f"✅ Added to download queue: {title}")
+        print(f" Added to download queue: {title}")
 
 
 def cmd_sonarr_season(args):
@@ -154,7 +154,7 @@ def cmd_sonarr_season(args):
         print(f"Error: {result['error']}")
     else:
         title = series.get('title', 'Series')
-        print(f"✅ Added season {args.season} for: {title}")
+        print(f" Added season {args.season} for: {title}")
 
 
 def cmd_sonarr_queue(args):
@@ -166,11 +166,11 @@ def cmd_sonarr_queue(args):
         return
     records = queue.get("records", [])
     if not records:
-        print("Queue is empty. 🎉")
+        print("Queue is empty. ")
         return
     print("\nDownload Queue:\n")
     for item in records[:10]:
-        print(f"📥 {item.get('title', 'Unknown')}")
+        print(f" {item.get('title', 'Unknown')}")
         print(f"   Status: {item.get('status', 'N/A')}")
         print(f"   Progress: {item.get('progress', 0):.0f}%")
         print()
@@ -185,11 +185,11 @@ def cmd_sonarr_wanted(args):
         return
     records = wanted.get("records", [])
     if not records:
-        print("No wanted episodes! 🎉")
+        print("No wanted episodes! ")
         return
     print("\nWanted Episodes:\n")
     for ep in records[:10]:
-        print(f"📺 {ep.get('title', 'Unknown')}")
+        print(f" {ep.get('title', 'Unknown')}")
         print(f"   Episode: S{ep.get('seasonNumber', 0):02d}E{ep.get('episodeNumber', 0):02d}")
         print()
 
@@ -202,7 +202,7 @@ def cmd_sonarr_status(args):
         print(f"Connection Error: {status['error']}")
     else:
         version = status.get('version', 'Unknown')
-        print(f"✅ Sonarr connected")
+        print(f" Sonarr connected")
         print(f"   Version: {version}")
 
 
@@ -213,7 +213,7 @@ def cmd_auto(args):
 
     if req_type == "movie":
         client = create_radarr_client()
-        print(f"\n🎬 Movie: {movie_req.title}")
+        print(f"\n Movie: {movie_req.title}")
         print(f"   Quality: {movie_req.quality}")
         print(f"   Language: {movie_req.language}")
         print()
@@ -221,12 +221,12 @@ def cmd_auto(args):
         # Search for the movie
         results = client.search(movie_req.title)
         if not results:
-            print(f"❌ Movie not found: {movie_req.title}")
+            print(f" Movie not found: {movie_req.title}")
             return
 
         movie = results[0]
         tmdb_id = movie.get('tmdbId')
-        print(f"🎬 Found: {movie.get('title')} ({movie.get('year')})")
+        print(f" Found: {movie.get('title')} ({movie.get('year')})")
         print(f"   TMDB ID: {tmdb_id}")
         print()
 
@@ -235,11 +235,11 @@ def cmd_auto(args):
         if "error" in result:
             print(f"Error: {result['error']}")
         else:
-            print(f"✅ Added to download queue!")
+            print(f" Added to download queue!")
 
     else:
         client = create_sonarr_client()
-        print(f"\n📺 Series: {series_req.title}")
+        print(f"\n Series: {series_req.title}")
         if series_req.season:
             print(f"   Season: {series_req.season}")
         if series_req.episode:
@@ -251,12 +251,12 @@ def cmd_auto(args):
         # Search for the series
         results = client.search(series_req.title)
         if not results:
-            print(f"❌ Series not found: {series_req.title}")
+            print(f" Series not found: {series_req.title}")
             return
 
         series = results[0]
         tvdb_id = series.get('tvdbId')
-        print(f"📺 Found: {series.get('title')} ({series.get('year')})")
+        print(f" Found: {series.get('title')} ({series.get('year')})")
         print(f"   TVDB ID: {tvdb_id}")
         print()
 
@@ -265,7 +265,7 @@ def cmd_auto(args):
         if "error" in result:
             print(f"Error: {result['error']}")
         else:
-            print(f"✅ Added to download queue!")
+            print(f" Added to download queue!")
 
 
 def main():

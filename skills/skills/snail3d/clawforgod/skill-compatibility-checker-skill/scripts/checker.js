@@ -557,11 +557,11 @@ Date:  ${new Date().toISOString()}
 │`;
   
   if (readiness === 'GO') {
-    report += `\n│ ✅ GO - Safe to install\n`;
+    report += `\n│  GO - Safe to install\n`;
   } else if (readiness === 'CAUTION') {
-    report += `\n│ ⚠️  CAUTION - Review issues before installation\n`;
+    report += `\n│   CAUTION - Review issues before installation\n`;
   } else {
-    report += `\n│ ❌ BLOCKED - Do not install\n`;
+    report += `\n│  BLOCKED - Do not install\n`;
   }
   
   report += `│\n└────────────────────────────────────────────────────────────────────────────┘\n`;
@@ -572,16 +572,16 @@ Date:  ${new Date().toISOString()}
     
     if (conflicts.conflicts.length > 0) {
       for (const conflict of conflicts.conflicts) {
-        report += `│ ❌ ${conflict}\n`;
+        report += `│  ${conflict}\n`;
       }
     }
     
     if (conflicts.warnings.length > 0) {
       for (const warn of conflicts.warnings) {
         if (typeof warn === 'string') {
-          report += `│ ⚠️  ${warn}\n`;
+          report += `│   ${warn}\n`;
         } else {
-          report += `│ ⚠️  ${warn.message}\n`;
+          report += `│   ${warn.message}\n`;
           if (warn.resolution) {
             report += `│    → ${warn.resolution}\n`;
           }
@@ -606,13 +606,13 @@ Date:  ${new Date().toISOString()}
     
     if (sysReqs.issues.length > 0) {
       for (const issue of sysReqs.issues) {
-        report += `│ ❌ ${issue}\n`;
+        report += `│  ${issue}\n`;
       }
     }
     
     if (sysReqs.warnings.length > 0) {
       for (const warn of sysReqs.warnings) {
-        report += `│ ⚠️  ${warn}\n`;
+        report += `│   ${warn}\n`;
       }
     }
     
@@ -630,7 +630,7 @@ Date:  ${new Date().toISOString()}
     if (deps.missingCLITools.length > 0) {
       report += `│ Missing CLI Tools:\n`;
       for (const tool of deps.missingCLITools) {
-        report += `│ ❌ ${tool.tool}\n`;
+        report += `│  ${tool.tool}\n`;
         report += `│    Install: ${tool.installCommand}\n`;
       }
     }
@@ -638,7 +638,7 @@ Date:  ${new Date().toISOString()}
     if (deps.missingApiKeys.length > 0) {
       report += `│\n│ Missing API Keys/Tokens:\n`;
       for (const key of deps.missingApiKeys) {
-        report += `│ ⚠️  ${key} - configure in TOOLS.md or environment\n`;
+        report += `│   ${key} - configure in TOOLS.md or environment\n`;
       }
     }
     
@@ -650,9 +650,9 @@ Date:  ${new Date().toISOString()}
       report += `│\n`;
       for (const warn of deps.warnings) {
         if (typeof warn === 'string') {
-          report += `│ ℹ️  ${warn}\n`;
+          report += `│   ${warn}\n`;
         } else {
-          report += `│ ℹ️  ${warn.message}\n`;
+          report += `│   ${warn.message}\n`;
         }
       }
     }
@@ -664,9 +664,9 @@ Date:  ${new Date().toISOString()}
   if (security.riskLevel !== 'UNKNOWN') {
     report += `\n┌─ SECURITY SCAN ──────────────────────────────────────────────────────────────┐\n`;
     
-    const riskIcon = security.riskLevel === 'SAFE' ? '🟢' :
-                    security.riskLevel === 'CAUTION' ? '🟡' :
-                    security.riskLevel === 'DANGEROUS' ? '🔴' : '❓';
+    const riskIcon = security.riskLevel === 'SAFE' ? '' :
+                    security.riskLevel === 'CAUTION' ? '' :
+                    security.riskLevel === 'DANGEROUS' ? '' : '';
     
     report += `│ Risk Level: ${riskIcon} ${security.riskLevel}\n`;
     
@@ -696,11 +696,11 @@ Date:  ${new Date().toISOString()}
   report += `\n┌─ RECOMMENDATION ─────────────────────────────────────────────────────────────┐\n`;
   
   if (readiness === 'GO') {
-    report += `│ ✅ Ready to install. No blocking issues detected.\n`;
+    report += `│  Ready to install. No blocking issues detected.\n`;
     report += `│\n`;
     report += `│ Next step: npm install && clawdbot skill install\n`;
   } else if (readiness === 'CAUTION') {
-    report += `│ ⚠️  Proceed with caution. Review all issues above.\n`;
+    report += `│   Proceed with caution. Review all issues above.\n`;
     report += `│\n`;
     report += `│ Actions before installation:\n`;
     
@@ -717,7 +717,7 @@ Date:  ${new Date().toISOString()}
       report += `│ 4. Review security findings and audit code if needed\n`;
     }
   } else {
-    report += `│ ❌ BLOCKED - Do not install.\n`;
+    report += `│  BLOCKED - Do not install.\n`;
     report += `│\n`;
     report += `│ Issues preventing installation:\n`;
     

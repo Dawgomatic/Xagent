@@ -165,10 +165,10 @@ console.log("API Token saved to:", "~/.openclaw/credentials/clawcredit.json");
 - `token_expires_at` - Token expiration date (typically 30 days)
 
 **Why this matters:**
-- ✅ **No manual copy-paste needed** - credentials are persisted automatically
-- ✅ **Prevents token typos** - eliminates manual transcription errors (e.g., missing characters)
-- ✅ **Easy reuse** - subsequent scripts can load credentials from this file
-- ✅ **Secure storage** - file is stored in your home directory with restricted permissions
+-  **No manual copy-paste needed** - credentials are persisted automatically
+-  **Prevents token typos** - eliminates manual transcription errors (e.g., missing characters)
+-  **Easy reuse** - subsequent scripts can load credentials from this file
+-  **Secure storage** - file is stored in your home directory with restricted permissions
 
 **Loading existing credentials:**
 ```javascript
@@ -421,9 +421,9 @@ if (expiresAt < new Date()) {
 ```
 
 **Prevention:**
-- ✅ **Never manually copy tokens** - always use the auto-saved credential file
-- ✅ **Check expiration before use** - tokens typically expire after 30 days
-- ✅ **Use credential file path consistently** - `~/.openclaw/credentials/clawcredit.json`
+-  **Never manually copy tokens** - always use the auto-saved credential file
+-  **Check expiration before use** - tokens typically expire after 30 days
+-  **Use credential file path consistently** - `~/.openclaw/credentials/clawcredit.json`
 
 #### Missing or Corrupted Credentials File
 
@@ -457,7 +457,7 @@ console.log('Token length:', creds.api_token.length);
 console.log('Expected length: 37 (claw_ + 32 hex chars)');
 
 if (creds.api_token.length !== 37) {
-  console.log('⚠️  Token length incorrect! Re-register to fix.');
+  console.log('  Token length incorrect! Re-register to fix.');
 }
 ```
 

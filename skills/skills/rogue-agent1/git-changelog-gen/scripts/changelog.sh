@@ -119,21 +119,21 @@ case "$FORMAT" in
 
       # Nice headers for known types
       declare -A HEADERS=(
-        [feat]="✨ Features"
-        [fix]="🐛 Bug Fixes"
-        [docs]="📝 Documentation"
-        [refactor]="♻️ Refactoring"
-        [test]="✅ Tests"
-        [chore]="🔧 Chores"
-        [perf]="⚡ Performance"
-        [ci]="🔄 CI/CD"
-        [style]="💄 Style"
-        [build]="📦 Build"
-        [other]="📋 Other"
+        [feat]=" Features"
+        [fix]=" Bug Fixes"
+        [docs]=" Documentation"
+        [refactor]=" Refactoring"
+        [test]=" Tests"
+        [chore]=" Chores"
+        [perf]=" Performance"
+        [ci]=" CI/CD"
+        [style]=" Style"
+        [build]=" Build"
+        [other]=" Other"
       )
 
       for TYPE in "${ORDER[@]}"; do
-        HEADER="${HEADERS[$TYPE]:-📋 ${TYPE^}}"
+        HEADER="${HEADERS[$TYPE]:- ${TYPE^}}"
         echo "## ${HEADER}"
         echo ""
         echo -e "${GROUPS[$TYPE]}"

@@ -34,12 +34,12 @@ Stop [Pain]. Start [Desired State].
 
 ### Formula: Action + Value + Urgency
 ```
-✅ "Start my free trial"
-✅ "Get the checklist now"
-✅ "Claim your spot — 12 left"
-❌ "Submit" (no value)
-❌ "Click here" (no value)
-❌ "Learn more" (weak)
+ "Start my free trial"
+ "Get the checklist now"
+ "Claim your spot — 12 left"
+ "Submit" (no value)
+ "Click here" (no value)
+ "Learn more" (weak)
 ```
 
 ### Button Copy by Context
@@ -154,36 +154,36 @@ B: Time — "Offer ends Friday"
 
 ### Vague Superlatives
 ```
-❌ "Revolutionary solution for modern businesses"
-✅ "Cut invoice processing from 2 hours to 12 minutes"
+ "Revolutionary solution for modern businesses"
+ "Cut invoice processing from 2 hours to 12 minutes"
 ```
 **Rule:** Replace adjectives with numbers.
 
 ### Feature-First
 ```
-❌ "Our AI-powered platform uses machine learning..."
-✅ "Know which leads will buy — before you call them"
+ "Our AI-powered platform uses machine learning..."
+ "Know which leads will buy — before you call them"
 ```
 **Rule:** Lead with outcome. Features in "How it works."
 
 ### Weak Opens
 ```
-❌ "In today's fast-paced world..."
-❌ "Are you tired of..."
+ "In today's fast-paced world..."
+ "Are you tired of..."
 ```
 **Rule:** Delete first sentence. Usually better.
 
 ### Hedging
 ```
-❌ "May help you potentially achieve..."
-✅ "You'll get..."
+ "May help you potentially achieve..."
+ "You'll get..."
 ```
 **Rule:** Ctrl+F "may/might/could/potentially" — delete.
 
 ### Missing the Reader
 ```
-❌ "Our company was founded in 2015..."
-✅ "You're about to..."
+ "Our company was founded in 2015..."
+ "You're about to..."
 ```
 **Rule:** "You" should appear 3x more than "we/our."
 

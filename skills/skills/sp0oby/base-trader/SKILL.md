@@ -4,10 +4,10 @@ description: Autonomous crypto trading on Base via Bankr. Use for trading tokens
 metadata:
   version: "1.1.0"
   clawdbot:
-    emoji: "📈"
+    emoji: ""
 ---
 
-# Base Trader 📈
+# Base Trader 
 
 Autonomous trading system for Base chain via Bankr API.
 

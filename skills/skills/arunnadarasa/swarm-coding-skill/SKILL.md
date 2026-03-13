@@ -143,4 +143,4 @@ This creates a feedback loop where each swarm run makes the skill smarter.
 - **Privy Integration:** When the prompt mentions blockchain, web3, tokens, NFTs, or Privy, the skill automatically includes Privy authentication and wallet infrastructure. Backend includes `/auth/callback` with JWKS verification and a simulated fallback; frontend integrates `@privy-io/react-auth` if React is used. For advanced agentic wallet controls, see the [Privy Agentic Wallets skill](https://clawhub.ai/tedim52/privy).
 - **Project Memory:** Each swarm run creates a `DECISIONS.md` file that documents significant decisions made by the planner and each agent. This serves as long-term knowledge grounding—future developers (or the same human weeks later) can understand why certain choices were made. Agents are prompted to explain their technical decisions (e.g., library selection, architecture patterns, security tradeoffs) as part of their output.
 
-Enjoy your autonomous coding factory 🚀
+Enjoy your autonomous coding factory 

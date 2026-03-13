@@ -37,38 +37,38 @@ PRISM is one of the **only APIs** with real-time Pump.fun bonding curve data:
 
 ### 1. New Launch Alert
 ```
-🚀 NEW PUMP.FUN TOKEN
+ NEW PUMP.FUN TOKEN
 
 $DOGWIFCAT
 CA: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU
 
-📊 Stats:
+ Stats:
 • Bonding Progress: 12%
 • Market Cap: $8,450
 • Holders: 23
 • Created: 2 min ago
 
-[🔍 Scan] [📈 Chart] [💰 Buy]
+[ Scan] [ Chart] [ Buy]
 ```
 
 ### 2. Graduation Alert
 ```
-🎓 TOKEN GRADUATED!
+ TOKEN GRADUATED!
 
 $MEMECOIN just graduated to Raydium!
 
-📊 Final Stats:
+ Final Stats:
 • Market Cap: $69,000
 • Total Holders: 1,247
 • Bonding Time: 4h 23m
 
 Trading now live on Raydium DEX
-[📈 Trade on Raydium]
+[ Trade on Raydium]
 ```
 
 ### 3. Volume Spike Alert
 ```
-📈 VOLUME SPIKE DETECTED
+ VOLUME SPIKE DETECTED
 
 $CATDOG seeing unusual activity
 
@@ -76,8 +76,8 @@ $CATDOG seeing unusual activity
 • Price: +28% in 10 minutes
 • New holders: +89
 
-⚠️ Could be coordinated buy - DYOR
-[🔍 Scan] [📈 Chart]
+ Could be coordinated buy - DYOR
+[ Scan] [ Chart]
 ```
 
 ## Bot Commands

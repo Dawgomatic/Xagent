@@ -12,20 +12,20 @@ The Dependency Auditor skill consists of three main Python scripts that work tog
 
 ## Features
 
-### 🔍 Vulnerability Scanning
+###  Vulnerability Scanning
 - Multi-language dependency parsing (JavaScript, Python, Go, Rust, Ruby, Java)
 - Built-in vulnerability database with common CVE patterns
 - CVSS scoring and risk assessment
 - JSON and human-readable output formats
 - CI/CD integration support
 
-### ⚖️ License Compliance
+###  License Compliance
 - Comprehensive license classification and compatibility analysis
 - Automatic conflict detection between project and dependency licenses
 - Risk assessment for commercial usage and distribution
 - Compliance scoring and reporting
 
-### 📈 Upgrade Planning
+###  Upgrade Planning
 - Semantic versioning analysis with breaking change prediction
 - Risk-based upgrade prioritization
 - Phased migration plans with rollback procedures

@@ -150,7 +150,7 @@ async function main() {
     console.log(JSON.stringify(result));
   } else {
     log("");
-    log(`✅ Approvals set for ${symbol}`);
+    log(` Approvals set for ${symbol}`);
     log(`  ERC20 → Permit2: ${hash1}`);
     log(`  Permit2 → Router: ${hash2}`);
   }

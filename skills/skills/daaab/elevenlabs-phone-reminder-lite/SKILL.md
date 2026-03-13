@@ -6,18 +6,18 @@ author: LittleLobster
 license: MIT
 ---
 
-# 📞 AI Phone Reminder (Lite)
+#  AI Phone Reminder (Lite)
 
 Build an AI assistant that can **call you on the phone** with natural voice conversations!
 
-## 🎯 What You'll Build
+##  What You'll Build
 
 - AI agent that makes outbound phone calls
 - Natural conversation with voice cloning
 - Multi-language support (including Chinese, Japanese, etc.)
 - Real-time voice interaction (not pre-recorded!)
 
-## 📋 Prerequisites
+##  Prerequisites
 
 1. **ElevenLabs Account** (Creator plan or above)
    - Sign up: https://elevenlabs.io
@@ -27,22 +27,22 @@ Build an AI assistant that can **call you on the phone** with natural voice conv
    - Sign up: https://twilio.com
    - Need: Account SID, Auth Token, Phone Number (~$1.15/month for US)
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Your App  │────▶│ ElevenLabs  │────▶│   Twilio    │
+│   Your App  │────│ ElevenLabs  │────│   Twilio    │
 │  (trigger)  │     │ Conv. AI    │     │   (call)    │
 └─────────────┘     └─────────────┘     └─────────────┘
                            │                    │
                            ▼                    ▼
                     ┌─────────────┐     ┌─────────────┐
                     │  AI Agent   │     │  Phone      │
-                    │  (voice)    │◀───▶│  Network    │
+                    │  (voice)    │───│  Network    │
                     └─────────────┘     └─────────────┘
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Step 1: Get Your Credentials
 
@@ -114,7 +114,7 @@ curl -X POST "https://api.elevenlabs.io/v1/convai/twilio/outbound-call" \
   }'
 ```
 
-## 💰 Cost Estimate
+##  Cost Estimate
 
 | Item | Cost |
 |------|------|
@@ -124,7 +124,7 @@ curl -X POST "https://api.elevenlabs.io/v1/convai/twilio/outbound-call" \
 | Outbound call (international) | ~$0.15-0.30/min |
 | **Per 1-min reminder call** | **~$0.11-0.40** |
 
-## ⚠️ Limitations of Lite Version
+##  Limitations of Lite Version
 
 - Basic setup guide only
 - No optimized voice parameters
@@ -132,18 +132,18 @@ curl -X POST "https://api.elevenlabs.io/v1/convai/twilio/outbound-call" \
 - No scheduling/automation
 - Community support only
 
-## 🚀 Want More?
+##  Want More?
 
 **Premium Version** includes:
-- ✅ Optimized voice parameters (tested for natural sound)
-- ✅ Complete automation scripts
-- ✅ Multi-language configurations
-- ✅ Error handling & retry logic
-- ✅ Cron job integration
-- ✅ Priority support
+-  Optimized voice parameters (tested for natural sound)
+-  Complete automation scripts
+-  Multi-language configurations
+-  Error handling & retry logic
+-  Cron job integration
+-  Priority support
 
 Get it on **Virtuals ACP**: [Coming Soon]
 
 ---
 
-Made with 🦞 by LittleLobster
+Made with  by LittleLobster

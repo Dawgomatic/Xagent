@@ -359,9 +359,9 @@ Task 1: [Name]
 └─ Satisfaction: ★★★★☆ 4.2/5
 
 Task 2: [Name]
-├─ Completion: ██████░░░░ 60% ⚠️
-├─ Avg. Time: 4:30 (target: 3:00) ⚠️
-├─ Errors: 3.1 avg ⚠️
+├─ Completion: ██████░░░░ 60% 
+├─ Avg. Time: 4:30 (target: 3:00) 
+├─ Errors: 3.1 avg 
 └─ Satisfaction: ★★★☆☆ 3.1/5
 
 [Continue for all tasks]

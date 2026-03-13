@@ -35,13 +35,13 @@ Tell your agent:
 
 Most "partnership" skills are generic advice tables. This is the actual operating system — scoring rubrics, email templates, deal economics, QBR structures, program tiers. Everything you need from first outreach to strategic alliance.
 
-## ⚡ Level Up
+##  Level Up
 
 For industry-specific partnership strategies and deal structures:
 
 **[AfrexAI Context Packs — $47 each](https://afrexai-cto.github.io/context-packs/)**
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — Lead generation & enrichment
 - [afrexai-sales-playbook](https://clawhub.com/skills/afrexai-sales-playbook) — B2B sales system

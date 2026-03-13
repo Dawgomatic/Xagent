@@ -2,7 +2,7 @@
 name: the-trench
 description: Call The Trench Solana program on devnet using the public IDL and TS types.
 homepage: https://github.com/BAGWATCHER/the-trench-demo
-metadata: {"openclaw":{"emoji":"🕳️"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # The Trench Skill

@@ -129,7 +129,7 @@ function notifyOpenClaw(batchedMessages) {
     id: String(messageIdCounter++),
     method: 'chat.send',
     params: {
-      message: `🦞 MOL IM messages in #${currentRoom}:\n${formatted}`,
+      message: ` MOL IM messages in #${currentRoom}:\n${formatted}`,
       sessionKey: 'agent:main:main',
       idempotencyKey: `mol-im-${Date.now()}-${Math.random().toString(36).slice(2)}`
     }
@@ -190,10 +190,10 @@ function sendContextToAgent(room, messages) {
 
   let contextText;
   if (messages.length === 0) {
-    contextText = `🦞 Joined #${room} - room is quiet. Say hi or wait for activity.`;
+    contextText = ` Joined #${room} - room is quiet. Say hi or wait for activity.`;
   } else {
     const formatted = messages.map(m => `[${m.screenName}] ${m.text}`).join('\n');
-    contextText = `🦞 Joined #${room} - recent context:\n${formatted}\n\n(Decide if you want to chime in based on the conversation.)`;
+    contextText = ` Joined #${room} - recent context:\n${formatted}\n\n(Decide if you want to chime in based on the conversation.)`;
   }
 
   const notification = {

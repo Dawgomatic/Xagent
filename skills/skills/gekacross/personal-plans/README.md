@@ -4,12 +4,12 @@ Personal planning assistant for OpenClaw. Tracks tasks, to-do lists, deadlines, 
 
 ## What it does
 
-- ✅ Add, complete, and delete tasks
-- 📅 Plan by day, week, or month
-- ⏰ Track deadlines and reminders
-- 🔢 Set task priorities (high/medium/low)
-- 📊 Review what's done, pending, or overdue
-- 🎯 Break big goals into small steps
+-  Add, complete, and delete tasks
+-  Plan by day, week, or month
+-  Track deadlines and reminders
+-  Set task priorities (high/medium/low)
+-  Review what's done, pending, or overdue
+-  Break big goals into small steps
 
 ## Commands
 

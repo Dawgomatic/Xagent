@@ -5,7 +5,7 @@ description: Austrian online grocery shopping via gurkerl.at. Use when user asks
 tools: [bash]
 ---
 
-# 🥒 gurkerlcli - Austrian Grocery Shopping
+#  gurkerlcli - Austrian Grocery Shopping
 
 Command-line interface for [gurkerl.at](https://gurkerl.at) online grocery shopping (Austria only).
 
@@ -43,7 +43,7 @@ Or add to `~/.env.local` for persistence.
 
 ## Commands
 
-### 🔍 Search Products
+###  Search Products
 
 ```bash
 gurkerlcli search "bio milch"
@@ -51,7 +51,7 @@ gurkerlcli search "äpfel" --limit 10
 gurkerlcli search "brot" --json          # JSON output for scripting
 ```
 
-### 🛒 Shopping Cart
+###  Shopping Cart
 
 ```bash
 gurkerlcli cart list                     # View cart contents
@@ -62,7 +62,7 @@ gurkerlcli cart clear                    # Empty cart (asks for confirmation)
 gurkerlcli cart clear --force            # Empty cart without confirmation
 ```
 
-### 📝 Shopping Lists
+###  Shopping Lists
 
 ```bash
 gurkerlcli lists list                    # Show all lists
@@ -71,7 +71,7 @@ gurkerlcli lists create "Wocheneinkauf"  # Create new list
 gurkerlcli lists delete <list_id>        # Delete list
 ```
 
-### 📦 Order History
+###  Order History
 
 ```bash
 gurkerlcli orders list                   # View past orders
@@ -87,17 +87,17 @@ gurkerlcli cart list
 
 Output:
 ```
-🛒 Shopping Cart
+ Shopping Cart
 ┌─────────────────────────────────┬──────────────┬───────────────┬──────────┐
 │ Product                         │          Qty │         Price │ Subtotal │
 ├─────────────────────────────────┼──────────────┼───────────────┼──────────┤
-│ 🥛 nöm BIO-Vollmilch 3,5%       │     2x 1.0 l │ €1.89 → €1.70 │    €3.40 │
-│ 🧀 Bergbaron                    │     1x 150 g │         €3.99 │    €3.99 │
+│  nöm BIO-Vollmilch 3,5%       │     2x 1.0 l │ €1.89 → €1.70 │    €3.40 │
+│  Bergbaron                    │     1x 150 g │         €3.99 │    €3.99 │
 ├─────────────────────────────────┼──────────────┼───────────────┼──────────┤
 │                                 │              │        Total: │    €7.39 │
 └─────────────────────────────────┴──────────────┴───────────────┴──────────┘
 
-⚠️  Minimum order: €39.00 (€31.61 remaining)
+  Minimum order: €39.00 (€31.61 remaining)
 ```
 
 ### Search and Add to Cart
@@ -138,9 +138,9 @@ gurkerlcli cart remove 12345 --debug
 
 ## Limitations
 
-- ⏳ Checkout not yet implemented (use website)
-- 🇦🇹 Austria only (Vienna, Graz, Linz areas)
-- 🔐 Requires active gurkerl.at account
+-  Checkout not yet implemented (use website)
+-  Austria only (Vienna, Graz, Linz areas)
+-  Requires active gurkerl.at account
 
 ## Changelog
 

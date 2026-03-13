@@ -63,7 +63,7 @@ def main():
     low_battery = get_low_battery_controllers(hub, threshold=20)
     if low_battery:
         for ctrl in low_battery:
-            print(f"  ⚠️  {ctrl.attributes.custom_name}: {ctrl.attributes.battery_percentage}%")
+            print(f"    {ctrl.attributes.custom_name}: {ctrl.attributes.battery_percentage}%")
     else:
         print("  All controllers have sufficient battery")
 

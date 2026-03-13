@@ -85,7 +85,7 @@ Value & Fee
 Method
   ID: 0x6a761202
 
-🔗 https://basescan.org/tx/0xd757...
+ https://basescan.org/tx/0xd757...
 ```
 
 **This output contains all available transaction data.** The CLI queries Etherscan/Solscan APIs directly - there is no additional data available from other sources.

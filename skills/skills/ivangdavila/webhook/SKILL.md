@@ -1,7 +1,7 @@
 ---
 name: Webhook
 description: Implement secure webhook receivers and senders with proper verification and reliability.
-metadata: {"clawdbot":{"emoji":"🪝","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Receiving: Signature Verification

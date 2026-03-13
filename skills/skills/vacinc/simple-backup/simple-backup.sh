@@ -111,7 +111,7 @@ ENCRYPTED_NAME="${ARCHIVE_NAME}.gpg"
 ARCHIVE_PATH="$ARCHIVE_DIR/$ARCHIVE_NAME"
 ENCRYPTED_PATH="$ARCHIVE_DIR/$ENCRYPTED_NAME"
 
-echo "📦 Starting backup: ${TIMESTAMP} (${LABEL})"
+echo " Starting backup: ${TIMESTAMP} (${LABEL})"
 echo "   Workspace: $WORKSPACE_DIR"
 echo "   State: $STATE_DIR"
 echo "   Skills: $SKILLS_DIR"
@@ -168,10 +168,10 @@ if [ -n "$REMOTE_DEST" ]; then
     
     if rclone listremotes | grep -q "$REMOTE_NAME"; then
         rclone sync "$BACKUP_ROOT" "$REMOTE_DEST" --include "*.gpg" --progress
-        echo "✅ Backup complete and synced."
+        echo " Backup complete and synced."
     else
-        echo "⚠️  Remote '$REMOTE_NAME' not configured. Cloud sync skipped."
+        echo "  Remote '$REMOTE_NAME' not configured. Cloud sync skipped."
     fi
 else
-    echo "✅ Backup complete (local only)."
+    echo " Backup complete (local only)."
 fi

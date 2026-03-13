@@ -17,9 +17,9 @@
 1. **飞书那边**：你在飞书开发者后台创建一个"自建应用"（机器人），飞书会给你一个 App ID 和 App Secret——这就像是机器人的"身份证"。
 
 2. **桥接脚本**：一个运行在你电脑上的小程序。它用飞书提供的 **WebSocket 长连接**（而不是传统的 Webhook）来接收消息——这意味着：
-   - ✅ 不需要公网 IP / 域名
-   - ✅ 不需要 ngrok / frp 等内网穿透
-   - ✅ 不需要 HTTPS 证书
+   -  不需要公网 IP / 域名
+   -  不需要 ngrok / frp 等内网穿透
+   -  不需要 HTTPS 证书
    - 就像微信一样，你的客户端主动连上去，消息就推过来了
 
 3. **Clawdbot**：桥接脚本收到飞书消息后，通过本地 WebSocket 转发给 Clawdbot Gateway。Clawdbot 调用 AI 模型生成回复，桥接脚本再把回复发回飞书。
@@ -88,7 +88,7 @@ chmod 600 ~/.clawdbot/secrets/feishu_app_secret
 FEISHU_APP_ID=cli_xxxxxxxxx node bridge.mjs
 ```
 
-在飞书里给机器人发一条消息，看到回复就说明成功了 🎉
+在飞书里给机器人发一条消息，看到回复就说明成功了 
 
 ### 第五步：设置开机自启（可选但推荐）
 

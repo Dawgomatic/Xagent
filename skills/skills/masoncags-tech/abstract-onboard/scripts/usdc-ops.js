@@ -66,7 +66,7 @@ async function main() {
   const [, , action, ...args] = process.argv;
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   
-  console.log("💵 USDC Operations on Abstract");
+  console.log(" USDC Operations on Abstract");
   console.log(`   Contract: ${USDC_ADDRESS}\n`);
   
   if (!action) {
@@ -104,7 +104,7 @@ async function main() {
       const wallet = new ethers.Wallet(pk, provider);
       console.log(`Transferring ${amount} USDC to ${to}...`);
       const receipt = await transfer(wallet, to, amount);
-      console.log("✅ Transfer complete!");
+      console.log(" Transfer complete!");
       console.log(`   Block: ${receipt.blockNumber}`);
       console.log(`   Hash: ${receipt.hash}`);
       break;
@@ -124,7 +124,7 @@ async function main() {
       const wallet = new ethers.Wallet(pk, provider);
       console.log(`Approving ${amount} USDC for ${spender}...`);
       const receipt = await approve(wallet, spender, amount);
-      console.log("✅ Approval complete!");
+      console.log(" Approval complete!");
       console.log(`   Block: ${receipt.blockNumber}`);
       console.log(`   Hash: ${receipt.hash}`);
       break;

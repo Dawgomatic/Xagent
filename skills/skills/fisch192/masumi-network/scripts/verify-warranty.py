@@ -34,14 +34,14 @@ def main():
     parser.add_argument('--receipt', default='Warranty: iPhone 15 Pro - Serial: 12345ABC - Store: Apple Bolzano')
     args = parser.parse_args()
 
-    print("🔍 Scanning receipt...")
+    print(" Scanning receipt...")
     ocr_data = simulate_ocr(args.receipt)
-    print(f"📄 Extracted: {json.dumps(ocr_data, indent=2)}")
+    print(f" Extracted: {json.dumps(ocr_data, indent=2)}")
 
     proof = generate_proof(ocr_data)
-    print(f"✅ Proof generated: {proof['proof']}")
-    print(f"⛓️ Logged to Cardano TX: {proof['tx_hash']}")
-    print("✅ Warranty verified!")
+    print(f" Proof generated: {proof['proof']}")
+    print(f" Logged to Cardano TX: {proof['tx_hash']}")
+    print(" Warranty verified!")
 
 if __name__ == '__main__':
     main()

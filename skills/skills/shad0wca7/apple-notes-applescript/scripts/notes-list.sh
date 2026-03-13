@@ -12,7 +12,7 @@ LIMIT="${2:-20}"
 resolve_folder "$FOLDER"
 
 if [ -z "$FOLDER" ]; then
-    echo "⚠ No folder specified — listing up to $LIMIT notes from all folders (may be slow on large collections)" >&2
+    echo " No folder specified — listing up to $LIMIT notes from all folders (may be slow on large collections)" >&2
     SHOW_FOLDER="true"
 else
     SHOW_FOLDER="false"

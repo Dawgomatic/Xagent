@@ -1,7 +1,7 @@
 ---
 name: HTTP
 description: Use HTTP correctly with proper methods, status codes, headers, and caching.
-metadata: {"clawdbot":{"emoji":"🌐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Redirects (Often Confused)

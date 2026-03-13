@@ -67,7 +67,7 @@ def cmd_balance(args):
     client = get_client()
     balance = client.get_balance()
     
-    print("💰 Account Balance")
+    print(" Account Balance")
     print(f"   Available: ${balance.balance / 100:.2f}")
     if hasattr(balance, 'payout_available') and balance.payout_available:
         print(f"   Payout Available: ${balance.payout_available / 100:.2f}")
@@ -81,10 +81,10 @@ def cmd_positions(args):
     positions = result.market_positions if hasattr(result, 'market_positions') else []
     
     if not positions:
-        print("📊 No open positions")
+        print(" No open positions")
         return
     
-    print(f"📊 {len(positions)} Open Positions\n")
+    print(f" {len(positions)} Open Positions\n")
     
     total_value = 0
     
@@ -119,10 +119,10 @@ def cmd_history(args):
     fills = result.fills if hasattr(result, 'fills') else []
     
     if not fills:
-        print("📜 No trade history")
+        print(" No trade history")
         return
     
-    print(f"📜 Recent Trades ({len(fills)})\n")
+    print(f" Recent Trades ({len(fills)})\n")
     
     for fill in fills:
         ticker = fill.ticker if hasattr(fill, 'ticker') else '?'
@@ -147,10 +147,10 @@ def cmd_orders(args):
     orders = result.orders if hasattr(result, 'orders') else []
     
     if not orders:
-        print(f"📋 No {args.status} orders")
+        print(f" No {args.status} orders")
         return
     
-    print(f"📋 {len(orders)} {args.status.title()} Orders\n")
+    print(f" {len(orders)} {args.status.title()} Orders\n")
     
     for order in orders:
         ticker = order.ticker if hasattr(order, 'ticker') else '?'
@@ -195,16 +195,16 @@ def cmd_setup(args):
     
     os.chmod(CREDENTIALS_PATH, 0o600)
     
-    print(f"\n✅ Credentials saved to {CREDENTIALS_PATH}")
+    print(f"\n Credentials saved to {CREDENTIALS_PATH}")
     
     # Test connection
-    print("\n🔄 Testing connection...")
+    print("\n Testing connection...")
     try:
         client = get_client()
         balance = client.get_balance()
-        print(f"✅ Success! Balance: ${balance.balance/100:.2f}")
+        print(f" Success! Balance: ${balance.balance/100:.2f}")
     except Exception as e:
-        print(f"❌ Connection failed: {e}")
+        print(f" Connection failed: {e}")
 
 
 def main():

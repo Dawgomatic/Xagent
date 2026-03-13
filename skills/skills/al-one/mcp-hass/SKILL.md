@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🏠",
+        "emoji": "",
         "requires": { "anyBins": ["mcporter", "npx"], "env": ["HASS_ACCESS_TOKEN", "HASS_BASE_URL"] },
         "primaryEnv": "HASS_ACCESS_TOKEN",
         "install":

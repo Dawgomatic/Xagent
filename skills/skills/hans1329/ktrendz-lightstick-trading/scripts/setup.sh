@@ -4,7 +4,7 @@
 CONFIG_DIR="$HOME/.config/ktrendz"
 CONFIG_FILE="$CONFIG_DIR/config.json"
 
-echo "🎤 K-Trendz Lightstick Trading Setup"
+echo " K-Trendz Lightstick Trading Setup"
 echo "======================================"
 echo ""
 

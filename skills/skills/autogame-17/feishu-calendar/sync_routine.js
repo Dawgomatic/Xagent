@@ -2,7 +2,7 @@ const CalendarManager = require('./lib/CalendarManager');
 const manager = new CalendarManager();
 
 async function addRoutineEvents() {
-    console.log('📅 Syncing Routine Tasks to Calendar (via CalendarManager)...');
+    console.log(' Syncing Routine Tasks to Calendar (via CalendarManager)...');
     
     // 1. Find Bot Calendar
     const botCal = await manager.getCalendar('OpenClaw Assistant');
@@ -11,7 +11,7 @@ async function addRoutineEvents() {
     // 2. Define Routine Events
     const routines = [
         {
-            summary: '🛡️ System Maintenance (Auto-Restart)',
+            summary: ' System Maintenance (Auto-Restart)',
             description: 'Automated health check and process restart to prevent memory leaks.',
             hour: 4, // 04:00 UTC
             minute: 0,
@@ -20,7 +20,7 @@ async function addRoutineEvents() {
             color: -1
         },
         {
-            summary: '🌅 Morning Briefing',
+            summary: ' Morning Briefing',
             description: 'Generate and send a morning briefing card (yesterday highlights + today agenda) to Master.',
             hour: 1, // 01:30 UTC = 09:30 CST
             minute: 30, 
@@ -29,7 +29,7 @@ async function addRoutineEvents() {
             color: -1
         },
         {
-            summary: '📝 Xiaoxia\'s Diary',
+            summary: ' Xiaoxia\'s Diary',
             description: 'Reflect on the day, write diary, and update Feishu Doc.',
             hour: 20, // 20:00 UTC = 04:00 CST (next day) -- wait, 20:00 UTC is late.
             minute: 0,
@@ -38,7 +38,7 @@ async function addRoutineEvents() {
             color: -1 
         },
         {
-            summary: '🦐 ClawdChat Check',
+            summary: ' ClawdChat Check',
             description: 'Check community feed and interact with other agents.',
             hour: 0, 
             minute: 0,
@@ -47,7 +47,7 @@ async function addRoutineEvents() {
             color: -1
         },
         {
-            summary: '🔄 Calendar Sync',
+            summary: ' Calendar Sync',
             description: 'Check for new tasks and sync heartbeat state.',
             hour: 0,
             minute: 15,
@@ -81,8 +81,8 @@ async function addRoutineEvents() {
         };
 
         const res = await manager.addEvent(botCal.calendar_id, eventData);
-        if (res) console.log(`✅ Added: ${task.summary}`);
-        else console.error(`❌ Failed ${task.summary}`);
+        if (res) console.log(` Added: ${task.summary}`);
+        else console.error(` Failed ${task.summary}`);
     }
 }
 

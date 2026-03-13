@@ -67,7 +67,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('✅ Registered successfully!');
+  console.log(' Registered successfully!');
   console.log(`   Mentor ID: ${data.mentor_id}`);
   console.log(`   Slug: ${data.slug}`);
   if (owner) {

@@ -4,7 +4,7 @@ import json
 import os
 from stravalib.client import Client
 
-print("🏃 Strava OpenClaw Skill Setup")
+print(" Strava OpenClaw Skill Setup")
 print("=" * 50)
 print()
 
@@ -23,7 +23,7 @@ client_id = input("Enter your Client ID: ").strip()
 client_secret = input("Enter your Client Secret: ").strip()
 
 if not client_id or not client_secret:
-    print("❌ Client ID and Secret are required!")
+    print(" Client ID and Secret are required!")
     exit(1)
 
 # Generate authorization URL
@@ -49,7 +49,7 @@ print()
 redirect_url = input("Paste redirect URL: ").strip()
 
 if not redirect_url or 'code=' not in redirect_url:
-    print("❌ Invalid redirect URL!")
+    print(" Invalid redirect URL!")
     exit(1)
 
 # Extract code and exchange for token
@@ -75,8 +75,8 @@ try:
         json.dump(credentials, f, indent=2)
 
     print()
-    print("✅ Setup complete!")
-    print(f"✅ Credentials saved to {config_path}")
+    print(" Setup complete!")
+    print(f" Credentials saved to {config_path}")
     print()
     print("Test it:")
     print("  python3 strava_control.py recent")
@@ -84,5 +84,5 @@ try:
     print("  python3 strava_control.py last")
 
 except Exception as e:
-    print(f"❌ Error during setup: {e}")
+    print(f" Error during setup: {e}")
     exit(1)

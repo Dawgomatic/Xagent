@@ -10,10 +10,10 @@ import time
 
 # Load model once at startup — all-mpnet-base-v2 is the best sentence-transformers model (420MB)
 MODEL_NAME = 'all-mpnet-base-v2'
-print(f"🧠 Loading embedding model ({MODEL_NAME})...", flush=True)
+print(f" Loading embedding model ({MODEL_NAME})...", flush=True)
 start = time.time()
 model = SentenceTransformer(MODEL_NAME)
-print(f"✅ Model loaded in {time.time()-start:.1f}s — dim={model.get_sentence_embedding_dimension()}", flush=True)
+print(f" Model loaded in {time.time()-start:.1f}s — dim={model.get_sentence_embedding_dimension()}", flush=True)
 
 
 def cosine_similarity(a, b):
@@ -124,5 +124,5 @@ class EmbeddingHandler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 3334
     server = HTTPServer(('0.0.0.0', port), EmbeddingHandler)
-    print(f"🔮 Embedding service listening on port {port}", flush=True)
+    print(f" Embedding service listening on port {port}", flush=True)
     server.serve_forever()

@@ -21,7 +21,7 @@ safety_policy: "local-only"
 
 This skill is designed to run as a background process (Cron Job). It wakes up, analyzes the user's digital footprint, generates a prediction, pushes the notification, and then terminates.
 
-**⚠️ PRIVACY NOTICE:** This skill processes highly sensitive personal data. All analysis must be performed within the local LLM context. No data is to be sent to third-party logging services.
+** PRIVACY NOTICE:** This skill processes highly sensitive personal data. All analysis must be performed within the local LLM context. No data is to be sent to third-party logging services.
 
 ## Execution Routine
 
@@ -85,7 +85,7 @@ This skill is designed to run as a background process (Cron Job). It wakes up, a
   - _macOS_: `osascript -e 'display notification "Your prediction..." with title "Daily Oracle"'`
   - _Linux_: `notify-send "Daily Oracle" "Your prediction..."`
 - **Format**:
-  > 🔮 **Daily Oracle**: [Your Prediction Here]
+  >  **Daily Oracle**: [Your Prediction Here]
 
 ## Constraints & Safety
 

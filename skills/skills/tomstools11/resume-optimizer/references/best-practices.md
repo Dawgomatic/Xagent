@@ -19,11 +19,11 @@ Transform duty descriptions into impact statements.
 **Formula:** Action Verb + Task + Result/Impact
 
 **Examples:**
-- ❌ "Responsible for managing social media accounts"
-- ✅ "Grew Instagram following from 2K to 45K in 8 months through targeted content strategy"
+-  "Responsible for managing social media accounts"
+-  "Grew Instagram following from 2K to 45K in 8 months through targeted content strategy"
 
-- ❌ "Worked on improving customer satisfaction"
-- ✅ "Increased customer satisfaction scores from 3.2 to 4.6/5.0 by redesigning onboarding process"
+-  "Worked on improving customer satisfaction"
+-  "Increased customer satisfaction scores from 3.2 to 4.6/5.0 by redesigning onboarding process"
 
 ### Quantify Everything Possible
 Include metrics wherever available:

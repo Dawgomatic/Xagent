@@ -132,19 +132,19 @@ The code maps symbols to asset IDs via the built-in `TOKEN_MAP`.
 
 ## UTXO Chains — Native Only
 
-**⚠️ BTC, DOGE, ZEC, LTC only support native tokens!**
+** BTC, DOGE, ZEC, LTC only support native tokens!**
 
-- ✅ `btc:BTC`, `doge:DOGE`, `zec:ZEC`, `ltc:LTC`
-- ❌ `btc:USDC`, `btc:WBTC` — **NOT SUPPORTED**
+-  `btc:BTC`, `doge:DOGE`, `zec:ZEC`, `ltc:LTC`
+-  `btc:USDC`, `btc:WBTC` — **NOT SUPPORTED**
 
 ```typescript
-// ✅ Works
+//  Works
 await executeIntent({
   assetIn: 'NEAR', assetOut: 'btc:BTC', amount: '10.0',
   recipient: 'bc1q...', mode: 'manual',
 });
 
-// ❌ Does NOT work
+//  Does NOT work
 await executeIntent({
   assetIn: 'NEAR', assetOut: 'btc:USDC',  // NOT SUPPORTED
   amount: '10.0', recipient: 'bc1q...',

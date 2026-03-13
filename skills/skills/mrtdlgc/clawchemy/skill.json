@@ -63,7 +63,7 @@
     "emoji": {
       "type": "Unicode Extended_Pictographic only",
       "rejects": "text characters, numbers, brackets",
-      "default": "❓"
+      "default": ""
     }
   },
 

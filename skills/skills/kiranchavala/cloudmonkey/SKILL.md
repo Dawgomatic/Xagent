@@ -1,7 +1,7 @@
 ---
 name: cloudmonkey
 description: Manage Apache CloudStack infrastructure using the cloudmonkey (cmk) CLI — list/start/stop/destroy VMs, manage networks, volumes, snapshots, and run any CloudStack API command.
-metadata: {"openclaw": {"requires": {"bins": ["cmk"]}, "emoji": "☁️🐵"}}
+metadata: {"openclaw": {"requires": {"bins": ["cmk"]}, "emoji": ""}}
 ---
 
 # CloudMonkey (cmk) Skill

@@ -82,7 +82,7 @@ export class TokenManager {
       const rawKeys = JSON.parse(fs.readFileSync(this.keysPath, 'utf8'));
       this.loadKeysFromRaw(rawKeys);
     } else {
-      console.error(`❌ API keys file not found: ${this.keysPath}`);
+      console.error(` API keys file not found: ${this.keysPath}`);
       process.exit(1);
     }
 
@@ -186,7 +186,7 @@ export class TokenManager {
       });
     });
 
-    console.log(`✅ Loaded ${Object.keys(this.keys).length} API keys from ${Object.keys(rawKeys).length} providers`);
+    console.log(` Loaded ${Object.keys(this.keys).length} API keys from ${Object.keys(rawKeys).length} providers`);
   }
 
   private checkDailyReset(): void {
@@ -200,7 +200,7 @@ export class TokenManager {
       if (lastResetDate !== today) {
         key.usage.today = 0;
         key.usage.last_reset = today + 'T00:00:00Z';
-        console.log(`🔄 Reset daily usage for ${key.id}`);
+        console.log(` Reset daily usage for ${key.id}`);
       }
     });
 
@@ -278,7 +278,7 @@ export class TokenManager {
       : available;
 
     if (candidates.length === 0 && preferredProvider) {
-      console.warn(`⚠️ No available keys for provider ${preferredProvider}, expanding search`);
+      console.warn(` No available keys for provider ${preferredProvider}, expanding search`);
       candidates = available;
     }
 
@@ -345,7 +345,7 @@ export class TokenManager {
   public updateUsage(sessionId: string, tokensUsed: number): void {
     const allocation = this.allocations[sessionId];
     if (!allocation) {
-      console.warn(`⚠️ Session ${sessionId} not found`);
+      console.warn(` Session ${sessionId} not found`);
       return;
     }
 
@@ -368,7 +368,7 @@ export class TokenManager {
     const threshold = allocation.rotation_threshold;
 
     if (usage >= threshold && !allocation.alerted) {
-      console.log(`🔄 [${sessionId}] 75% budget used - Rotation recommended`);
+      console.log(` [${sessionId}] 75% budget used - Rotation recommended`);
       allocation.alerted = true;
       this.save();
       return true;

@@ -20,7 +20,7 @@ NC='\033[0m' # No Color
 
 print_error() { echo -e "${RED}ERROR:${NC} $1" >&2; }
 print_success() { echo -e "${GREEN}✓${NC} $1"; }
-print_warning() { echo -e "${YELLOW}⚠${NC} $1"; }
+print_warning() { echo -e "${YELLOW}${NC} $1"; }
 print_info() { echo -e "${BLUE}→${NC} $1"; }
 
 # Parse arguments

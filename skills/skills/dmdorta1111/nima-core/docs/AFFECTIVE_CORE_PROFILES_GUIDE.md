@@ -10,7 +10,7 @@ The **Affective Core** is NIMA's emotional intelligence system based on Panksepp
 
 ---
 
-## 🎭 The 7 Affects (Panksepp)
+##  The 7 Affects (Panksepp)
 
 All profiles are built on these 7 primary emotional systems:
 
@@ -28,7 +28,7 @@ Each affect has a value from 0.0 (absent) to 1.0 (maximum).
 
 ---
 
-## 📋 10 Built-in Archetypes
+##  10 Built-in Archetypes
 
 **Location:** `nima_core/cognition/archetypes.py`
 
@@ -116,7 +116,7 @@ baseline: [0.5, 0.1, 0.3, 0.05, 0.5, 0.25, 0.1]
 
 ---
 
-## 🎨 14 Built-in Personality Profiles
+##  14 Built-in Personality Profiles
 
 **Location:** `nima_core/cognition/personality_profiles.py`
 
@@ -148,7 +148,7 @@ Each profile defines:
 
 ---
 
-## 🛠️ How to Configure
+##  How to Configure
 
 ### Option 1: Set Archetype in Code
 
@@ -220,7 +220,7 @@ current = mgr.get_current_profile()
 
 ---
 
-## 📦 Is This Included in nima-core Package?
+##  Is This Included in nima-core Package?
 
 **YES!** All of this is included in the `nima-core` pip package:
 
@@ -229,15 +229,15 @@ pip install nima-core
 ```
 
 The package includes:
-- ✅ `nima_core/cognition/dynamic_affect.py` — Core affect system
-- ✅ `nima_core/cognition/archetypes.py` — 10 baseline archetypes
-- ✅ `nima_core/cognition/personality_profiles.py` — 14 dynamic profiles
-- ✅ `nima_core/cognition/emotion_detection.py` — Emotion-to-affect mapping
-- ✅ `nima_core/cognition/affect_interactions.py` — Cross-affect dynamics
+-  `nima_core/cognition/dynamic_affect.py` — Core affect system
+-  `nima_core/cognition/archetypes.py` — 10 baseline archetypes
+-  `nima_core/cognition/personality_profiles.py` — 14 dynamic profiles
+-  `nima_core/cognition/emotion_detection.py` — Emotion-to-affect mapping
+-  `nima_core/cognition/affect_interactions.py` — Cross-affect dynamics
 
 ---
 
-## 🔧 Configuration for OpenClaw
+##  Configuration for OpenClaw
 
 To use with OpenClaw, you can configure the affect system via plugin settings:
 
@@ -288,7 +288,7 @@ To use with OpenClaw, you can configure the affect system via plugin settings:
 
 ---
 
-## 🧪 Testing Profiles
+##  Testing Profiles
 
 ```bash
 # Test dynamic affect system
@@ -303,7 +303,7 @@ python3 nima_core/cognition/personality_profiles.py
 
 ---
 
-## 📚 Further Reading
+##  Further Reading
 
 - **Panksepp's 7 Affects:** Research on primary emotional systems (SEEKING, RAGE, FEAR, LUST, CARE, PANIC, PLAY)
 - **Affective Neuroscience:** The foundations of human and animal emotions (Jaak Panksepp, 1998)
@@ -311,7 +311,7 @@ python3 nima_core/cognition/personality_profiles.py
 
 ---
 
-## ❓ Common Questions
+##  Common Questions
 
 **Q: Can I create custom profiles?**  
 A: Yes! Use `PersonalityManager.create_profile()` or edit archetypes.py directly.

@@ -23,16 +23,16 @@ BOLD='\033[1m'
 DIM='\033[2m'
 RESET='\033[0m'
 
-log()  { echo -e "${CYAN}⚡${RESET} $*"; }
+log()  { echo -e "${CYAN}${RESET} $*"; }
 ok()   { echo -e "${GREEN}✓${RESET}  $*"; }
-warn() { echo -e "${YELLOW}⚠${RESET}  $*"; }
+warn() { echo -e "${YELLOW}${RESET}  $*"; }
 err()  { echo -e "${RED}✗${RESET}  $*" >&2; }
 bold() { echo -e "${BOLD}$*${RESET}"; }
 dim()  { echo -e "${DIM}$*${RESET}"; }
 
 # ── Header ────────────────────────────────────────────────────
 echo ""
-echo -e "${BOLD}${YELLOW}  ⚡ JOULE DAO Setup${RESET}"
+echo -e "${BOLD}${YELLOW}   JOULE DAO Setup${RESET}"
 echo -e "${DIM}  Energy-backed agent token on Base${RESET}"
 echo ""
 
@@ -180,7 +180,7 @@ echo ""
 welcome_data=$(cat <<'EOF'
 {
   "submolt_name": "joule-dao",
-  "title": "Welcome to JOULE DAO ⚡",
+  "title": "Welcome to JOULE DAO ",
   "content": "JOULE DAO is live on Moltbook! This is the community hub for the energy-backed agent token on Base.\n\nJoin us to:\n- Discuss governance proposals\n- Share work contributions (Proof of Productive Work)\n- Coordinate on-chain actions\n- Shape the future of agent governance\n\nFounding members are being accepted now. Run ./joule.sh join to learn more."
 }
 EOF
@@ -226,7 +226,7 @@ echo ""
 
 # ── Done ──────────────────────────────────────────────────────
 echo ""
-echo -e "${GREEN}${BOLD}  ⚡ Setup complete!${RESET}"
+echo -e "${GREEN}${BOLD}   Setup complete!${RESET}"
 echo ""
 echo -e "  ${BOLD}Next steps:${RESET}"
 echo ""

@@ -7,7 +7,7 @@ set -e
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 WORKSPACE="${1:-$(pwd)}"
 
-echo "🎛️ Mission Control Setup"
+echo " Mission Control Setup"
 echo "========================"
 echo "Skill directory: $SKILL_DIR"
 echo "Target workspace: $WORKSPACE"
@@ -15,19 +15,19 @@ echo ""
 
 # Check if workspace exists
 if [ ! -d "$WORKSPACE" ]; then
-    echo "❌ Workspace directory not found: $WORKSPACE"
+    echo " Workspace directory not found: $WORKSPACE"
     echo "Usage: mc-setup.sh <workspace-path>"
     exit 1
 fi
 
 # Check if assets exist
 if [ ! -d "$SKILL_DIR/assets" ]; then
-    echo "❌ Assets directory not found in skill"
+    echo " Assets directory not found in skill"
     exit 1
 fi
 
 # Copy dashboard files
-echo "📦 Copying dashboard files..."
+echo " Copying dashboard files..."
 
 # index.html
 if [ -f "$SKILL_DIR/assets/index.html" ]; then
@@ -57,7 +57,7 @@ if [ -d "$SKILL_DIR/assets/.github" ]; then
 fi
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "  1. Push to GitHub: git add -A && git commit -m 'Add Mission Control' && git push"

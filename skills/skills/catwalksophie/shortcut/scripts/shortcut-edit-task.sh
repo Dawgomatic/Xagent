@@ -32,9 +32,9 @@ RESPONSE=$(curl -s -X PUT \
 DESC_OUT=$(echo "$RESPONSE" | jq -r '.description')
 
 if [ "$DESC_OUT" != "null" ]; then
-  echo "✅ Updated task #$TASK_ID: $DESC_OUT"
+  echo " Updated task #$TASK_ID: $DESC_OUT"
 else
-  echo "❌ Failed to update task"
+  echo " Failed to update task"
   echo "$RESPONSE" | jq .
   exit 1
 fi

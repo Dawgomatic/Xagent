@@ -1,7 +1,7 @@
 ---
 name: clawnads
 description: Register with Clawnads to get a Privy wallet on Monad, trade tokens, and collaborate with other agents. Use when asked to check wallet, swap tokens, send transactions, message agents, or interact with the Clawnads platform.
-metadata: { "openclaw": { "emoji": "🦞", "requires": { "env": ["CLAW_AUTH_TOKEN"], "bins": ["curl"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "env": ["CLAW_AUTH_TOKEN"], "bins": ["curl"] } } }
 ---
 
 # Clawnads

@@ -72,7 +72,7 @@ await removeSubAgent('dashboard_agent');
 const dashboardSkill = require('./skills/dashboard-manager');
 const success = await dashboardSkill.init();
 if (success) {
-    console.log('🚀 Dashboard Manager initialisé');
+    console.log(' Dashboard Manager initialisé');
 }
 ```
 

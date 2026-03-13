@@ -53,7 +53,7 @@ app.get('/', async (req, res) => {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>⚡ Solana Funding Arbitrage</title>
+  <title> Solana Funding Arbitrage</title>
   <meta http-equiv="refresh" content="30">
   <style>
     * { box-sizing: border-box; }
@@ -82,11 +82,11 @@ app.get('/', async (req, res) => {
   </style>
 </head>
 <body>
-  <h1>⚡ Solana Funding Rate Arbitrage</h1>
+  <h1> Solana Funding Rate Arbitrage</h1>
   <p class="small">Last update: ${data.lastUpdate} (auto-refresh: 30s)</p>
   
   <div class="card">
-    <h2>📊 Funding Rate Comparison</h2>
+    <h2> Funding Rate Comparison</h2>
     <table>
       <thead>
         <tr>
@@ -118,7 +118,7 @@ app.get('/', async (req, res) => {
   
   ${data.opportunities.filter((o: any) => o.spreadApy > 10).map((opp: any) => `
     <div class="card opportunity">
-      <h2>🎯 ${opp.symbol} Opportunity: ${opp.spreadApy.toFixed(2)}% APY</h2>
+      <h2> ${opp.symbol} Opportunity: ${opp.spreadApy.toFixed(2)}% APY</h2>
       <p>
         <strong>Strategy:</strong> ${opp.direction === 'long_cex_short_dex' 
           ? `Long on Binance @ ${opp.cexRate.fundingRateApy.toFixed(2)}%, Short on Drift @ ${opp.dexRate.fundingRateApy.toFixed(2)}%`
@@ -135,10 +135,10 @@ app.get('/', async (req, res) => {
   `).join('')}
   
   <div class="card">
-    <h2>ℹ️ How It Works</h2>
+    <h2> How It Works</h2>
     <ul>
-      <li><strong>Positive Rate (🔴):</strong> Longs pay shorts</li>
-      <li><strong>Negative Rate (🟢):</strong> Shorts pay longs</li>
+      <li><strong>Positive Rate ():</strong> Longs pay shorts</li>
+      <li><strong>Negative Rate ():</strong> Shorts pay longs</li>
       <li><strong>Strategy:</strong> Go long where you receive funding, short where you pay less</li>
       <li><strong>Risk:</strong> Price divergence between venues, liquidation, execution</li>
     </ul>
@@ -154,7 +154,7 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 Dashboard running at http://localhost:${PORT}`);
-  console.log('📊 API endpoint: http://localhost:' + PORT + '/api/rates');
+  console.log(`\n Dashboard running at http://localhost:${PORT}`);
+  console.log(' API endpoint: http://localhost:' + PORT + '/api/rates');
   console.log('\nPress Ctrl+C to stop\n');
 });

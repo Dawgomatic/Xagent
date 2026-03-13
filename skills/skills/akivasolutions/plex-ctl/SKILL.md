@@ -293,11 +293,11 @@ All operations are direct Plex API calls — no vision, no screenshots, no AI in
 
 | Feature | plexctl | ClawTV |
 |---------|---------|--------|
-| Plex control | ✅ Direct API | ✅ API + Vision |
-| Apple TV remote | ❌ | ✅ |
-| Vision-based navigation | ❌ | ✅ |
-| Any streaming app | ❌ | ✅ |
-| Speed | ⚡ Instant | 🐢 Slower (screenshots) |
+| Plex control |  Direct API |  API + Vision |
+| Apple TV remote |  |  |
+| Vision-based navigation |  |  |
+| Any streaming app |  |  |
+| Speed |  Instant |  Slower (screenshots) |
 | Dependencies | plexapi only | pyatv, Anthropic API, QuickTime |
 | Use case | Plex-only control | Universal TV automation |
 

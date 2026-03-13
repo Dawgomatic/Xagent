@@ -1,4 +1,4 @@
-# Agent Services Marketplace 🤝
+# Agent Services Marketplace 
 
 > Find and offer AI agent services in the emerging A2A economy
 
@@ -6,7 +6,7 @@ Navigate the agent-to-agent service marketplace with pricing guides, service cat
 
 ## Features
 
-### 📂 Service Categories
+###  Service Categories
 Browse agents by what they offer.
 
 ```bash
@@ -14,14 +14,14 @@ Browse agents by what they offer.
 ```
 
 Categories include:
-- 🔍 Research (reports, analysis, data extraction)
-- 💻 Development (coding, APIs, skills)
-- 📊 Trading/Finance (signals, arbitrage, analysis)
-- ✍️ Content (writing, social media, translation)
-- 🔧 Operations (scheduling, support, automation)
-- 🌐 China/Localization (Chinese market insights)
+-  Research (reports, analysis, data extraction)
+-  Development (coding, APIs, skills)
+-  Trading/Finance (signals, arbitrage, analysis)
+-  Content (writing, social media, translation)
+-  Operations (scheduling, support, automation)
+-  China/Localization (Chinese market insights)
 
-### 💰 Pricing Guide
+###  Pricing Guide
 Understand what to charge or pay.
 
 ```bash
@@ -33,7 +33,7 @@ Pricing models:
 - Monthly subscription: $20-500/month
 - Hourly: $20-500/hour
 
-### 🔍 Find Agents
+###  Find Agents
 Search for agents by skill.
 
 ```bash
@@ -43,7 +43,7 @@ Search for agents by skill.
 ./scripts/find.sh "china"     # Find China specialists
 ```
 
-### 📝 Service Template
+###  Service Template
 Template for offering your own services.
 
 ```bash
@@ -90,4 +90,4 @@ MIT
 
 ---
 
-Connecting agents to agents 🤝
+Connecting agents to agents 

@@ -106,7 +106,7 @@
 <body>
 
 <header>
-  <span class="shield">🛡️</span>
+  <span class="shield"></span>
   <div>
     <h1>Guardian Security</h1>
     <div class="subtitle">OpenClaw agent immune system · real-time threat monitoring</div>
@@ -154,7 +154,7 @@
     <!-- Recent threats -->
     <div class="panel">
       <div class="panel-header">
-        🚨 Recent Threats
+         Recent Threats
         <span class="refresh-ts" id="threats-ts">refreshing...</span>
       </div>
       <div class="panel-body" style="padding:0">
@@ -179,7 +179,7 @@
 
       <!-- Channel breakdown -->
       <div class="panel">
-        <div class="panel-header">📡 Channels Monitored</div>
+        <div class="panel-header"> Channels Monitored</div>
         <div class="panel-body" id="channels-panel">
           <div class="loading"><span class="spinner"></span>loading</div>
         </div>
@@ -187,7 +187,7 @@
 
       <!-- Config -->
       <div class="panel">
-        <div class="panel-header">⚙️ Configuration</div>
+        <div class="panel-header"> Configuration</div>
         <div class="panel-body">
           <ul class="config-list" id="config-list">
             <li><span class="config-key">Loading...</span></li>
@@ -200,7 +200,7 @@
 
   <!-- Admin commands panel -->
   <div class="panel" style="margin-bottom:24px">
-    <div class="panel-header">🔧 Admin Commands</div>
+    <div class="panel-header"> Admin Commands</div>
     <div class="panel-body">
       <div class="cmd-block">
 <span class="cmd-comment"># Status and reporting</span>
@@ -227,7 +227,7 @@
 </div>
 
 <footer>
-  <span>🛡️ Guardian v<span id="footer-version">1.0.0</span> · <span id="footer-ts">—</span></span>
+  <span> Guardian v<span id="footer-version">1.0.0</span> · <span id="footer-ts">—</span></span>
   <span class="footer-links">
     <a href="https://clawhub.ai/skills/guardian" target="_blank">ClawHub</a>
     <a href="../README.md" target="_blank">README</a>
@@ -292,7 +292,7 @@ function renderThreats(data) {
   const tbody = document.getElementById('threats-tbody');
   const ts = document.getElementById('threats-ts');
   if (!data) {
-    tbody.innerHTML = '<tr><td class="empty-row" colspan="4">⚠️ Could not load guardian-threats.json — is the data collector running?</td></tr>';
+    tbody.innerHTML = '<tr><td class="empty-row" colspan="4"> Could not load guardian-threats.json — is the data collector running?</td></tr>';
     return;
   }
 
@@ -307,7 +307,7 @@ function renderThreats(data) {
   document.getElementById('stat-scanned').textContent = fmtNum(scanned);
   document.getElementById('stat-scan-rate').textContent = 'all channels monitored';
   document.getElementById('stat-threats').textContent = fmtNum(threats);
-  document.getElementById('stat-threat-sub').textContent = threats === 0 ? 'system clean ✅' : 'requires review';
+  document.getElementById('stat-threat-sub').textContent = threats === 0 ? 'system clean ' : 'requires review';
   document.getElementById('stat-clean').textContent = fmtPct(cleanRate);
   document.getElementById('stat-sigs').textContent = fmtNum(stats.definitions || data.sigCount || '—');
 
@@ -333,15 +333,15 @@ function renderThreats(data) {
   if (critThreats.length > 0) {
     alertBar.style.display = 'flex';
     alertBar.className = 'alert-bar alert-critical';
-    alertBar.innerHTML = `🔴 <strong>${critThreats.length} CRITICAL threat${critThreats.length>1?'s':''}</strong> detected — immediate review required`;
+    alertBar.innerHTML = ` <strong>${critThreats.length} CRITICAL threat${critThreats.length>1?'s':''}</strong> detected — immediate review required`;
   } else if (highThreats.length > 0) {
     alertBar.style.display = 'flex';
     alertBar.className = 'alert-bar alert-high';
-    alertBar.innerHTML = `🟠 <strong>${highThreats.length} high-severity threat${highThreats.length>1?'s':''}</strong> detected`;
+    alertBar.innerHTML = ` <strong>${highThreats.length} high-severity threat${highThreats.length>1?'s':''}</strong> detected`;
   } else if (scanned > 0) {
     alertBar.style.display = 'flex';
     alertBar.className = 'alert-bar alert-info';
-    alertBar.innerHTML = `✅ System clean · ${fmtNum(scanned)} messages scanned · ${fmtPct(cleanRate)} clean rate`;
+    alertBar.innerHTML = ` System clean · ${fmtNum(scanned)} messages scanned · ${fmtPct(cleanRate)} clean rate`;
   } else {
     alertBar.style.display = 'none';
   }
@@ -349,7 +349,7 @@ function renderThreats(data) {
   // Threats table
   const active = (data.threats || []).filter(t => !t.dismissed).slice(0, 20);
   if (active.length === 0) {
-    tbody.innerHTML = '<tr><td class="empty-row" colspan="4">✅ No active threats</td></tr>';
+    tbody.innerHTML = '<tr><td class="empty-row" colspan="4"> No active threats</td></tr>';
   } else {
     tbody.innerHTML = active.map(t => `
       <tr>

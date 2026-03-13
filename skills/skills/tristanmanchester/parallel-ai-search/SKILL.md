@@ -2,7 +2,7 @@
 name: parallel-ai-search
 description: Web search + URL extraction via Parallel Search/Extract APIs. Use for up-to-date research, domain-scoped searching, and extracting LLM-ready excerpts/markdown from URLs.
 homepage: https://docs.parallel.ai/search/search-quickstart
-metadata: {"openclaw":{"emoji":"🔎","homepage":"https://docs.parallel.ai/","requires":{"bins":["node"],"env":["PARALLEL_API_KEY"]},"primaryEnv":"PARALLEL_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://docs.parallel.ai/","requires":{"bins":["node"],"env":["PARALLEL_API_KEY"]},"primaryEnv":"PARALLEL_API_KEY"}}
 ---
 
 # Parallel AI Search (OpenClaw skill)

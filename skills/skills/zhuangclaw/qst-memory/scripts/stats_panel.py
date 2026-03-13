@@ -181,13 +181,13 @@ def stats_panel(output: str = "text") -> dict:
     # 格式化輸出
     output_lines = [
         "=" * 50,
-        "📊 QST Memory v1.5 統計面板",
+        " QST Memory v1.5 統計面板",
         "=" * 50,
         "",
-        f"⏰ 統計時間: {stats['timestamp']}",
+        f" 統計時間: {stats['timestamp']}",
         "",
         "─" * 50,
-        "🌳 分類結構",
+        " 分類結構",
         "─" * 50,
         f"  根分類 (L1): {stats['categories']['roots']}",
         f"  二級分類 (L2): {stats['categories']['level1']}",
@@ -196,7 +196,7 @@ def stats_panel(output: str = "text") -> dict:
         f"  總計: {stats['categories']['total']} 個分類",
         "",
         "─" * 50,
-        "💾 記憶統計",
+        " 記憶統計",
         "─" * 50,
         f"  [C] Critical: {stats['memories']['critical']}",
         f"  [I] Important: {stats['memories']['important']}",
@@ -205,7 +205,7 @@ def stats_panel(output: str = "text") -> dict:
         f"  總計: {stats['memories']['total']} 條",
         "",
         "─" * 50,
-        "🔢 Token 估算",
+        " Token 估算",
         "─" * 50,
         f"  Critical: ~{stats['tokens']['critical']:,} tokens",
         f"  Important: ~{stats['tokens']['important']:,} tokens",
@@ -214,7 +214,7 @@ def stats_panel(output: str = "text") -> dict:
         f"  總計: ~{stats['tokens']['total']:,} tokens",
         "",
         "─" * 50,
-        "📁 分類分佈",
+        " 分類分佈",
         "─" * 50,
     ]
     
@@ -224,12 +224,12 @@ def stats_panel(output: str = "text") -> dict:
     output_lines.extend([
         "",
         "─" * 50,
-        "🕐 最近活動 (7天內)",
+        " 最近活動 (7天內)",
         "─" * 50,
     ])
     
     for f in stats["recent_activity"]["files"][:5]:
-        output_lines.append(f"  📄 {f['name']} ({f['modified']})")
+        output_lines.append(f"   {f['name']} ({f['modified']})")
     
     output_lines.extend([
         "",

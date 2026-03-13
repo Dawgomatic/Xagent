@@ -79,13 +79,13 @@ This scans the workspace and generates a skeleton registry for you to refine.
 
 | Status | Meaning | Board Section |
 |--------|---------|---------------|
-| `decision` | Needs a decision before work can proceed | 🎯 Main Quests |
-| `active` | Currently being worked on | 📋 Side Quests |
-| `done` | Completed | ✅ Completed |
-| `paused` | On hold / icebox | 💤 Icebox |
+| `decision` | Needs a decision before work can proceed |  Main Quests |
+| `active` | Currently being worked on |  Side Quests |
+| `done` | Completed |  Completed |
+| `paused` | On hold / icebox |  Icebox |
 
-Infrastructure items appear under 🔧 Infrastructure.
-Research items appear under 📊 Research.
+Infrastructure items appear under  Infrastructure.
+Research items appear under  Research.
 
 ### Priority
 

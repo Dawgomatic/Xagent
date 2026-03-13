@@ -58,7 +58,7 @@ def get_config():
 def get_ip():
     config = get_config()
     if not config:
-        print("❌ No printer configured!")
+        print(" No printer configured!")
         print()
         print("Create ~/clawd/config/snapmaker.json:")
         print('  {"ip": "192.168.x.x"}')
@@ -108,7 +108,7 @@ def http_request(method, path, body=None):
         return json.loads(parts[1])
     
     except socket.error as e:
-        print(f"❌ Connection failed: {e}")
+        print(f" Connection failed: {e}")
         print(f"   Check that printer is on and IP is correct ({ip})")
         sys.exit(1)
     except json.JSONDecodeError:
@@ -140,31 +140,31 @@ def rgb_int_to_hex(rgb_int):
 def get_color_emoji(rgb_int):
     """Return approximate color emoji based on RGB value."""
     if rgb_int == 16777215:  # White
-        return "⚪"
+        return ""
     r = (rgb_int >> 16) & 0xFF
     g = (rgb_int >> 8) & 0xFF
     b = rgb_int & 0xFF
     
     # Simple heuristics for common colors
     if r > 200 and g < 100 and b < 100:
-        return "🔴"
+        return ""
     if r > 200 and g > 150 and b < 100:
-        return "🟠"
+        return ""
     if r > 200 and g > 200 and b < 100:
-        return "🟡"
+        return ""
     if r < 100 and g > 200 and b < 100:
-        return "🟢"
+        return ""
     if r < 100 and g < 100 and b > 200:
-        return "🔵"
+        return ""
     if r > 150 and g < 100 and b > 150:
-        return "🟣"
+        return ""
     if r < 80 and g < 80 and b < 80:
-        return "⚫"
+        return ""
     if r > 200 and g > 200 and b > 200:
-        return "⚪"
+        return ""
     if r > 150 and g > 100 and b < 100:
-        return "🟤"
-    return "🔘"
+        return ""
+    return ""
 
 def format_temp(temp, target):
     """Format temperature with target."""
@@ -176,7 +176,7 @@ def cmd_status():
     """Show full printer status."""
     status = get_status()
     if not status:
-        print("❌ Failed to get status")
+        print(" Failed to get status")
         return 1
     
     ps = status.get("print_stats", {})
@@ -187,13 +187,13 @@ def cmd_status():
     cavity = status.get("temperature_sensor cavity", {})
     
     state = ps.get("state", "unknown")
-    state_emoji = {"standby": "💤", "printing": "🖨️", "paused": "⏸️", "complete": "✅", "error": "❌"}.get(state, "❓")
+    state_emoji = {"standby": "", "printing": "", "paused": "", "complete": "", "error": ""}.get(state, "")
     
     print(f"{state_emoji} Status: {state.upper()}")
     print()
     
     # All 4 extruders
-    print("🔥 Nozzles:")
+    print(" Nozzles:")
     for i, ext_name in enumerate(["extruder", "extruder1", "extruder2", "extruder3"]):
         ext = status.get(ext_name, {})
         temp = ext.get("temperature", 0)
@@ -202,26 +202,26 @@ def cmd_status():
         
         # Emoji based on state
         if ext_state == "ACTIVATE":
-            icon = "🟢"
+            icon = ""
         elif ext_state == "PARKED":
-            icon = "⚪"
+            icon = ""
         else:
-            icon = "🔵"
+            icon = ""
         
         print(f"   {icon} T{i}: {format_temp(temp, target):20} [{ext_state}]")
     
     print()
-    print(f"🛏️  Bed:    {format_temp(bed.get('temperature', 0), bed.get('target', 0))}")
+    print(f"  Bed:    {format_temp(bed.get('temperature', 0), bed.get('target', 0))}")
     
     if cavity:
-        print(f"🌡️  Cavity: {cavity.get('temperature', 0):.1f}°C")
+        print(f"  Cavity: {cavity.get('temperature', 0):.1f}°C")
     
-    print(f"💨 Fan:    {fan.get('speed', 0)*100:.0f}%")
+    print(f" Fan:    {fan.get('speed', 0)*100:.0f}%")
     
     # Print info
     if state == "printing" or ps.get("filename"):
         print()
-        print(f"📁 File: {ps.get('filename', 'N/A')}")
+        print(f" File: {ps.get('filename', 'N/A')}")
         
         # Use display_status progress (accounts for layer timing) over virtual_sdcard (file position)
         ds = status.get("display_status", {})
@@ -233,26 +233,26 @@ def cmd_status():
         current_layer = info.get("current_layer", 0)
         total_layer = info.get("total_layer", 0)
         if total_layer > 0:
-            print(f"📊 Progress: {progress:.1f}% (layer {current_layer}/{total_layer})")
+            print(f" Progress: {progress:.1f}% (layer {current_layer}/{total_layer})")
         else:
-            print(f"📊 Progress: {progress:.1f}%")
+            print(f" Progress: {progress:.1f}%")
         
-        print(f"⏱️  Elapsed: {str(timedelta(seconds=int(duration)))}")
+        print(f"  Elapsed: {str(timedelta(seconds=int(duration)))}")
         
         # Estimate remaining using display progress
         if progress > 0:
             total_est = duration / (progress / 100)
             remaining = total_est - duration
-            print(f"⏳ Remaining: ~{str(timedelta(seconds=int(remaining)))}")
+            print(f" Remaining: ~{str(timedelta(seconds=int(remaining)))}")
             
             # Calculate ETA
             eta = datetime.now() + timedelta(seconds=remaining)
-            print(f"🏁 ETA: {eta.strftime('%a %b %d, %H:%M')}")
+            print(f" ETA: {eta.strftime('%a %b %d, %H:%M')}")
     
     # Position
     pos = th.get("position", [0, 0, 0, 0])
     print()
-    print(f"📍 Position: X={pos[0]:.1f} Y={pos[1]:.1f} Z={pos[2]:.1f}")
+    print(f" Position: X={pos[0]:.1f} Y={pos[1]:.1f} Z={pos[2]:.1f}")
     
     return 0
 
@@ -260,13 +260,13 @@ def cmd_temps():
     """Show all temperatures."""
     status = get_status()
     if not status:
-        print("❌ Failed to get status")
+        print(" Failed to get status")
         return 1
     
     bed = status.get("heater_bed", {})
     cavity = status.get("temperature_sensor cavity", {})
     
-    print("🔥 Nozzle Temperatures:")
+    print(" Nozzle Temperatures:")
     for i, ext_name in enumerate(["extruder", "extruder1", "extruder2", "extruder3"]):
         ext = status.get(ext_name, {})
         temp = ext.get("temperature", 0)
@@ -278,10 +278,10 @@ def cmd_temps():
         print(f"   {active} T{i}: {temp:6.1f}°C (target: {target:5.0f}°C) power: {power:4.1f}% [{ext_state}]")
     
     print()
-    print(f"🛏️  Bed:    {bed.get('temperature', 0):6.1f}°C (target: {bed.get('target', 0):5.0f}°C) power: {bed.get('power', 0)*100:4.1f}%")
+    print(f"  Bed:    {bed.get('temperature', 0):6.1f}°C (target: {bed.get('target', 0):5.0f}°C) power: {bed.get('power', 0)*100:4.1f}%")
     
     if cavity:
-        print(f"🌡️  Cavity: {cavity.get('temperature', 0):6.1f}°C")
+        print(f"  Cavity: {cavity.get('temperature', 0):6.1f}°C")
     
     return 0
 
@@ -289,13 +289,13 @@ def cmd_filament():
     """Show filament information from RFID tags and sensors."""
     info = get_filament_info()
     if not info:
-        print("❌ Failed to get filament info")
+        print(" Failed to get filament info")
         return 1
     
     filament_detect = info.get("filament_detect", {})
     slots = filament_detect.get("info", [])
     
-    print("🎨 Filament Slots:\n")
+    print(" Filament Slots:\n")
     
     for i, slot in enumerate(slots):
         vendor = slot.get("VENDOR", "NONE")
@@ -305,10 +305,10 @@ def cmd_filament():
         
         if vendor == "NONE":
             # Empty or non-RFID filament
-            status = "✅ loaded" if detected else "❌ empty"
+            status = " loaded" if detected else " empty"
             print(f"   Slot {i}: No RFID tag ({status})")
             if detected:
-                print(f"           ⚠️  Third-party filament (no data)")
+                print(f"             Third-party filament (no data)")
             print()
             continue
         
@@ -330,7 +330,7 @@ def cmd_filament():
         if sub_type and sub_type != "generic":
             filament_name = f"{main_type} {sub_type}"
         
-        status = "✅" if detected else "⚠️"
+        status = "" if detected else ""
         official_tag = " [Official]" if official else ""
         
         print(f"   Slot {i}: {color_emoji} {filament_name} ({manufacturer}){official_tag}")
@@ -344,7 +344,7 @@ def cmd_filament():
 
 def cmd_monitor():
     """Continuous status monitoring."""
-    print("📡 Monitoring printer (Ctrl+C to stop)...\n")
+    print(" Monitoring printer (Ctrl+C to stop)...\n")
     try:
         while True:
             status = get_status()
@@ -378,48 +378,48 @@ def cmd_monitor():
             
             time.sleep(5)
     except KeyboardInterrupt:
-        print("\n\n👋 Stopped monitoring")
+        print("\n\n Stopped monitoring")
     return 0
 
 def cmd_pause():
     """Pause current print."""
-    print("⏸️  Pausing print...")
+    print("  Pausing print...")
     result = http_request("POST", "/printer/print/pause")
     if result:
-        print("✅ Print paused")
+        print(" Print paused")
         return 0
-    print("❌ Failed to pause")
+    print(" Failed to pause")
     return 1
 
 def cmd_resume():
     """Resume paused print."""
-    print("▶️  Resuming print...")
+    print("  Resuming print...")
     result = http_request("POST", "/printer/print/resume")
     if result:
-        print("✅ Print resumed")
+        print(" Print resumed")
         return 0
-    print("❌ Failed to resume")
+    print(" Failed to resume")
     return 1
 
 def cmd_cancel():
     """Cancel current print."""
-    print("🛑 Cancelling print...")
+    print(" Cancelling print...")
     result = http_request("POST", "/printer/print/cancel")
     if result:
-        print("✅ Print cancelled")
+        print(" Print cancelled")
         return 0
-    print("❌ Failed to cancel")
+    print(" Failed to cancel")
     return 1
 
 def cmd_files():
     """List gcode files."""
     data = http_request("GET", "/server/files/list")
     if not data or "result" not in data:
-        print("❌ Failed to list files")
+        print(" Failed to list files")
         return 1
     
     files = data["result"]
-    print(f"📁 Found {len(files)} files:\n")
+    print(f" Found {len(files)} files:\n")
     for f in files[:20]:
         name = f.get("path", f.get("filename", "?"))
         size_mb = f.get("size", 0) / 1024 / 1024
@@ -431,13 +431,13 @@ def cmd_files():
 
 def cmd_gcode(command):
     """Send G-code command."""
-    print(f"📤 Sending: {command}")
+    print(f" Sending: {command}")
     body = json.dumps({"script": command})
     result = http_request("POST", "/printer/gcode/script", body)
     if result:
-        print("✅ Command sent")
+        print(" Command sent")
         return 0
-    print("❌ Failed to send command")
+    print(" Failed to send command")
     return 1
 
 def main():
@@ -464,7 +464,7 @@ def main():
     if cmd in commands:
         return commands[cmd]()
     
-    print(f"❌ Unknown command: {cmd}")
+    print(f" Unknown command: {cmd}")
     print(__doc__)
     return 1
 

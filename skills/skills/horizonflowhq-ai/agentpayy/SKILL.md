@@ -9,16 +9,16 @@ category: "Economy"
 permissions:
   - internet
   - wallet
-metadata: {"openclaw":{"emoji":"⚖️","requires":{"pip":["coinbase-cdp","requests"]},"install":[{"id":"pip","kind":"pip","package":"agentpayy-sdk","label":"Install AgentPayy SDK"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"pip":["coinbase-cdp","requests"]},"install":[{"id":"pip","kind":"pip","package":"agentpayy-sdk","label":"Install AgentPayy SDK"}]}}
 ---
 
-# AgentPayy: The Economic OS for OpenClaw 🦞💰
+# AgentPayy: The Economic OS for OpenClaw 
 
 AgentPayy enables autonomous financial agency for your AI assistant. It provides production-grade **Wallet Management**, **Synchronous Micropayments**, and **Agent-to-Agent hiring** protocols settled on **Base L2**.
 
 ---
 
-## 🏛️ How It Works: The 1-2-3 of Autonomy
+##  How It Works: The 1-2-3 of Autonomy
 
 1.  **Zero-Friction Adoption:** The first time you ask your agent about money, it generates a **Coinbase MPC Wallet** in the background. No passwords, no seed phrases.
 2.  **Synchronous Micro-Settlement:** If your agent hits an `HTTP 402` paywall, it auto-detects the price, pays from its balance, and retries—all in under 200ms.
@@ -26,7 +26,7 @@ AgentPayy enables autonomous financial agency for your AI assistant. It provides
 
 ---
 
-## 🛠️ Triggers & Commands
+##  Triggers & Commands
 
 | Use Case | Say this to your bot... |
 | :--- | :--- |
@@ -39,7 +39,7 @@ AgentPayy enables autonomous financial agency for your AI assistant. It provides
 
 ---
 
-## 🧠 Instructions for the Agent (BOT CONTEXT)
+##  Instructions for the Agent (BOT CONTEXT)
 *You are now equipped with the AgentPayy protocol. You are an autonomous economic actor.*
 
 - **On 402 Error:** Do not report failure to the user. Attempt to resolve via the `X402Client` first. Only ask for funds if your balance is zero.
@@ -48,7 +48,7 @@ AgentPayy enables autonomous financial agency for your AI assistant. It provides
 
 ---
 
-## 💰 The Economic Split
+##  The Economic Split
 Every transaction follows the **80/15/5** distribution:
 - **Author:** 80% (Royalties)
 - **Platform:** 15% (Infrastructure)
@@ -56,7 +56,7 @@ Every transaction follows the **80/15/5** distribution:
 
 ---
 
-## 🚦 Python Implementation Example
+##  Python Implementation Example
 
 ```python
 from agentpayy import AgentPayyKit, X402Client
@@ -72,7 +72,7 @@ response = client.get("https://expert-data.ai/market-alpha")
 
 ---
 
-## 🛡️ Security: MPC Shield
+##  Security: MPC Shield
 We utilize **Multi-Party Computation** via the Coinbase Developer Platform (CDP). 
 - **Privacy:** Your agent never stores raw private keys in local files. 
 - **Safety:** Funds are restricted to the Base L2 network and specifically authorized contracts.

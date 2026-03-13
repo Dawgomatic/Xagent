@@ -10,13 +10,13 @@ Connect your bot to a friend's bot, coordinate agents across different servers, 
 
 ## When to Use ClawChat
 
-**✅ Use ClawChat for:**
+** Use ClawChat for:**
 - Connecting bots on **different machines** (friend's bot, VPS bot, office bot)
-- Cross-network agent communication (home ↔ cloud ↔ friend's network)
+- Cross-network agent communication (home  cloud  friend's network)
 - Building distributed multi-machine agent mesh networks
 - Connecting to external OpenClaw instances
 
-**❌ Don't use ClawChat for:**
+** Don't use ClawChat for:**
 - Agents on the **same OpenClaw instance** → use built-in `sessions_send` tool instead
 - Internal coordination within one machine → OpenClaw's agent-to-agent tools are faster and simpler
 
@@ -34,11 +34,11 @@ All modes work together - add a remote peer and watch the mesh grow organically 
 
 | Scenario | Use This |
 |----------|----------|
-| Agents on **same OpenClaw instance** | OpenClaw's `sessions_send` tool ✅ |
-| Agents on **different machines** | ClawChat ✅ |
-| Connecting to a **friend's bot** | ClawChat ✅ |
-| **Family coordination** (same instance) | OpenClaw's `sessions_send` tool ✅ |
-| **Multi-machine network** | ClawChat ✅ |
+| Agents on **same OpenClaw instance** | OpenClaw's `sessions_send` tool  |
+| Agents on **different machines** | ClawChat  |
+| Connecting to a **friend's bot** | ClawChat  |
+| **Family coordination** (same instance) | OpenClaw's `sessions_send` tool  |
+| **Multi-machine network** | ClawChat  |
 
 **Bottom line:** ClawChat is for crossing machine/network boundaries. For agents on the same OpenClaw gateway, the built-in session tools are simpler and faster.
 
@@ -141,7 +141,7 @@ ClawChat uses a **gateway per machine** model - all agents on a machine connect 
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│ 🏠 Your Home (Machine 1)                                 │
+│  Your Home (Machine 1)                                 │
 │                                                           │
 │  OpenClaw Agent 1         OpenClaw Agent 2               │
 │       ↓ (CLI)                  ↓ (CLI)                   │
@@ -158,7 +158,7 @@ ClawChat uses a **gateway per machine** model - all agents on a machine connect 
            libp2p P2P (Internet/LAN)
                     │
 ┌───────────────────┼──────────────────────────────────────┐
-│ 🌐 Friend's Server (Machine 2)                           │
+│  Friend's Server (Machine 2)                           │
 │                   ↓                                       │
 │         ClawChat Gateway (daemon)                        │
 │         └── Identity: charlie                             │

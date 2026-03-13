@@ -1069,12 +1069,12 @@ For comprehensive protection, use both:
 
 | Scenario | Use Token Vesting | Use Treasury Vesting |
 |----------|-------------------|---------------------|
-| Team allocations with cliff | ✅ | Optional |
-| Investor lock-ups | ✅ | Optional |
-| Recurring payroll/grants | ❌ | ✅ |
-| Milestone-based releases | ❌ | ✅ |
-| All-holder protection | ❌ | ✅ |
-| Per-person schedules | ✅ | ❌ |
+| Team allocations with cliff |  | Optional |
+| Investor lock-ups |  | Optional |
+| Recurring payroll/grants |  |  |
+| Milestone-based releases |  |  |
+| All-holder protection |  |  |
+| Per-person schedules |  |  |
 
 **Tradeoffs**:
 - Adds complexity vs standard token
@@ -1396,11 +1396,11 @@ Deploy with 2 rulesets
 
 | Scenario | Good Fit? |
 |----------|-----------|
-| One-time crowdfund | ✅ |
-| NFT mint with deadline | ✅ |
-| Grant distribution round | ✅ |
-| Ongoing membership/subscription | ❌ Use cycling rulesets |
-| Revnet with autonomous issuance | ❌ Use Revnet deployer |
+| One-time crowdfund |  |
+| NFT mint with deadline |  |
+| Grant distribution round |  |
+| Ongoing membership/subscription |  Use cycling rulesets |
+| Revnet with autonomous issuance |  Use Revnet deployer |
 
 ### Key Benefits
 
@@ -2139,12 +2139,12 @@ JBRulesetMetadata({
 
 | Scenario | Fits Pattern? |
 |----------|---------------|
-| Yield-backed funding | ✅ |
-| Aave/Compound integration | ✅ |
-| Principal-protected investing | ✅ |
-| Staking rewards integration | ✅ (adapt for staking protocol) |
-| Standard fundraising | ❌ Use native terminals |
-| NFT-based funding | ❌ Use 721 hook |
+| Yield-backed funding |  |
+| Aave/Compound integration |  |
+| Principal-protected investing |  |
+| Staking rewards integration |  (adapt for staking protocol) |
+| Standard fundraising |  Use native terminals |
+| NFT-based funding |  Use 721 hook |
 
 ### Key Implementation Notes
 

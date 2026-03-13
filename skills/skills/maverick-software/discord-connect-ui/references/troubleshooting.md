@@ -72,11 +72,11 @@ clawdbot rpc discord.status
 
 #### Bot not responding to messages
 - **Checklist**:
-  1. ✅ Message Content Intent enabled?
-  2. ✅ Bot can see the channel?
-  3. ✅ `requireMention` setting correct?
-  4. ✅ Channel not muted/disabled in config?
-  5. ✅ User not blocked/filtered?
+  1.  Message Content Intent enabled?
+  2.  Bot can see the channel?
+  3.  `requireMention` setting correct?
+  4.  Channel not muted/disabled in config?
+  5.  User not blocked/filtered?
 
 #### "Missing Message Content Intent"
 - **Symptom**: Error in logs about missing intent

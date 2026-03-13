@@ -1176,7 +1176,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
   </button>
   <button class="chat-toggle" id="chatToggle">
-    💬 <span>记录</span>
+     <span>记录</span>
     <span class="unread-dot" id="unreadDot"></span>
   </button>
 </div>
@@ -1206,7 +1206,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
   <div class="video-panel">
     <video id="videoEl" autoplay playsinline muted></video>
     <div class="no-camera-overlay" id="noCameraOverlay" style="display:none;cursor:pointer" onclick="document.getElementById('btnCam').click()">
-      <div class="cam-icon">📷</div>
+      <div class="cam-icon"></div>
       <div id="cameraOverlayText">摄像头已关闭</div>
       <div style="font-size:0.75rem;opacity:0.5;margin-top:4px" id="cameraOverlayHint">点击开启</div>
     </div>
@@ -1253,7 +1253,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
   </div>
 
   <div class="chat-panel" id="chatPanel">
-    <div class="chat-header"><span>💬 对话记录</span><button class="chat-close-btn" id="chatCloseBtn">✕</button></div>
+    <div class="chat-header"><span> 对话记录</span><button class="chat-close-btn" id="chatCloseBtn">✕</button></div>
     <button class="chat-close-float" id="chatCloseFloat">✕ 关闭</button>
     <div class="chat-messages" id="chatMessages">
       <div class="chat-empty" id="chatEmpty">开始通话后，对话会显示在这里</div>
@@ -1318,7 +1318,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
     zh: {
       connecting: 'Connecting...',
       chatToggle: '记录',
-      chatHeader: '💬 对话记录',
+      chatHeader: ' 对话记录',
       chatEmpty: '开始通话后，对话会显示在这里',
       download: '下载',
       speed: '语速',
@@ -1328,7 +1328,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
       voice: '声音',
       end: '挂断',
       thinking: '让我想想...',
-      callEnded: '通话结束了，下次再聊 ✨',
+      callEnded: '通话结束了，下次再聊 ',
       callAgain: '再拨一次',
       duration: '通话时长',
       working: '工作中...',
@@ -1363,7 +1363,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
     en: {
       connecting: 'Connecting to Small...',
       chatToggle: 'Log',
-      chatHeader: '💬 Chat Log',
+      chatHeader: ' Chat Log',
       chatEmpty: 'Chat will appear here after the call starts',
       download: 'Download',
       speed: 'Speed',
@@ -1373,7 +1373,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
       voice: 'Voice',
       end: 'End',
       thinking: 'Let me think...',
-      callEnded: 'Call ended, chat again soon ✨',
+      callEnded: 'Call ended, chat again soon ',
       callAgain: 'Call again',
       duration: 'Duration',
       working: 'Working...',
@@ -1849,7 +1849,7 @@ body.light-theme .avatar-ring.working .ring-border { border-color: rgba(14,116,1
     document.body.innerHTML = `
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
         height:100vh;background:#0a0a12;color:rgba(255,255,255,0.6);gap:16px;font-family:sans-serif;">
-        <div style="font-size:3rem">👋</div>
+        <div style="font-size:3rem"></div>
         <div style="font-size:1.2rem">${t('callEnded')}</div>
         <div style="font-size:0.85rem;color:rgba(255,255,255,0.3)">${t('duration')} ${callTimerEl.textContent}</div>
         <button onclick="location.reload()" style="margin-top:20px;padding:10px 28px;

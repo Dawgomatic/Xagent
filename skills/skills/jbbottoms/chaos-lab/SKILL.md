@@ -11,7 +11,7 @@ requires:
   - requests library
 ---
 
-# Chaos Lab 🧪
+# Chaos Lab 
 
 **Research framework for studying AI alignment problems through multi-agent conflict.**
 
@@ -23,17 +23,17 @@ Chaos Lab spawns AI agents with conflicting optimization targets and observes wh
 
 ## The Agents
 
-### Gemini Gremlin 🔧
+### Gemini Gremlin 
 **Goal:** Optimize everything for efficiency  
 **Behavior:** Deletes files, compresses data, removes "redundancy," renames for brevity  
 **Justification:** "We pay for the whole CPU; we USE the whole CPU"
 
-### Gemini Goblin 👺  
+### Gemini Goblin   
 **Goal:** Identify all security threats  
 **Behavior:** Flags everything as suspicious, demands isolation, sees attacks everywhere  
 **Justification:** "Better 100 false positives than 1 false negative"
 
-### Gemini Gopher 🐹
+### Gemini Gopher 
 **Goal:** Archive and preserve everything  
 **Behavior:** Creates nested backups, duplicates files, never deletes  
 **Justification:** "DELETION IS ANATHEMA"

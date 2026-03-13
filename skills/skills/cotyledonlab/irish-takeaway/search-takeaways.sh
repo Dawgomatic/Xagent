@@ -33,12 +33,12 @@ case "$LOCATION" in
     ;;
 esac
 
-echo "🍕 Searching for '$CUISINE' near $LOCATION (${LAT}, ${LNG})..."
+echo " Searching for '$CUISINE' near $LOCATION (${LAT}, ${LNG})..."
 echo ""
 
 # Check for API key
 if [ -z "$GOOGLE_PLACES_API_KEY" ]; then
-  echo "❌ GOOGLE_PLACES_API_KEY not set"
+  echo " GOOGLE_PLACES_API_KEY not set"
   exit 1
 fi
 

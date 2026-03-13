@@ -2,7 +2,7 @@
 set -uo pipefail
 
 # ============================================================
-# 🦒 Giraffe Guard v3.1.0 — 长颈鹿卫士
+#  Giraffe Guard v3.1.0 — 长颈鹿卫士
 # OpenClaw Skill Security Auditor
 # Scan skill directories for supply chain attacks and malicious code
 # Compatible with macOS (BSD) and Linux (GNU)
@@ -60,7 +60,7 @@ usage() {
     cat <<EOF
 Usage: $(basename "$0") [OPTIONS] <target-directory>
 
-🦒 Giraffe Guard v${VERSION} — OpenClaw Skill Security Auditor
+ Giraffe Guard v${VERSION} — OpenClaw Skill Security Auditor
 Scan skill directories for supply chain attacks and malicious code.
 
 Options:
@@ -99,7 +99,7 @@ EOF
 
 list_rules() {
     cat <<EOF
-🦒 Giraffe Guard v${VERSION} — Detection Rules
+ Giraffe Guard v${VERSION} — Detection Rules
 
 Grep-based rules (always active):
   RULE NAME                   SEVERITY    DESCRIPTION
@@ -1139,7 +1139,7 @@ print_banner() {
     if [[ "$JSON_OUTPUT" != true && "$QUIET" != true ]]; then
         echo ""
         echo -e "${BOLD}╔═══════════════════════════════════════════════╗${NC}"
-        echo -e "${BOLD}║   🦒 Giraffe Guard v${VERSION} — 长颈鹿卫士       ║${NC}"
+        echo -e "${BOLD}║    Giraffe Guard v${VERSION} — 长颈鹿卫士       ║${NC}"
         echo -e "${BOLD}╚═══════════════════════════════════════════════╝${NC}"
         echo ""
         echo -e "  ${CYAN}Target:${NC}  $TARGET_DIR"

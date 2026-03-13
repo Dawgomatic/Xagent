@@ -11,18 +11,18 @@ LOG_FILE="$LOG_DIR/router-stdout.log"
 KEYCHAIN_ACCOUNT="${EVERCLAW_KEYCHAIN_ACCOUNT:-everclaw-agent}"
 KEYCHAIN_SERVICE="${EVERCLAW_KEYCHAIN_SERVICE:-everclaw-wallet-key}"
 
-echo "♾️  Starting Everclaw (Morpheus proxy-router)..."
+echo "  Starting Everclaw (Morpheus proxy-router)..."
 
 # Check installation
 if [[ ! -f "$MORPHEUS_DIR/proxy-router" ]]; then
-  echo "❌ proxy-router not found at $MORPHEUS_DIR/proxy-router"
+  echo " proxy-router not found at $MORPHEUS_DIR/proxy-router"
   echo "   Run: bash skills/everclaw/scripts/install.sh"
   exit 1
 fi
 
 # Check if already running
 if pgrep -f "proxy-router" > /dev/null 2>&1; then
-  echo "⚠️  proxy-router is already running (PID: $(pgrep -f proxy-router | head -1))"
+  echo "  proxy-router is already running (PID: $(pgrep -f proxy-router | head -1))"
   echo "   Stop it first: bash skills/everclaw/scripts/stop.sh"
   exit 1
 fi
@@ -36,20 +36,20 @@ if [[ -f "$MORPHEUS_DIR/.env" ]]; then
   source "$MORPHEUS_DIR/.env"
   set +a
 else
-  echo "❌ .env not found at $MORPHEUS_DIR/.env"
+  echo " .env not found at $MORPHEUS_DIR/.env"
   exit 1
 fi
 
 # Verify ETH_NODE_ADDRESS is set
 if [[ -z "${ETH_NODE_ADDRESS:-}" ]]; then
-  echo "❌ ETH_NODE_ADDRESS is not set in .env"
+  echo " ETH_NODE_ADDRESS is not set in .env"
   echo "   The router will silently fail without it."
   exit 1
 fi
 
 # Retrieve wallet private key
 # Strategy: Try macOS Keychain first, then 1Password fallback
-echo "🔐 Retrieving wallet private key..."
+echo " Retrieving wallet private key..."
 
 WALLET_PRIVATE_KEY=""
 
@@ -70,7 +70,7 @@ else
   if [[ -n "$WALLET_PRIVATE_KEY" ]]; then
     echo "   ✓ Key loaded from 1Password"
   else
-    echo "❌ Could not retrieve wallet private key."
+    echo " Could not retrieve wallet private key."
     echo ""
     echo "   Set up a wallet with:"
     echo "   node skills/everclaw/scripts/everclaw-wallet.mjs setup"
@@ -89,14 +89,14 @@ cd "$MORPHEUS_DIR"
 nohup ./proxy-router > "$LOG_FILE" 2>&1 &
 ROUTER_PID=$!
 
-echo "🚀 proxy-router started (PID: $ROUTER_PID)"
-echo "📝 Logs: $LOG_FILE"
+echo " proxy-router started (PID: $ROUTER_PID)"
+echo " Logs: $LOG_FILE"
 
 # Unset the private key from the environment immediately
 unset WALLET_PRIVATE_KEY
 
 # Wait for health check
-echo "⏳ Waiting for health check..."
+echo " Waiting for health check..."
 MAX_WAIT=30
 WAITED=0
 while [[ $WAITED -lt $MAX_WAIT ]]; do
@@ -107,9 +107,9 @@ while [[ $WAITED -lt $MAX_WAIT ]]; do
     COOKIE_PASS=$(cat "$MORPHEUS_DIR/.cookie" | cut -d: -f2)
     HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -u "admin:$COOKIE_PASS" "http://localhost:8082/healthcheck" 2>/dev/null || echo "000")
     if [[ "$HTTP_CODE" == "200" ]]; then
-      echo "✅ proxy-router is healthy (HTTP 200)"
+      echo " proxy-router is healthy (HTTP 200)"
       echo ""
-      echo "📋 Status:"
+      echo " Status:"
       echo "   PID:      $ROUTER_PID"
       echo "   API:      http://localhost:8082"
       echo "   Swagger:  http://localhost:8082/swagger/index.html"
@@ -120,6 +120,6 @@ while [[ $WAITED -lt $MAX_WAIT ]]; do
   fi
 done
 
-echo "⚠️  Health check did not respond within ${MAX_WAIT}s"
+echo "  Health check did not respond within ${MAX_WAIT}s"
 echo "   The router may still be starting. Check logs:"
 echo "   tail -f $LOG_FILE"

@@ -1,4 +1,4 @@
-# 🔴 RedLine
+#  RedLine
 
 **Never hit the red line again.** Live usage checkers for Claude.ai (Max/Pro) and OpenAI (Plus/Pro/Codex) that give your agent real-time awareness of remaining budget — so it can go full-send when limits are fresh and automatically conserve when they're running low.
 
@@ -48,10 +48,10 @@ The result: **maximum token efficiency at all hours.** Your agent runs at full c
 
 | Tier | Remaining | Agent behavior |
 |------|-----------|----------------|
-| 🟢 GREEN | >50% | Normal operations |
-| 🟡 YELLOW | 25–50% | Skip sub-agents, defer non-urgent work |
-| 🟠 ORANGE | 10–25% | Essential replies only |
-| 🔴 RED | <10% | Critical only, warn user |
+|  GREEN | >50% | Normal operations |
+|  YELLOW | 25–50% | Skip sub-agents, defer non-urgent work |
+|  ORANGE | 10–25% | Essential replies only |
+|  RED | <10% | Critical only, warn user |
 
 ## Requirements
 

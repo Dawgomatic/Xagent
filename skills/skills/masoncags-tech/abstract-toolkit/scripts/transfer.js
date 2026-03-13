@@ -51,7 +51,7 @@ async function main() {
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   const wallet = new ethers.Wallet(privateKey, provider);
   
-  console.log(`\n📤 Transfer on Abstract`);
+  console.log(`\n Transfer on Abstract`);
   console.log(`From: ${wallet.address}`);
   console.log(`To: ${to}`);
   console.log(`Amount: ${amount} ${token || "ETH"}\n`);
@@ -65,7 +65,7 @@ async function main() {
       });
       console.log(`TX: ${tx.hash}`);
       const receipt = await tx.wait();
-      console.log(`✅ Transfer complete! Block: ${receipt.blockNumber}`);
+      console.log(` Transfer complete! Block: ${receipt.blockNumber}`);
       
     } else {
       // Transfer token
@@ -86,7 +86,7 @@ async function main() {
       const tx = await contract.transfer(to, amountParsed);
       console.log(`TX: ${tx.hash}`);
       const receipt = await tx.wait();
-      console.log(`✅ Transfer complete! Block: ${receipt.blockNumber}`);
+      console.log(` Transfer complete! Block: ${receipt.blockNumber}`);
     }
     
     console.log(`Explorer: https://abscan.org/tx/${tx?.hash || ""}`);

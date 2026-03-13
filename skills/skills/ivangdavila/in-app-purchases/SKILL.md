@@ -3,7 +3,7 @@ name: In-App Purchases
 slug: in-app-purchases
 version: 1.0.0
 description: Implement in-app purchases and subscriptions across iOS, Android, and Flutter with RevenueCat, paywalls, receipt validation, and subscription analytics.
-metadata: {"clawdbot":{"emoji":"💳","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use
@@ -45,10 +45,10 @@ User needs to implement in-app purchases, subscriptions, paywalls, or monetizati
 ### 3. Product Types
 | Type | iOS | Android | Use Case |
 |------|-----|---------|----------|
-| Consumable | ✅ | ✅ | Credits, coins, lives |
-| Non-consumable | ✅ | ✅ | Unlock feature forever |
-| Auto-renewable | ✅ | ✅ | Subscriptions |
-| Non-renewing | ✅ | ❌ | Season pass, time-limited |
+| Consumable |  |  | Credits, coins, lives |
+| Non-consumable |  |  | Unlock feature forever |
+| Auto-renewable |  |  | Subscriptions |
+| Non-renewing |  |  | Season pass, time-limited |
 
 ### 4. Server Verification is Non-Negotiable
 Never trust client-side validation alone:

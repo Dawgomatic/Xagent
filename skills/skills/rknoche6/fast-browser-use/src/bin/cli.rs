@@ -250,7 +250,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             info!("Session saved to {:?}", save_session);
         }
         Commands::Harvest { url, selector, scrolls, delay, output } => {
-            info!("🚜 Harvesting from {} (selector: {}, scrolls: {})", url, selector, scrolls);
+            info!(" Harvesting from {} (selector: {}, scrolls: {})", url, selector, scrolls);
             let session = BrowserSession::launch(LaunchOptions::default().sandbox(false))?;
             
             session.navigate(&url)?;
@@ -295,7 +295,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
             
-            info!("✅ Harvested {} unique items", all_items.len());
+            info!(" Harvested {} unique items", all_items.len());
             
             let json_output = serde_json::to_string_pretty(&all_items)?;
             if let Some(path) = output {
@@ -327,7 +327,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Commands::Screenshot { url, output, full_page } => {
-            info!("📸 Screenshotting {}", url);
+            info!(" Screenshotting {}", url);
             let session = BrowserSession::launch(LaunchOptions::default().sandbox(false))?;
 
             session.navigate(&url)?;
@@ -342,10 +342,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             )?;
 
             fs::write(&output, &screenshot_data)?;
-            info!("✅ Saved screenshot to {:?}", output);
+            info!(" Saved screenshot to {:?}", output);
         }
         Commands::Sitemap { url, analyze_structure, max_pages, max_sitemaps, output } => {
-            info!("🗺️  Analyzing sitemap for {}", url);
+            info!("  Analyzing sitemap for {}", url);
             let session = BrowserSession::launch(LaunchOptions::default().sandbox(false))?;
 
             let sitemap_result = browser_use::tools::sitemap::analyze_sitemap(
@@ -359,12 +359,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let json_output = serde_json::to_string_pretty(&sitemap_result)?;
             if let Some(path) = output {
                 fs::write(&path, &json_output)?;
-                info!("✅ Saved sitemap analysis to {:?}", path);
+                info!(" Saved sitemap analysis to {:?}", path);
             } else {
                 println!("{}", json_output);
             }
 
-            info!("✅ Sitemap analysis complete: {} sitemaps, {} pages found",
+            info!(" Sitemap analysis complete: {} sitemaps, {} pages found",
                   sitemap_result.sitemaps.len(), sitemap_result.pages.len());
         }
     }

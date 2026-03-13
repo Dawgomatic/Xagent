@@ -180,7 +180,7 @@ console.log(`Unread messages: ${unread.unreadCount}`);
 // Send a welcome message to a new subscriber
 await sendMessage(accessToken, {
   recipientUuid: 'new-subscriber-uuid',
-  content: 'Welcome to my page! Thanks for subscribing 💕',
+  content: 'Welcome to my page! Thanks for subscribing ',
 });
 
 // Send announcement to all subscribers
@@ -189,6 +189,6 @@ const subscriberUuids = subscribers.data.map(s => s.userUuid);
 
 await sendMassMessage(accessToken, {
   recipientUuids: subscriberUuids,
-  content: 'New exclusive content just dropped! Check it out 🔥',
+  content: 'New exclusive content just dropped! Check it out ',
 });
 */

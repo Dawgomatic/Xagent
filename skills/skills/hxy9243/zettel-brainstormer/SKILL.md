@@ -3,7 +3,7 @@ name: zettel-brainstormer
 description: It reads from your local zettelkasten notes, find a random idea, and find references by links or tags, then expand the idea with the references.
 ---
 
-# Zettel Brainstormer 🧠
+# Zettel Brainstormer 
 
 This skill formalizes the process of taking a rough idea or draft and enriching it with deep research, diverse perspectives, and structured brainstorming.
 

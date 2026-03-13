@@ -62,7 +62,7 @@ PostgreSQL state provides:
 
 ## Security Warning
 
-**⚠️ Credentials are visible to subagents.** The `OPENPROSE_POSTGRES_URL` connection string is passed to spawned sessions so they can write their outputs. This means:
+** Credentials are visible to subagents.** The `OPENPROSE_POSTGRES_URL` connection string is passed to spawned sessions so they can write their outputs. This means:
 
 - Database credentials appear in subagent context and may be logged
 - Treat these credentials as **non-sensitive**

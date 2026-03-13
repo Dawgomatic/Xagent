@@ -1,12 +1,12 @@
 ---
 name: bilibili-monitor
 description: 生成B站热门视频日报并发送邮件。触发词：B站热门、bilibili日报、视频日报、热门视频
-metadata: {"openclaw":{"emoji":"📺","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["python3"]},"os":["darwin","linux","win32"]}}
 ---
 
 # B站热门视频日报
 
-## 🔒 安全说明
+##  安全说明
 
 - 所有凭据仅存储在用户本地设备上，Skill 发布包中不包含任何凭据
 - 配置文件 `bilibili-monitor.json` 已通过 `.gitignore` 排除，不会被意外上传或分享
@@ -112,15 +112,15 @@ EOF
 
 向用户展示确认信息：
 ```
-✅ 配置已就绪
-🚀 即将开始执行：获取热门视频 → 提取字幕 → AI生成总结和点评 → 发送邮件
-⏱️ 预计耗时：10-15 分钟，请耐心等待
+ 配置已就绪
+ 即将开始执行：获取热门视频 → 提取字幕 → AI生成总结和点评 → 发送邮件
+ 预计耗时：10-15 分钟，请耐心等待
 
 是否开始执行？
 ```
 等待用户确认后，执行以下命令。
 
-⚠️ **AI Agent 注意事项**：
+ **AI Agent 注意事项**：
 - 脚本执行需要 10-15 分钟，这是正常的，请设置超时 900 秒以上
 - 脚本会在 25%、50%、75%、100% 时自动输出进度，**请只转发脚本实际输出**
 - **不要**在等待期间发送"等待中..."、"继续等待..."等自定义消息，会导致刷屏
@@ -151,7 +151,7 @@ python3 {baseDir}/send_email.py --config {baseDir}/bilibili-monitor.json --body-
 
 见 `bilibili-monitor.example.json`
 
-## ⏱️ 执行时间
+##  执行时间
 
 | 阶段 | 预计时间 |
 |------|---------|
@@ -161,9 +161,9 @@ python3 {baseDir}/send_email.py --config {baseDir}/bilibili-monitor.json --body-
 | 生成报告+发送邮件 | 10-20 秒 |
 | **总计** | **10-15 分钟** |
 
-⚠️ 完整执行需要 10-15 分钟，请确保命令超时设置足够长（建议 900 秒以上）。
+ 完整执行需要 10-15 分钟，请确保命令超时设置足够长（建议 900 秒以上）。
 
-## ⚠️ 重要提示
+##  重要提示
 
 **AI 视频总结说明：**
 - 视频总结基于字幕生成，需要视频有字幕（CC字幕或AI字幕）

@@ -22,7 +22,7 @@ async function main() {
     await client.initialize();
     
     const positions = await client.getPositions();
-    console.log('\n📈 Positions:');
+    console.log('\n Positions:');
     console.log('============');
     
     if (positions.length === 0) {
@@ -38,7 +38,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

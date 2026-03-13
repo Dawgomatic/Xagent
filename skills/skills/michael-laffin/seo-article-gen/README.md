@@ -97,4 +97,4 @@ MIT
 
 ---
 
-**Generate ranking content. Monetize automatically.** 🔮
+**Generate ranking content. Monetize automatically.** 

@@ -16,10 +16,10 @@ testCases.forEach((tc) => {
   console.log(`Input: "${tc.text}" -> ${JSON.stringify(result)}`);
   
   if (result.category !== tc.expected) {
-    console.error(`❌ Expected category ${tc.expected}, got ${result.category}`);
+    console.error(` Expected category ${tc.expected}, got ${result.category}`);
     failed = true;
   } else {
-    console.log(`✅ Passed: ${result.category}`);
+    console.log(` Passed: ${result.category}`);
   }
 });
 

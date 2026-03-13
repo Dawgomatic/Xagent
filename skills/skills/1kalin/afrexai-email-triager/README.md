@@ -32,7 +32,7 @@ clawhub install email-triager
 ## Output Example
 
 ```
-🔴 URGENT ACTION | From: Sarah Chen | Subject: Contract deadline Friday
+ URGENT ACTION | From: Sarah Chen | Subject: Contract deadline Friday
 Summary: Client contract expires Friday — needs signature or extension request today.
 Action: Review contract, reply with decision by EOD.
 Draft: Yes

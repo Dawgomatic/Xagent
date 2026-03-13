@@ -9,12 +9,12 @@ Achieve inbox zero with AI-powered email triage! Process ALL Gmail inbox message
 
 ## Features
 
-✅ **OAuth-based** - No passwords, secure authentication via gog  
-✅ **AI summaries** - Quick 1-line summary of each email  
-✅ **Batch processing** - Queue actions instantly, execute at the end  
-✅ **Telegram buttons** - Archive, Filter, Unsubscribe, View  
-✅ **Inbox zero focus** - Process ALL inbox messages (read + unread)  
-✅ **Fast workflow** - No waiting between actions
+ **OAuth-based** - No passwords, secure authentication via gog  
+ **AI summaries** - Quick 1-line summary of each email  
+ **Batch processing** - Queue actions instantly, execute at the end  
+ **Telegram buttons** - Archive, Filter, Unsubscribe, View  
+ **Inbox zero focus** - Process ALL inbox messages (read + unread)  
+ **Fast workflow** - No waiting between actions
 
 ## Workflow
 
@@ -26,7 +26,7 @@ Achieve inbox zero with AI-powered email triage! Process ALL Gmail inbox message
    - Telegram inline buttons for actions
 4. **User clicks actions** for each email (queued instantly, no API calls yet)
 5. **User clicks "Done"** button to execute all queued actions in batch
-6. **Repeat until inbox zero!** 🎯
+6. **Repeat until inbox zero!** 
 
 ## Prerequisites
 
@@ -49,19 +49,19 @@ export GOG_KEYRING_PASSWORD="your-password"
 Each email displays with 4 action buttons:
 
 ```
-[📥 Archive] [🔍 Filter]
-[🚫 Unsub]   [📧 View]
+[ Archive] [ Filter]
+[ Unsub]   [ View]
 ```
 
-- **📥 Archive** - Remove from inbox, mark as read
-- **🔍 Filter** - Create filter to auto-archive future emails from sender
-- **🚫 Unsubscribe** - Find and open unsubscribe link
-- **📧 View** - Show full email content
+- ** Archive** - Remove from inbox, mark as read
+- ** Filter** - Create filter to auto-archive future emails from sender
+- ** Unsubscribe** - Find and open unsubscribe link
+- ** View** - Show full email content
 - **No click** = Skip (leave in inbox)
 
 At the end:
 ```
-[✅ Done - Execute All Actions]
+[ Done - Execute All Actions]
 ```
 
 ## Action Queue System

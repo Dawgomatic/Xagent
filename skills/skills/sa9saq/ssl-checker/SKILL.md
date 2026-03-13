@@ -40,15 +40,15 @@ done
 
 ### Output format
 ```
-## 🔒 SSL Certificate Report — <timestamp>
+##  SSL Certificate Report — <timestamp>
 
 | Domain | Status | Expires | Days Left | Issuer |
 |--------|--------|---------|-----------|--------|
-| example.com | 🟢 Valid | 2025-06-15 | 128 | Let's Encrypt |
-| expired.com | 🔴 Expired | 2024-12-01 | -39 | DigiCert |
-| soon.com | 🟡 Expiring | 2025-02-20 | 12 | Comodo |
+| example.com |  Valid | 2025-06-15 | 128 | Let's Encrypt |
+| expired.com |  Expired | 2024-12-01 | -39 | DigiCert |
+| soon.com |  Expiring | 2025-02-20 | 12 | Comodo |
 
-**Thresholds**: 🟢 > 30 days | 🟡 ≤ 30 days | 🔴 Expired or ≤ 7 days
+**Thresholds**:  > 30 days |  ≤ 30 days |  Expired or ≤ 7 days
 ```
 
 ## Edge Cases

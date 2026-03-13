@@ -65,10 +65,10 @@ Pass design doc to writing-plans skill.
 
 ## Anti-Patterns
 
-❌ Jump straight to implementation
-❌ Present only one approach
-❌ Skip edge case discussion
-❌ Forget to save design doc
+ Jump straight to implementation
+ Present only one approach
+ Skip edge case discussion
+ Forget to save design doc
 
 ## Example
 

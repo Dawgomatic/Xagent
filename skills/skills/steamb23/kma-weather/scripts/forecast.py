@@ -211,43 +211,43 @@ def format_current(data: Dict, lat: float = None, lon: float = None,
 
     # Build output
     output = []
-    output.append("🌤️ 현재 날씨 (초단기실황)")
+    output.append(" 현재 날씨 (초단기실황)")
     location_line = format_location_line(lat, lon, nx, ny)
     if location_line:
         output.append(location_line)
 
     # Temperature
     if "T1H" in values:
-        output.append(f"🌡️  기온: {values['T1H']}°C")
+        output.append(f"  기온: {values['T1H']}°C")
 
     # Humidity
     if "REH" in values:
-        output.append(f"💧 습도: {values['REH']}%")
+        output.append(f" 습도: {values['REH']}%")
 
     # Precipitation (1 hour)
     if "RN1" in values:
         rn1 = values['RN1']
         if rn1 == "0" or rn1 == "강수없음":
-            output.append("🌧️  강수량: 0mm (1시간)")
+            output.append("  강수량: 0mm (1시간)")
         else:
-            output.append(f"🌧️  강수량: {rn1}mm (1시간)")
+            output.append(f"  강수량: {rn1}mm (1시간)")
 
     # Wind speed
     if "WSD" in values:
-        output.append(f"💨 풍속: {values['WSD']}m/s")
+        output.append(f" 풍속: {values['WSD']}m/s")
 
     # Wind direction
     if "VEC" in values:
         vec = values['VEC']
         direction = get_wind_direction(vec)
-        output.append(f"🧭 풍향: {direction} ({vec}°)")
+        output.append(f" 풍향: {direction} ({vec}°)")
 
     # Atmospheric pressure
     if "PTY" in values:
         pty = values['PTY']
         pty_text = get_precipitation_type(pty)
         if pty != "0":
-            output.append(f"☔ 강수형태: {pty_text}")
+            output.append(f" 강수형태: {pty_text}")
 
     return "\n".join(output)
 
@@ -315,7 +315,7 @@ def format_location_line(lat: float = None, lon: float = None,
     """Format location information line for forecast output."""
     if lat is None or lon is None:
         return ""
-    parts = [f"📍 위치: {lat}, {lon}"]
+    parts = [f" 위치: {lat}, {lon}"]
     if nx is not None and ny is not None:
         parts.append(f"(격자: {nx}, {ny})")
     return " ".join(parts)
@@ -359,7 +359,7 @@ def format_ultrashort(data: Dict, lat: float = None, lon: float = None,
 
     # Build output
     output = []
-    output.append("⏱️ 초단기예보 (6시간)")
+    output.append(" 초단기예보 (6시간)")
     location_line = format_location_line(lat, lon, nx, ny)
     if location_line:
         output.append(location_line)
@@ -368,31 +368,31 @@ def format_ultrashort(data: Dict, lat: float = None, lon: float = None,
         fc = forecasts[key]
         time_str = f"{fc['time'][:2]}:{fc['time'][2:]}"
 
-        output.append(f"\n⏰ {time_str}")
+        output.append(f"\n {time_str}")
 
         # Temperature
         if "T1H" in fc:
-            output.append(f"  🌡️  {fc['T1H']}°C")
+            output.append(f"    {fc['T1H']}°C")
 
         # Sky condition
         if "SKY" in fc:
             sky_text = get_sky_condition(fc["SKY"])
-            output.append(f"  ☁️  {sky_text}")
+            output.append(f"    {sky_text}")
 
         # Precipitation type
         if "PTY" in fc and fc["PTY"] != "0":
             pty_text = get_precipitation_type(fc["PTY"])
-            output.append(f"  ☔ {pty_text}")
+            output.append(f"   {pty_text}")
 
         # Precipitation amount
         if "RN1" in fc:
             rn1 = fc["RN1"]
             if rn1 not in ["0", "강수없음"]:
-                output.append(f"  🌧️  강수량: {rn1}mm")
+                output.append(f"    강수량: {rn1}mm")
 
         # Humidity
         if "REH" in fc:
-            output.append(f"  💧 습도: {fc['REH']}%")
+            output.append(f"   습도: {fc['REH']}%")
 
     return "\n".join(output)
 
@@ -439,7 +439,7 @@ def format_shortterm(data: Dict, days=1, lat: float = None, lon: float = None,
         # Show all available dates
         filtered_keys = sorted(forecasts.keys())
         output = []
-        output.append("📆 단기예보 (전체)")
+        output.append(" 단기예보 (전체)")
         location_line = format_location_line(lat, lon, nx, ny)
         if location_line:
             output.append(location_line)
@@ -451,7 +451,7 @@ def format_shortterm(data: Dict, days=1, lat: float = None, lon: float = None,
         day_label = {1: "내일", 2: "모레", 3: "글피"}.get(int(days), f"{days}일 후")
         date_formatted = f"{target_date[:4]}-{target_date[4:6]}-{target_date[6:8]}"
         output = []
-        output.append(f"📆 단기예보 ({day_label}, {date_formatted})")
+        output.append(f" 단기예보 ({day_label}, {date_formatted})")
         location_line = format_location_line(lat, lon, nx, ny)
         if location_line:
             output.append(location_line)
@@ -486,34 +486,34 @@ def format_shortterm(data: Dict, days=1, lat: float = None, lon: float = None,
                     day_label = "글피"
                 else:
                     day_label = f"{days_diff}일 후"
-                output.append(f"\n📅 {date_formatted} ({day_label})")
+                output.append(f"\n {date_formatted} ({day_label})")
 
             time_str = f"{time[:2]}:{time[2:]}"
-            output.append(f"\n⏰ {time_str}")
+            output.append(f"\n {time_str}")
 
             # Temperature (use TMP for short-term)
             if "TMP" in fc:
-                output.append(f"  🌡️  {fc['TMP']}°C")
+                output.append(f"    {fc['TMP']}°C")
 
             # Sky condition
             if "SKY" in fc:
                 sky_text = get_sky_condition(fc["SKY"])
-                output.append(f"  ☁️  {sky_text}")
+                output.append(f"    {sky_text}")
 
             # Precipitation type
             if "PTY" in fc and fc["PTY"] != "0":
                 pty_text = get_precipitation_type(fc["PTY"])
-                output.append(f"  ☔ {pty_text}")
+                output.append(f"   {pty_text}")
 
             # Precipitation probability
             if "POP" in fc:
-                output.append(f"  🌧️  강수확률: {fc['POP']}%")
+                output.append(f"    강수확률: {fc['POP']}%")
 
             # Precipitation amount (6 hours)
             if "PCP" in fc:
                 pcp = fc["PCP"]
                 if pcp not in ["강수없음", "0"]:
-                    output.append(f"  💧 강수량: {pcp}")
+                    output.append(f"   강수량: {pcp}")
     else:
         # Single day view (existing logic)
         for key in filtered_keys:
@@ -521,31 +521,31 @@ def format_shortterm(data: Dict, days=1, lat: float = None, lon: float = None,
             time = fc["time"]
 
             time_str = f"{time[:2]}:{time[2:]}"
-            output.append(f"\n⏰ {time_str}")
+            output.append(f"\n {time_str}")
 
             # Temperature (use TMP for short-term)
             if "TMP" in fc:
-                output.append(f"  🌡️  {fc['TMP']}°C")
+                output.append(f"    {fc['TMP']}°C")
 
             # Sky condition
             if "SKY" in fc:
                 sky_text = get_sky_condition(fc["SKY"])
-                output.append(f"  ☁️  {sky_text}")
+                output.append(f"    {sky_text}")
 
             # Precipitation type
             if "PTY" in fc and fc["PTY"] != "0":
                 pty_text = get_precipitation_type(fc["PTY"])
-                output.append(f"  ☔ {pty_text}")
+                output.append(f"   {pty_text}")
 
             # Precipitation probability
             if "POP" in fc:
-                output.append(f"  🌧️  강수확률: {fc['POP']}%")
+                output.append(f"    강수확률: {fc['POP']}%")
 
             # Precipitation amount (6 hours)
             if "PCP" in fc:
                 pcp = fc["PCP"]
                 if pcp not in ["강수없음", "0"]:
-                    output.append(f"  💧 강수량: {pcp}")
+                    output.append(f"   강수량: {pcp}")
 
     return "\n".join(output)
 

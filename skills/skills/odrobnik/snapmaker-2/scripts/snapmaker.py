@@ -265,10 +265,10 @@ def format_status(status: Dict[str, Any]) -> str:
     
     # Warnings
     if status.get('isFilamentOut'):
-        lines.append("⚠️  FILAMENT OUT!")
+        lines.append("  FILAMENT OUT!")
     
     if status.get('isEnclosureDoorOpen'):
-        lines.append("⚠️  Enclosure door open")
+        lines.append("  Enclosure door open")
     
     return '\n'.join(lines)
 
@@ -377,11 +377,11 @@ def cmd_watch(api: SnapmakerAPI, args):
             
             # Check for completion or errors
             if status.get('printStatus') == 'Idle' and status.get('progress', 0) >= 0.99:
-                print("\n🎉 Print completed!")
+                print("\n Print completed!")
                 break
             
             if status.get('isFilamentOut'):
-                print("\n⚠️  Filament out detected!")
+                print("\n  Filament out detected!")
             
             time.sleep(args.interval)
     
@@ -507,7 +507,7 @@ def cmd_discover(api_unused, args):
         print(json.dumps(printers, indent=2))
     else:
         for p in printers:
-            print(f"  📍 {p.get('ip', '?')}")
+            print(f"   {p.get('ip', '?')}")
             if p.get('model'):
                 print(f"     Model:  {p['model']}")
             if p.get('status'):

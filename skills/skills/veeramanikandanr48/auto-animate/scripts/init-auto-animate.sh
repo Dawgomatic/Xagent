@@ -4,29 +4,29 @@
 
 set -e
 
-echo "🎬 AutoAnimate Setup"
+echo " AutoAnimate Setup"
 echo "===================="
 echo ""
 
 # Check if we're in a React project
 if [ ! -f "package.json" ]; then
-  echo "❌ Error: package.json not found"
+  echo " Error: package.json not found"
   echo "   Run this script from your project root"
   exit 1
 fi
 
 # Check if React is installed
 if ! grep -q '"react"' package.json; then
-  echo "❌ Error: React not found in package.json"
+  echo " Error: React not found in package.json"
   echo "   This script is for React projects"
   exit 1
 fi
 
-echo "✅ React project detected"
+echo " React project detected"
 echo ""
 
 # Install AutoAnimate
-echo "📦 Installing @formkit/auto-animate..."
+echo " Installing @formkit/auto-animate..."
 if command -v pnpm &> /dev/null; then
   pnpm add @formkit/auto-animate
 elif command -v yarn &> /dev/null; then
@@ -35,20 +35,20 @@ else
   npm install @formkit/auto-animate
 fi
 
-echo "✅ Package installed"
+echo " Package installed"
 echo ""
 
 # Check if using Cloudflare Workers
 USING_CLOUDFLARE=false
 if grep -q '@cloudflare/vite-plugin' package.json; then
   USING_CLOUDFLARE=true
-  echo "🔍 Detected: Cloudflare Workers project"
+  echo " Detected: Cloudflare Workers project"
   echo ""
 fi
 
 # Create SSR-safe hook if using Cloudflare or Next.js
 if [ "$USING_CLOUDFLARE" = true ] || grep -q 'next' package.json; then
-  echo "📝 Creating SSR-safe hook..."
+  echo " Creating SSR-safe hook..."
 
   # Create src/hooks directory if it doesn't exist
   mkdir -p src/hooks
@@ -79,16 +79,16 @@ export function useAutoAnimateSafe<T extends HTMLElement>(
 }
 EOF
 
-  echo "✅ Created: src/hooks/useAutoAnimateSafe.ts"
+  echo " Created: src/hooks/useAutoAnimateSafe.ts"
   echo ""
 
   # Update vite.config.ts if using Cloudflare
   if [ "$USING_CLOUDFLARE" = true ] && [ -f "vite.config.ts" ]; then
-    echo "📝 Updating vite.config.ts..."
+    echo " Updating vite.config.ts..."
 
     # Check if ssr.external already exists
     if grep -q "ssr:" vite.config.ts; then
-      echo "⚠️  SSR config already exists in vite.config.ts"
+      echo "  SSR config already exists in vite.config.ts"
       echo "   Add '@formkit/auto-animate' to ssr.external manually"
     else
       # Backup original
@@ -96,7 +96,7 @@ EOF
 
       # Add ssr.external (simplified approach)
       echo ""
-      echo "⚠️  Manual step required:"
+      echo "  Manual step required:"
       echo "   Add this to your vite.config.ts:"
       echo ""
       echo "   ssr: {"
@@ -108,7 +108,7 @@ EOF
 fi
 
 # Create example component
-echo "📝 Creating example component..."
+echo " Creating example component..."
 mkdir -p src/components
 
 cat > src/components/AnimatedListExample.tsx << 'EOF'
@@ -206,7 +206,7 @@ export function AnimatedListExample() {
  */
 EOF
 
-echo "✅ Created: src/components/AnimatedListExample.tsx"
+echo " Created: src/components/AnimatedListExample.tsx"
 echo ""
 
 # If using SSR, create SSR-safe example
@@ -287,11 +287,11 @@ export function AnimatedListSSRSafe() {
 }
 EOF
 
-  echo "✅ Created: src/components/AnimatedListSSRSafe.tsx"
+  echo " Created: src/components/AnimatedListSSRSafe.tsx"
   echo ""
 fi
 
-echo "✨ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "1. Import the example component:"
@@ -323,5 +323,5 @@ echo "   - Toast notifications"
 echo "   - Form validation"
 echo "   - Filter/sort lists"
 echo ""
-echo "📚 Documentation: https://auto-animate.formkit.com"
+echo " Documentation: https://auto-animate.formkit.com"
 echo ""

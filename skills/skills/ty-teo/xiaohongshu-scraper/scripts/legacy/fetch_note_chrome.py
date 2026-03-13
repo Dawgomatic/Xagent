@@ -280,7 +280,7 @@ def main():
     
     note_id = extract_note_id(args.url)
     if not note_id:
-        print(f"❌ 无法提取笔记 ID")
+        print(f" 无法提取笔记 ID")
         return
     
     print(f"笔记 ID: {note_id}")
@@ -288,7 +288,7 @@ def main():
     # 检查 Chrome 调试端口
     tabs = connect_to_chrome()
     if not tabs:
-        print("\n❌ 无法连接到 Chrome 调试端口")
+        print("\n 无法连接到 Chrome 调试端口")
         print("\n请按以下步骤操作：")
         print("1. 完全关闭 Chrome（包括后台进程）")
         print("2. 在终端运行：")
@@ -301,7 +301,7 @@ def main():
     
     result = fetch_with_playwright_cdp(note_id, args.output, args.ocr)
     
-    print(f"\n✅ 完成!")
+    print(f"\n 完成!")
     print(f"标题: {result['title']}")
     print(f"图片: {len(result['local_images'])} 张")
     print(f"输出: {args.output}")

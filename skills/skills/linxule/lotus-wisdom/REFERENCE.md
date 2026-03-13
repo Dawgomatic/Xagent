@@ -2,7 +2,7 @@
 
 ## Complete Tag Reference
 
-### 🌊 Process Flow Domain
+###  Process Flow Domain
 The natural arc of inquiry and expression.
 
 | Tag | Purpose | When to Use |
@@ -11,7 +11,7 @@ The natural arc of inquiry and expression.
 | `engage` | Active exploration | Deep diving into the matter |
 | `express` | Articulate insights | Sharing emerged understanding |
 
-### 🧠 Meta-Cognitive Domain
+###  Meta-Cognitive Domain
 The mind observing its own processes.
 
 | Tag | Purpose | When to Use |
@@ -22,7 +22,7 @@ The mind observing its own processes.
 | `refine` | Polish insights | Clarifying and improving |
 | `complete` | Natural conclusion | Bringing closure |
 
-### 🔆 Skillful Means Domain
+###  Skillful Means Domain
 Different approaches to reaching understanding.
 
 | Tag | Purpose | When to Use |
@@ -33,7 +33,7 @@ Different approaches to reaching understanding.
 | `gradual` | Step-by-step | Complex unfolding needed |
 | `sudden` | Breakthrough | Instant realization |
 
-### ☯️ Non-Dual Recognition Domain
+###  Non-Dual Recognition Domain
 Transcending apparent opposites.
 
 | Tag | Purpose | When to Use |
@@ -44,7 +44,7 @@ Transcending apparent opposites.
 | `transcend` | Go beyond limits | Rising above constraints |
 | `embody` | Live the wisdom | Making it practical |
 
-### 🧘 Meditation Domain
+###  Meditation Domain
 Creating space for emergence.
 
 | Tag | Purpose | When to Use |

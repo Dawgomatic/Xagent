@@ -56,10 +56,10 @@ done
 get_status_emoji() {
     local status="$1"
     case "$status" in
-        "healthy") echo "✅" ;;
-        "warning") echo "⚠️" ;;
-        "error") echo "❌" ;;
-        *) echo "🔵" ;;
+        "healthy") echo "" ;;
+        "warning") echo "" ;;
+        "error") echo "" ;;
+        *) echo "" ;;
     esac
 }
 
@@ -259,7 +259,7 @@ generate_detailed_output() {
     echo ""
     
     # Skill Information
-    echo -e "${BLUE}📦 SKILL INFORMATION${NC}"
+    echo -e "${BLUE} SKILL INFORMATION${NC}"
     echo -e "  Name:    memory-compression-system"
     echo -e "  Version: 3.0.0"
     echo -e "  Installed: $installed"
@@ -267,7 +267,7 @@ generate_detailed_output() {
     echo ""
     
     # Compression Status
-    echo -e "${BLUE}📊 COMPRESSION STATUS${NC}"
+    echo -e "${BLUE} COMPRESSION STATUS${NC}"
     echo -e "  Last compression: $last_compression"
     
     local stats=$(get_compression_stats)
@@ -286,28 +286,28 @@ generate_detailed_output() {
     echo ""
     
     # Automation Status
-    echo -e "${BLUE}⚙️ AUTOMATION STATUS${NC}"
+    echo -e "${BLUE} AUTOMATION STATUS${NC}"
     echo -e "  Cron job: $cron_status"
     echo -e "  Compression: ${COMPRESSION_ENABLED:-true}"
     echo -e "  Search: ${SEARCH_ENABLED:-true}"
     echo ""
     
     # Configuration
-    echo -e "${BLUE}⚙️ CONFIGURATION${NC}"
+    echo -e "${BLUE} CONFIGURATION${NC}"
     echo -e "  Default format: ${DEFAULT_FORMAT:-ultra}"
     echo -e "  Retention days: ${RETENTION_DAYS:-30}"
     echo -e "  Max files: ${MAX_COMPRESSED_FILES:-100}"
     echo ""
     
     # Directories
-    echo -e "${BLUE}📁 DIRECTORIES${NC}"
+    echo -e "${BLUE} DIRECTORIES${NC}"
     echo -e "  Skill: $SKILL_DIR"
     echo -e "  Data: $DATA_DIR"
     echo -e "  Compressed: $COMPRESSED_DIR"
     echo ""
     
     # Quick Actions
-    echo -e "${BLUE}🚀 QUICK ACTIONS${NC}"
+    echo -e "${BLUE} QUICK ACTIONS${NC}"
     echo -e "  Run compression: ${SCRIPT_DIR}/compress.sh"
     echo -e "  Check health: ${SCRIPT_DIR}/health.sh"
     echo -e "  View logs: ${SCRIPT_DIR}/logs.sh"

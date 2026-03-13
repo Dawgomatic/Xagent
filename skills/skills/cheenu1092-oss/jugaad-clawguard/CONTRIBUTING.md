@@ -61,7 +61,7 @@ For verified threats, submit a PR adding to `db/blacklist.jsonl`:
   "confidence": 0.85,
   "response": {
     "action": "block",
-    "user_message": "⛔ BLOCKED: ...",
+    "user_message": " BLOCKED: ...",
     "human_alert": true
   }
 }
@@ -190,4 +190,4 @@ If you've found a vulnerability in OSBS itself, please report it privately:
 - GitHub Discussions: https://github.com/openclaw/security-db/discussions
 - Discord: #security channel
 
-Thank you for making AI agents safer! 🛡️
+Thank you for making AI agents safer! 

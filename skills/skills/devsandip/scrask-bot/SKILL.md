@@ -9,7 +9,7 @@ description: >
 author: your-name
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
     primaryEnv: GEMINI_API_KEY
     requires:
       env:
@@ -95,7 +95,7 @@ Do not activate for:
 
 Reply in Telegram right away so the user knows the skill is working:
 
-> "📸 Got it — analyzing your screenshot..."
+> " Got it — analyzing your screenshot..."
 
 Do not make the user wait silently.
 
@@ -125,7 +125,7 @@ The script returns a JSON object with:
 ### Step 3: Handle the Output
 
 **If `no_actionable_content` is true:**
-Reply: "🤷 I couldn't find any event, reminder, or task info in that screenshot. Could you describe what you'd like to add?"
+Reply: " I couldn't find any event, reminder, or task info in that screenshot. Could you describe what you'd like to add?"
 
 **If `success` is true:**
 Send the `telegram_reply` value directly back to the user in Telegram. The script has already:
@@ -155,9 +155,9 @@ Reply: "Got it, skipped ✓"
 
 For items saved silently (high confidence), the `telegram_reply` from the script already contains the confirmation message. Examples of what the user will see:
 
-- `📅 Added to Calendar: **Team Standup** — 2026-03-01 at 09:00`
-- `🔔 Added to Tasks: **Pay electricity bill** (due 2026-02-28)`
-- `✅ Added to Tasks: **Review PR for Arjun**`
+- ` Added to Calendar: **Team Standup** — 2026-03-01 at 09:00`
+- ` Added to Tasks: **Pay electricity bill** (due 2026-02-28)`
+- ` Added to Tasks: **Review PR for Arjun**`
 
 ---
 
@@ -167,9 +167,9 @@ For items saved silently (high confidence), the `telegram_reply` from the script
 |---|---|
 | Screenshot is in Hindi, Tamil, or another language | Extract and translate silently; save title in English |
 | Recurring event ("every Monday") | Set RRULE on the calendar event; mention it in the reply |
-| Date has already passed | Flag in the reply: "⚠️ This date has already passed (Feb 10). Save anyway?" |
+| Date has already passed | Flag in the reply: " This date has already passed (Feb 10). Save anyway?" |
 | Multiple items in one screenshot | Process each independently; confirm per item if needed |
-| Screenshot of someone's calendar | Detect `already_in_calendar_hint`; reply: "Looks like this event is already in your calendar 🗓️" |
+| Screenshot of someone's calendar | Detect `already_in_calendar_hint`; reply: "Looks like this event is already in your calendar " |
 | Google API auth failure | Reply with the specific error and suggest re-checking GOOGLE_CREDENTIALS |
 | Zoom/Meet link found | Add to Calendar as both location and description |
 

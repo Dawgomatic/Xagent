@@ -70,7 +70,7 @@ AI-powered context management for OpenClaw sessions. Uses the agent itself to ge
 
 ```bash
 $ ~/openclaw/skills/context-manager/compress.sh list
-📋 Available Sessions (4 total)
+ Available Sessions (4 total)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #    SESSION KEY                              KIND       TOKENS    USAGE
 1    agent:main:main                          direct      70188      70%
@@ -82,7 +82,7 @@ $ ~/openclaw/skills/context-manager/compress.sh list
 
 ```bash
 $ ~/openclaw/skills/context-manager/compress.sh status agent:main:main
-📊 Context Manager Status
+ Context Manager Status
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Session Key: agent:main:main
   Session ID:  fc192a2d-091c-48c7-9fad-12bf34687454
@@ -98,10 +98,10 @@ $ ~/openclaw/skills/context-manager/compress.sh status agent:main:main
 
 ```bash
 $ ~/openclaw/skills/context-manager/compress.sh summarize agent:main:main
-🧠 Requesting AI summary for session: agent:main:main
+ Requesting AI summary for session: agent:main:main
   Session ID: fc192a2d-091c-48c7-9fad-12bf34687454
 
-✅ AI Summary generated!
+ AI Summary generated!
   Saved to: memory/compressed/20260127-123146.ai-summary.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -117,21 +117,21 @@ $ ~/openclaw/skills/context-manager/compress.sh summarize agent:main:main
 
 ```bash
 $ ~/openclaw/skills/context-manager/compress.sh summarize agent:main:main --replace
-🧠 Requesting AI summary for session: agent:main:main
+ Requesting AI summary for session: agent:main:main
   Session ID: fc192a2d-091c-48c7-9fad-12bf34687454
   Mode: REPLACE (will reset session after summary)
 
-✅ AI Summary generated!
+ AI Summary generated!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [AI-generated summary displayed]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔄 Resetting session and injecting compressed context...
+ Resetting session and injecting compressed context...
   Backing up session file...
   Backup saved: memory/compressed/20260127-123146.session-backup.jsonl
   Deleting session JSONL to reset...
   Injecting compressed context into fresh session...
-✅ Session compressed successfully!
+ Session compressed successfully!
   Old session ID: fc192a2d-091c-48c7-9fad-12bf34687454
   New session ID: a1b2c3d4-...
   Session is ready to continue with compressed context

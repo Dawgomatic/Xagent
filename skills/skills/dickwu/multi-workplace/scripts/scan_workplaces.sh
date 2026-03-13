@@ -78,7 +78,7 @@ NEW_COUNT=$(echo "$RESULTS" | jq '[.[] | select(.hasWorkplace | not)] | length')
 SUB_COUNT=$(echo "$RESULTS" | jq '[.[] | select(.isSubmodule)] | length')
 
 echo "" >&2
-echo "📊 Found $COUNT workplaces ($INIT_COUNT initialized, $NEW_COUNT new, $SUB_COUNT submodules)" >&2
+echo " Found $COUNT workplaces ($INIT_COUNT initialized, $NEW_COUNT new, $SUB_COUNT submodules)" >&2
 
 # Register if requested
 if [[ "$DO_REGISTER" == true ]]; then
@@ -114,7 +114,7 @@ if [[ "$DO_REGISTER" == true ]]; then
          }]' "$REGISTRY_DIR/registry.json" > "$REGISTRY_DIR/registry.tmp" \
         && mv "$REGISTRY_DIR/registry.tmp" "$REGISTRY_DIR/registry.json"
       REGISTERED=$((REGISTERED + 1))
-      echo "  ✅ Registered: $WP_NAME ($UUID)" >&2
+      echo "   Registered: $WP_NAME ($UUID)" >&2
     fi
   done
 fi

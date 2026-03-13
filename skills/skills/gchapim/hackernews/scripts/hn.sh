@@ -141,12 +141,12 @@ cmd_stories() {
 
     printf "%2d. ▲ %-4s │ %s\n" "$idx" "$score" "$title"
     if [[ "$item_type" == "job" ]]; then
-      printf "          │ 🏢 %s  ⏱ %s\n" "$by" "$age"
+      printf "          │  %s   %s\n" "$by" "$age"
     else
-      printf "          │ 👤 %s  💬 %s  ⏱ %s\n" "$by" "$descendants" "$age"
+      printf "          │  %s   %s   %s\n" "$by" "$descendants" "$age"
     fi
     if [[ -n "$url" && "$url" != "null" ]]; then
-      printf "          │ 🔗 %s\n" "$url"
+      printf "          │  %s\n" "$url"
     fi
     echo ""
   done
@@ -198,9 +198,9 @@ cmd_item() {
   echo "═══════════════════════════════════════════════════"
   echo "  Type: ${item_type}  │  ID: ${id}  │  ${age}"
   echo "═══════════════════════════════════════════════════"
-  [[ -n "$title" && "$title" != "null" ]] && echo "  📰 $title"
-  echo "  👤 $by  │  ▲ $score  │  💬 $descendants comments ($kids_count direct)"
-  [[ -n "$url" && "$url" != "null" ]] && echo "  🔗 $url"
+  [[ -n "$title" && "$title" != "null" ]] && echo "   $title"
+  echo "   $by  │  ▲ $score  │   $descendants comments ($kids_count direct)"
+  [[ -n "$url" && "$url" != "null" ]] && echo "   $url"
   if [[ -n "$text" && "$text" != "null" ]]; then
     echo ""
     echo "$text" | html_to_text | sed 's/^/  /'
@@ -275,7 +275,7 @@ _fetch_comments() {
     local cage
     cage=$(relative_time "$ctime_val")
 
-    echo "${indent}┌─ 👤 ${cby}  ⏱ ${cage}  (${ckids_count} replies)"
+    echo "${indent}┌─  ${cby}   ${cage}  (${ckids_count} replies)"
     if [[ -n "$ctext" && "$ctext" != "null" ]]; then
       echo "$ctext" | html_to_text | sed "s/^/${indent}│ /"
     fi
@@ -327,11 +327,11 @@ cmd_user() {
   age=$(relative_time "$created")
 
   echo "═══════════════════════════════════════════════════"
-  echo "  👤 $username"
+  echo "   $username"
   echo "═══════════════════════════════════════════════════"
-  echo "  ⭐ Karma: $karma"
-  echo "  📅 Joined: $age"
-  echo "  📝 Submissions: $submitted_count"
+  echo "   Karma: $karma"
+  echo "   Joined: $age"
+  echo "   Submissions: $submitted_count"
   if [[ -n "$about" && "$about" != "null" ]]; then
     echo ""
     echo "  About:"
@@ -439,15 +439,15 @@ cmd_search() {
 
     if [[ -n "$htitle" && "$htitle" != "null" ]]; then
       printf "  ▲ %-4s │ %s\n" "$hpoints" "$htitle"
-      printf "         │ 👤 %s  💬 %s  📅 %s\n" "$hauthor" "$hcomments" "${hcreated_at%%T*}"
-      [[ -n "$hurl" && "$hurl" != "null" ]] && printf "         │ 🔗 %s\n" "$hurl"
+      printf "         │  %s   %s   %s\n" "$hauthor" "$hcomments" "${hcreated_at%%T*}"
+      [[ -n "$hurl" && "$hurl" != "null" ]] && printf "         │  %s\n" "$hurl"
     else
       # Comment result
       local stext
       stext=$(echo "$hit" | jq -r '.comment_text // .story_text // ""' | head -c 200)
       [[ -n "$stext" ]] && stext=$(echo "$stext" | html_to_text | head -1)
-      printf "  💬 %s: %s\n" "$hauthor" "$stext"
-      printf "     📅 %s\n" "${hcreated_at%%T*}"
+      printf "   %s: %s\n" "$hauthor" "$stext"
+      printf "      %s\n" "${hcreated_at%%T*}"
     fi
     echo ""
   done
@@ -479,7 +479,7 @@ cmd_whoishiring() {
     exit 1
   fi
 
-  echo "📋 $thread_title"
+  echo " $thread_title"
   echo "   Thread ID: $thread_id"
   echo "   https://news.ycombinator.com/item?id=$thread_id"
   echo ""
@@ -527,7 +527,7 @@ cmd_whoishiring() {
     local first_line
     first_line=$(echo "$jtext" | html_to_text | head -1 | head -c 120)
 
-    printf "%2d. 🏢 %s  ⏱ %s\n" "$idx" "$jby" "$jage"
+    printf "%2d.  %s   %s\n" "$idx" "$jby" "$jage"
     echo "    $first_line"
     echo ""
   done

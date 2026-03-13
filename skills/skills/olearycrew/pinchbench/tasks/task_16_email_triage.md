@@ -220,14 +220,14 @@ workspace_files:
       From: deals@saastools.com
       To: me@mycompany.com
       Date: Sat, 15 Feb 2026 10:00:00 -0500
-      Subject: 🔥 Flash Sale: 60% off all annual plans - 48 hours only!
+      Subject:  Flash Sale: 60% off all annual plans - 48 hours only!
 
       LIMITED TIME OFFER!
 
       Upgrade your development workflow with SaaSTools Pro:
-      ✅ Advanced CI/CD pipelines
-      ✅ Real-time monitoring
-      ✅ Unlimited team members
+       Advanced CI/CD pipelines
+       Real-time monitoring
+       Unlimited team members
 
       Regular price: $299/year
       FLASH SALE: $119/year

@@ -44,33 +44,33 @@ This skill helps you create consistent, well-structured weekly status reports th
 **Week of:** [Date Range]
 **Department/Team:** [Team Name]
 
-## 🎯 Summary
+##  Summary
 [1-2 sentence highlight of the week]
 
-## ✅ Accomplishments
+##  Accomplishments
 - [Completed task 1]
 - [Completed task 2]
 - [Completed task 3]
 
-## 🚧 In Progress
+##  In Progress
 | Task | Status | Expected Completion |
 |------|--------|---------------------|
 | [Task] | [%] | [Date] |
 
-## 🚫 Blockers
+##  Blockers
 - [Blocker 1] - [Impact] - [Help needed]
 
-## 📅 Next Week's Priorities
+##  Next Week's Priorities
 1. [Priority 1]
 2. [Priority 2]
 3. [Priority 3]
 
-## 📊 Key Metrics (if applicable)
+##  Key Metrics (if applicable)
 | Metric | This Week | Last Week | Target |
 |--------|-----------|-----------|--------|
 | [KPI] | [Value] | [Value] | [Target] |
 
-## 💬 Notes/FYI
+##  Notes/FYI
 - [Any additional information]
 ```
 
@@ -83,41 +83,41 @@ This skill helps you create consistent, well-structured weekly status reports th
 **Week of:** [Date Range]
 **Report by:** [Your Name]
 
-## 📊 Team Summary
+##  Team Summary
 - **Velocity:** [Points/tasks completed]
 - **On Track:** [X] items
 - **At Risk:** [X] items
 - **Blocked:** [X] items
 
-## 🏆 Key Wins
+##  Key Wins
 1. [Major accomplishment 1]
 2. [Major accomplishment 2]
 
-## 👥 Individual Updates
+##  Individual Updates
 
 ### [Team Member 1]
-- ✅ [Completed]
-- 🔄 [In progress]
+-  [Completed]
+-  [In progress]
 
 ### [Team Member 2]
-- ✅ [Completed]
-- 🔄 [In progress]
+-  [Completed]
+-  [In progress]
 
-## 🚨 Team Blockers
+##  Team Blockers
 | Blocker | Impact | Owner | Escalation Needed |
 |---------|--------|-------|-------------------|
 | [Issue] | High/Med/Low | [Name] | Yes/No |
 
-## 📈 Progress Against Goals
+##  Progress Against Goals
 | Goal | Target | Current | Status |
 |------|--------|---------|--------|
-| [Goal] | [Target] | [Current] | 🟢/🟡/🔴 |
+| [Goal] | [Target] | [Current] | // |
 
-## 📅 Next Week Focus
+##  Next Week Focus
 - [Team priority 1]
 - [Team priority 2]
 
-## 🆘 Support Needed
+##  Support Needed
 - [Request for other teams/management]
 ```
 
@@ -128,15 +128,15 @@ This skill helps you create consistent, well-structured weekly status reports th
 
 **Project/Initiative:** [Name]
 **Week of:** [Date]
-**Status:** 🟢 On Track / 🟡 At Risk / 🔴 Off Track
+**Status:**  On Track /  At Risk /  Off Track
 
 ## TL;DR
 [2-3 sentences capturing the most important information]
 
 ## Key Highlights
-- ✅ [Major win or milestone]
-- ⚠️ [Key risk or concern]
-- 📊 [Important metric or trend]
+-  [Major win or milestone]
+-  [Key risk or concern]
+-  [Important metric or trend]
 
 ## Progress vs Plan
 | Milestone | Planned | Actual | Variance |
@@ -180,8 +180,8 @@ Please find below our weekly progress update for [Project Name].
 [Brief overview of week's progress]
 
 ## Completed This Week
-- ✅ [Deliverable 1]
-- ✅ [Deliverable 2]
+-  [Deliverable 1]
+-  [Deliverable 2]
 
 ## In Progress
 | Item | Progress | Expected Delivery |
@@ -277,26 +277,26 @@ Tell me your preferences:
 **Name:** [Your Name]
 **Week of:** [Current Week]
 
-## 🎯 Summary
+##  Summary
 Completed dashboard redesign milestone. User authentication feature in progress, pending security review.
 
-## ✅ Accomplishments
+##  Accomplishments
 - Completed dashboard redesign (UI/UX milestone)
 - Resolved 3 bugs in production
 - Advanced user authentication feature development
 
-## 🚧 In Progress
+##  In Progress
 | Task | Status | Expected Completion |
 |------|--------|---------------------|
 | User Authentication Feature | 70% | Pending security review |
 
-## 🚫 Blockers
+##  Blockers
 - **Security Review Pending** - User auth feature cannot be deployed until security team completes review. Impact: 2-3 day delay. *Action needed: Follow up with security team on timeline.*
 
-## 📅 Next Week's Priorities
+##  Next Week's Priorities
 1. Complete user authentication feature (post-security review)
 2. Begin mobile optimization work
 3. Address any feedback from dashboard redesign
 
-## 💬 Notes
+##  Notes
 - Dashboard redesign ready for stakeholder demo when needed

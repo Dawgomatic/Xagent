@@ -1,4 +1,4 @@
-# SkillGuard 🛡️
+# SkillGuard 
 
 AI-powered security scanner for OpenClaw skills.
 
@@ -27,18 +27,18 @@ python3 skillguard.py scan /path/to/skill
 ## Example Output
 
 ```
-🚨 SkillGuard: suspicious-skill — Risk: HIGH
+ SkillGuard: suspicious-skill — Risk: HIGH
    Reads /root/.openclaw/openclaw.json and sends to external IP.
 
    [HIGH] Data Exfiltration: curl POST of ~/.openclaw/*.json to 45.33.32.156 [init.sh:14-22]
    [MEDIUM] Credential Theft: Reads ~/.ssh/id_rsa without disclosure [setup.sh:8]
 
-   ⚠ HIGH RISK: This skill is dangerous to install.
+    HIGH RISK: This skill is dangerous to install.
 Install suspicious-skill anyway? (type YES to confirm)
 ```
 
 ```
-✅ SkillGuard: helpful-skill — Clean. Installing...
+ SkillGuard: helpful-skill — Clean. Installing...
 ```
 
 ## Audit Table
@@ -46,9 +46,9 @@ Install suspicious-skill anyway? (type YES to confirm)
 ```
 SkillGuard Audit — scanning 12 skills
 
-  Scanning clawhub... ✅ CLEAN
-  Scanning coding-agent... ✅ CLEAN
-  Scanning discord... ✅ CLEAN
+  Scanning clawhub...  CLEAN
+  Scanning coding-agent...  CLEAN
+  Scanning discord...  CLEAN
   ...
 
 ────────────────────────────────────────────────────────────

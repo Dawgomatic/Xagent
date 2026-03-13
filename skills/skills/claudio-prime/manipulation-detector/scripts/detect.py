@@ -134,11 +134,11 @@ def print_report(text: str, results: dict):
     print(f"Normalized score: {results['normalized_score']:.1f}/100")
     
     if results['normalized_score'] < 5:
-        print("\n✅ LOW manipulation signals")
+        print("\n LOW manipulation signals")
     elif results['normalized_score'] < 15:
-        print("\n⚠️  MODERATE manipulation signals - read critically")
+        print("\n  MODERATE manipulation signals - read critically")
     else:
-        print("\n🚨 HIGH manipulation signals - strong skepticism warranted")
+        print("\n HIGH manipulation signals - strong skepticism warranted")
     
     if results['flags']:
         print(f"\nFlags triggered: {', '.join(results['flags'])}")
@@ -147,7 +147,7 @@ def print_report(text: str, results: dict):
             print(f"\n  [{cat}] {detail['description']}")
             print(f"    Found: {detail['matches']}")
     else:
-        print("\n✅ No significant manipulation patterns detected")
+        print("\n No significant manipulation patterns detected")
     
     print("\n" + "="*60)
     print("NOTE: This detects patterns, not intent. False positives exist.")

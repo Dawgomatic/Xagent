@@ -105,9 +105,9 @@ if [[ ! -f "$OUTPUT_FILE" ]]; then
 fi
 
 FILE_SIZE=$(wc -c < "$OUTPUT_FILE" | tr -d ' ')
-echo "✅ Mindmap rendered successfully: $OUTPUT_FILE ($FILE_SIZE bytes)"
+echo " Mindmap rendered successfully: $OUTPUT_FILE ($FILE_SIZE bytes)"
 
 # Telegram has a 10MB photo limit — warn if close
 if [[ "$FILE_SIZE" -gt 9000000 ]]; then
-    echo "⚠️  Warning: File is close to Telegram's 10MB photo limit" >&2
+    echo "  Warning: File is close to Telegram's 10MB photo limit" >&2
 fi

@@ -169,14 +169,14 @@ Examples:
   try {
     config = JSON.parse(args[0]);
   } catch (e) {
-    console.error('❌ Invalid JSON config');
+    console.error(' Invalid JSON config');
     process.exit(1);
   }
   
   const { token, userId } = loadCredentials();
   
   if (!token || !userId) {
-    console.error('❌ Missing Metricool credentials');
+    console.error(' Missing Metricool credentials');
     console.log('Set METRICOOL_USER_TOKEN and METRICOOL_USER_ID in environment or ~/.moltbot/moltbot.json');
     process.exit(1);
   }
@@ -195,26 +195,26 @@ Examples:
     try {
       const brand = await getFirstBrandId(token, userId);
       blogId = brand.id;
-      console.log(`📌 Using brand: ${brand.label} (${blogId})`);
+      console.log(` Using brand: ${brand.label} (${blogId})`);
     } catch (e) {
-      console.error('❌ No blogId specified and could not auto-detect');
+      console.error(' No blogId specified and could not auto-detect');
       console.log('Run get-brands.js to find your blog IDs');
       process.exit(1);
     }
   }
   
   if (!platforms.length) {
-    console.error('❌ No platforms specified');
+    console.error(' No platforms specified');
     process.exit(1);
   }
   
   if (!text) {
-    console.error('❌ No text specified');
+    console.error(' No text specified');
     process.exit(1);
   }
   
   if (!datetime) {
-    console.error('❌ No datetime specified');
+    console.error(' No datetime specified');
     process.exit(1);
   }
   
@@ -222,7 +222,7 @@ Examples:
   const posts = platforms.map(platform => {
     const networkId = PLATFORM_IDS[platform.toLowerCase()];
     if (!networkId) {
-      console.warn(`⚠️ Unknown platform: ${platform}`);
+      console.warn(` Unknown platform: ${platform}`);
       return null;
     }
     
@@ -252,7 +252,7 @@ Examples:
   }).filter(Boolean);
   
   if (posts.length === 0) {
-    console.error('❌ No valid platforms');
+    console.error(' No valid platforms');
     process.exit(1);
   }
   
@@ -264,7 +264,7 @@ Examples:
     posts: posts
   };
   
-  console.log('📤 Scheduling post...');
+  console.log(' Scheduling post...');
   console.log(`   Platforms: ${platforms.join(', ')}`);
   console.log(`   Time: ${datetime} (${timezone})`);
   if (imageUrl) console.log(`   Image: ${imageUrl}`);
@@ -278,11 +278,11 @@ Examples:
       userId
     );
     
-    console.log('\n✅ Post scheduled successfully!');
+    console.log('\n Post scheduled successfully!');
     if (result.result?.id || result.id) {
       console.log(`   Post ID: ${result.result?.id || result.id}`);
     }
-    console.log('\n📋 Scheduled posts preview:');
+    console.log('\n Scheduled posts preview:');
     posts.forEach(p => {
       const platName = Object.keys(PLATFORM_IDS).find(k => PLATFORM_IDS[k] === p.network);
       const preview = p.text.substring(0, 60) + (p.text.length > 60 ? '...' : '');
@@ -290,13 +290,13 @@ Examples:
     });
     
   } catch (error) {
-    console.error('\n❌ Failed to schedule:', error.message);
+    console.error('\n Failed to schedule:', error.message);
     
     // Provide helpful debugging info
     if (error.message.includes('401')) {
-      console.log('\n💡 Check your METRICOOL_USER_TOKEN is valid');
+      console.log('\n Check your METRICOOL_USER_TOKEN is valid');
     } else if (error.message.includes('400')) {
-      console.log('\n💡 Check your post data:');
+      console.log('\n Check your post data:');
       console.log('   - Text within character limits?');
       console.log('   - Image URL publicly accessible?');
       console.log('   - Datetime in valid format?');

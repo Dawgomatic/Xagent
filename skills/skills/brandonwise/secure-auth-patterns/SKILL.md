@@ -334,7 +334,7 @@ async function verifyPassword(password: string, hash: string): Promise<boolean> 
 
 ## Best Practices
 
-### ✅ Do
+###  Do
 
 - Use HTTPS everywhere
 - Hash passwords with bcrypt (12+ rounds)
@@ -345,7 +345,7 @@ async function verifyPassword(password: string, hash: string): Promise<boolean> 
 - Log security events
 - Use secure cookie flags (httpOnly, secure, sameSite)
 
-### ❌ Don't
+###  Don't
 
 - Store passwords in plain text
 - Store JWT in localStorage (XSS vulnerable)

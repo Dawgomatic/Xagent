@@ -28,7 +28,7 @@ def package_skill(skill_path, output_dir=None):
                 tar.add(item, arcname=arcname)
                 print(f"  + {item.relative_to(skill_path)}")
 
-    print(f"\n✅ Created: {output_path}")
+    print(f"\n Created: {output_path}")
     print(f"   Size: {output_path.stat().st_size} bytes")
     return output_path
 

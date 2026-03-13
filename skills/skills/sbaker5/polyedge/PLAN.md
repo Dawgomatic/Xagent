@@ -236,4 +236,4 @@ Before releasing:
 
 ---
 
-*Let's build this.* 🚀
+*Let's build this.* 

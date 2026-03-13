@@ -69,9 +69,9 @@ async function main() {
     } else {
       console.log(`✓ Page created: ${page.id}`);
       console.log(`  URL: ${result.url}`);
-      console.log('\n✅ Successfully added to database!');
-      console.log(`📄 URL: ${result.url}`);
-      console.log('\n💡 Add additional properties (Type, Tags, Status) manually in Notion');
+      console.log('\n Successfully added to database!');
+      console.log(` URL: ${result.url}`);
+      console.log('\n Add additional properties (Type, Tags, Status) manually in Notion');
     }
   } catch (error) {
     if (hasJsonFlag()) {

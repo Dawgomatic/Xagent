@@ -176,14 +176,14 @@ def generate_summary_updates(facts):
 
 def run_consolidation(dry_run=False):
     """Run full consolidation."""
-    print("🧠 Memory Consolidation")
+    print(" Memory Consolidation")
     print("=" * 40)
     
     facts = get_all_facts()
     print(f"Total facts: {len(facts)}")
     
     # Find duplicates
-    print("\n📋 Checking for duplicates...")
+    print("\n Checking for duplicates...")
     duplicates = find_duplicates(facts)
     if duplicates:
         print(f"Found {len(duplicates)} potential duplicates:")
@@ -195,7 +195,7 @@ def run_consolidation(dry_run=False):
         print("  No duplicates found")
     
     # Find stale facts
-    print("\n📅 Checking for stale facts (>90 days)...")
+    print("\n Checking for stale facts (>90 days)...")
     stale = identify_stale(facts)
     if stale:
         print(f"Found {len(stale)} stale facts")
@@ -205,7 +205,7 @@ def run_consolidation(dry_run=False):
         print("  No stale facts")
     
     # Generate summary suggestions
-    print("\n📝 Analyzing recent activity...")
+    print("\n Analyzing recent activity...")
     suggestions = generate_summary_updates(facts)
     if suggestions:
         print("Suggested MEMORY.md updates:")
@@ -217,7 +217,7 @@ def run_consolidation(dry_run=False):
     
     # Stats
     stats = get_stats()
-    print(f"\n📊 Stats:")
+    print(f"\n Stats:")
     print(f"  Daily logs: {stats['daily_logs']}")
     print(f"  Topic files: {stats['topic_files']}")
     print(f"  MEMORY.md: {stats['memory_md_bytes']} bytes")
@@ -247,7 +247,7 @@ def main():
     
     if args.stats:
         stats = get_stats()
-        print("📊 Memory Statistics")
+        print(" Memory Statistics")
         print("=" * 40)
         print(f"Total facts: {stats['total_facts']}")
         print(f"Daily logs: {stats['daily_logs']}")

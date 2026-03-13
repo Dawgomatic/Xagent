@@ -58,7 +58,7 @@ case "$TOKEN_LOWER" in
     SWAP_ROUTE="USDT → WETH → MOR (multi-hop, 0.05% + 0.3%)"
     ;;
   *)
-    echo "❌ Unsupported token: $TOKEN"
+    echo " Unsupported token: $TOKEN"
     echo "   Supported: eth, usdc, usdt"
     exit 1
     ;;
@@ -67,7 +67,7 @@ esac
 # Convert human amount to smallest unit
 AMOUNT_WEI=$(python3 -c "print(int(float('$AMOUNT') * 10**$DECIMALS))")
 
-echo "♾️  Everclaw Swap"
+echo "  Everclaw Swap"
 echo "================"
 echo "   From:   $AMOUNT $TOKEN_NAME"
 echo "   To:     MOR"
@@ -76,7 +76,7 @@ echo "   Chain:  Base (8453)"
 echo ""
 
 if [[ "$QUOTE_ONLY" == "--quote" ]]; then
-  echo "💡 Quote mode — swap will NOT be executed."
+  echo " Quote mode — swap will NOT be executed."
   echo ""
   echo "To get a live quote with current prices, check:"
   echo "   Uniswap:   https://app.uniswap.org/explore/tokens/base/0x7431ada8a591c955a994a21710752ef9b882b8e3"
@@ -86,7 +86,7 @@ fi
 
 # Check if cast (Foundry) is available
 if ! command -v cast &> /dev/null; then
-  echo "❌ Foundry (cast) is not installed."
+  echo " Foundry (cast) is not installed."
   echo ""
   echo "Install it with:"
   echo "   curl -L https://foundry.paradigm.xyz | bash"
@@ -99,15 +99,15 @@ if ! command -v cast &> /dev/null; then
 fi
 
 # Get private key from 1Password
-echo "🔐 Retrieving wallet key from 1Password..."
+echo " Retrieving wallet key from 1Password..."
 OP_TOKEN=$(security find-generic-password -a "${OP_KEYCHAIN_ACCOUNT:-op-agent}" -s "op-service-account-token" -w 2>/dev/null) || {
-  echo "❌ Could not retrieve 1Password service account token from keychain."
+  echo " Could not retrieve 1Password service account token from keychain."
   echo "   Set OP_KEYCHAIN_ACCOUNT env var to your keychain account name."
   exit 1
 }
 
 PRIVATE_KEY=$(OP_SERVICE_ACCOUNT_TOKEN="$OP_TOKEN" op item get "${OP_ITEM_NAME:-YOUR_ITEM_NAME}" --vault "${OP_VAULT_NAME:-YOUR_VAULT_NAME}" --fields "Private Key" --reveal 2>/dev/null) || {
-  echo "❌ Could not retrieve wallet private key from 1Password."
+  echo " Could not retrieve wallet private key from 1Password."
   echo "   Set OP_ITEM_NAME and OP_VAULT_NAME environment variables."
   exit 1
 }
@@ -116,7 +116,7 @@ WALLET_ADDR=$(cast wallet address "$PRIVATE_KEY" 2>/dev/null)
 echo "   Wallet: $WALLET_ADDR"
 echo ""
 
-echo "🔄 Executing swap: $AMOUNT $TOKEN_NAME → MOR..."
+echo " Executing swap: $AMOUNT $TOKEN_NAME → MOR..."
 
 if [[ "$IS_ETH" == "true" ]]; then
   # ETH → MOR: direct swap via WETH/MOR pool (3000 fee)
@@ -129,14 +129,14 @@ if [[ "$IS_ETH" == "true" ]]; then
     --private-key "$PRIVATE_KEY" \
     --value "$AMOUNT_WEI" \
     2>&1) || {
-    echo "❌ Swap failed."
+    echo " Swap failed."
     echo "   $RESULT"
     unset PRIVATE_KEY
     exit 1
   }
 
   TX_HASH=$(echo "$RESULT" | grep "transactionHash" | awk '{print $2}')
-  echo "   ✅ TX: $TX_HASH"
+  echo "    TX: $TX_HASH"
 
 else
   # USDC/USDT → MOR: multi-hop via WETH
@@ -150,7 +150,7 @@ else
     --rpc-url "$RPC" \
     --private-key "$PRIVATE_KEY" \
     2>&1) || {
-    echo "❌ Approval failed: $APPROVE_RESULT"
+    echo " Approval failed: $APPROVE_RESULT"
     unset PRIVATE_KEY
     exit 1
   }
@@ -173,14 +173,14 @@ else
     --rpc-url "$RPC" \
     --private-key "$PRIVATE_KEY" \
     2>&1) || {
-    echo "❌ Swap failed."
+    echo " Swap failed."
     echo "   $RESULT"
     unset PRIVATE_KEY
     exit 1
   }
 
   TX_HASH=$(echo "$RESULT" | grep "transactionHash" | awk '{print $2}')
-  echo "   ✅ TX: $TX_HASH"
+  echo "    TX: $TX_HASH"
 fi
 
 unset PRIVATE_KEY
@@ -188,10 +188,10 @@ unset PRIVATE_KEY
 # Check new MOR balance
 sleep 3
 echo ""
-echo "📊 Updated balance:"
+echo " Updated balance:"
 NEW_MOR=$(cast call "$MOR" "balanceOf(address)(uint256)" "$WALLET_ADDR" --rpc-url "$RPC" 2>/dev/null | awk '{printf "%.4f", $1/1e18}')
 NEW_ETH=$(cast balance "$WALLET_ADDR" --rpc-url "$RPC" --ether 2>/dev/null)
 echo "   MOR: $NEW_MOR"
 echo "   ETH: $NEW_ETH"
 echo ""
-echo "✅ Swap complete! You can now open inference sessions with your MOR."
+echo " Swap complete! You can now open inference sessions with your MOR."

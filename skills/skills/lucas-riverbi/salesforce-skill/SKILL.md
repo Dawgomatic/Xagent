@@ -6,7 +6,7 @@ Main skill definition with frontmatter, CLI reference, SOQL patterns
 ---
 name: salesforce
 description: Manage Salesforce CRM - query records, create/update contacts, accounts, opportunities, leads, and cases. Use when the user asks about CRM data, sales pipeline, customer records, or Salesforce operations.
-metadata: {"moltbot":{"emoji":"☁️","requires":{"bins":["sf"],"env":["SALESFORCE_ACCESS_TOKEN"]},"primaryEnv":"SALESFORCE_ACCESS_TOKEN","install":[{"id":"npm","kind":"node","package":"@salesforce/cli","bins":["sf"],"label":"Install Salesforce CLI (npm)"},{"id":"brew","kind":"brew","formula":"salesforce-cli","bins":["sf"],"label":"Install Salesforce CLI (brew)"}]}}
+metadata: {"moltbot":{"emoji":"","requires":{"bins":["sf"],"env":["SALESFORCE_ACCESS_TOKEN"]},"primaryEnv":"SALESFORCE_ACCESS_TOKEN","install":[{"id":"npm","kind":"node","package":"@salesforce/cli","bins":["sf"],"label":"Install Salesforce CLI (npm)"},{"id":"brew","kind":"brew","formula":"salesforce-cli","bins":["sf"],"label":"Install Salesforce CLI (brew)"}]}}
 homepage: https://developer.salesforce.com/tools/salesforcecli
 ---
 ```

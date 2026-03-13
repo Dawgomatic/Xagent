@@ -2,7 +2,7 @@
 
 Get started with the pyzotero CLI in just a few minutes!
 
-## 🚀 3-Minute Setup
+##  3-Minute Setup
 
 ### Step 1: Install pyzotero CLI (1 min)
 
@@ -35,7 +35,7 @@ export PATH="$HOME/.local/bin:$PATH"
 4. Check: **"Allow other applications on this computer to communicate with Zotero"**
 5. **Click OK and restart Zotero**
 
-⚠️ **Important:** Zotero must be running to use the CLI!
+ **Important:** Zotero must be running to use the CLI!
 
 ### Step 3: Try Your First Command (1 min)
 
@@ -53,7 +53,7 @@ pyzotero search -q "test"
 
 ---
 
-## 📚 Common Tasks
+##  Common Tasks
 
 ### List Collections
 
@@ -117,7 +117,7 @@ pyzotero search -q "data" --itemtype book --itemtype journalArticle
 
 ---
 
-## 🎯 CLI Quick Reference
+##  CLI Quick Reference
 
 ### Search Commands
 
@@ -144,7 +144,7 @@ pyzotero search -q "data" --itemtype book --itemtype journalArticle
 
 ---
 
-## 📊 Example Workflows
+##  Example Workflows
 
 ### Find Recent Papers on a Topic
 
@@ -184,7 +184,7 @@ pyzotero search -q "\"Attention Is All You Need\"" --json
 
 ---
 
-## 🔧 Advanced Usage
+##  Advanced Usage
 
 ### Process JSON Output
 
@@ -225,7 +225,7 @@ pyzotero search -q "topic" | grep "Title:" > titles.txt
 
 ---
 
-## 📖 Common Use Cases
+##  Common Use Cases
 
 ### Morning Literature Scan
 
@@ -259,7 +259,7 @@ pyzotero search -q "\"paper title\"" --json
 
 ---
 
-## 🆘 Quick Troubleshooting
+##  Quick Troubleshooting
 
 ### Command Not Found
 ```bash
@@ -292,7 +292,7 @@ pipx install "pyzotero[cli]"
 
 ---
 
-## 📋 Item Types Reference
+##  Item Types Reference
 
 Use `pyzotero itemtypes` to see all available types. Common types:
 
@@ -312,7 +312,7 @@ pyzotero search -q "topic" --itemtype book
 
 ---
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 You now have pyzotero CLI installed and configured. Here are some ideas to get you started:
 
@@ -340,7 +340,7 @@ pyzotero search -q "topic" --json | jq '.[] | .title' | wc -l
 
 ---
 
-## 📖 Next Steps
+##  Next Steps
 
 1. **Explore more examples:** See [EXAMPLES.md](EXAMPLES.md) for advanced workflows
 2. **Read complete documentation:** Check [README.md](README.md) for features
@@ -349,7 +349,7 @@ pyzotero search -q "topic" --json | jq '.[] | .title' | wc -l
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Create shell aliases** for common searches:
    ```bash
@@ -371,6 +371,6 @@ pyzotero search -q "topic" --json | jq '.[] | .title' | wc -l
 
 ---
 
-**Happy searching! 📚✨**
+**Happy searching! **
 
 Remember: **Zotero must be running** for the CLI to work.

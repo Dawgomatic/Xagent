@@ -123,13 +123,13 @@ def print_report(source_files: Set[Path], test_files: Set[Path],
                  untested: Set[Path], src_dir: str):
     """Print formatted report."""
     print("\n=== Test Coverage Analysis ===\n")
-    print(f"📁 Source directory: {src_dir}")
-    print(f"📄 Total source files: {len(source_files)}")
-    print(f"✅ Test files found: {len(test_files)}")
-    print(f"🔴 Untested files: {len(untested)}")
+    print(f" Source directory: {src_dir}")
+    print(f" Total source files: {len(source_files)}")
+    print(f" Test files found: {len(test_files)}")
+    print(f" Untested files: {len(untested)}")
 
     coverage_pct = ((len(source_files) - len(untested)) / len(source_files) * 100) if source_files else 0
-    print(f"📊 Test file coverage: {coverage_pct:.1f}%\n")
+    print(f" Test file coverage: {coverage_pct:.1f}%\n")
 
     if untested:
         print("=== Untested Files by Category ===\n")
@@ -151,14 +151,14 @@ def print_report(source_files: Set[Path], test_files: Set[Path],
                     print(f"   ... and {len(files) - 10} more")
                 print()
 
-        print("\n💡 Recommendations:")
+        print("\n Recommendations:")
         print("   1. Prioritize testing API endpoints and services")
         print("   2. Add tests for business logic and data models")
         print("   3. Test custom hooks for correct behavior")
         print("   4. Consider testing complex components")
         print("   5. Utils can be tested as needed\n")
     else:
-        print("🎉 All source files have corresponding test files!\n")
+        print(" All source files have corresponding test files!\n")
 
 def main():
     src_dir = sys.argv[1] if len(sys.argv) > 1 else 'src'

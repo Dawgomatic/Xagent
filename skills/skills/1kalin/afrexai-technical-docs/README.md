@@ -48,7 +48,7 @@ Every output follows battle-tested templates with examples and expected output.
 - Freshness tracking and documentation debt management
 - Writing style guide with the 4C test
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific documentation frameworks? Our **Context Packs** ($47) include tailored documentation patterns for your vertical:
 
@@ -57,9 +57,9 @@ Want industry-specific documentation frameworks? Our **Context Packs** ($47) inc
 - **Fintech Pack** — Regulatory documentation, audit trail templates
 - **Manufacturing Pack** — SOP documentation, quality management systems
 
-👉 [Browse all 10 vertical packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all 10 vertical packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-code-reviewer](https://clawhub.com/skills/afrexai-code-reviewer) — SPEAR code review framework
 - [afrexai-api-architect](https://clawhub.com/skills/afrexai-api-architect) — Complete API design lifecycle
@@ -67,4 +67,4 @@ Want industry-specific documentation frameworks? Our **Context Packs** ($47) inc
 - [afrexai-project-manager](https://clawhub.com/skills/afrexai-project-manager) — Full PM delivery system
 - [afrexai-prd-engine](https://clawhub.com/skills/afrexai-prd-engine) — PRD creation and management
 
-🖤💛 Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/)
+ Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/)

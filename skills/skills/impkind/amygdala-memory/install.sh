@@ -7,7 +7,7 @@ set -e
 WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "🎭 Installing amygdala-memory..."
+echo " Installing amygdala-memory..."
 echo ""
 
 # 1. Create memory directory if needed
@@ -38,14 +38,14 @@ if [ ! -f "$STATE_FILE" ]; then
   "recentEmotions": []
 }
 EOF
-  echo "✅ Created $STATE_FILE"
+  echo " Created $STATE_FILE"
 else
-  echo "✅ State file already exists"
+  echo " State file already exists"
 fi
 
 # 3. Make scripts executable
 chmod +x "$SKILL_DIR/scripts/"*.sh
-echo "✅ Scripts are executable"
+echo " Scripts are executable"
 
 # 4. Generate initial AMYGDALA_STATE.md
 "$SKILL_DIR/scripts/sync-state.sh"
@@ -56,10 +56,10 @@ if [ "$1" = "--with-cron" ]; then
   echo "Setting up OpenClaw cron jobs..."
   
   if ! command -v openclaw &> /dev/null; then
-    echo "⚠️  'openclaw' not in PATH. Add these cron jobs manually:"
+    echo "  'openclaw' not in PATH. Add these cron jobs manually:"
     echo ""
     echo "# Emotional decay (every 6 hours)"
-    echo "openclaw cron add --name amygdala-decay --cron '0 */6 * * *' --session isolated --agent-turn '🎭 Run emotional decay: Run $SKILL_DIR/scripts/decay-emotion.sh and sync state'"
+    echo "openclaw cron add --name amygdala-decay --cron '0 */6 * * *' --session isolated --agent-turn ' Run emotional decay: Run $SKILL_DIR/scripts/decay-emotion.sh and sync state'"
     echo ""
     echo "# Emotional encoding (every 3 hours)"  
     echo "openclaw cron add --name amygdala-encoding --cron '30 0,3,6,9,12,15,18,21 * * *' --session isolated --agent-turn 'Run amygdala emotional encoding. Preprocess signals, detect emotions, update state.'"
@@ -68,19 +68,19 @@ if [ "$1" = "--with-cron" ]; then
     openclaw cron add --name amygdala-decay \
       --cron '0 */6 * * *' \
       --session isolated \
-      --agent-turn "🎭 Run emotional decay: Run $SKILL_DIR/scripts/decay-emotion.sh and report results" 2>/dev/null && echo "   ✅ Created" || echo "   ⏭️  Already exists"
+      --agent-turn " Run emotional decay: Run $SKILL_DIR/scripts/decay-emotion.sh and report results" 2>/dev/null && echo "    Created" || echo "     Already exists"
     
     echo "   Creating amygdala-encoding..."
     openclaw cron add --name amygdala-encoding \
       --cron '30 0,3,6,9,12,15,18,21 * * *' \
       --session isolated \
-      --agent-turn "Run amygdala emotional encoding: 1) Run preprocess-emotions.sh 2) Read encode-emotions.md 3) Update state for significant emotions 4) Update watermark 5) Sync state" 2>/dev/null && echo "   ✅ Created" || echo "   ⏭️  Already exists"
+      --agent-turn "Run amygdala emotional encoding: 1) Run preprocess-emotions.sh 2) Read encode-emotions.md 3) Update state for significant emotions 4) Update watermark 5) Sync state" 2>/dev/null && echo "    Created" || echo "     Already exists"
   fi
 fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🎭 amygdala-memory installed!"
+echo " amygdala-memory installed!"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "Files created:"
@@ -102,9 +102,9 @@ if [ "$1" != "--with-cron" ]; then
 fi
 
 echo "┌────────────────────────────────────────────────────────┐"
-echo "│  🎭 View your agent's MOOD in the Brain Dashboard      │"
+echo "│   View your agent's MOOD in the Brain Dashboard      │"
 echo "│                                                        │"
 echo "│  open ~/.openclaw/workspace/brain-dashboard.html       │"
 echo "└────────────────────────────────────────────────────────┘"
 echo ""
-echo "Done! 🎭"
+echo "Done! "

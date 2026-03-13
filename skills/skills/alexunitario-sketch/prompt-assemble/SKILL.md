@@ -10,9 +10,9 @@ description: Token-safe prompt assembly with memory orchestration. Use for any a
 A standardized, token-safe prompt assembly framework that guarantees API stability. Implements **Two-Phase Context Construction** and **Memory Safety Valve** to prevent token overflow while maximizing relevant context.
 
 **Design Goals:**
-- ✅ Never fail due to memory-related token overflow
-- ✅ Memory is always discardable enhancement, never rigid dependency
-- ✅ Token budget decisions centralized at prompt assemble layer
+-  Never fail due to memory-related token overflow
+-  Memory is always discardable enhancement, never rigid dependency
+-  Token budget decisions centralized at prompt assemble layer
 
 ## When to Use
 
@@ -104,10 +104,10 @@ if estimated_tokens > SAFETY_MARGIN:
 ```
 
 **Hard Rules:**
-- ❌ Never downgrade system prompt
-- ❌ Never truncate user input
-- ❌ No "lucky splicing"
-- ✅ Only memory layer is expendable
+-  Never downgrade system prompt
+-  Never truncate user input
+-  No "lucky splicing"
+-  Only memory layer is expendable
 
 ### Phase 6: Final Assembly
 ```python
@@ -118,15 +118,15 @@ return final_prompt
 ## Memory Data Standards
 
 ### Allowed in Long-Term Memory
-- ✅ User preferences / identity / long-term goals
-- ✅ Confirmed important conclusions
-- ✅ System-level settings and rules
+-  User preferences / identity / long-term goals
+-  Confirmed important conclusions
+-  System-level settings and rules
 
 ### Forbidden in Long-Term Memory
-- ❌ Raw conversation logs
-- ❌ Reasoning traces
-- ❌ Temporary discussions
-- ❌ Information recoverable from chat history
+-  Raw conversation logs
+-  Reasoning traces
+-  Temporary discussions
+-  Information recoverable from chat history
 
 ## Quick Start
 

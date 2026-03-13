@@ -10,7 +10,7 @@
     "test": "node test/ledger.test.js",
     "cli": "node src/cli.js",
     "start": "node src/cli.js init",
-    "postinstall": "echo '\n✅ AgentLedger installed successfully!\n📁 Run: node src/cli.js init\n📖 See: SKILL.md for usage instructions\n'"
+    "postinstall": "echo '\n AgentLedger installed successfully!\n Run: node src/cli.js init\n See: SKILL.md for usage instructions\n'"
   },
   "keywords": [
     "openclaw",

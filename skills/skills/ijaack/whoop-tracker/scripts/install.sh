@@ -5,7 +5,7 @@ set -e
 echo "Installing WHOOP skill dependencies..."
 pip3 install requests
 echo ""
-echo "✅ Dependencies installed."
+echo " Dependencies installed."
 echo ""
 echo "Next steps:"
 echo "  1. Register an app at https://developer.whoop.com"

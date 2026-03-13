@@ -1,7 +1,7 @@
 ---
 name: netpad
 description: "Manage NetPad forms, submissions, users, and RBAC. Use when: (1) Creating forms with custom fields, (2) Submitting data to forms, (3) Querying form submissions, (4) Managing users/groups/roles (RBAC), (5) Installing NetPad apps from marketplace. Requires NETPAD_API_KEY for API, or `netpad login` for CLI."
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":["curl","jq","netpad"]},"install":[{"id":"cli","kind":"node","package":"@netpad/cli","bins":["netpad"],"label":"Install NetPad CLI (npm)"}],"author":{"name":"Michael Lynn","github":"mrlynn","website":"https://mlynn.org","linkedin":"https://linkedin.com/in/mlynn"}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl","jq","netpad"]},"install":[{"id":"cli","kind":"node","package":"@netpad/cli","bins":["netpad"],"label":"Install NetPad CLI (npm)"}],"author":{"name":"Michael Lynn","github":"mrlynn","website":"https://mlynn.org","linkedin":"https://linkedin.com/in/mlynn"}}}
 ---
 
 # NetPad
@@ -453,6 +453,6 @@ netpad permissions check user@example.com -o org_xxx
 
 **Michael Lynn** — Principal Staff Developer Advocate at MongoDB
 
-- 🌐 Website: [mlynn.org](https://mlynn.org)
-- 🐙 GitHub: [@mrlynn](https://github.com/mrlynn)
-- 💼 LinkedIn: [linkedin.com/in/mlynn](https://linkedin.com/in/mlynn)
+-  Website: [mlynn.org](https://mlynn.org)
+-  GitHub: [@mrlynn](https://github.com/mrlynn)
+-  LinkedIn: [linkedin.com/in/mlynn](https://linkedin.com/in/mlynn)

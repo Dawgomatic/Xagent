@@ -62,7 +62,7 @@ def list_recent():
     if not recent:
         print("No recent projects.")
         return []
-    print("\n📂 Recent Projects:")
+    print("\n Recent Projects:")
     for i, proj in enumerate(recent, 1):
         last = proj.get('last_used', 'unknown')
         if last != 'unknown':
@@ -71,7 +71,7 @@ def list_recent():
                 last = dt.strftime('%Y-%m-%d %H:%M')
             except:
                 pass
-        exists = "✅" if Path(proj['path']).exists() else "❌"
+        exists = "" if Path(proj['path']).exists() else ""
         print(f"   {i}. {exists} {proj['name']} ({last})")
         print(f"      {proj['path']}")
     return recent
@@ -82,15 +82,15 @@ def create_project(name, base_image, base_changes):
     project_dir = PROJECTS_DIR / name
     
     if project_dir.exists():
-        print(f"❌ Project '{name}' already exists at {project_dir}")
+        print(f" Project '{name}' already exists at {project_dir}")
         return None
     
     # Verify base files exist
     if not Path(base_image).exists():
-        print(f"❌ Base image not found: {base_image}")
+        print(f" Base image not found: {base_image}")
         return None
     if not Path(base_changes).exists():
-        print(f"❌ Base changes file not found: {base_changes}")
+        print(f" Base changes file not found: {base_changes}")
         return None
     
     # Create project structure
@@ -102,7 +102,7 @@ def create_project(name, base_image, base_changes):
     image_dest = project_dir / f'{name}.image'
     changes_dest = project_dir / f'{name}.changes'
     
-    print(f"📁 Creating project: {project_dir}")
+    print(f" Creating project: {project_dir}")
     print(f"   Copying image...")
     shutil.copy2(base_image, image_dest)
     print(f"   Copying changes...")
@@ -120,7 +120,7 @@ def create_project(name, base_image, base_changes):
     
     add_to_recent(project_dir, name)
     
-    print(f"✅ Project created: {name}")
+    print(f" Project created: {name}")
     print(f"   Image: {image_dest}")
     print(f"   Changes: {changes_dest}")
     
@@ -144,22 +144,22 @@ def load_project(path):
         # Try to find image/changes in directory
         images = list(project_dir.glob('*.image'))
         if not images:
-            print(f"❌ No .image file found in {project_dir}")
+            print(f" No .image file found in {project_dir}")
             return None
         image = images[0]
         changes = image.with_suffix('.changes')
         if not changes.exists():
-            print(f"❌ Changes file not found: {changes}")
+            print(f" Changes file not found: {changes}")
             return None
         meta = {'name': image.stem}
     
     if not image.exists():
-        print(f"❌ Image not found: {image}")
+        print(f" Image not found: {image}")
         return None
     
     add_to_recent(project_dir, meta.get('name', project_dir.name))
     
-    print(f"✅ Loaded project: {meta.get('name', project_dir.name)}")
+    print(f" Loaded project: {meta.get('name', project_dir.name)}")
     print(f"   Image: {image}")
     print(f"   Changes: {changes}")
     
@@ -190,7 +190,7 @@ def create_snapshot(project_dir, name=None):
                 shutil.copy2(changes, snap_dir / changes.name)
             break
     
-    print(f"✅ Snapshot created: {snap_name}")
+    print(f" Snapshot created: {snap_name}")
     return snap_dir
 
 def list_snapshots(project_dir):
@@ -207,7 +207,7 @@ def list_snapshots(project_dir):
         print("No snapshots.")
         return []
     
-    print("\n📸 Snapshots:")
+    print("\n Snapshots:")
     for i, snap in enumerate(snaps, 1):
         mtime = datetime.fromtimestamp(snap.stat().st_mtime).strftime('%Y-%m-%d %H:%M')
         print(f"   {i}. {snap.name} ({mtime})")
@@ -219,7 +219,7 @@ def restore_snapshot(project_dir, snapshot_name):
     snap_dir = project_dir / 'snapshots' / snapshot_name
     
     if not snap_dir.exists():
-        print(f"❌ Snapshot not found: {snapshot_name}")
+        print(f" Snapshot not found: {snapshot_name}")
         return False
     
     # Create backup of current state first
@@ -231,13 +231,13 @@ def restore_snapshot(project_dir, snapshot_name):
         print(f"   Restoring {f.name}...")
         shutil.copy2(f, dest)
     
-    print(f"✅ Restored snapshot: {snapshot_name}")
+    print(f" Restored snapshot: {snapshot_name}")
     return True
 
 def interactive_mode_select(default_image, default_changes):
     """Interactive mode selection menu."""
     print("\n" + "="*60)
-    print("🎯 Smalltalk Mode Selection")
+    print(" Smalltalk Mode Selection")
     print("="*60)
     print()
     print("  1. Playground     - Ephemeral sandbox (no persistence)")
@@ -263,7 +263,7 @@ def interactive_mode_select(default_image, default_changes):
         print()
         name = input("Project name: ").strip()
         if not name:
-            print("❌ Name required")
+            print(" Name required")
             return None
         proj = create_project(name, default_image, default_changes)
         if proj:
@@ -274,7 +274,7 @@ def interactive_mode_select(default_image, default_changes):
         print()
         path = input("Project path or image file: ").strip()
         if not path:
-            print("❌ Path required")
+            print(" Path required")
             return None
         path = Path(path).expanduser()
         if path.suffix == '.image':
@@ -290,11 +290,11 @@ def interactive_mode_select(default_image, default_changes):
             proj = load_project(recent_valid[idx]['path'])
             if proj:
                 return {'mode': 'development', 'project': proj}
-        print("❌ Invalid selection")
+        print(" Invalid selection")
         return None
     
     else:
-        print("❌ Invalid selection")
+        print(" Invalid selection")
         return None
 
 if __name__ == '__main__':
@@ -316,26 +316,26 @@ if __name__ == '__main__':
         list_recent()
     elif args.command == 'create':
         if not args.name:
-            print("❌ --name required")
+            print(" --name required")
             sys.exit(1)
         create_project(args.name, args.image, args.changes)
     elif args.command == 'load':
         if not args.path:
-            print("❌ --path required")
+            print(" --path required")
             sys.exit(1)
         load_project(args.path)
     elif args.command == 'snapshot':
         if not args.path:
-            print("❌ --path required")
+            print(" --path required")
             sys.exit(1)
         create_snapshot(args.path, args.name)
     elif args.command == 'snapshots':
         if not args.path:
-            print("❌ --path required")
+            print(" --path required")
             sys.exit(1)
         list_snapshots(args.path)
     elif args.command == 'restore':
         if not args.path or not args.name:
-            print("❌ --path and --name required")
+            print(" --path and --name required")
             sys.exit(1)
         restore_snapshot(args.path, args.name)

@@ -256,4 +256,4 @@ if __name__ == "__main__":
     print(f"Output affects: {affects_neg}")
     print(f"Overall intensity: {intensity_neg:.2f}")
     
-    print("\n✅ All tests complete!")
+    print("\n All tests complete!")

@@ -93,9 +93,9 @@ When choices differ in criticality, the colors MUST reflect that contrast:
 Bot asks: "Approve this document?"
 ```json
 [
-  [{"text": "✅ Approve", "callback_data": "approve"},
-   {"text": "❌ Reject", "callback_data": "reject", "style": "destructive"}],
-  [{"text": "⏭ Review later", "callback_data": "skip", "style": "secondary"}]
+  [{"text": " Approve", "callback_data": "approve"},
+   {"text": " Reject", "callback_data": "reject", "style": "destructive"}],
+  [{"text": " Review later", "callback_data": "skip", "style": "secondary"}]
 ]
 ```
 
@@ -112,7 +112,7 @@ Bot asks: "Pick a plan:"
 Bot asks: "Delete all messages in this chat?"
 ```json
 [
-  [{"text": "🗑 Delete all", "callback_data": "delete_all", "style": "destructive"}],
+  [{"text": " Delete all", "callback_data": "delete_all", "style": "destructive"}],
   [{"text": "Keep messages", "callback_data": "keep"}]
 ]
 ```
@@ -259,9 +259,9 @@ def send_choices(bot_token, chat_id, text, choices, parse_mode="HTML"):
 
 # The bot just passes raw choices — colors are assigned automatically:
 send_choices(TOKEN, chat_id, "Approve this document?", [
-    {"text": "✅ Approve", "data": "approve"},
-    {"text": "❌ Reject", "data": "reject"},          # auto → destructive (red)
-    {"text": "⏭ Review later", "data": "later"},       # auto → secondary (gray)
+    {"text": " Approve", "data": "approve"},
+    {"text": " Reject", "data": "reject"},          # auto → destructive (red)
+    {"text": " Review later", "data": "later"},       # auto → secondary (gray)
 ])
 ```
 

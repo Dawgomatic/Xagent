@@ -1,7 +1,7 @@
 ---
 name: cursor-cli
 description: Ask Cursor CLI (Cursor's terminal agent) a question and return its answer. Use for coding help, code review, or explanations—OpenClaw runs the agent and gives you the response.
-metadata: {"openclaw":{"requires":{"bins":["agent"]},"emoji":"⌨️","homepage":"https://cursor.com/docs/cli/overview"}}
+metadata: {"openclaw":{"requires":{"bins":["agent"]},"emoji":"","homepage":"https://cursor.com/docs/cli/overview"}}
 ---
 
 # Cursor CLI skill

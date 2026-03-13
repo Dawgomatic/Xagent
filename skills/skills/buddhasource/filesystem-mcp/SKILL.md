@@ -11,13 +11,13 @@ Official MCP reference implementation providing safe, sandboxed filesystem acces
 
 ## Why Filesystem MCP?
 
-### 🔒 Security-First Design
+###  Security-First Design
 - **Sandboxed Access**: Agents can only access explicitly allowed directories
 - **Permission Controls**: Read-only, write, or full access per directory
 - **Path Validation**: Prevents directory traversal and unauthorized access
 - **Audit Trail**: All operations logged for security review
 
-### 🤖 Essential for Agent Workflows
+###  Essential for Agent Workflows
 Most agent tasks involve files:
 - Reading documentation
 - Writing code files
@@ -26,7 +26,7 @@ Most agent tasks involve files:
 - Managing project files
 - Organizing content
 
-### 📦 Zero External Dependencies
+###  Zero External Dependencies
 Pure implementation using Node.js built-in modules. No external API dependencies or rate limits.
 
 ## Installation
@@ -260,25 +260,25 @@ Agent:
 ### Sandbox Enforcement
 
 **What Agents CAN Do:**
-- ✅ Access explicitly allowed directories
-- ✅ Create/read/write files within allowed paths
-- ✅ List directory contents
-- ✅ Search within allowed paths
+-  Access explicitly allowed directories
+-  Create/read/write files within allowed paths
+-  List directory contents
+-  Search within allowed paths
 
 **What Agents CANNOT Do:**
-- ❌ Access parent directories (`../`)
-- ❌ Access system files (`/etc/`, `/sys/`)
-- ❌ Follow symlinks outside allowed paths
-- ❌ Execute binaries or scripts
-- ❌ Modify file permissions
+-  Access parent directories (`../`)
+-  Access system files (`/etc/`, `/sys/`)
+-  Follow symlinks outside allowed paths
+-  Execute binaries or scripts
+-  Modify file permissions
 
 ### Path Validation
 
 ```
 Allowed: /Users/dev/projects
-Agent tries: /Users/dev/projects/src/index.ts → ✅ Allowed
-Agent tries: /Users/dev/projects/../secret → ❌ Blocked
-Agent tries: /etc/passwd → ❌ Blocked
+Agent tries: /Users/dev/projects/src/index.ts →  Allowed
+Agent tries: /Users/dev/projects/../secret →  Blocked
+Agent tries: /etc/passwd →  Blocked
 ```
 
 ### Best Practices
@@ -301,22 +301,22 @@ Agent tries: /etc/passwd → ❌ Blocked
 
 ## Use Cases
 
-### 📝 Content Management
+###  Content Management
 Agents generate blog posts, reports, documentation and save to organized folders.
 
-### 🤖 Code Assistants
+###  Code Assistants
 Read project files, generate code, create tests, update configurations.
 
-### 📊 Data Analysis
+###  Data Analysis
 Read CSV/JSON data files, analyze, generate reports and visualizations.
 
-### 🗂️ File Organization
+###  File Organization
 Scan directories, categorize files, move to appropriate folders, cleanup duplicates.
 
-### 📚 Knowledge Base
+###  Knowledge Base
 Index markdown files, search documentation, extract information, update wikis.
 
-### 🔍 Log Analysis
+###  Log Analysis
 Parse log files, identify errors, generate summaries, create alerts.
 
 ## Performance
@@ -356,10 +356,10 @@ Parse log files, identify errors, generate summaries, create alerts.
 
 | Method | Security | Agent Integration | Setup |
 |--------|----------|-------------------|-------|
-| **Filesystem MCP** | ✅ Sandboxed | ✅ Auto-discovered | Simple |
-| **Direct FS Access** | ❌ Full system | ❌ Manual | None |
-| **File Upload/Download** | ✅ Manual control | ⚠️ Limited | Complex |
-| **Cloud Storage API** | ✅ API-level | ⚠️ Requires SDK | Complex |
+| **Filesystem MCP** |  Sandboxed |  Auto-discovered | Simple |
+| **Direct FS Access** |  Full system |  Manual | None |
+| **File Upload/Download** |  Manual control |  Limited | Complex |
+| **Cloud Storage API** |  API-level |  Requires SDK | Complex |
 
 ## Resources
 

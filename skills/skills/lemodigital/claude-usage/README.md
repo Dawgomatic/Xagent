@@ -9,7 +9,7 @@ Track credits consumed, rate limits, and per-session breakdown based on the reve
 ## Features
 
 - **Weekly overview** with progress bar and remaining budget
-- **5-hour sliding window** rate limit warning (⚡ >50%, ⚠️ >80%)
+- **5-hour sliding window** rate limit warning ( >50%,  >80%)
 - **Per-session breakdown** — see which sessions cost the most
 - **Single session detail** — deep-dive into any session's usage
 - **Saved config** — set reset time once, never type it again
@@ -58,7 +58,7 @@ claude-usage --json
 ║  Remain:   39,847,015 credits                     ║
 ║  Turns:           253                             ║
 ╠──────────────────────────────────────────────────────╣
-║  5h window:  1,814,155 /  3,300,000 (55.0%)  ⚡ Watch it  ║
+║  5h window:  1,814,155 /  3,300,000 (55.0%)   Watch it  ║
 ╚══════════════════════════════════════════════════════╝
 
   Weekly: [█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 4.4%

@@ -475,18 +475,18 @@ done
 | **Risk** | Any controversial or risky elements? | Low risk, brand-safe |
 
 **Green Light Trends:**
-- ✅ Early growth phase (Days 3-7)
-- ✅ Natural brand fit
-- ✅ Positive, brand-safe content
-- ✅ Target audience participation
-- ✅ Clear format easy to adapt
+-  Early growth phase (Days 3-7)
+-  Natural brand fit
+-  Positive, brand-safe content
+-  Target audience participation
+-  Clear format easy to adapt
 
 **Red Flag Trends:**
-- ❌ Declining phase (Day 14+)
-- ❌ Controversial or polarizing
-- ❌ Forced brand integration
-- ❌ Off-brand values or tone
-- ❌ Saturated with brand participation
+-  Declining phase (Day 14+)
+-  Controversial or polarizing
+-  Forced brand integration
+-  Off-brand values or tone
+-  Saturated with brand participation
 
 ### 2. Adapting Trends to Your Brand
 
@@ -513,10 +513,10 @@ done
 - Best for: Brands with fun, irreverent tone
 
 **Poor Integration Examples:**
-- ❌ Forcing brand into trend that doesn't fit
-- ❌ Breaking trend format to over-emphasize brand
-- ❌ Using trending hashtag with unrelated content
-- ❌ Making video all about brand instead of trend
+-  Forcing brand into trend that doesn't fit
+-  Breaking trend format to over-emphasize brand
+-  Using trending hashtag with unrelated content
+-  Making video all about brand instead of trend
 
 ### 3. Timing Your Trend Participation
 
@@ -570,17 +570,17 @@ Bad: #BookTok #Books #Reading #BookLovers #BookRecommendations
 | Brand Mentions | Comments asking about brand | Purchase intent |
 
 **Success Indicators:**
-- ✅ Video views significantly higher than creator's average
-- ✅ High save rate (intent to revisit or share)
-- ✅ Comments engaging with trend AND brand
-- ✅ Follower growth spike after posting
-- ✅ Brand hashtag usage increases
+-  Video views significantly higher than creator's average
+-  High save rate (intent to revisit or share)
+-  Comments engaging with trend AND brand
+-  Follower growth spike after posting
+-  Brand hashtag usage increases
 
 **Failure Indicators:**
-- ❌ Views similar to or lower than non-trend videos
-- ❌ Comments criticizing forced brand integration
-- ❌ Low completion rate (viewers drop off early)
-- ❌ No algorithmic boost or FYP placement
+-  Views similar to or lower than non-trend videos
+-  Comments criticizing forced brand integration
+-  Low completion rate (viewers drop off early)
+-  No algorithmic boost or FYP placement
 
 ---
 
@@ -811,4 +811,4 @@ Bad: #BookTok #Books #Reading #BookLovers #BookRecommendations
 
 ---
 
-**Ready to ride the trend wave to viral success? Start hiring trend challengers today! 📈🔥📱**
+**Ready to ride the trend wave to viral success? Start hiring trend challengers today! **

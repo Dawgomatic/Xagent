@@ -1,5 +1,5 @@
 // qweather_config.js
-// ⚠️ 所有配置只写在这里，其他文件禁止再写死
+//  所有配置只写在这里，其他文件禁止再写死
 
 module.exports = {
   // 你的专属 API Host

@@ -6,15 +6,15 @@ An OpenClaw skill for generating production-ready Next.js 14+ projects with Type
 
 ## Features
 
-- 🚀 Next.js 14+ App Router with TypeScript
-- 🎨 shadcn/ui component library (recommended)
-- 📡 API integration with axios + React Query
-- 🏗️ Industrial-standard folder structure
-- 🎯 Feature-based component organization
-- 🔒 Type-safe with TypeScript
-- 📱 Mobile-first responsive design
-- ⚡ Optional visual review with Chromium
-- 🌐 Optional live preview with Nginx
+-  Next.js 14+ App Router with TypeScript
+-  shadcn/ui component library (recommended)
+-  API integration with axios + React Query
+-  Industrial-standard folder structure
+-  Feature-based component organization
+-  Type-safe with TypeScript
+-  Mobile-first responsive design
+-  Optional visual review with Chromium
+-  Optional live preview with Nginx
 
 ## Tech Stack
 
@@ -104,7 +104,7 @@ MIT
 
 ## Author
 
-Created for OpenClaw by ClawBit 🦀
+Created for OpenClaw by ClawBit 
 
 ## Version
 

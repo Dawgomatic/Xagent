@@ -5,7 +5,7 @@ mood: romantic
 unlockLevel: 1
 ---
 
-# 🌊 海边漫步
+#  海边漫步
 
 夕阳西下，金色的阳光洒在海面上，波光粼粼。
 

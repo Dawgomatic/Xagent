@@ -32,7 +32,7 @@ fi
 COLLECTION="$1"
 ENVIRONMENT="${2:-}"
 
-echo "🔒 Newman Security Audit"
+echo " Newman Security Audit"
 echo "======================="
 echo ""
 
@@ -135,7 +135,7 @@ echo ""
 echo "======================="
 
 if [ $ISSUES_FOUND -gt 0 ]; then
-    echo -e "${RED}❌ Security audit failed: $ISSUES_FOUND critical issue(s) found${NC}"
+    echo -e "${RED} Security audit failed: $ISSUES_FOUND critical issue(s) found${NC}"
     echo ""
     echo "Recommendations:"
     echo "1. Remove all hardcoded secrets"
@@ -145,6 +145,6 @@ if [ $ISSUES_FOUND -gt 0 ]; then
     echo "5. Store sensitive environments in secure vaults"
     exit 1
 else
-    echo -e "${GREEN}✅ Security audit passed!${NC}"
+    echo -e "${GREEN} Security audit passed!${NC}"
     exit 0
 fi

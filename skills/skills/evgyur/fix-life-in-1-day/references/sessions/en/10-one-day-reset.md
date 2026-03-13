@@ -173,13 +173,13 @@ I'll compile everything into a single document you can print or keep open on you
 ## Generated Document
 
 ```
-📋 1-DAY RESET PROTOCOL
+ 1-DAY RESET PROTOCOL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Date: {date}
 Focus: {what to change}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🌅 MORNING ({time} - {time+1.5h})
+ MORNING ({time} - {time+1.5h})
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **Anti-Vision:**
@@ -193,12 +193,12 @@ Focus: {what to change}
 6. ___
 7. ___
 
-☀️ DAY (Set reminders!)
+ DAY (Set reminders!)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 {table of times and questions}
 
-🌙 EVENING ({time} - {time+1h})
+ EVENING ({time} - {time+1h})
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **Synthesis:**
@@ -212,7 +212,7 @@ Focus: {what to change}
 6. 1 month: ___
 7. Tomorrow: ___
 
-✅ ANTI-REGRESSION (next week)
+ ANTI-REGRESSION (next week)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 □ Day 1: Complete all 3 daily actions
@@ -231,9 +231,9 @@ Focus: {what to change}
 ## Summary Template
 
 ```
-✅ **Session 10 Complete: The One-Day Reset Architect**
+ **Session 10 Complete: The One-Day Reset Architect**
 
-📋 **Your 1-Day Protocol is ready!**
+ **Your 1-Day Protocol is ready!**
 
 **Protocol Date:** {from 5.1}
 **Focus:** {from 1.1}
@@ -246,9 +246,9 @@ Focus: {what to change}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🎉 **ALL 10 SESSIONS COMPLETE!**
+ **ALL 10 SESSIONS COMPLETE!**
 
 Next step: Generate Final Life Architect Document with all insights from all sessions.
 
-[📄 Generate Final Document]
+[ Generate Final Document]
 ```

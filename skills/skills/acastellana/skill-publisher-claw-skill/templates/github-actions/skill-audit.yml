@@ -21,14 +21,14 @@ jobs:
         run: |
           echo "Checking required files..."
           [ -f "SKILL.md" ] && echo "✓ SKILL.md exists" || (echo "✗ SKILL.md missing" && exit 1)
-          [ -f "README.md" ] && echo "✓ README.md exists" || echo "⚠ README.md missing (recommended)"
-          [ -f "LICENSE" ] || [ -f "LICENSE.md" ] && echo "✓ LICENSE exists" || echo "⚠ LICENSE missing"
+          [ -f "README.md" ] && echo "✓ README.md exists" || echo " README.md missing (recommended)"
+          [ -f "LICENSE" ] || [ -f "LICENSE.md" ] && echo "✓ LICENSE exists" || echo " LICENSE missing"
       
       - name: Check for secrets
         run: |
           echo "Scanning for potential secrets..."
           if grep -rniE "(api[_-]?key|secret|password|token|bearer)\s*[=:]\s*['\"]?[a-zA-Z0-9]{16,}" . --include="*.md" 2>/dev/null | grep -v "example\|sample\|your[_-]"; then
-            echo "⚠ Potential secrets found - please review"
+            echo " Potential secrets found - please review"
             exit 1
           fi
           
@@ -56,7 +56,7 @@ jobs:
           echo "Checking for TODOs..."
           TODO_COUNT=$(grep -rniE "(TODO|FIXME|XXX)" . --include="*.md" 2>/dev/null | wc -l || echo 0)
           if [ "$TODO_COUNT" -gt 0 ]; then
-            echo "⚠ Found $TODO_COUNT TODO/FIXME items:"
+            echo " Found $TODO_COUNT TODO/FIXME items:"
             grep -rniE "(TODO|FIXME|XXX)" . --include="*.md" 2>/dev/null | head -5
           else
             echo "✓ No TODOs found"
@@ -86,7 +86,7 @@ jobs:
             if grep -qi "when to use\|## when" SKILL.md; then
               echo "✓ SKILL.md has 'When to Use' section"
             else
-              echo "⚠ SKILL.md missing 'When to Use' section"
+              echo " SKILL.md missing 'When to Use' section"
             fi
           fi
       
@@ -98,9 +98,9 @@ jobs:
           echo "Total size: $TOTAL_BYTES bytes (~$TOKENS_EST tokens)"
           
           if [ $TOKENS_EST -gt 20000 ]; then
-            echo "⚠ Large skill - may impact context significantly"
+            echo " Large skill - may impact context significantly"
           elif [ $TOKENS_EST -gt 10000 ]; then
-            echo "⚠ Moderate size - consider splitting"
+            echo " Moderate size - consider splitting"
           else
             echo "✓ Good size"
           fi

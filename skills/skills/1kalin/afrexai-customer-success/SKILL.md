@@ -32,10 +32,10 @@ Build a composite score from leading indicators. Weight by your business model.
 
 | Score | Tier | Color | Action |
 |-------|------|-------|--------|
-| 80-100 | Thriving | 🟢 Green | Expansion plays, advocacy asks |
-| 60-79 | Healthy | 🟡 Yellow | Monitor, nurture, prepare upsell |
-| 40-59 | At-Risk | 🟠 Orange | Intervention plan within 48 hours |
-| 0-39 | Critical | 🔴 Red | Executive escalation, save plan within 24 hours |
+| 80-100 | Thriving |  Green | Expansion plays, advocacy asks |
+| 60-79 | Healthy |  Yellow | Monitor, nurture, prepare upsell |
+| 40-59 | At-Risk |  Orange | Intervention plan within 48 hours |
+| 0-39 | Critical |  Red | Executive escalation, save plan within 24 hours |
 
 ### Health Score YAML Template
 
@@ -135,12 +135,12 @@ Flag immediately if any of these appear during onboarding:
 
 | Signal | Severity | Response |
 |--------|----------|----------|
-| Champion leaves company | 🔴 Critical | Find new champion within 48h, re-establish exec relationship |
-| No login after Day 3 | 🟠 High | Personal outreach (call, not email) |
-| Integration fails | 🟠 High | Escalate to engineering, provide workaround |
-| Kickoff delayed >1 week | 🟡 Medium | Escalate internally, offer flexible scheduling |
-| <50% user activation by Day 30 | 🟡 Medium | User adoption campaign (training, incentives) |
-| No exec sponsor identified | 🟡 Medium | Ask champion to intro their manager |
+| Champion leaves company |  Critical | Find new champion within 48h, re-establish exec relationship |
+| No login after Day 3 |  High | Personal outreach (call, not email) |
+| Integration fails |  High | Escalate to engineering, provide workaround |
+| Kickoff delayed >1 week |  Medium | Escalate internally, offer flexible scheduling |
+| <50% user activation by Day 30 |  Medium | User adoption campaign (training, incentives) |
+| No exec sponsor identified |  Medium | Ask champion to intro their manager |
 
 ### Success Plan Template
 
@@ -195,28 +195,28 @@ success_plan:
 
 ### Engagement Playbook by Health Tier
 
-**🟢 Thriving (80-100):**
+** Thriving (80-100):**
 - Share product roadmap previews (make them feel insider)
 - Ask for case study / testimonial / reference
 - Introduce expansion opportunities
 - Invite to beta programs and advisory board
 - Request G2/Capterra review
 
-**🟡 Healthy (60-79):**
+** Healthy (60-79):**
 - Proactive best-practice sharing
 - Feature adoption campaign for unused capabilities
 - Schedule optimization workshop
 - Update and review success plan goals
 - Strengthen multi-threading (meet more stakeholders)
 
-**🟠 At-Risk (40-59):**
+** At-Risk (40-59):**
 - 48-hour intervention plan required
 - Root cause analysis: is it product, people, or process?
 - Executive-to-executive outreach
 - Offer dedicated support window or on-site visit
 - Create 30-day recovery plan with weekly checkpoints
 
-**🔴 Critical (0-39):**
+** Critical (0-39):**
 - Same-day executive escalation
 - Save call within 24 hours (CSM + manager + exec)
 - Offer: dedicated implementation resource, contract restructure, product concessions
@@ -271,12 +271,12 @@ Classify every churn for pattern analysis:
 
 | Category | Sub-Reasons | Preventable? |
 |----------|-------------|-------------|
-| Product | Missing feature, poor UX, bugs, performance | ✅ Partially |
-| Value | ROI not realized, wrong use case, over-sold | ✅ Yes |
-| Relationship | Champion left, poor CS experience, trust broken | ✅ Yes |
-| Financial | Budget cuts, M&A, bankruptcy, price too high | ⚠️ Sometimes |
-| Competition | Switched to competitor, built in-house | ✅ Partially |
-| Strategic | Business pivot, division shut down, deprioritized | ❌ Rarely |
+| Product | Missing feature, poor UX, bugs, performance |  Partially |
+| Value | ROI not realized, wrong use case, over-sold |  Yes |
+| Relationship | Champion left, poor CS experience, trust broken |  Yes |
+| Financial | Budget cuts, M&A, bankruptcy, price too high |  Sometimes |
+| Competition | Switched to competitor, built in-house |  Partially |
+| Strategic | Business pivot, division shut down, deprioritized |  Rarely |
 
 ### Save Plays by Churn Reason
 
@@ -332,13 +332,13 @@ Watch for these buying signals:
 
 | Signal | Strength | Play |
 |--------|----------|------|
-| Hitting usage limits | 🔥 Hot | Proactive upgrade conversation |
-| New team/department asking about product | 🔥 Hot | Land-and-expand intro meeting |
-| Requesting features on higher tier | 🔥 Hot | Demo premium tier capabilities |
-| Company funding round or growth announcement | 🟡 Warm | Congratulate + "as you scale, here's how we help" |
-| Champion promoted | 🟡 Warm | Congratulate + "bring product to your new scope" |
-| High health score + approaching renewal | 🟡 Warm | Multi-year + expansion bundle |
-| Requesting API access or integrations | 🟡 Warm | Platform/enterprise tier positioning |
+| Hitting usage limits |  Hot | Proactive upgrade conversation |
+| New team/department asking about product |  Hot | Land-and-expand intro meeting |
+| Requesting features on higher tier |  Hot | Demo premium tier capabilities |
+| Company funding round or growth announcement |  Warm | Congratulate + "as you scale, here's how we help" |
+| Champion promoted |  Warm | Congratulate + "bring product to your new scope" |
+| High health score + approaching renewal |  Warm | Multi-year + expansion bundle |
+| Requesting API access or integrations |  Warm | Platform/enterprise tier positioning |
 
 ### Expansion Playbooks
 

@@ -9,12 +9,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$WORKSPACE/guardrails-config.json"
 MEMORY_DIR="$WORKSPACE/memory"
 
->&2 echo "🔍 Monitoring guardrails..."
+>&2 echo " Monitoring guardrails..."
 
 # Helper: check if config exists
 check_config_exists() {
     if [[ ! -f "$CONFIG_FILE" ]]; then
-        >&2 echo "⚠️  No guardrails config found - run 'guardrails setup' first"
+        >&2 echo "  No guardrails config found - run 'guardrails setup' first"
         jq -n '{
             status: "needs-attention",
             reason: "no-config",
@@ -27,12 +27,12 @@ check_config_exists() {
 
 # Run discovery and classification
 run_discovery() {
-    >&2 echo "  📦 Running discovery..."
+    >&2 echo "   Running discovery..."
     bash "$SCRIPT_DIR/discover.sh" 2>/dev/null
 }
 
 run_classification() {
-    >&2 echo "  🔍 Classifying risks..."
+    >&2 echo "   Classifying risks..."
     python3 "$SCRIPT_DIR/classify-risks.py" 2>/dev/null
 }
 
@@ -143,7 +143,7 @@ check_memory_violations() {
         return 0
     fi
     
-    >&2 echo "  📝 Checking memory for incidents..."
+    >&2 echo "   Checking memory for incidents..."
     
     # Keywords that indicate potential violations
     local keywords=("blocked" "violation" "guardrail" "unauthorized" "denied" "restricted access")
@@ -204,7 +204,7 @@ main() {
     fi
     
     >&2 echo ""
-    >&2 echo "✅ Monitoring complete: $status"
+    >&2 echo " Monitoring complete: $status"
     >&2 echo ""
     
     # Build report

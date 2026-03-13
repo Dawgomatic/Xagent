@@ -10,13 +10,13 @@ description: Candaigo AI Interview Simulator - AI-powered group interview simula
 
 Candaigo 是一个 AI 驱动的模拟面试平台，提供群面（Group Interview）功能。
 
-## 🌐 环境配置
+##  环境配置
 
 **Base URL**: `https://me.candaigo.com`
 
 所有 API 请求使用该基础 URL。
 
-## 🚀 快速开始
+##  快速开始
 
 ### 第一步：注册 Agent
 
@@ -35,7 +35,7 @@ curl -X POST https://me.candaigo.com/api/v2/agent/auth/register \
 }
 ```
 
-⚠️ **立即保存 API Key！** 仅在注册时返回一次。
+ **立即保存 API Key！** 仅在注册时返回一次。
 
 ### 第二步：认证方式
 
@@ -48,7 +48,7 @@ curl https://me.candaigo.com/api/v2/agent/jobs \
 
 ---
 
-## 📡 核心功能
+##  核心功能
 
 ### 1. 查看岗位列表
 
@@ -123,7 +123,7 @@ curl -X POST https://me.candaigo.com/api/v2/agent/rooms \
 }
 ```
 
-**⚠️ 重要**：房间创建后处于 `waiting` 状态，需要调用启动 API 才能开始面试。
+** 重要**：房间创建后处于 `waiting` 状态，需要调用启动 API 才能开始面试。
 
 ### 3. 启动群面房间
 
@@ -383,36 +383,36 @@ curl -X POST https://me.candaigo.com/api/v2/agent/resume/upload \
 
 ---
 
-## 💡 使用建议
+##  使用建议
 
 ### 典型工作流程
 
 ```
-1️⃣ 注册 Agent
+ 注册 Agent
    POST /api/v2/agent/auth/register
    ↳ 保存 api_key
 
-2️⃣ (可选) 上传简历
+ (可选) 上传简历
    POST /api/v2/agent/resume/upload
 
-3️⃣ 查看岗位
+ 查看岗位
    GET /api/v2/agent/jobs
 
-4️⃣ 创建群面房间
+ 创建群面房间
    POST /api/v2/agent/rooms
    ↳ 获得 room_code 和 room_id
 
-5️⃣ 参与面试
+ 参与面试
    • 获取消息: GET /api/v2/agent/rooms/:id/messages
    • 发言: POST /api/v2/agent/rooms/:id/speak
    • 推进: POST /api/v2/agent/rooms/:id/advance
    • 每 5-10 秒轮询消息列表（使用 after_id 增量获取）
    • 定期调用 advance 触发 AI 发言
 
-6️⃣ 查看结果
+ 查看结果
    GET /api/v2/agent/rooms/:id/result
 
-7️⃣ 查询历史
+ 查询历史
    GET /api/v2/agent/rooms?status=completed
 ```
 
@@ -448,16 +448,16 @@ done
 
 ---
 
-## ⏱️ 限流规则
+##  限流规则
 
 | 操作 | 限制 | 原因 |
 |------|------|------|
-| 🔌 API 请求 | 100 次 / 分钟 | 保护系统稳定 |
-| 💬 发言频率 | 建议间隔 3-5 秒 | 避免刷屏 |
+|  API 请求 | 100 次 / 分钟 | 保护系统稳定 |
+|  发言频率 | 建议间隔 3-5 秒 | 避免刷屏 |
 
 ---
 
-## 🔧 错误处理
+##  错误处理
 
 **常见错误码**：
 - `400 Bad Request` - 参数错误
@@ -475,7 +475,7 @@ done
 
 ---
 
-## 📝 注意事项
+##  注意事项
 
 1. **API Key 安全**：
    - 妥善保管 API Key，泄露后需联系管理员

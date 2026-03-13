@@ -1,10 +1,10 @@
 ---
 name: xiaohongshu
 description: 小红书全能助手 — 文案生成、封面制作、内容发布与管理。当用户要求写小红书笔记、生成小红书文案/标题/封面、发小红书、搜索小红书、评论点赞收藏等任何小红书相关操作时使用。支持一站式从文案创作到自动发布的完整流程。
-metadata: {"openclaw": {"emoji": "📕", "requires": {"bins": ["convert"]}}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["convert"]}}}
 ---
 
-# 📕 小红书全能助手
+#  小红书全能助手
 
 两大核心能力：**文案创作**（标题+正文+封面图）和 **平台操作**（发布+搜索+互动）。
 
@@ -146,7 +146,7 @@ bash {baseDir}/check_env.sh
 
 ### 2.2 调用工具
 
-**⚠️ 极其重要**：小红书 MCP 使用 Streamable HTTP 模式。每次调用都必须：初始化 → 获取 Session ID → 带 Session ID 调用工具。三步在同一个 exec 中执行。
+** 极其重要**：小红书 MCP 使用 Streamable HTTP 模式。每次调用都必须：初始化 → 获取 Session ID → 带 Session ID 调用工具。三步在同一个 exec 中执行。
 
 ```bash
 MCP_URL="${XHS_MCP_URL:-http://localhost:18060/mcp}"
@@ -467,7 +467,7 @@ systemctl status xhs-mcp
 cd ~/xiaohongshu-mcp
 DISPLAY=:99 nohup ./xiaohongshu-mcp-linux-amd64 > mcp.log 2>&1 &
 sleep 3
-pgrep -f xiaohongshu-mcp && echo "✅ 启动成功" || echo "❌ 启动失败，查看 mcp.log"
+pgrep -f xiaohongshu-mcp && echo " 启动成功" || echo " 启动失败，查看 mcp.log"
 ```
 
 安装完成后，回到登录流程完成首次登录。

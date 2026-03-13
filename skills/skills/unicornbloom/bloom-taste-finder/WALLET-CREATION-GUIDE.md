@@ -1,27 +1,27 @@
-# 🔐 Wallet Creation Guide
+#  Wallet Creation Guide
 
 Bloom Identity Skill uses a **3-Tier Hybrid Approach** for wallet creation, providing flexibility for different users.
 
-## 📊 Comparison
+##  Comparison
 
 | Tier | Method | For | Setup | Cost | Control |
 |------|--------|-----|-------|------|---------|
-| 1️⃣ | Backend API | Bloom authenticated users | ✅ None | 🟢 Bloom pays | 🟡 Bloom manages |
-| 2️⃣ | User CDP Credentials | Third-party power users | ⚙️ CDP account needed | 🟢 User pays | 🟢 Full control |
-| 3️⃣ | Mock Wallet | Testing/development | ✅ None | 🟢 Free | 🔴 Test only |
+|  | Backend API | Bloom authenticated users |  None |  Bloom pays |  Bloom manages |
+|  | User CDP Credentials | Third-party power users |  CDP account needed |  User pays |  Full control |
+|  | Mock Wallet | Testing/development |  None |  Free |  Test only |
 
 ---
 
-## 🎯 How It Works
+##  How It Works
 
 The skill automatically tries each tier in order:
 
 ```
-🔍 Tier 1: Backend API
+ Tier 1: Backend API
    ↓ (if unavailable)
-🔍 Tier 2: User CDP Credentials
+ Tier 2: User CDP Credentials
    ↓ (if unavailable)
-🔍 Tier 3: Mock Wallet (testing)
+ Tier 3: Mock Wallet (testing)
 ```
 
 ### Tier 1: Backend API (Recommended for Bloom Users)
@@ -34,10 +34,10 @@ The skill automatically tries each tier in order:
 3. Returns wallet info to skill
 
 **Advantages**:
-- ✅ Zero setup required
-- ✅ Best user experience
-- ✅ Cost controlled by Bloom
-- ✅ Centralized wallet management
+-  Zero setup required
+-  Best user experience
+-  Cost controlled by Bloom
+-  Centralized wallet management
 
 **Requirements**:
 - None! Just run the skill
@@ -60,10 +60,10 @@ npx tsx src/index.ts --user-id your-user-id
 3. Skill creates wallet using user's credentials
 
 **Advantages**:
-- ✅ Full control over wallets
-- ✅ User owns the CDP account
-- ✅ No dependency on Bloom backend
-- ✅ Can export/manage wallets directly
+-  Full control over wallets
+-  User owns the CDP account
+-  No dependency on Bloom backend
+-  Can export/manage wallets directly
 
 **Requirements**:
 1. Register at https://portal.cdp.coinbase.com/
@@ -97,15 +97,15 @@ npx tsx src/index.ts --user-id your-user-id
 3. Works locally but **cannot do real transactions**
 
 **Advantages**:
-- ✅ Zero setup required
-- ✅ Perfect for testing/development
-- ✅ Free
-- ✅ Deterministic (same userId = same address)
+-  Zero setup required
+-  Perfect for testing/development
+-  Free
+-  Deterministic (same userId = same address)
 
 **Limitations**:
-- ❌ **Not a real wallet** - cannot receive/send funds
-- ❌ **Test only** - do not use in production
-- ⚠️ **No real balance** - just for testing flow
+-  **Not a real wallet** - cannot receive/send funds
+-  **Test only** - do not use in production
+-  **No real balance** - just for testing flow
 
 **Requirements**:
 - None! Just run the skill without any credentials
@@ -119,7 +119,7 @@ npx tsx src/index.ts --user-id test-user
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Option A: Use Bloom Backend (Easiest)
 ```bash
@@ -137,7 +137,7 @@ cp .env.example .env
 # 4. Run!
 npx tsx src/index.ts --user-id your-user-id
 
-# ✅ Backend API creates real wallet automatically
+#  Backend API creates real wallet automatically
 ```
 
 ### Option B: Use Your Own CDP (Power Users)
@@ -152,7 +152,7 @@ CDP_WALLET_SECRET=xxx
 # 5. Run!
 npx tsx src/index.ts --user-id your-user-id
 
-# ✅ Creates wallet with YOUR CDP credentials
+#  Creates wallet with YOUR CDP credentials
 ```
 
 ### Option C: Test Mode (Developers)
@@ -162,34 +162,34 @@ npx tsx src/index.ts --user-id your-user-id
 # 4. Run without any CDP setup!
 npx tsx src/index.ts --user-id test-user
 
-# ✅ Creates mock wallet for testing
+#  Creates mock wallet for testing
 ```
 
 ---
 
-## 🔍 How to Check Which Tier Was Used
+##  How to Check Which Tier Was Used
 
 Look for these log messages:
 
 **Tier 1 (Backend API)**:
 ```
-✅ Wallet created via Backend API (Bloom managed)
+ Wallet created via Backend API (Bloom managed)
 ```
 
 **Tier 2 (User CDP)**:
 ```
-✅ Wallet created with user CDP credentials
+ Wallet created with user CDP credentials
 ```
 
 **Tier 3 (Mock)**:
 ```
-🧪 Mock wallet for test-user: 0x...
-📝 To use real wallets: Set CDP credentials or authenticate with Bloom
+ Mock wallet for test-user: 0x...
+ To use real wallets: Set CDP credentials or authenticate with Bloom
 ```
 
 ---
 
-## ⚠️ Important Notes
+##  Important Notes
 
 ### Mock Wallets
 - **DO NOT** send real funds to mock wallet addresses
@@ -211,7 +211,7 @@ Look for these log messages:
 
 ---
 
-## 📚 Further Reading
+##  Further Reading
 
 - [Coinbase CDP Documentation](https://docs.cdp.coinbase.com/)
 - [AgentKit Documentation](https://docs.cdp.coinbase.com/agent-kit/welcome)
@@ -220,7 +220,7 @@ Look for these log messages:
 
 ---
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 ### "Backend wallet creation not available"
 → Backend API endpoint not yet deployed. Falls back to Tier 2 or 3.

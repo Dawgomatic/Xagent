@@ -6,21 +6,21 @@ set -e
 
 CLAUDE_BIN="${HOME}/.local/bin/claude"
 
-echo "🔐 Claude Code First-Time Authentication"
+echo " Claude Code First-Time Authentication"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 # Check installation
 if [[ ! -f "$CLAUDE_BIN" ]]; then
-    echo "❌ Claude Code not installed!"
+    echo " Claude Code not installed!"
     echo "Run: ./02-install-claude-code.sh first"
     exit 1
 fi
 
 # Check existing auth
-echo "🔍 Checking current auth status..."
+echo " Checking current auth status..."
 if $CLAUDE_BIN auth status &>/dev/null; then
-    echo "✅ Already authenticated!"
+    echo " Already authenticated!"
     $CLAUDE_BIN auth status
     echo ""
     read -p "Re-authenticate? (y/N) " -n 1 -r
@@ -31,7 +31,7 @@ if $CLAUDE_BIN auth status &>/dev/null; then
 fi
 
 echo ""
-echo "📋 Authentication Options:"
+echo " Authentication Options:"
 echo ""
 echo "1. Browser Login (recommended)"
 echo "   - Opens browser to authenticate with your Anthropic account"
@@ -48,7 +48,7 @@ echo ""
 
 case $METHOD in
     1)
-        echo "🌐 Starting browser authentication..."
+        echo " Starting browser authentication..."
         echo ""
         echo "A browser window will open. Log in with your Anthropic account."
         echo "If the browser doesn't open, copy the URL shown and open it manually."
@@ -57,7 +57,7 @@ case $METHOD in
         $CLAUDE_BIN auth login
         ;;
     2)
-        echo "🔑 API Key Authentication"
+        echo " API Key Authentication"
         echo ""
         echo "Get your API key from: https://console.anthropic.com/settings/keys"
         echo ""
@@ -65,7 +65,7 @@ case $METHOD in
         echo ""
         
         if [[ -z "$API_KEY" ]]; then
-            echo "❌ No API key provided"
+            echo " No API key provided"
             exit 1
         fi
         
@@ -75,12 +75,12 @@ case $METHOD in
         # Test it
         echo "Testing API key..."
         if $CLAUDE_BIN --version &>/dev/null; then
-            echo "✅ API key works!"
+            echo " API key works!"
             echo ""
             echo "Add to your shell config to persist:"
             echo "export ANTHROPIC_API_KEY=\"$API_KEY\""
         else
-            echo "❌ API key test failed"
+            echo " API key test failed"
             exit 1
         fi
         ;;
@@ -92,20 +92,20 @@ esac
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🔍 Verifying authentication..."
+echo " Verifying authentication..."
 
 if $CLAUDE_BIN auth status &>/dev/null; then
-    echo "✅ Authentication successful!"
+    echo " Authentication successful!"
     echo ""
     $CLAUDE_BIN auth status
 else
-    echo "⚠️  Could not verify auth status"
+    echo "  Could not verify auth status"
     echo "Try running: claude auth status"
 fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "Next steps:"
 echo "1. Run: ./04-install-subagents.sh (install dev team)"

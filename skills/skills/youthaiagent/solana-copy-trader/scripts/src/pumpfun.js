@@ -130,7 +130,7 @@ async function pumpSafetyCheck(mint) {
   // Is it a pump.fun token? (ends in 'pump')
   if (token.isPump) {
     score += 10;
-    reasons.push('Pump.fun token ✅');
+    reasons.push('Pump.fun token ');
   }
 
   // Has name/symbol?
@@ -140,7 +140,7 @@ async function pumpSafetyCheck(mint) {
   // Already graduated to Raydium?
   if (token.complete) {
     score += 20;
-    reasons.push('Graduated to Raydium ✅');
+    reasons.push('Graduated to Raydium ');
   }
 
   return {

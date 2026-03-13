@@ -4,7 +4,7 @@ description: Meta-skill for generating production-ready React UI for non-program
 homepage: https://clawhub.ai
 user-invocable: true
 disable-model-invocation: false
-metadata: {"openclaw":{"emoji":"🧩","requires":{"bins":["node","npm","npx"],"env":[],"config":[]},"note":"Requires local installation of frontend-design-ultimate, shadcn-ui, and react-expert."}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["node","npm","npx"],"env":[],"config":[]},"note":"Requires local installation of frontend-design-ultimate, shadcn-ui, and react-expert."}}
 ---
 
 # Purpose

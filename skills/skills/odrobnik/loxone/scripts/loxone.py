@@ -82,7 +82,7 @@ def cmd_map(args):
     print(f"Total Controls: {len(client.controls)}\n")
     
     for room in sorted(client.get_rooms(), key=lambda x: x['name']):
-        print(f"\n📍 {room['name']} ({room['control_count']} controls)")
+        print(f"\n {room['name']} ({room['control_count']} controls)")
         print("   " + "-"*50)
         
         controls = client.get_room_controls(room['name'])
@@ -112,10 +112,10 @@ def cmd_rooms(args):
     print("-" * 60)
     
     for room in sorted(client.get_rooms(), key=lambda x: x['name']):
-        safe_marker = "✅" if is_safe_room(room['name']) else "  "
+        safe_marker = "" if is_safe_room(room['name']) else "  "
         print(f"{safe_marker} {room['name']:<30} {room['control_count']:>3} controls")
     
-    print("\n✅ = Safe for testing control commands")
+    print("\n = Safe for testing control commands")
 
 
 def cmd_status(args):
@@ -139,20 +139,20 @@ def cmd_status(args):
     try:
         status = client.get_room_status(room_name)
         
-        print(f"\n📍 {status['room']}")
+        print(f"\n {status['room']}")
         print("=" * 60)
         
         # Temperature
         if status['temperature'] is not None:
-            print(f"🌡️  Temperature: {status['temperature']}°C")
+            print(f"  Temperature: {status['temperature']}°C")
         
         # Humidity
         if status['humidity'] is not None:
-            print(f"💧 Humidity: {status['humidity']}%")
+            print(f" Humidity: {status['humidity']}%")
         
         # Lights
         if status['lights']:
-            print(f"\n💡 Lights:")
+            print(f"\n Lights:")
             
             # Separate standard lights from LightControllerV2
             room_controls = {c['uuid']: client.controls[c['uuid']] for c in client.get_room_controls(room_name)}
@@ -192,7 +192,7 @@ def cmd_status(args):
         
         # Switches
         if status['switches']:
-            print(f"\n🔌 Switches:")
+            print(f"\n Switches:")
             for switch in status['switches']:
                 state = "ON" if switch['state'] == 1 or switch['state'] == '1' else "OFF"
                 print(f"   • {switch['name']}: {state}")
@@ -228,13 +228,13 @@ def cmd_control(args):
     # Block path traversal, command injection, URL manipulation
     import re as _re
     if not _re.match(r'^[a-zA-Z0-9._-]+$', action):
-        print(f"❌ Invalid action value: '{action}'")
+        print(f" Invalid action value: '{action}'")
         print("Actions must be alphanumeric (e.g., on, off, pulse, 0-100)")
         sys.exit(1)
     
     # Safety check: Only allow control commands in safe rooms
     if room_name and not is_safe_room(room_name):
-        print(f"⚠️  WARNING: Control commands are only allowed in safe rooms!")
+        print(f"  WARNING: Control commands are only allowed in safe rooms!")
         print(f"Safe rooms: {', '.join(SAFE_ROOMS)}")
         print(f"Room '{room_name}' is NOT safe for testing.")
         sys.exit(1)
@@ -254,7 +254,7 @@ def cmd_control(args):
         if control_room_uuid and control_room_uuid in client.rooms:
             control_room_name = client.rooms[control_room_uuid]['name']
             if not is_safe_room(control_room_name):
-                print(f"⚠️  WARNING: Device '{device_name}' is in room '{control_room_name}'")
+                print(f"  WARNING: Device '{device_name}' is in room '{control_room_name}'")
                 print(f"which is NOT a safe room for testing!")
                 print(f"Safe rooms: {', '.join(SAFE_ROOMS)}")
                 sys.exit(1)
@@ -269,9 +269,9 @@ def cmd_control(args):
             success = client.send_command(control['uuid'], args.action)
         
         if success:
-            print(f"✅ Command sent: {device_name} → {action}")
+            print(f" Command sent: {device_name} → {action}")
         else:
-            print(f"❌ Command failed: {device_name} → {action}")
+            print(f" Command failed: {device_name} → {action}")
             sys.exit(1)
     
     except Exception as e:
@@ -289,12 +289,12 @@ def cmd_test(args):
         client = LoxoneClient(**config)
         client.fetch_structure()
         
-        print(f"✅ Connection successful!")
+        print(f" Connection successful!")
         print(f"   Rooms: {len(client.rooms)}")
         print(f"   Controls: {len(client.controls)}")
         
     except Exception as e:
-        print(f"❌ Connection failed: {e}")
+        print(f" Connection failed: {e}")
         sys.exit(1)
 
 

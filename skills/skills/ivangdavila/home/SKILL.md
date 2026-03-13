@@ -1,7 +1,7 @@
 ---
 name: Home
 description: Home improvement, maintenance, and living space optimization with practical guidance.
-metadata: {"clawdbot":{"emoji":"🏠","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Home Assistance Rules

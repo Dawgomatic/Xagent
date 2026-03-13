@@ -3,7 +3,7 @@ name: Google Play Store
 slug: play-store
 version: 1.0.0
 description: Publish and optimize Android apps on Google Play with listing optimization, ASO keywords, and policy compliance.
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

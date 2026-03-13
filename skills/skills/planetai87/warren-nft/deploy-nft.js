@@ -96,7 +96,7 @@ async function withRetry(fn, label) {
   for (let i = 1; i <= RETRY_MAX; i++) {
     try { return await fn(); } catch (e) {
       if (isRetryable(e) && i < RETRY_MAX) {
-        console.log(`  ⚠ ${label} attempt ${i} failed, retrying...`);
+        console.log(`   ${label} attempt ${i} failed, retrying...`);
         await sleep(RETRY_DELAY * i);
       } else throw e;
     }
@@ -110,11 +110,11 @@ async function withRetry(fn, label) {
 async function ensureGenesisKey(wallet) {
   const nft = new ethers.Contract(GENESIS_KEY_ADDRESS, GENESIS_KEY_ABI, wallet);
   const bal = await nft.balanceOf(wallet.address);
-  if (Number(bal) > 0) { console.log('🔑 Genesis Key NFT: ✅ owned'); return; }
-  console.log('🔑 Minting Genesis Key NFT (free)...');
+  if (Number(bal) > 0) { console.log(' Genesis Key NFT:  owned'); return; }
+  console.log(' Minting Genesis Key NFT (free)...');
   const tx = await nft.mint({ gasLimit: 500000n });
   await tx.wait();
-  console.log('  ✅ Genesis Key minted!');
+  console.log('   Genesis Key minted!');
 }
 
 // ============================================================================
@@ -288,7 +288,7 @@ function generateSVGs(count) {
 // ============================================================================
 
 async function mintContainer(wallet, deployedImages) {
-  console.log('\n📦 Phase 2: Minting NFT Container...');
+  console.log('\n Phase 2: Minting NFT Container...');
   const container = new ethers.Contract(CONTAINER_ADDRESS, CONTAINER_ABI, wallet);
 
   const fileInputs = deployedImages.map(img => ({
@@ -305,7 +305,7 @@ async function mintContainer(wallet, deployedImages) {
   const log = receipt.logs.find(l => l.topics?.[0] === transferTopic);
   const containerId = log?.topics?.[3] ? Number(BigInt(log.topics[3])) : null;
 
-  console.log(`  ✅ Container ID: ${containerId}, Gas: ${receipt.gasUsed}`);
+  console.log(`   Container ID: ${containerId}, Gas: ${receipt.gasUsed}`);
   return containerId;
 }
 
@@ -314,7 +314,7 @@ async function mintContainer(wallet, deployedImages) {
 // ============================================================================
 
 async function deployCollection(wallet, provider, containerId, config) {
-  console.log('\n🎨 Phase 3: Deploying NFT Collection...');
+  console.log('\n Phase 3: Deploying NFT Collection...');
 
   const factory = new ethers.ContractFactory(NFT_ABI, NFT_BYTECODE, wallet);
   const deployTx = await factory.getDeployTransaction(
@@ -347,14 +347,14 @@ async function deployCollection(wallet, provider, containerId, config) {
   const nftAddress = receipt.contractAddress;
   const code = await provider.getCode(nftAddress);
   if (!code || code.length <= 2) throw new Error('NFT contract deployment verification failed');
-  console.log(`  ✅ NFT Contract: ${nftAddress}`);
+  console.log(`   NFT Contract: ${nftAddress}`);
 
   // Enable public minting
   console.log('  Enabling public minting...');
   const nft = new ethers.Contract(nftAddress, NFT_ABI, wallet);
   const setStateTx = await nft.setMintState(2, { gasLimit: 10_000_000n });
   await setStateTx.wait();
-  console.log('  ✅ Minting enabled (public)');
+  console.log('   Minting enabled (public)');
 
   return nftAddress;
 }
@@ -364,7 +364,7 @@ async function deployCollection(wallet, provider, containerId, config) {
 // ============================================================================
 
 async function registerToDB(nftAddress, containerId, ownerAddress, config) {
-  console.log('\n📝 Phase 4: Registering to DB...');
+  console.log('\n Phase 4: Registering to DB...');
   try {
     const res = await fetch(REGISTER_API, {
       method: 'POST',
@@ -385,12 +385,12 @@ async function registerToDB(nftAddress, containerId, ownerAddress, config) {
     });
     const data = await res.json();
     if (data.success) {
-      console.log('  ✅ Registered to Warren DB');
+      console.log('   Registered to Warren DB');
     } else {
-      console.log(`  ⚠ DB registration: ${data.error || 'unknown error'}`);
+      console.log(`   DB registration: ${data.error || 'unknown error'}`);
     }
   } catch (e) {
-    console.log(`  ⚠ DB registration failed (non-critical): ${e.message}`);
+    console.log(`   DB registration failed (non-critical): ${e.message}`);
   }
 }
 
@@ -418,7 +418,7 @@ async function deploy(privateKey, images, config) {
   await ensureGenesisKey(wallet);
 
   // Phase 1: Deploy all images
-  console.log(`\n📸 Phase 1: Deploying ${images.length} image(s)...`);
+  console.log(`\n Phase 1: Deploying ${images.length} image(s)...`);
   const deployedImages = [];
   for (let i = 0; i < images.length; i++) {
     const img = images[i];
@@ -444,7 +444,7 @@ async function deploy(privateKey, images, config) {
   const mintUrl = `https://megawarren.xyz/launchpad/${nftAddress}/mint`;
 
   console.log('\n' + '='.repeat(60));
-  console.log('🎉 NFT Collection Deployed!');
+  console.log(' NFT Collection Deployed!');
   console.log('='.repeat(60));
   console.log(`NFT Contract:  ${nftAddress}`);
   console.log(`Container ID:  ${containerId}`);
@@ -452,8 +452,8 @@ async function deploy(privateKey, images, config) {
   console.log(`Max Supply:    ${config.maxSupply}`);
   console.log(`Public Price:  ${config.publicPrice || '0'} ETH`);
   console.log('');
-  console.log(`📋 Management: ${managementUrl}`);
-  console.log(`🎨 Mint Page:  ${mintUrl}`);
+  console.log(` Management: ${managementUrl}`);
+  console.log(` Mint Page:  ${mintUrl}`);
   console.log('='.repeat(60));
 
   return { nftAddress, containerId, imageCount: images.length, managementUrl, mintUrl };
@@ -541,7 +541,7 @@ Prerequisites:
     console.log('\n--- JSON ---');
     console.log(JSON.stringify(result, null, 2));
   } catch (e) {
-    console.error(`\n❌ Failed: ${e.message}`);
+    console.error(`\n Failed: ${e.message}`);
     process.exit(1);
   }
 }

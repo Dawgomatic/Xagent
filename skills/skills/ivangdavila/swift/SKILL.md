@@ -3,7 +3,7 @@ name: Swift
 slug: swift
 version: 1.0.1
 description: Write safe Swift code avoiding memory leaks, optional traps, and concurrency bugs.
-metadata: {"clawdbot":{"emoji":"🦅","requires":{"bins":["swift"]},"os":["darwin","linux"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["swift"]},"os":["darwin","linux"]}}
 ---
 
 ## Quick Reference

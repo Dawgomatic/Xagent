@@ -305,7 +305,7 @@ OWNER: [PMM Name]
 EXECUTIVE SUMMARY:
 - Goal: $500k pipeline in 30 days
 - Actual: $[X] pipeline (X% of goal)
-- Status: ✅ On Track / ⚠️ Behind / ❌ Missed
+- Status:  On Track /  Behind /  Missed
 
 KEY RESULTS:
 | Metric       | Goal    | Actual  | % of Goal |

@@ -86,7 +86,7 @@ Run commands via the CLI script:
 ./scripts/linkedin.mjs invite "myaccount" "jane-smith-456" "Hi Jane, let's connect!"
 
 # Create a LinkedIn post
-./scripts/linkedin.mjs create-post "myaccount" "Excited to announce our new product launch! 🚀"
+./scripts/linkedin.mjs create-post "myaccount" "Excited to announce our new product launch! "
 
 # React to a post
 ./scripts/linkedin.mjs react "myaccount" "post789" --type=celebrate

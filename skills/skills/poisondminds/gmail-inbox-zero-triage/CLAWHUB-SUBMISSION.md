@@ -17,19 +17,19 @@ Achieve inbox zero 10x faster with AI-powered Gmail triage and Telegram batch ac
 Gmail Inbox Zero Triage helps you process your Gmail inbox efficiently with AI-powered summaries and interactive Telegram buttons.
 
 **Key Features:**
-- 🤖 AI summaries - Get 1-line summaries of each email for quick decisions
-- ⚡ Batch processing - Queue actions instantly, execute all at once
-- 📱 Telegram buttons - Archive, Filter, Unsubscribe, View with one tap
-- 🎯 Inbox zero - Process ALL messages (read + unread) until inbox is empty
-- 🔒 OAuth secure - No passwords, uses gog CLI for authentication
-- 🚀 10x faster - Process 10-20 emails in 60-90 seconds vs 5+ minutes
+-  AI summaries - Get 1-line summaries of each email for quick decisions
+-  Batch processing - Queue actions instantly, execute all at once
+-  Telegram buttons - Archive, Filter, Unsubscribe, View with one tap
+-  Inbox zero - Process ALL messages (read + unread) until inbox is empty
+-  OAuth secure - No passwords, uses gog CLI for authentication
+-  10x faster - Process 10-20 emails in 60-90 seconds vs 5+ minutes
 
 **How It Works:**
 1. Say "triage my emails" to your Clawdbot agent
 2. See all inbox emails at once with AI summaries
 3. Click action buttons to queue decisions
 4. Hit "Done" to execute everything in batch
-5. Achieve inbox zero! 🎉
+5. Achieve inbox zero! 
 
 **Perfect for:**
 - Busy professionals drowning in email
@@ -43,23 +43,23 @@ Gmail Inbox Zero Triage helps you process your Gmail inbox efficiently with AI-p
 
 **Text example:**
 ```
-📬 Inbox Triage - 5 messages
+ Inbox Triage - 5 messages
 
 1/5 Amazon: Your order has shipped
-💡 Shipping notification. Package arrives Thursday.
-[📥 Archive] [🔍 Filter] [🚫 Unsub] [📧 View]
+ Shipping notification. Package arrives Thursday.
+[ Archive] [ Filter] [ Unsub] [ View]
 
 2/5 LinkedIn: New job recommendations  
-💡 Newsletter with job suggestions. No action required.
-[📥 Archive] [🔍 Filter] [🚫 Unsub] [📧 View]
+ Newsletter with job suggestions. No action required.
+[ Archive] [ Filter] [ Unsub] [ View]
 
 ...
 
-[✅ Done - Execute All Actions]
+[ Done - Execute All Actions]
 
 ---
-🎉 Done! Archived 4 emails.
-📬 Inbox: 1 message remaining
+ Done! Archived 4 emails.
+ Inbox: 1 message remaining
 ```
 
 ## Requirements
@@ -142,7 +142,7 @@ inbox-zero, gmail, email, productivity, triage, telegram, batch-processing, ai-s
 
 Traditional email clients force you to process emails one-by-one with constant loading delays. Gmail Inbox Zero Triage shows ALL your emails at once with AI summaries, lets you queue actions instantly, and executes everything in batch at the end.
 
-**Result:** 10x faster email processing and consistent inbox zero! ⚡
+**Result:** 10x faster email processing and consistent inbox zero! 
 
 ---
 
@@ -158,4 +158,4 @@ Traditional email clients force you to process emails one-by-one with constant l
 - [x] No sensitive data in package
 - [x] Tested and working
 
-**Status:** Ready to submit! ✅
+**Status:** Ready to submit! 

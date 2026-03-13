@@ -31,7 +31,7 @@ class CourtroomSkill {
   constructor() {
     this.name = 'courtroom';
     this.displayName = 'ClawTrial';
-    this.emoji = '🏛️';
+    this.emoji = '';
     this.initialized = false;
     this.core = null;
     this.agent = null;
@@ -133,7 +133,7 @@ class CourtroomSkill {
       if (!config.consent?.granted) {
         logger.info('SKILL', 'Consent not granted, not activating');
         if (!this.setupPrompted) {
-          logger.info('SKILL', '💡 Run "clawtrial setup" to grant consent and configure');
+          logger.info('SKILL', ' Run "clawtrial setup" to grant consent and configure');
           this.setupPrompted = true;
         }
         return false;
@@ -163,7 +163,7 @@ class CourtroomSkill {
       return;
     }
 
-    logger.info('SKILL', '🏛️ Initializing ClawTrial Courtroom');
+    logger.info('SKILL', ' Initializing ClawTrial Courtroom');
     
     this.agent = agentRuntime;
     
@@ -187,11 +187,11 @@ class CourtroomSkill {
       
       this.startResultChecking();
       
-      logger.info('SKILL', '✅ Courtroom initialized and monitoring');
+      logger.info('SKILL', ' Courtroom initialized and monitoring');
       
       if (this.agent && this.agent.send) {
         this.agent.send({
-          content: '🏛️ ClawTrial Courtroom is now active and monitoring for behavioral violations.',
+          content: ' ClawTrial Courtroom is now active and monitoring for behavioral violations.',
           ephemeral: true
         });
       }
@@ -363,7 +363,7 @@ module.exports = {
   CourtroomSkill,
   name: 'courtroom',
   displayName: 'ClawTrial',
-  emoji: '🏛️',
+  emoji: '',
   initialize: (agent) => skill.initialize(agent),
   onMessage: (message, context) => skill.onMessage(message, context),
   getStatus: () => skill.getStatus(),

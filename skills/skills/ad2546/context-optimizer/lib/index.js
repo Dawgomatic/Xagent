@@ -66,7 +66,7 @@ const DEFAULT_CONFIG = {
   // Chat logging
   logToChat: true,            // Log optimization events to chat
   chatLogLevel: 'brief',      // 'brief', 'detailed', or 'none'
-  chatLogFormat: '🧠 {action}: {details}', // Format for chat messages
+  chatLogFormat: ' {action}: {details}', // Format for chat messages
   chatLogger: null,           // Custom logger instance
 };
 

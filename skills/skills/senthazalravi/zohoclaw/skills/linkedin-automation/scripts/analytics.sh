@@ -5,7 +5,7 @@
 DAYS="${1:-7}"
 
 cat << EOF
-📊 LINKEDIN ANALYTICS WORKFLOW
+ LINKEDIN ANALYTICS WORKFLOW
 ═══════════════════════════════════════
 
 Fetch engagement data for the last $DAYS days.
@@ -51,5 +51,5 @@ Steps to execute via browser tool:
      "posts": [...]
    }
 
-💡 Tip: Run weekly to track trends
+ Tip: Run weekly to track trends
 EOF

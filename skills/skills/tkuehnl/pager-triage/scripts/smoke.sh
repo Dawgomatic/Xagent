@@ -25,16 +25,16 @@ FAIL=0
 
 pass() {
   PASS=$((PASS + 1))
-  printf '  ✅ %s\n' "$1"
+  printf '   %s\n' "$1"
 }
 
 fail() {
   FAIL=$((FAIL + 1))
-  printf '  ❌ %s\n' "$1"
+  printf '   %s\n' "$1"
 }
 
 section() {
-  printf '\n🔍 %s\n' "$1"
+  printf '\n %s\n' "$1"
 }
 
 # ---------------------------------------------------------------------------
@@ -196,13 +196,13 @@ section "Environment variable detection"
 if [[ -n "${PAGERDUTY_API_KEY:-}" ]]; then
   pass "PAGERDUTY_API_KEY is set ($(echo "${PAGERDUTY_API_KEY}" | head -c 4)****)"
 else
-  echo "  ℹ️  PAGERDUTY_API_KEY not set — skipping live API tests (this is fine for smoke tests)"
+  echo "    PAGERDUTY_API_KEY not set — skipping live API tests (this is fine for smoke tests)"
 fi
 
 if [[ -n "${PAGERDUTY_EMAIL:-}" ]]; then
   pass "PAGERDUTY_EMAIL is set (${PAGERDUTY_EMAIL})"
 else
-  echo "  ℹ️  PAGERDUTY_EMAIL not set — write operations will require it"
+  echo "    PAGERDUTY_EMAIL not set — write operations will require it"
 fi
 
 # ---------------------------------------------------------------------------
@@ -214,6 +214,6 @@ printf '────────────────────────
 if [[ "$FAIL" -gt 0 ]]; then
   exit 1
 else
-  printf '  🎉 All smoke tests passed!\n\n'
+  printf '   All smoke tests passed!\n\n'
   exit 0
 fi

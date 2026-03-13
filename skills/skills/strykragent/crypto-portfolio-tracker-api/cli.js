@@ -72,7 +72,7 @@ Environment:
     try {
       const valuation = await tracker.getValuation();
       
-      console.log('\n📊 Portfolio Valuation');
+      console.log('\n Portfolio Valuation');
       console.log('─'.repeat(50));
       
       for (const item of valuation.holdings) {

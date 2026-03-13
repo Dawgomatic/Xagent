@@ -89,7 +89,7 @@ cmd_pending() {
   if [ -f "$PENDING_FILE" ]; then
     count=$(jq 'length' "$PENDING_FILE" 2>/dev/null || echo "0")
     if [ "$count" -gt 0 ]; then
-      echo -e "${YELLOW}📬 $count pending message(s):${NC}"
+      echo -e "${YELLOW} $count pending message(s):${NC}"
       jq -r '.[] | "[\(.from)] \(.topic): \(.body | .[0:100])..."' "$PENDING_FILE"
     else
       echo -e "${GREEN}✓ No pending messages${NC}"
@@ -129,7 +129,7 @@ cmd_check() {
   if echo "$response" | jq -e '.messages' > /dev/null 2>&1; then
     count=$(echo "$response" | jq '.messages | length')
     if [ "$count" -gt 0 ]; then
-      echo -e "${YELLOW}📬 $count unread message(s) from API:${NC}"
+      echo -e "${YELLOW} $count unread message(s) from API:${NC}"
       echo "$response" | jq '.messages[] | {id: .id, from: .from_agent, topic: .topic, body: .body[0:100]}'
       
       # Merge with pending file
@@ -160,7 +160,7 @@ cmd_agents() {
     -H "Authorization: Bearer $AGENTOS_KEY")
   
   if echo "$response" | jq -e '.agents' > /dev/null 2>&1; then
-    echo -e "${BLUE}🤖 Agents on mesh:${NC}"
+    echo -e "${BLUE} Agents on mesh:${NC}"
     echo "$response" | jq -r '.agents[] | "  • \(.id) (\(.status // "unknown"))"'
   else
     echo "$response" | jq .

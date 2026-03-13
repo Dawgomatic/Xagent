@@ -97,12 +97,12 @@ def format_cancellation(policies: list) -> str:
     policy_type = policy.get("type", "")
     
     if policy_type == "NON_REFUNDABLE":
-        return "❌ Non-refundable"
+        return " Non-refundable"
     elif policy_type == "REFUNDABLE":
         deadline = policy.get("deadline", "")
         if deadline:
-            return f"✅ Free cancellation until {deadline[:10]}"
-        return "✅ Refundable"
+            return f" Free cancellation until {deadline[:10]}"
+        return " Refundable"
     
     return policy_type
 
@@ -111,10 +111,10 @@ def format_board(board: Optional[str]) -> str:
     """Format board type."""
     boards = {
         "ROOM_ONLY": "Room only",
-        "BREAKFAST": "🍳 Breakfast included",
-        "HALF_BOARD": "🍳🍽️ Half board (breakfast + dinner)",
-        "FULL_BOARD": "🍳🍽️🍽️ Full board (all meals)",
-        "ALL_INCLUSIVE": "🌟 All-inclusive",
+        "BREAKFAST": " Breakfast included",
+        "HALF_BOARD": " Half board (breakfast + dinner)",
+        "FULL_BOARD": " Full board (all meals)",
+        "ALL_INCLUSIVE": " All-inclusive",
     }
     return boards.get(board, board or "Room only")
 
@@ -132,7 +132,7 @@ def format_human(hotels_with_offers: list, check_in: str, check_out: str) -> str
         offers = hotel_data.get("offers", [])
         
         name = hotel.get("name", "Unknown Hotel")
-        lines.append(f"🏨 {name}")
+        lines.append(f" {name}")
         
         for i, offer in enumerate(offers[:3], 1):  # Limit to 3 offers per hotel
             room = offer.get("room", {})
@@ -152,11 +152,11 @@ def format_human(hotels_with_offers: list, check_in: str, check_out: str) -> str
             
             offer_id = offer.get("id", "")
             
-            lines.append(f"   🛏️ {room_name} ({beds} {bed_type})")
-            lines.append(f"   💰 {price_str}")
+            lines.append(f"    {room_name} ({beds} {bed_type})")
+            lines.append(f"    {price_str}")
             lines.append(f"   {board_str}")
             lines.append(f"   {cancel_str}")
-            lines.append(f"   📋 Offer ID: {offer_id}")
+            lines.append(f"    Offer ID: {offer_id}")
             lines.append("")
         
         lines.append("")

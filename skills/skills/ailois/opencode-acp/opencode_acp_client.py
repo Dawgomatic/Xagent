@@ -207,7 +207,7 @@ class OpenCodeACPClient:
             tool_call_id = update.get("toolCallId", "")
             title = update.get("title", "")
             self.tool_calls[tool_call_id] = title
-            self.output(f"\n🔧 {title}")
+            self.output(f"\n {title}")
         
         elif session_update == "tool_call_update":
             # Tool status update
@@ -252,7 +252,7 @@ class OpenCodeACPClient:
                     total = usage.get("totalTokens", 0)
                     cached = usage.get("cachedReadTokens", 0)
                     actual = total - cached
-                    self.output(f"\n📊 Tokens: {actual:,} used ({cached:,} cached)")
+                    self.output(f"\n Tokens: {actual:,} used ({cached:,} cached)")
 
                     assistant_text = "".join(self.current_response_chunks).strip()
                     if assistant_text:

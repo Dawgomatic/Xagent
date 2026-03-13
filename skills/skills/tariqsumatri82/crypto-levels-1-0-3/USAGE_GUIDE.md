@@ -1,6 +1,6 @@
 # Crypto Levels Analyzer - 使用指南
 
-## 🚀 快速开始
+##  快速开始
 
 ### 方式 1: 在线模式 (需要网络)
 
@@ -41,7 +41,7 @@ python3 scripts/analyze_quick.py SOL 177.70 2.31 60
 - `2.31` - 24小时变化 %
 - `60` - RSI 指标
 
-## 📊 SOL-USDT 分析示例
+##  SOL-USDT 分析示例
 
 ### 使用快速命令
 ```bash
@@ -50,35 +50,35 @@ python3 scripts/analyze_quick.py SOL 177.70 2.31 60
 
 ### 输出结果
 ```
-📊 SOL-USDT 技术分析
+ SOL-USDT 技术分析
 
-💰 当前价格: $177.70
-📈 24h变化: 🟢 +2.31%
+ 当前价格: $177.70
+ 24h变化:  +2.31%
 
-🔴 压力位 (Resistance):
+ 压力位 (Resistance):
    • R1: $183.03 (+3.00%)
    • R2: $186.59 (+5.00%)
    • R3: $191.92 (+8.00%)
 
-🟢 支撑位 (Support):
+ 支撑位 (Support):
    • S1: $172.37 (-3.00%)
    • S2: $168.81 (-5.00%)
    • S3: $163.48 (-8.00%)
 
-📊 技术指标:
-   🟡 RSI: 60.0 (中性)
-   📈 MA50: $174.15 (支撑)
-   📈 MA100: $181.25 (阻力)
+ 技术指标:
+    RSI: 60.0 (中性)
+    MA50: $174.15 (支撑)
+    MA100: $181.25 (阻力)
 
-💡 交易建议:
+ 交易建议:
    • 市场处于中性区间
    • 建议等待明确突破信号
    • 短期情绪: 中性
 
-⚠️  风险提示: 本分析仅供参考，不构成投资建议。
+  风险提示: 本分析仅供参考，不构成投资建议。
 ```
 
-## 🎯 常用币种价格参考
+##  常用币种价格参考
 
 ### 主要加密货币 (2026-02-05 参考价)
 - **BTC**: $67,500
@@ -109,7 +109,7 @@ python3 scripts/analyze_quick.py SOL 177.70 2.31 60
 - OKX App
 - 非小号 App
 
-## 💡 使用技巧
+##  使用技巧
 
 ### 1. 获取准确数据
 
@@ -157,7 +157,7 @@ cat /tmp/crypto_analysis_quick.json
 cp /tmp/crypto_analysis_quick.json ~/crypto_analysis/
 ```
 
-## 📈 交易决策指南
+##  交易决策指南
 
 ### 买入信号
 
@@ -204,7 +204,7 @@ cp /tmp/crypto_analysis_quick.json ~/crypto_analysis/
 - 止盈: R3 或更高
 - 风险回报比: 1:4
 
-## 🔧 故障排除
+##  故障排除
 
 ### 问题: 网络无法访问 API
 
@@ -244,7 +244,7 @@ python3 scripts/analyze_manual.py SOL-USDT
 - 结合多个时间框架
 - 降低仓位，设置宽止损
 
-## 📚 进阶使用
+##  进阶使用
 
 ### 结合其他指标
 
@@ -287,7 +287,7 @@ python3 scripts/analyze_manual.py SOL-USDT
 # 第三批: R3 (40%仓位)
 ```
 
-## 🎯 实战案例
+##  实战案例
 
 ### 案例 1: SOL-USDT 短线交易
 
@@ -327,7 +327,7 @@ python3 scripts/analyze_manual.py SOL-USDT
 - **止盈**: $69,500 (上方 4.5%)
 - **风险回报比**: 1:1.5
 
-## 📊 数据来源
+##  数据来源
 
 ### 实时价格
 - **Binance**: https://api.binance.com/api/v3/ticker/price
@@ -344,7 +344,7 @@ python3 scripts/analyze_manual.py SOL-USDT
 - **交易所**: 内置技术分析工具
 - **专业工具**: 如 TradingView Pro
 
-## ⚠️ 重要提醒
+##  重要提醒
 
 ### 风险提示
 1. **加密货币风险极高** - 价格波动剧烈
@@ -358,7 +358,7 @@ python3 scripts/analyze_manual.py SOL-USDT
 3. **分散投资** - 不要全仓一个币种
 4. **持续学习** - 提升分析能力
 
-## 📞 获取帮助
+##  获取帮助
 
 ### 文档
 - **快速开始**: [QUICKSTART.md](QUICKSTART.md)

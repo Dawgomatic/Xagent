@@ -109,7 +109,7 @@ def generate_openclaw_commands(plan: dict) -> list:
 def print_execution_script(commands: list, mission_id: str):
     """실행 스크립트 출력"""
     print("\n" + "="*70)
-    print("🦸 AVENGERS EXECUTE - OpenClaw 실행 명령어")
+    print(" AVENGERS EXECUTE - OpenClaw 실행 명령어")
     print("="*70)
     print(f"미션: {mission_id}")
     print()
@@ -133,13 +133,13 @@ def print_execution_script(commands: list, mission_id: str):
             print()
         
         if phase_info != commands[-1]:
-            print("// ⏳ 위 에이전트들 완료 대기 후 다음 Phase 진행")
+            print("//  위 에이전트들 완료 대기 후 다음 Phase 진행")
             print("// sessions_list({ kinds: ['spawn'], messageLimit: 1 })")
     
     print("-"*70)
-    print("\n📊 진행 모니터링:")
+    print("\n 진행 모니터링:")
     print(f"   python3 scripts/monitor.py --mission {mission_id}")
-    print("\n📦 결과 통합:")
+    print("\n 결과 통합:")
     print(f"   python3 scripts/consolidate.py --mission {mission_id}")
     print("="*70)
 
@@ -179,7 +179,7 @@ def main():
     try:
         mission, plan = load_mission(args.mission)
     except FileNotFoundError:
-        print(f"❌ 미션을 찾을 수 없습니다: {args.mission}")
+        print(f" 미션을 찾을 수 없습니다: {args.mission}")
         print(f"   경로: {MISSION_DIR / args.mission}")
         sys.exit(1)
     
@@ -203,7 +203,7 @@ def main():
     # 파일 저장
     if args.save:
         script_path = save_execution_script(commands, mission_path)
-        print(f"\n📄 스크립트 저장됨: {script_path}")
+        print(f"\n 스크립트 저장됨: {script_path}")
 
 
 if __name__ == "__main__":

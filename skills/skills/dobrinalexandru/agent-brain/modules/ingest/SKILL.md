@@ -1,10 +1,10 @@
-# Ingest Memory 📥
+# Ingest Memory 
 
-**Status:** 📋 Agent Guideline (Disabled by Default) | **Module:** ingest | **Part of:** Agent Brain
+**Status:**  Agent Guideline (Disabled by Default) | **Module:** ingest | **Part of:** Agent Brain
 
 External knowledge acquisition guidelines. The agent fetches URLs, extracts key points, and stores via `add` — no dedicated ingest code runs, this is a workflow guide.
 
-## ⚠️ Security
+##  Security
 
 **Disabled by default.** To enable, the orchestrator must:
 1. Only process URLs explicitly provided by the user in conversation

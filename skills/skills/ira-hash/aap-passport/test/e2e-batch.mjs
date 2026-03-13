@@ -6,7 +6,7 @@
 
 import { randomBytes, createHash, generateKeyPairSync, createSign, createVerify } from 'node:crypto';
 
-console.log('🧪 AAP v2.5 - Burst Mode E2E Test\n');
+console.log(' AAP v2.5 - Burst Mode E2E Test\n');
 console.log('='.repeat(60));
 
 // ============== CONFIG ==============
@@ -263,7 +263,7 @@ const client = new MockClient();
 console.log(`\nAgent Public ID: ${client.publicId}\n`);
 
 // Step 1: Server generates challenge
-console.log('📤 Step 1: Server generates batch challenge\n');
+console.log(' Step 1: Server generates batch challenge\n');
 const challengeResponse = server.generateChallenge();
 
 console.log(`Nonce: ${challengeResponse.nonce}`);
@@ -273,7 +273,7 @@ challengeResponse.challenges.forEach((c, i) => {
 });
 
 // Step 2: Client solves and signs
-console.log('\n\n📥 Step 2: Client solves challenges and signs proof\n');
+console.log('\n\n Step 2: Client solves challenges and signs proof\n');
 const proof = client.generateProof(challengeResponse, challengeResponse._solvers);
 
 console.log('Solutions:');
@@ -282,18 +282,18 @@ console.log(`\nResponse time: ${proof.responseTimeMs}ms`);
 console.log(`Signature: ${proof.signature.slice(0, 40)}...`);
 
 // Step 3: Server verifies
-console.log('\n\n✅ Step 3: Server verifies proof\n');
+console.log('\n\n Step 3: Server verifies proof\n');
 const result = server.verify(proof);
 
 console.log('Verification result:');
 console.log(JSON.stringify(result, null, 2));
 
 console.log('\n' + '='.repeat(60));
-console.log(`\n🎯 FINAL RESULT: ${result.verified ? '✅ VERIFIED AS AI_AGENT' : '❌ VERIFICATION FAILED'}`);
+console.log(`\n FINAL RESULT: ${result.verified ? ' VERIFIED AS AI_AGENT' : ' VERIFICATION FAILED'}`);
 
 // Run edge case tests
 console.log('\n\n' + '='.repeat(60));
-console.log('🧪 Edge Case Tests\n');
+console.log(' Edge Case Tests\n');
 
 // Test 1: Wrong solution
 console.log('Test 1: Wrong solution');
@@ -301,12 +301,12 @@ const badChallenge = server.generateChallenge();
 const badProof = client.generateProof(badChallenge, badChallenge._solvers);
 badProof.solutions[0] = '{"result": 99999}';  // Wrong answer
 const badResult = server.verify(badProof);
-console.log(`  Expected: FAIL | Actual: ${badResult.verified ? 'PASS ❌' : 'FAIL ✅'}`);
+console.log(`  Expected: FAIL | Actual: ${badResult.verified ? 'PASS ' : 'FAIL '}`);
 
 // Test 2: Expired challenge
 console.log('\nTest 2: Reused nonce');
 const expiredResult = server.verify(proof);  // Same nonce, already used
-console.log(`  Expected: FAIL | Actual: ${expiredResult.verified ? 'PASS ❌' : 'FAIL ✅'}`);
+console.log(`  Expected: FAIL | Actual: ${expiredResult.verified ? 'PASS ' : 'FAIL '}`);
 
 // Test 3: Invalid signature
 console.log('\nTest 3: Tampered signature');
@@ -314,7 +314,7 @@ const tamperedChallenge = server.generateChallenge();
 const tamperedProof = client.generateProof(tamperedChallenge, tamperedChallenge._solvers);
 tamperedProof.signature = 'INVALID_SIGNATURE';
 const tamperedResult = server.verify(tamperedProof);
-console.log(`  Expected: FAIL | Actual: ${tamperedResult.verified ? 'PASS ❌' : 'FAIL ✅'}`);
+console.log(`  Expected: FAIL | Actual: ${tamperedResult.verified ? 'PASS ' : 'FAIL '}`);
 
 console.log('\n' + '='.repeat(60));
-console.log('✅ All E2E tests completed!\n');
+console.log(' All E2E tests completed!\n');

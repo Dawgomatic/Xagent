@@ -1,4 +1,4 @@
-# b3ehive 🐝
+# b3ehive 
 
 [![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://openclaw.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -54,7 +54,7 @@ b3ehive "Implement a thread-safe rate limiter"
 
 ## License
 
-MIT © Weiyang ([@weiyangzen](https://github.com/weiyangzen))
+MIT  Weiyang ([@weiyangzen](https://github.com/weiyangzen))
 
 ---
 
@@ -70,4 +70,4 @@ MIT © Weiyang ([@weiyangzen](https://github.com/weiyangzen))
 **hive** = Swarm intelligence
 
 > **Build ×3, evaluate each other, and evolve.**  
-> *So called b3ehive.* 🐝
+> *So called b3ehive.* 

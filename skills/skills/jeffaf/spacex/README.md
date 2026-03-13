@@ -47,17 +47,17 @@ spacex crew 5                      # First 5
 
 **Launches:**
 ```
-🚀 Starlink 4-36 (v1.5) — Falcon 9, 2022-10-20, Cape Canaveral
+ Starlink 4-36 (v1.5) — Falcon 9, 2022-10-20, Cape Canaveral
 ```
 
 **Rockets:**
 ```
-🛸 Falcon 9 — rocket, 2010-06-04, Active, 98% success
+ Falcon 9 — rocket, 2010-06-04, Active, 98% success
 ```
 
 **Crew:**
 ```
-👨‍🚀 Robert Behnken — NASA, active
+ Robert Behnken — NASA, active
 ```
 
 ## API Reference

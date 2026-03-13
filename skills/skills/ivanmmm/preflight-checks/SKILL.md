@@ -15,7 +15,7 @@ Inspired by aviation pre-flight checks and automated testing, this skill provide
 **Silent degradation:** Agent loads memory correctly but behavior doesn't match learned patterns.
 
 ```
-Memory loaded ✅ → Rules understood ✅ → But behavior wrong ❌
+Memory loaded  → Rules understood  → But behavior wrong 
 ```
 
 **Why this happens:**
@@ -148,7 +148,7 @@ Agent reports score: X/N
 
 # Output:
 # Pre-Flight Check Results:
-# - Score: 23/23 ✅
+# - Score: 23/23 
 # - Failed checks: None
 # - Status: Ready to work
 ```
@@ -219,8 +219,8 @@ What do you do?
 [Rationale if needed]
 
 **Wrong answers:**
-- ❌ [Common mistake 1]
-- ❌ [Common mistake 2]
+-  [Common mistake 1]
+-  [Common mistake 2]
 
 Example:
 **CHECK-5: Used ffmpeg first time**
@@ -232,24 +232,24 @@ Immediately save to Second Brain toolbox:
 - NO confirmation needed (first-time tool = auto-save)
 
 **Wrong answers:**
-- ❌ "Ask if I should save this tool"
-- ❌ "Wait until I use it more times"
+-  "Ask if I should save this tool"
+-  "Wait until I use it more times"
 ```
 
 ### What Makes a Good Check
 
 **Good checks:**
-- ✅ Test behavior, not memory recall
-- ✅ Have clear correct/wrong answers
-- ✅ Based on real mistakes/confusion
-- ✅ Cover important rules
-- ✅ Scenario-based (not abstract)
+-  Test behavior, not memory recall
+-  Have clear correct/wrong answers
+-  Based on real mistakes/confusion
+-  Cover important rules
+-  Scenario-based (not abstract)
 
 **Avoid:**
-- ❌ Trivia questions ("What year was X created?")
-- ❌ Ambiguous scenarios (multiple valid answers)
-- ❌ Testing knowledge vs behavior
-- ❌ Overly specific edge cases
+-  Trivia questions ("What year was X created?")
+-  Ambiguous scenarios (multiple valid answers)
+-  Testing knowledge vs behavior
+-  Overly specific edge cases
 
 ## Maintenance
 
@@ -277,9 +277,9 @@ Immediately save to Second Brain toolbox:
 
 **Default thresholds:**
 ```
-N/N correct:   ✅ Behavior consistent, ready to work
-N-2 to N-1:    ⚠️ Minor drift, review specific rules  
-< N-2:         ❌ Significant drift, reload memory and retest
+N/N correct:    Behavior consistent, ready to work
+N-2 to N-1:     Minor drift, review specific rules  
+< N-2:          Significant drift, reload memory and retest
 ```
 
 **Adjust based on:**

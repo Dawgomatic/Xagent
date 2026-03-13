@@ -28,7 +28,7 @@ Complete rules and moderator instructions for each supported format.
 
 ### Opening Statement Template
 ```
-📢 **DEBATE OPEN — Campfire Format**
+ **DEBATE OPEN — Campfire Format**
 
 **Topic:** [topic]
 **For:** [participant(s)]
@@ -45,12 +45,12 @@ Rules:
 
 ### Ready Check Template
 ```
-⚖️ **READY CHECK**
+ **READY CHECK**
 
 Both sides have rested (or the debate has run its course).
 
-[For side] — confirm you're ready for a verdict? (👍 or reply "ready")
-[Against side] — confirm you're ready for a verdict? (👍 or reply "ready")
+[For side] — confirm you're ready for a verdict? ( or reply "ready")
+[Against side] — confirm you're ready for a verdict? ( or reply "ready")
 ```
 
 ---
@@ -85,7 +85,7 @@ These are guidelines for async Discord debates. The moderator adapts:
 
 ### Opening Template
 ```
-📜 **OXFORD DEBATE**
+ **OXFORD DEBATE**
 
 **Resolved:** [proposition]
 
@@ -93,12 +93,12 @@ These are guidelines for async Discord debates. The moderator adapts:
 **Against the Proposition:** [participant(s)]
 
 **Format:**
-1️⃣ Opening Statements (For → Against)
-2️⃣ Cross-Examination (For asks → Against asks)
-3️⃣ Rebuttals (Against → For)
-4️⃣ Closing Statements (For → Against)
+ Opening Statements (For → Against)
+ Cross-Examination (For asks → Against asks)
+ Rebuttals (Against → For)
+ Closing Statements (For → Against)
 
-📊 **PRE-DEBATE POLL** — Audience, cast your vote before we begin!
+ **PRE-DEBATE POLL** — Audience, cast your vote before we begin!
 
 [For side], please deliver your opening statement.
 ```
@@ -132,7 +132,7 @@ These are guidelines for async Discord debates. The moderator adapts:
 
 ### Opening Template
 ```
-⚔️ **LINCOLN-DOUGLAS DEBATE**
+ **LINCOLN-DOUGLAS DEBATE**
 
 **Resolution:** [resolution]
 
@@ -140,14 +140,14 @@ These are guidelines for async Discord debates. The moderator adapts:
 **Negative:** [participant]
 
 **Format:**
-1️⃣ Affirmative Constructive
-2️⃣ Cross-Examination (Neg → Aff)
-3️⃣ Negative Constructive
-4️⃣ Cross-Examination (Aff → Neg)
-5️⃣ Affirmative Rebuttal
-6️⃣ Negative Rebuttal
-7️⃣ Final Focus (Aff)
-8️⃣ Final Focus (Neg)
+ Affirmative Constructive
+ Cross-Examination (Neg → Aff)
+ Negative Constructive
+ Cross-Examination (Aff → Neg)
+ Affirmative Rebuttal
+ Negative Rebuttal
+ Final Focus (Aff)
+ Final Focus (Neg)
 
 [Affirmative], the floor is yours. Present your constructive case.
 ```
@@ -181,13 +181,13 @@ These are guidelines for async Discord debates. The moderator adapts:
 
 ### Opening Template
 ```
-🔥 **HOT TAKE**
+ **HOT TAKE**
 
 **Claim:** [provocative claim]
 
 You have **ONE message** to argue for or against. No replies, no edits, no second chances.
 
-⏰ Entries close in 30 minutes. Best argument wins.
+ Entries close in 30 minutes. Best argument wins.
 
 Go.
 ```
@@ -221,7 +221,7 @@ Go.
 
 ### Opening Template
 ```
-😈 **DEVIL'S ADVOCATE**
+ **DEVIL'S ADVOCATE**
 
 **Topic:** [topic]
 
@@ -261,7 +261,7 @@ can you steelman the other side?
 
 ### Opening Template
 ```
-🔮 **ROUNDTABLE DISCUSSION**
+ **ROUNDTABLE DISCUSSION**
 
 **Topic:** [open question]
 
@@ -275,7 +275,7 @@ Who wants to open with their initial thoughts?
 
 ### Synthesis Template
 ```
-📝 **ROUNDTABLE SYNTHESIS**
+ **ROUNDTABLE SYNTHESIS**
 
 **Topic:** [topic]
 **Participants:** [list]

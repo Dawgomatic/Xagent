@@ -131,7 +131,7 @@ def format_divergence(markets: list, min_div: float = 0, direction: str = None) 
         return
     
     print()
-    print("🔮 AI Divergence Scanner")
+    print(" AI Divergence Scanner")
     print("=" * 75)
     print(f"{'Market':<40} {'Simmer':>8} {'Poly':>8} {'Div':>8} {'Signal':>8}")
     print("-" * 75)
@@ -144,11 +144,11 @@ def format_divergence(markets: list, min_div: float = 0, direction: str = None) 
         
         is_polymarket = m.get("import_source") in ("polymarket", "kalshi")
         if div > 0.05:
-            signal = "🟡 AI>MKT" if is_polymarket else "🟢 BUY"
+            signal = " AI>MKT" if is_polymarket else " BUY"
         elif div < -0.05:
-            signal = "🟡 AI<MKT" if is_polymarket else "🔴 SELL"
+            signal = " AI<MKT" if is_polymarket else " SELL"
         else:
-            signal = "⚪ HOLD"
+            signal = " HOLD"
         
         print(f"{q:<40} {simmer:>7.1%} {poly:>7.1%} {div:>+7.1%} {signal:>8}")
     
@@ -160,14 +160,14 @@ def format_divergence(markets: list, min_div: float = 0, direction: str = None) 
     bearish = len([m for m in filtered if (m.get("divergence") or 0) < 0])
     avg_div = sum(abs(m.get("divergence") or 0) for m in filtered) / len(filtered) if filtered else 0
     
-    print(f"📊 Summary: {bullish} bullish, {bearish} bearish, avg divergence {avg_div:.1%}")
+    print(f" Summary: {bullish} bullish, {bearish} bearish, avg divergence {avg_div:.1%}")
 
 
 def show_opportunities(markets: list) -> None:
     """Show actionable high-conviction opportunities."""
     
     print()
-    print("💡 Top Opportunities (>10% divergence)")
+    print(" Top Opportunities (>10% divergence)")
     print("=" * 75)
     
     opps = [m for m in markets if abs(m.get("divergence") or 0) > 0.10]
@@ -193,7 +193,7 @@ def show_opportunities(markets: list) -> None:
         else:
             action = f"AI says BUY NO (AI: {simmer:.0%} vs Market: {poly:.0%})"
         
-        print(f"\n📌 {q[:70]}")
+        print(f"\n {q[:70]}")
         print(f"   {action}")
         print(f"   Divergence: {div:+.1%} | Resolves: {resolves[:10] if resolves else 'TBD'}")
 
@@ -226,13 +226,13 @@ def main():
                 updates[key] = value
         if updates:
             update_config(updates, __file__)
-            print(f"✅ Config updated: {updates}")
+            print(f" Config updated: {updates}")
             print(f"   Saved to: {get_config_path(__file__)}")
     
     # Show config
     if args.config:
         config_path = get_config_path(__file__)
-        print("🔮 AI Divergence Scanner Configuration")
+        print(" AI Divergence Scanner Configuration")
         print("=" * 40)
         print(f"Min divergence: {DEFAULT_MIN_DIVERGENCE}%")
         print(f"Default direction: {DEFAULT_DIRECTION or '(none)'}")

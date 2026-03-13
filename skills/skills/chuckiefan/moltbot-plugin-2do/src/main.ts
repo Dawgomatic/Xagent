@@ -43,9 +43,9 @@ async function main() {
     const result = await sendTaskEmail(config, task, rawInput);
 
     if (result.success) {
-        console.log(`✅ 任务已发送到 2Do: ${task.title}`);
+        console.log(` 任务已发送到 2Do: ${task.title}`);
     } else {
-        console.error(`❌ ${result.error}`);
+        console.error(` ${result.error}`);
         process.exit(1);
     }
 }

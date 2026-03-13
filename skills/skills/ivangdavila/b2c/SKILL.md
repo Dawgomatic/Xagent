@@ -3,7 +3,7 @@ name: B2C Strategy
 slug: b2c
 version: 1.0.0
 description: Build consumer apps with validated demand, sustainable unit economics, and growth loops that compound.
-metadata: {"clawdbot":{"emoji":"📱","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

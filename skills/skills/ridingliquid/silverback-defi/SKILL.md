@@ -4,7 +4,7 @@ description: DeFi intelligence powered by Silverback — 19 x402 endpoints on Ba
 homepage: https://silverbackdefi.app
 user-invocable: true
 disable-model-invocation: true
-metadata: {"clawdbot":{"requires":{"bins":["curl","jq"]},"emoji":"🦍","category":"Finance & Crypto","tags":["defi","trading","crypto","yield","swap","analysis","base-chain","x402"]}}
+metadata: {"clawdbot":{"requires":{"bins":["curl","jq"]},"emoji":"","category":"Finance & Crypto","tags":["defi","trading","crypto","yield","swap","analysis","base-chain","x402"]}}
 ---
 
 # Silverback DeFi Intelligence

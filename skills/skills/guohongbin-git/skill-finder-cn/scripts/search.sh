@@ -9,7 +9,7 @@ if [ -z "$QUERY" ]; then
     exit 1
 fi
 
-echo "🔍 搜索: $QUERY"
+echo " 搜索: $QUERY"
 echo "================================"
 
 clawhub search "$QUERY" --limit "$LIMIT"

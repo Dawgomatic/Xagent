@@ -19,10 +19,10 @@ test_connection() {
         -H "Authorization: Bearer ${API_KEY}" \
         -H "Content-Type: application/json" \
         --max-time 10 > /dev/null 2>&1; then
-        echo "✅ Tabstack API connection successful"
+        echo " Tabstack API connection successful"
         return 0
     else
-        echo "❌ Tabstack API connection failed"
+        echo " Tabstack API connection failed"
         return 1
     fi
 }

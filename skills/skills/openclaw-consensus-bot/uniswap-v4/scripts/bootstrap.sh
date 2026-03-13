@@ -6,9 +6,9 @@ MISSING=0
 
 check() {
   if command -v "$1" >/dev/null 2>&1; then
-    echo "  ✅ $1 found: $(command -v "$1")"
+    echo "   $1 found: $(command -v "$1")"
   else
-    echo "  ❌ $1 NOT found"
+    echo "   $1 NOT found"
     echo "     Install: $2"
     MISSING=$((MISSING+1))
   fi
@@ -28,9 +28,9 @@ check "jq" "apt install jq  (or brew install jq)"
 
 if [[ $MISSING -gt 0 ]]; then
   echo ""
-  echo "[bootstrap] ❌ Missing $MISSING prerequisite(s). Please install and re-run."
+  echo "[bootstrap]  Missing $MISSING prerequisite(s). Please install and re-run."
   exit 1
 else
   echo ""
-  echo "[bootstrap] ✅ All prerequisites met."
+  echo "[bootstrap]  All prerequisites met."
 fi

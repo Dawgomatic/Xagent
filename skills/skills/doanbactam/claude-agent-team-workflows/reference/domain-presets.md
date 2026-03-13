@@ -51,7 +51,7 @@ Complete role cards, artifact contracts, and workflow configurations for each do
 | Critic (`reviewer`) | **Editor** | Review for clarity, flow, grammar, tone consistency, engagement, brand alignment, suggest revisions |
 
 ### Recommended Patterns
-- **Article/blog post:** `iterative-review` (Producer brief → Writer draft ↔ Editor review ×2 → Fact-checker → Final)
+- **Article/blog post:** `iterative-review` (Producer brief → Writer draft  Editor review ×2 → Fact-checker → Final)
 - **Documentation:** `sequential` (Producer outline → Writer draft → Fact-checker verify → Editor polish)
 - **Multi-part series:** `fan-out-fan-in` (Producer plan series → parallel article drafts → Editor consistency check)
 
@@ -121,7 +121,7 @@ Complete role cards, artifact contracts, and workflow configurations for each do
 ### Recommended Patterns
 - **Strategic decision:** `parallel-merge` (Strategist frames → parallel market/financial/risk analysis → merge recommendation)
 - **Business case:** `sequential` (Strategist scope → Analyst research → Financial Modeler validate → Risk Advisor)
-- **Market entry:** `iterative-review` (Strategist brief → Analyst draft strategy ↔ Risk Advisor challenge ×2 → Financial validate)
+- **Market entry:** `iterative-review` (Strategist brief → Analyst draft strategy  Risk Advisor challenge ×2 → Financial validate)
 
 ### Artifact Contracts
 
@@ -155,7 +155,7 @@ Complete role cards, artifact contracts, and workflow configurations for each do
 ### Recommended Patterns
 - **Literature review:** `parallel-merge` (Research Lead frames → parallel angle investigations → merge synthesis)
 - **Technical evaluation:** `sequential` (Research Lead criteria → Researcher investigate → Methodology Auditor → Peer Reviewer)
-- **Position paper:** `iterative-review` (Research Lead brief → Researcher draft ↔ Peer Reviewer challenge ×2 → Methodology validate)
+- **Position paper:** `iterative-review` (Research Lead brief → Researcher draft  Peer Reviewer challenge ×2 → Methodology validate)
 
 ### Artifact Contracts
 

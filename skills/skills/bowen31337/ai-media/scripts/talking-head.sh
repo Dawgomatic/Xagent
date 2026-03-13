@@ -17,14 +17,14 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 AUDIO_FILE="audio_${TIMESTAMP}.wav"
 OUTPUT_FILE="talking_${TIMESTAMP}.mp4"
 
-echo "🗣️  Generating talking head"
-echo "💬 Text: '$TEXT'"
-echo "🎤 Voice: $VOICE_STYLE"
-echo "🖥️  GPU Server: $GPU_HOST"
+echo "  Generating talking head"
+echo " Text: '$TEXT'"
+echo " Voice: $VOICE_STYLE"
+echo "  GPU Server: $GPU_HOST"
 
 # Check SSH connectivity
 if ! ssh -i "$SSH_KEY" -o ConnectTimeout=5 "$GPU_HOST" "echo 'SSH OK'" &>/dev/null; then
-    echo "❌ Cannot connect to GPU server"
+    echo " Cannot connect to GPU server"
     exit 1
 fi
 
@@ -32,7 +32,7 @@ fi
 ssh -i "$SSH_KEY" "$GPU_HOST" "mkdir -p $OUTPUT_DIR"
 
 # Generate audio first (using gTTS in .venv)
-echo "🎵 Generating audio..."
+echo " Generating audio..."
 ssh -i "$SSH_KEY" "$GPU_HOST" bash <<EOF
 set -euo pipefail
 cd $SADTALKER_DIR
@@ -48,7 +48,7 @@ output_path = "$OUTPUT_DIR/$AUDIO_FILE"
 # Generate audio
 tts = gTTS(text=text, lang='en', slow=False)
 tts.save(output_path)
-print(f"✅ Audio saved: {output_path}")
+print(f" Audio saved: {output_path}")
 PYTHON
 EOF
 
@@ -56,17 +56,17 @@ EOF
 if [[ -z "$AVATAR" ]]; then
     # Use default avatar
     AVATAR_PATH="$SADTALKER_DIR/examples/source_image/full_body_1.png"
-    echo "📸 Using default avatar"
+    echo " Using default avatar"
 else
     # Copy user-provided avatar to GPU server
     AVATAR_FILENAME=$(basename "$AVATAR")
-    echo "📸 Uploading avatar: $AVATAR"
+    echo " Uploading avatar: $AVATAR"
     scp -i "$SSH_KEY" "$AVATAR" "$GPU_HOST:$OUTPUT_DIR/$AVATAR_FILENAME"
     AVATAR_PATH="$OUTPUT_DIR/$AVATAR_FILENAME"
 fi
 
 # Generate talking head video
-echo "🎬 Generating talking head video..."
+echo " Generating talking head video..."
 ssh -i "$SSH_KEY" "$GPU_HOST" bash <<EOF
 set -euo pipefail
 cd $SADTALKER_DIR
@@ -90,15 +90,15 @@ ffmpeg -y -i "\$LATEST_VIDEO" \\
     -movflags +faststart \\
     "$OUTPUT_DIR/$OUTPUT_FILE"
 
-echo "✅ Video saved: $OUTPUT_DIR/$OUTPUT_FILE"
+echo " Video saved: $OUTPUT_DIR/$OUTPUT_FILE"
 
 # Get file size
-ls -lh "$OUTPUT_DIR/$OUTPUT_FILE" | awk '{print "📦 Size:", \$5}'
+ls -lh "$OUTPUT_DIR/$OUTPUT_FILE" | awk '{print " Size:", \$5}'
 EOF
 
 echo ""
-echo "✅ Talking head generation complete!"
-echo "📁 Output: $OUTPUT_DIR/$OUTPUT_FILE"
+echo " Talking head generation complete!"
+echo " Output: $OUTPUT_DIR/$OUTPUT_FILE"
 echo ""
 echo "To download:"
 echo "  scp -i $SSH_KEY $GPU_HOST:$OUTPUT_DIR/$OUTPUT_FILE ."

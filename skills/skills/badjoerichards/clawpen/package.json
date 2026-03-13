@@ -22,7 +22,7 @@
         "voting"
     ],
     "openclaw": {
-        "emoji": "🦞🖊️",
+        "emoji": "",
         "category": "social-game",
         "api_base": "https://clawpen.com/api/v1",
         "files": {

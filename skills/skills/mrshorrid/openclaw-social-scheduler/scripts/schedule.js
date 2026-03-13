@@ -88,7 +88,7 @@ async function schedulePost(platformName, config, content, scheduledTime) {
   // Add to queue
   const queuedPost = queue.add(post);
   
-  console.log('✅ Post scheduled!');
+  console.log(' Post scheduled!');
   console.log(`ID: ${queuedPost.id}`);
   console.log(`Platform: ${queuedPost.platform}`);
   console.log(`Type: ${isThread ? `Thread (${content.length} posts)` : 'Single post'}`);
@@ -116,7 +116,7 @@ async function processQueue() {
     return 0;
   }
 
-  console.log(`📤 Processing ${ready.length} ready post(s)...`);
+  console.log(` Processing ${ready.length} ready post(s)...`);
   
   let sent = 0;
   
@@ -131,19 +131,19 @@ async function processQueue() {
 
       // Check if this is a thread
       if (post.isThread) {
-        console.log(`  📝 Posting ${post.content.length}-tweet thread to ${post.platform}: ${post.id}`);
+        console.log(`   Posting ${post.content.length}-tweet thread to ${post.platform}: ${post.id}`);
         result = await postThread(post.platform, post.config, post.content);
       } else {
-        console.log(`  📤 Posting to ${post.platform}: ${post.id}`);
+        console.log(`   Posting to ${post.platform}: ${post.id}`);
         result = await platform.post(post.config, post.content);
       }
       
       queue.markSent(post.id, result);
       sent++;
-      console.log(`  ✅ Sent successfully`);
+      console.log(`   Sent successfully`);
       
     } catch (error) {
-      console.error(`  ❌ Failed: ${error.message}`);
+      console.error(`   Failed: ${error.message}`);
       queue.markFailed(post.id, error);
     }
   }
@@ -155,7 +155,7 @@ async function processQueue() {
  * Run scheduler daemon (checks every minute)
  */
 async function daemon() {
-  console.log('🤖 Scheduler daemon started');
+  console.log(' Scheduler daemon started');
   console.log('Checking queue every 60 seconds...');
   console.log('Press Ctrl+C to stop');
   console.log('');
@@ -199,20 +199,20 @@ async function main() {
     } else if (command === 'list') {
       // List queue
       const posts = queue.list();
-      console.log(`📋 Queue (${posts.length} total posts):`);
+      console.log(` Queue (${posts.length} total posts):`);
       console.log('');
       
       const pending = posts.filter(p => p.status === 'pending');
       const sent = posts.filter(p => p.status === 'sent');
       const failed = posts.filter(p => p.status === 'failed');
       
-      console.log(`⏳ Pending: ${pending.length}`);
+      console.log(` Pending: ${pending.length}`);
       pending.forEach(p => {
         console.log(`  ${p.id}: ${p.platform} @ ${p.scheduledTime}`);
       });
       
-      console.log(`\n✅ Sent: ${sent.length}`);
-      console.log(`❌ Failed: ${failed.length}`);
+      console.log(`\n Sent: ${sent.length}`);
+      console.log(` Failed: ${failed.length}`);
       
     } else if (command === 'cancel') {
       // Cancel a post
@@ -225,16 +225,16 @@ async function main() {
       
       const canceled = queue.cancel(postId);
       if (canceled) {
-        console.log(`✅ Canceled: ${canceled.id}`);
+        console.log(` Canceled: ${canceled.id}`);
       } else {
-        console.log(`❌ Post not found: ${postId}`);
+        console.log(` Post not found: ${postId}`);
         process.exit(1);
       }
       
     } else if (command === 'cleanup') {
       // Clean up old posts
       const removed = queue.cleanup();
-      console.log(`🧹 Cleaned up ${removed} old post(s)`);
+      console.log(` Cleaned up ${removed} old post(s)`);
       
     } else {
       console.log('Unknown command:', command);
@@ -249,7 +249,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

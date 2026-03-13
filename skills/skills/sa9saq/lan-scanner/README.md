@@ -1,4 +1,4 @@
-# 🔍 network-scanner
+#  network-scanner
 
 Discover devices and scan ports on your local network — powered by nmap.
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo ""
-echo "🚀 Starting GetPay Server with localhost.run tunnel..."
+echo " Starting GetPay Server with localhost.run tunnel..."
 echo ""
 
 cd "$(dirname "$0")"

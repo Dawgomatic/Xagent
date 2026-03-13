@@ -150,7 +150,7 @@ def format_reactions(msg, user_map):
 
 
 def format_files(msg):
-    """Format attachments/images as 📎 filename (type)"""
+    """Format attachments/images as  filename (type)"""
     files = msg.get("files", [])
     if not files:
         return ""
@@ -158,7 +158,7 @@ def format_files(msg):
     for f in files:
         name = f.get("name", f.get("title", "unknown"))
         mimetype = f.get("mimetype", "")
-        parts.append(f"📎 {name} ({mimetype})" if mimetype else f"📎 {name}")
+        parts.append(f" {name} ({mimetype})" if mimetype else f" {name}")
     return " " + " ".join(parts)
 
 
@@ -183,7 +183,7 @@ def format_thread(messages, user_map):
             ts_str = format_ts(msg.get("ts", 0))
             reactions = format_reactions(msg, user_map)
             files = format_files(msg)
-            lines.append(f"📌 [{ts_str}] {user}: {text[:200]}{files}{reactions}")
+            lines.append(f" [{ts_str}] {user}: {text[:200]}{files}{reactions}")
             lines.append(f"   ({reply_count} replies)")
             lines.append("---")
         else:
@@ -199,7 +199,7 @@ def format_channel(messages, user_map, thread_replies=None):
     lines = []
     for msg in messages:
         reply_count = msg.get("reply_count", 0)
-        reply_tag = f" 💬{reply_count}" if reply_count else ""
+        reply_tag = f" {reply_count}" if reply_count else ""
         line = format_msg_line(msg, user_map)
         lines.append(f"{line}{reply_tag}")
 
@@ -316,7 +316,7 @@ def main():
         user_map = resolve_users(all_user_ids, token)
 
         thread_info = f", {len(thread_replies)} threads included" if thread_replies else ""
-        print(f"📢 Channel history ({len(messages)} messages, latest {limit}{thread_info})")
+        print(f" Channel history ({len(messages)} messages, latest {limit}{thread_info})")
         print("---")
         print(format_channel(messages, user_map, thread_replies))
 

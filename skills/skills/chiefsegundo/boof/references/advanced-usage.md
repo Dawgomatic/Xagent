@@ -64,10 +64,10 @@ qmd query "cost analysis" -c paper-name --json
 
 | Approach | Tokens per query | Full doc coverage |
 |----------|-----------------|-------------------|
-| Full PDF in context | 50,000-150,000 | ⚠️ Lost in middle |
-| RAG (top 5 chunks) | 2,000-5,000 | ✅ Targeted |
-| RAG (top 15 chunks) | 6,000-15,000 | ✅ Broader |
-| Section summaries | 15,000-25,000 | ✅ Complete |
+| Full PDF in context | 50,000-150,000 |  Lost in middle |
+| RAG (top 5 chunks) | 2,000-5,000 |  Targeted |
+| RAG (top 15 chunks) | 6,000-15,000 |  Broader |
+| Section summaries | 15,000-25,000 |  Complete |
 
 ## Re-indexing
 

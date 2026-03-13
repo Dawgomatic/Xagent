@@ -132,7 +132,7 @@ send_notification() {
         reminder_text=" (reminder #$reminder_count)"
     fi
 
-    local message="🔒 Session '$session' needs approval$reminder_text
+    local message=" Session '$session' needs approval$reminder_text
 
 $details
 

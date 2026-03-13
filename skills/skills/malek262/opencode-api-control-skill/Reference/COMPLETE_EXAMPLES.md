@@ -83,7 +83,7 @@ Loading project...
 Creating auth components...
 Adding JWT handling...
 ✓ Task completed
-📊 Tokens: 2150, Cost: $0.035
+ Tokens: 2150, Cost: $0.035
 ```
 
 ---
@@ -247,7 +247,7 @@ if RESULT=$(bash ./scripts/select_provider.sh "$REQUESTED_PROVIDER" "$REQUESTED_
   MODEL_ID=$(echo "$RESULT" | cut -d' ' -f2)
   echo "✓ Using requested: $PROVIDER_ID/$MODEL_ID"
 else
-  echo "⚠ $REQUESTED_PROVIDER not available, using default"
+  echo " $REQUESTED_PROVIDER not available, using default"
   PROVIDER_ID=$(jq -r '.default_provider' ./config.json)
   MODEL_ID=$(jq -r '.default_model' ./config.json)
   echo "✓ Using default: $PROVIDER_ID/$MODEL_ID"
@@ -385,7 +385,7 @@ PROJECTS_DIR=$(jq -r '.projects_base_dir' ./config.json)
 
 # Check if current session is stuck
 if bash ./scripts/check_status.sh | grep -q "error"; then
-  echo "⚠ Current session has error"
+  echo " Current session has error"
   
   # Create new session in same project
   source ./scripts/load_state.sh

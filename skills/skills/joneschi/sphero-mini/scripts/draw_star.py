@@ -45,7 +45,7 @@ async def draw_star():
         print("Stopping...")
         await sphero.roll(0, 0)
         
-        print("✓ Star complete! ⭐")
+        print("✓ Star complete! ")
         
     finally:
         await sphero.disconnect()

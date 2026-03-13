@@ -54,7 +54,7 @@ def main():
             confidence=args.confidence,
             expires_in_days=args.expires
         )
-        print(f"✅ Remembered [{fact_id}]: {args.content[:60]}...")
+        print(f" Remembered [{fact_id}]: {args.content[:60]}...")
         
     elif args.command == "recall":
         facts = mem.recall(args.query, limit=args.limit, tags=args.tags)
@@ -73,13 +73,13 @@ def main():
     elif args.command == "supersede":
         new_fact = mem.supersede(args.fact_id, args.new_content)
         if new_fact:
-            print(f"✅ Created [{new_fact.id}] superseding {args.fact_id}")
+            print(f" Created [{new_fact.id}] superseding {args.fact_id}")
         else:
-            print(f"❌ Fact {args.fact_id} not found")
+            print(f" Fact {args.fact_id} not found")
             
     elif args.command == "forget":
         count = mem.forget_stale(days=args.days)
-        print(f"🗑️ Forgot {count} stale facts (>{args.days} days old)")
+        print(f" Forgot {count} stale facts (>{args.days} days old)")
 
 
 if __name__ == "__main__":

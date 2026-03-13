@@ -22,7 +22,7 @@
     "hackathon"
   ],
   "metadata": {
-    "emoji": "🛡️",
+    "emoji": "",
     "category": "blockchain-security",
     "api_base": "https://hackathon.aegis402.xyz/v1",
     "payment_networks": ["base-sepolia"],

@@ -1,4 +1,4 @@
-# 🏎️ OpenClaw Sport Mode
+#  OpenClaw Sport Mode
 
 > **Shift your agent into high gear.** 
 > Temporarily boost OpenClaw's heartbeat frequency for intense monitoring tasks, then auto-cool-down when done.
@@ -8,29 +8,29 @@
 ## Why?
 
 By default, OpenClaw checks in every 30 minutes. That's great for battery life, but terrible when you're:
-- 🍿 Watching **Codex** write code (you want to see errors *now*).
-- 🏗️ Waiting for a **long build** or deployment.
-- 🎮 Playing a turn-based game with your agent.
+-  Watching **Codex** write code (you want to see errors *now*).
+-  Waiting for a **long build** or deployment.
+-  Playing a turn-based game with your agent.
 
 **Sport Mode** lets you toggle a high-frequency heartbeat (e.g., 3m, 1m) and inject a "Mission" that the agent will obsessively check until completion.
 
-## 🚀 Installation
+##  Installation
 
 ### Manual
 ```bash
 git clone https://github.com/l1veIn/openclaw-sport-mode.git ~/.openclaw/skills/sport-mode
 ```
 
-## 🗣️ Conversational Usage (Recommended)
+##  Conversational Usage (Recommended)
 
 Just ask your agent!
 
 > **You:** "I'm running a long compile task. Can you watch it for me?"
 > **Agent:** "Sure."
 > **You:** "Start **Sport Mode** with a 1-minute interval. If it fails, ping me."
-> **Agent:** (Executes `sport-mode on` automatically) "🏎️ Sport Mode activated!"
+> **Agent:** (Executes `sport-mode on` automatically) " Sport Mode activated!"
 
-## 💻 CLI Usage
+##  CLI Usage
 
 ### 1. Shift into Sport Mode (On)
 
@@ -56,7 +56,7 @@ This will:
 1. Reset heartbeat to **30m** (default).
 2. Clear `HEARTBEAT.md`.
 
-## 🌟 Real World Examples
+##  Real World Examples
 
 ### 1. Supervising Coding Agents
 We used Sport Mode to supervise **Codex** building a complex Rust project through multiple milestones.
@@ -65,7 +65,7 @@ Instead of manually checking progress, we set the agent on auto-pilot:
 ```bash
 sport-mode on --task "Monitor Codex in tmux. If current milestone passes tests, auto-start the next one. If stuck, notify me."
 ```
-**Result:** The agent autonomously verified tests, committed code, and started the next phase—all while we grabbed a coffee. ☕
+**Result:** The agent autonomously verified tests, committed code, and started the next phase—all while we grabbed a coffee. 
 
 ### 2. Interactive Games
 Turn your agent into a game master.
@@ -84,7 +84,7 @@ How to ensure the high-frequency heartbeat stops automatically? Write the shutdo
 
 **Initial `HEARTBEAT.md`:**
 ```markdown
-# 🏎️ Sport Mode Active
+#  Sport Mode Active
 Target: 1m
 
 ## Task
@@ -108,7 +108,7 @@ State: 5
 - Executes `sport-mode off`.
 - **Result:** Heartbeat resets to 30m, file is cleared. Mission complete.
 
-## 🧠 Best Practices
+##  Best Practices
 
 ### The "Auto-Pilot" Pattern
 Sport Mode encourages a **Stateless Agent, Stateful File** pattern. 
@@ -116,7 +116,7 @@ Instead of relying on a massive conversation history context, let the agent read
 
 **Example HEARTBEAT.md during a game:**
 ```markdown
-# 🏎️ Sport Mode Active
+#  Sport Mode Active
 Target: 1m
 
 ## Task

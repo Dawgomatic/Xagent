@@ -31,18 +31,18 @@ class GoogleWeather:
     
     # Weather condition translations
     CONDITIONS_HE = {
-        "CLEAR": "בהיר ☀️",
-        "MOSTLY_CLEAR": "בהיר ברובו 🌤️",
-        "PARTLY_CLOUDY": "מעונן חלקית ⛅",
-        "MOSTLY_CLOUDY": "מעונן ברובו 🌥️",
-        "CLOUDY": "מעונן ☁️",
-        "HAZE": "אובך 🌫️",
-        "FOG": "ערפל 🌫️",
-        "LIGHT_RAIN": "גשם קל 🌧️",
-        "RAIN": "גשם 🌧️",
-        "HEAVY_RAIN": "גשם כבד 🌧️",
-        "THUNDERSTORM": "סופת רעמים ⛈️",
-        "SNOW": "שלג ❄️",
+        "CLEAR": "בהיר ",
+        "MOSTLY_CLEAR": "בהיר ברובו ",
+        "PARTLY_CLOUDY": "מעונן חלקית ",
+        "MOSTLY_CLOUDY": "מעונן ברובו ",
+        "CLOUDY": "מעונן ",
+        "HAZE": "אובך ",
+        "FOG": "ערפל ",
+        "LIGHT_RAIN": "גשם קל ",
+        "RAIN": "גשם ",
+        "HEAVY_RAIN": "גשם כבד ",
+        "THUNDERSTORM": "סופת רעמים ",
+        "SNOW": "שלג ",
     }
     
     def __init__(self):
@@ -118,7 +118,7 @@ class GoogleWeather:
         condition = data.get("weatherCondition", {})
         condition_type = condition.get("type", "UNKNOWN")
         condition_he = self.CONDITIONS_HE.get(condition_type, condition_type)
-        emoji = ''.join(c for c in condition_he if c in '☀️🌤️⛅🌥️☁️🌫️🌧️⛈️❄️') or ''
+        emoji = ''.join(c for c in condition_he if c in '') or ''
         result["condition"] = {
             "type": condition_type,
             "text": condition.get("description", {}).get("text", ""),
@@ -193,7 +193,7 @@ class GoogleWeather:
         for h in data.get("forecastHours", []):
             condition_type = h.get("weatherCondition", {}).get("type", "UNKNOWN")
             condition_he = self.CONDITIONS_HE.get(condition_type, condition_type)
-            emoji = ''.join(c for c in condition_he if c in '☀️🌤️⛅🌥️☁️🌫️🌧️⛈️❄️') or ''
+            emoji = ''.join(c for c in condition_he if c in '') or ''
             
             entry = {
                 "time": h.get("interval", {}).get("startTime"),
@@ -233,18 +233,18 @@ class GoogleWeather:
             lines = [
                 f"*{data.get('location', 'Unknown')}*",
                 f"{desc} {emoji}".strip(),
-                f"🌡️ {temp.get('current', '?')}°C (מרגיש כמו {temp.get('feels_like', '?')}°C)",
-                f"💨 רוח: {wind.get('speed', '?')} קמ\"ש {wind.get('direction', '')}",
-                f"💧 לחות: {data.get('humidity', '?')}%",
+                f" {temp.get('current', '?')}°C (מרגיש כמו {temp.get('feels_like', '?')}°C)",
+                f" רוח: {wind.get('speed', '?')} קמ\"ש {wind.get('direction', '')}",
+                f" לחות: {data.get('humidity', '?')}%",
             ]
         else:
             desc = condition.get('text', '') or condition.get('type', '')
             lines = [
                 f"*{data.get('location', 'Unknown')}*",
                 f"{desc} {emoji}".strip(),
-                f"🌡️ {temp.get('current', '?')}°C (feels like {temp.get('feels_like', '?')}°C)",
-                f"💨 Wind: {wind.get('speed', '?')} km/h {wind.get('direction', '')}",
-                f"💧 Humidity: {data.get('humidity', '?')}%",
+                f" {temp.get('current', '?')}°C (feels like {temp.get('feels_like', '?')}°C)",
+                f" Wind: {wind.get('speed', '?')} km/h {wind.get('direction', '')}",
+                f" Humidity: {data.get('humidity', '?')}%",
             ]
         
         return "\n".join(lines)

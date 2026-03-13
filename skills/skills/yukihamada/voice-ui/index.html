@@ -229,11 +229,11 @@
       </div>
       <div class="name">クロウ</div>
       <div class="status" id="status">タップして話しかけてね</div>
-      <div class="chat" id="chat"><div class="empty">💬 会話を始めよう</div></div>
+      <div class="chat" id="chat"><div class="empty"> 会話を始めよう</div></div>
       <div class="controls">
-        <button class="btn small-btn" onclick="clearChat()">🗑️</button>
-        <button class="btn mic-btn" id="micBtn" onclick="toggleRec()">🎤</button>
-        <button class="btn small-btn" onclick="toggleSound()" id="soundBtn">🔊</button>
+        <button class="btn small-btn" onclick="clearChat()"></button>
+        <button class="btn mic-btn" id="micBtn" onclick="toggleRec()"></button>
+        <button class="btn small-btn" onclick="toggleSound()" id="soundBtn"></button>
       </div>
       <div class="tip">スペースキー長押しでも録音OK</div>
     </div>
@@ -265,14 +265,14 @@
     }
 
     function clearChat() {
-      chat.innerHTML = '<div class="empty">💬 会話を始めよう</div>';
+      chat.innerHTML = '<div class="empty"> 会話を始めよう</div>';
       history = [];
       setState('タップして話しかけてね', 'idle');
     }
 
     function toggleSound() {
       sound = !sound;
-      soundBtn.textContent = sound ? '🔊' : '🔇';
+      soundBtn.textContent = sound ? '' : '';
     }
 
     async function toggleRec() { recording ? stopRec() : startRec(); }
@@ -349,7 +349,7 @@
             })
           });
           const d2 = await r2.json();
-          reply = d2.choices?.[0]?.message?.content || 'ごめん、うまく返せなかった😅';
+          reply = d2.choices?.[0]?.message?.content || 'ごめん、うまく返せなかった';
         }
 
         history.push({ role: 'assistant', content: reply });

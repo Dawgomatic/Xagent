@@ -1,7 +1,7 @@
 ---
 name: Expenses
 description: Build a personal expense tracking system for daily spending, shared costs, business expenses, and project budgets.
-metadata: {"clawdbot":{"emoji":"💸","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

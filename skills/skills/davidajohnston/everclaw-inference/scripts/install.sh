@@ -7,7 +7,7 @@ set -euo pipefail
 INSTALL_DIR="$HOME/morpheus"
 REPO="MorpheusAIs/Morpheus-Lumerin-Node"
 
-echo "♾️  Everclaw — Installer"
+echo "  Everclaw — Installer"
 echo "======================================"
 
 # Detect OS and architecture
@@ -17,48 +17,48 @@ ARCH=$(uname -m)
 case "$OS" in
   darwin) PLATFORM="darwin" ;;
   linux)  PLATFORM="linux" ;;
-  *)      echo "❌ Unsupported OS: $OS"; exit 1 ;;
+  *)      echo " Unsupported OS: $OS"; exit 1 ;;
 esac
 
 case "$ARCH" in
   x86_64)  GOARCH="amd64" ;;
   aarch64) GOARCH="arm64" ;;
   arm64)   GOARCH="arm64" ;;
-  *)       echo "❌ Unsupported architecture: $ARCH"; exit 1 ;;
+  *)       echo " Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
-echo "📋 Platform: ${PLATFORM}-${GOARCH}"
+echo " Platform: ${PLATFORM}-${GOARCH}"
 
 # Get latest release tag
-echo "🔍 Finding latest release..."
+echo " Finding latest release..."
 LATEST_TAG=$(curl -sL "https://api.github.com/repos/${REPO}/releases/latest" | grep '"tag_name"' | head -1 | sed -E 's/.*"tag_name": *"([^"]+)".*/\1/')
 
 if [[ -z "$LATEST_TAG" ]]; then
-  echo "❌ Could not determine latest release. Check network connectivity."
+  echo " Could not determine latest release. Check network connectivity."
   exit 1
 fi
 
-echo "📦 Latest release: ${LATEST_TAG}"
+echo " Latest release: ${LATEST_TAG}"
 
 # Construct download URL
 # Release assets follow pattern: mor-launch-<os>-<arch>.zip
 ASSET_NAME="mor-launch-${PLATFORM}-${GOARCH}.zip"
 DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${LATEST_TAG}/${ASSET_NAME}"
 
-echo "⬇️  Downloading ${ASSET_NAME}..."
+echo "  Downloading ${ASSET_NAME}..."
 
 TMPDIR_DL=$(mktemp -d)
 ZIPFILE="${TMPDIR_DL}/${ASSET_NAME}"
 
 if ! curl -sL -o "$ZIPFILE" "$DOWNLOAD_URL"; then
-  echo "❌ Download failed. URL: $DOWNLOAD_URL"
+  echo " Download failed. URL: $DOWNLOAD_URL"
   rm -rf "$TMPDIR_DL"
   exit 1
 fi
 
 # Check the file is actually a zip
 if ! file "$ZIPFILE" | grep -q -i "zip"; then
-  echo "❌ Downloaded file is not a valid zip archive."
+  echo " Downloaded file is not a valid zip archive."
   echo "   URL might be wrong. Check releases at: https://github.com/${REPO}/releases"
   rm -rf "$TMPDIR_DL"
   exit 1
@@ -67,7 +67,7 @@ fi
 # Create install directory
 mkdir -p "$INSTALL_DIR"
 
-echo "📂 Extracting to ${INSTALL_DIR}..."
+echo " Extracting to ${INSTALL_DIR}..."
 unzip -o -q "$ZIPFILE" -d "$INSTALL_DIR"
 
 # Clean up temp
@@ -75,7 +75,7 @@ rm -rf "$TMPDIR_DL"
 
 # Remove macOS quarantine flags
 if [[ "$PLATFORM" == "darwin" ]]; then
-  echo "🍎 Removing macOS quarantine flags..."
+  echo " Removing macOS quarantine flags..."
   xattr -cr "$INSTALL_DIR" 2>/dev/null || true
 fi
 
@@ -88,7 +88,7 @@ mkdir -p "$INSTALL_DIR/data/logs"
 
 # Create .env if it doesn't exist
 if [[ ! -f "$INSTALL_DIR/.env" ]]; then
-  echo "📝 Creating .env..."
+  echo " Creating .env..."
   cat > "$INSTALL_DIR/.env" << 'ENVEOF'
 # Morpheus Proxy-Router Configuration (Consumer Mode)
 # Base Mainnet
@@ -140,7 +140,7 @@ fi
 
 # Create models-config.json if it doesn't exist
 if [[ ! -f "$INSTALL_DIR/models-config.json" ]]; then
-  echo "📝 Creating models-config.json..."
+  echo " Creating models-config.json..."
   cat > "$INSTALL_DIR/models-config.json" << 'MODEOF'
 {
   "$schema": "./internal/config/models-config-schema.json",
@@ -161,14 +161,14 @@ MODEOF
 fi
 
 echo ""
-echo "✅ Everclaw (Morpheus Lumerin Node) installed to ${INSTALL_DIR}"
+echo " Everclaw (Morpheus Lumerin Node) installed to ${INSTALL_DIR}"
 echo ""
-echo "📋 Next steps:"
+echo " Next steps:"
 echo "  1. Edit ~/morpheus/.env if you need a custom RPC endpoint"
 echo "  2. Update models-config.json with correct model IDs from the blockchain"
 echo "  3. Run: bash skills/everclaw/scripts/start.sh"
 echo ""
-echo "⚠️  Before first use:"
+echo "  Before first use:"
 echo "  - Ensure you have MOR tokens on Base mainnet"
 echo "  - Ensure you have ETH on Base for gas"
 echo "  - Set up 1Password with your wallet private key"

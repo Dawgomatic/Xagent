@@ -82,10 +82,10 @@ The dashboard follows security best practices to minimize attack surface:
 
 ### Dedicated User (Recommended)
 The install script creates a `openclaw-dashboard` user with **limited sudo privileges**:
-- ✅ No shell access (`/bin/false`)
-- ✅ No home directory
-- ✅ Only specific sudo commands allowed (fail2ban, firewall, systemctl status)
-- ✅ Cannot execute arbitrary commands
+-  No shell access (`/bin/false`)
+-  No home directory
+-  Only specific sudo commands allowed (fail2ban, firewall, systemctl status)
+-  Cannot execute arbitrary commands
 
 ### Systemd Hardening
 Service runs with security restrictions:
@@ -105,9 +105,9 @@ Restart=on-failure       # Restart only on crashes (not always)
 
 ### Running as Root (Not Recommended)
 If you choose `root` during install:
-- ⚠️ Full system access if compromised
-- ⚠️ No privilege separation
-- ⚠️ Only suitable for trusted, isolated environments
+-  Full system access if compromised
+-  No privilege separation
+-  Only suitable for trusted, isolated environments
 
 Use the dedicated user option for production deployments.
 
@@ -137,7 +137,7 @@ server.listen(PORT, '127.0.0.1', () => {
 });
 ```
 
-⚠️ **Security Warning:** Only bind to `0.0.0.0` if behind Tailscale or firewall!
+ **Security Warning:** Only bind to `0.0.0.0` if behind Tailscale or firewall!
 
 ### Customize Metrics
 
@@ -149,7 +149,7 @@ Add custom checks in `server.js`:
 
 ## Dashboard Sections
 
-### 🦞 OpenClaw Security
+###  OpenClaw Security
 - Gateway running/stopped status
 - Binding configuration (loopback/public)
 - Auth token length and mode
@@ -157,13 +157,13 @@ Add custom checks in `server.js`:
 - Skills count
 - Current version + update availability
 
-### 🌐 Network Security
+###  Network Security
 - Tailscale connection status + IP
 - Public ports count
 - Firewall status (UFW/firewalld)
 - Active TCP connections
 
-### 🌍 Public Exposure
+###  Public Exposure
 - Exposure level (Excellent/Minimal/Warning/High)
 - Public port details (service names)
 - Kanban board binding
@@ -172,26 +172,26 @@ Add custom checks in `server.js`:
 - Tailscale active/inactive
 - Security recommendations
 
-### 🖥️ System Security
+###  System Security
 - Updates available
 - Server uptime
 - Load average
 - Failed SSH logins (24h)
 - Root processes count
 
-### 🔑 SSH & Access Control
+###  SSH & Access Control
 - SSH service status
 - Password authentication (enabled/disabled)
 - fail2ban status
 - Banned IPs count
 - Active SSH sessions
 
-### 📜 Certificates & TLS
+###  Certificates & TLS
 - Caddy status
 - Public TLS enabled/disabled
 - Tailscale WireGuard encryption
 
-### 📊 Resource Security
+###  Resource Security
 - CPU usage percentage
 - Memory usage percentage
 - Disk usage percentage

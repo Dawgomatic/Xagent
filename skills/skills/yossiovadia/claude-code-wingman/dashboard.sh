@@ -24,13 +24,13 @@ else
         fi
 
         # Determine status
-        STATUS="🟢 Active"
+        STATUS=" Active"
         if echo "$OUTPUT" | grep -q "Do you want"; then
-            STATUS="⏸️  Waiting for approval"
+            STATUS="  Waiting for approval"
         elif echo "$OUTPUT" | grep -q "error"; then
-            STATUS="❌ Error"
+            STATUS=" Error"
         elif echo "$OUTPUT" | grep -q "✓"; then
-            STATUS="✅ Task complete"
+            STATUS=" Task complete"
         fi
 
         # Get approver log if exists
@@ -40,17 +40,17 @@ else
 
         if [ -f "$AUTO_LOG" ]; then
             APPROVALS=$(grep -c "Approval prompt detected" "$AUTO_LOG" 2>/dev/null || echo "0")
-            APPROVER_TYPE="🤖 Auto"
+            APPROVER_TYPE=" Auto"
         elif [ -f "$INTERACTIVE_LOG" ]; then
             APPROVALS=$(grep -c "Approval prompt detected" "$INTERACTIVE_LOG" 2>/dev/null || echo "0")
-            APPROVER_TYPE="👤 Interactive"
+            APPROVER_TYPE=" Interactive"
         else
-            APPROVER_TYPE="⚠️  None"
+            APPROVER_TYPE="  None"
         fi
 
         # Print session info
         if [ "$IS_CLAUDE" = true ]; then
-            echo "│  📋 $SESSION"
+            echo "│   $SESSION"
             echo "│     Status: $STATUS"
             echo "│     Created: $CREATED_DATE"
             echo "│     Approver: $APPROVER_TYPE (${APPROVALS} approvals)"
@@ -65,7 +65,7 @@ fi
 
 echo "╰────────────────────────────────────────────────────────────────────╯"
 echo ""
-echo "💡 Tips:"
+echo " Tips:"
 echo "  • Use --auto flag for automated approvals"
 echo "  • Check logs: cat /tmp/*-approver-<session>.log"
 echo "  • Monitor live: watch -n 2 ./dashboard.sh"

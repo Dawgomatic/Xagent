@@ -50,11 +50,11 @@ export function printError(message: string): void {
 }
 
 export function printWarning(message: string): void {
-  console.log(chalk.yellow('⚠'), message);
+  console.log(chalk.yellow(''), message);
 }
 
 export function printInfo(message: string): void {
-  console.log(chalk.blue('ℹ'), message);
+  console.log(chalk.blue(''), message);
 }
 
 export function truncate(str: string, length: number): string {

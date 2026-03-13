@@ -89,7 +89,7 @@ def format_ratings_human(ratings: dict) -> str:
     
     lines = []
     overall = ratings.get("overallRating", 0)
-    lines.append(f"📊 Overall Rating: {overall}/100 {format_rating_bar(overall)}")
+    lines.append(f" Overall Rating: {overall}/100 {format_rating_bar(overall)}")
     lines.append("")
     
     # Category scores
@@ -105,7 +105,7 @@ def format_ratings_human(ratings: dict) -> str:
     
     num_reviews = ratings.get("numberOfReviews", 0)
     if num_reviews:
-        lines.append(f"\n📝 Based on {num_reviews:,} reviews")
+        lines.append(f"\n Based on {num_reviews:,} reviews")
     
     return "\n".join(lines)
 
@@ -118,7 +118,7 @@ def format_offer_human(offer: dict) -> str:
     lines = []
     
     hotel = offer.get("hotel", {})
-    lines.append(f"🏨 {hotel.get('name', 'Unknown Hotel')}")
+    lines.append(f" {hotel.get('name', 'Unknown Hotel')}")
     
     # Room details
     offers = offer.get("offers", [offer]) if "offers" not in offer else offer.get("offers", [])
@@ -129,19 +129,19 @@ def format_offer_human(offer: dict) -> str:
         desc_text = desc.get("text", "")
         
         if desc_text:
-            lines.append(f"\n📝 Room Description:")
+            lines.append(f"\n Room Description:")
             lines.append(f"   {desc_text[:500]}")
         
         # Price
         price = o.get("price", {})
         total = price.get("total", "N/A")
         currency = price.get("currency", "")
-        lines.append(f"\n💰 Total Price: {currency} {total}")
+        lines.append(f"\n Total Price: {currency} {total}")
         
         # Payment info
         payment = o.get("policies", {}).get("paymentType", "")
         if payment:
-            lines.append(f"💳 Payment: {payment}")
+            lines.append(f" Payment: {payment}")
         
         # Cancellation
         cancel = o.get("policies", {}).get("cancellation", {})
@@ -151,10 +151,10 @@ def format_offer_human(offer: dict) -> str:
             amount = cancel.get("amount", {})
             
             if cancel_type == "NON_REFUNDABLE":
-                lines.append("❌ Non-refundable")
+                lines.append(" Non-refundable")
             else:
                 if deadline:
-                    lines.append(f"✅ Free cancellation until {deadline[:10]}")
+                    lines.append(f" Free cancellation until {deadline[:10]}")
                 if amount:
                     lines.append(f"   Cancellation fee: {amount.get('currency', '')} {amount.get('value', '')}")
         
@@ -162,13 +162,13 @@ def format_offer_human(offer: dict) -> str:
         checkin = o.get("checkInDate", "")
         checkout = o.get("checkOutDate", "")
         if checkin and checkout:
-            lines.append(f"\n📅 {checkin} → {checkout}")
+            lines.append(f"\n {checkin} → {checkout}")
         
         # Guests
         guests = o.get("guests", {})
         adults = guests.get("adults", 0)
         if adults:
-            lines.append(f"👥 {adults} adult(s)")
+            lines.append(f" {adults} adult(s)")
     
     return "\n".join(lines)
 
@@ -184,7 +184,7 @@ def format_hotel_human(hotel: dict, ratings: Optional[dict] = None) -> str:
     rating = hotel.get("rating", "")
     stars = "★" * int(rating) if rating else ""
     
-    lines.append(f"🏨 {name} {stars}")
+    lines.append(f" {name} {stars}")
     
     # Address
     addr = hotel.get("address", {})
@@ -192,21 +192,21 @@ def format_hotel_human(hotel: dict, ratings: Optional[dict] = None) -> str:
         street = addr.get("lines", [""])[0] if addr.get("lines") else ""
         city = addr.get("cityName", "")
         country = addr.get("countryCode", "")
-        lines.append(f"📍 {street}, {city}, {country}")
+        lines.append(f" {street}, {city}, {country}")
     
     # Contact
     contact = hotel.get("contact", {})
     phone = contact.get("phone", "")
     email = contact.get("email", "")
     if phone:
-        lines.append(f"📞 {phone}")
+        lines.append(f" {phone}")
     if email:
-        lines.append(f"📧 {email}")
+        lines.append(f" {email}")
     
     # Amenities
     amenities = hotel.get("amenities", [])
     if amenities:
-        lines.append(f"\n✨ Amenities: {', '.join(amenities[:10])}")
+        lines.append(f"\n Amenities: {', '.join(amenities[:10])}")
     
     # Add ratings if available
     if ratings:

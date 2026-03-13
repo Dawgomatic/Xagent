@@ -4,7 +4,7 @@ set -euo pipefail
 # Everclaw Chat — Send inference through an active session
 # Usage: ./chat.sh <model_name> "prompt text" [--stream]
 #
-# ⚠️ session_id and model_id are HTTP HEADERS, not JSON body fields.
+#  session_id and model_id are HTTP HEADERS, not JSON body fields.
 # This script handles that correctly.
 
 MORPHEUS_DIR="$HOME/morpheus"
@@ -39,7 +39,7 @@ fi
 
 # Read auth cookie
 if [[ ! -f "$MORPHEUS_DIR/.cookie" ]]; then
-  echo "❌ .cookie file not found. Is the proxy-router running?" >&2
+  echo " .cookie file not found. Is the proxy-router running?" >&2
   exit 1
 fi
 COOKIE_PASS=$(cat "$MORPHEUS_DIR/.cookie" | cut -d: -f2)
@@ -50,7 +50,7 @@ if [[ "$MODEL_NAME" == 0x* ]]; then
 else
   MODEL_ID="${MODEL_IDS[$MODEL_NAME]:-}"
   if [[ -z "$MODEL_ID" ]]; then
-    echo "❌ Unknown model: $MODEL_NAME" >&2
+    echo " Unknown model: $MODEL_NAME" >&2
     echo "   Available models:" >&2
     for key in "${!MODEL_IDS[@]}"; do
       echo "     $key" >&2
@@ -74,13 +74,13 @@ SESSION_ID=$(echo "$SESSIONS_RESPONSE" | jq -r --arg mid "$MODEL_ID" '
 ' 2>/dev/null || true)
 
 if [[ -z "$SESSION_ID" || "$SESSION_ID" == "null" ]]; then
-  echo "❌ No active session found for model: $MODEL_NAME" >&2
+  echo " No active session found for model: $MODEL_NAME" >&2
   echo "   Open one first: bash skills/everclaw/scripts/session.sh open $MODEL_NAME 3600" >&2
   exit 1
 fi
 
 # Send inference request
-# ⚠️ CRITICAL: session_id and model_id are HTTP HEADERS, not JSON body fields
+#  CRITICAL: session_id and model_id are HTTP HEADERS, not JSON body fields
 if [[ "$STREAM" == "true" ]]; then
   curl -s -u "admin:$COOKIE_PASS" "${API_BASE}/v1/chat/completions" \
     -H "Content-Type: application/json" \
@@ -109,7 +109,7 @@ else
     echo "$CONTENT"
   else
     # If content extraction failed, show full response for debugging
-    echo "⚠️  Could not extract content. Full response:" >&2
+    echo "  Could not extract content. Full response:" >&2
     echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE"
   fi
 fi

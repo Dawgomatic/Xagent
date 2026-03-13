@@ -30,7 +30,7 @@ MAX_FILES_ARG="$MAX_FILES"
 show_help() {
   cat <<'EOF'
 
-  🎭 Vibe Check v0.1.0 — Audit Code for Vibe Coding Sins
+   Vibe Check v0.1.0 — Audit Code for Vibe Coding Sins
   ═══════════════════════════════════════════════════════
 
   USAGE:
@@ -241,7 +241,7 @@ else:
     score = 50
 print(round(max(0,min(100,score))))
 " 2>/dev/null || echo "??")
-  info "🎭 Vibe Score: ${SCORE}/100"
+  info " Vibe Score: ${SCORE}/100"
 else
   cat "$ANALYSIS_FILE" | bash "${SCRIPTS_DIR}/report.sh" "${REPORT_ARGS[@]}"
 fi

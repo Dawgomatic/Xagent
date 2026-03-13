@@ -6,7 +6,7 @@ This document defines what should and should NOT be stored in long-term memory s
 
 ---
 
-## ✅ Allowed Content
+##  Allowed Content
 
 ### 1. User Preferences / Identity / Long-Term Goals
 - User name, pronouns, timezone
@@ -49,7 +49,7 @@ Safety valve: Memory is expendable
 
 ---
 
-## ❌ Forbidden Content
+##  Forbidden Content
 
 ### 1. Raw Conversation Logs
 - Exact copies of chat messages

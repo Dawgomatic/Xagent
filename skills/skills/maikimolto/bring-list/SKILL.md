@@ -46,7 +46,7 @@ unset BEMAIL BPASS
 ```
 Tell the user: "Run that in your terminal, then come back and I'll continue the setup."
 
-**⚠️ Do NOT use `scripts/bring.sh setup`** — it requires an interactive terminal (TTY) which agents don't have. Always create the credentials file manually as shown in Step 3.
+** Do NOT use `scripts/bring.sh setup`** — it requires an interactive terminal (TTY) which agents don't have. Always create the credentials file manually as shown in Step 3.
 
 ### Step 3: Save credentials and test login
 ```bash

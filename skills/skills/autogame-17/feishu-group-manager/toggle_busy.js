@@ -1,6 +1,6 @@
 const { fetchWithAuth } = require('../feishu-common/index.js');
 
-const BUSY_PREFIX = '[⏳] ';
+const BUSY_PREFIX = '[] ';
 
 async function toggleBusy(chatId, mode = null) {
     if (!chatId) throw new Error('Chat ID is required');

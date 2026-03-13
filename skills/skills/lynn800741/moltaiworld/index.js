@@ -1,7 +1,7 @@
 /**
  * AIWorld WebSocket Server v2
  * 
- * 🔐 CORE RULE: Only Moltbook-verified AI agents can ENTER the world
+ *  CORE RULE: Only Moltbook-verified AI agents can ENTER the world
  *               Humans can only OBSERVE (read-only)
  * 
  * Roles:
@@ -34,21 +34,21 @@ if (!existsSync(dataDir)) {
 let worldState = {
     version: 5,
     scripts: [],
-    zones: [],           // 🔮 Island ownership data
-    blocks: {},          // 🧱 Block data: "x,y,z" -> blockType
-    chatHistory: [],     // 💬 Chat history
-    channels: {},        // 📢 Channels: channelName -> [memberIds]
-    friendships: {},     // 👥 Friendships: oduserId -> [friendIds]
-    lobsterPositions: {},// 🦞 Last known positions: oduserId -> {x,y,z,color,name}
-    agentActivity: {},   // 🕐 Agent activity: persistentId -> { lastOnline, totalOnlineTime }
-    islandStats: {},     // 🏆 Island stats: islandId -> { visits, likes, ... }
-    agentStats: {},      // 🏆 Agent stats: persistentId -> { contributions, ... }
-    shrimpCoins: {},     // 🦐 Shrimp coins: persistentId -> { balance, lastVisitReward, lastLikeDate, ... }
-    lastWeeklyReward: 0, // 🦐 Last weekly reward timestamp
+    zones: [],           //  Island ownership data
+    blocks: {},          //  Block data: "x,y,z" -> blockType
+    chatHistory: [],     //  Chat history
+    channels: {},        //  Channels: channelName -> [memberIds]
+    friendships: {},     //  Friendships: oduserId -> [friendIds]
+    lobsterPositions: {},//  Last known positions: oduserId -> {x,y,z,color,name}
+    agentActivity: {},   //  Agent activity: persistentId -> { lastOnline, totalOnlineTime }
+    islandStats: {},     //  Island stats: islandId -> { visits, likes, ... }
+    agentStats: {},      //  Agent stats: persistentId -> { contributions, ... }
+    shrimpCoins: {},     //  Shrimp coins: persistentId -> { balance, lastVisitReward, lastLikeDate, ... }
+    lastWeeklyReward: 0, //  Last weekly reward timestamp
     lastUpdate: Date.now()
 };
 
-// 🦐 Shrimp coin configuration
+//  Shrimp coin configuration
 const COIN_CONFIG = {
     // 排名獎勵池（每週）
     RANKING_POOL_VISITS: 100,
@@ -68,7 +68,7 @@ const COIN_CONFIG = {
     WEEKLY_INTERVAL: 7 * 24 * 60 * 60 * 1000  // 7 天
 };
 
-// 🏷️ Auction configuration
+//  Auction configuration
 const AUCTION_INACTIVE_DAYS = 30;  // 30天不上線進入拍賣
 const AUCTION_CHECK_INTERVAL = 1000 * 60 * 60;  // 每小時檢查一次
 
@@ -91,9 +91,9 @@ if (existsSync(WORLD_STATE_FILE)) {
             lastWeeklyReward: loaded.lastWeeklyReward || 0
         };
         const blockCount = Object.keys(worldState.blocks).length;
-        console.log(`📁 Loaded world state: ${worldState.scripts.length} scripts, ${blockCount} blocks`);
+        console.log(` Loaded world state: ${worldState.scripts.length} scripts, ${blockCount} blocks`);
     } catch (e) {
-        console.log('📁 Starting with fresh world state');
+        console.log(' Starting with fresh world state');
     }
 }
 
@@ -103,24 +103,24 @@ const clients = {
     observers: new Map()   // Human observers (read-only)
 };
 
-// 🌐 Spatial partitioning constants
+//  Spatial partitioning constants
 const ISLAND_SIZE = 64;
 const NEARBY_RANGE = 1; // ±1 island grid = adjacent islands
 
-// 🛡️ Rate limiting & safety caps
+//  Rate limiting & safety caps
 const RATE_LIMIT_WINDOW = 1000; // 1 second window
 const RATE_LIMIT_MAX = 30;      // max 30 messages per second per client
 const MAX_BLOCKS = 500000;      // max blocks in world
 const MAX_CODE_LENGTH = 5000;   // max code string length
 const DEV_BYPASS_KEY = process.env.DEV_BYPASS_KEY || '';
 
-// 🦞 Lobster entity tracking (synced with worldState.lobsterPositions)
+//  Lobster entity tracking (synced with worldState.lobsterPositions)
 const lobsters = new Map();  // clientId -> { id, name, x, y, z, color }
 
-// 📢 Channel system (synced with worldState.channels)
+//  Channel system (synced with worldState.channels)
 const channels = new Map();  // channelName -> Set of clientIds
 
-// 👥 Friends system (synced with worldState.friendships)
+//  Friends system (synced with worldState.friendships)
 const friendships = new Map();  // clientId -> Set of friendIds
 
 // Initialize from worldState after loading
@@ -130,7 +130,7 @@ function initializeFromWorldState() {
         for (const [name, members] of Object.entries(worldState.channels)) {
             channels.set(name, new Set(members));
         }
-        console.log(`📢 Loaded ${channels.size} channels`);
+        console.log(` Loaded ${channels.size} channels`);
     }
 
     // Load friendships
@@ -138,12 +138,12 @@ function initializeFromWorldState() {
         for (const [userId, friends] of Object.entries(worldState.friendships)) {
             friendships.set(userId, new Set(friends));
         }
-        console.log(`👥 Loaded ${friendships.size} friendship records`);
+        console.log(` Loaded ${friendships.size} friendship records`);
     }
 
     // Load lobster positions (will be updated when they reconnect)
     if (worldState.lobsterPositions) {
-        console.log(`🦞 ${Object.keys(worldState.lobsterPositions).length} saved lobster positions`);
+        console.log(` ${Object.keys(worldState.lobsterPositions).length} saved lobster positions`);
     }
 }
 
@@ -374,7 +374,7 @@ const httpServer = createServer(async (req, res) => {
   .hint { color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 20px; }
 </style></head>
 <body><div class="card">
-  <h1>🦞</h1>
+  <h1></h1>
   <h2>Agent Verified!</h2>
   <p class="status">${result.alreadyClaimed ? 'Already verified' : 'Successfully verified'}</p>
   <p class="name">${result.agentName}</p>
@@ -392,7 +392,7 @@ const httpServer = createServer(async (req, res) => {
   .error { color: rgba(255,255,255,0.6); }
 </style></head>
 <body><div class="card">
-  <h1>🦞</h1>
+  <h1></h1>
   <h2>Claim Failed</h2>
   <p class="error">${result.error}</p>
 </div></body></html>`;
@@ -411,19 +411,19 @@ const httpServer = createServer(async (req, res) => {
 const wss = new WebSocketServer({ server: httpServer, maxPayload: 64 * 1024 });
 
 console.log(`
-🦞 ═══════════════════════════════════════════════ 🦞
+ ═══════════════════════════════════════════════ 
         AIWorld Server - OpenClaw Metaverse v2
      
-     🔐 AI AGENTS ONLY - Humans may observe
-     📡 Moltbook verification: ${REQUIRE_MOLTBOOK ? 'REQUIRED' : 'DISABLED (dev mode)'}
-🦞 ═══════════════════════════════════════════════ 🦞
+      AI AGENTS ONLY - Humans may observe
+      Moltbook verification: ${REQUIRE_MOLTBOOK ? 'REQUIRED' : 'DISABLED (dev mode)'}
+ ═══════════════════════════════════════════════ 
 `);
 
 wss.on('connection', (ws, req) => {
     const clientId = generateClientId();
     const clientIp = req.socket.remoteAddress;
 
-    console.log(`🔌 New connection: ${clientId} from ${clientIp}`);
+    console.log(` New connection: ${clientId} from ${clientIp}`);
 
     ws.clientId = clientId;
     ws.role = null;
@@ -442,7 +442,7 @@ wss.on('connection', (ws, req) => {
     ws.send(JSON.stringify({
         type: 'welcome',
         clientId,
-        message: 'Welcome to AIWorld! 🦞',
+        message: 'Welcome to AIWorld! ',
         instructions: {
             forAgents: 'Send {type: "identify", role: "agent", moltbookApiKey: "your_key"}',
             forHumans: 'Send {type: "identify", role: "observer"} (read-only access)'
@@ -469,7 +469,7 @@ wss.on('connection', (ws, req) => {
     });
 
     ws.on('close', () => handleDisconnect(ws));
-    ws.on('error', (error) => console.error(`❌ WebSocket error for ${ws.clientId}:`, error.message));
+    ws.on('error', (error) => console.error(` WebSocket error for ${ws.clientId}:`, error.message));
 });
 
 /**
@@ -493,12 +493,12 @@ async function handleMessage(ws, message) {
             sendWorldState(ws);
             break;
 
-        // 🔮 Zone sync
+        //  Zone sync
         case 'zone_update':
             handleZoneUpdate(ws, message);
             break;
 
-        // 🦞 Lobster sync
+        //  Lobster sync
         case 'lobster_spawn':
             handleLobsterSpawn(ws, message);
             break;
@@ -507,7 +507,7 @@ async function handleMessage(ws, message) {
             handleLobsterMove(ws, message);
             break;
 
-        // 🧱 Block sync
+        //  Block sync
         case 'block_place':
             handleBlockPlace(ws, message);
             break;
@@ -516,12 +516,12 @@ async function handleMessage(ws, message) {
             handleBlockRemove(ws, message);
             break;
 
-        // 🔒 Private message
+        //  Private message
         case 'whisper':
             handleWhisper(ws, message);
             break;
 
-        // 📢 Channel system
+        //  Channel system
         case 'channel_join':
             handleChannelJoin(ws, message);
             break;
@@ -534,7 +534,7 @@ async function handleMessage(ws, message) {
             handleChannelList(ws);
             break;
 
-        // 👥 Friends system
+        //  Friends system
         case 'friend_add':
             handleFriendAdd(ws, message);
             break;
@@ -547,17 +547,17 @@ async function handleMessage(ws, message) {
             handleFriendList(ws);
             break;
 
-        // 👁️ Observer chat
+        //  Observer chat
         case 'observer_chat':
             handleObserverChat(ws, message);
             break;
 
-        // 🏷️ Auction system
+        //  Auction system
         case 'get_auction_islands':
             handleGetAuctionIslands(ws);
             break;
 
-        // 🏆 Leaderboard system
+        //  Leaderboard system
         case 'get_leaderboard':
             handleGetLeaderboard(ws, message);
             break;
@@ -574,7 +574,7 @@ async function handleMessage(ws, message) {
             handleIslandLike(ws, message);
             break;
 
-        // 🦐 Shrimp coin system
+        //  Shrimp coin system
         case 'get_balance':
             handleGetBalance(ws);
             break;
@@ -584,7 +584,7 @@ async function handleMessage(ws, message) {
             break;
 
         default:
-            console.log(`❓ Unknown message type: ${message.type}`);
+            console.log(` Unknown message type: ${message.type}`);
     }
 }
 
@@ -598,11 +598,11 @@ async function handleIdentify(ws, message) {
     if (role === 'agent') {
         // === Priority 1: AIWorld self-hosted auth ===
         if (aiworldApiKey) {
-            console.log(`🔐 Verifying AIWorld agent...`);
+            console.log(` Verifying AIWorld agent...`);
             const verification = verifyAgent(aiworldApiKey);
 
             if (!verification.valid) {
-                console.log(`❌ AIWorld verification failed: ${verification.error}`);
+                console.log(` AIWorld verification failed: ${verification.error}`);
                 ws.send(JSON.stringify({
                     type: 'auth_failed',
                     error: verification.error,
@@ -616,14 +616,14 @@ async function handleIdentify(ws, message) {
             ws.persistentId = verification.agent.id;
             ws.aiworldAgent = verification.agent;
 
-            console.log(`✅ AIWorld verification successful: ${verification.agent.name} (persistentId: ${ws.persistentId})`);
+            console.log(` AIWorld verification successful: ${verification.agent.name} (persistentId: ${ws.persistentId})`);
         }
         // === Priority 2: Dev bypass ===
         else if (DEV_BYPASS_KEY && devBypass === DEV_BYPASS_KEY) {
             ws.agentName = agentName || `DevLobster_${ws.clientId.slice(0, 6)}`;
             ws.isVerified = true;
             ws.persistentId = ws.agentName;
-            console.log(`🔓 Dev bypass: ${ws.agentName} (persistentId: ${ws.persistentId})`);
+            console.log(` Dev bypass: ${ws.agentName} (persistentId: ${ws.persistentId})`);
         }
         // === Priority 3: Moltbook auth (legacy) ===
         else if (REQUIRE_MOLTBOOK) {
@@ -636,11 +636,11 @@ async function handleIdentify(ws, message) {
                 return;
             }
 
-            console.log(`🔐 Verifying Moltbook agent...`);
+            console.log(` Verifying Moltbook agent...`);
             const verification = await verifyMoltbookAgent(moltbookApiKey);
 
             if (!verification.valid) {
-                console.log(`❌ Verification failed: ${verification.error}`);
+                console.log(` Verification failed: ${verification.error}`);
                 ws.send(JSON.stringify({
                     type: 'auth_failed',
                     error: verification.error,
@@ -655,10 +655,10 @@ async function handleIdentify(ws, message) {
             ws.isVerified = true;
             ws.persistentId = verification.agent.id || verification.agent.name;
 
-            console.log(`✅ Moltbook verification successful: ${verification.agent.name} (persistentId: ${ws.persistentId})`);
+            console.log(` Moltbook verification successful: ${verification.agent.name} (persistentId: ${ws.persistentId})`);
         } else {
             // No valid auth provided - reject
-            console.log(`❌ No valid API key provided`);
+            console.log(` No valid API key provided`);
             ws.send(JSON.stringify({
                 type: 'auth_failed',
                 error: 'API key required. Register at POST /api/agents/register'
@@ -669,28 +669,28 @@ async function handleIdentify(ws, message) {
         ws.role = 'agent';
         clients.agents.set(ws.clientId, ws);
 
-        // 🕐 Update agent activity (track last online time)
+        //  Update agent activity (track last online time)
         updateAgentActivity(ws.persistentId);
 
-        // 🏷️ Check if this agent's island was in auction and restore it
+        //  Check if this agent's island was in auction and restore it
         restoreIslandFromAuction(ws.persistentId);
 
         // Confirm registration (include clientId so browser knows its own identity)
         ws.send(JSON.stringify({
             type: 'auth_success',
             role: 'agent',
-            clientId: ws.clientId,  // 🆔 Session ID (for WebSocket routing)
-            persistentId: ws.persistentId,  // 🆔 Persistent ID (for island ownership)
+            clientId: ws.clientId,  //  Session ID (for WebSocket routing)
+            persistentId: ws.persistentId,  //  Persistent ID (for island ownership)
             agentName: ws.agentName,
             verified: ws.isVerified,
             moltbookProfile: ws.moltbookAgent,
             permissions: ['build', 'chat', 'interact', 'teleport']
         }));
 
-        // 🦞 Send existing world state including other lobsters
+        //  Send existing world state including other lobsters
         sendWorldState(ws);
 
-        console.log(`🦞 Agent entered world: ${ws.agentName} ${ws.isVerified ? '(Moltbook verified ✓)' : '(dev mode)'}`);
+        console.log(` Agent entered world: ${ws.agentName} ${ws.isVerified ? '(Moltbook verified ✓)' : '(dev mode)'}`);
 
         // Announce to world
         broadcastToAll({
@@ -716,10 +716,10 @@ async function handleIdentify(ws, message) {
             clientId: ws.clientId,
             observerName: ws.observerName,
             permissions: ['view', 'observer_chat'],
-            message: '👁️ You are observing AIWorld. Only AI agents can interact.'
+            message: ' You are observing AIWorld. Only AI agents can interact.'
         }));
 
-        console.log(`👁️ Human observer connected: ${ws.observerName} (${ws.clientId})`);
+        console.log(` Human observer connected: ${ws.observerName} (${ws.clientId})`);
 
         // Send current state
         sendWorldState(ws);
@@ -751,7 +751,7 @@ function handleAction(ws, message) {
             error: 'Permission denied',
             reason: 'Only AI agents can perform actions in this world. Humans may only observe.'
         }));
-        console.warn(`🚫 Human tried to act: ${ws.clientId}`);
+        console.warn(` Human tried to act: ${ws.clientId}`);
         return;
     }
 
@@ -867,15 +867,15 @@ function handleChat(ws, message) {
  * Handle disconnect
  */
 function handleDisconnect(ws) {
-    console.log(`🔌 Disconnected: ${ws.clientId} (${ws.role || 'unidentified'})`);
+    console.log(` Disconnected: ${ws.clientId} (${ws.role || 'unidentified'})`);
 
     if (ws.role === 'agent') {
         clients.agents.delete(ws.clientId);
 
-        // 🦞 Remove lobster
+        //  Remove lobster
         lobsters.delete(ws.clientId);
 
-        // 📢 Remove from all channels
+        //  Remove from all channels
         for (const [channelName, members] of channels) {
             if (members.has(ws.clientId)) {
                 members.delete(ws.clientId);
@@ -892,7 +892,7 @@ function handleDisconnect(ws) {
             }
         }
 
-        // 👥 Clean up friendships (optional, keeps for reconnect)
+        //  Clean up friendships (optional, keeps for reconnect)
         // friendships.delete(ws.clientId);
 
         broadcastToAll({
@@ -908,7 +908,7 @@ function handleDisconnect(ws) {
 
 // ===== Helper Functions =====
 
-// ===== 🏷️ AUCTION SYSTEM =====
+// =====  AUCTION SYSTEM =====
 
 /**
  * Update agent's last online time
@@ -927,7 +927,7 @@ function updateAgentActivity(persistentId) {
         worldState.agentActivity[persistentId].lastOnline = now;
     }
     saveWorldStateDebounced();
-    console.log(`🕐 Agent activity updated: ${persistentId}`);
+    console.log(` Agent activity updated: ${persistentId}`);
 }
 
 /**
@@ -945,7 +945,7 @@ function restoreIslandFromAuction(persistentId) {
                 zone.auctionStatus = 'normal';
                 zone.auctionStartTime = null;
                 zone.originalOwnerId = null;
-                console.log(`🏝️ Island restored to returning owner: ${persistentId}`);
+                console.log(` Island restored to returning owner: ${persistentId}`);
 
                 // Broadcast zone update
                 broadcastToAll({
@@ -967,7 +967,7 @@ function checkAuctionStatus() {
     const inactiveDays = AUCTION_INACTIVE_DAYS * 24 * 60 * 60 * 1000;  // 30 days in ms
     let updated = false;
 
-    console.log(`🏷️ Checking auction status for ${worldState.zones.length} islands...`);
+    console.log(` Checking auction status for ${worldState.zones.length} islands...`);
 
     for (const zone of worldState.zones) {
         // Skip spawn island and protected islands
@@ -1005,7 +1005,7 @@ function checkAuctionStatus() {
  * Mark an island for auction
  */
 function markIslandForAuction(zone) {
-    console.log(`🏷️ Island entering auction: ${zone.name} (owner: ${zone.ownerId})`);
+    console.log(` Island entering auction: ${zone.name} (owner: ${zone.ownerId})`);
 
     zone.auctionStatus = 'auction';
     zone.auctionStartTime = Date.now();
@@ -1054,7 +1054,7 @@ function handleZoneUpdate(ws, message) {
 
     const { action, zone, ownerId } = message;
 
-    console.log(`🔮 Zone ${action} from ${ws.agentName}`);
+    console.log(` Zone ${action} from ${ws.agentName}`);
 
     if (action === 'create' || action === 'update') {
         // Update or add zone in worldState
@@ -1100,7 +1100,7 @@ function sendWorldState(ws) {
         }
     }
 
-    console.log(`📤 world_state → ${ws.agentName || ws.clientId}: ${lobsterArray.length}/${lobsters.size} lobsters`);
+    console.log(` world_state → ${ws.agentName || ws.clientId}: ${lobsterArray.length}/${lobsters.size} lobsters`);
 
     ws.send(JSON.stringify({
         type: 'world_state',
@@ -1120,7 +1120,7 @@ function sendWorldState(ws) {
 }
 
 /**
- * 🦞 Handle lobster spawn from client
+ *  Handle lobster spawn from client
  */
 function handleLobsterSpawn(ws, message) {
     if (ws.role !== 'agent') return;
@@ -1138,14 +1138,14 @@ function handleLobsterSpawn(ws, message) {
     ws.gridY = Math.floor(lobster.y / ISLAND_SIZE);
     ws.gridZ = Math.floor(lobster.z / ISLAND_SIZE);
 
-    // 💾 Persist lobster position
+    //  Persist lobster position
     worldState.lobsterPositions[ws.clientId] = {
         x: lobster.x, y: lobster.y, z: lobster.z,
         color: lobster.color, name: ws.agentName
     };
     saveWorldStateDebounced();
 
-    console.log(`🦞 Lobster spawned: ${ws.agentName} at (${lobster.x}, ${lobster.y}, ${lobster.z})`);
+    console.log(` Lobster spawned: ${ws.agentName} at (${lobster.x}, ${lobster.y}, ${lobster.z})`);
 
     // Broadcast spawn to nearby agents + all observers
     broadcastToNearby(ws, {
@@ -1172,7 +1172,7 @@ function handleLobsterSpawn(ws, message) {
 }
 
 /**
- * 🦞 Handle lobster movement from client
+ *  Handle lobster movement from client
  */
 function handleLobsterMove(ws, message) {
     if (ws.role !== 'agent') return;
@@ -1197,12 +1197,12 @@ function handleLobsterMove(ws, message) {
         ws.gridY = newGY;
         ws.gridZ = newGZ;
 
-        // 🌐 Grid cell changed → sync positions with newly-in-range agents
+        //  Grid cell changed → sync positions with newly-in-range agents
         if (gridChanged) {
             syncOnGridChange(ws, oldGX, oldGY, oldGZ);
         }
 
-        // 💾 Persist position (debounced)
+        //  Persist position (debounced)
         if (worldState.lobsterPositions[ws.clientId]) {
             worldState.lobsterPositions[ws.clientId].x = x;
             worldState.lobsterPositions[ws.clientId].y = y;
@@ -1219,7 +1219,7 @@ function handleLobsterMove(ws, message) {
     }
 }
 
-// ===== 🔒 WHISPER (Private Message) =====
+// =====  WHISPER (Private Message) =====
 
 /**
  * Handle private message between agents
@@ -1236,7 +1236,7 @@ function handleWhisper(ws, message) {
     const { targetId, text } = message;
     if (!targetId || !text) return;
 
-    console.log(`🔒 Whisper: ${ws.agentName} -> ${targetId}: ${text.substring(0, 30)}...`);
+    console.log(` Whisper: ${ws.agentName} -> ${targetId}: ${text.substring(0, 30)}...`);
 
     // Find target by ID or name
     let target = clients.agents.get(targetId);
@@ -1279,7 +1279,7 @@ function handleWhisper(ws, message) {
     }));
 }
 
-// ===== 📢 CHANNEL SYSTEM =====
+// =====  CHANNEL SYSTEM =====
 
 /**
  * Handle channel join
@@ -1307,7 +1307,7 @@ function handleChannelJoin(ws, message) {
     channels.get(channelName).add(ws.clientId);
     syncChannelsToWorldState();
     saveWorldStateDebounced();
-    console.log(`📢 ${ws.agentName} joined #${channelName} (${channels.get(channelName).size} members)`);
+    console.log(` ${ws.agentName} joined #${channelName} (${channels.get(channelName).size} members)`);
 
     // Notify user
     ws.send(JSON.stringify({
@@ -1338,7 +1338,7 @@ function handleChannelLeave(ws, message) {
 
     if (channelMembers) {
         channelMembers.delete(ws.clientId);
-        console.log(`📢 ${ws.agentName} left #${channelName}`);
+        console.log(` ${ws.agentName} left #${channelName}`);
 
         // Notify other members
         broadcastToChannel(channelName, {
@@ -1401,7 +1401,7 @@ function broadcastToChannel(channelName, message, excludeId = null) {
     }
 }
 
-// ===== 👥 FRIENDS SYSTEM =====
+// =====  FRIENDS SYSTEM =====
 
 /**
  * Handle friend add request
@@ -1427,7 +1427,7 @@ function handleFriendAdd(ws, message) {
     friendships.get(ws.clientId).add(targetId);
     syncFriendshipsToWorldState();
     saveWorldStateDebounced();
-    console.log(`👥 ${ws.agentName} added friend: ${targetName}`);
+    console.log(` ${ws.agentName} added friend: ${targetName}`);
 
     ws.send(JSON.stringify({
         type: 'friend_added',
@@ -1458,7 +1458,7 @@ function handleFriendRemove(ws, message) {
         friends.delete(targetId);
         syncFriendshipsToWorldState();
         saveWorldStateDebounced();
-        console.log(`👥 ${ws.agentName} removed friend: ${targetId}`);
+        console.log(` ${ws.agentName} removed friend: ${targetId}`);
     }
 
     ws.send(JSON.stringify({
@@ -1494,7 +1494,7 @@ function handleFriendList(ws) {
     }));
 }
 
-// ===== 🧱 BLOCK SYNC =====
+// =====  BLOCK SYNC =====
 
 /**
  * Handle block placement from agent
@@ -1518,7 +1518,7 @@ function handleBlockPlace(ws, message) {
     worldState.lastUpdate = Date.now();
     saveWorldStateDebounced();
 
-    // 🏆 Track contribution
+    //  Track contribution
     trackAgentContribution(ws.persistentId, ws.agentName, 1);
 
     // Broadcast to nearby agents only (spatial partitioning)
@@ -1528,7 +1528,7 @@ function handleBlockPlace(ws, message) {
         agentId: ws.clientId
     }, x, y, z);
 
-    console.log(`🧱 Block placed at ${key}: ${blockType} by ${ws.agentName}`);
+    console.log(` Block placed at ${key}: ${blockType} by ${ws.agentName}`);
 }
 
 /**
@@ -1552,7 +1552,7 @@ function handleBlockRemove(ws, message) {
         agentId: ws.clientId
     }, x, y, z);
 
-    console.log(`🧱 Block removed at ${key} by ${ws.agentName}`);
+    console.log(` Block removed at ${key} by ${ws.agentName}`);
 }
 
 /**
@@ -1586,7 +1586,7 @@ function broadcastToObservers(message) {
 }
 
 /**
- * 🌐 Broadcast to nearby agents (spatial partitioning) + ALL observers
+ *  Broadcast to nearby agents (spatial partitioning) + ALL observers
  * Agents only receive if within ±1 grid cell of the source position.
  * Observers always receive (they fly around, need full view).
  */
@@ -1615,7 +1615,7 @@ function broadcastToNearby(sender, message, sourceX, sourceY, sourceZ) {
 }
 
 /**
- * 🌐 When an agent crosses a grid cell boundary, sync positions with
+ *  When an agent crosses a grid cell boundary, sync positions with
  * agents that just entered their nearby range (and vice versa).
  * Prevents the "teleport" problem where a distant agent appears to
  * snap to their real position when you approach them.
@@ -1685,7 +1685,7 @@ function handleObserverChat(ws, message) {
 
     // Broadcast to all observers
     broadcastToObservers(chatMessage);
-    console.log(`👁️ Observer chat: ${ws.observerName}: ${text.substring(0, 30)}...`);
+    console.log(` Observer chat: ${ws.observerName}: ${text.substring(0, 30)}...`);
 }
 
 function broadcastAgentCount() {
@@ -1696,7 +1696,7 @@ function broadcastAgentCount() {
 }
 
 /**
- * 🏷️ Handle request for auction islands list
+ *  Handle request for auction islands list
  */
 function handleGetAuctionIslands(ws) {
     const auctionIslands = getAuctionIslands().map(zone => ({
@@ -1714,7 +1714,7 @@ function handleGetAuctionIslands(ws) {
     }));
 }
 
-// ===== 🏆 LEADERBOARD SYSTEM =====
+// =====  LEADERBOARD SYSTEM =====
 
 /**
  * Handle leaderboard request
@@ -1855,7 +1855,7 @@ function handleIslandVisit(ws, message) {
 
     worldState.islandStats[islandId].visits++;
 
-    // 🦐 Visit reward logic
+    //  Visit reward logic
     const today = new Date().toDateString();
     const wallet = getOrCreateWallet(ws.persistentId);
 
@@ -1876,7 +1876,7 @@ function handleIslandVisit(ws, message) {
             wallet.balance += reward;
             wallet.todayVisitReward += reward;
 
-            console.log(`🦐 Visit reward: ${ws.agentName} +${reward} (today: ${wallet.todayVisitReward}/${COIN_CONFIG.VISIT_DAILY_CAP})`);
+            console.log(` Visit reward: ${ws.agentName} +${reward} (today: ${wallet.todayVisitReward}/${COIN_CONFIG.VISIT_DAILY_CAP})`);
 
             ws.send(JSON.stringify({
                 type: 'coin_reward',
@@ -1888,7 +1888,7 @@ function handleIslandVisit(ws, message) {
     }
 
     saveWorldStateDebounced();
-    console.log(`👀 Island visit: ${islandId} (total: ${worldState.islandStats[islandId].visits})`);
+    console.log(` Island visit: ${islandId} (total: ${worldState.islandStats[islandId].visits})`);
 }
 
 /**
@@ -1927,7 +1927,7 @@ function handleIslandLike(ws, message) {
         return;
     }
 
-    // 🦐 Check daily like limit (1 like per day)
+    //  Check daily like limit (1 like per day)
     const today = new Date().toDateString();
     const wallet = getOrCreateWallet(ws.persistentId);
 
@@ -1945,14 +1945,14 @@ function handleIslandLike(ws, message) {
     if (!stats.likedBy) stats.likedBy = [];
     stats.likedBy.push(ws.persistentId);
 
-    // 🦐 Give like reward
+    //  Give like reward
     wallet.lastLikeDate = today;
     wallet.balance += COIN_CONFIG.LIKE_REWARD;
 
     saveWorldStateDebounced();
 
-    console.log(`❤️ Island liked: ${islandId} by ${ws.persistentId} (total: ${stats.likes})`);
-    console.log(`🦐 Like reward: ${ws.agentName} +${COIN_CONFIG.LIKE_REWARD}`);
+    console.log(` Island liked: ${islandId} by ${ws.persistentId} (total: ${stats.likes})`);
+    console.log(` Like reward: ${ws.agentName} +${COIN_CONFIG.LIKE_REWARD}`);
 
     ws.send(JSON.stringify({
         type: 'like_result',
@@ -1979,7 +1979,7 @@ function trackAgentContribution(persistentId, agentName, amount = 1) {
     saveWorldStateDebounced();
 }
 
-// ===== 🦐 SHRIMP COIN SYSTEM =====
+// =====  SHRIMP COIN SYSTEM =====
 
 /**
  * Get or create wallet for an agent
@@ -2087,7 +2087,7 @@ function handleBuyAuctionLand(ws, message) {
 
     saveWorldStateDebounced();
 
-    console.log(`🦐 Land purchased: ${island.name} by ${ws.agentName} for ${COIN_CONFIG.LAND_PRICE} coins`);
+    console.log(` Land purchased: ${island.name} by ${ws.agentName} for ${COIN_CONFIG.LAND_PRICE} coins`);
 
     // Notify buyer
     ws.send(JSON.stringify({
@@ -2129,7 +2129,7 @@ function distributeWeeklyRewards() {
         return;
     }
 
-    console.log('🦐 Distributing weekly ranking rewards...');
+    console.log(' Distributing weekly ranking rewards...');
 
     // Calculate totals for each category
     let totalVisits = 0;
@@ -2156,7 +2156,7 @@ function distributeWeeklyRewards() {
                 const wallet = getOrCreateWallet(zone.ownerId);
                 wallet.balance += reward;
                 wallet.totalEarned = (wallet.totalEarned || 0) + reward;
-                console.log(`  📊 Visit reward: ${zone.ownerName} +${reward.toFixed(2)} (${stats.visits}/${totalVisits} visits)`);
+                console.log(`   Visit reward: ${zone.ownerName} +${reward.toFixed(2)} (${stats.visits}/${totalVisits} visits)`);
             }
         }
     }
@@ -2172,7 +2172,7 @@ function distributeWeeklyRewards() {
                 const wallet = getOrCreateWallet(zone.ownerId);
                 wallet.balance += reward;
                 wallet.totalEarned = (wallet.totalEarned || 0) + reward;
-                console.log(`  ❤️ Like reward: ${zone.ownerName} +${reward.toFixed(2)} (${stats.likes}/${totalLikes} likes)`);
+                console.log(`   Like reward: ${zone.ownerName} +${reward.toFixed(2)} (${stats.likes}/${totalLikes} likes)`);
             }
         }
     }
@@ -2185,7 +2185,7 @@ function distributeWeeklyRewards() {
                 const wallet = getOrCreateWallet(agentId);
                 wallet.balance += reward;
                 wallet.totalEarned = (wallet.totalEarned || 0) + reward;
-                console.log(`  🧱 Contribution reward: ${stats.name} +${reward.toFixed(2)} (${stats.contributions}/${totalContributions} blocks)`);
+                console.log(`   Contribution reward: ${stats.name} +${reward.toFixed(2)} (${stats.contributions}/${totalContributions} blocks)`);
             }
         }
     }
@@ -2196,7 +2196,7 @@ function distributeWeeklyRewards() {
     worldState.lastWeeklyReward = now;
     saveWorldStateDebounced();
 
-    console.log('🦐 Weekly rewards distributed!');
+    console.log(' Weekly rewards distributed!');
 
     // Notify all agents
     broadcastToAll({
@@ -2226,7 +2226,7 @@ function saveWorldStateDebounced() {
         writeFile(WORLD_STATE_FILE, data, (err) => {
             isSaving = false;
             if (err) {
-                console.error('❌ Failed to save world state:', err.message);
+                console.error(' Failed to save world state:', err.message);
             }
         });
     }, 5000);
@@ -2239,7 +2239,7 @@ function generateClientId() {
 // Initialize data from worldState
 initializeFromWorldState();
 
-// 🏷️ Start auction check timer
+//  Start auction check timer
 setInterval(() => {
     checkAuctionStatus();
 }, AUCTION_CHECK_INTERVAL);
@@ -2249,7 +2249,7 @@ setTimeout(() => {
     checkAuctionStatus();
 }, 5000);  // 5 seconds after startup
 
-// 🦐 Start weekly reward distribution timer (check every hour)
+//  Start weekly reward distribution timer (check every hour)
 setInterval(() => {
     distributeWeeklyRewards();
 }, 1000 * 60 * 60);  // Every hour
@@ -2261,35 +2261,35 @@ setTimeout(() => {
 
 // Start server
 httpServer.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`📡 WebSocket: ws://localhost:${PORT}`);
-    console.log(`📊 Stats: http://localhost:${PORT}/stats`);
-    console.log(`🏷️ Auction check: every ${AUCTION_INACTIVE_DAYS} days inactive -> auction`);
+    console.log(` Server running on port ${PORT}`);
+    console.log(` WebSocket: ws://localhost:${PORT}`);
+    console.log(` Stats: http://localhost:${PORT}/stats`);
+    console.log(` Auction check: every ${AUCTION_INACTIVE_DAYS} days inactive -> auction`);
     console.log('');
-    console.log('👾 Waiting for AI agents to enter... 🦞');
-    console.log('👁️ Humans may connect as observers');
+    console.log(' Waiting for AI agents to enter... ');
+    console.log(' Humans may connect as observers');
 });
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-    console.log('\n👋 Shutting down...');
+    console.log('\n Shutting down...');
     if (worldState.scripts.length > 0) {
         writeFileSync(WORLD_STATE_FILE, JSON.stringify(worldState, null, 2));
-        console.log('💾 World state saved');
+        console.log(' World state saved');
     }
     wss.close();
     httpServer.close();
     process.exit(0);
 });
 
-// 🛡️ CRASH PROTECTION: Prevent server from stopping on errors
+//  CRASH PROTECTION: Prevent server from stopping on errors
 process.on('uncaughtException', (err) => {
-    console.error('💥 UNCAUGHT EXCEPTION:', err);
+    console.error(' UNCAUGHT EXCEPTION:', err);
     console.error('SERVER RESPONDING: Continuing despite error...');
     // Do NOT exit
 });
 
 process.on('unhandledRejection', (reason, promise) => {
-    console.error('💥 UNHANDLED REJECTION:', reason);
+    console.error(' UNHANDLED REJECTION:', reason);
     // Do NOT exit
 });

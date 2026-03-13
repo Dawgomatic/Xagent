@@ -14,10 +14,10 @@ openclaw-prayer-times
 
 **Description:**
 ```
-🕌 Automated Islamic prayer time reminders for OpenClaw. Never forget about the most important thing in your day - Salat is your first priority. Works in background with 20+ country methods.
+ Automated Islamic prayer time reminders for OpenClaw. Never forget about the most important thing in your day - Salat is your first priority. Works in background with 20+ country methods.
 ```
 
-**Visibility:** ✅ Public
+**Visibility:**  Public
 
 **DO NOT** initialize with README, .gitignore, or license (we already have these)
 
@@ -40,10 +40,10 @@ git push -u origin main
 ## Step 3: Verify
 
 Visit https://github.com/diepox/openclaw-prayer-times and you should see:
-- ✅ Complete README with Quranic verse
-- ✅ All skill files and documentation
-- ✅ MIT License
-- ✅ Scripts and references
+-  Complete README with Quranic verse
+-  All skill files and documentation
+-  MIT License
+-  Scripts and references
 
 ## Alternative: Create via GitHub Web UI
 
@@ -57,12 +57,12 @@ If you prefer to do it all from the web:
 ## What's Already Prepared
 
 The repository is ready with:
-- ✅ README.md with your requested description
-- ✅ All skill files (SKILL.md, scripts, references)
-- ✅ MIT License
-- ✅ .gitignore for clean repo
-- ✅ Initial commit with proper message
-- ✅ Branch: main (not master)
-- ✅ Git configured with lmodir@agentmail.to
+-  README.md with your requested description
+-  All skill files (SKILL.md, scripts, references)
+-  MIT License
+-  .gitignore for clean repo
+-  Initial commit with proper message
+-  Branch: main (not master)
+-  Git configured with lmodir@agentmail.to
 
 Just create the repo on GitHub and push!

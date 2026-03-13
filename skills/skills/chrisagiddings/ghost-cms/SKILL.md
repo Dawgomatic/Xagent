@@ -11,7 +11,7 @@ metadata: {"openclaw":{"disable-model-invocation":true,"capabilities":["content-
 
 Manage Ghost blog content, members, analytics, and newsletters through the Ghost Admin API.
 
-## ⚠️ Security Warning
+##  Security Warning
 
 **Ghost Admin API keys provide FULL access to your Ghost site:**
 
@@ -38,12 +38,12 @@ Ghost Admin API keys have **no scoping options** - they provide full access to e
 
 **Operation Types:**
 
-**Read-Only Operations** (✅ Safe):
+**Read-Only Operations** ( Safe):
 - List posts, pages, tags, members, tiers, newsletters, comments
 - Get analytics and member stats
 - All GET requests
 
-**Destructive Operations** (⚠️ Modify or delete data, may be public):
+**Destructive Operations** ( Modify or delete data, may be public):
 - Create/update/delete posts, pages, tags (POST, PUT, DELETE)
 - Publish/unpublish/schedule posts (**makes content public**)
 - Create/update/delete members, tiers, newsletters
@@ -174,12 +174,12 @@ node scripts/snippet-extractor.js --help
 4. Run extractor → all snippets saved to `snippets/library/`
 
 **Features:**
-- ✅ Extracts all card types (bookmarks, callouts, images, markdown, HTML, etc.)
-- ✅ Preserves exact Lexical structure
-- ✅ Auto-detects credentials from `~/.config/ghost/` or env vars
-- ✅ Supports custom marker formats
-- ✅ Dry-run and validation modes
-- ✅ Verbose output for debugging
+-  Extracts all card types (bookmarks, callouts, images, markdown, HTML, etc.)
+-  Preserves exact Lexical structure
+-  Auto-detects credentials from `~/.config/ghost/` or env vars
+-  Supports custom marker formats
+-  Dry-run and validation modes
+-  Verbose output for debugging
 
 **Example:**
 ```bash
@@ -224,14 +224,14 @@ node theme-manager.js active
 ```
 
 **Features:**
-- ✅ Upload custom themes from ZIP files
-- ✅ Switch between installed themes
-- ✅ Download theme backups
-- ✅ Delete unused themes
-- ✅ Validation and error handling
-- ✅ **Immediate activation** - theme changes are public instantly
+-  Upload custom themes from ZIP files
+-  Switch between installed themes
+-  Download theme backups
+-  Delete unused themes
+-  Validation and error handling
+-  **Immediate activation** - theme changes are public instantly
 
-**⚠️ Important:**
+** Important:**
 - Theme activation is **immediate and public** - site appearance changes instantly
 - Cannot delete the currently active theme (switch first)
 - Themes must be valid Ghost theme ZIP files
@@ -251,7 +251,7 @@ See `references/themes.md` for complete theme management documentation and best 
 
 **Purpose:** Validate Ghost themes before uploading using official gscan validator.
 
-**⚠️ Optional Feature:** Requires `gscan` package. Install with:
+** Optional Feature:** Requires `gscan` package. Install with:
 ```bash
 cd scripts
 npm install gscan
@@ -280,13 +280,13 @@ node theme-validator.js theme.zip --errors-only
 ```
 
 **Features:**
-- ✅ Official Ghost validator (gscan from TryGhost)
-- ✅ Same validation as Ghost Admin
-- ✅ Validates directories or ZIP files
-- ✅ Ghost v5/v6 compatibility checking
-- ✅ Finds deprecated helpers and syntax errors
-- ✅ CI/CD integration (JSON output, exit codes)
-- ✅ Categorized issues (errors, warnings, recommendations)
+-  Official Ghost validator (gscan from TryGhost)
+-  Same validation as Ghost Admin
+-  Validates directories or ZIP files
+-  Ghost v5/v6 compatibility checking
+-  Finds deprecated helpers and syntax errors
+-  CI/CD integration (JSON output, exit codes)
+-  Categorized issues (errors, warnings, recommendations)
 
 **Validation levels:**
 - **Errors** - Must fix before upload (theme will be rejected)
@@ -343,13 +343,13 @@ See **[lexical-cards.md](references/lexical-cards.md)** for:
 - Product cards, headers, call-to-action, paywall
 - Member visibility and content personalization
 
-**⚠️ Ghost Snippets Limitation:**
+** Ghost Snippets Limitation:**
 
 Ghost's native snippet feature (reusable content blocks saved in the editor) **cannot be accessed via the Admin API** with integration tokens (403 Forbidden). This means:
 
-- ❌ Cannot list available snippets
-- ❌ Cannot fetch snippet content
-- ❌ Cannot programmatically use author's existing snippets
+-  Cannot list available snippets
+-  Cannot fetch snippet content
+-  Cannot programmatically use author's existing snippets
 
 **Solution: Automated Snippet Extraction**
 
@@ -378,11 +378,11 @@ node scripts/snippet-extractor.js --help
 ```
 
 **Benefits:**
-- ✅ Migrate all existing Ghost snippets in seconds
-- ✅ Preserves exact Lexical structure (bookmarks, callouts, images, etc.)
-- ✅ Git version control
-- ✅ Use programmatically in automated posts
-- ✅ Works with any card types
+-  Migrate all existing Ghost snippets in seconds
+-  Preserves exact Lexical structure (bookmarks, callouts, images, etc.)
+-  Git version control
+-  Use programmatically in automated posts
+-  Works with any card types
 
 See `snippets/README.md` for complete documentation on extraction workflow and local snippet usage.
 

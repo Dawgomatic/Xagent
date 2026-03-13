@@ -6,7 +6,7 @@ PRISM_URL="${PRISM_URL:-https://strykr-prism.up.railway.app}"
 
 case "$1" in
   bonding)
-    echo "🔥 Current Pump.fun Bonding Tokens"
+    echo " Current Pump.fun Bonding Tokens"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     curl -s "$PRISM_URL/crypto/trending/solana/bonding" | jq -r '
       .tokens[:10][] | 
@@ -15,7 +15,7 @@ case "$1" in
     ;;
     
   graduated)
-    echo "🎓 Recently Graduated Tokens"
+    echo " Recently Graduated Tokens"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     curl -s "$PRISM_URL/crypto/trending/solana/graduated" | jq -r '
       .tokens[:10][] | 
@@ -24,7 +24,7 @@ case "$1" in
     ;;
     
   watch)
-    echo "👀 Watching for new Pump.fun tokens..."
+    echo " Watching for new Pump.fun tokens..."
     echo "Press Ctrl+C to stop"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
@@ -45,7 +45,7 @@ case "$1" in
           MC=$(echo "$DETAILS" | jq -r '.market_cap')
           
           echo ""
-          echo "🚀 NEW TOKEN DETECTED!"
+          echo " NEW TOKEN DETECTED!"
           echo "Symbol: $SYMBOL"
           echo "Contract: $TOKEN"
           echo "Market Cap: \$$MC"

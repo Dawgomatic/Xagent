@@ -1,7 +1,7 @@
 ---
 name: Ansible
 description: Avoid common Ansible mistakes — YAML syntax traps, variable precedence, idempotence failures, and handler gotchas.
-metadata: {"clawdbot":{"emoji":"🔧","requires":{"bins":["ansible"]},"os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ansible"]},"os":["linux","darwin"]}}
 ---
 
 ## YAML Syntax Traps

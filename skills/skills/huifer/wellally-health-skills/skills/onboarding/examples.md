@@ -202,7 +202,7 @@ Quick Start:
 
 Type "/help" anytime to see all commands.
 
-Welcome to WellallyHealth! 🎉
+Welcome to WellallyHealth! 
 ```
 
 ## Example 7: State Persistence

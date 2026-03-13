@@ -2,7 +2,7 @@
 
 KTX/SRT reservation automation skill. It can search for trains, reserve tickets, and watch for available seats automatically.
 
-## ⚠️ Important: Setup
+##  Important: Setup
 
 For easy setup, run the included setup script. This will create the necessary virtual environment and install all dependencies for you.
 
@@ -118,7 +118,7 @@ TELEGRAM_CHAT_ID="YOUR_TELEGRAM_CHAT_ID"
 SLACK_WEBHOOK_URL="YOUR_SLACK_WEBHOOK_URL"
 ```
 
-⚠️ **Warning:** The `.env` file is listed in `.gitignore` and will not be committed to your repository. However, it contains sensitive credentials. **Do not share this file publicly or commit it to version control.**
+ **Warning:** The `.env` file is listed in `.gitignore` and will not be committed to your repository. However, it contains sensitive credentials. **Do not share this file publicly or commit it to version control.**
 
 The scripts will automatically load these variables when run.
 

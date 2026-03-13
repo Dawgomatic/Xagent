@@ -16,11 +16,11 @@ Before engaging, you MUST have:
 
 | Parameter | Required | Example |
 |-----------|----------|---------|
-| Hard limit (floor/ceiling) | ✅ | "Never pay more than €500" / "Never sell below €80" |
-| Target price | ✅ | "Aim for €350" |
-| Walk-away threshold | ✅ | "If they won't go below €450, end it" |
-| Approval threshold | ✅ | "Get my OK before accepting anything" |
-| Category context | ✅ | "This is domain negotiation" / "This is salary" |
+| Hard limit (floor/ceiling) |  | "Never pay more than €500" / "Never sell below €80" |
+| Target price |  | "Aim for €350" |
+| Walk-away threshold |  | "If they won't go below €450, end it" |
+| Approval threshold |  | "Get my OK before accepting anything" |
+| Category context |  | "This is domain negotiation" / "This is salary" |
 
 If any parameter is missing → **ask before proceeding**. Never infer limits.
 

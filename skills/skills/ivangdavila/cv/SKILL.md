@@ -1,7 +1,7 @@
 ---
 name: CV
 description: Create ATS-optimized resumes and CVs with proper structure, metrics, and industry targeting.
-metadata: {"clawdbot":{"emoji":"📄","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## Resume vs CV
@@ -58,14 +58,14 @@ Avoid objective statements ("Seeking a position where I can grow...")—they're 
 **CAR Formula:** Action Verb + Task + Result with Metrics
 
 ```
-❌ Responsible for managing the engineering team
-✅ Led 8-person engineering team, delivering 3 major features 2 weeks ahead of schedule
+ Responsible for managing the engineering team
+ Led 8-person engineering team, delivering 3 major features 2 weeks ahead of schedule
 
-❌ Helped improve sales
-✅ Increased enterprise sales by $2.3M (34% YoY) through automated lead scoring
+ Helped improve sales
+ Increased enterprise sales by $2.3M (34% YoY) through automated lead scoring
 
-❌ Worked on the checkout system
-✅ Reduced checkout abandonment from 68% to 41% by redesigning 3-step flow
+ Worked on the checkout system
+ Reduced checkout abandonment from 68% to 41% by redesigning 3-step flow
 ```
 
 **Action verbs by category:**

@@ -4,7 +4,7 @@ version: 1.0.0
 description: "Autonomous trading bot for Polymarket via prob.trade. Run strategies, manage risk, scan markets. Requires the probtrade skill for API access."
 homepage: https://github.com/vlprosvirkin/openclaw-bot-prob-trade
 user-invocable: true
-metadata: {"openclaw":{"requires":{"bins":["python3"],"skills":["probtrade"]},"emoji":"🤖","install":[{"id":"python3","kind":"brew","formula":"python@3","bins":["python3"],"label":"Install Python 3","os":["darwin","linux"]}]}}
+metadata: {"openclaw":{"requires":{"bins":["python3"],"skills":["probtrade"]},"emoji":"","install":[{"id":"python3","kind":"brew","formula":"python@3","bins":["python3"],"label":"Install Python 3","os":["darwin","linux"]}]}}
 ---
 
 # probtrade-bot — Autonomous Polymarket Trading Bot

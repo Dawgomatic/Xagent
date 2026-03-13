@@ -134,7 +134,7 @@ async function cmdPosts(name, limit = 5) {
     const score = formatNumber(post.score);
     const comments = formatNumber(post.num_comments);
     const title = post.title.length > 60 ? post.title.slice(0, 60) + '...' : post.title;
-    console.log(` [${score}↑ ${comments}💬] ${title}`);
+    console.log(` [${score}↑ ${comments}] ${title}`);
   }
   console.log('');
 }

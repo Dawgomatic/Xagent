@@ -4,7 +4,7 @@
 # Example: ./trends-daily.sh LT
 
 GEO="${1:-US}"
-echo "📈 Google Trends - $GEO - $(date '+%Y-%m-%d')"
+echo " Google Trends - $GEO - $(date '+%Y-%m-%d')"
 echo "=================================="
 curl -s "https://trends.google.com/trending/rss?geo=$GEO" | \
   grep -o '<title>[^<]*</title>' | \

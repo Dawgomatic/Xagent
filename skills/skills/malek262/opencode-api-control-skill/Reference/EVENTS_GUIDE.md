@@ -24,7 +24,7 @@ Press Ctrl+C to stop
 Creating React component...
 Adding TypeScript types...
 ✓ Task completed
-📊 Tokens: 1500, Cost: $0.025
+ Tokens: 1500, Cost: $0.025
 ```
 
 **When it stops**:
@@ -57,7 +57,7 @@ Monitor script:
 
 ### Completion Stats
 ```
-📊 Tokens: 1500, Cost: $0.025
+ Tokens: 1500, Cost: $0.025
 ```
 
 ## Usage Patterns
@@ -144,7 +144,7 @@ done
 
 ## Monitoring Best Practices
 
-### ✅ DO
+###  DO
 
 1. **Use for long tasks**:
 ```bash
@@ -164,7 +164,7 @@ done
    # Continue with other tasks
 ```
 
-### ❌ DON'T
+###  DON'T
 
 1. **Don't monitor simple tasks**:
 ```bash

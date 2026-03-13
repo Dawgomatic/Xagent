@@ -91,7 +91,7 @@ clawhub publish . \
 - **name:** `clawhealth-deployer`
 - **description:** 部署 ClawHealth 并接入 OpenClaw；用户通过 iOS App（SDK）连接数据；不安装 OpenClaw，需用户已有 OpenClaw。
 - **metadata.openclaw.requires.bins:** `docker`, `git`, `make`, `node`
-- **metadata.openclaw.emoji:** ❤️
+- **metadata.openclaw.emoji:** 
 
 ClawHub 会解析 `SKILL.md` 的 frontmatter 做展示和校验。
 

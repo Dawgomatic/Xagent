@@ -1,4 +1,4 @@
-# 🦞 OpenClaw Unreal Skill
+#  OpenClaw Unreal Skill
 
 Unreal Engine 통합을 위한 OpenClaw 스킬. [OpenClaw Unreal Plugin](https://github.com/openclaw/openclaw-unreal-plugin)과 함께 작동합니다.
 

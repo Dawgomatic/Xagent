@@ -537,7 +537,7 @@ async function handleChatSend() {
         imageUrls.push(URL.createObjectURL(f));
       }
     });
-    addChatLine(msg || `📎 ${fileNames.join(', ')}`, 'user-line', imageUrls);
+    addChatLine(msg || ` ${fileNames.join(', ')}`, 'user-line', imageUrls);
   } else {
     addChatLine(msg, 'user-line');
   }
@@ -645,14 +645,14 @@ export function initChat() {
       pendingFiles = [...pendingFiles, ...files];
       updateAttachBtn(pendingFiles.length);
       // 顯示通知
-      addChatLine(`📋 已貼上 ${files.length} 張圖片，輸入訊息後送出`, 'system-line');
+      addChatLine(` 已貼上 ${files.length} 張圖片，輸入訊息後送出`, 'system-line');
     });
   }
 
   // 初始化系統訊息（config 已載入）
   const cfg = getConfig();
   const agentName = cfg?.agent?.name || 'JARVIS';
-  const agentEmoji = cfg?.agent?.emoji || '🤖';
+  const agentEmoji = cfg?.agent?.emoji || '';
 
   // 直接顯示系統訊息，不用打字動畫
   setTimeout(() => {
@@ -727,7 +727,7 @@ export function initChat() {
       }
     } catch {
       addChatLine('BACKEND NOT AVAILABLE — DEMO MODE', 'system-line');
-      addOrbMessage('⚠ DEMO MODE');
+      addOrbMessage(' DEMO MODE');
     }
   }, 3000);
 }

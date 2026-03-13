@@ -81,7 +81,7 @@ fi
     echo "└─────────────────────────────────────────────────────────────────────────────┘"
     echo "$HEALTH" | jq -r '
         .data[] | 
-        "\(.subsystem | ascii_upcase): \(if .status == "ok" then "✅ OK" else "⚠️  \(.status)" end) | Gateways: \(.gw_mac // "N/A") | Clients: \(.num_user // 0)"
+        "\(.subsystem | ascii_upcase): \(if .status == "ok" then " OK" else "  \(.status)" end) | Gateways: \(.gw_mac // "N/A") | Clients: \(.num_user // 0)"
     ' 2>/dev/null | head -10
     echo ""
 
@@ -97,7 +97,7 @@ fi
             ((.name // .hostname // .mac)[:20]),
             ((.model // "N/A")[:10]),
             ((.ip // "N/A")[:15]),
-            (if .state == 1 then "✅" else "❌" end),
+            (if .state == 1 then "" else "" end),
             (((.uptime // 0) / 3600 | floor | tostring + "h")),
             ((.num_sta // 0 | tostring))
         ] | @tsv
@@ -170,7 +170,7 @@ fi
         .data[] | 
         [
             ((.name // "N/A") | tostring | .[:30]),
-            (if .enabled == true then "✅" else "❌" end),
+            (if .enabled == true then "" else "" end),
             ((.security // "open") | tostring | .[:15]),
             ((if .wlan_band then .wlan_band else "both" end) | tostring | .[:10])
         ] | @tsv
@@ -194,7 +194,7 @@ fi
             .data[] | 
             [
                 ((.name // "N/A") | tostring | .[:25]),
-                (if .enabled == true then "✅" else "❌" end),
+                (if .enabled == true then "" else "" end),
                 ((.proto // "tcp") | tostring | .[:8]),
                 ((.fwd // "N/A") | tostring | .[:15]),
                 ((.fwd_port // "-") | tostring | .[:8]),
@@ -220,7 +220,7 @@ fi
             .data | sort_by(.rule_index) | .[] | 
             [
                 ((.name // "N/A") | tostring | .[:25]),
-                (if .enabled == true then "✅" else "❌" end),
+                (if .enabled == true then "" else "" end),
                 ((.action // "N/A") | tostring | .[:10]),
                 ((.protocol // "all") | tostring | .[:10]),
                 ((.ruleset // "N/A") | tostring | .[:10]),
@@ -263,7 +263,7 @@ fi
     echo "└─────────────────────────────────────────────────────────────────────────────┘"
     ALARM_COUNT=$(echo "$ALARMS" | jq '.data | length' 2>/dev/null || echo 0)
     if [ "$ALARM_COUNT" -eq 0 ]; then
-        echo "  ✅ No recent alarms"
+        echo "   No recent alarms"
     else
         printf "%-20s %-50s\n" "TIME" "MESSAGE"
         printf "%-20s %-50s\n" "----" "-------"

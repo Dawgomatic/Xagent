@@ -1,4 +1,4 @@
-# 🧠 Self-Evolving Agent Dashboard
+#  Self-Evolving Agent Dashboard
 
 A local web dashboard for visualizing self-evolving-agent v4.1 data.  
 **Zero dependencies. No npm. No build step. Pure HTML + vanilla JS.**
@@ -23,11 +23,11 @@ bash dashboard/serve.sh 9000
 
 | Panel | Data source |
 |---|---|
-| **📈 Quality Trend** | `quality_score` from each proposal JSON over time |
-| **🏥 AGENTS.md Health** | `benchmarks.agents_md_score` — structure score ring + history sparkline |
-| **🔍 Pattern Frequency** | `pattern_frequencies` — stacked bar chart by week |
-| **📋 Proposal History** | All proposals (applied/rejected/pending), severity, effect, period |
-| **⚡ Active Rules Effectiveness** | Measured rules (green=effective, blue=neutral, red=regressed) |
+| ** Quality Trend** | `quality_score` from each proposal JSON over time |
+| ** AGENTS.md Health** | `benchmarks.agents_md_score` — structure score ring + history sparkline |
+| ** Pattern Frequency** | `pattern_frequencies` — stacked bar chart by week |
+| ** Proposal History** | All proposals (applied/rejected/pending), severity, effect, period |
+| ** Active Rules Effectiveness** | Measured rules (green=effective, blue=neutral, red=regressed) |
 
 ---
 

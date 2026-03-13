@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🤖",
+        "emoji": "",
         "requires": { "bins": ["python3"] },
         "min_python_version": "3.6"
       }
@@ -580,13 +580,13 @@ BACKTEST_CONFIG = {
 ### Backtest Results Example
 
 ```
-📊 Backtest Results for BTC Grid Trading Strategy
+ Backtest Results for BTC Grid Trading Strategy
 ================================================
-📅 Period: 2025-01-01 to 2025-03-01 (60 days)
-💰 Initial Balance: $10,000.00
-💰 Final Balance: $11,234.56
+ Period: 2025-01-01 to 2025-03-01 (60 days)
+ Initial Balance: $10,000.00
+ Final Balance: $11,234.56
 
-📈 Performance Metrics:
+ Performance Metrics:
   • Total Return: +12.35%
   • Max Drawdown: -5.67%
   • Sharpe Ratio: 1.45
@@ -594,7 +594,7 @@ BACKTEST_CONFIG = {
   • Total Trades: 120
   • Avg Trade Duration: 12.5 hours
 
-📋 Trade Analysis:
+ Trade Analysis:
   • Winning Trades: 70
   • Losing Trades: 50
   • Largest Win: +$245.67
@@ -602,7 +602,7 @@ BACKTEST_CONFIG = {
   • Avg Win: +$89.12
   • Avg Loss: -$56.78
 
-⚠️ Risk Assessment:
+ Risk Assessment:
   • Risk-Adjusted Return: Good
   • Drawdown Control: Acceptable
   • Consistency: Moderate

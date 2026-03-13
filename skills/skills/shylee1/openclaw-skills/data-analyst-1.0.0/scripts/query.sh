@@ -101,7 +101,7 @@ done
 # Get query from file or argument
 if [ -n "$FILE" ]; then
     if [ ! -f "$FILE" ]; then
-        echo "❌ File not found: $FILE"
+        echo " File not found: $FILE"
         exit 1
     fi
     QUERY=$(cat "$FILE")
@@ -113,16 +113,16 @@ if [ -z "$QUERY" ]; then
 fi
 
 if [ -z "$DB_CONNECTION" ]; then
-    echo "❌ No database connection configured"
+    echo " No database connection configured"
     echo ""
     echo "Set DB_CONNECTION environment variable or use --db flag"
     echo "Example: DB_CONNECTION='mydb.sqlite' $0 'SELECT * FROM users'"
     exit 1
 fi
 
-echo "🔍 Running query..."
+echo " Running query..."
 run_query "$QUERY" "$OUTPUT"
 
 if [ -n "$OUTPUT" ]; then
-    echo "✅ Results saved to: $OUTPUT"
+    echo " Results saved to: $OUTPUT"
 fi

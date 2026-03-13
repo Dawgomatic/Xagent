@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🧠 Agent Memory Service - Local Setup"
+echo " Agent Memory Service - Local Setup"
 echo "======================================"
 
 # Check dependencies
@@ -42,7 +42,7 @@ AGENT_MEMORY_URL=http://127.0.0.1:8742
 EOF
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "To start the service:"
 echo "  ~/.agent-memory/start.sh"

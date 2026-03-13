@@ -26,18 +26,18 @@ Miami's financial district and young professional hub. Forest of luxury high-ris
 - International: Heavy Latin American (especially Venezuelan, Colombian, Argentine)
 
 ### Pros
-✅ **Metromover access** — Free transit to downtown, museums
-✅ **Walkable** — Brickell City Centre, Mary Brickell Village, restaurants
-✅ **Safe** — One of Miami's safest areas
-✅ **High-rise amenities** — Pools, gyms, coworking spaces
-✅ **Dining scene** — Komodo, Papi Steak, Novikov, La Mar
+ **Metromover access** — Free transit to downtown, museums
+ **Walkable** — Brickell City Centre, Mary Brickell Village, restaurants
+ **Safe** — One of Miami's safest areas
+ **High-rise amenities** — Pools, gyms, coworking spaces
+ **Dining scene** — Komodo, Papi Steak, Novikov, La Mar
 
 ### Cons
-❌ **No beach** — 15-20 min Uber to South Beach
-❌ **Expensive** — Premium pricing for everything
-❌ **Corporate feel** — Can feel soulless compared to Wynwood
-❌ **Traffic** — Brickell Ave gets congested
-❌ **Dating scene** — Very finance-bro heavy
+ **No beach** — 15-20 min Uber to South Beach
+ **Expensive** — Premium pricing for everything
+ **Corporate feel** — Can feel soulless compared to Wynwood
+ **Traffic** — Brickell Ave gets congested
+ **Dating scene** — Very finance-bro heavy
 
 ### Best For
 - Finance professionals
@@ -64,16 +64,16 @@ The actual downtown core around Flagler Street, Government Center, and the water
 - **Overtown (adjacent)** — Historic Black neighborhood, gentrifying, caution advised
 
 ### Pros
-✅ Cheaper than Brickell
-✅ Near cultural institutions (PAMM, Frost Science)
-✅ Metromover access
-✅ Brightline station (train to Fort Lauderdale, West Palm)
+ Cheaper than Brickell
+ Near cultural institutions (PAMM, Frost Science)
+ Metromover access
+ Brightline station (train to Fort Lauderdale, West Palm)
 
 ### Cons
-❌ Empty at night — most people commute out
-❌ Homeless population around Government Center
-❌ Few residential options
-❌ Sketchy pockets nearby
+ Empty at night — most people commute out
+ Homeless population around Government Center
+ Few residential options
+ Sketchy pockets nearby
 
 ### Best For
 - Budget-conscious professionals
@@ -100,16 +100,16 @@ Bay-facing high-rises north of downtown, between Brickell and Design District. R
 - More residential feel
 
 ### Pros
-✅ Better value than Brickell
-✅ Margaret Pace Park — bay views, dog friendly
-✅ Growing dining scene
-✅ Close to Wynwood/Design District
+ Better value than Brickell
+ Margaret Pace Park — bay views, dog friendly
+ Growing dining scene
+ Close to Wynwood/Design District
 
 ### Cons
-❌ Still developing — construction noise
-❌ Fewer amenities than Brickell
-❌ Need car for most things
-❌ Some pockets still rough
+ Still developing — construction noise
+ Fewer amenities than Brickell
+ Need car for most things
+ Some pockets still rough
 
 ### Best For
 - People priced out of Brickell

@@ -29,8 +29,8 @@ def format_alert_message(alert: dict) -> str:
         return alert["message"]
     
     # Build message from components
-    emoji_map = {"high": "🔥", "medium": "📌", "low": "📝"}
-    emoji = emoji_map.get(alert.get("priority", "medium"), "📌")
+    emoji_map = {"high": "", "medium": "", "low": ""}
+    emoji = emoji_map.get(alert.get("priority", "medium"), "")
     
     lines = [
         f"{emoji} **{alert.get('topic_name', 'Alert')}**",
@@ -47,14 +47,14 @@ def format_alert_message(alert: dict) -> str:
         lines.append("")
     
     if alert.get("context"):
-        lines.append(f"💡 _Context: {alert['context']}_")
+        lines.append(f" _Context: {alert['context']}_")
         lines.append("")
     
     if alert.get("url"):
-        lines.append(f"🔗 {alert['url']}")
+        lines.append(f" {alert['url']}")
         lines.append("")
     
-    lines.append(f"📊 _Score: {alert.get('score', 0):.2f} | {alert.get('reason', '')}_")
+    lines.append(f" _Score: {alert.get('score', 0):.2f} | {alert.get('reason', '')}_")
     
     return "\n".join(lines)
 
@@ -64,10 +64,10 @@ def show_pending_alerts():
     alerts = get_pending_alerts()
     
     if not alerts:
-        print("✅ No pending alerts")
+        print(" No pending alerts")
         return
     
-    print(f"\n📬 Pending Alerts: {len(alerts)}\n")
+    print(f"\n Pending Alerts: {len(alerts)}\n")
     
     for i, alert in enumerate(alerts, 1):
         print(f"{'='*60}")
@@ -127,14 +127,14 @@ def mark_all_sent(alert_ids: list = None):
         # Mark specific alerts
         for aid in alert_ids:
             mark_alert_sent(aid)
-            print(f"✅ Marked as sent: {aid}")
+            print(f" Marked as sent: {aid}")
     else:
         # Mark all pending
         for alert in alerts:
             mark_alert_sent(alert.get("id"))
-            print(f"✅ Marked as sent: {alert.get('id')}")
+            print(f" Marked as sent: {alert.get('id')}")
     
-    print(f"\n✅ Marked {len(alert_ids) if alert_ids else len(alerts)} alert(s) as sent")
+    print(f"\n Marked {len(alert_ids) if alert_ids else len(alerts)} alert(s) as sent")
 
 
 def main():
@@ -149,7 +149,7 @@ def main():
     
     if args.clear_old:
         clear_old_alerts(args.clear_old)
-        print(f"✅ Cleared alerts older than {args.clear_old} hours")
+        print(f" Cleared alerts older than {args.clear_old} hours")
         return
     
     if args.mark_sent is not None:

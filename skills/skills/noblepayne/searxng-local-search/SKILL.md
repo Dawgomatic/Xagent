@@ -6,7 +6,7 @@ metadata:
     requires:
       bins: ["bb"]
       env: ["SEARXNG_URL"]
-    emoji: "🔍"
+    emoji: ""
     nix:
       plugin: "babashka"
 ---

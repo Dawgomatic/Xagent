@@ -26,7 +26,7 @@ tags:
   - language-services
   - content-localization
   - translation-management
-metadata: {"openclaw":{"emoji":"🌐","requires":{"env":["STRAKER_VERIFY_API_KEY"]},"primaryEnv":"STRAKER_VERIFY_API_KEY","category":"translation"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["STRAKER_VERIFY_API_KEY"]},"primaryEnv":"STRAKER_VERIFY_API_KEY","category":"translation"}}
 ---
 
 # Straker Verify - AI Translation & Human Review

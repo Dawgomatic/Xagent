@@ -71,7 +71,7 @@ TITLE=$(echo "$DESCRIPTION" | cut -c1-80)
 # Build recommendation
 RECOMMENDATION="BLOCK: External content from source $SOURCE_URL containing prompt injection patterns"
 
-echo "🔒 Reporting to MoltThreats..."
+echo " Reporting to MoltThreats..."
 echo ""
 echo "Title: $TITLE"
 echo "Category: prompt"
@@ -91,4 +91,4 @@ python3 "$MOLTHREATS_SCRIPT" report \
   "$SOURCE_URL"
 
 echo ""
-echo "✅ Report submitted to MoltThreats"
+echo " Report submitted to MoltThreats"

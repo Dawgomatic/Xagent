@@ -270,7 +270,7 @@ class HieroglyphicEncoder:
         # Remove error correction symbols and verify
         clean_symbols, had_errors = self.verify_error_protection(symbols)
         if had_errors:
-            print("⚠️  Warning: Data corruption detected", file=sys.stderr)
+            print("  Warning: Data corruption detected", file=sys.stderr)
         # Filter out only data symbols
         data_symbols = ''.join(s for s in clean_symbols if s in self.symbol_to_bits)
         # Convert symbols to binary
@@ -302,7 +302,7 @@ class HieroglyphicEncoder:
     # MAIN ENCODING PIPELINE
     def encode_message(self, message: str, key_source: str, key_type: str, file_type: str = None, verbose: bool = False) -> Dict:
         """Complete encoding pipeline with detailed breakdown"""
-        print(f"🔐 ENCODING PROCESS", file=sys.stderr)
+        print(f" ENCODING PROCESS", file=sys.stderr)
         print(f"   Key type: {key_type}", file=sys.stderr)
         print(f"   Key source: {key_source if key_type == 'password' else '(system-based)'}", file=sys.stderr)
         print(f"   Original message: {message[:50]}{'...' if len(message) > 50 else ''}", file=sys.stderr)
@@ -351,7 +351,7 @@ class HieroglyphicEncoder:
     # MAIN DECODING PIPELINE
     def decode_message(self, hieroglyphics: str, key_source: str, key_type: str, verbose: bool = False) -> Dict:
         """Complete decoding pipeline with detailed breakdown"""
-        print(f"🔓 DECODING PROCESS", file=sys.stderr)
+        print(f" DECODING PROCESS", file=sys.stderr)
         print(f"   Key type: {key_type}", file=sys.stderr)
         print(f"   Key source: {key_source if key_type == 'password' else '(system-based)'}", file=sys.stderr)
         print(f"   Hieroglyphic length: {len(hieroglyphics)} symbols", file=sys.stderr)

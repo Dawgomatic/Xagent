@@ -167,7 +167,7 @@ Wrangler supports both TOML and JSON/JSONC config formats:
 - `wrangler.toml` — traditional format
 - `wrangler.json` or `wrangler.jsonc` — newer, with JSON schema support
 
-**⚠️ Important:** If both exist, JSON takes precedence. Pick one format to avoid confusion where edits to TOML are ignored.
+** Important:** If both exist, JSON takes precedence. Pick one format to avoid confusion where edits to TOML are ignored.
 
 ### JSONC format (with schema autocomplete)
 

@@ -779,7 +779,7 @@ class ProblemDiagnoser:
         
         # 系统信息
         report_lines.append("")
-        report_lines.append("📊 系统信息:")
+        report_lines.append(" 系统信息:")
         report_lines.append(f"  平台: {result.system_info['platform']}")
         report_lines.append(f"  Python: {result.system_info['python_version']}")
         report_lines.append(f"  主机名: {result.system_info['hostname']}")
@@ -789,14 +789,14 @@ class ProblemDiagnoser:
         
         # OpenClaw信息
         report_lines.append("")
-        report_lines.append("🦞 OpenClaw信息:")
+        report_lines.append(" OpenClaw信息:")
         report_lines.append(f"  版本: {result.openclaw_info['openclaw_version']}")
         report_lines.append(f"  配置文件: {len(result.openclaw_info['config_files'])} 个")
         report_lines.append(f"  已安装技能: {result.openclaw_info['skills_installed']} 个")
         
         # 诊断统计
         report_lines.append("")
-        report_lines.append("📈 诊断统计:")
+        report_lines.append(" 诊断统计:")
         report_lines.append(f"  检查数量: {result.checks_performed}")
         report_lines.append(f"  发现问题: {len(result.issues)}")
         report_lines.append(f"  诊断耗时: {result.diagnosis_duration:.2f}秒")
@@ -805,9 +805,9 @@ class ProblemDiagnoser:
         if stats['total_issues'] > 0:
             report_lines.append("")
             if has_color:
-                report_lines.append(f"{Fore.YELLOW}⚠️  问题统计:{Style.RESET_ALL}")
+                report_lines.append(f"{Fore.YELLOW}  问题统计:{Style.RESET_ALL}")
             else:
-                report_lines.append("⚠️  问题统计:")
+                report_lines.append("  问题统计:")
             
             report_lines.append("  严重性分布:")
             for level, count in stats['by_severity'].items():
@@ -825,9 +825,9 @@ class ProblemDiagnoser:
         if result.issues:
             report_lines.append("")
             if has_color:
-                report_lines.append(f"{Fore.RED}🔍 问题详情:{Style.RESET_ALL}")
+                report_lines.append(f"{Fore.RED} 问题详情:{Style.RESET_ALL}")
             else:
-                report_lines.append("🔍 问题详情:")
+                report_lines.append(" 问题详情:")
             
             # 按严重性排序
             severity_order = {
@@ -863,9 +863,9 @@ class ProblemDiagnoser:
         else:
             report_lines.append("")
             if has_color:
-                report_lines.append(f"{Fore.GREEN}✅ 未发现任何问题！{Style.RESET_ALL}")
+                report_lines.append(f"{Fore.GREEN} 未发现任何问题！{Style.RESET_ALL}")
             else:
-                report_lines.append("✅ 未发现任何问题！")
+                report_lines.append(" 未发现任何问题！")
         
         if has_color:
             report_lines.append(f"{Fore.CYAN}{'='*60}{Style.RESET_ALL}")
@@ -970,7 +970,7 @@ class ProblemDiagnoser:
         else:
             report_lines.append("## 诊断结果")
             report_lines.append("")
-            report_lines.append("✅ **未发现任何问题！**")
+            report_lines.append(" **未发现任何问题！**")
             report_lines.append("")
             report_lines.append("您的OpenClaw系统运行良好。")
         

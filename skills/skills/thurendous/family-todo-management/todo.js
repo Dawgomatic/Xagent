@@ -5,7 +5,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 // --- Configuration ---
-// ⚠️ PLEASE EDIT THESE IDs BEFORE USE ⚠️
+//  PLEASE EDIT THESE IDs BEFORE USE 
 const USERS = {
   'Mark': process.env.TODO_ADMIN_ID || 'REPLACE_WITH_YOUR_ID', 
   'Jane': process.env.TODO_PARTNER_ID || 'REPLACE_WITH_PARTNER_ID',
@@ -73,17 +73,17 @@ function listTodos(owner, showAll) {
   });
 
   if (tasks.length === 0) {
-    console.log("📭 No pending tasks.");
+    console.log(" No pending tasks.");
     return;
   }
 
-  console.log(`📋 **Todo List** (${owner ? owner : 'All'}):\n`);
+  console.log(` **Todo List** (${owner ? owner : 'All'}):\n`);
   tasks.forEach(t => {
     let line = `- [${t.id}] **${t.content}**`;
-    if (t.owner === 'Family') line += ` (👨‍👩‍👧‍👦 Family)`;
-    else if (t.owner && t.owner !== owner && showAll) line += ` (👤 ${t.owner})`;
+    if (t.owner === 'Family') line += ` ( Family)`;
+    else if (t.owner && t.owner !== owner && showAll) line += ` ( ${t.owner})`;
     
-    if (t.dueDate) line += ` ⏰ ${formatDate(t.dueDate)}`;
+    if (t.dueDate) line += `  ${formatDate(t.dueDate)}`;
     console.log(line);
   });
 }
@@ -102,7 +102,7 @@ function addTodo(content, owner, dueDate) {
   data.tasks.push(newTask);
   saveTodos(data);
   
-  console.log(`✅ Task Added [${newTask.id}]: "${content}" (${newTask.owner})`);
+  console.log(` Task Added [${newTask.id}]: "${content}" (${newTask.owner})`);
 }
 
 function completeTodo(idOrContent) {
@@ -110,13 +110,13 @@ function completeTodo(idOrContent) {
   const taskIndex = data.tasks.findIndex(t => t.id === idOrContent || t.content.includes(idOrContent));
   
   if (taskIndex === -1) {
-    console.log(`❌ Task not found: "${idOrContent}"`);
+    console.log(` Task not found: "${idOrContent}"`);
     return;
   }
   
   const task = data.tasks[taskIndex];
   if (task.status === 'done') {
-      console.log(`ℹ️ Task already completed: "${task.content}"`);
+      console.log(` Task already completed: "${task.content}"`);
       return;
   }
 
@@ -124,7 +124,7 @@ function completeTodo(idOrContent) {
   task.completedAt = new Date().toISOString();
   saveTodos(data);
   
-  console.log(`🎉 Task Completed: "${task.content}"`);
+  console.log(` Task Completed: "${task.content}"`);
 }
 
 function deleteTodo(id) {
@@ -133,21 +133,21 @@ function deleteTodo(id) {
     data.tasks = data.tasks.filter(t => t.id !== id);
     
     if (data.tasks.length === initialLength) {
-        console.log(`❌ Task ID ${id} not found.`);
+        console.log(` Task ID ${id} not found.`);
     } else {
         saveTodos(data);
-        console.log(`🗑️ Task [${id}] deleted.`);
+        console.log(` Task [${id}] deleted.`);
     }
 }
 
 
 function dailyBrief() {
-    console.log("☀️ Good Morning! Here are today's tasks:");
+    console.log(" Good Morning! Here are today's tasks:");
     listTodos(null, true); 
 }
 
 function eveningReview() {
-    console.log("🌙 Good Evening! Review of pending tasks:");
+    console.log(" Good Evening! Review of pending tasks:");
     listTodos(null, true);
 }
 

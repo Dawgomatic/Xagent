@@ -134,7 +134,7 @@ Each market accepts a specific collateral — check `market["tokenId"]` to know 
 - **Isolated cash issue**: Deposits can land in isolated margin even when requesting cross. Sweep with `cash_transfer`.
 - **Min cross cash**: Some actions require minimum cross cash (`MMInsufficientMinCash` error).
 - **Calldata sequencing**: Multi-tx payloads must execute sequentially (approve → deposit → place). Never parallelize.
-- **Tick math**: Use adapter helpers for tick↔rate conversions. Don't compute manually.
+- **Tick math**: Use adapter helpers for tickrate conversions. Don't compute manually.
 - **Chain**: Boros operates on Arbitrum (42161). Ensure your wallet has Arbitrum ETH for gas.
 - **HYPE acquisition paths**: Either BRAP→HyperEVM HYPE→OFT bridge, or Hyperliquid spot→HyperEVM→OFT bridge. OFT bridge requires `msg.value = amount + fee`, amounts rounded to `decimalConversionRate()`.
 - **Markets endpoint**: `marketId` queries return lists. Underlying symbol lives at `metadata.assetSymbol`.

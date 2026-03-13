@@ -170,8 +170,8 @@ export default function StickerPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-6">
-        <div className="text-7xl animate-bounce mb-6">🐴</div>
-        <p className="text-white text-xl font-medium">✨ 动态表情包生成中...</p>
+        <div className="text-7xl animate-bounce mb-6"></div>
+        <p className="text-white text-xl font-medium"> 动态表情包生成中...</p>
         <p className="text-white/60 text-sm mt-2">合成 GIF 动画，稍等几秒</p>
       </div>
     )
@@ -186,7 +186,7 @@ export default function StickerPage() {
       <div className="min-h-screen px-4 py-8">
         <div className="max-w-md mx-auto">
           <div className="text-center mb-6">
-            <div className="text-6xl mb-2">🐴🔥</div>
+            <div className="text-6xl mb-2"></div>
             <h1 className="text-white text-3xl font-bold">马年表情包工厂</h1>
             <p className="text-white/70 text-sm mt-1">输入祝福语 → 秒出动态 GIF 表情包</p>
           </div>
@@ -209,12 +209,12 @@ export default function StickerPage() {
             disabled={!text.trim() || !gifReady}
             className="w-full bg-yellow-500 hover:bg-yellow-400 disabled:opacity-50 text-red-900 font-bold text-lg px-6 py-4 rounded-2xl shadow-lg transition active:scale-95 mb-6"
           >
-            {gifReady ? '✨ 生成动态表情包' : '⏳ 加载中...'}
+            {gifReady ? ' 生成动态表情包' : ' 加载中...'}
           </button>
 
           {results.length > 0 && (
             <div>
-              <h2 className="text-yellow-300 font-bold mb-3">📦 我的表情包</h2>
+              <h2 className="text-yellow-300 font-bold mb-3"> 我的表情包</h2>
               <div className="grid grid-cols-2 gap-3">
                 {results.map((r, i) => (
                   <div key={i} className="bg-white/10 rounded-xl p-2 text-center">
@@ -223,12 +223,12 @@ export default function StickerPage() {
                       onClick={() => saveSticker(r.image, r.text)}
                       className="text-xs bg-green-500 hover:bg-green-400 text-white px-3 py-1 rounded-full"
                     >
-                      💾 下载GIF
+                       下载GIF
                     </button>
                   </div>
                 ))}
               </div>
-              <p className="text-white/50 text-xs text-center mt-3">💡 保存后添加到微信自定义表情即可使用</p>
+              <p className="text-white/50 text-xs text-center mt-3"> 保存后添加到微信自定义表情即可使用</p>
             </div>
           )}
 

@@ -129,7 +129,7 @@ function resolveFrenAddress(nameOrAddress: string): `0x${string}` {
  * Check a Fren's token stats
  */
 async function checkFren(nameOrAddress: string) {
-  console.log('\n🎭 CHECKING FREN\n');
+  console.log('\n CHECKING FREN\n');
   
   const { publicClient } = getClients();
   const address = resolveFrenAddress(nameOrAddress);
@@ -144,18 +144,18 @@ async function checkFren(nameOrAddress: string) {
       publicClient.readContract({ address, abi: ERC20_ABI, functionName: 'decimals' }),
     ]);
     
-    console.log('\n📊 TOKEN INFO');
+    console.log('\n TOKEN INFO');
     console.log('━'.repeat(40));
     console.log(`Name: ${name}`);
     console.log(`Symbol: ${symbol}`);
     console.log(`Total Supply: ${formatUnits(totalSupply, decimals)}`);
     console.log(`Decimals: ${decimals}`);
-    console.log(`\n🔗 LINKS`);
+    console.log(`\n LINKS`);
     console.log(`Platform: ${CONFIG.PLATFORM_URL}/fren/${address}`);
     console.log(`DexScreener: https://dexscreener.com/base/${address}`);
     
   } catch (e: any) {
-    console.log(`\n❌ Error: ${e.message}`);
+    console.log(`\n Error: ${e.message}`);
   }
 }
 
@@ -164,7 +164,7 @@ async function checkFren(nameOrAddress: string) {
  */
 function showCreateInstructions() {
   console.log(`
-🎭 HOW TO BECOME AN AI FREN
+ HOW TO BECOME AN AI FREN
 
 1. Go to: ${CONFIG.CREATE_URL}
 
@@ -190,12 +190,12 @@ Questions? DM @WizTheFren on X
  * Check your balance of a Frencoin
  */
 async function checkBalance(nameOrAddress: string) {
-  console.log('\n💰 CHECKING BALANCE\n');
+  console.log('\n CHECKING BALANCE\n');
   
   const { publicClient, account } = getClients();
   
   if (!account) {
-    console.log('❌ Set WALLET_PRIVATE_KEY to check your balance');
+    console.log(' Set WALLET_PRIVATE_KEY to check your balance');
     return;
   }
   
@@ -212,7 +212,7 @@ async function checkBalance(nameOrAddress: string) {
     console.log(`${symbol} Balance: ${formatUnits(balance, decimals)}`);
     
   } catch (e: any) {
-    console.log(`\n❌ Error: ${e.message}`);
+    console.log(`\n Error: ${e.message}`);
   }
 }
 

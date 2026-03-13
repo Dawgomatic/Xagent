@@ -4,7 +4,7 @@ This guide explains how to install and register community skills from the ClawFr
 
 ---
 
-## 📍 Installation Location
+##  Installation Location
 
 **All community skills MUST be installed in:**
 
@@ -31,7 +31,7 @@ This guide explains how to install and register community skills from the ClawFr
 
 ---
 
-## 🚀 Installation Methods
+##  Installation Methods
 
 ### Method 1: From ClawFriend Skill Market (Recommended)
 
@@ -167,14 +167,14 @@ REGISTRY="$HOME/.openclaw/workspace/skills/clawfriend-community-skills/list-skil
 
 # Check registry for name collision
 if [ -f "$REGISTRY" ]; then
-  echo "🔍 Checking registry for name collision..."
+  echo " Checking registry for name collision..."
   EXISTING_ID=$(grep -A 1 "Skill Name:.*$SKILL_NAME" "$REGISTRY" | grep "Skill ID:" | sed 's/.*Skill ID: //' | tr -d ' ')
   
   if [ -n "$EXISTING_ID" ]; then
     if [ "$EXISTING_ID" = "$SKILL_ID" ]; then
-      echo "⚠️  Skill already exists in registry with same ID (re-install)"
+      echo "  Skill already exists in registry with same ID (re-install)"
     else
-      echo "❌ ERROR: Name collision detected!"
+      echo " ERROR: Name collision detected!"
       echo "   Skill name '$SKILL_NAME' already exists with different ID"
       echo "   Existing ID: $EXISTING_ID"
       echo "   New ID: $SKILL_ID"
@@ -193,32 +193,32 @@ curl -f -o "$SKILL_DIR/SKILL.md" \
   "https://api.clawfriend.ai/v1/skill-market/$SKILL_ID/SKILL.md"
 
 if [ $? -eq 0 ]; then
-  echo "✅ Downloaded successfully"
+  echo " Downloaded successfully"
   
   # CRITICAL: Verify skill ID matches
-  echo "🔍 Verifying skill ID..."
+  echo " Verifying skill ID..."
   DOWNLOADED_ID=$(grep -E "skill_id:|skill-id:" "$SKILL_DIR/SKILL.md" | head -1 | sed 's/.*: //' | tr -d ' ')
   
   if [ "$DOWNLOADED_ID" = "$SKILL_ID" ]; then
-    echo "✅ Skill ID verified: $SKILL_ID"
+    echo " Skill ID verified: $SKILL_ID"
     
     # Cross-check with registry
     if [ -f "$REGISTRY" ]; then
-      echo "🔍 Cross-checking with registry..."
+      echo " Cross-checking with registry..."
       REGISTRY_DUPLICATE=$(grep "Skill ID:.*$SKILL_ID" "$REGISTRY" | wc -l | tr -d ' ')
       
       if [ "$REGISTRY_DUPLICATE" -gt "0" ]; then
-        echo "⚠️  Note: This Skill ID already exists in registry"
+        echo "  Note: This Skill ID already exists in registry"
         echo "   This might be a re-install or different directory name"
       fi
     fi
     
-    echo "📖 Read documentation: cat $SKILL_DIR/SKILL.md"
-    echo "⚠️  Don't forget to update list-skills.md registry with:"
+    echo " Read documentation: cat $SKILL_DIR/SKILL.md"
+    echo "  Don't forget to update list-skills.md registry with:"
     echo "   - Skill Name: $SKILL_NAME"
     echo "   - Skill ID: $SKILL_ID"
   else
-    echo "❌ ERROR: Skill ID mismatch!"
+    echo " ERROR: Skill ID mismatch!"
     echo "   Expected: $SKILL_ID"
     echo "   Found: $DOWNLOADED_ID"
     echo "   Removing downloaded file..."
@@ -226,7 +226,7 @@ if [ $? -eq 0 ]; then
     exit 1
   fi
 else
-  echo "❌ Failed to download skill"
+  echo " Failed to download skill"
   exit 1
 fi
 ```
@@ -256,7 +256,7 @@ fi
 
 ---
 
-## 📝 Registry File Template
+##  Registry File Template
 
 **If `list-skills.md` does NOT exist, create it with this template:**
 
@@ -267,7 +267,7 @@ File: `~/.openclaw/workspace/skills/clawfriend-community-skills/list-skills.md`
 
 This file tracks all community-installed skills from the ClawFriend Skill Market.
 
-## 📍 Installation Location
+##  Installation Location
 
 **Absolute path:** `~/.openclaw/workspace/skills/clawfriend-community-skills/`
 
@@ -292,9 +292,9 @@ Example structure:
 
 ---
 
-## 🔴 CRITICAL: For AI Agents
+##  CRITICAL: For AI Agents
 
-**⚠️ BEFORE performing ANY task, you MUST:**
+** BEFORE performing ANY task, you MUST:**
 
 1. **ALWAYS read this file first** to discover available community skills
 2. **Check if any community skill is relevant** to the user's request
@@ -303,7 +303,7 @@ Example structure:
 
 ---
 
-## 📦 Installed Community Skills
+##  Installed Community Skills
 
 <!-- Add your installed skills below this line -->
 
@@ -316,7 +316,7 @@ Example structure:
 
 ---
 
-## ✅ Post-Installation Checklist
+##  Post-Installation Checklist
 
 After installing a skill, verify:
 
@@ -329,7 +329,7 @@ After installing a skill, verify:
 
 ---
 
-## 🔄 Updating Skills
+##  Updating Skills
 
 **To update an installed skill to the latest version:**
 
@@ -393,7 +393,7 @@ SKILL_DIR="$HOME/.openclaw/workspace/skills/clawfriend-community-skills/$SKILL_N
 
 # Check if skill exists
 if [ ! -d "$SKILL_DIR" ]; then
-  echo "❌ Skill not found: $SKILL_NAME"
+  echo " Skill not found: $SKILL_NAME"
   exit 1
 fi
 
@@ -405,7 +405,7 @@ cp -r "$SKILL_DIR" "$SKILL_DIR.backup.$(date +%Y%m%d)"
 CURRENT_ID=$(grep -E "skill_id:|skill-id:" "$SKILL_DIR/SKILL.md" | head -1 | sed 's/.*: //' | tr -d ' ')
 
 if [ "$CURRENT_ID" != "$SKILL_ID" ]; then
-  echo "⚠️  WARNING: Skill ID mismatch!"
+  echo "  WARNING: Skill ID mismatch!"
   echo "   Registry ID: $SKILL_ID"
   echo "   Current ID: $CURRENT_ID"
   echo "   Aborting update..."
@@ -423,12 +423,12 @@ if [ $? -eq 0 ]; then
   NEW_ID=$(grep -E "skill_id:|skill-id:" "$SKILL_DIR/SKILL.md" | head -1 | sed 's/.*: //' | tr -d ' ')
   
   if [ "$NEW_ID" = "$SKILL_ID" ]; then
-    echo "✅ Successfully updated $SKILL_NAME"
-    echo "🔍 Skill ID verified: $NEW_ID"
-    echo "📖 Check new version: cat $SKILL_DIR/SKILL.md | head -10"
-    echo "🗑️  Remove backup: rm -rf $SKILL_DIR.backup.$(date +%Y%m%d)"
+    echo " Successfully updated $SKILL_NAME"
+    echo " Skill ID verified: $NEW_ID"
+    echo " Check new version: cat $SKILL_DIR/SKILL.md | head -10"
+    echo "  Remove backup: rm -rf $SKILL_DIR.backup.$(date +%Y%m%d)"
   else
-    echo "❌ ERROR: Downloaded skill has different ID!"
+    echo " ERROR: Downloaded skill has different ID!"
     echo "   Expected: $SKILL_ID"
     echo "   Got: $NEW_ID"
     echo "   Restoring backup..."
@@ -437,7 +437,7 @@ if [ $? -eq 0 ]; then
     exit 1
   fi
 else
-  echo "❌ Update failed, restoring backup..."
+  echo " Update failed, restoring backup..."
   rm -rf "$SKILL_DIR"
   mv "$SKILL_DIR.backup.$(date +%Y%m%d)" "$SKILL_DIR"
   exit 1
@@ -446,7 +446,7 @@ fi
 
 ---
 
-## ⚠️ Name Collision Warning
+##  Name Collision Warning
 
 **CRITICAL: Skill names can be duplicated, always verify Skill ID!**
 
@@ -498,16 +498,16 @@ Without Skill ID verification, you might install/update the wrong one!
 
 ### Best Practices:
 
-- ✅ Always include Skill ID in registry
-- ✅ Verify Skill ID after download
-- ✅ Use Skill ID in update scripts
-- ✅ Check Skill ID before and after update
-- ❌ Never rely on skill name alone
-- ❌ Never skip ID verification
+-  Always include Skill ID in registry
+-  Verify Skill ID after download
+-  Use Skill ID in update scripts
+-  Check Skill ID before and after update
+-  Never rely on skill name alone
+-  Never skip ID verification
 
 ---
 
-## 🗑️ Removing Skills
+##  Removing Skills
 
 **To uninstall a skill:**
 
@@ -522,22 +522,22 @@ Without Skill ID verification, you might install/update the wrong one!
 
 ---
 
-## 🎯 Skill Categories
+##  Skill Categories
 
 When adding to registry, use these standard categories:
 
-- **💰 Trading:** Automated trading strategies, price analysis
-- **📝 Content:** Tweet generation, content scheduling
-- **🤖 Automation:** Workflow automation, batch operations
-- **📊 Analytics:** Data analysis, trend detection
-- **🎯 Targeting:** Audience targeting, engagement optimization
-- **🔧 Utility:** Helper tools, utilities
-- **🎨 Creative:** Design, media generation
-- **🔐 Security:** Security tools, monitoring
+- ** Trading:** Automated trading strategies, price analysis
+- ** Content:** Tweet generation, content scheduling
+- ** Automation:** Workflow automation, batch operations
+- ** Analytics:** Data analysis, trend detection
+- ** Targeting:** Audience targeting, engagement optimization
+- ** Utility:** Helper tools, utilities
+- ** Creative:** Design, media generation
+- ** Security:** Security tools, monitoring
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - **ClawFriend Skill Market:** https://clawfriend.ai/skill-market
 - **Using Community Skills:** See main SKILL.md → "Community Skills Integration"

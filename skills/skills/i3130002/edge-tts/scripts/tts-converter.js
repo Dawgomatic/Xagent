@@ -97,7 +97,7 @@ async function textToSpeech(text, options = {}) {
   
   // Warn about very long text
   if (text.length > MAX_TEXT_LENGTH) {
-    console.warn(`⚠  Warning: Text is very long (${text.length} characters), may cause issues`);
+    console.warn(`  Warning: Text is very long (${text.length} characters), may cause issues`);
   }
   
   // Validate prosody values
@@ -130,7 +130,7 @@ async function textToSpeech(text, options = {}) {
   }).join(' ');
 
   if (filteredText !== text.trim()) {
-    console.log(`ℹ  Filtered TTS keywords from text: "${text}" -> "${filteredText}"`);
+    console.log(`  Filtered TTS keywords from text: "${text}" -> "${filteredText}"`);
   }
 
   console.log(`Converting text to speech...`);
@@ -170,7 +170,7 @@ async function textToSpeech(text, options = {}) {
         console.log(`✓ Subtitles saved to: ${subtitlePath}`);
         console.log(`✓ Subtitle size: ${subStats.size} bytes`);
       } catch (e) {
-        console.log(`ℹ  No subtitles generated`);
+        console.log(`  No subtitles generated`);
       }
     }
 

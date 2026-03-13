@@ -4,10 +4,10 @@ description: "Alchemy — blockchain data, NFTs, token balances, transactions, g
 homepage: https://www.agxntsix.ai
 license: MIT
 compatibility: Python 3.10+ (stdlib only — no dependencies)
-metadata: {"openclaw": {"emoji": "⛓️", "requires": {"env": ["ALCHEMY_API_KEY"]}, "primaryEnv": "ALCHEMY_API_KEY", "homepage": "https://www.agxntsix.ai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["ALCHEMY_API_KEY"]}, "primaryEnv": "ALCHEMY_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# ⛓️ Alchemy
+#  Alchemy
 
 Alchemy — blockchain data, NFTs, token balances, transactions, gas prices, and webhooks.
 
@@ -15,7 +15,7 @@ Alchemy — blockchain data, NFTs, token balances, transactions, gas prices, and
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `ALCHEMY_API_KEY` | ✅ | Alchemy API key |
+| `ALCHEMY_API_KEY` |  | Alchemy API key |
 
 
 ## Quick Start
@@ -73,4 +73,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

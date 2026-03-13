@@ -136,10 +136,10 @@ def main():
                 run_cancel(args)
 
     except KeyboardInterrupt:
-        print("\n\n⚠️  사용자에 의해 중단되었습니다.")
+        print("\n\n  사용자에 의해 중단되었습니다.")
         sys.exit(130)
     except Exception as e:
-        print(f"\n❌ 오류: {e}", file=sys.stderr)
+        print(f"\n 오류: {e}", file=sys.stderr)
         sys.exit(1)
 
 

@@ -80,7 +80,7 @@ def example_1_basic_usage():
     
     # Validate plan
     is_valid, warnings = planner.validate_plan(plan)
-    print(f"Plan validation: {'✅ VALID' if is_valid else '❌ INVALID'}")
+    print(f"Plan validation: {' VALID' if is_valid else ' INVALID'}")
     if warnings:
         print("Warnings:")
         for warning in warnings:
@@ -89,13 +89,13 @@ def example_1_basic_usage():
     
     # Approve plan
     if planner.approve_plan(plan, approved_by="admin"):
-        print(f"✅ Plan approved by: {plan.approved_by}\n")
+        print(f" Plan approved by: {plan.approved_by}\n")
     
     # Execute plan (dry run)
     print("Executing plan (DRY RUN)...")
     success, results = planner.execute_plan(plan, example_executor, dry_run=True)
     
-    print(f"\nExecution completed: {'✅ SUCCESS' if success else '❌ FAILED'}")
+    print(f"\nExecution completed: {' SUCCESS' if success else ' FAILED'}")
     
     # Show summary
     summary = planner.get_execution_summary(plan)
@@ -152,12 +152,12 @@ def example_2_dangerous_operations():
     
     # Validate plan - should show warnings
     is_valid, warnings = planner.validate_plan(plan)
-    print(f"Plan validation: {'✅ VALID' if is_valid else '❌ INVALID'}")
+    print(f"Plan validation: {' VALID' if is_valid else ' INVALID'}")
     print(f"\nSafety warnings detected: {len(warnings)}")
     for warning in warnings:
         print(f"  {warning}")
     
-    print("\n⚠️ Note: Dangerous operations detected - manual review required!")
+    print("\n Note: Dangerous operations detected - manual review required!")
 
 
 def example_3_save_and_load():
@@ -193,11 +193,11 @@ def example_3_save_and_load():
     # Save plan
     filepath = "/home/claude/health_check_plan.json"
     planner.save_plan(plan, filepath)
-    print(f"✅ Plan saved to: {filepath}\n")
+    print(f" Plan saved to: {filepath}\n")
     
     # Load plan
     loaded_plan = planner.load_plan(filepath)
-    print(f"✅ Plan loaded: {loaded_plan.task_id}")
+    print(f" Plan loaded: {loaded_plan.task_id}")
     print(f"Title: {loaded_plan.title}")
     print(f"Steps: {len(loaded_plan.steps)}")
     print(f"Integrity verified: {loaded_plan.verify_integrity()}")
@@ -241,7 +241,7 @@ def example_4_auto_approve():
     success, results = planner.execute_plan(plan, example_executor, dry_run=True)
     
     print(f"\nPlan status: {plan.status.value}")
-    print(f"Execution: {'✅ SUCCESS' if success else '❌ FAILED'}")
+    print(f"Execution: {' SUCCESS' if success else ' FAILED'}")
 
 
 def example_5_error_handling():
@@ -296,10 +296,10 @@ def example_5_error_handling():
         stop_on_error=True
     )
     
-    print(f"\nExecution: {'✅ SUCCESS' if success else '❌ FAILED'}")
+    print(f"\nExecution: {' SUCCESS' if success else ' FAILED'}")
     print("\nStep Results:")
     for result in results:
-        status = "✅" if result['success'] else "❌"
+        status = "" if result['success'] else ""
         print(f"  {status} Step {result['order']}: {result.get('error', 'Success')}")
     
     summary = planner.get_execution_summary(plan)

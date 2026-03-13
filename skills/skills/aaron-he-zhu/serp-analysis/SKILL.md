@@ -460,11 +460,11 @@ When a user requests SERP analysis:
 
 | Feature | Present | Analysis |
 |---------|---------|----------|
-| AI Overview | ✅ | Lists steps, cites 3 sources |
-| Featured Snippet | ✅ | Step-by-step list from Buzzsprout |
-| People Also Ask | ✅ | 4 questions visible, expandable |
-| Video Results | ✅ | 3 YouTube videos mid-page |
-| Image Pack | ❌ | |
+| AI Overview |  | Lists steps, cites 3 sources |
+| Featured Snippet |  | Step-by-step list from Buzzsprout |
+| People Also Ask |  | 4 questions visible, expandable |
+| Video Results |  | 3 YouTube videos mid-page |
+| Image Pack |  | |
 
 ### Top 5 Results Analysis
 

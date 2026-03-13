@@ -107,7 +107,7 @@ Upload a new soul. Requires auth.
 {
   "id": "uuid",
   "url": "https://opensoul.cloud/soul/uuid",
-  "message": "Soul shared! 🎉"
+  "message": "Soul shared! "
 }
 ```
 

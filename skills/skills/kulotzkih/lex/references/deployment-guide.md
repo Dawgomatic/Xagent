@@ -290,7 +290,7 @@ COINGECKO_API_KEY=...
 ALCHEMY_API_KEY=...
 ```
 
-**⚠️ Important**: Never commit API keys to Git. The LangSmith API key is used for:
+** Important**: Never commit API keys to Git. The LangSmith API key is used for:
 - Authentication when calling your deployed agent
 - Tracing and monitoring (optional)
 - Access control

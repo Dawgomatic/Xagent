@@ -52,10 +52,10 @@ const server = http.createServer(async (req, res) => {
     req.on('end', async () => {
       try {
         const { message } = JSON.parse(body);
-        console.log(`👤 User: ${message}`);
+        console.log(` User: ${message}`);
 
         const response = await callOpenClaw(message);
-        console.log(`🤖 Crow: ${response.substring(0, 100)}...`);
+        console.log(` Crow: ${response.substring(0, 100)}...`);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ response }));
@@ -89,7 +89,7 @@ function callOpenClaw(message) {
       '--json'
     ];
 
-    console.log(`🔧 Running: openclaw ${args.join(' ')}`);
+    console.log(` Running: openclaw ${args.join(' ')}`);
 
     const proc = spawn(OPENCLAW, args, {
       env: { ...process.env, NO_COLOR: '1' },
@@ -134,6 +134,6 @@ function callOpenClaw(message) {
 }
 
 server.listen(PORT, () => {
-  console.log(`🎤 Voice UI: http://localhost:${PORT}`);
-  console.log(`🔗 Using OpenClaw agent: voice`);
+  console.log(` Voice UI: http://localhost:${PORT}`);
+  console.log(` Using OpenClaw agent: voice`);
 });

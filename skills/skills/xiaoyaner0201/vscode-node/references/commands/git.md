@@ -8,9 +8,9 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ❌ | Specific file (default: all) |
-| `staged` | boolean | ❌ | Show staged diff |
-| `ref` | string | ❌ | Compare against ref (e.g., `HEAD~1`) |
+| `path` | string |  | Specific file (default: all) |
+| `staged` | boolean |  | Show staged diff |
+| `ref` | string |  | Compare against ref (e.g., `HEAD~1`) |
 
 **Returns:** `{ diff: string }`
 
@@ -18,9 +18,9 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `limit` | number | ❌ | Max commits (default: 10) |
-| `oneline` | boolean | ❌ | One-line format |
-| `path` | string | ❌ | Filter by file |
+| `limit` | number |  | Max commits (default: 10) |
+| `oneline` | boolean |  | One-line format |
+| `path` | string |  | Filter by file |
 
 **Returns:** `{ log: string }`
 
@@ -28,9 +28,9 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `path` | string | ✅ | File path |
-| `startLine` | number | ❌ | Start line |
-| `endLine` | number | ❌ | End line |
+| `path` | string |  | File path |
+| `startLine` | number |  | Start line |
+| `endLine` | number |  | End line |
 
 **Returns:** `{ blame: string }` (porcelain format)
 
@@ -38,7 +38,7 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `paths` | string[] | ✅ | File paths to stage |
+| `paths` | string[] |  | File paths to stage |
 
 **Returns:** `{ ok: true }`
 
@@ -46,7 +46,7 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `paths` | string[] | ✅ | File paths to unstage |
+| `paths` | string[] |  | File paths to unstage |
 
 **Returns:** `{ ok: true }`
 
@@ -54,8 +54,8 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `message` | string | ✅ | Commit message |
-| `amend` | boolean | ❌ | Amend last commit |
+| `message` | string |  | Commit message |
+| `amend` | boolean |  | Amend last commit |
 
 **Returns:** `{ ok: true, output: string }`
 
@@ -63,7 +63,7 @@ No parameters. **Returns:** `{ branch, staged: [], modified: [], untracked: [], 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `action` | string | ✅ | `push`, `pop`, `list`, or `drop` |
-| `message` | string | ❌ | Stash message (for push) |
+| `action` | string |  | `push`, `pop`, `list`, or `drop` |
+| `message` | string |  | Stash message (for push) |
 
 **Returns:** `{ ok: true, output: string }`

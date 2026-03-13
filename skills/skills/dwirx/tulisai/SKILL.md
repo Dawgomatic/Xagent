@@ -18,7 +18,7 @@ Skill ini menggabungkan:
 
 ---
 
-## 🌿 BangunAI Blog Fundamentals
+##  BangunAI Blog Fundamentals
 
 Blog ini adalah **Digital Garden & Knowledge Base** dengan fitur terinspirasi dari Obsidian.
 
@@ -80,7 +80,7 @@ const readModules = import.meta.glob("./read/*.mdx", { eager: true });
 
 ---
 
-## 📝 Frontmatter Formats
+##  Frontmatter Formats
 
 ### Format A: Standard Posts (writing, articles, daily)
 
@@ -164,7 +164,7 @@ Mendukung semua fitur MDX (callouts, highlight, mermaid, dll).
 
 ---
 
-## 🧩 MDX Components Available
+##  MDX Components Available
 
 ### 1. Callouts (14 Types)
 
@@ -317,7 +317,7 @@ Interactive force-directed graph menampilkan koneksi antar konten.
 
 ---
 
-## 🎨 Design System
+##  Design System
 
 ### Color Tokens (HSL-based)
 
@@ -336,14 +336,14 @@ Interactive force-directed graph menampilkan koneksi antar konten.
 
 **Usage:**
 ```tsx
-// ✅ Gunakan semantic tokens
+//  Gunakan semantic tokens
 <div className="bg-background text-foreground">
   <button className="bg-primary text-primary-foreground">
     Klik
   </button>
 </div>
 
-// ❌ Jangan hardcode warna
+//  Jangan hardcode warna
 <div className="bg-[#1A1A2E] text-[#F5E6D3]">
 ```
 
@@ -366,7 +366,7 @@ Interactive force-directed graph menampilkan koneksi antar konten.
 
 ---
 
-## 🔧 Workflows
+##  Workflows
 
 ### 1) `daily` (Smart Daily Note)
 
@@ -412,9 +412,9 @@ EOF
 ## Log
 
 EOF
-  echo "✅ Created: $FILE"
+  echo " Created: $FILE"
 else
-  echo "📂 Exists: $FILE"
+  echo " Exists: $FILE"
 fi
 ```
 
@@ -438,14 +438,14 @@ case "$CATEGORY" in
     cat "$BLOG_ROOT/src/content/now.mdx"
     exit 0
     ;;
-  *) echo "❌ Unknown category"; exit 1 ;;
+  *) echo " Unknown category"; exit 1 ;;
 esac
 LAST_FILE=$(ls -t "$DIR"/*.mdx 2>/dev/null | head -n 1)
 if [ -f "$LAST_FILE" ]; then
-  echo "📄 REFERENSI GAYA ($LAST_FILE):"
+  echo " REFERENSI GAYA ($LAST_FILE):"
   head -n 50 "$LAST_FILE"
 else
-  echo "❌ Belum ada file di $CATEGORY"
+  echo " Belum ada file di $CATEGORY"
 fi
 ```
 
@@ -518,7 +518,7 @@ Check out <WikiLink to="other-article" label="this related article" />.
 Kesimpulan yang solid dan actionable.
 EOF
 
-echo "✅ Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
+echo " Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
 ```
 
 **For Read Items:**
@@ -553,7 +553,7 @@ This reminds me of a similar concept in...
 </Callout>
 EOF
 
-echo "✅ Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
+echo " Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
 ```
 
 ### 4) `log` (Append Log)
@@ -565,11 +565,11 @@ Append timestamped log to today's daily note.
 TODAY=$(date +%Y-%m-%d)
 FILE="/home/hades/BangunAI-Blog/src/content/daily/$TODAY.mdx"
 if [ ! -f "$FILE" ]; then 
-  echo "❌ Run 'daily' workflow first!"
+  echo " Run 'daily' workflow first!"
   exit 1
 fi
 echo "- $(date +%H:%M) $CONTENT" >> "$FILE"
-echo "✅ Logged to: $FILE"
+echo " Logged to: $FILE"
 ```
 
 ### 5) `read` (Smart Read)
@@ -595,7 +595,7 @@ title: "About"
 
 $CONTENT
 EOF
-echo "✅ Updated: $FILE"
+echo " Updated: $FILE"
 ```
 
 ### 7) `update_now` (Update Now Page)
@@ -625,7 +625,7 @@ $CONTENT
 
 > *Halaman ini adalah snapshot dari kehidupan saya saat ini. Bukan resume, bukan portofolio — hanya update jujur tentang apa yang sedang saya kerjakan.*
 EOF
-echo "✅ Updated: $FILE"
+echo " Updated: $FILE"
 ```
 
 ### 8) `verify_index` (Verify Content)
@@ -634,7 +634,7 @@ Verify content auto-import statistics.
 
 ```bash
 BLOG_ROOT="/home/hades/BangunAI-Blog"
-echo "📊 Content Statistics:"
+echo " Content Statistics:"
 echo ""
 echo "Writing posts: $(ls -1 "$BLOG_ROOT/src/content/writing"/*.mdx 2>/dev/null | wc -l)"
 echo "Articles: $(ls -1 "$BLOG_ROOT/src/content/articles"/*.mdx 2>/dev/null | wc -l)"
@@ -642,14 +642,14 @@ echo "Read items: $(ls -1 "$BLOG_ROOT/src/content/read"/*.mdx 2>/dev/null | wc -
 echo "Daily notes: $(ls -1 "$BLOG_ROOT/src/content/daily"/*.mdx 2>/dev/null | wc -l)"
 echo ""
 echo "Special files:"
-echo "- about.mdx: $(test -f "$BLOG_ROOT/src/content/about.mdx" && echo "✅" || echo "❌")"
-echo "- now.mdx: $(test -f "$BLOG_ROOT/src/content/now.mdx" && echo "✅" || echo "❌")"
-echo "- index.ts: $(test -f "$BLOG_ROOT/src/content/index.ts" && echo "✅" || echo "❌")"
+echo "- about.mdx: $(test -f "$BLOG_ROOT/src/content/about.mdx" && echo "" || echo "")"
+echo "- now.mdx: $(test -f "$BLOG_ROOT/src/content/now.mdx" && echo "" || echo "")"
+echo "- index.ts: $(test -f "$BLOG_ROOT/src/content/index.ts" && echo "" || echo "")"
 ```
 
 ---
 
-## 📋 Content Category Guidelines
+##  Content Category Guidelines
 
 | Category | Path | Use Case | Type Options | Examples |
 |----------|------|----------|--------------|----------|
@@ -672,7 +672,7 @@ echo "- index.ts: $(test -f "$BLOG_ROOT/src/content/index.ts" && echo "✅" || e
 
 ---
 
-## 🎯 Best Practices
+##  Best Practices
 
 ### 1. Frontmatter Consistency
 
@@ -808,7 +808,7 @@ tags: [React Hooks, programming, stuff]
 
 ---
 
-## 🚀 Development Workflow
+##  Development Workflow
 
 ### Local Development
 
@@ -877,7 +877,7 @@ git push origin main
 
 ---
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Issue: Content not showing
 
@@ -912,7 +912,7 @@ git push origin main
 
 ---
 
-## 📚 Quick Reference
+##  Quick Reference
 
 ### Frontmatter Cheatsheet
 
@@ -975,17 +975,17 @@ title: "About|Now"
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 Skill ini fully integrated dengan **BangunAI Blog**:
-- ✅ 8 workflows ready to use
-- ✅ 3 frontmatter formats supported
-- ✅ Complete MDX components reference
-- ✅ Obsidian-like features documented
-- ✅ Design system guidelines
-- ✅ Best practices & troubleshooting
-- ✅ Auto-import via `import.meta.glob`
-- ✅ Git-based operations
-- ✅ Production-ready
+-  8 workflows ready to use
+-  3 frontmatter formats supported
+-  Complete MDX components reference
+-  Obsidian-like features documented
+-  Design system guidelines
+-  Best practices & troubleshooting
+-  Auto-import via `import.meta.glob`
+-  Git-based operations
+-  Production-ready
 
 **Homepage:** https://github.com/dwirx/BangunAI-Blog

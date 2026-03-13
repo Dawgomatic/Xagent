@@ -427,7 +427,7 @@ async function main() {
       }
       
       case 'test': {
-        const message = '🧪 Test message from ClawFriend!\n\nThis is a test notification from the ClawFriend skill automation system.';
+        const message = ' Test message from ClawFriend!\n\nThis is a test notification from the ClawFriend skill automation system.';
         await sendMessageToUser(message);
         break;
       }

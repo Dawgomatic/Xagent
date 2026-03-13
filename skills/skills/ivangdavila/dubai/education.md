@@ -9,7 +9,7 @@ Dubai is home to over 200 private schools offering diverse curricula from around
 
 ---
 
-## 📚 Available Curricula
+##  Available Curricula
 
 ### Major Systems in Dubai
 
@@ -25,7 +25,7 @@ Dubai is home to over 200 private schools offering diverse curricula from around
 
 ---
 
-## 🇬🇧 British Curriculum Schools
+##  British Curriculum Schools
 
 ### Structure
 - **Foundation Stage (FS):** Ages 3-5
@@ -57,7 +57,7 @@ Dubai is home to over 200 private schools offering diverse curricula from around
 
 ---
 
-## 🇺🇸 American Curriculum Schools
+##  American Curriculum Schools
 
 ### Structure
 - **Elementary School:** Grades K-5 (Ages 5-11)
@@ -82,7 +82,7 @@ Dubai is home to over 200 private schools offering diverse curricula from around
 
 ---
 
-## 🌍 IB (International Baccalaureate) Schools
+##  IB (International Baccalaureate) Schools
 
 ### Structure
 - **PYP (Primary Years Programme):** Ages 3-12
@@ -106,7 +106,7 @@ Dubai is home to over 200 private schools offering diverse curricula from around
 
 ---
 
-## 🇮🇳 Indian Curriculum Schools
+##  Indian Curriculum Schools
 
 ### Boards Available
 - **CBSE (Central Board of Secondary Education):** Most common
@@ -135,7 +135,7 @@ Dubai is home to over 200 private schools offering diverse curricula from around
 
 ---
 
-## ⭐ KHDA Ratings Explained
+##  KHDA Ratings Explained
 
 KHDA inspects all private schools annually. Ratings matter for fees and reputation.
 
@@ -155,7 +155,7 @@ KHDA inspects all private schools annually. Ratings matter for fees and reputati
 
 ---
 
-## 💰 School Fees Comparison (2025-2026)
+##  School Fees Comparison (2025-2026)
 
 ### By Curriculum (Average Annual)
 
@@ -181,7 +181,7 @@ KHDA inspects all private schools annually. Ratings matter for fees and reputati
 
 ---
 
-## 📝 Admission Process
+##  Admission Process
 
 ### Typical Timeline
 | When | Action |
@@ -219,7 +219,7 @@ Most schools require:
 
 ---
 
-## 🎓 Universities in Dubai
+##  Universities in Dubai
 
 ### Local Options
 | University | Type | Notes |
@@ -251,7 +251,7 @@ Most schools require:
 
 ---
 
-## 🚌 School Transport
+##  School Transport
 
 ### Options
 | Option | Monthly Cost (AED) | Notes |
@@ -270,7 +270,7 @@ Most schools require:
 
 ---
 
-## 📅 Academic Year Calendar
+##  Academic Year Calendar
 
 ### British/IB/American Schools
 | Term | Dates (Approximate) |

@@ -41,7 +41,7 @@ check_env() {
     [ -z "$AUDIO_PUBLIC_URL" ] && missing="$missing AUDIO_PUBLIC_URL"
 
     if [ -n "$missing" ]; then
-        echo "❌ 缺少環境變數:$missing"
+        echo " 缺少環境變數:$missing"
         exit 1
     fi
 }
@@ -61,7 +61,7 @@ load_quotes() {
     QUOTES_FILE="${QUOTES_FILE:-$skill_dir/references/quotes.md}"
 
     if [ ! -f "$QUOTES_FILE" ]; then
-        echo "❌ 找不到名言清單檔案: $QUOTES_FILE"
+        echo " 找不到名言清單檔案: $QUOTES_FILE"
         exit 1
     fi
 
@@ -82,7 +82,7 @@ load_quotes() {
     )
 
     if [ ${#QUOTES[@]} -eq 0 ]; then
-        echo "❌ 無法從名言清單解析內容：$QUOTES_FILE"
+        echo " 無法從名言清單解析內容：$QUOTES_FILE"
         exit 1
     fi
 }
@@ -100,7 +100,7 @@ main() {
 
     IFS='|' read -r AUTHOR QUOTE_EN QUOTE_ZH <<< "${QUOTES[$QUOTE_INDEX]}"
 
-    echo "📜 今日名言 (#$((QUOTE_INDEX + 1)))："
+    echo " 今日名言 (#$((QUOTE_INDEX + 1)))："
     echo "   $AUTHOR: \"$QUOTE_EN\""
     echo "   $QUOTE_ZH"
 
@@ -111,19 +111,19 @@ main() {
     SCRIPT="${GREETING}[short pause] 今天想分享 ${AUTHOR} 的一句話：${QUOTE_ZH} [short pause] ${QUOTE_EN} [short pause] 願這句話能為你的一天帶來力量。加油！"
 
     echo ""
-    echo "🎙️ 語音稿："
+    echo " 語音稿："
     echo "   $SCRIPT"
 
     # 生成語音
     echo ""
-    echo "⏳ 生成語音中..."
+    echo " 生成語音中..."
 
     ELEVENLABS_API_KEY="$ELEVENLABS_API_KEY" sag -v "$VOICE_NAME" \
         --speed "$SPEED" --stability "$STABILITY" --similarity "$SIMILARITY" \
         -o "$AUDIO_LOCAL_PATH/daily-quote.mp3" "$SCRIPT"
 
     # 轉換為 m4a
-    echo "⏳ 轉換為 m4a..."
+    echo " 轉換為 m4a..."
     FFMPEG_OUTPUT=$(ffmpeg -i "$AUDIO_LOCAL_PATH/daily-quote.mp3" \
         -c:a aac -b:a 128k "$AUDIO_LOCAL_PATH/daily-quote.m4a" -y 2>&1)
 
@@ -140,11 +140,11 @@ main() {
             "$AUDIO_LOCAL_PATH/daily-quote.m4a" | awk '{printf "%.0f", $1 * 1000}')
     fi
 
-    echo "📊 音訊長度：${DURATION_MS} 毫秒"
+    echo " 音訊長度：${DURATION_MS} 毫秒"
 
     # 發送到 LINE
     echo ""
-    echo "📤 發送到 LINE..."
+    echo " 發送到 LINE..."
 
     RESPONSE=$(curl -s -X POST https://api.line.me/v2/bot/message/push \
         -H "Content-Type: application/json" \
@@ -159,9 +159,9 @@ main() {
         }')
 
     if [ "$RESPONSE" = "{}" ]; then
-        echo "✅ 發送成功！"
+        echo " 發送成功！"
     else
-        echo "❌ 發送失敗：$RESPONSE"
+        echo " 發送失敗：$RESPONSE"
         exit 1
     fi
 }

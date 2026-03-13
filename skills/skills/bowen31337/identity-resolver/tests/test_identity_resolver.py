@@ -296,10 +296,10 @@ def run_tests():
     print(f"Skipped: {len(result.skipped)}")
     
     if result.wasSuccessful():
-        print("\n✅ ALL TESTS PASSED!")
+        print("\n ALL TESTS PASSED!")
         return 0
     else:
-        print("\n❌ TESTS FAILED")
+        print("\n TESTS FAILED")
         return 1
 
 if __name__ == "__main__":

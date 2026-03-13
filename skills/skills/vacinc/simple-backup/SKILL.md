@@ -1,7 +1,7 @@
 ---
 name: simple-backup
 description: Backup agent brain (workspace) and body (state) to local folder and optionally sync to cloud via rclone.
-metadata: {"openclaw":{"emoji":"💾","requires":{"bins":["rclone","gpg","tar","jq"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["rclone","gpg","tar","jq"]}}}
 ---
 
 # Simple Backup

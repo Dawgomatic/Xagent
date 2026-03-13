@@ -1617,7 +1617,7 @@ Examples:
                     if q.get('warnings'):
                         print(f"\nWarnings:")
                         for w in q['warnings']:
-                            print(f"  ⚠ {w}")
+                            print(f"   {w}")
                     if q.get('recommendations'):
                         print(f"\nRecommendations:")
                         for r in q['recommendations']:
@@ -1679,7 +1679,7 @@ Examples:
                 if results.get('warnings'):
                     print(f"\nWarnings ({len(results['warnings'])}):")
                     for warn in results['warnings'][:10]:
-                        print(f"  ⚠ {warn}")
+                        print(f"   {warn}")
                     if len(results['warnings']) > 10:
                         print(f"  ... and {len(results['warnings']) - 10} more")
 

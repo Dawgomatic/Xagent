@@ -24,7 +24,7 @@ Use wiki-style: `[[note-slug]]`
 In `index.md`, maintain link map:
 ```markdown
 ## Link Map
-[[note-a]] ↔ [[note-b]] — peers
+[[note-a]]  [[note-b]] — peers
 [[note-c]] → [[note-d]] — c supersedes d
 [[note-e]] ⊃ [[note-f]] — e contains f
 ```

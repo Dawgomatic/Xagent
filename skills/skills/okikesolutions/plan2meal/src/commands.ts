@@ -48,7 +48,7 @@ export class Plan2MealCommands {
    */
   help(): { text: string } {
     return {
-      text: `📚 **Plan2Meal Commands**
+      text: ` **Plan2Meal Commands**
 
 **Authentication**
 \`plan2meal login\` - Authenticate with GitHub, Google, or Apple
@@ -84,7 +84,7 @@ export class Plan2MealCommands {
 
     if (!extractionResult.success) {
       return {
-        text: `❌ Failed to extract recipe from URL: ${extractionResult.error || 'Unknown error'}`
+        text: ` Failed to extract recipe from URL: ${extractionResult.error || 'Unknown error'}`
       };
     }
 
@@ -108,15 +108,15 @@ export class Plan2MealCommands {
     });
 
     const timestamp = new Date(scrapedAt).toLocaleTimeString();
-    const methodEmoji = scrapeMethod === 'native-fetch-json' ? '⚡' : 
-                       scrapeMethod === 'firecrawl-json' ? '🔥' : 
-                       scrapeMethod === 'gpt-5-nano' ? '🤖' : '⚠️';
+    const methodEmoji = scrapeMethod === 'native-fetch-json' ? '' : 
+                       scrapeMethod === 'firecrawl-json' ? '' : 
+                       scrapeMethod === 'gpt-5-nano' ? '' : '';
 
     return {
-      text: `✅ Recipe added successfully!\n\n📖 **${markdownEscape(metadata.name || 'Untitled Recipe')}**\n` +
-            `🔗 Source: ${new URL(url).hostname}\n` +
+      text: ` Recipe added successfully!\n\n **${markdownEscape(metadata.name || 'Untitled Recipe')}**\n` +
+            ` Source: ${new URL(url).hostname}\n` +
             `${methodEmoji} Method: \`${scrapeMethod}\`\n` +
-            `⏰ Scraped at: ${timestamp}\n\n` +
+            ` Scraped at: ${timestamp}\n\n` +
             this.formatRecipePreview(metadata)
     };
   }
@@ -128,13 +128,13 @@ export class Plan2MealCommands {
     const recipes = await this.convex.getMyRecipes();
 
     if (!recipes || recipes.length === 0) {
-      return { text: '📭 You have no recipes yet. Add one with `plan2meal add <url>`' };
+      return { text: ' You have no recipes yet. Add one with `plan2meal add <url>`' };
     }
 
     // Show most recent first
     const sorted = [...recipes].reverse().slice(0, 10);
 
-    let text = `📚 **Your Recipes** (${recipes.length} total)\n\n`;
+    let text = ` **Your Recipes** (${recipes.length} total)\n\n`;
     for (const recipe of sorted) {
       const time = formatTime(recipe.prepTime, recipe.cookTime);
       text += `• \`${recipe._id}\` - ${markdownEscape(recipe.name)}\n`;
@@ -151,10 +151,10 @@ export class Plan2MealCommands {
     const recipes = await this.convex.searchRecipes(term);
 
     if (!recipes || recipes.length === 0) {
-      return { text: `🔍 No recipes found for "${markdownEscape(term)}"` };
+      return { text: ` No recipes found for "${markdownEscape(term)}"` };
     }
 
-    let text = `🔍 **Search Results** for "${markdownEscape(term)}" (${recipes.length})\n\n`;
+    let text = ` **Search Results** for "${markdownEscape(term)}" (${recipes.length})\n\n`;
     for (const recipe of recipes.slice(0, 10)) {
       text += `• \`${recipe._id}\` - ${markdownEscape(recipe.name)}\n`;
     }
@@ -169,7 +169,7 @@ export class Plan2MealCommands {
     const recipe = await this.convex.getRecipeById(id);
 
     if (!recipe) {
-      return { text: `❌ Recipe not found: \`${id}\`` };
+      return { text: ` Recipe not found: \`${id}\`` };
     }
 
     return {
@@ -183,10 +183,10 @@ export class Plan2MealCommands {
   async deleteRecipe(id: string): Promise<{ text: string }> {
     try {
       await this.convex.deleteRecipe(id);
-      return { text: `✅ Recipe deleted: \`${id}\`` };
+      return { text: ` Recipe deleted: \`${id}\`` };
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Unknown error';
-      return { text: `❌ Failed to delete recipe: ${message}` };
+      return { text: ` Failed to delete recipe: ${message}` };
     }
   }
 
@@ -197,13 +197,13 @@ export class Plan2MealCommands {
     const lists = await this.convex.getMyLists();
 
     if (!lists || lists.length === 0) {
-      return { text: '📭 You have no grocery lists. Create one with `plan2meal list-create <name>`' };
+      return { text: ' You have no grocery lists. Create one with `plan2meal list-create <name>`' };
     }
 
-    let text = `🛒 **Your Grocery Lists** (${lists.length})\n\n`;
+    let text = ` **Your Grocery Lists** (${lists.length})\n\n`;
     for (const list of lists) {
       text += `• \`${list._id}\` - ${markdownEscape(list.name)}`;
-      if (list.isCompleted) text += ' ✅';
+      if (list.isCompleted) text += ' ';
       text += '\n';
     }
 
@@ -217,7 +217,7 @@ export class Plan2MealCommands {
     const list = await this.convex.getListById(id);
 
     if (!list) {
-      return { text: `❌ Grocery list not found: \`${id}\`` };
+      return { text: ` Grocery list not found: \`${id}\`` };
     }
 
     return {
@@ -231,7 +231,7 @@ export class Plan2MealCommands {
   async createList(name: string): Promise<{ text: string }> {
     const list = await this.convex.createGroceryList(name);
     return {
-      text: `✅ Grocery list created!\n\n🛒 **${markdownEscape(name)}**\n` +
+      text: ` Grocery list created!\n\n **${markdownEscape(name)}**\n` +
             `ID: \`${list}\``
     };
   }
@@ -242,10 +242,10 @@ export class Plan2MealCommands {
   async addRecipeToList(listId: string, recipeId: string): Promise<{ text: string }> {
     try {
       await this.convex.addRecipeToList(listId, recipeId);
-      return { text: `✅ Recipe added to grocery list!` };
+      return { text: ` Recipe added to grocery list!` };
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Unknown error';
-      return { text: `❌ Failed to add recipe: ${message}` };
+      return { text: ` Failed to add recipe: ${message}` };
     }
   }
 
@@ -256,7 +256,7 @@ export class Plan2MealCommands {
     let text = '';
     
     if (metadata.ingredients && metadata.ingredients.length > 0) {
-      text += `🥘 **Ingredients** (${metadata.ingredients.length})\n`;
+      text += ` **Ingredients** (${metadata.ingredients.length})\n`;
       text += metadata.ingredients.slice(0, 5).map(i => `• ${markdownEscape(i)}`).join('\n');
       if (metadata.ingredients.length > 5) {
         text += `\n  ...and ${metadata.ingredients.length - 5} more`;
@@ -271,40 +271,40 @@ export class Plan2MealCommands {
    * Format full recipe
    */
   private formatRecipe(recipe: Recipe): string {
-    let text = `📖 **${markdownEscape(recipe.name)}**\n`;
+    let text = ` **${markdownEscape(recipe.name)}**\n`;
     text += '─'.repeat(30) + '\n';
     
     if (recipe.url) {
       try {
-        text += `🔗 Source: ${new URL(recipe.url).hostname}\n`;
+        text += ` Source: ${new URL(recipe.url).hostname}\n`;
       } catch {
-        text += `🔗 Source: ${markdownEscape(recipe.url)}\n`;
+        text += ` Source: ${markdownEscape(recipe.url)}\n`;
       }
     }
     
     const time = formatTime(recipe.prepTime, recipe.cookTime);
-    if (time) text += `⏰ ${time}\n`;
+    if (time) text += ` ${time}\n`;
     
-    if (recipe.servings) text += `🍽️ ${recipe.servings} servings\n`;
-    if (recipe.difficulty) text += `📊 Difficulty: ${recipe.difficulty}\n`;
-    if (recipe.cuisine) text += `🌍 Cuisine: ${recipe.cuisine}\n`;
+    if (recipe.servings) text += ` ${recipe.servings} servings\n`;
+    if (recipe.difficulty) text += ` Difficulty: ${recipe.difficulty}\n`;
+    if (recipe.cuisine) text += ` Cuisine: ${recipe.cuisine}\n`;
     
     text += '\n';
     
     // Ingredients
     if (recipe.ingredients && recipe.ingredients.length > 0) {
-      text += `🥘 **Ingredients** (${recipe.ingredients.length})\n`;
+      text += ` **Ingredients** (${recipe.ingredients.length})\n`;
       recipe.ingredients.forEach(i => text += `• ${markdownEscape(i)}\n`);
       text += '\n';
     }
     
     // Steps
     if (recipe.steps && recipe.steps.length > 0) {
-      text += `🔪 **Instructions**\n`;
+      text += ` **Instructions**\n`;
       recipe.steps.forEach((step, i) => text += `${i + 1}. ${markdownEscape(step)}\n`);
     }
     
-    text += `\n🆔 \`${recipe._id}\``;
+    text += `\n \`${recipe._id}\``;
     
     return text;
   }
@@ -313,7 +313,7 @@ export class Plan2MealCommands {
    * Format grocery list
    */
   private formatGroceryList(list: GroceryList): string {
-    let text = `🛒 **${markdownEscape(list.name)}**\n`;
+    let text = ` **${markdownEscape(list.name)}**\n`;
     text += '─'.repeat(30) + '\n';
     
     if (list.description) {
@@ -322,7 +322,7 @@ export class Plan2MealCommands {
     
     // Recipes
     if (list.recipes && list.recipes.length > 0) {
-      text += `📖 **Recipes** (${list.recipes.length})\n`;
+      text += ` **Recipes** (${list.recipes.length})\n`;
       list.recipes.forEach(r => text += `• ${markdownEscape(r.name)}\n`);
       text += '\n';
     }
@@ -330,16 +330,16 @@ export class Plan2MealCommands {
     // Items
     if (list.items && list.items.length > 0) {
       const completed = list.items.filter(i => i.isCompleted).length;
-      text += `🛍️ **Items** (${list.items.length} total, ${completed} completed)\n`;
+      text += ` **Items** (${list.items.length} total, ${completed} completed)\n`;
       list.items.forEach(item => {
-        const check = item.isCompleted ? '✅' : '⬜';
+        const check = item.isCompleted ? '' : '';
         let itemText = `${check} ${markdownEscape(item.ingredient)}`;
         if (item.quantity) itemText += ` (${item.quantity}${item.unit ? ' ' + item.unit : ''})`;
         text += `${itemText}\n`;
       });
     }
     
-    text += `\n🆔 \`${list._id}\``;
+    text += `\n \`${list._id}\``;
     
     return text;
   }

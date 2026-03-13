@@ -86,7 +86,7 @@ Note: OAuth credentials are saved in `coupler-io/oauth-state.json`
    chmod 600 config/mcporter.json CPL/oauth-state.json
    ```
 
-   > ⚠️ Token files contain sensitive credentials. Never commit them to version control (already excluded via `.gitignore`). For additional security, consider storing tokens in your system keychain (macOS: `security add-generic-password`).
+   >  Token files contain sensitive credentials. Never commit them to version control (already excluded via `.gitignore`). For additional security, consider storing tokens in your system keychain (macOS: `security add-generic-password`).
 
 ### mcporter Config
 

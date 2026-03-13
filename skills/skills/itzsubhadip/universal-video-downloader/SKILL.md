@@ -1,7 +1,7 @@
 ---
 name: universal-video-downloader
 description: Download videos from YouTube, Instagram, TikTok, Twitter/X, and 1000+ other sites using yt-dlp. Supports quality selection and automatic cleanup. Use when a user provides a video link from any platform and wants to download it.
-metadata: {"openclaw":{"emoji":"🎥","requires":{"bins":["yt-dlp","ffmpeg"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["yt-dlp","ffmpeg"]}}}
 ---
 
 # Universal Video Downloader

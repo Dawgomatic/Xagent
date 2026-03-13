@@ -60,14 +60,14 @@ if [ "$ALL_READY" = true ] && [ $TIME_SINCE_REMINDER -gt 43200 ] && [ "$FALLBACK
   
   # Write reminder file for AAI to pick up on next heartbeat
   cat > "$REMINDER_FILE" << EOF
-fren, pet your gotchi(s)! 👻
+fren, pet your gotchi(s)! 
 
 All ${#GOTCHI_IDS[@]} gotchis are ready for petting!
 
-Reply with 'pet all my gotchis' or I'll auto-pet them in 1 hour if you're busy! 🦞
+Reply with 'pet all my gotchis' or I'll auto-pet them in 1 hour if you're busy! 
 EOF
   
-  echo "[$(date)] ✅ Reminder file created"
+  echo "[$(date)]  Reminder file created"
   
   # Update state: mark reminder sent and schedule fallback
   jq '.lastReminder = '$(date +%s)' | .fallbackScheduled = true' "$STATE_FILE" > "${STATE_FILE}.tmp" && mv "${STATE_FILE}.tmp" "$STATE_FILE"
@@ -80,7 +80,7 @@ EOF
     echo "[$(date)] Fallback scheduled via background process (PID $FALLBACK_PID)"
   }
   
-  echo "[$(date)] ✅ Fallback scheduled for 1 hour from now"
+  echo "[$(date)]  Fallback scheduled for 1 hour from now"
   
 elif [ "$ALL_READY" = false ] && [ "$FALLBACK_SCHEDULED" = true ]; then
   # Reset state if gotchis were already petted

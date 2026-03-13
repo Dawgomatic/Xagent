@@ -115,10 +115,10 @@ def main():
     if args.json:
         print(json.dumps(report, indent=2, ensure_ascii=False))
     else:
-        print(f"Restart postcheck: {'✅ PASSED' if all_passed else '❌ FAILED'}")
+        print(f"Restart postcheck: {' PASSED' if all_passed else ' FAILED'}")
         print(f"Reason: {reason}")
         for r in results:
-            status = "✅" if r["passed"] else "❌"
+            status = "" if r["passed"] else ""
             print(f"  {status} {r['command']}")
             if r["expect"]:
                 print(f"     expect: {r['expect']}")

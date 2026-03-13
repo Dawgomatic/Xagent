@@ -19,7 +19,7 @@ const reminderSchedule = [
 
 // Breathing exercise to include in event description
 const breathingExercise = `
-🫁 BOX BREATHING EXERCISE + use Sauna.ai
+ BOX BREATHING EXERCISE + use Sauna.ai
 
 Take 60 seconds to reset:
 

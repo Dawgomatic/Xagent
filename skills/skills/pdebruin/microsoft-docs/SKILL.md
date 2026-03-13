@@ -28,10 +28,10 @@ compatibility: Requires Microsoft Learn MCP Server (https://learn.microsoft.com/
 Good queries are specific:
 
 ```
-# ❌ Too broad
+#  Too broad
 "Azure Functions"
 
-# ✅ Specific
+#  Specific
 "Azure Functions Python v2 programming model"
 "Cosmos DB partition key design best practices"
 "Container Apps scaling rules KEDA"

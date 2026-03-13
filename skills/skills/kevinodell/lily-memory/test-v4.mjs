@@ -23,10 +23,10 @@ let failed = 0;
 function assert(condition, name) {
   if (condition) {
     passed++;
-    console.log(`  ✅ ${name}`);
+    console.log(`   ${name}`);
   } else {
     failed++;
-    console.log(`  ❌ ${name}`);
+    console.log(`   ${name}`);
   }
 }
 
@@ -140,13 +140,13 @@ async function ollamaEmbed(text) {
 // ============================================================================
 
 async function runTests() {
-  console.log("\n🧪 Lily Memory v4 Test Harness\n");
+  console.log("\n Lily Memory v4 Test Harness\n");
 
   // --- Ensure DB exists (fresh install support) ---
   const dbDir = path.dirname(DB_PATH);
   if (!fs.existsSync(dbDir)) {
     fs.mkdirSync(dbDir, { recursive: true });
-    console.log(`📁 Created directory: ${dbDir}`);
+    console.log(` Created directory: ${dbDir}`);
   }
   const dbSchema = `
 CREATE TABLE IF NOT EXISTS decisions (
@@ -208,13 +208,13 @@ CREATE TABLE IF NOT EXISTS entities (
     added_at INTEGER NOT NULL DEFAULT (CAST(strftime('%s','now') AS INTEGER) * 1000)
 );`.trim();
   if (sqliteExec(dbSchema)) {
-    console.log("🗄️  Database schema initialized\n");
+    console.log("  Database schema initialized\n");
   } else {
-    console.log("⚠️  Database schema init failed (may already exist)\n");
+    console.log("  Database schema init failed (may already exist)\n");
   }
 
   // --- Entity Validation (23 tests, same as v3) ---
-  console.log("📋 Entity Validation:");
+  console.log(" Entity Validation:");
   assert(isValidEntity("Kevin") === true, "Accept: Kevin");
   assert(isValidEntity("Lily") === true, "Accept: Lily");
   assert(isValidEntity("Christine") === true, "Accept: Christine");
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(isValidEntity("also") === false, "Reject: also (common word)");
 
   // --- Cosine Similarity (5 tests) ---
-  console.log("\n📐 Cosine Similarity:");
+  console.log("\n Cosine Similarity:");
   assert(Math.abs(cosineSimilarity([1, 0, 0], [1, 0, 0]) - 1.0) < 0.001, "Identical vectors = 1.0");
   assert(Math.abs(cosineSimilarity([1, 0, 0], [0, 1, 0]) - 0.0) < 0.001, "Orthogonal vectors = 0.0");
   assert(Math.abs(cosineSimilarity([1, 0, 0], [-1, 0, 0]) - (-1.0)) < 0.001, "Opposite vectors = -1.0");
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(cosineSimilarity([1, 2], [1, 2, 3]) === 0, "Mismatched lengths returns 0");
 
   // --- Topic Signatures (4 tests) ---
-  console.log("\n📊 Topic Signatures:");
+  console.log("\n Topic Signatures:");
   const sig1 = extractTopicSignature("The kalshi trading system needs to pull market data from the API and process orders for the kalshi market");
   assert(sig1 !== null, "Extracts signature from text");
   assert(sig1.includes("kalshi"), "Signature contains 'kalshi'");
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(extractTopicSignature("too short") === null, "Short text returns null");
 
   // --- Ollama Embeddings (4 tests) ---
-  console.log("\n🧠 Ollama Embeddings:");
+  console.log("\n Ollama Embeddings:");
   const emb1 = await ollamaEmbed("Kevin likes TypeScript");
   assert(emb1 !== null, "Ollama returns embedding");
   assert(emb1 && emb1.length === 768, `Embedding has 768 dimensions (got ${emb1?.length})`);
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS entities (
   }
 
   // --- Vectors Table (3 tests) ---
-  console.log("\n💾 Vectors Table:");
+  console.log("\n Vectors Table:");
   const tableCreated = sqliteExec(`
     CREATE TABLE IF NOT EXISTS vectors (
       id TEXT PRIMARY KEY,
@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(colNames === "created_at,decision_id,embedding,id,model,text_content", `Correct column names: ${colNames}`);
 
   // --- Embedding Storage & Retrieval (3 tests) ---
-  console.log("\n🔗 Embedding Storage:");
+  console.log("\n Embedding Storage:");
   if (emb1) {
     const testId = "test-vector-" + Date.now();
     const testDecisionId = "test-decision-" + Date.now();
@@ -334,7 +334,7 @@ CREATE TABLE IF NOT EXISTS entities (
   }
 
   // --- Consolidation Logic (3 tests) ---
-  console.log("\n🗜️ Consolidation:");
+  console.log("\n Consolidation:");
   // Check for any existing duplicates
   const dupes = sqliteQuery(`
     SELECT entity, fact_key, COUNT(*) as cnt
@@ -380,7 +380,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(afterCleanup[0]?.cnt === 0, "Test duplicates cleaned up");
 
   // --- Reflexion Nudge (2 tests) ---
-  console.log("\n🪞 Reflexion Nudge:");
+  console.log("\n Reflexion Nudge:");
   // Test that alternative suggestions are pulled from DB
   const alternatives = sqliteQuery(`
     SELECT DISTINCT entity, fact_key FROM decisions
@@ -393,7 +393,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(alternatives.length === 0 || alternatives.some(a => a.entity && a.fact_key), "Alternative topics have entity+key structure (or empty on fresh install)");
 
   // --- DB State (3 tests) ---
-  console.log("\n📊 DB State:");
+  console.log("\n DB State:");
   const totalEntries = sqliteQuery("SELECT COUNT(*) as cnt FROM decisions WHERE expires_at IS NULL OR expires_at > " + Date.now());
   assert(totalEntries[0]?.cnt >= 0, `Total non-expired entries: ${totalEntries[0]?.cnt} (0+ ok on fresh install)`);
 
@@ -408,7 +408,7 @@ CREATE TABLE IF NOT EXISTS entities (
   assert(true, `Vectors in DB: ${vectorCount[0]?.cnt || 0}`);
 
   // --- Compaction Config (2 tests) ---
-  console.log("\n⚙️ Compaction Config:");
+  console.log("\n Compaction Config:");
   const configPath = path.join(os.homedir(), ".openclaw", "openclaw.json");
   if (fs.existsSync(configPath)) {
     const configRaw = fs.readFileSync(configPath, "utf-8");
@@ -422,7 +422,7 @@ CREATE TABLE IF NOT EXISTS entities (
   }
 
   // --- Plugin Config Schema (2 tests) ---
-  console.log("\n📝 Plugin Config Schema:");
+  console.log("\n Plugin Config Schema:");
   const schemaRaw = fs.readFileSync(path.join(os.homedir(), ".openclaw", "extensions", "lily-memory", "openclaw.plugin.json"), "utf-8");
   const schema = JSON.parse(schemaRaw);
   assert(schema.configSchema.properties.vectorSearch !== undefined, "vectorSearch config property exists");
@@ -432,10 +432,10 @@ CREATE TABLE IF NOT EXISTS entities (
   console.log(`\n${"=".repeat(50)}`);
   console.log(`Results: ${passed} passed, ${failed} failed out of ${passed + failed} tests`);
   if (failed > 0) {
-    console.log("⚠️  SOME TESTS FAILED");
+    console.log("  SOME TESTS FAILED");
     process.exit(1);
   } else {
-    console.log("✅ ALL TESTS PASSED");
+    console.log(" ALL TESTS PASSED");
   }
 }
 

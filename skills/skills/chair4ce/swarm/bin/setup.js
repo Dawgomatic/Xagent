@@ -87,7 +87,7 @@ async function validateApiKey(provider, apiKey) {
     const result = await client.complete('Say "ok" and nothing else.', { maxTokens: 10 });
     return result.toLowerCase().includes('ok');
   } catch (error) {
-    print(`  ❌ Error: ${error.message}`);
+    print(`   Error: ${error.message}`);
     return false;
   }
 }
@@ -164,7 +164,7 @@ node_scaling:
 async function main() {
   console.clear();
   print('');
-  print('🚀 Node Scaling Setup for Clawdbot');
+  print(' Node Scaling Setup for Clawdbot');
   print('═'.repeat(50));
   print('');
   print('This will configure parallel task execution using');
@@ -203,7 +203,7 @@ async function main() {
     apiKey = await ask('  API Key: ');
     
     if (!apiKey || apiKey.length < 10) {
-      print('  ⚠️  API key seems too short. Try again.');
+      print('    API key seems too short. Try again.');
       continue;
     }
     
@@ -212,7 +212,7 @@ async function main() {
     if (validated) {
       print('  ✓ API key validated successfully!');
     } else {
-      print('  ⚠️  Could not validate key. Try again or press Enter to skip validation.');
+      print('    Could not validate key. Try again or press Enter to skip validation.');
       const skip = await ask('  Skip validation? [y/N]: ');
       if (skip.toLowerCase() === 'y') {
         validated = true;
@@ -221,7 +221,7 @@ async function main() {
   }
   
   // Set environment variable hint
-  print(`\n  💡 Tip: Set ${provider.envVar} in your environment for persistence`);
+  print(`\n   Tip: Set ${provider.envVar} in your environment for persistence`);
   
   // Step 3: Resource limits
   print('\nStep 3: Configure resource limits');
@@ -307,33 +307,33 @@ async function main() {
   if (report.status === 'ok') {
     print('');
     box([
-      '✅ Setup complete! All tests passed.',
+      ' Setup complete! All tests passed.',
       '',
       'Swarm is ready to use. Try:',
       '  "Research the top 5 AI companies"',
       '  "Analyze these 10 URLs in parallel"',
       '',
       `Config: ${configPath}`,
-    ], '🎉 Success!');
+    ], ' Success!');
   } else if (report.status === 'warning') {
     print('');
     box([
-      '⚠️  Setup complete with warnings.',
+      '  Setup complete with warnings.',
       '',
       'Swarm should work, but check the warnings above.',
       '',
       `Config: ${configPath}`,
-    ], '⚠️  Warning');
+    ], '  Warning');
   } else {
     print('');
     box([
-      '❌ Setup complete but tests failed.',
+      ' Setup complete but tests failed.',
       '',
       'See errors above. You may need to fix issues',
       'before Swarm will work correctly.',
       '',
       'Run diagnostics again: node bin/diagnose.js',
-    ], '❌ Issues Found');
+    ], ' Issues Found');
   }
   
   print('');

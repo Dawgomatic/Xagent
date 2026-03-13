@@ -1,25 +1,25 @@
-# 🎯 4To1 Planner — AI Planning Coach
+#  4To1 Planner — AI Planning Coach
 
 > **From Vision to Action: 4to1**
 
-An OpenClaw Skill that transforms your AI agent into a personal planning coach using the **4To1 Method™**.
+An OpenClaw Skill that transforms your AI agent into a personal planning coach using the **4To1 Method**.
 
 ## The Problem
 
 Most planners stop at 90 days. To-do apps manage tasks but not direction. You end up busy but not strategic — disconnected from what actually matters.
 
-## The 4To1 Method™
+## The 4To1 Method
 
 A 4-layer system that bridges the gap between your biggest dreams and today's to-do list:
 
 ```
-🔭 4 YEARS  →  Strategic Vision        (Where am I going?)
-📊 3 MONTHS →  Project Milestones      (Quarterly Gantt Log)
-🏃 2 WEEKS  →  Action Execution        (1 Day in a Week sprints)
-✅ 1 DAY    →  Daily Tasks             (What am I doing RIGHT NOW?)
+ 4 YEARS  →  Strategic Vision        (Where am I going?)
+ 3 MONTHS →  Project Milestones      (Quarterly Gantt Log)
+ 2 WEEKS  →  Action Execution        (1 Day in a Week sprints)
+ 1 DAY    →  Daily Tasks             (What am I doing RIGHT NOW?)
 
-🚫 Not-To-Do List   →  What I'm saying NO to
-⏰ Time Wasters      →  Habits I'm eliminating
+ Not-To-Do List   →  What I'm saying NO to
+ Time Wasters      →  Habits I'm eliminating
 ```
 
 **Every daily task connects up.** Nothing floats.
@@ -74,11 +74,11 @@ Then tell your OpenClaw agent:
 
 ## Links
 
-- 🌐 [4to1planner.com](https://4to1planner.com)
-- 📄 [Free Starter Kit](https://4to1planner.com/free-download.html)
-- 🛒 [Templates & Premium](https://4to1planner.com/shop.html)
-- 🎬 [YouTube](https://www.youtube.com/@markzhou5213)
-- 🐦 [Twitter @xiucat](https://twitter.com/xiucat)
+-  [4to1planner.com](https://4to1planner.com)
+-  [Free Starter Kit](https://4to1planner.com/free-download.html)
+-  [Templates & Premium](https://4to1planner.com/shop.html)
+-  [YouTube](https://www.youtube.com/@markzhou5213)
+-  [Twitter @xiucat](https://twitter.com/xiucat)
 
 ## License
 

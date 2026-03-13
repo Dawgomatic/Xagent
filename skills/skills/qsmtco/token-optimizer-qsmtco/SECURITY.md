@@ -31,12 +31,12 @@ This skill helps reduce OpenClaw API costs by optimizing context loading and mod
 - Writes usage statistics to JSON
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution (no eval, exec, compile)
-- ✅ Only standard library imports: `json, re, pathlib, datetime`
-- ✅ Read/write permissions limited to OpenClaw workspace
-- ✅ No subprocess calls
-- ✅ No system modifications
+-  No network requests
+-  No code execution (no eval, exec, compile)
+-  Only standard library imports: `json, re, pathlib, datetime`
+-  Read/write permissions limited to OpenClaw workspace
+-  No subprocess calls
+-  No system modifications
 
 **Data Handling**:
 - Stores: File access counts, last access timestamps
@@ -54,11 +54,11 @@ This skill helps reduce OpenClaw API costs by optimizing context loading and mod
 - Enforces quiet hours (23:00-08:00)
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution
-- ✅ Only standard library imports: `json, os, datetime, pathlib`
-- ✅ Read/write limited to heartbeat state file
-- ✅ No system commands
+-  No network requests
+-  No code execution
+-  Only standard library imports: `json, os, datetime, pathlib`
+-  Read/write limited to heartbeat state file
+-  No system commands
 
 **Data Handling**:
 - Stores: Last check timestamps, check intervals
@@ -76,11 +76,11 @@ This skill helps reduce OpenClaw API costs by optimizing context loading and mod
 - No state file (pure analysis)
 
 **Security**:
-- ✅ No network requests
-- ✅ No code execution
-- ✅ Only standard library imports: `json, re`
-- ✅ No file writes
-- ✅ Stateless operation
+-  No network requests
+-  No code execution
+-  Only standard library imports: `json, re`
+-  No file writes
+-  Stateless operation
 
 **Data Handling**:
 - No data storage
@@ -98,12 +98,12 @@ This skill helps reduce OpenClaw API costs by optimizing context loading and mod
 - Provides `check`, `suggest`, `pricing`, `reset` commands
 
 **Security**:
-- ✅ Normal operation (check, suggest, pricing, reset) involves no network requests
-- ⚠️ `refresh-pricing` uses OpenRouter API (user-initiated, requires `OPENROUTER_API_KEY`)
-- ✅ No code execution (no eval, exec)
-- ✅ Only standard library imports (`json`, `os`, `datetime`, `pathlib`, `urllib`)
-- ✅ Read/write limited to workspace files
-- ✅ No system command execution
+-  Normal operation (check, suggest, pricing, reset) involves no network requests
+-  `refresh-pricing` uses OpenRouter API (user-initiated, requires `OPENROUTER_API_KEY`)
+-  No code execution (no eval, exec)
+-  Only standard library imports (`json`, `os`, `datetime`, `pathlib`, `urllib`)
+-  Read/write limited to workspace files
+-  No system command execution
 
 **Data Handling**:
 - State: daily usage, reset timestamps, alert history → `token-tracker-state.json`

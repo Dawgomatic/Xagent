@@ -22,9 +22,9 @@ Analyze GitHub user contribution quality.
 
 | Metric | Score |
 |--------|-------|
-| Own ≥10k⭐ repo | +30 |
-| Own ≥5k⭐ repo | +20 |
-| Own ≥1k⭐ repo | +10 |
+| Own ≥10k repo | +30 |
+| Own ≥5k repo | +20 |
+| Own ≥1k repo | +10 |
 
 *Cap: 30. Creator > Contributor*
 
@@ -32,9 +32,9 @@ Analyze GitHub user contribution quality.
 
 | Metric | Score |
 |--------|-------|
-| Merged PR in ≥100k⭐ repo | +4/PR |
-| Merged PR in ≥10k⭐ repo | +2/PR |
-| Merged PR in ≥1k⭐ repo | +1/PR |
+| Merged PR in ≥100k repo | +4/PR |
+| Merged PR in ≥10k repo | +2/PR |
+| Merged PR in ≥1k repo | +1/PR |
 | Non-trivial (>20 lines) | ×1.5 |
 
 *Cap: 30*
@@ -80,21 +80,21 @@ Analyze GitHub user contribution quality.
 ## Output Format
 
 ```
-📊 GitHub Cred: @username
+ GitHub Cred: @username
 
-🏆 XX/100 (Grade)
+ XX/100 (Grade)
 
 ▸ Tier 0 Owned Repos (XX/30)
-  👑 repo1 ⭐XXk
+   repo1 XXk
 
 ▸ Tier 1 External Contributions (XX/30)
-  🔨 org/repo ⭐XXk × N PRs
+   org/repo XXk × N PRs
 
 ▸ Tier 2 Output Quality (XX/20)
-  📈 Merge rate XX% | Code ratio XX%
+   Merge rate XX% | Code ratio XX%
 
 ▸ Tier 3 Social Influence (XX/20)
-  👥 X,XXX followers
+   X,XXX followers
 ```
 
 ---

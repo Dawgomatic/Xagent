@@ -53,9 +53,9 @@ Thinks in simple patterns: immediate stimuli, social hierarchy, observable signa
 
 One sentence. Something you're actually deciding.
 
-✅ "Should I continue working on Brain Dump or pivot?"  
-✅ "Should I hire a freelancer or build in-house?"  
-❌ "What should I do?" (too vague)
+ "Should I continue working on Brain Dump or pivot?"  
+ "Should I hire a freelancer or build in-house?"  
+ "What should I do?" (too vague)
 
 ### 2. Spawn Each Persona
 

@@ -472,19 +472,19 @@ node theme-validator.js theme.zip --errors-only
 
 **Valid theme:**
 ```
-🔍 Validating theme: my-theme.zip
+ Validating theme: my-theme.zip
    Target: Ghost v5
 
-✅ Theme is valid! Safe to upload.
+ Theme is valid! Safe to upload.
    Note: 2 warning(s) found - consider fixing for best compatibility.
 ```
 
 **Theme with errors:**
 ```
-🔍 Validating theme: my-theme.zip
+ Validating theme: my-theme.zip
    Target: Ghost v5
 
-❌ Errors (2):
+ Errors (2):
    These must be fixed before uploading:
 
    • Templates must contain valid Handlebars
@@ -493,7 +493,7 @@ node theme-validator.js theme.zip --errors-only
    • package.json engines.ghost is required
      → Add "engines": {"ghost": ">=5.0.0"}
 
-❌ Validation failed (2 error(s) must be fixed)
+ Validation failed (2 error(s) must be fixed)
 ```
 
 ### Development Workflow
@@ -529,10 +529,10 @@ node theme-validator.js theme.zip --json > validation.json
 
 # Check exit code
 if [ $? -eq 0 ]; then
-  echo "✅ Theme valid - deploying"
+  echo " Theme valid - deploying"
   node theme-manager.js upload theme.zip --activate
 else
-  echo "❌ Theme validation failed"
+  echo " Theme validation failed"
   cat validation.json
   exit 1
 fi

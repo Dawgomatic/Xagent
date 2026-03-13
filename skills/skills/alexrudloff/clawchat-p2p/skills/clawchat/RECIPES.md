@@ -12,7 +12,7 @@ Practical patterns for integrating P2P agent messaging with OpenClaw. These reci
 - [Message Format Conventions](#message-format-conventions)
 - [Troubleshooting](#troubleshooting)
 
-## Recipe 0: Built-in OpenClaw Wake (Recommended) ⭐
+## Recipe 0: Built-in OpenClaw Wake (Recommended) 
 
 **New in v0.2:** The simplest and most efficient approach - let the daemon handle it automatically.
 

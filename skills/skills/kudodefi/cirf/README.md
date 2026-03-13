@@ -14,20 +14,20 @@
 
 Traditional AI research approaches let models work freely and autonomously - you give a prompt, AI disappears for hours, then returns with a completed report. This creates several issues:
 
-- ❌ No visibility into the research process
-- ❌ No ability to course-correct during execution
-- ❌ Outputs may miss your specific needs or priorities
-- ❌ Black-box process with limited quality control
+-  No visibility into the research process
+-  No ability to course-correct during execution
+-  Outputs may miss your specific needs or priorities
+-  Black-box process with limited quality control
 
 ### The CIRF Approach: Interactive Collaboration
 
 Instead of autonomous execution, CIRF transforms research into a **collaborative team session** between you and AI:
 
-- ✅ **Continuous control** - Guide AI through each research phase
-- ✅ **Real-time adjustments** - Refine focus areas as insights emerge
-- ✅ **Interactive validation** - Review findings before moving forward
-- ✅ **Quality assurance** - Ensure outputs match your expectations
-- ✅ **Transparency** - Understand AI's reasoning at each step
+-  **Continuous control** - Guide AI through each research phase
+-  **Real-time adjustments** - Refine focus areas as insights emerge
+-  **Interactive validation** - Review findings before moving forward
+-  **Quality assurance** - Ensure outputs match your expectations
+-  **Transparency** - Understand AI's reasoning at each step
 
 Think of it as **pair programming for research** - you're the domain expert directing, AI is the research assistant executing.
 
@@ -83,10 +83,10 @@ This **continuous feedback loop** ensures research stays aligned with your goals
 ### AI Assistant
 This framework works with AI CLI tools that have file read/write capabilities:
 
-- ✅ [Claude Code](https://claude.com/product/claude-code) (Recommended)
-- ✅ [OpenClaw](https://openclaw.ai/)
-- ✅ [Codex CLI](https://openai.com/codex/)
-- ✅ Any AI assistant with file system access
+-  [Claude Code](https://claude.com/product/claude-code) (Recommended)
+-  [OpenClaw](https://openclaw.ai/)
+-  [Codex CLI](https://openai.com/codex/)
+-  Any AI assistant with file system access
 
 ### Setup
 ```bash
@@ -114,9 +114,9 @@ AI: [Reads and embodies research analyst persona]
 ```
 
 **Why recommended:**
-- ✅ Direct and explicit
-- ✅ AI knows exactly which file to read
-- ✅ Works reliably across all AI tools
+-  Direct and explicit
+-  AI knows exactly which file to read
+-  Works reliably across all AI tools
 
 **Available agent files:**
 - `@framework/agents/research-analyst.yaml` - Market & fundamentals
@@ -201,7 +201,7 @@ cirf/
 
 Each agent is a **persona definition** that AI embodies when activated.
 
-### 🔬 Research Analyst
+###  Research Analyst
 **Expertise:** Market intelligence, project fundamentals, investment synthesis
 **Use for:** Market analysis, project evaluation, competitive research, investment thesis
 **Workflows:** All research workflows
@@ -211,7 +211,7 @@ Each agent is a **persona definition** that AI embodies when activated.
 @framework/agents/research-analyst.yaml
 ```
 
-### ⚙️ Technology Analyst
+###  Technology Analyst
 **Expertise:** Architecture assessment, security analysis, technical evaluation
 **Use for:** Smart contract review, protocol architecture, technical due diligence
 **Workflows:** technology-analysis
@@ -221,7 +221,7 @@ Each agent is a **persona definition** that AI embodies when activated.
 @framework/agents/technology-analyst.yaml
 ```
 
-### ✍️ Content Creator
+###  Content Creator
 **Expertise:** Research-to-content transformation, multi-platform optimization
 **Use for:** Converting research into X threads, blog articles, YouTube scripts
 **Workflows:** create-content
@@ -308,7 +308,7 @@ workspaces/{project-id}/
 You: Analyze Ethereum for investment.
 
 AI: Creating workspace 'ethereum'...
-    ✅ Workspace ready: workspaces/ethereum/
+     Workspace ready: workspaces/ethereum/
     Starting research...
 ```
 
@@ -336,15 +336,15 @@ Session 3: synthesis (consolidates all previous work)
 ### 1. Prefer Collaborative Mode
 
 **Why collaborative is recommended:**
-- ✅ Quality control at each phase
-- ✅ Inject domain expertise when needed
-- ✅ Course-correct as insights emerge
-- ✅ Ensure outputs match expectations
+-  Quality control at each phase
+-  Inject domain expertise when needed
+-  Course-correct as insights emerge
+-  Ensure outputs match expectations
 
 **When to use autonomous:**
-- ✅ Repetitive analysis with clear requirements
-- ✅ After calibrating AI's approach collaboratively
-- ✅ Time-sensitive updates using established framework
+-  Repetitive analysis with clear requirements
+-  After calibrating AI's approach collaboratively
+-  Time-sensitive updates using established framework
 
 ### 2. Build Research in Phases
 
@@ -405,9 +405,9 @@ Validate important research:
 You: @framework/agents/qa-specialist.yaml
      Review my Ethereum investment analysis.
 
-AI: ⚠️ Potential bias: Heavy weight on developer ecosystem, value accrual link unclear.
-    📊 Gap: Missing regulatory risk for DeFi platforms.
-    ❓ Logic: Bull case assumes L2 success but doesn't model fragmentation risk.
+AI:  Potential bias: Heavy weight on developer ecosystem, value accrual link unclear.
+     Gap: Missing regulatory risk for DeFi platforms.
+     Logic: Bull case assumes L2 success but doesn't model fragmentation risk.
 
     Recommend addressing before final decision.
 ```

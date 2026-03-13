@@ -2,7 +2,7 @@
 name: credence
 description: Check any MCP server or AI tool against the Credence trust registry before installing it. Scores security, provenance, and behavioral risk on a 0-100 scale.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🛡️", "requires": {"bins": ["curl"]}, "os": ["darwin", "linux", "win32"], "tags": ["security", "trust", "mcp"]}}
+metadata: {"openclaw": {"emoji": "", "requires": {"bins": ["curl"]}, "os": ["darwin", "linux", "win32"], "tags": ["security", "trust", "mcp"]}}
 ---
 
 # Credence

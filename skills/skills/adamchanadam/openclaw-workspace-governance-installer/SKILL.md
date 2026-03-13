@@ -3,7 +3,7 @@ name: openclaw-workspace-governance-installer
 description: Install OpenClaw WORKSPACE_GOVERNANCE in minutes. Get guided setup, upgrade checks, migration, and audit for long-running workspaces.
 author: Adam Chan
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🚀","homepage":"https://github.com/Adamchanadam/OpenClaw-WORKSPACE-GOVERNANCE","requires":{"bins":["openclaw"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://github.com/Adamchanadam/OpenClaw-WORKSPACE-GOVERNANCE","requires":{"bins":["openclaw"]}}}
 ---
 # OpenClaw Workspace Governance Installer
 

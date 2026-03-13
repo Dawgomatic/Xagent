@@ -70,11 +70,11 @@ skill-scaffold super-tool --cli --dir ~/projects
 
 ## Works With
 
-- 🤖 **Clawdbot** / **Moltbot** - AI agent framework
-- 🧠 **Claude** - Anthropic's AI assistant
-- ✨ **Cursor** - AI-powered code editor
-- 🔌 **MCP** - Model Context Protocol servers
-- 🎯 **Any agent** that reads SKILL.md
+-  **Clawdbot** / **Moltbot** - AI agent framework
+-  **Claude** - Anthropic's AI assistant
+-  **Cursor** - AI-powered code editor
+-  **MCP** - Model Context Protocol servers
+-  **Any agent** that reads SKILL.md
 
 ## Keywords
 

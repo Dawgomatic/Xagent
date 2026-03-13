@@ -2,7 +2,7 @@
 name: zellij
 description: Remote-control zellij sessions for interactive CLIs by sending keystrokes and scraping pane output.
 homepage: https://zellij.dev
-metadata: {"moltbot":{"emoji":"🪟","os":["darwin","linux"],"requires":{"bins":["zellij","jq"]},"install":[{"id":"brew","kind":"brew","formula":"zellij","bins":["zellij"],"label":"Install Zellij (brew)"},{"id":"cargo","kind":"cargo","crate":"zellij","bins":["zellij"],"label":"Install Zellij (Cargo)"}]}}
+metadata: {"moltbot":{"emoji":"","os":["darwin","linux"],"requires":{"bins":["zellij","jq"]},"install":[{"id":"brew","kind":"brew","formula":"zellij","bins":["zellij"],"label":"Install Zellij (brew)"},{"id":"cargo","kind":"cargo","crate":"zellij","bins":["zellij"],"label":"Install Zellij (Cargo)"}]}}
 ---
 
 # zellij Skill (Moltbot)

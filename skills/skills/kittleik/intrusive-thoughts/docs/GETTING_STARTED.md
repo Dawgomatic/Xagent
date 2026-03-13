@@ -55,7 +55,7 @@ Edit `config.json`:
   },
   "agent": {
     "name": "Your Agent",
-    "emoji": "🦞"
+    "emoji": ""
   },
   "scheduling": {
     "morning_mood_time": "07:00",
@@ -140,7 +140,7 @@ Morning Ritual → Mood Selection → Schedule Generation
 **Setup fails with "Python not found"**
 → Install Python 3.8+: `sudo apt install python3` (Ubuntu) or `brew install python` (macOS)
 
-**Health monitor shows 🟡 yellow**
+**Health monitor shows  yellow**
 → Run `./setup.sh` to initialize missing data files
 
 **Cron jobs not firing**

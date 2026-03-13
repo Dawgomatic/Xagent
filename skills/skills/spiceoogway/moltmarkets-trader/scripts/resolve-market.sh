@@ -42,7 +42,7 @@ import json, sys
 r = json.load(sys.stdin)
 if 'error' in r or 'detail' in r:
     sys.exit(1)
-print(f'  ✅ Market resolved: {r.get(\"resolution\", \"$RESOLUTION\")}')
+print(f'   Market resolved: {r.get(\"resolution\", \"$RESOLUTION\")}')
 if 'title' in r:
     print(f'  Title: {r[\"title\"]}')
 if 'status' in r:
@@ -51,7 +51,7 @@ print(f'════════════════════════
 " 2>/dev/null; then
   :
 else
-  echo "  ❌ Resolution failed!"
+  echo "   Resolution failed!"
   echo "  Response: $RESPONSE"
   exit 1
 fi

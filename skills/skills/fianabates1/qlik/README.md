@@ -7,7 +7,7 @@ Complete Qlik Cloud integration with 37 tools for the OpenClaw/Clawd agent platf
 - **Core**: Health checks, tenant info, search, licensing
 - **Apps**: List, create, delete, get details, inspect fields
 - **Reloads**: Trigger, monitor, cancel, view history
-- **Insight Advisor**: Natural language queries against your data ⭐
+- **Insight Advisor**: Natural language queries against your data 
 - **Automations**: List, run, monitor automation workflows
 - **AutoML**: Experiments and deployments
 - **Qlik Answers**: AI assistants and Q&A

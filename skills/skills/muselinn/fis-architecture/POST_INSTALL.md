@@ -9,14 +9,14 @@
 **FIS 3.2 requires no initialization.**
 
 Unlike FIS 3.1 which needed:
-- ❌ Initialization scripts
-- ❌ Registry files
-- ❌ Python path setup
-- ❌ Complex directory structures
+-  Initialization scripts
+-  Registry files
+-  Python path setup
+-  Complex directory structures
 
 FIS 3.2 only needs:
-- ✅ Ticket files (create as needed)
-- ✅ Knowledge files (drop into `knowledge/`)
+-  Ticket files (create as needed)
+-  Knowledge files (drop into `knowledge/`)
 
 ---
 
@@ -63,7 +63,7 @@ mv ~/.openclaw/fis-hub/tickets/active/TASK_FIRST.json \
    ~/.openclaw/fis-hub/tickets/completed/
 ```
 
-✅ **That's it!** No Python imports, no registries, no setup.
+ **That's it!** No Python imports, no registries, no setup.
 
 ---
 
@@ -114,4 +114,4 @@ echo "# My Knowledge" > ~/.openclaw/fis-hub/knowledge/my-notes.md
 
 ---
 
-*FIS 3.2.0-lite — Ready when you are 🐱⚡*
+*FIS 3.2.0-lite — Ready when you are *

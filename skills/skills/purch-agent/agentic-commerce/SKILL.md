@@ -293,14 +293,14 @@ bun run scripts/sign_transaction_base.ts "<serialized_tx_hex>" "<private_key_hex
 
 **Output (Solana):**
 ```
-✅ Transaction successful!
+ Transaction successful!
    Signature: 5UfgJ3vN...
    Explorer:  https://solscan.io/tx/5UfgJ3vN...
 ```
 
 **Output (Base):**
 ```
-✅ Transaction successful!
+ Transaction successful!
    Hash:     0x1234...
    Explorer: https://basescan.org/tx/0x1234...
 ```

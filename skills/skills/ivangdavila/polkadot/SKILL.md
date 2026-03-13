@@ -1,7 +1,7 @@
 ---
 name: Polkadot
 description: Assist with Polkadot DOT transactions, staking, parachains, and cross-chain transfers.
-metadata: {"clawdbot":{"emoji":"⚪","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Network Architecture

@@ -38,7 +38,7 @@ class WorkerPool:
             task: Task dictionary
             project: Project dictionary
         """
-        print(f"📥 Scheduling task: {task['task_id']} - {task['description'][:50]}...")
+        print(f" Scheduling task: {task['task_id']} - {task['description'][:50]}...")
 
         with self.lock:
             self.task_queue.append((task, project))
@@ -127,7 +127,7 @@ class WorkerPool:
             task: Task to execute
             project: Project context
         """
-        print(f"🚀 Starting task: {task['task_id']} on {task['assigned_model']}")
+        print(f" Starting task: {task['task_id']} on {task['assigned_model']}")
 
         # Update task status
         with self.lock:
@@ -355,16 +355,16 @@ Respond with a summary of what you implemented and any files you created/modifie
 
         # Print result (outside lock to avoid blocking)
         if result['success']:
-            print(f"✅ Task completed: {task_id} in {task['execution_time']:.1f}s")
+            print(f" Task completed: {task_id} in {task['execution_time']:.1f}s")
         else:
-            print(f"❌ Task failed: {task_id} - {result.get('error', 'Unknown error')}")
+            print(f" Task failed: {task_id} - {result.get('error', 'Unknown error')}")
 
         # Try to start next task (thread-safe)
         self._try_start_next()
 
     def wait_all(self):
         """Wait for all tasks to complete"""
-        print(f"⏳ Waiting for all tasks to complete...")
+        print(f" Waiting for all tasks to complete...")
 
         while True:
             with self.lock:
@@ -383,7 +383,7 @@ Respond with a summary of what you implemented and any files you created/modifie
 
             time.sleep(0.1)  # Poll interval
 
-        print(f"✅ All tasks completed")
+        print(f" All tasks completed")
 
     def get_active_count(self) -> int:
         """Get number of active workers (thread-safe)"""

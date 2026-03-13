@@ -111,7 +111,7 @@ web_search "{restaurant name} {city} Yelp rating reviews"
 
 **Consolidated display:**
 ```
-⭐ {Restaurant}: 4.9 OpenTable (813) · 4.6 Google (1.2K) · 4.5 Yelp (213)
+ {Restaurant}: 4.9 OpenTable (813) · 4.6 Google (1.2K) · 4.5 Yelp (213)
 ```
 
 **Weighting:** Prioritize review count. A 4.7 with 500 reviews beats a 4.9 with 12. If Yelp is significantly lower, flag it: *"Yelp is more mixed at 3.8 — worth checking recent reviews."*
@@ -123,12 +123,12 @@ web_search "{restaurant name} {city} Yelp rating reviews"
 Present 2–4 options max (decision fatigue above 4):
 
 ```
-🍽️ **{Restaurant Name}** — {Cuisine}
-📍 {Neighborhood}, {City}
-⭐ {rating} OpenTable ({N} reviews) · {rating} Google ({N})
-💰 {$-$$$$} (~${est}/person before tip)
-🎯 Why it fits: {one-sentence reason}
-📅 Available: {times on target date}
+ **{Restaurant Name}** — {Cuisine}
+ {Neighborhood}, {City}
+ {rating} OpenTable ({N} reviews) · {rating} Google ({N})
+ {$-$$$$} (~${est}/person before tip)
+ Why it fits: {one-sentence reason}
+ Available: {times on target date}
 ```
 
 **Include:**

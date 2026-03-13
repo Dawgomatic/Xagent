@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-/* 🌌 Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
+/*  Aoineco-Verified | Multi-Agent Collective Proprietary Skill */
 S-DNA: AOI-2026-0213-SDNA-AL01
 
 Aoineco Ledger v1.0 — AI Agent Financial Tracking Engine
@@ -218,7 +218,7 @@ class AoinecoLedger:
         if alerts:
             tx.tags.append("BUDGET_WARNING")
             for alert in alerts:
-                print(f"⚠️ {alert}")
+                print(f" {alert}")
         
         self._save_tx(tx)
         return tx
@@ -295,12 +295,12 @@ class AoinecoLedger:
             
             if pct >= 1.0:
                 alerts.append(
-                    f"🔴 BUDGET EXCEEDED: {category} — ${spent:.2f}/${budget.limit:.2f} "
+                    f" BUDGET EXCEEDED: {category} — ${spent:.2f}/${budget.limit:.2f} "
                     f"({pct:.0%}) in {budget.period} period"
                 )
             elif pct >= budget.warn_threshold:
                 alerts.append(
-                    f"🟡 BUDGET WARNING: {category} — ${spent:.2f}/${budget.limit:.2f} "
+                    f" BUDGET WARNING: {category} — ${spent:.2f}/${budget.limit:.2f} "
                     f"({pct:.0%}) in {budget.period} period"
                 )
         
@@ -345,17 +345,17 @@ class AoinecoLedger:
         runway = remaining / daily_burn if daily_burn > 0 else float('inf')
         
         return {
-            "💰 Seed Amount": f"${seed:.2f}",
-            "📈 Total Revenue": f"${revenue:.4f}",
-            "📉 Total Expenses": f"${expenses:.4f}",
-            "🤖 API/LLM Cost": f"${api_cost:.4f}",
-            "💵 Net Profit": f"${revenue - expenses:.4f}",
-            "📊 ROI": f"{((revenue - expenses) / seed * 100):.1f}%" if seed > 0 else "N/A",
-            "💎 Remaining Balance": f"${remaining:.4f}",
-            "🔥 Daily Burn Rate": f"${daily_burn:.4f}/day",
-            "⏱️ Runway": f"{runway:.0f} days" if runway < float('inf') else "∞",
-            "📅 Days Active": f"{days_active:.0f}",
-            "🧠 IPD (Intelligence/Dollar)": f"{len(all_txs)}/{expenses:.2f} = {len(all_txs)/max(0.01,expenses):.1f} ops/$",
+            " Seed Amount": f"${seed:.2f}",
+            " Total Revenue": f"${revenue:.4f}",
+            " Total Expenses": f"${expenses:.4f}",
+            " API/LLM Cost": f"${api_cost:.4f}",
+            " Net Profit": f"${revenue - expenses:.4f}",
+            " ROI": f"{((revenue - expenses) / seed * 100):.1f}%" if seed > 0 else "N/A",
+            " Remaining Balance": f"${remaining:.4f}",
+            " Daily Burn Rate": f"${daily_burn:.4f}/day",
+            " Runway": f"{runway:.0f} days" if runway < float('inf') else "∞",
+            " Days Active": f"{days_active:.0f}",
+            " IPD (Intelligence/Dollar)": f"{len(all_txs)}/{expenses:.2f} = {len(all_txs)/max(0.01,expenses):.1f} ops/$",
         }
     
     def get_agent_costs(self) -> dict:
@@ -523,7 +523,7 @@ class AoinecoLedger:
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("💰 Aoineco Ledger v1.0 — $7 Bootstrap Financial Engine")
+    print(" Aoineco Ledger v1.0 — $7 Bootstrap Financial Engine")
     print("   Aoineco & Co. | Every Cent Counts")
     print("=" * 60)
     
@@ -534,7 +534,7 @@ if __name__ == "__main__":
     ledger.set_budget("Gas/Blockchain", limit=1.00, period="daily")
     
     # Log some transactions
-    print("\n📝 Logging transactions...")
+    print("\n Logging transactions...")
     
     ledger.log_api_cost(0.0042, "Google", "gemini-3-flash", tokens_used=150000, agent="oracle")
     ledger.log_api_cost(0.0180, "Anthropic", "claude-opus-4.6", tokens_used=50000, agent="ceo")
@@ -548,24 +548,24 @@ if __name__ == "__main__":
                        category="Revenue/DeFi", agent="ceo")
     
     # Summary
-    print("\n📊 Summary:")
+    print("\n Summary:")
     summary = ledger.get_summary()
     for k, v in summary.items():
         print(f"  {k}: {v}")
     
     # Bootstrap metrics
-    print("\n💎 $7 Bootstrap Metrics:")
+    print("\n $7 Bootstrap Metrics:")
     metrics = ledger.get_bootstrap_metrics()
     for k, v in metrics.items():
         print(f"  {k}: {v}")
     
     # Agent costs
-    print("\n🤖 Per-Agent Costs:")
+    print("\n Per-Agent Costs:")
     for agent, data in ledger.get_agent_costs().items():
         print(f"  {agent}: ${data['total']:.4f} ({data['count']} txs)")
     
     # CSV export
-    print("\n📋 CSV Export (first 3 lines):")
+    print("\n CSV Export (first 3 lines):")
     csv_data = ledger.export_csv()
     for line in csv_data.strip().split("\n")[:3]:
         print(f"  {line}")
@@ -573,4 +573,4 @@ if __name__ == "__main__":
     # Cleanup
     import shutil
     shutil.rmtree("/tmp/aoineco_ledger_test")
-    print("\n✅ Aoineco Ledger test complete!")
+    print("\n Aoineco Ledger test complete!")

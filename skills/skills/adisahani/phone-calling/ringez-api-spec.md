@@ -3,7 +3,7 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 Transform Ringez into an AI agent skillset that enables autonomous calling capabilities with privacy-first design. This API allows AI agents to make international calls on behalf of users without requiring authentication or personal data.
 
@@ -13,7 +13,7 @@ Transform Ringez into an AI agent skillset that enables autonomous calling capab
 
 ---
 
-## 🔑 Authentication Model
+##  Authentication Model
 
 ### For AI Agents
 ```
@@ -30,7 +30,7 @@ X-User-ID: <firebase_user_id>
 
 ---
 
-## 📡 Core API Endpoints
+##  Core API Endpoints
 
 ### 1. Session Management
 
@@ -787,7 +787,7 @@ Track spending and budget usage
 
 ---
 
-## 🔐 Security & Compliance
+##  Security & Compliance
 
 ### API Rate Limits
 ```
@@ -816,7 +816,7 @@ POST /security/rotate-key
 
 ---
 
-## 🚀 AI Agent Integration Examples
+##  AI Agent Integration Examples
 
 ### Example 1: Voice Assistant Making Support Call
 
@@ -937,7 +937,7 @@ class CallRoutingAgent {
 
 ---
 
-## 📊 Additional Agent Features
+##  Additional Agent Features
 
 ### 11. Batch Operations
 
@@ -1048,7 +1048,7 @@ Add calls to queue with priority
 
 ---
 
-## 🎛️ Advanced Configuration
+##  Advanced Configuration
 
 ### Environment Variables for Agents
 ```env
@@ -1067,7 +1067,7 @@ RINGEZ_DEFAULT_CALLER_ID=+12025551000
 
 ---
 
-## 🎯 Use Cases for AI Agents
+##  Use Cases for AI Agents
 
 1. **Customer Support Automation**
    - Autonomous call routing based on intent
@@ -1101,7 +1101,7 @@ RINGEZ_DEFAULT_CALLER_ID=+12025551000
 
 ---
 
-## 📖 API Versioning
+##  API Versioning
 
 Current Version: `v1`
 
@@ -1111,7 +1111,7 @@ Deprecation notices: 6 months minimum before removal
 
 ---
 
-## 🔍 Error Codes
+##  Error Codes
 
 | Code | Meaning | Resolution |
 |------|---------|------------|
@@ -1126,5 +1126,5 @@ Deprecation notices: 6 months minimum before removal
 
 ---
 
-## 📞 Support & Documentation
+##  Support & Documentation
 - **Developer Support**: support@ringez.com

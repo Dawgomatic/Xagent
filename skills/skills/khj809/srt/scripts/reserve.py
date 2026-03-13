@@ -55,17 +55,17 @@ def _attempt_reservation(credentials, train, logger=None):
     """Attempt to reserve a specific train. Returns reservation or None."""
     from SRT import SRT
     try:
-        msg = f"🎫 예약 시도 중... (열차 {train.train_number}, {train.dep_time})"
+        msg = f" 예약 시도 중... (열차 {train.train_number}, {train.dep_time})"
         (logger.log(msg) if logger else print(msg))
         srt = SRT(credentials['phone'], credentials['password'])
         return srt.reserve(train)
     except Exception as e:
         error_msg = str(e)
         if "잔여석없음" in error_msg or "매진" in error_msg:
-            msg = f"❌ 좌석 없음 (열차 {train.train_number})"
+            msg = f" 좌석 없음 (열차 {train.train_number})"
             (logger.log(msg, "WARN") if logger else print(msg))
         else:
-            msg = f"❌ 예약 실패: {error_msg}"
+            msg = f" 예약 실패: {error_msg}"
             (logger.log(msg, "ERROR") if logger else print(msg))
         return None
 
@@ -73,11 +73,11 @@ def _attempt_reservation(credentials, train, logger=None):
 def _display_reservation_success(reservation, logger=None, attempts=1):
     """Print and log a successful reservation."""
     msgs = [
-        "✅ 예약 성공!",
+        " 예약 성공!",
         f"예약번호: {getattr(reservation, 'reservation_number', 'N/A')}",
         f"열차번호: {getattr(reservation, 'train_number', 'N/A')}",
         f"좌석: {getattr(reservation, 'seat_number', 'N/A')}",
-        "⚠️  결제는 SRT 앱 또는 웹사이트에서 완료해주세요!",
+        "  결제는 SRT 앱 또는 웹사이트에서 완료해주세요!",
     ]
     for msg in msgs:
         (logger.log(msg, "SUCCESS") if logger else print(msg))
@@ -93,7 +93,7 @@ def run_one_shot(args):
         credentials = load_credentials()
         all_trains = fetch_trains_from_cache(credentials)
         if not all_trains:
-            print("❌ 검색 결과를 찾을 수 없습니다. 먼저 'train search' 명령으로 열차를 검색해주세요.",
+            print(" 검색 결과를 찾을 수 없습니다. 먼저 'train search' 명령으로 열차를 검색해주세요.",
                   file=sys.stderr)
             sys.exit(2)
 
@@ -103,7 +103,7 @@ def run_one_shot(args):
             for tid in train_ids:
                 idx = tid - 1
                 if idx < 0 or idx >= len(all_trains):
-                    print(f"❌ 잘못된 열차 번호: {tid}", file=sys.stderr)
+                    print(f" 잘못된 열차 번호: {tid}", file=sys.stderr)
                     sys.exit(2)
                 trains.append(all_trains[idx])
         else:
@@ -125,7 +125,7 @@ def run_one_shot(args):
         sys.exit(1)
 
     except KeyboardInterrupt:
-        print("\n⚠️  사용자에 의해 중단되었습니다.")
+        print("\n  사용자에 의해 중단되었습니다.")
         sys.exit(130)
     except Exception as e:
         output_json(handle_error(e, context="reserve one-shot"), success=False)
@@ -138,7 +138,7 @@ def run_retry(args):
         credentials = load_credentials()
         all_trains = fetch_trains_from_cache(credentials)
         if not all_trains:
-            print("❌ 검색 결과를 찾을 수 없습니다. 먼저 'train search' 명령으로 열차를 검색해주세요.",
+            print(" 검색 결과를 찾을 수 없습니다. 먼저 'train search' 명령으로 열차를 검색해주세요.",
                   file=sys.stderr)
             sys.exit(2)
 
@@ -148,7 +148,7 @@ def run_retry(args):
             for tid in train_ids:
                 idx = tid - 1
                 if idx < 0 or idx >= len(all_trains):
-                    print(f"❌ 잘못된 열차 번호: {tid}", file=sys.stderr)
+                    print(f" 잘못된 열차 번호: {tid}", file=sys.stderr)
                     sys.exit(2)
                 trains.append(all_trains[idx])
         else:
@@ -178,7 +178,7 @@ def run_retry(args):
             attempt += 1
             elapsed = time.time() - start_time
             if elapsed >= timeout_seconds:
-                logger.log(f"⏰ 타임아웃 ({args.timeout_minutes}분 경과)", "ERROR")
+                logger.log(f" 타임아웃 ({args.timeout_minutes}분 경과)", "ERROR")
                 logger.log(f"===== 최종결과: TIMEOUT (총 {attempt - 1}회 시도) =====", "ERROR")
                 logger.log_json({"success": False, "error": "Timeout",
                                  "attempts": attempt - 1})
@@ -194,7 +194,7 @@ def run_retry(args):
 
             can_reserve, wait_time = limiter.check_reserve_rate()
             if not can_reserve:
-                logger.log(f"⏳ Rate limit 대기 중... ({int(wait_time)}초)")
+                logger.log(f" Rate limit 대기 중... ({int(wait_time)}초)")
                 time.sleep(wait_time)
 
             reservation = _attempt_reservation(credentials, train, logger)
@@ -210,18 +210,18 @@ def run_retry(args):
             if attempt % 10 == 0:
                 elapsed_min = int(elapsed / 60)
                 logger.log("=" * 60)
-                logger.log(f"📊 진행 상황 요약 (시도 #{attempt})")
+                logger.log(f" 진행 상황 요약 (시도 #{attempt})")
                 logger.log(f"경과 시간: {elapsed_min}분 / 남은 시간: {args.timeout_minutes - elapsed_min}분")
                 logger.log("=" * 60)
 
-            logger.log(f"⏳ {args.wait_seconds}초 대기 후 재시도...")
+            logger.log(f" {args.wait_seconds}초 대기 후 재시도...")
             time.sleep(args.wait_seconds)
 
     except KeyboardInterrupt:
-        print("\n⚠️  사용자에 의해 중단되었습니다.")
+        print("\n  사용자에 의해 중단되었습니다.")
         sys.exit(130)
     except Exception as e:
-        print(f"\n❌ 예상치 못한 오류: {e}", file=sys.stderr)
+        print(f"\n 예상치 못한 오류: {e}", file=sys.stderr)
         sys.exit(2)
 
 
@@ -232,16 +232,16 @@ def run_list(args):
     try:
         from SRT import SRT
         credentials = load_credentials()
-        print("📋 예약 조회 중...")
+        print(" 예약 조회 중...")
         srt = SRT(credentials['phone'], credentials['password'])
         reservations = srt.get_reservations()
 
         if not reservations:
-            print("\n📭 현재 예약이 없습니다.")
+            print("\n 현재 예약이 없습니다.")
             output_json([], success=True)
             sys.exit(0)
 
-        print(f"\n✅ {len(reservations)}개의 예약을 찾았습니다.\n")
+        print(f"\n {len(reservations)}개의 예약을 찾았습니다.\n")
         fmt = getattr(args, 'format', 'table')
 
         if fmt == 'table':
@@ -261,7 +261,7 @@ def run_list(args):
             print_table(headers, rows)
             unpaid = [r for r in reservations if getattr(r, 'payment_required', True)]
             if unpaid:
-                print(f"\n⚠️  결제가 필요한 예약이 {len(unpaid)}개 있습니다.")
+                print(f"\n  결제가 필요한 예약이 {len(unpaid)}개 있습니다.")
                 print("   SRT 앱 또는 웹사이트에서 결제를 완료해주세요.")
 
         output_json([format_reservation_info(r) for r in reservations], success=True)
@@ -279,7 +279,7 @@ def run_cancel(args):
     try:
         from SRT import SRT
         credentials = load_credentials()
-        print("🔍 예약 조회 중...")
+        print(" 예약 조회 중...")
         srt = SRT(credentials['phone'], credentials['password'])
         reservations = srt.get_reservations()
 
@@ -298,7 +298,7 @@ def run_cancel(args):
             )
 
         if not getattr(args, 'confirm', False):
-            print("\n⚠️  예약을 취소하시겠습니까?")
+            print("\n  예약을 취소하시겠습니까?")
             print(f"   예약번호: {getattr(reservation, 'reservation_number', 'N/A')}")
             print(f"   열차번호: {getattr(reservation, 'train_number', 'N/A')}")
             print(f"   출발: {getattr(reservation, 'dep_station_name', 'N/A')} "
@@ -307,9 +307,9 @@ def run_cancel(args):
                 print("취소가 중단되었습니다.")
                 sys.exit(0)
 
-        print("\n🗑️  예약 취소 중...")
+        print("\n  예약 취소 중...")
         srt.cancel(reservation)
-        print("\n✅ 예약이 취소되었습니다.")
+        print("\n 예약이 취소되었습니다.")
         print(f"   예약번호: {getattr(reservation, 'reservation_number', 'N/A')}")
 
         output_json({
@@ -353,20 +353,20 @@ def run_stop(args):
     import signal
     pid_file = validate_safe_path(Path(args.pid_file))
     if not pid_file.exists():
-        print(f"❌ PID 파일이 없습니다: {pid_file}")
+        print(f" PID 파일이 없습니다: {pid_file}")
         sys.exit(1)
     raw = pid_file.read_text().strip()
     if not raw.isdigit():
-        print(f"❌ PID 파일 내용이 유효하지 않습니다: {raw!r}")
+        print(f" PID 파일 내용이 유효하지 않습니다: {raw!r}")
         sys.exit(1)
     pid = int(raw)
     try:
         os.kill(pid, signal.SIGTERM)
-        print(f"✅ 프로세스 {pid} 종료 요청 완료")
+        print(f" 프로세스 {pid} 종료 요청 완료")
     except ProcessLookupError:
-        print(f"⚠️  프로세스 {pid}는 이미 종료되어 있습니다")
+        print(f"  프로세스 {pid}는 이미 종료되어 있습니다")
     except PermissionError:
-        print(f"❌ 프로세스 {pid} 종료 권한 없음")
+        print(f" 프로세스 {pid} 종료 권한 없음")
         sys.exit(1)
 
 
@@ -378,11 +378,11 @@ def run_log(args):
     candidates = sorted(log_dir.glob('reserve_*.log'),
                         key=lambda p: p.stat().st_mtime, reverse=True)
     if not candidates:
-        print(f"❌ 로그 파일이 없습니다. ({log_dir}/reserve_*.log)")
+        print(f" 로그 파일이 없습니다. ({log_dir}/reserve_*.log)")
         sys.exit(1)
 
     log_file = candidates[0]
-    print(f"📄 로그 파일: {log_file}")
+    print(f" 로그 파일: {log_file}")
 
     with open(log_file, 'r', encoding='utf-8') as f:
         all_lines = f.readlines()

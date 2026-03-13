@@ -162,11 +162,11 @@ class PersistentMind:
         # Check for near-duplicate and warn
         similar = self._find_similar(content)
         if similar:
-            print(f"ℹ️  Similar memory exists (ID: {similar.id}). Storing anyway. Consider using update_memory() instead.")
+            print(f"  Similar memory exists (ID: {similar.id}). Storing anyway. Consider using update_memory() instead.")
 
         self.memories.append(memory)
         self._save_memories()
-        print(f"✅ Memory stored: {memory.id} [{memory_type}]")
+        print(f" Memory stored: {memory.id} [{memory_type}]")
         return memory
 
     def recall(
@@ -265,8 +265,8 @@ class PersistentMind:
 
         for m in memories:
             type_icon = {
-                "fact": "📌", "preference": "⚙️", "procedure": "📋",
-                "context": "🗂️", "correction": "⚠️", "relationship": "🔗", "reminder": "🔔"
+                "fact": "", "preference": "", "procedure": "",
+                "context": "", "correction": "", "relationship": "", "reminder": ""
             }.get(m.memory_type, "•")
             line = f"{type_icon} [{m.memory_type.upper()}] {m.content}"
             if m.tags:
@@ -292,9 +292,9 @@ class PersistentMind:
                 if tags is not None:
                     memory.tags = tags
                 self._save_memories()
-                print(f"✅ Memory updated: {memory_id}")
+                print(f" Memory updated: {memory_id}")
                 return memory
-        print(f"⚠️  Memory not found: {memory_id}")
+        print(f"  Memory not found: {memory_id}")
         return None
 
     def forget(self, memory_id: str, permanent: bool = False) -> bool:
@@ -309,10 +309,10 @@ class PersistentMind:
             if memory.id == memory_id:
                 if permanent:
                     self.memories.pop(i)
-                    print(f"🗑️  Memory permanently deleted: {memory_id}")
+                    print(f"  Memory permanently deleted: {memory_id}")
                 else:
                     memory.archived = True
-                    print(f"📦 Memory archived: {memory_id}")
+                    print(f" Memory archived: {memory_id}")
                 self._save_memories()
                 return True
         return False
@@ -354,7 +354,7 @@ class PersistentMind:
                     for m in group:
                         if m.id != keeper.id:
                             m.archived = True
-                    print(f"🔀 Merged {len(group)} memories into {keeper.id}")
+                    print(f" Merged {len(group)} memories into {keeper.id}")
 
         if not dry_run:
             self._save_memories()
@@ -394,17 +394,17 @@ class PersistentMind:
 ║               MEMORY MANAGER — SUMMARY                        ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-🧠 Total Active Memories: {stats['total_memories']}  |  Archived: {stats['archived']}
+ Total Active Memories: {stats['total_memories']}  |  Archived: {stats['archived']}
    Avg Importance: {stats['avg_importance']}/10
 
-📊 BY TYPE
+ BY TYPE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         for t, count in stats["by_type"].items():
             output += f"  • {t:<20} {count}\n"
 
         output += f"""
-📋 RECENT MEMORIES
+ RECENT MEMORIES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         for m in recent:
@@ -422,7 +422,7 @@ class PersistentMind:
         }
         with open(output_file, "w") as f:
             json.dump(data, f, indent=2)
-        print(f"📁 Exported {len(to_export)} memories to {output_file}")
+        print(f" Exported {len(to_export)} memories to {output_file}")
 
     def import_memories(self, input_file: str, overwrite_duplicates: bool = False):
         """Import memories from a JSON export file."""
@@ -443,7 +443,7 @@ class PersistentMind:
             imported += 1
 
         self._save_memories()
-        print(f"📥 Imported {imported} memories ({skipped} skipped as duplicates)")
+        print(f" Imported {imported} memories ({skipped} skipped as duplicates)")
 
     # ------------------------------------------------------------------
     # Internal helpers
@@ -597,13 +597,13 @@ if __name__ == "__main__":
     )
 
     # Search
-    print("\n🔍 Search: 'database'")
+    print("\n Search: 'database'")
     results = mm.recall("database")
     for r in results:
         print(f"  [{r.relevance_score:.2f}] {r.memory.content[:60]}...")
 
     # Get context for prompt injection
-    print("\n📋 CONTEXT BLOCK (for prompt injection):")
+    print("\n CONTEXT BLOCK (for prompt injection):")
     print(mm.get_context())
 
     # Summary

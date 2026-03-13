@@ -7,21 +7,21 @@ description: Automated Linux server patching and Docker container updates. Use w
 
 Automate Linux server patching and Docker container updates across multiple hosts via SSH.
 
-## ⚠️ Important Disclaimers
+##  Important Disclaimers
 
 ### Distribution Support Status
 
 **Fully Tested:**
-- ✅ **Ubuntu** - Tested end-to-end with real infrastructure
+-  **Ubuntu** - Tested end-to-end with real infrastructure
 
 **Supported but Untested:**
-- ⚠️ **Debian GNU/Linux** - Commands based on official documentation
-- ⚠️ **Amazon Linux** - Supports both AL2 (yum) and AL2023 (dnf)
-- ⚠️ **RHEL (Red Hat Enterprise Linux)** - Supports RHEL 7 (yum) and 8+ (dnf)
-- ⚠️ **AlmaLinux** - RHEL-compatible, uses dnf
-- ⚠️ **Rocky Linux** - RHEL-compatible, uses dnf
-- ⚠️ **CentOS** - Supports CentOS 7 (yum) and 8+ (dnf)
-- ⚠️ **SUSE/OpenSUSE** - Uses zypper package manager
+-  **Debian GNU/Linux** - Commands based on official documentation
+-  **Amazon Linux** - Supports both AL2 (yum) and AL2023 (dnf)
+-  **RHEL (Red Hat Enterprise Linux)** - Supports RHEL 7 (yum) and 8+ (dnf)
+-  **AlmaLinux** - RHEL-compatible, uses dnf
+-  **Rocky Linux** - RHEL-compatible, uses dnf
+-  **CentOS** - Supports CentOS 7 (yum) and 8+ (dnf)
+-  **SUSE/OpenSUSE** - Uses zypper package manager
 
 **Testing Recommendation:**
 Always test untested distributions in a non-production environment first. The script will warn you when running on untested distributions.
@@ -509,17 +509,17 @@ Simply ask OpenClaw natural language commands:
 **What happens automatically:**
 
 When you say **"Update my servers"**:
-1. ✅ Queries PatchMon for hosts needing updates
-2. ✅ Detects Docker on each host
-3. ✅ Updates system packages
-4. ✅ **Pulls Docker images and recreates containers** (if Docker detected)
-5. ✅ Reports results with success/failure count
+1.  Queries PatchMon for hosts needing updates
+2.  Detects Docker on each host
+3.  Updates system packages
+4.  **Pulls Docker images and recreates containers** (if Docker detected)
+5.  Reports results with success/failure count
 
 When you say **"Update my servers, excluding docker"**:
-1. ✅ Queries PatchMon for hosts needing updates
-2. ✅ Updates system packages only
-3. ❌ Skips all Docker operations (containers keep running)
-4. ✅ Reports results
+1.  Queries PatchMon for hosts needing updates
+2.  Updates system packages only
+3.  Skips all Docker operations (containers keep running)
+4.  Reports results
 
 **Important:** Docker updates are **included by default** for maximum automation. Use "excluding docker" to skip container updates.
 
@@ -549,16 +549,16 @@ This skill includes comprehensive documentation:
 
 | Distribution | Package Manager | Tested | Status |
 |--------------|-----------------|--------|--------|
-| Ubuntu | apt | ✅ Yes | Fully supported |
-| Debian | apt | ⚠️ No | Supported (untested) |
-| Amazon Linux 2 | yum | ⚠️ No | Supported (untested) |
-| Amazon Linux 2023 | dnf | ⚠️ No | Supported (untested) |
-| RHEL 7 | yum | ⚠️ No | Supported (untested) |
-| RHEL 8+ | dnf | ⚠️ No | Supported (untested) |
-| AlmaLinux | dnf | ⚠️ No | Supported (untested) |
-| Rocky Linux | dnf | ⚠️ No | Supported (untested) |
-| CentOS 7 | yum | ⚠️ No | Supported (untested) |
-| CentOS 8+ | dnf | ⚠️ No | Supported (untested) |
-| SUSE/OpenSUSE | zypper | ⚠️ No | Supported (untested) |
+| Ubuntu | apt |  Yes | Fully supported |
+| Debian | apt |  No | Supported (untested) |
+| Amazon Linux 2 | yum |  No | Supported (untested) |
+| Amazon Linux 2023 | dnf |  No | Supported (untested) |
+| RHEL 7 | yum |  No | Supported (untested) |
+| RHEL 8+ | dnf |  No | Supported (untested) |
+| AlmaLinux | dnf |  No | Supported (untested) |
+| Rocky Linux | dnf |  No | Supported (untested) |
+| CentOS 7 | yum |  No | Supported (untested) |
+| CentOS 8+ | dnf |  No | Supported (untested) |
+| SUSE/OpenSUSE | zypper |  No | Supported (untested) |
 
 The skill automatically detects the distribution and selects the appropriate package manager.

@@ -2,10 +2,10 @@
 
 All documentation and code for Twilio voice calls, SMS, and two-way messaging.
 
-## 📚 Documentation Files
+##  Documentation Files
 
 ### Quick Start (Start Here!)
-- **[TWO_WAY_SMS_README.md](TWO_WAY_SMS_README.md)** ⭐ START HERE
+- **[TWO_WAY_SMS_README.md](TWO_WAY_SMS_README.md)**  START HERE
   - Overview of the two-way SMS system
   - 3-step quick start
   - Usage examples
@@ -45,7 +45,7 @@ All documentation and code for Twilio voice calls, SMS, and two-way messaging.
 
 ---
 
-## 🔧 Code Files
+##  Code Files
 
 ### Two-Way SMS System (NEW!)
 
@@ -115,7 +115,7 @@ python call.py --phone "+19152134309" --message "Hello, this is a test call"
 
 ---
 
-## 📋 Configuration Files
+##  Configuration Files
 
 - **requirements.txt** - Python dependencies
   - twilio>=9.0.0
@@ -128,7 +128,7 @@ python call.py --phone "+19152134309" --message "Hello, this is a test call"
 
 ---
 
-## 🧪 Testing & Setup
+##  Testing & Setup
 
 ### test_twilio_setup.sh
 Comprehensive setup verification script.
@@ -149,7 +149,7 @@ bash test_twilio_setup.sh
 
 ---
 
-## 📁 File Locations
+##  File Locations
 
 ### Code & Documentation (in repo)
 ```
@@ -176,7 +176,7 @@ bash test_twilio_setup.sh
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### First Time Users
 1. Read: **[TWO_WAY_SMS_README.md](TWO_WAY_SMS_README.md)** (5 min)
@@ -192,25 +192,25 @@ bash test_twilio_setup.sh
 
 ---
 
-## 📊 Feature Matrix
+##  Feature Matrix
 
 | Feature | File | Status |
 |---------|------|--------|
-| Send SMS | `sms.py` | ✅ Existing |
-| Make calls | `call.py` | ✅ Existing |
-| Receive SMS | `webhook_server.py` | ✅ NEW |
-| Reply to SMS | `respond_sms.py` | ✅ NEW |
-| Store history | `webhook_server.py` + `respond_sms.py` | ✅ NEW |
-| View conversations | `respond_sms.py` | ✅ NEW |
-| Forward to gateway | `webhook_server.py` | ✅ NEW |
-| Signature validation | `webhook_server.py` | ✅ NEW |
-| Health endpoints | `webhook_server.py` | ✅ NEW |
+| Send SMS | `sms.py` |  Existing |
+| Make calls | `call.py` |  Existing |
+| Receive SMS | `webhook_server.py` |  NEW |
+| Reply to SMS | `respond_sms.py` |  NEW |
+| Store history | `webhook_server.py` + `respond_sms.py` |  NEW |
+| View conversations | `respond_sms.py` |  NEW |
+| Forward to gateway | `webhook_server.py` |  NEW |
+| Signature validation | `webhook_server.py` |  NEW |
+| Health endpoints | `webhook_server.py` |  NEW |
 
 ---
 
-## 🔐 Security
+##  Security
 
-✅ **Implemented:**
+ **Implemented:**
 - Twilio signature validation on webhooks
 - Environment variable credentials
 - No hardcoded secrets
@@ -218,7 +218,7 @@ bash test_twilio_setup.sh
 - Phone number validation
 - Error logging (no sensitive data in logs)
 
-⚠️ **Best Practices:**
+ **Best Practices:**
 - Never share credentials
 - Keep `.env` out of version control
 - Rotate tokens periodically
@@ -229,7 +229,7 @@ See [SKILL.md](SKILL.md) → Security section for details.
 
 ---
 
-## 🐛 Troubleshooting Guide
+##  Troubleshooting Guide
 
 ### "webhook_server.py not found"
 ```bash
@@ -261,7 +261,7 @@ More help: Run `bash test_twilio_setup.sh` to diagnose issues.
 
 ---
 
-## 📞 Support Resources
+##  Support Resources
 
 **Official Documentation:**
 - Twilio SMS: https://www.twilio.com/docs/sms
@@ -280,7 +280,7 @@ More help: Run `bash test_twilio_setup.sh` to diagnose issues.
 
 ---
 
-## 📝 File Descriptions
+##  File Descriptions
 
 ### webhook_server.py (10KB)
 Flask server for receiving SMS webhooks. Production-ready with logging, signature validation, and conversation storage.
@@ -314,7 +314,7 @@ Master index of all files and documentation.
 
 ---
 
-## 🎯 Quick Tasks
+##  Quick Tasks
 
 ### I want to...
 
@@ -357,21 +357,21 @@ python call.py --phone "+19152134309" --message "Hello!"
 
 ---
 
-## 📜 License
+##  License
 
 MIT - Use freely in your projects
 
 ---
 
-## 🔄 Version History
+##  Version History
 
 ### v2.0 (2024-02-03) - Two-Way SMS Update
-- ✨ Added webhook_server.py for receiving SMS
-- ✨ Added respond_sms.py for sending replies
-- ✨ Added conversation history storage
-- ✨ Added comprehensive documentation
-- ✨ Added test and setup scripts
-- ✨ Added quick reference guide
+-  Added webhook_server.py for receiving SMS
+-  Added respond_sms.py for sending replies
+-  Added conversation history storage
+-  Added comprehensive documentation
+-  Added test and setup scripts
+-  Added quick reference guide
 
 ### v1.0 (Original)
 - SMS sending (sms.py)
@@ -380,7 +380,7 @@ MIT - Use freely in your projects
 
 ---
 
-## 📞 Last Updated
+##  Last Updated
 
 **2024-02-03**
 
@@ -388,4 +388,4 @@ For latest updates, check the repository.
 
 ---
 
-**🎉 Ready to start?** Begin with [TWO_WAY_SMS_README.md](TWO_WAY_SMS_README.md)!
+** Ready to start?** Begin with [TWO_WAY_SMS_README.md](TWO_WAY_SMS_README.md)!

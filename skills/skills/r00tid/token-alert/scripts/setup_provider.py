@@ -11,7 +11,7 @@ from config import Config
 
 def setup_anthropic():
     """Setup Anthropic (Claude) provider."""
-    print("\n🤖 Anthropic (Claude) Setup\n")
+    print("\n Anthropic (Claude) Setup\n")
     
     api_key = input("API Key (oder Enter für env var ANTHROPIC_API_KEY): ").strip()
     
@@ -45,7 +45,7 @@ def setup_anthropic():
 
 def setup_openai():
     """Setup OpenAI (GPT) provider."""
-    print("\n🧠 OpenAI (GPT) Setup\n")
+    print("\n OpenAI (GPT) Setup\n")
     
     api_key = input("API Key (oder Enter für env var OPENAI_API_KEY): ").strip()
     
@@ -79,7 +79,7 @@ def setup_openai():
 
 def setup_gemini():
     """Setup Google Gemini provider."""
-    print("\n✨ Google Gemini Setup\n")
+    print("\n Google Gemini Setup\n")
     
     api_key = input("API Key (oder Enter für env var GOOGLE_API_KEY): ").strip()
     
@@ -124,14 +124,14 @@ def main():
         "3": ("gemini", "Google Gemini", setup_gemini)
     }
     
-    print("\n📊 Welchen Provider möchtest du tracken?\n")
+    print("\n Welchen Provider möchtest du tracken?\n")
     for key, (_, name, _) in providers.items():
         print(f"  {key}. {name}")
     
     choice = input("\nWahl (1-3): ").strip()
     
     if choice not in providers:
-        print("❌ Ungültige Auswahl!")
+        print(" Ungültige Auswahl!")
         return 1
     
     provider_type, provider_name, setup_func = providers[choice]
@@ -140,22 +140,22 @@ def main():
         config = setup_func()
         config_manager.add_provider(provider_type, config)
         
-        print(f"\n✅ {provider_name} erfolgreich konfiguriert!")
-        print(f"📁 Config gespeichert: {config_manager.config_path}")
+        print(f"\n {provider_name} erfolgreich konfiguriert!")
+        print(f" Config gespeichert: {config_manager.config_path}")
         
         # Show current providers
-        print("\n📋 Aktive Provider:")
+        print("\n Aktive Provider:")
         for p in config_manager.get_providers():
-            enabled = "✅" if p.get("enabled", True) else "❌"
+            enabled = "" if p.get("enabled", True) else ""
             print(f"  {enabled} {p['type']} - {p['config'].get('model', 'default')}")
         
         return 0
         
     except KeyboardInterrupt:
-        print("\n\n❌ Setup abgebrochen.")
+        print("\n\n Setup abgebrochen.")
         return 1
     except Exception as e:
-        print(f"\n❌ Fehler: {e}")
+        print(f"\n Fehler: {e}")
         return 1
 
 

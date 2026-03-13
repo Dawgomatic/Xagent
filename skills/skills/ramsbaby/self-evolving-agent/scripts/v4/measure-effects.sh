@@ -51,7 +51,7 @@ OUTPUT_FILE="$OUTPUT_DIR/effects.json"
 DAYS="${SEA_DAYS:-7}"
 
 mkdir -p "$OUTPUT_DIR" || true
-echo "🔍 [measure-effects] 효과 측정 시작 (기준: 최근 ${DAYS}일)" >&2
+echo " [measure-effects] 효과 측정 시작 (기준: 최근 ${DAYS}일)" >&2
 
 # ── Python3 사용 가능 여부 ─────────────────────────────────
 HAS_PY3=false
@@ -331,14 +331,14 @@ result = {
 
 output_file.parent.mkdir(parents=True, exist_ok=True)
 output_file.write_text(json.dumps(result, ensure_ascii=False, indent=2))
-print(f"✅ [measure-effects] Python 완료 → {output_file}", file=sys.stderr)
+print(f" [measure-effects] Python 완료 → {output_file}", file=sys.stderr)
 print(f"   효과 있음: {effective_count} / 효과 없음: {ineffective_count} / 거절: {rejected_count}", file=sys.stderr)
 # stdout 없음 — bash에서 cat으로 출력
 PYEOF
 
 # Python3 성공 여부 확인
 if [ -f "$OUTPUT_FILE" ] && [ -s "$OUTPUT_FILE" ]; then
-  echo "✅ [measure-effects] Python3 경로 성공" >&2
+  echo " [measure-effects] Python3 경로 성공" >&2
   cat "$OUTPUT_FILE"
   exit 0
 fi
@@ -346,7 +346,7 @@ fi
 fi  # end if HAS_PY3
 
 # ── Python3 없을 때: 최소 JSON fallback ─────────────────────
-echo "  ⚠️  Python3 없음 또는 실패 — 기본 JSON 생성" >&2
+echo "    Python3 없음 또는 실패 — 기본 JSON 생성" >&2
 
 PROPOSAL_COUNT=0
 if [ -d "$PROPOSALS_DIR" ]; then
@@ -380,5 +380,5 @@ cat > "$OUTPUT_FILE" <<FALLBACK_JSON
 }
 FALLBACK_JSON
 
-echo "✅ [measure-effects] fallback JSON 생성 완료 → $OUTPUT_FILE" >&2
+echo " [measure-effects] fallback JSON 생성 완료 → $OUTPUT_FILE" >&2
 cat "$OUTPUT_FILE"

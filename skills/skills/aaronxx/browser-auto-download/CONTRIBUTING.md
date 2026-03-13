@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to Browser Auto Download! This document provides guidelines and instructions for contributing.
 
-## 🎯 How to Contribute
+##  How to Contribute
 
 ### Reporting Bugs
 
@@ -53,7 +53,7 @@ What other approaches did you consider?
 Any other relevant information
 ```
 
-## 🛠️ Development Setup
+##  Development Setup
 
 ### Prerequisites
 
@@ -90,7 +90,7 @@ python scripts/auto_download.py --wechat
 python scripts/auto_download.py --meitu
 ```
 
-## 📝 Code Style
+##  Code Style
 
 ### Python Code
 
@@ -131,7 +131,7 @@ def auto_download(
 - Update README.md for user-facing changes
 - Update CHANGELOG.md for version changes
 
-## 🧪 Testing
+##  Testing
 
 ### Test Coverage
 
@@ -147,14 +147,14 @@ We maintain a list of test sites:
 
 | Site | Type | Difficulty | Status |
 |------|------|------------|--------|
-| Meitu Xiuxiu | Auto-download | Medium | ✅ |
-| WeChat DevTools | Button click (Chinese) | Hard | ✅ |
-| Python.org | Direct link | Easy | ✅ |
-| 7-Zip | Relative path | Medium | ✅ |
+| Meitu Xiuxiu | Auto-download | Medium |  |
+| WeChat DevTools | Button click (Chinese) | Hard |  |
+| Python.org | Direct link | Easy |  |
+| 7-Zip | Relative path | Medium |  |
 
 When adding new features, test against at least 2 of these sites.
 
-## 📦 Pull Request Process
+##  Pull Request Process
 
 ### PR Checklist
 
@@ -211,7 +211,7 @@ Brief description of changes
 - [ ] No new warnings
 ```
 
-## 🎨 Design Principles
+##  Design Principles
 
 ### Core Values
 
@@ -234,7 +234,7 @@ Stage 3: Intrusive (button clicking)
 
 When adding features, consider which tier they belong to.
 
-## 🤝 Community Guidelines
+##  Community Guidelines
 
 ### Code of Conduct
 
@@ -249,10 +249,10 @@ When adding features, consider which tier they belong to.
 - **GitHub Issues**: https://github.com/your-repo/browser-auto-download/issues
 - **ClawHub**: https://clawhub.com
 
-## 📜 License
+##  License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-**Thank you for contributing! 🎉**
+**Thank you for contributing! **

@@ -67,7 +67,7 @@ module.exports = { start: startRepl };
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Finding für eval() vorhanden | ✅ Ja |
+| Finding für eval() vorhanden |  Ja |
 | `by_design` | `true` |
 | `score_impact` | `0` |
 | `result` | `safe` |
@@ -127,11 +127,11 @@ try {
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Persistence-Finding | ✅ Ja |
+| Persistence-Finding |  Ja |
 | `pattern_id` prefix | v2: `PERSIST` — v1: evtl. `CMD_INJECT` oder gar nicht |
 | Severity | `high` oder `critical` |
 | `by_design` | `false` (persistence ist nie by-design) |
-| Curl-pipe-bash Finding | ✅ Ja (RCE) |
+| Curl-pipe-bash Finding |  Ja (RCE) |
 | `result` | `caution` oder `unsafe` |
 
 ### Pass/Fail
@@ -143,7 +143,7 @@ try {
 ### v1 vs v2 Erwartung
 
 - **v1**: Wird wahrscheinlich curl\|bash finden, crontab evtl. nur als "system modification". Kein PERSIST pattern_id.
-- **v2**: Sollte explizit PERSIST finden (Step 3 🟠 HIGH: "Crontab entries") UND curl\|bash als CRITICAL.
+- **v2**: Sollte explizit PERSIST finden (Step 3  HIGH: "Crontab entries") UND curl\|bash als CRITICAL.
 
 ---
 
@@ -202,10 +202,10 @@ server.setRequestHandler('tools/call', async (req) => {
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Tool-Poisoning Finding | ✅ Ja |
+| Tool-Poisoning Finding |  Ja |
 | `pattern_id` prefix | v2: `AI_ATTACK` — v1: evtl. `SOCIAL_ENG` oder übersehen |
-| Misleading docs (read-only claim, but writes) | ✅ Ja |
-| Data exfiltration in description | ✅ Ja |
+| Misleading docs (read-only claim, but writes) |  Ja |
+| Data exfiltration in description |  Ja |
 | Severity | `critical` |
 | `result` | `unsafe` |
 
@@ -268,7 +268,7 @@ module.exports = { format };
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Zero-Width-Character Finding | ✅ Ja |
+| Zero-Width-Character Finding |  Ja |
 | `pattern_id` prefix | v2: `OBFUSC` — v1: kein passendes Prefix |
 | Severity | `medium` oder höher (v2 sagt "elevate if combined") |
 | Datei | SKILL.md |
@@ -283,7 +283,7 @@ module.exports = { format };
 ### v1 vs v2 Erwartung
 
 - **v1**: Keine Erwähnung von Zero-Width Characters. Wird fast sicher übersehen.
-- **v2**: Explizit unter 🔍 OBFUSCATION: "U+200B (zero-width space)" — sollte finden.
+- **v2**: Explizit unter  OBFUSCATION: "U+200B (zero-width space)" — sollte finden.
 
 ---
 
@@ -350,9 +350,9 @@ module.exports = { shipLogs };
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Cross-File Correlation Finding | ✅ Ja |
+| Cross-File Correlation Finding |  Ja |
 | `pattern_id` prefix | v2: `CORRELATION` — v1: evtl. `DATA_EXFIL` oder `CRED_THEFT` |
-| Erkennung dass config.js Secrets liest UND shipper.js sie sendet | ✅ Ja |
+| Erkennung dass config.js Secrets liest UND shipper.js sie sendet |  Ja |
 | Severity | `critical` (credential exfiltration chain) |
 | `by_design` | `false` |
 | `result` | `unsafe` |
@@ -428,7 +428,7 @@ module.exports = { checkSafety, QueryBuilder };
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Findings für eval()/exec() | ❌ Nein — KEINE |
+| Findings für eval()/exec() |  Nein — KEINE |
 | `findings_count` | `0` |
 | `risk_score` | `0` |
 | `result` | `safe` |
@@ -499,7 +499,7 @@ module.exports = { processExpression };
 
 | Kriterium | MCP Server (A) | Library (B) |
 |-----------|----------------|-------------|
-| Finding vorhanden | ✅ Ja | ✅ Ja |
+| Finding vorhanden |  Ja |  Ja |
 | Severity | `critical` (external input via MCP) | `high` |
 | `by_design` | `false` (unvalidated external input) | `false` (unsafe eval) |
 | Component-Type erkannt | "MCP Server" | "Library" |
@@ -605,11 +605,11 @@ module.exports = { getInstructions };
 
 | Kriterium | Erwartet |
 |-----------|----------|
-| Multi-Step Attack erkannt | ✅ Ja |
-| SKILL.md social engineering | ✅ Ja |
-| Hook installs hidden script | ✅ Ja |
-| Prompt injection in index.js | ✅ Ja |
-| curl\|bash in calibrate.sh | ✅ Ja |
+| Multi-Step Attack erkannt |  Ja |
+| SKILL.md social engineering |  Ja |
+| Hook installs hidden script |  Ja |
+| Prompt injection in index.js |  Ja |
+| curl\|bash in calibrate.sh |  Ja |
 | `pattern_id` prefixes | `SOCIAL_ENG`, `PERSIST`, `AI_ATTACK`, `CORRELATION` |
 | Severity | `critical` |
 | `result` | `unsafe` |

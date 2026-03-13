@@ -59,7 +59,7 @@ async function main() {
   
   const provider = new ethers.JsonRpcProvider(ABSTRACT_RPC);
   
-  console.log(`\n📊 Balances for ${walletAddress}`);
+  console.log(`\n Balances for ${walletAddress}`);
   console.log(`Chain: Abstract (${ABSTRACT_RPC})\n`);
   
   // Always show ETH

@@ -1,7 +1,7 @@
 ---
 name: ez-google
 description: Use when asked to send email, check inbox, read emails, check calendar, schedule meetings, create events, search Google Drive, create Google Docs, read or write spreadsheets, find contacts, or any task involving Gmail, Google Calendar, Drive, Docs, Sheets, Slides, or Contacts. Agent-friendly with hosted OAuth - no API keys needed.
-metadata: {"openclaw":{"emoji":"📧"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # ez-google

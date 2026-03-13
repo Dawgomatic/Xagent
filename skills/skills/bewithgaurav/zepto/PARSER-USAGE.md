@@ -124,7 +124,7 @@ SNAPSHOT=$(browser snapshot --interactive=true --maxChars=4000 --profile=opencla
 ADD_REF=$(echo "$SNAPSHOT" | node zepto-parser.js product "milk" | jq -r '.addButtonRef')
 browser act --request='{"kind":"click","ref":"'$ADD_REF'"}' --profile=openclaw
 
-echo "✅ Milk added to cart!"
+echo " Milk added to cart!"
 ```
 
 ## Error Handling
@@ -142,7 +142,7 @@ Exit code: 1
 ```bash
 PRODUCT=$(echo "$SNAPSHOT" | node zepto-parser.js product "xyz" 2>/dev/null)
 if echo "$PRODUCT" | jq -e '.error' > /dev/null; then
-  echo "❌ Product not found"
+  echo " Product not found"
   exit 1
 fi
 ```

@@ -94,7 +94,7 @@ if [ "$RESULT" != "204" ]; then
 fi
 
 # Success
-echo "✅ Task deleted successfully!"
+echo " Task deleted successfully!"
 echo ""
 echo "List: $LIST_NAME"
 echo "Task: $TASK_TITLE"

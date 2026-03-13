@@ -41,7 +41,7 @@
   "openclaw": {
     "displayName": "MaclawPro Security",
     "category": "security",
-    "icon": "🛡️",
+    "icon": "",
     "commands": [
       "camera-status",
       "microphone-status",

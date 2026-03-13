@@ -17,7 +17,7 @@ tags:
   - projects
   - context
   - productivity
-metadata: { "openclaw": { "emoji": "🧠", "requires": { "env": ["KONTEKS_API_KEY"] }, "primaryEnv": "KONTEKS_API_KEY" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "env": ["KONTEKS_API_KEY"] }, "primaryEnv": "KONTEKS_API_KEY" } }
 ---
 
 # Konteks — Agent Context Layer
@@ -232,7 +232,7 @@ Query params: `type` (project|area)
 curl -X POST "{url}/api/agent/folders" \
   -H "Authorization: Bearer {apiKey}" \
   -H "Content-Type: application/json" \
-  -d '{"name":"Q1 Launch","folder_type":"project","icon":"🚀","goal":"Ship MVP by March"}'
+  -d '{"name":"Q1 Launch","folder_type":"project","icon":"","goal":"Ship MVP by March"}'
 ```
 
 Required: `name`, `folder_type` (project|area)

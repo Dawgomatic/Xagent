@@ -31,7 +31,7 @@ if [ -z "$TELEGRAM_CHAT_ID" ]; then
   echo -e "${YELLOW}Enter your Telegram Chat ID (message @userinfobot to get it):${NC}"
   read -p "> " TELEGRAM_CHAT_ID
 fi
-[ -z "$TELEGRAM_CHAT_ID" ] && echo -e "${RED}❌ Telegram Chat ID required${NC}" && exit 1
+[ -z "$TELEGRAM_CHAT_ID" ] && echo -e "${RED} Telegram Chat ID required${NC}" && exit 1
 
 mkdir -p "$WORK_DIR"
 cd "$WORK_DIR"
@@ -54,7 +54,7 @@ sleep 12
 #═══════════════════════════════════════════════════════════════
 echo -e "${BLUE}[2/7]${NC} Extracting credentials..."
 WAHA_API_KEY=$(docker logs $WAHA_CONTAINER 2>&1 | grep "WAHA_API_KEY=" | tail -1 | cut -d'=' -f2)
-[ -z "$WAHA_API_KEY" ] && echo -e "${RED}❌ Could not get API key. Check: docker logs $WAHA_CONTAINER${NC}" && exit 1
+[ -z "$WAHA_API_KEY" ] && echo -e "${RED} Could not get API key. Check: docker logs $WAHA_CONTAINER${NC}" && exit 1
 
 cat > "$WORK_DIR/.env" << EOF
 WAHA_API_KEY=$WAHA_API_KEY
@@ -160,7 +160,7 @@ sleep 2
 if curl -s "http://localhost:$MESSAGE_STORE_PORT/health" 2>/dev/null | grep -q "OK"; then
   echo -e "   ${GREEN}✓${NC} Message store running (auto-starts on boot)"
 else
-  echo -e "   ${YELLOW}⚠${NC} Starting manually..."
+  echo -e "   ${YELLOW}${NC} Starting manually..."
   nohup $NODE_PATH "$WORK_DIR/message-store.js" > /tmp/whatsapp-store.log 2>&1 &
   sleep 2
 fi
@@ -229,7 +229,7 @@ if [ "$STATUS" == "SCAN_QR_CODE" ]; then
     --output "$WORK_DIR/qr.png"
   
   echo -e "\n${GREEN}╔══════════════════════════════════════════════════════════════╗"
-  echo "║  📱 SCAN THE QR CODE WITH WHATSAPP                           ║"
+  echo "║   SCAN THE QR CODE WITH WHATSAPP                           ║"
   echo "║  Settings → Linked Devices → Link a Device                   ║"
   echo "╚══════════════════════════════════════════════════════════════╝${NC}"
   echo ""
@@ -239,7 +239,7 @@ if [ "$STATUS" == "SCAN_QR_CODE" ]; then
   open "$WORK_DIR/qr.png" 2>/dev/null || xdg-open "$WORK_DIR/qr.png" 2>/dev/null || true
   
 elif [ "$STATUS" == "WORKING" ]; then
-  echo -e "\n${GREEN}✅ WhatsApp already connected!${NC}"
+  echo -e "\n${GREEN} WhatsApp already connected!${NC}"
 else
   echo -e "\n${YELLOW}Status: $STATUS${NC}"
   echo "Dashboard: http://localhost:$WAHA_PORT"
@@ -249,7 +249,7 @@ fi
 # Done!
 #═══════════════════════════════════════════════════════════════
 echo -e "\n${GREEN}╔══════════════════════════════════════════════════════════════╗"
-echo "║  ✅ SETUP COMPLETE!                                          ║"
+echo "║   SETUP COMPLETE!                                          ║"
 echo "╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 echo "Components running:"
@@ -264,4 +264,4 @@ echo "  2. OpenClaw analyzes it every minute"
 echo "  3. If RDV detected → Telegram asks to add to calendar"
 echo "  4. If urgent → Telegram alert"
 echo ""
-echo -e "${YELLOW}Just scan the QR code and you're done! 🎉${NC}"
+echo -e "${YELLOW}Just scan the QR code and you're done! ${NC}"

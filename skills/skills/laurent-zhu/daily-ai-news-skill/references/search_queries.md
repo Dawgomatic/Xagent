@@ -253,13 +253,13 @@ Mix queries from different categories:
 
 ### 4. Avoid Redundant Terms
 Don't combine similar terms:
-- ❌ `"AI" AND "artificial intelligence"` (redundant)
-- ✅ `"AI" OR "machine learning" OR "deep learning"` (complementary)
+-  `"AI" AND "artificial intelligence"` (redundant)
+-  `"AI" OR "machine learning" OR "deep learning"` (complementary)
 
 ### 5. Use Quotes for Exact Phrases
 Use quotes when searching for specific phrases:
-- ✅ `"large language model"`
-- ❌ `large language model` (may return broader results)
+-  `"large language model"`
+-  `large language model` (may return broader results)
 
 ### 6. Exclude Irrelevant Topics
 Use NOT to filter out unrelated content:

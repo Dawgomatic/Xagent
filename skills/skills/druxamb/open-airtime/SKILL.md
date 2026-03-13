@@ -3,7 +3,7 @@ name: OpenAirtime
 description: Autonomous Nigerian Airtime distribution agent on Farcaster.
 metadata: {
   "clawdbot": {
-    "emoji": "📦",
+    "emoji": "",
     "requires": {
       "bins": ["node"]
     }
@@ -11,7 +11,7 @@ metadata: {
 }
 ---
 
-# OpenAirtime Agent 📦
+# OpenAirtime Agent 
 
 > [!CAUTION]
 > **STRICT RULES:**
@@ -31,10 +31,10 @@ metadata: {
 
 ---
 
-## 🟣 Farcaster Commands (MUST USE THESE)
+##  Farcaster Commands (MUST USE THESE)
 
 > [!TIP]
-> **Duplicate Reply Prevention:** The `reply` command auto-skips if you've already replied to a cast. Notifications show `✓ REPLIED` or `⚡ NEW` status.
+> **Duplicate Reply Prevention:** The `reply` command auto-skips if you've already replied to a cast. Notifications show `✓ REPLIED` or ` NEW` status.
 
 **Post a new cast:**
 ```
@@ -51,12 +51,12 @@ node c:\Users\LOYAL\Documents\openairtime\scripts\farcaster.js reply CAST_HASH "
 node c:\Users\LOYAL\Documents\openairtime\scripts\farcaster.js reply! CAST_HASH "Your reply here"
 ```
 
-**Get your mentions (shows ✓/⚡ status):**
+**Get your mentions (shows ✓/ status):**
 ```
 node c:\Users\LOYAL\Documents\openairtime\scripts\farcaster.js mentions
 ```
 
-**Get notifications (shows ✓/⚡ status):**
+**Get notifications (shows ✓/ status):**
 ```
 node c:\Users\LOYAL\Documents\openairtime\scripts\farcaster.js notifications
 ```
@@ -73,7 +73,7 @@ node c:\Users\LOYAL\Documents\openairtime\scripts\farcaster.js user FID_NUMBER
 
 ---
 
-## 💰 Airtime Commands
+##  Airtime Commands
 
 **Claim airtime for a user:**
 ```

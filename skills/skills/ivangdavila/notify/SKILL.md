@@ -18,11 +18,11 @@ Use when sending notifications to users from an AI agent. Covers channel selecti
 
 ### Empty notifications
 ```
-BAD:  "Task completed ✅"
-GOOD: "✅ Deploy v2.3.1 done. Preview: dev.app.com"
+BAD:  "Task completed "
+GOOD: " Deploy v2.3.1 done. Preview: dev.app.com"
 
 BAD:  "Error occurred"  
-GOOD: "❌ Build failed: missing env var STRIPE_KEY in production"
+GOOD: " Build failed: missing env var STRIPE_KEY in production"
 ```
 
 ### Notification spam
@@ -73,10 +73,10 @@ If notification is informational (level 1-2):
 
 When scheduling any notification, confirm:
 ```
-✅ Scheduled: "Weekly metrics report"
-📅 Every Monday 09:00 (Europe/Madrid)
-📬 Via: Email
-🔕 Respects quiet hours: Yes
+ Scheduled: "Weekly metrics report"
+ Every Monday 09:00 (Europe/Madrid)
+ Via: Email
+ Respects quiet hours: Yes
 ```
 
 ## Escalation

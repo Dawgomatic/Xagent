@@ -100,37 +100,37 @@ func defaultReactions() []DeviceReaction {
 		{
 			DeviceClass: "video",
 			EventType:   "add",
-			Action:      "📷 A camera device ({device}) was connected. I can help you take photos or analyze images if you'd like.",
+			Action:      " A camera device ({device}) was connected. I can help you take photos or analyze images if you'd like.",
 			Cooldown:    5 * time.Minute,
 		},
 		{
 			DeviceClass: "mass_storage",
 			EventType:   "add",
-			Action:      "💾 A USB storage device ({device}) was connected. I can help you list, index, or back up its contents.",
+			Action:      " A USB storage device ({device}) was connected. I can help you list, index, or back up its contents.",
 			Cooldown:    5 * time.Minute,
 		},
 		{
 			DeviceClass: "mass_storage",
 			EventType:   "remove",
-			Action:      "⏏️ USB storage device ({device}) was disconnected.",
+			Action:      " USB storage device ({device}) was disconnected.",
 			Cooldown:    1 * time.Minute,
 		},
 		{
 			DeviceClass: "audio",
 			EventType:   "add",
-			Action:      "🎤 An audio device ({device}) was connected. Voice mode is available if you'd like to use it.",
+			Action:      " An audio device ({device}) was connected. Voice mode is available if you'd like to use it.",
 			Cooldown:    5 * time.Minute,
 		},
 		{
 			DeviceClass: "printer",
 			EventType:   "add",
-			Action:      "🖨️ A printer ({device}) was connected. I can help you manage print jobs.",
+			Action:      " A printer ({device}) was connected. I can help you manage print jobs.",
 			Cooldown:    5 * time.Minute,
 		},
 		{
 			DeviceClass: "network",
 			EventType:   "add",
-			Action:      "🌐 A network adapter ({device}) was connected.",
+			Action:      " A network adapter ({device}) was connected.",
 			Cooldown:    5 * time.Minute,
 		},
 	}

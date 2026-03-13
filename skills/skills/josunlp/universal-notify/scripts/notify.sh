@@ -4,8 +4,8 @@
 
 set -euo pipefail
 
-error() { echo "❌ Error: $1" >&2; exit 1; }
-success() { echo "✅ Sent via $CHANNEL"; exit 0; }
+error() { echo " Error: $1" >&2; exit 1; }
+success() { echo " Sent via $CHANNEL"; exit 0; }
 
 command -v curl >/dev/null 2>&1 || error "curl is required"
 

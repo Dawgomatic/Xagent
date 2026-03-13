@@ -52,7 +52,7 @@ The extension files are in `extension/` directory.
 # After installation, restart gateway to load the extension.
 ```
 
-## 🔐 Security
+##  Security
 
 이 스킬은 `disableModelInvocation: true`로 설정되어 있습니다.
 - AI가 자동으로 도구를 호출하지 않음

@@ -2,7 +2,7 @@
 
 Give any AI agent the power to build real businesses. User describes an idea → Audos deploys a full startup in ~10 minutes: landing page, brand identity, hero video, custom AI tools, CRM, analytics, and Otto — an AI co-founder who stays to help run the business.
 
-🔗 **[GitHub](https://github.com/prehype/audos-agent-skill)** · **[Live Demo (SkiFit AI)](https://audos.com/site/103877)** · **[audos.com](https://audos.com)**
+ **[GitHub](https://github.com/prehype/audos-agent-skill)** · **[Live Demo (SkiFit AI)](https://audos.com/site/103877)** · **[audos.com](https://audos.com)**
 
 ## Quick Start
 

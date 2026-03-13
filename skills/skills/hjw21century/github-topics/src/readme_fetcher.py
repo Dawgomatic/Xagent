@@ -67,7 +67,7 @@ class ReadmeFetcher:
                 return data.get("content", "")
 
         except requests.RequestException as e:
-            print(f"   ⚠️ 获取 README 失败 {owner}/{repo}: {e}")
+            print(f"    获取 README 失败 {owner}/{repo}: {e}")
             return None
 
     def fetch_readme_summary(self, owner: str, repo: str, max_length: int = 500) -> Optional[str]:
@@ -149,7 +149,7 @@ class ReadmeFetcher:
         delay = delay if delay is not None else self.delay
         summaries = {}
 
-        print(f"📥 开始批量获取 README...")
+        print(f" 开始批量获取 README...")
 
         for i, repo in enumerate(repos, 1):
             repo_name = repo.get("repo_name") or repo.get("name", "")
@@ -169,7 +169,7 @@ class ReadmeFetcher:
             if i < len(repos):
                 time.sleep(delay)
 
-        print(f"✅ 成功获取 {len(summaries)} 个 README 摘要")
+        print(f" 成功获取 {len(summaries)} 个 README 摘要")
         return summaries
 
     def fetch_from_github_raw(self, owner: str, repo: str, branch: str = "main") -> Optional[str]:

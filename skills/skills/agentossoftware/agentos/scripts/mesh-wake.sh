@@ -44,7 +44,7 @@ if [ "$count" -gt 0 ]; then
   
   # Wake Clawdbot - try multiple methods
   topics=$(echo "$response" | jq -r '.messages[] | "• \(.from_agent): \(.topic)"' | head -5)
-  wake_msg="📬 $count mesh message(s) waiting:
+  wake_msg=" $count mesh message(s) waiting:
 $topics
 
 Process with: aos inbox

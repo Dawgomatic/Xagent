@@ -20,30 +20,30 @@ echo "Checking package versions..."
 echo ""
 
 for package in "${packages[@]}"; do
-  echo "📦 $package"
+  echo " $package"
 
   # Get installed version
   installed=$(npm list "$package" --depth=0 2>/dev/null | grep "$package" | awk -F@ '{print $NF}')
 
   if [ -z "$installed" ]; then
-    echo "   ❌ Not installed"
+    echo "    Not installed"
   else
-    echo "   ✅ Installed: $installed"
+    echo "    Installed: $installed"
   fi
 
   # Get latest version
   latest=$(npm view "$package" version 2>/dev/null)
 
   if [ -z "$latest" ]; then
-    echo "   ⚠️  Could not fetch latest version"
+    echo "     Could not fetch latest version"
   else
-    echo "   📌 Latest:    $latest"
+    echo "    Latest:    $latest"
 
     # Compare versions
     if [ "$installed" = "$latest" ]; then
-      echo "   ✨ Up to date!"
+      echo "    Up to date!"
     elif [ -n "$installed" ]; then
-      echo "   ⬆️  Update available"
+      echo "     Update available"
     fi
   fi
 

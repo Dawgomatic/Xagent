@@ -8,7 +8,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/acc-state.json"
 TRANSCRIPTS_DIR="$HOME/.openclaw/sessions"
 
-echo "⚡ ACC Daily Analysis"
+echo " ACC Daily Analysis"
 echo "===================="
 
 # Find yesterday's main session transcript
@@ -19,11 +19,11 @@ echo "Analyzing: $YESTERDAY"
 # The cron agent will read these and analyze them
 
 echo ""
-echo "📋 Transcript files to analyze:"
+echo " Transcript files to analyze:"
 find "$TRANSCRIPTS_DIR" -name "*.jsonl" -mtime -2 2>/dev/null | head -10
 
 echo ""
-echo "📊 Current ACC State:"
+echo " Current ACC State:"
 cat "$STATE_FILE" | python3 -c "
 import json, sys
 state = json.load(sys.stdin)
@@ -36,7 +36,7 @@ for name, data in active.items():
 "
 
 echo ""
-echo "🔍 Analysis task for agent:"
+echo " Analysis task for agent:"
 echo "1. Read recent transcripts"
 echo "2. Look for: user corrections, 'no/wrong', frustration, confusion"
 echo "3. Identify error patterns"

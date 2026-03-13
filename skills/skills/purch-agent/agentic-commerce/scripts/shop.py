@@ -77,17 +77,17 @@ def main():
         return
 
     if "error" in result:
-        print(f"❌ Error: {result['error']}")
+        print(f" Error: {result['error']}")
         sys.exit(1)
 
     # Print AI reply
     reply = result.get("reply", "")
     if reply:
-        print(f"🤖 {reply}")
+        print(f" {reply}")
         print()
 
     products = result.get("products", [])
-    print(f"📦 Found {len(products)} products")
+    print(f" Found {len(products)} products")
     print("-" * 60)
 
     for i, product in enumerate(products, 1):
@@ -99,16 +99,16 @@ def main():
         url = product.get("productUrl", "")
 
         print(f"{i}. {title}")
-        print(f"   💰 {currency} {price} | ⭐ {rating} | 🏷️ {source}")
+        print(f"    {currency} {price} |  {rating} |  {source}")
 
         if source == "amazon":
             asin = product.get("asin", "N/A")
-            print(f"   🛒 ASIN: {asin}")
+            print(f"    ASIN: {asin}")
         else:  # shopify
             variant_id = product.get("variantId") or extract_variant_id(url) or "N/A"
             clean_url = url.split('?')[0] if url else "N/A"
-            print(f"   🛒 URL: {clean_url}")
-            print(f"   🔖 Variant ID: {variant_id}")
+            print(f"    URL: {clean_url}")
+            print(f"    Variant ID: {variant_id}")
         print()
 
 

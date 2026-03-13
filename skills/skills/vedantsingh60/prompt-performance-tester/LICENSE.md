@@ -154,4 +154,4 @@ For licensing inquiries or support:
 
 **By using the Software, you acknowledge that you have read, understood, and agree to be bound by this License Agreement.**
 
-© 2026 UniAI. All rights reserved.
+ 2026 UniAI. All rights reserved.

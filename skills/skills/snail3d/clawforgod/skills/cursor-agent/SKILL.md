@@ -176,7 +176,7 @@ agent -p 'Fix all linting errors' --force
 agent -p 'Analyze this screenshot: screenshot.png'
 ```
 
-### ⚠️ Using with AI Agents / Automation (tmux required)
+###  Using with AI Agents / Automation (tmux required)
 
 **CRITICAL:** When running Cursor CLI from automated environments (AI agents, scripts, subprocess calls), the CLI requires a real TTY. Direct execution will hang indefinitely.
 
@@ -219,7 +219,7 @@ ls -la /path/to/project/
 
 **What does NOT work:**
 ```bash
-# ❌ These will hang indefinitely:
+#  These will hang indefinitely:
 agent "task"                    # No TTY
 agent -p "task"                 # No TTY  
 subprocess.run(["agent", ...])  # No TTY

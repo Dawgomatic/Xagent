@@ -13,7 +13,7 @@ if [ -z "$GOTCHI_ID" ] || [ "$GOTCHI_ID" = "null" ]; then
   exit 1
 fi
 
-echo "🦞 Petting gotchi #${GOTCHI_ID}..."
+echo " Petting gotchi #${GOTCHI_ID}..."
 
 # Check if aavegotchi script exists (the one that actually works)
 if [ -f "$AAVEGOTCHI_SCRIPT" ]; then
@@ -28,7 +28,7 @@ if [ ! -f "$BANKR_SCRIPT" ]; then
   exit 1
 fi
 
-echo "⚠️  Attempting via Bankr (experimental)..."
+echo "  Attempting via Bankr (experimental)..."
 
 # Try with a more descriptive prompt
 PROMPT="Send a transaction on Base chain (chainId 8453) to contract 0xA99c4B08201F2913Db8D28e71d020c4298F29dBF calling the interact function with parameter [${GOTCHI_ID}]. This is to pet an Aavegotchi NFT. Execute immediately without confirmation."
@@ -37,9 +37,9 @@ PROMPT="Send a transaction on Base chain (chainId 8453) to contract 0xA99c4B0820
 
 # Check if it worked
 if [ $? -eq 0 ]; then
-  echo "✅ Bankr transaction submitted"
-  echo "⚠️  Note: Verify on-chain that it actually executed"
+  echo " Bankr transaction submitted"
+  echo "  Note: Verify on-chain that it actually executed"
 else
-  echo "❌ Bankr transaction failed"
+  echo " Bankr transaction failed"
   exit 1
 fi

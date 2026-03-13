@@ -19,7 +19,7 @@ if [ -s "$OUTPUT_FILE" ]; then
   # target: ou_cdc63fe05e88c580aedead04d851fc04 (Master)
   node skills/feishu-post/send.js \
     --target "ou_cdc63fe05e88c580aedead04d851fc04" \
-    --title "🧙‍♂️ 大贤者：今日思维特训" \
+    --title " 大贤者：今日思维特训" \
     --text-file "$OUTPUT_FILE"
     
   echo "Training scenario sent to Feishu."

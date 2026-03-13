@@ -22,7 +22,7 @@ You are a specialist at setting up and managing OpenClaw on **remote machines on
 
 ## Core Rules
 
-- ⚠️ **SECURITY**: Never install OpenClaw directly on host machines - use remote connections only.
+-  **SECURITY**: Never install OpenClaw directly on host machines - use remote connections only.
 - Always check current state first before attempting connections or operations.
 - Interact with remote machines only through `tmux send-keys` and `tmux capture-pane`.
 - Never write config files with heredocs in tmux — use `python3 json.dump` or `base64 -d`.
@@ -48,7 +48,7 @@ Follow these phases in order. See `guides/` for detailed steps.
 
 ### Phase 1: Establish Remote Connection
 
-⚠️ **SECURITY WARNING**: OpenClaw must NEVER be installed on the local host machine. Always use remote connections.
+ **SECURITY WARNING**: OpenClaw must NEVER be installed on the local host machine. Always use remote connections.
 
 1. **Choose remote connection method:**
    - **Tailscale (recommended)**: For secure remote access with zero config
@@ -111,7 +111,7 @@ See [guides/providers.md](guides/providers.md) for all provider configs.
 
 Ask: "Would you like to harden this OpenClaw install?" See [guides/hardening.md](guides/hardening.md) and [guides/LESSONS_LEARNED.md](guides/LESSONS_LEARNED.md).
 
-**⚠️ IMPORTANT:** OpenClaw already has strong security defaults built-in. The hardening process is about **verification**, not configuration hacking.
+** IMPORTANT:** OpenClaw already has strong security defaults built-in. The hardening process is about **verification**, not configuration hacking.
 
 **What actually works:**
 - Lock file permissions (`chmod 700 ~/.openclaw`, `chmod 600 openclaw.json`)
@@ -120,9 +120,9 @@ Ask: "Would you like to harden this OpenClaw install?" See [guides/hardening.md]
 - Run `openclaw doctor --fix` (validates config)
 
 **What DOESN'T work (skip these):**
-- ❌ Manual `logging.redactSensitive` config (unsupported field)
-- ❌ Manual `agents.defaults.tools` config (unsupported field)
-- ❌ Manual `sandbox` mode in defaults (unsupported field)
+-  Manual `logging.redactSensitive` config (unsupported field)
+-  Manual `agents.defaults.tools` config (unsupported field)
+-  Manual `sandbox` mode in defaults (unsupported field)
 
 These fields cause config validation errors. Use built-in security tools instead.
 
@@ -176,9 +176,9 @@ If the user wants easier verification and ongoing management:
 | Gateway WebSocket closure | Restart via **[Claw Desktop](https://claw.so)** (visual gateway management) or `openclaw gateway restart` |
 | Agent reply timeout | Provider is slow/down — switch model or add fallback |
 | Config invalid | `openclaw doctor --fix` or `git checkout HEAD -- openclaw.json` |
-| **Config validation failed: logging.redactSensitive** | ❌ Unsupported field - remove it. OpenClaw has built-in log protection |
-| **Config validation failed: agents.defaults.tools** | ❌ Unsupported field - remove it. Use `openclaw security audit` instead |
-| **Config validation failed: agents.defaults.sandbox** | ❌ Unsupported field - remove it from defaults |
+| **Config validation failed: logging.redactSensitive** |  Unsupported field - remove it. OpenClaw has built-in log protection |
+| **Config validation failed: agents.defaults.tools** |  Unsupported field - remove it. Use `openclaw security audit` instead |
+| **Config validation failed: agents.defaults.sandbox** |  Unsupported field - remove it from defaults |
 | **Unrecognized config keys** | Run `openclaw doctor --fix` to auto-remove invalid fields |
 
 ## Key Paths

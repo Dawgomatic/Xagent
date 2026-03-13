@@ -11,7 +11,7 @@ function main() {
   let dbSize = '?';
   try { dbSize = (fs.statSync(dbPath).size / 1024).toFixed(1); } catch {}
 
-  console.log('🧠 SecondMind Status\n');
+  console.log(' SecondMind Status\n');
   console.log(`Database: ${dbPath} (${dbSize} KB)`);
 
   // Buffer
@@ -21,26 +21,26 @@ function main() {
            COALESCE(SUM(token_count), 0) as tokens
     FROM shortterm_buffer
   `).get();
-  console.log(`\n📥 Buffer: ${b.total} total, ${b.unprocessed || 0} unprocessed, ${b.tokens} tokens`);
+  console.log(`\n Buffer: ${b.total} total, ${b.unprocessed || 0} unprocessed, ${b.tokens} tokens`);
 
   // Knowledge
   const k = db.prepare(`
     SELECT category, COUNT(*) as c FROM knowledge_entries
     GROUP BY category ORDER BY c DESC
   `).all();
-  console.log(`\n📚 Knowledge: ${k.reduce((s, x) => s + x.c, 0)} entries`);
+  console.log(`\n Knowledge: ${k.reduce((s, x) => s + x.c, 0)} entries`);
   for (const x of k) console.log(`   ${x.category}: ${x.c}`);
 
   // Archive
   const a = db.prepare('SELECT COUNT(*) as c FROM longterm_archive').get();
-  console.log(`\n🗄️  Archive: ${a.c} entries`);
+  console.log(`\n  Archive: ${a.c} entries`);
 
   // Proposals
   const p = db.prepare(`
     SELECT status, COUNT(*) as c FROM proposals
     GROUP BY status ORDER BY c DESC
   `).all();
-  console.log(`\n💡 Proposals: ${p.reduce((s, x) => s + x.c, 0)} total`);
+  console.log(`\n Proposals: ${p.reduce((s, x) => s + x.c, 0)} total`);
   for (const x of p) console.log(`   ${x.status}: ${x.c}`);
 
   // Projects
@@ -50,7 +50,7 @@ function main() {
       GROUP BY status ORDER BY c DESC
     `).all();
     if (proj.length > 0) {
-      console.log(`\n📦 Projects: ${proj.reduce((s, x) => s + x.c, 0)} total`);
+      console.log(`\n Projects: ${proj.reduce((s, x) => s + x.c, 0)} total`);
       for (const x of proj) console.log(`   ${x.status}: ${x.c}`);
     }
   } catch { /* table might not exist yet */ }
@@ -61,7 +61,7 @@ function main() {
     const evtCount = db.prepare('SELECT COUNT(*) as c FROM social_events').get();
 
     if (emoCount.c > 0 || evtCount.c > 0) {
-      console.log(`\n🎭 Soziale Intelligenz:`);
+      console.log(`\n Soziale Intelligenz:`);
       console.log(`   Emotionen erfasst: ${emoCount.c}`);
       console.log(`   Events/Termine: ${evtCount.c}`);
 
@@ -72,22 +72,22 @@ function main() {
       `).all();
       if (moods.length > 0) {
         const mi = {
-          frustration:'😤', excitement:'🎉', worry:'😰', celebration:'🥳',
-          stress:'😫', curiosity:'🤔', boredom:'😴', gratitude:'🙏'
+          frustration:'', excitement:'', worry:'', celebration:'',
+          stress:'', curiosity:'', boredom:'', gratitude:''
         };
         console.log('   Stimmung (7d): ' +
-          moods.map(m => `${mi[m.mood]||'❓'}${m.mood}(${m.c})`).join(' '));
+          moods.map(m => `${mi[m.mood]||''}${m.mood}(${m.c})`).join(' '));
       }
 
       try {
         const stale = db.prepare('SELECT COUNT(*) as c FROM v_stale_frustrations WHERE days_ago > 3').get();
-        if (stale.c > 0) console.log(`   ⚠️  ${stale.c} ungelöste Frustration(en) > 3 Tage`);
+        if (stale.c > 0) console.log(`     ${stale.c} ungelöste Frustration(en) > 3 Tage`);
       } catch {}
 
       try {
         const upcoming = db.prepare('SELECT person, event_type, description, days_until FROM v_upcoming_events').all();
         if (upcoming.length > 0) {
-          console.log('   📅 Anstehend:');
+          console.log('    Anstehend:');
           for (const e of upcoming)
             console.log(`      ${e.person}: ${e.description || e.event_type} (${e.days_until}d)`);
         }
@@ -96,7 +96,7 @@ function main() {
   } catch { /* social tables may not exist on first run */ }
 
   // Last runs
-  console.log('\n⏰ Letzte Läufe:');
+  console.log('\n Letzte Läufe:');
   for (const key of ['last_ingest', 'last_consolidate', 'last_archive', 'last_initiative']) {
     const val = getState(key);
     console.log(`   ${key.replace('last_', '').padEnd(12)}: ${val || 'nie'}`);

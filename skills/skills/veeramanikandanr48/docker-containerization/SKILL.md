@@ -167,26 +167,26 @@ Includes configuration examples, commands, auto-scaling setup, and monitoring.
 ## Best Practices
 
 ### Security
-✅ Use multi-stage builds for production
-✅ Run as non-root user
-✅ Use specific image tags (not `latest`)
-✅ Scan for vulnerabilities
-✅ Never hardcode secrets
-✅ Implement health checks
+ Use multi-stage builds for production
+ Run as non-root user
+ Use specific image tags (not `latest`)
+ Scan for vulnerabilities
+ Never hardcode secrets
+ Implement health checks
 
 ### Performance
-✅ Optimize layer caching order
-✅ Use Alpine images (~85% smaller)
-✅ Enable BuildKit for parallel builds
-✅ Set resource limits
-✅ Use compression
+ Optimize layer caching order
+ Use Alpine images (~85% smaller)
+ Enable BuildKit for parallel builds
+ Set resource limits
+ Use compression
 
 ### Maintainability
-✅ Add comments for complex steps
-✅ Use build arguments for flexibility
-✅ Keep Dockerfiles DRY
-✅ Version control all configs
-✅ Document environment variables
+ Add comments for complex steps
+ Use build arguments for flexibility
+ Keep Dockerfiles DRY
+ Version control all configs
+ Document environment variables
 
 ## Troubleshooting
 

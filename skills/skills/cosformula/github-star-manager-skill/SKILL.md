@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "⭐",
+        "emoji": "",
         "requires": { "bins": ["gh", "jq"] },
         "notes": "Requires `gh auth login` (authenticated GitHub CLI). For Lists operations (create/add), the token needs `user` scope — use a Classic token. The skill uses the existing `gh` auth session; no separate env var is needed.",
         "install":

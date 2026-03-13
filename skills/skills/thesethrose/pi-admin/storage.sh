@@ -1,7 +1,7 @@
 #!/bin/bash
 # Storage and disk usage
 
-echo "💾 Storage Information"
+echo " Storage Information"
 echo "======================="
 echo ""
 

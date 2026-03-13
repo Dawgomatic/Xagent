@@ -1,7 +1,7 @@
 ---
 name: Blender
 description: Avoid common Blender mistakes — transform application, modifier order, UV seams, and export settings for game engines.
-metadata: {"clawdbot":{"emoji":"🧊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Transforms

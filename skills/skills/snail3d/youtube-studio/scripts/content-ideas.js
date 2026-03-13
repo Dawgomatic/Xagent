@@ -312,7 +312,7 @@ function generateFallbackIdeas(niche, count) {
  */
 function generateFallbackReplies(commentText) {
   return [
-    'Thanks so much for watching and commenting! Really appreciate your support! 🙏',
+    'Thanks so much for watching and commenting! Really appreciate your support! ',
     'Great question! This is exactly what many viewers ask. Glad you brought it up!',
     'Love your enthusiasm! Make sure to check out my other videos on related topics.',
   ];
@@ -336,7 +336,7 @@ function loadTemplates() {
   }
 
   return {
-    grateful: 'Thanks for watching! Really appreciate the support. 🙏',
+    grateful: 'Thanks for watching! Really appreciate the support. ',
     educational: 'Great question! Let me expand on that...',
     promotional: 'Glad you enjoyed this! Check out my other videos...',
   };

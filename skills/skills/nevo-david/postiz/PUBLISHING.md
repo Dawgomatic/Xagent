@@ -346,10 +346,10 @@ Remember: The package name is just for installation. The command can still be `p
 
 ## Summary
 
-✅ Current setup works perfectly!
-✅ `bin` field defines the command name
-✅ `name` field defines the npm package name
-✅ They can be different!
+ Current setup works perfectly!
+ `bin` field defines the command name
+ `name` field defines the npm package name
+ They can be different!
 
 **To publish now:**
 
@@ -374,4 +374,4 @@ postiz --help
 postiz posts:create -c "Hello!" -i "twitter-123"
 ```
 
-🚀 **Ready to publish!**
+ **Ready to publish!**

@@ -224,19 +224,19 @@ generate_report() {
             # Determine increase/decrease indicator
             if (( $(echo "$percentage_change > 0" | bc -l 2>/dev/null || echo 0) )); then
                 if [ "$OUTPUT_FORMAT" = "discord" ]; then
-                    change_indicator="🔴" # Increase (Chinese style: red=up)
+                    change_indicator="" # Increase (Chinese style: red=up)
                 else
                     change_indicator="▲"
                 fi
             elif (( $(echo "$percentage_change < 0" | bc -l 2>/dev/null || echo 0) )); then
                 if [ "$OUTPUT_FORMAT" = "discord" ]; then
-                    change_indicator="🟢" # Decrease (Chinese style: green=down)
+                    change_indicator="" # Decrease (Chinese style: green=down)
                 else
                     change_indicator="▼"
                 fi
             else
                 if [ "$OUTPUT_FORMAT" = "discord" ]; then
-                    change_indicator="⚪" # No change
+                    change_indicator="" # No change
                 else
                     change_indicator="○"
                 fi
@@ -261,11 +261,11 @@ generate_report() {
         local report_title=""
         
         if [ "$START_DATE" = "$(date +%Y-%m-%d)" ]; then
-            report_title="💰 OpenClaw Today's Cost Report"
+            report_title=" OpenClaw Today's Cost Report"
         elif [ "$START_DATE" = "$(get_yesterday)" ]; then
-            report_title="💰 OpenClaw Yesterday's Cost Report"
+            report_title=" OpenClaw Yesterday's Cost Report"
         else
-            report_title="💰 OpenClaw Cost Report"
+            report_title=" OpenClaw Cost Report"
         fi
         
         echo "$report_title ($START_DATE)"
@@ -281,7 +281,7 @@ generate_report() {
         fi
         
         # Model details
-        echo -e "\n📊 Model Details:"
+        echo -e "\n Model Details:"
         
         # Calculate model count
         local model_count=$(echo "$models" | jq -r '. | length')
@@ -313,7 +313,7 @@ generate_report() {
             local error_count=$(echo "$errors" | jq -r '. | length')
             
             if [ "$error_count" -gt 0 ]; then
-                echo -e "\n⚠️ Model Errors:"
+                echo -e "\n Model Errors:"
                 echo "$errors" | jq -c '.[]' | while read -r error_data; do
                     local model_name=$(echo "$error_data" | jq -r '.model')
                     local count=$(echo "$error_data" | jq -r '.count')

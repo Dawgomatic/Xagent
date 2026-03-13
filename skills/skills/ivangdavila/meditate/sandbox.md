@@ -22,13 +22,13 @@ These rules have NO exceptions. Violating any = meditation failure.
 - Other users' data
 
 ### Never Suggest Direct Actions
-❌ "I'll refactor this code"
-❌ "Let me send that email"
-❌ "I should update the config"
+ "I'll refactor this code"
+ "Let me send that email"
+ "I should update the config"
 
-✅ "Have you considered refactoring X?"
-✅ "Might be worth sending that email"
-✅ "The config might benefit from Y"
+ "Have you considered refactoring X?"
+ "Might be worth sending that email"
+ "The config might benefit from Y"
 
 ## Output Validation
 

@@ -194,7 +194,7 @@ class EquilibriumValidator(SISValidator):
     
     AEP Principle: sense → quantify → compensate → iterate
     Attractor: equilibrium convergence (asymptotic, never fully reached)
-    Context: (a↔b) ↔ Cosmosrest (nothing isolated)
+    Context: (ab)  Cosmosrest (nothing isolated)
     """
     
     def __init__(self):

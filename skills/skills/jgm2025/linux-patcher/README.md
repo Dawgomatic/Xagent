@@ -5,18 +5,18 @@
 
 Automated Linux server patching with PatchMon integration for OpenClaw.
 
-## 🎯 Features
+##  Features
 
-- ✅ **Ubuntu fully tested** - Production-ready
-- ⚠️ **10+ distributions supported** - Debian, RHEL, AlmaLinux, Rocky, CentOS, Amazon Linux, SUSE (untested)
-- 🔒 **Security-focused** - Restricted sudo, SSH key auth
-- 🤖 **PatchMon integration** - Automatic host detection
-- 🐳 **Smart Docker detection** - Auto-detects and updates containers
-- 📊 **Visual workflow diagrams** - Easy to understand
-- 🚀 **Chat-based interface** - "Update my servers" just works
-- 🔄 **Dry-run mode** - Preview changes before applying
+-  **Ubuntu fully tested** - Production-ready
+-  **10+ distributions supported** - Debian, RHEL, AlmaLinux, Rocky, CentOS, Amazon Linux, SUSE (untested)
+-  **Security-focused** - Restricted sudo, SSH key auth
+-  **PatchMon integration** - Automatic host detection
+-  **Smart Docker detection** - Auto-detects and updates containers
+-  **Visual workflow diagrams** - Easy to understand
+-  **Chat-based interface** - "Update my servers" just works
+-  **Dry-run mode** - Preview changes before applying
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -85,7 +85,7 @@ scripts/patch-host-only.sh admin@webserver.example.com
 scripts/patch-host-full.sh admin@webserver.example.com /opt/docker
 ```
 
-## 📋 Prerequisites
+##  Prerequisites
 
 ### Required
 
@@ -113,7 +113,7 @@ scripts/patch-host-full.sh admin@webserver.example.com /opt/docker
 
 **Note:** You can use this skill without PatchMon by manually specifying hosts, but automatic detection of which hosts need updates requires PatchMon.
 
-## 📖 Documentation
+##  Documentation
 
 Complete documentation is included in the skill:
 
@@ -122,25 +122,25 @@ Complete documentation is included in the skill:
 - **[WORKFLOWS.md](WORKFLOWS.md)** - Visual workflow diagrams
 - **[references/patchmon-setup.md](references/patchmon-setup.md)** - PatchMon installation
 
-## 🌍 Supported Distributions
+##  Supported Distributions
 
 | Distribution | Package Manager | Status |
 |--------------|-----------------|--------|
-| Ubuntu | apt | ✅ Fully tested |
-| Debian | apt | ⚠️ Supported (untested) |
-| Amazon Linux 2 | yum | ⚠️ Supported (untested) |
-| Amazon Linux 2023 | dnf | ⚠️ Supported (untested) |
-| RHEL 7 | yum | ⚠️ Supported (untested) |
-| RHEL 8+ | dnf | ⚠️ Supported (untested) |
-| AlmaLinux | dnf | ⚠️ Supported (untested) |
-| Rocky Linux | dnf | ⚠️ Supported (untested) |
-| CentOS 7 | yum | ⚠️ Supported (untested) |
-| CentOS 8+ | dnf | ⚠️ Supported (untested) |
-| SUSE/OpenSUSE | zypper | ⚠️ Supported (untested) |
+| Ubuntu | apt |  Fully tested |
+| Debian | apt |  Supported (untested) |
+| Amazon Linux 2 | yum |  Supported (untested) |
+| Amazon Linux 2023 | dnf |  Supported (untested) |
+| RHEL 7 | yum |  Supported (untested) |
+| RHEL 8+ | dnf |  Supported (untested) |
+| AlmaLinux | dnf |  Supported (untested) |
+| Rocky Linux | dnf |  Supported (untested) |
+| CentOS 7 | yum |  Supported (untested) |
+| CentOS 8+ | dnf |  Supported (untested) |
+| SUSE/OpenSUSE | zypper |  Supported (untested) |
 
 **Testing needed!** If you use this skill on untested distributions, please report results via issues.
 
-## 🔒 Security
+##  Security
 
 This skill is designed with security as a priority:
 
@@ -152,7 +152,7 @@ This skill is designed with security as a priority:
 
 See [SETUP.md](SETUP.md) for complete security configuration.
 
-## 🎓 Examples
+##  Examples
 
 ### Example 1: Automatic updates via PatchMon
 ```bash
@@ -189,7 +189,7 @@ cron add --name "Nightly Patching" \
   --task "cd ~/.openclaw/workspace/skills/linux-patcher && scripts/patch-auto.sh"
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Especially:
 
@@ -200,18 +200,18 @@ Contributions welcome! Especially:
 
 Please open an issue or pull request.
 
-## 📄 License
+##  License
 
 MIT License - See [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+##  Support
 
 - **Documentation:** See SKILL.md, SETUP.md, WORKFLOWS.md
 - **Issues:** https://github.com/JGM2025/linux-patcher-skill/issues
 - **OpenClaw Community:** https://discord.com/invite/clawd
 - **PatchMon:** https://github.com/PatchMon/PatchMon
 
-## 🎉 Acknowledgments
+##  Acknowledgments
 
 - Built for [OpenClaw](https://openclaw.ai)
 - Integrates with [PatchMon](https://github.com/PatchMon/PatchMon)

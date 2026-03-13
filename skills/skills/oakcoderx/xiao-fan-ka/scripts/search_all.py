@@ -148,13 +148,13 @@ def main():
     parser.add_argument('--json', action='store_true', help='JSON输出')
     args = parser.parse_args()
 
-    print(f"🔍 搜索中...\n", file=sys.stderr)
+    print(f" 搜索中...\n", file=sys.stderr)
 
     # 双源搜索
     dp_results = search_dianping(args.query, args.city, max_results=args.max)
     xhs_results = search_xiaohongshu(args.query, max_results=args.max)
 
-    print(f"📊 大众点评 {len(dp_results)} 条 | 小红书 {len(xhs_results)} 条\n", file=sys.stderr)
+    print(f" 大众点评 {len(dp_results)} 条 | 小红书 {len(xhs_results)} 条\n", file=sys.stderr)
 
     # 合并
     merged = merge_results(dp_results, xhs_results)
@@ -177,7 +177,7 @@ def main():
             return
 
         has_prefs = bool(preferences.get('liked_tags'))
-        print(f"🍜 小饭卡推荐: {args.query}")
+        print(f" 小饭卡推荐: {args.query}")
         if has_prefs:
             print(f"   (已根据你的口味画像排序)")
         print()
@@ -185,19 +185,19 @@ def main():
         for i, r in enumerate(merged, 1):
             name = r['name']
             price = f"¥{r['avg_price']}" if r.get('avg_price') else ''
-            score = f"⭐{r['score']}" if r.get('score') else ''
+            score = f"{r['score']}" if r.get('score') else ''
             match = f"匹配{r['match_score']:.0f}%" if has_prefs else ''
 
             # 来源标记
             sources = r.get('sources', [])
             if r.get('cross_verified'):
-                src_mark = '✅双源验证'
+                src_mark = '双源验证'
             elif 'dianping' in sources and 'xiaohongshu' in sources:
-                src_mark = '📊点评+📕小红书'
+                src_mark = '点评+小红书'
             elif 'xiaohongshu' in sources:
-                src_mark = '📕小红书'
+                src_mark = '小红书'
             else:
-                src_mark = '📊点评'
+                src_mark = '点评'
 
             info = ' | '.join(p for p in [price, score, match, src_mark] if p)
             print(f"{i}. {name}")
@@ -206,9 +206,9 @@ def main():
 
             # 小红书评价
             for note in r.get('xhs_notes', [])[:1]:
-                sentiment_emoji = {'positive': '👍', 'negative': '⚠️', 'neutral': ''}
+                sentiment_emoji = {'positive': '', 'negative': '', 'neutral': ''}
                 s_emoji = sentiment_emoji.get(note.get('sentiment', ''), '')
-                print(f"   📕 {s_emoji} {note['title'][:50]}")
+                print(f"    {s_emoji} {note['title'][:50]}")
 
             if r.get('snippet'):
                 print(f"   {r['snippet'][:60]}")

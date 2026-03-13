@@ -34,10 +34,10 @@ function formatNumber(n) {
  * Calculate percentage bar with emoji indicators
  */
 function getQuotaIndicator(percentage) {
-  if (percentage >= 75) return '🟢'; // Good
-  if (percentage >= 50) return '🟡'; // Warning
-  if (percentage >= 25) return '🟠'; // Low
-  return '🔴'; // Critical
+  if (percentage >= 75) return ''; // Good
+  if (percentage >= 50) return ''; // Warning
+  if (percentage >= 25) return ''; // Low
+  return ''; // Critical
 }
 
 /**
@@ -47,8 +47,8 @@ function getRealQuotaData() {
   try {
     const output = execSync('clawdbot models status', { encoding: 'utf-8' });
 
-    // Parse the line like: "- anthropic usage: 5h 58% left ⏱1h 1m"
-    const usageMatch = output.match(/usage:\s+\d+h\s+(\d+)%\s+left\s+⏱(.+)/);
+    // Parse the line like: "- anthropic usage: 5h 58% left 1h 1m"
+    const usageMatch = output.match(/usage:\s+\d+h\s+(\d+)%\s+left\s+(.+)/);
 
     if (usageMatch) {
       const percentage = parseInt(usageMatch[1], 10);
@@ -173,9 +173,9 @@ function generateUsageReport(stats) {
   const quotaIndicator = getQuotaIndicator(quotaRemaining);
   const timeRemaining = formatDuration(sessionTimeRemaining);
 
-  let message = `📊 API Usage\n\n`;
-  message += `🔋 Quota: ${quotaIndicator} ${quotaRemaining}%\n`;
-  message += `⏱️ Resets in: ${timeRemaining}`;
+  let message = ` API Usage\n\n`;
+  message += ` Quota: ${quotaIndicator} ${quotaRemaining}%\n`;
+  message += ` Resets in: ${timeRemaining}`;
 
   return message;
 }

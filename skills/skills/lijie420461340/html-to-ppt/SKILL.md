@@ -189,9 +189,9 @@ def hello():
 ```markdown
 | Feature | Status |
 |---------|--------|
-| Tables  | ✅     |
-| Charts  | ✅     |
-| Images  | ✅     |
+| Tables  |      |
+| Charts  |      |
+| Images  |      |
 ```
 
 ### Images

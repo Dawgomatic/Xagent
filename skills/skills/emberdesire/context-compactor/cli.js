@@ -15,11 +15,11 @@ const OPENCLAW_EXTENSIONS = path.join(os.homedir(), '.openclaw', 'extensions', '
 const OLD_EXTENSIONS = path.join(os.homedir(), '.openclaw', 'extensions', 'openclaw-context-compactor');
 
 function log(msg) {
-  console.log(`📦 ${msg}`);
+  console.log(` ${msg}`);
 }
 
 function error(msg) {
-  console.error(`❌ ${msg}`);
+  console.error(` ${msg}`);
 }
 
 function prompt(question) {
@@ -182,8 +182,8 @@ async function setup() {
   console.log('  2. Add plugin config to your openclaw.json');
   console.log('  3. Help you configure token limits for your model');
   console.log('');
-  console.log('  🔒 Privacy: Everything runs locally. Nothing is sent externally.');
-  console.log('  📁 Your config will be backed up before any changes.');
+  console.log('   Privacy: Everything runs locally. Nothing is sent externally.');
+  console.log('   Your config will be backed up before any changes.');
   console.log('');
   
   const proceed = await prompt('  Continue? (y/n): ');
@@ -209,7 +209,7 @@ async function setup() {
     console.log(`  ✓ Backup saved: ${backupPath}`);
     console.log('  → Restore with: cp "' + backupPath + '" ~/.openclaw/openclaw.json');
   } else {
-    console.log('  ⚠ No existing config to backup');
+    console.log('   No existing config to backup');
   }
   
   // Copy plugin files
@@ -235,7 +235,7 @@ async function setup() {
       fs.rmSync(OLD_EXTENSIONS, { recursive: true });
       console.log('  ✓ Removed old openclaw-context-compactor extension');
     } catch (e) {
-      console.log(`  ⚠ Could not remove old extension: ${e.message}`);
+      console.log(`   Could not remove old extension: ${e.message}`);
     }
   }
   
@@ -274,7 +274,7 @@ async function setup() {
     // Show local model recommendation
     if (detectedInfo?.hasLocalModel || detectedInfo?.isLocal) {
       console.log('');
-      console.log('  🎯 Local model detected in your config!');
+      console.log('   Local model detected in your config!');
       const localModel = detectedInfo.localModelInfo?.model || detectedInfo.model;
       console.log(`     → ${localModel}`);
       console.log('');
@@ -291,7 +291,7 @@ async function setup() {
       // Use the actual contextWindow, apply minimum
       let suggested = detectedInfo.tokens;
       if (suggested < 16000) {
-        console.log(`  ⚠ Model context (${suggested}) is below OpenClaw minimum (16000)`);
+        console.log(`   Model context (${suggested}) is below OpenClaw minimum (16000)`);
         console.log(`  → Will use 16,000 tokens to prevent agent failures`);
         suggested = 16000;
       }
@@ -308,9 +308,9 @@ async function setup() {
       }
     } else if (detectedInfo && detectedInfo.model) {
       console.log('');
-      console.log(`  ⚠ Found model: ${detectedInfo.model}`);
-      console.log('  ⚠ No contextWindow defined in your config for this model.');
-      console.log('  💡 Add contextWindow to your model config in openclaw.json');
+      console.log(`   Found model: ${detectedInfo.model}`);
+      console.log('   No contextWindow defined in your config for this model.');
+      console.log('   Add contextWindow to your model config in openclaw.json');
     }
   }
   
@@ -324,10 +324,10 @@ async function setup() {
     console.log('    • Mistral / Qwen (medium):    32,000');
     console.log('    • Claude / GPT-4 (large):     128,000+');
     console.log('');
-    console.log('  💡 Tip: Check your model config in ~/.openclaw/openclaw.json');
+    console.log('   Tip: Check your model config in ~/.openclaw/openclaw.json');
     console.log('     Look for: models.providers.<provider>.models[].contextWindow');
     console.log('');
-    console.log('  ⚠️  Minimum: 16,000 tokens (OpenClaw requirement)');
+    console.log('    Minimum: 16,000 tokens (OpenClaw requirement)');
     console.log('');
     
     const customTokens = await prompt('  Enter maxTokens (default 16000, minimum 16000): ');
@@ -340,7 +340,7 @@ async function setup() {
   const MIN_TOKENS = 16000;
   if (maxTokens < MIN_TOKENS) {
     console.log('');
-    console.log(`  ⚠️  Warning: ${maxTokens} tokens is below OpenClaw's minimum of ${MIN_TOKENS}.`);
+    console.log(`    Warning: ${maxTokens} tokens is below OpenClaw's minimum of ${MIN_TOKENS}.`);
     console.log(`     Increasing to ${MIN_TOKENS} to prevent agent failures.`);
     console.log('');
     console.log('  If your model truly has a smaller context window, consider:');

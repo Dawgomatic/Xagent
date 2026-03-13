@@ -30,7 +30,7 @@ Reports run via cron. Common patterns:
 
 ### Telegram (Default)
 ```
-message action=send message="📊 Report..."
+message action=send message=" Report..."
 message action=send filePath="/path/to/report.pdf"
 ```
 

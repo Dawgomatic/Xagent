@@ -30,9 +30,9 @@ Create mental match table:
 
 | JD Requirement | User's Evidence | Match Quality |
 |----------------|-----------------|---------------|
-| "5+ years Python" | 6 years at X company | ✅ Strong |
-| "Team leadership" | "Mentored 2 juniors" | 🟡 Weak — reframe |
-| "Machine learning" | None | ❌ Gap |
+| "5+ years Python" | 6 years at X company |  Strong |
+| "Team leadership" | "Mentored 2 juniors" |  Weak — reframe |
+| "Machine learning" | None |  Gap |
 
 For weak matches → find better evidence or reframe existing.
 For gaps → acknowledge honestly or find adjacent experience.

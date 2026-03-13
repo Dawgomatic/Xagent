@@ -37,12 +37,12 @@ The API Design Reviewer skill provides comprehensive analysis and review of API 
 
 ### Resource Naming Conventions
 ```
-✅ Good Examples:
+ Good Examples:
 - /api/v1/users
 - /api/v1/user-profiles
 - /api/v1/orders/123/line-items
 
-❌ Bad Examples:
+ Bad Examples:
 - /api/v1/getUsers
 - /api/v1/user_profiles
 - /api/v1/orders/123/lineItems

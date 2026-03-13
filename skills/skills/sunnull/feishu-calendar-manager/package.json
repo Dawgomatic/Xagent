@@ -25,7 +25,7 @@
     "description": "飞书日历事件管理 - 零配置，自动从 openclaw.json 读取凭证，自动获取 user_id 和 calendar_id",
     "version": "1.2.0",
     "category": "productivity",
-    "icon": "📅",
+    "icon": "",
     "author": "小李子",
     "env": [],
     "env_optional": [

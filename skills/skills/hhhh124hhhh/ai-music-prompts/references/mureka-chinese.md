@@ -15,10 +15,10 @@ Specialized techniques for optimizing Chinese music prompts for Mureka V8 AI mus
 2. **局部填充**：基于结构蓝图生成详细音频
 
 **对中文的优势**：
-- ✅ 更好的声调处理：中文有四个声调（普通话）或九个声调（粤语）
-- ✅ 更自然的旋律线：理解声调与旋律的关系
-- ✅ 更准确的发音：70% 人声真实度，发音清晰自然
-- ✅ 更好的情感表达：理解中文情感细微差别
+-  更好的声调处理：中文有四个声调（普通话）或九个声调（粤语）
+-  更自然的旋律线：理解声调与旋律的关系
+-  更准确的发音：70% 人声真实度，发音清晰自然
+-  更好的情感表达：理解中文情感细微差别
 
 ### 中文语言支持 / Chinese Language Support
 
@@ -342,7 +342,7 @@ Cantonese pop with energetic vocals, upbeat, 120-130 BPM, electronic, rhythmic C
 
 在使用 Mureka V8 生成中文音乐前，检查以下要点：
 
-### ✅ 必须包含 / Must Include
+###  必须包含 / Must Include
 
 - [ ] **明确流派**：华语流行、古风、摇滚等
 - [ ] **具体情绪**：深情、欢快、伤感等
@@ -351,7 +351,7 @@ Cantonese pop with energetic vocals, upbeat, 120-130 BPM, electronic, rhythmic C
 - [ ] **速度指示**：BPM 或慢速/中速/快速
 - [ ] **语言特点**：标准普通话、粤语等
 
-### ✅ 优化建议 / Optimization Tips
+###  优化建议 / Optimization Tips
 
 - [ ] **提示词长度**：200-500 字符为佳（最多 1024）
 - [ ] **情绪具体化**：避免"好听""不错"等模糊词
@@ -359,13 +359,13 @@ Cantonese pop with energetic vocals, upbeat, 120-130 BPM, electronic, rhythmic C
 - [ ] **乐器合理性**：搭配符合流派特点
 - [ ] **参考风格**：可以指定像某某歌手风格
 
-### ✅ 避免错误 / Avoid These Mistakes
+###  避免错误 / Avoid These Mistakes
 
-- [ ] ❌ 不要过于简单："华语流行，女声，好听"
-- [ ] ❌ 不要自相矛盾："欢快伤感歌"
-- [ ] ❌ 不要元素过多：超过 1024 字符
-- [ ] ❌ 不要乐器冲突："古风配电吉他重金属"
-- [ ] ❌ 不要情绪模糊："感觉不错" "很棒"
+- [ ]  不要过于简单："华语流行，女声，好听"
+- [ ]  不要自相矛盾："欢快伤感歌"
+- [ ]  不要元素过多：超过 1024 字符
+- [ ]  不要乐器冲突："古风配电吉他重金属"
+- [ ]  不要情绪模糊："感觉不错" "很棒"
 
 ---
 

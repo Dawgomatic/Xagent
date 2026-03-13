@@ -16,7 +16,7 @@ DONE=$(jq '[.sessions[] | select(.status=="completed")] | length' "$STATE_FILE")
 # Generate header based on language
 if [[ "$LANG" == "ru" ]]; then
     cat > "$OUT" << EOF
-# 🧠 Life Architect — Финальный Документ
+#  Life Architect — Финальный Документ
 
 Этот документ содержит все инсайты и ответы из 10 сессий психологической проработки.
 
@@ -27,7 +27,7 @@ if [[ "$LANG" == "ru" ]]; then
 EOF
 else
     cat > "$OUT" << EOF
-# 🧠 Life Architect — Final Document
+#  Life Architect — Final Document
 
 This document contains all insights and responses from 10 sessions of psychological work.
 

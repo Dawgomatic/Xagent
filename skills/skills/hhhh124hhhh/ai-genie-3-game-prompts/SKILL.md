@@ -83,16 +83,16 @@ Effective Genie 3 prompts follow this structure:
 ## Best Practices
 
 ### 1. Be Specific with Characters
-✅ **Good**: "French woman", "Steampunk detective", "Cyberpunk samurai"
-❌ **Bad**: "Someone", "A person", "Character"
+ **Good**: "French woman", "Steampunk detective", "Cyberpunk samurai"
+ **Bad**: "Someone", "A person", "Character"
 
 ### 2. Emphasize the Impossible
-✅ **Good**: "word that defies logic", "waterfalls flowing upward", "floating islands that rearrange"
-❌ **Bad**: "strange place", "weird world", "unusual environment"
+ **Good**: "word that defies logic", "waterfalls flowing upward", "floating islands that rearrange"
+ **Bad**: "strange place", "weird world", "unusual environment"
 
 ### 3. Include Dynamic Visuals
-✅ **Good**: "flying objects everywhere", "neon lights materializing", "jellyfish made of light"
-❌ **Bad**: "some effects", "interesting visuals", "cool stuff"
+ **Good**: "flying objects everywhere", "neon lights materializing", "jellyfish made of light"
+ **Bad**: "some effects", "interesting visuals", "cool stuff"
 
 ### 4. Keep Prompts Concise
 - 15-30 words total

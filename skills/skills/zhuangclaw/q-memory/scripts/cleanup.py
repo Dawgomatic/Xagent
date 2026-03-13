@@ -207,12 +207,12 @@ def archive_memories(memories: List[Tuple[Dict, str]]):
         f.write("---\n\n".join(m[0]["content"] for m in memories))
         f.write("\n")
     
-    print(f"✅ Archived {len(memories)} memories to {archive_file}")
+    print(f" Archived {len(memories)} memories to {archive_file}")
 
 
 def delete_memories(memories: List[Dict]):
     """刪除記憶"""
-    print(f"🗑️ Deleted {len(memories)} memories")
+    print(f" Deleted {len(memories)} memories")
 
 
 def rebuild_memory_file(kept_memories: List[Tuple[Dict, str]]):
@@ -222,7 +222,7 @@ def rebuild_memory_file(kept_memories: List[Tuple[Dict, str]]):
         f.write("\n---\n\n".join(contents))
         f.write("\n")
     
-    print(f"✅ Rebuilt MEMORY.md with {len(kept_memories)} memories")
+    print(f" Rebuilt MEMORY.md with {len(kept_memories)} memories")
 
 
 def show_status() -> Dict:
@@ -277,50 +277,50 @@ def print_status():
     """打印狀態"""
     stats = show_status()
     
-    print(f"\n📊 Memory Status")
+    print(f"\n Memory Status")
     print(f"{'='*50}")
     print(f"總記憶數: {stats['total']}")
     
-    print(f"\n📦 By Weight:")
+    print(f"\n By Weight:")
     print(f"  [C] Critical: {stats['by_weight']['C']}")
     print(f"  [I] Important: {stats['by_weight']['I']}")
     print(f"  [N] Normal: {stats['by_weight']['N']}")
     
-    print(f"\n📅 By Age:")
+    print(f"\n By Age:")
     print(f"  < 7 天: {stats['by_age']['recent']}")
     print(f"  7-30 天: {stats['by_age']['week']}")
     print(f"  30-365 天: {stats['by_age']['month']}")
     print(f"  > 365 天: {stats['by_age']['old']}")
     
-    print(f"\n📁 By Category:")
+    print(f"\n By Category:")
     for cat, count in sorted(stats["by_category"].items(), key=lambda x: -x[1]):
         print(f"  {cat}: {count}")
     
     if stats["decay_status"]:
-        print(f"\n⚠️ High Decay Memories:")
+        print(f"\n High Decay Memories:")
         for m in stats["decay_status"][:5]:
             print(f"  {m['category']}: {m['decay']} (age: {m['age_days']}d, weight: {m['weight']})")
 
 
 def print_report(report: Dict):
     """打印清理報告"""
-    print(f"\n🧹 Cleanup Report - {report['timestamp']}")
+    print(f"\n Cleanup Report - {report['timestamp']}")
     print(f"{'='*50}")
     print(f"Dry Run: {report['dry_run']}")
     
-    print(f"\n📊 Summary:")
+    print(f"\n Summary:")
     print(f"  Total: {report['summary']['total']}")
     print(f"  Kept: {report['summary']['kept']}")
     print(f"  Archived: {report['summary']['archived']}")
     print(f"  Deleted: {report['summary']['deleted']}")
     
     if report['archived']:
-        print(f"\n📦 Archived:")
+        print(f"\n Archived:")
         for m in report['archived'][:5]:
             print(f"  • [{m['date']}] {m['reason']}")
     
     if report['deleted']:
-        print(f"\n🗑️ Deleted:")
+        print(f"\n Deleted:")
         for m in report['deleted'][:5]:
             print(f"  • [{m['date']}] {m['reason']}")
 
@@ -345,7 +345,7 @@ if __name__ == "__main__":
         report = cleanup_memories(dry_run=True)
         print_report(report)
         if args.verbose:
-            print("\n📋 Detailed Status:")
+            print("\n Detailed Status:")
             print_status()
     else:
         # 默認顯示狀態

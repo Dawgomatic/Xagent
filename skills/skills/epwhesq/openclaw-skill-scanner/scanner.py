@@ -310,10 +310,10 @@ SEVERITY_COLORS = {
 }
 
 SEVERITY_ICONS = {
-    "critical": "🔴",
-    "high": "🟠",
-    "medium": "🟡",
-    "low": "🔵",
+    "critical": "",
+    "high": "",
+    "medium": "",
+    "low": "",
 }
 
 
@@ -388,7 +388,7 @@ class SkillReport:
 
     @property
     def status_emoji(self):
-        return {"clean": "🟢", "suspicious": "🟡", "dangerous": "🔴"}[self.status]
+        return {"clean": "", "suspicious": "", "dangerous": ""}[self.status]
 
     @property
     def status_color(self):
@@ -578,7 +578,7 @@ def scan_single_file(file_path):
 def print_banner():
     print(f"""
 {C.CYAN}{C.BOLD}╔══════════════════════════════════════════════════╗
-║          🦞 Skill Scanner v{VERSION}               ║
+║           Skill Scanner v{VERSION}               ║
 ║       OpenClaw Security Analysis Tool            ║
 ╚══════════════════════════════════════════════════╝{C.RESET}
 """)
@@ -595,7 +595,7 @@ def print_report(report, verbose=True):
     if report.is_whitelisted:
         extra = f" {C.DIM}(whitelisted: {report.whitelist_reason}){C.RESET}"
     if report.is_blacklisted:
-        extra = f" {C.RED}{C.BOLD}⚠ BLACKLISTED: {report.blacklist_info.get('reason', 'Known malicious')}{C.RESET}"
+        extra = f" {C.RED}{C.BOLD} BLACKLISTED: {report.blacklist_info.get('reason', 'Known malicious')}{C.RESET}"
 
     print(f"{C.BOLD}{'─' * 55}{C.RESET}")
     print(f"{emoji} {C.BOLD}{report.skill_name}{C.RESET}  "
@@ -661,21 +661,21 @@ def print_summary(reports):
     total_files = sum(r.files_scanned for r in reports)
 
     print(f"{C.BOLD}{'═' * 55}{C.RESET}")
-    print(f"{C.BOLD}📊 SCAN SUMMARY{C.RESET}")
+    print(f"{C.BOLD} SCAN SUMMARY{C.RESET}")
     print(f"{C.BOLD}{'═' * 55}{C.RESET}")
     print(f"  Skills scanned:  {total}")
     print(f"  Files scanned:   {total_files}")
     print(f"  Total findings:  {total_findings}")
     print()
-    print(f"  {C.GREEN}🟢 Clean:      {clean}{C.RESET}")
-    print(f"  {C.YELLOW}🟡 Suspicious: {suspicious}{C.RESET}")
-    print(f"  {C.RED}🔴 Dangerous:  {dangerous}{C.RESET}")
+    print(f"  {C.GREEN} Clean:      {clean}{C.RESET}")
+    print(f"  {C.YELLOW} Suspicious: {suspicious}{C.RESET}")
+    print(f"  {C.RED} Dangerous:  {dangerous}{C.RESET}")
     print(f"{C.BOLD}{'═' * 55}{C.RESET}")
 
     if dangerous > 0:
-        print(f"\n{C.RED}{C.BOLD}⚠  {dangerous} DANGEROUS SKILL(S) DETECTED — review immediately!{C.RESET}")
+        print(f"\n{C.RED}{C.BOLD}  {dangerous} DANGEROUS SKILL(S) DETECTED — review immediately!{C.RESET}")
     elif suspicious > 0:
-        print(f"\n{C.YELLOW}⚠  {suspicious} suspicious skill(s) — review recommended.{C.RESET}")
+        print(f"\n{C.YELLOW}  {suspicious} suspicious skill(s) — review recommended.{C.RESET}")
     else:
         print(f"\n{C.GREEN}✓ All skills look clean!{C.RESET}")
     print()
@@ -691,7 +691,7 @@ def generate_markdown_report(reports):
     dangerous = len([r for r in reports if r.status == "dangerous"])
 
     lines = [
-        f"# 🔍 Skill Scanner Report",
+        f"#  Skill Scanner Report",
         f"",
         f"**Scan Date:** {now}",
         f"**Scanner Version:** {VERSION}",
@@ -705,9 +705,9 @@ def generate_markdown_report(reports):
         f"| Skills Scanned | {len(reports)} |",
         f"| Files Scanned | {total_files} |",
         f"| Total Findings | {total_findings} |",
-        f"| 🟢 Clean | {clean} |",
-        f"| 🟡 Suspicious | {suspicious} |",
-        f"| 🔴 Dangerous | {dangerous} |",
+        f"|  Clean | {clean} |",
+        f"|  Suspicious | {suspicious} |",
+        f"|  Dangerous | {dangerous} |",
         f"",
         f"---",
         f"",
@@ -721,7 +721,7 @@ def generate_markdown_report(reports):
         lines.append(f"")
 
         if report.is_blacklisted:
-            lines.append(f"**⚠ BLACKLISTED:** {report.blacklist_info.get('reason', 'Known malicious')}")
+            lines.append(f"** BLACKLISTED:** {report.blacklist_info.get('reason', 'Known malicious')}")
             lines.append(f"")
             continue
 
@@ -733,7 +733,7 @@ def generate_markdown_report(reports):
         lines.append(f"")
 
         if not report.findings:
-            lines.append(f"✅ No suspicious patterns found.")
+            lines.append(f" No suspicious patterns found.")
             lines.append(f"")
             continue
 
@@ -770,7 +770,7 @@ def output_json(reports):
 
 def pre_install_scan(slug, json_output=False):
     """Download a skill to temp dir, scan it, report, cleanup."""
-    print(f"{C.CYAN}📦 Pre-install scan for: {slug}{C.RESET}")
+    print(f"{C.CYAN} Pre-install scan for: {slug}{C.RESET}")
     print(f"{C.DIM}   Downloading to temporary directory...{C.RESET}")
 
     whitelist, blacklist = load_lists()
@@ -778,7 +778,7 @@ def pre_install_scan(slug, json_output=False):
     # Check blacklist immediately
     if slug in blacklist:
         info = blacklist[slug]
-        print(f"\n{C.RED}{C.BOLD}🚫 BLOCKED — '{slug}' is BLACKLISTED{C.RESET}")
+        print(f"\n{C.RED}{C.BOLD} BLOCKED — '{slug}' is BLACKLISTED{C.RESET}")
         print(f"{C.RED}   Reason: {info.get('reason', 'Known malicious')}{C.RESET}")
         print(f"{C.RED}   Reporter: {info.get('reporter', 'unknown')}{C.RESET}")
         print(f"\n{C.RED}   This skill will NOT be installed.{C.RESET}\n")
@@ -833,7 +833,7 @@ def pre_install_scan(slug, json_output=False):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 Skill Scanner — Scan OpenClaw skills for malicious patterns",
+        description=" Skill Scanner — Scan OpenClaw skills for malicious patterns",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--skill", "-s", help="Scan a specific skill by name")
@@ -918,7 +918,7 @@ def main():
         md = generate_markdown_report(reports)
         with open(args.report, "w") as f:
             f.write(md)
-        print(f"{C.GREEN}📄 Report saved to {args.report}{C.RESET}")
+        print(f"{C.GREEN} Report saved to {args.report}{C.RESET}")
 
     # Exit code based on worst result
     worst = max(r.risk_score for r in reports) if reports else 0

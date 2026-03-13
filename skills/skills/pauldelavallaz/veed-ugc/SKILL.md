@@ -29,31 +29,31 @@ Perfect for creating authentic-feeling promotional content at scale.
 | `script` | Pure dialogue text | `"Hola che! Cómo anda todo por allá?"` |
 | `voice_id` | ElevenLabs voice ID | Default: `PBi4M0xL4G7oVYxKgqww` |
 
-## ⚠️ CRITICAL: Script Format
+##  CRITICAL: Script Format
 
 The `script` input must be **PURE DIALOGUE ONLY**:
 
-✅ **CORRECT:**
+ **CORRECT:**
 ```
 Hola che! Cómo anda todo por allá? Mirá esto que acabo de probar, una locura total.
 ```
 
-❌ **WRONG - No annotations:**
+ **WRONG - No annotations:**
 ```
 [Entusiasta] Hola che! (pausa) Cómo anda?
 ```
 
-❌ **WRONG - No tone directions:**
+ **WRONG - No tone directions:**
 ```
 Tono argentino informal: Hola che!
 ```
 
-❌ **WRONG - No stage directions:**
+ **WRONG - No stage directions:**
 ```
 *sonríe* Hola che! *levanta el producto*
 ```
 
-❌ **WRONG - No titles/labels:**
+ **WRONG - No titles/labels:**
 ```
 ESCENA 1:
 Hola che!

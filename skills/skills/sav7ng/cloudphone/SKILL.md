@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📱",
+        "emoji": "",
         "requires":
           { "bins": ["mcporter"], "env": ["CLOUDPHONE_API_KEY"] },
         "install":

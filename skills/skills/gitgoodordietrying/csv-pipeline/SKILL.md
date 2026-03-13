@@ -1,7 +1,7 @@
 ---
 name: csv-pipeline
 description: Process, transform, analyze, and report on CSV and JSON data files. Use when the user needs to filter rows, join datasets, compute aggregates, convert formats, deduplicate, or generate summary reports from tabular data. Works with any CSV, TSV, or JSON Lines file.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"anyBins":["python3","python","uv"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["python3","python","uv"]},"os":["linux","darwin","win32"]}}
 ---
 
 # CSV Data Pipeline

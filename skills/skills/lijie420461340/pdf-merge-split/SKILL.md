@@ -188,8 +188,8 @@ This skill helps you:
 1, 2, 4, 3, 5, 6, 8, 7, 9, 10
 
 ### Changes
-- Page 3 ↔ Page 4 (swapped)
-- Page 7 ↔ Page 8 (swapped)
+- Page 3  Page 4 (swapped)
+- Page 7  Page 8 (swapped)
 ```
 
 ### Delete Pages

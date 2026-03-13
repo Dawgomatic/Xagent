@@ -1,16 +1,16 @@
 # Strava Skill for Clawdbot
 
-🏃 **Load and analyze your Strava activities, stats, and workouts** using the Strava API.
+ **Load and analyze your Strava activities, stats, and workouts** using the Strava API.
 
 ## Features
 
-- ✅ List recent activities with pagination
-- ✅ Filter activities by date ranges
-- ✅ Get detailed activity stats (distance, pace, heart rate, elevation)
-- ✅ Access athlete profile and cumulative statistics
-- ✅ Auto token refresh helper script
-- ✅ Rate limit aware (200/15min, 2000/day)
-- ✅ Works with curl only (no additional dependencies)
+-  List recent activities with pagination
+-  Filter activities by date ranges
+-  Get detailed activity stats (distance, pace, heart rate, elevation)
+-  Access athlete profile and cumulative statistics
+-  Auto token refresh helper script
+-  Rate limit aware (200/15min, 2000/day)
+-  Works with curl only (no additional dependencies)
 
 ## Quick Start
 
@@ -95,4 +95,4 @@ Created for Clawdbot AI Assistant
 
 ---
 
-🦞 Part of the Clawdbot skill ecosystem
+ Part of the Clawdbot skill ecosystem

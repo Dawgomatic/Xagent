@@ -3,7 +3,7 @@ name: opencode-acp
 description: Collaborate with OpenCode via ACP protocol for code modifications, refactoring, and feature implementation.
 metadata:
   {
-    "openclaw": { "emoji": "🔧", "requires": { "anyBins": ["opencode"] } },
+    "openclaw": { "emoji": "", "requires": { "anyBins": ["opencode"] } },
   }
 ---
 
@@ -119,8 +119,8 @@ process action:kill sessionId:neat-zephyr
 ...
 
 ## Acceptance Criteria
-- ✅ [Criterion 1]
-- ✅ [Criterion 2]
+-  [Criterion 1]
+-  [Criterion 2]
 ...
 
 ## Implementation Guidance
@@ -175,11 +175,11 @@ process action:log sessionId:neat-zephyr
 ### Step 5: Verify Results
 
 **Verification checklist:**
-- ✅ Code changes match requirements
-- ✅ Acceptance criteria met
-- ✅ Code style consistent
-- ✅ Tests pass
-- ✅ No regressions
+-  Code changes match requirements
+-  Acceptance criteria met
+-  Code style consistent
+-  Tests pass
+-  No regressions
 
 **Verification methods:**
 1. Review OpenCode's change summary
@@ -199,7 +199,7 @@ process action:kill sessionId:neat-zephyr
 - Record success/failure reasons
 - Document lessons learned
 
-## ⚠️ First-Time Project Setup
+##  First-Time Project Setup
 
 If this is OpenCode's first time working on a project, initialize the knowledge base first:
 
@@ -269,9 +269,9 @@ Add --version flag to display project version from package.json
 3. Exit after displaying version
 
 ## Acceptance Criteria
-- ✅ `bun src/qmd.ts --version` works
-- ✅ Version matches package.json
-- ✅ No impact on existing commands
+-  `bun src/qmd.ts --version` works
+-  Version matches package.json
+-  No impact on existing commands
 ```
 
 **Bad:**
@@ -287,11 +287,11 @@ Add version command
 - Consider edge cases
 
 **Example:**
-- ✅ Run `command --version` displays correct version
-- ✅ Run `command -v` displays same result
-- ✅ Version matches package.json
-- ✅ Exit code is 0
-- ✅ No impact on other commands
+-  Run `command --version` displays correct version
+-  Run `command -v` displays same result
+-  Version matches package.json
+-  Exit code is 0
+-  No impact on other commands
 
 ### 3. Progress Monitoring
 
@@ -380,10 +380,10 @@ Add version command
 5. Run tests for verification
 
 **Result:**
-- ✅ Collaboration mode verified successfully
-- ✅ OpenCode auto-plans and executes
-- ✅ Parallel processing improves efficiency
-- ✅ Real-time progress feedback
+-  Collaboration mode verified successfully
+-  OpenCode auto-plans and executes
+-  Parallel processing improves efficiency
+-  Real-time progress feedback
 
 ## Common Questions
 
@@ -501,5 +501,5 @@ This triggers immediate wake event — you get notified in seconds, not minutes.
 ---
 
 **Last updated:** 2026-02-16  
-**Maintainer:** Claw 🐾  
-**Status:** ✅ Verified
+**Maintainer:** Claw   
+**Status:**  Verified

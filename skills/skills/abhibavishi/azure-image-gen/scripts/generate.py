@@ -134,7 +134,7 @@ def create_gallery_html(images: list, out_dir: Path) -> None:
     </style>
 </head>
 <body>
-    <h1>🎨 Azure DALL-E Gallery</h1>
+    <h1> Azure DALL-E Gallery</h1>
     <div class="gallery">
 """
     
@@ -204,7 +204,7 @@ def main():
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     
-    print(f"🎨 Generating {args.count} image(s)...")
+    print(f" Generating {args.count} image(s)...")
     print(f"   Prompt: {args.prompt[:80]}{'...' if len(args.prompt) > 80 else ''}")
     print(f"   Size: {args.size} | Quality: {args.quality} | Style: {args.style}")
     print()
@@ -273,12 +273,12 @@ def main():
         create_gallery_html(images, out_dir)
         
         print()
-        print(f"✅ Done! Generated {len(images)} image(s)")
+        print(f" Done! Generated {len(images)} image(s)")
         print(f"   Output: {out_dir.absolute()}")
         print(f"   Gallery: {out_dir.absolute()}/index.html")
     else:
         print()
-        print("❌ No images were generated")
+        print(" No images were generated")
         sys.exit(1)
 
 

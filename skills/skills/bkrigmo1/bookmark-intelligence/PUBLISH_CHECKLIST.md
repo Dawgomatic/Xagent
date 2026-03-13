@@ -1,8 +1,8 @@
-# ✅ ClawHub Publication Checklist
+#  ClawHub Publication Checklist
 
 ## Security Verification
 
-### ✅ No Private Data Exposed
+###  No Private Data Exposed
 - [x] No `.env` file (user Twitter credentials)
 - [x] No `config.json` (user configuration)
 - [x] No `bookmarks.json` (user state)
@@ -10,12 +10,12 @@
 - [x] No analyzed bookmark results
 - [x] No test payment records
 
-### ✅ Public Wallet Only (Safe to Expose)
+###  Public Wallet Only (Safe to Expose)
 - [x] `payment-config.json` contains **public wallet address** for receiving payments
 - [x] No private keys in any file
 - [x] Withdrawal script hardcoded to Trust Wallet only
 
-### ✅ Protected by .gitignore
+###  Protected by .gitignore
 - [x] `.env` (Twitter credentials)
 - [x] `config.json` (user config)
 - [x] `license.json` (license data)
@@ -25,7 +25,7 @@
 
 ## Functional Verification
 
-### ✅ Complete Package
+###  Complete Package
 - [x] Setup wizard (`scripts/setup.js`)
 - [x] Core functionality (monitor.js, analyzer.js)
 - [x] License system (scripts/license.js)
@@ -34,7 +34,7 @@
 - [x] Documentation (README.md, SKILL.md, PAYMENT_INFO.md)
 - [x] Examples (sample outputs)
 
-### ✅ User Experience
+###  User Experience
 - [x] Interactive setup (5 minutes)
 - [x] Test licenses available
 - [x] Clear payment instructions
@@ -43,19 +43,19 @@
 
 ## Business Model
 
-### ✅ Revenue Flow
+###  Revenue Flow
 - Buyers download from ClawHub
 - Buyers see payment address: `0xE03e679cEf0ACa49eaDFaF333e3fF45cCD6b0818`
 - Buyers pay USDT/USDC on multiple chains
 - Seller (you) issues license keys
 - Revenue sweeps only to Trust Wallet: `0x544E033D055738e7b5c40AD4318B506e1219E064`
 
-### ✅ Pricing
+###  Pricing
 - Free: 10 bookmarks/month
 - Pro: $9/month (unlimited)
 - Enterprise: $29/month (team + API)
 
-### ✅ Your Free Usage
+###  Your Free Usage
 ```bash
 node scripts/license.js activate TEST-ENT-00000000000000000
 ```
@@ -103,6 +103,6 @@ grep -r "auth_token\|ct0" . --include="*.json" --include="*.env"
 # Should only find documentation references ^
 ```
 
-## Ready to Publish? ✅
+## Ready to Publish? 
 
 All checks passed! Safe to publish to ClawHub.

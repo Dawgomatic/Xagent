@@ -132,7 +132,7 @@ ${yesterdayData ? `昨日数据：${JSON.stringify(yesterdayData, null, 2)}` : '
 
 请生成简洁的日报，包含：
 
-📊 **${keyword} 日报** — ${new Date().toLocaleDateString('zh-CN')}
+ **${keyword} 日报** — ${new Date().toLocaleDateString('zh-CN')}
 
 1. **价格变动**：有无明显涨跌
 2. **新品上架**：发现的新竞品

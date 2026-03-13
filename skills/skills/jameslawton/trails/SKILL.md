@@ -111,7 +111,7 @@ If any of these are unclear from context, ask **at most 3 short questions**.
 
 2. **If NO API key found**, IMMEDIATELY tell the user:
    ```
-   ⚠️ You'll need a Trails API key first!
+    You'll need a Trails API key first!
    
    Please visit https://dashboard.trails.build to:
    1. Create an account (or sign in)
@@ -387,7 +387,7 @@ Use `SearchTrails` for:
 
 1. **Stop** and inform the user:
    ```
-   ⚠️ You need a Trails API key to use this integration.
+    You need a Trails API key to use this integration.
    
    Please visit: https://dashboard.trails.build
    

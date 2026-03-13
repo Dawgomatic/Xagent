@@ -111,8 +111,8 @@ def track_generation(model, count=1):
 
 | Provider | Sync/Async | Webhook | Batch | Avg Time |
 |----------|------------|---------|-------|----------|
-| OpenAI | Sync | ❌ | ❌ | 10-20s |
-| Leonardo | Async | ✅ | ✅ | 15-30s |
-| Replicate | Both | ✅ | ✅ | 5-30s |
-| Midjourney | N/A | ❌ | ❌ | 30-60s |
-| Flux API | Async | ✅ | ✅ | 5-15s |
+| OpenAI | Sync |  |  | 10-20s |
+| Leonardo | Async |  |  | 15-30s |
+| Replicate | Both |  |  | 5-30s |
+| Midjourney | N/A |  |  | 30-60s |
+| Flux API | Async |  |  | 5-15s |

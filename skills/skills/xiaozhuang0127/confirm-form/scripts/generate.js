@@ -118,7 +118,7 @@ async function main() {
     const previewUrl = `https://htmlpreview.github.io/?https://gist.githubusercontent.com/${GITHUB_USER}/${gistId}/raw/${filename}`;
     
     console.log(`\nGist: ${gistResult}`);
-    console.log(`\n🔗 访问链接:`);
+    console.log(`\n 访问链接:`);
     console.log(previewUrl);
     
     const result = {
@@ -134,7 +134,7 @@ async function main() {
       checkCommand: autoNotify ? `curl -s "https://ntfy.sh/${notifyTopic}/json?poll=1"` : null
     };
     
-    console.log(`\n📋 结果 JSON:`);
+    console.log(`\n 结果 JSON:`);
     console.log(JSON.stringify(result, null, 2));
     
   } catch (e) {

@@ -1,4 +1,4 @@
-# 🏃‍♀️ WHOOP Integration Skill
+#  WHOOP Integration Skill
 
 Complete WHOOP fitness tracker integration for OpenClaw agents with adaptive behavior based on sleep quality.
 
@@ -44,4 +44,4 @@ Complete WHOOP fitness tracker integration for OpenClaw agents with adaptive beh
 - WHOOP Developer Account ([developer-dashboard.whoop.com](https://developer-dashboard.whoop.com))
 - Python 3.7+ with `requests` library
 
-Built with ❤️ for OpenClaw agents by @voltron2
+Built with  for OpenClaw agents by @voltron2

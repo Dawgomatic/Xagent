@@ -121,7 +121,7 @@
     panel.id = 'budget-panel-widget';
     panel.innerHTML = `
       <div class="bpw-header">
-        <span class="bpw-title">🎛️ Resources</span>
+        <span class="bpw-title"> Resources</span>
         <div class="bpw-controls">
           <button class="bpw-btn bpw-refresh" title="Refresh">↻</button>
           <button class="bpw-btn bpw-toggle">−</button>
@@ -251,7 +251,7 @@
 
         if (isExhausted || !foundActive) {
           const statusClass = isExhausted ? 'bpw-exhausted' : 'bpw-active';
-          const statusIcon = isExhausted ? '🔴' : '🟢';
+          const statusIcon = isExhausted ? '' : '';
           const detail = limit > 0 ? `${Number(used).toLocaleString()}/${Number(limit).toLocaleString()} ${metric}` : '';
           
           html += `<div class="bpw-model ${statusClass}">
@@ -276,7 +276,7 @@
         <div class="bpw-section-header"><span>Manus Pro</span><span style="font-size:8px;color:#666">↻ 01:00</span></div>
         ${renderBar('Daily', mDaily.pct || 0, `${mDaily.used || 0}/${mDaily.limit || 300}`)}
         ${renderBar('Monthly', mMonthly.pct || 0, `${mMonthly.used || 0}/${mMonthly.limit || 4000}`)}
-        ${m.addon ? `<div class="bpw-detail" style="margin-top:4px;">💰 ${m.addon.toLocaleString()} addon credits</div>` : ''}
+        ${m.addon ? `<div class="bpw-detail" style="margin-top:4px;"> ${m.addon.toLocaleString()} addon credits</div>` : ''}
       </div>`;
 
       // CHATGPT / OPENAI — only show models in our fallback chain

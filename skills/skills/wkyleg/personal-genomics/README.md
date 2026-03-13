@@ -21,52 +21,52 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 
 ### New in v4.0
 
-🧬 **Haplogroup Analysis**
+ **Haplogroup Analysis**
 - Mitochondrial DNA (mtDNA) haplogroups for maternal lineage
 - Y-chromosome haplogroups for paternal lineage
 - Migration history context for each haplogroup
 - Based on PhyloTree and ISOGG standards
 
-🌍 **Ancestry Composition**
+ **Ancestry Composition**
 - Reference population comparisons (EUR, AFR, EAS, SAS, AMR)
 - Admixture detection from SNP data
 - Ancestry informative markers (AIMs)
 - Sub-population resolution where data supports
 
-🎗️ **Expanded Hereditary Cancer Panel**
+ **Expanded Hereditary Cancer Panel**
 - BRCA1/BRCA2 comprehensive coverage
 - Lynch syndrome genes (MLH1, MSH2, MSH6, PMS2)
 - Other hereditary cancer markers (APC, TP53, CHEK2, PALB2, ATM)
 - ACMG-style variant classification
 
-🔬 **Autoimmune HLA Associations**
+ **Autoimmune HLA Associations**
 - Celiac disease (HLA-DQ2, DQ8) with rule-out capability
 - Type 1 Diabetes associations
 - Ankylosing spondylitis (HLA-B27)
 - Rheumatoid arthritis, lupus, multiple sclerosis markers
 
-💊 **Pain Sensitivity**
+ **Pain Sensitivity**
 - COMT Val158Met (pain perception, opioid response)
 - OPRM1 A118G (opioid receptor function)
 - SCN9A (pain signaling)
 - TRPV1 (capsaicin/thermal sensitivity)
 - Migraine susceptibility markers
 
-📄 **PDF Report Generation**
+ **PDF Report Generation**
 - Professional, physician-shareable format
 - Executive summary section
 - Detailed findings by category
 - Actionable recommendations
 - Disclaimers and limitations
 
-📊 **Data Quality Metrics**
+ **Data Quality Metrics**
 - Call rate analysis
 - No-call position tracking
 - Chromosome coverage analysis
 - Platform/chip detection
 - Confidence scoring for variants
 
-🔗 **Integration & Export**
+ **Integration & Export**
 - Genetic counselor clinical export (ACMG-style)
 - Apple Health compatible format
 - API-ready JSON structure
@@ -74,7 +74,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 
 ### New in v4.1.0
 
-💊 **Medication Interaction Checker**
+ **Medication Interaction Checker**
 - Input any list of medications (generic or brand names)
 - Cross-references with pharmacogenomics profile
 - Critical, serious, moderate, and minor severity levels
@@ -82,7 +82,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - PubMed citations for each interaction
 - FDA warning flags
 
-🌙 **Sleep Optimization Profile**
+ **Sleep Optimization Profile**
 - Chronotype determination (CLOCK, PER2, PER3 genes)
 - Caffeine metabolism speed (CYP1A2)
 - Adenosine receptor sensitivity (ADORA2A)
@@ -90,7 +90,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - Coffee cutoff time based on genetics
 - Short sleeper gene detection
 
-🥗 **Dietary Interaction Matrix**
+ **Dietary Interaction Matrix**
 - Caffeine tolerance (CYP1A2)
 - Alcohol metabolism (ADH1B, ALDH2 - flush detection)
 - Saturated fat response (APOE-specific recommendations)
@@ -102,7 +102,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 
 ### New in v4.2.0
 
-🖥️ **Interactive Web Dashboard**
+ **Interactive Web Dashboard**
 - Beautiful, responsive HTML visualization
 - Auto-generated with every analysis
 - No external dependencies - works offline
@@ -111,7 +111,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - Export to PDF (print functionality)
 - Drag & drop JSON loading
 
-🛡️ **Code Quality Improvements**
+ **Code Quality Improvements**
 - Complete type hints throughout codebase
 - TypedDict for complex return types
 - Comprehensive docstrings (Google style)
@@ -120,7 +120,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - User-friendly error messages
 - 200+ automated tests
 
-📊 **Enhanced Visualizations**
+ **Enhanced Visualizations**
 - PRS percentile bars with color coding
 - Power vs Endurance athletic gauge
 - Sleep chronotype display
@@ -129,7 +129,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - Collapsible sections
 - Search/filter functionality
 
-🏃 **Athletic Performance Profiling**
+ **Athletic Performance Profiling**
 - Endurance vs power composite score
 - Key markers: ACTN3, ACE, PPARGC1A
 - Recovery profile (TNF, IL6, BDNF)
@@ -138,7 +138,7 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - Sport suitability recommendations
 - Personalized training guidance
 
-☀️ **UV Sensitivity Calculator**
+ **UV Sensitivity Calculator**
 - Estimated Fitzpatrick skin type from genetics
 - MC1R, SLC24A5, SLC45A2, IRF4, TYR markers
 - SPF recommendations by skin type
@@ -146,30 +146,30 @@ Privacy-first local DNA analysis for AI agents. Comprehensive genetic analysis w
 - Vitamin D synthesis capacity
 - Sun exposure guidelines
 
-📝 **Natural Language Explanations**
+ **Natural Language Explanations**
 - Plain-English interpretation of all findings
 - Jargon-free explanations
 - Calibrated uncertainty language
 - Practical implications for each finding
 - Context for relative risks
 
-🔬 **Research Variant Flagging**
+ **Research Variant Flagging**
 - Clear separation of "established" vs "emerging" findings
 - Evidence level classification for each marker
 - Research context for preliminary findings
 - Appropriate uncertainty communication
 
-📚 **PubMed References**
+ **PubMed References**
 - Direct links to source papers for major findings
 - Primary citations for CPIC guidelines
 - PMID references throughout
 
-🧬 **Runs of Homozygosity Detection**
+ **Runs of Homozygosity Detection**
 - Heterozygosity rate calculation
 - Sensitive handling of consanguinity findings
 - Genetic counselor referral recommendations
 
-⏳ **Telomere Length Estimation**
+ **Telomere Length Estimation**
 - TERT, TERC, OBFC1 variants
 - Longevity-associated markers (FOXO3, APOE)
 - Clear caveats about limitations

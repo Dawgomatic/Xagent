@@ -2,14 +2,14 @@
 
 OpenClaw 本地语义记忆插件，基于向量搜索和 Transformers.js 实现零配置的语义搜索。
 
-**📦 ClawHub**: https://clawhub.ai/skills/semantic-memory
+** ClawHub**: https://clawhub.ai/skills/semantic-memory
 
 ## 特性
 
-- 🧠 **本地语义搜索** - 使用 Transformers.js 在本地生成 embeddings
-- 💾 **磁盘持久化** - 默认保存到磁盘，重启后数据不丢失
-- 🔄 **自动捕获** - 通过 lifecycle hooks 自动记录重要信息
-- 🎯 **智能召回** - 根据上下文自动检索相关记忆
+-  **本地语义搜索** - 使用 Transformers.js 在本地生成 embeddings
+-  **磁盘持久化** - 默认保存到磁盘，重启后数据不丢失
+-  **自动捕获** - 通过 lifecycle hooks 自动记录重要信息
+-  **智能召回** - 根据上下文自动检索相关记忆
 
 ## 安装
 
@@ -119,10 +119,10 @@ npm rebuild                    # 然后重新构建原生模块
   - 支持 `~` 符号表示用户主目录
   - 仅在 `persistToDisk: true` 时生效
 - **autoCapture** (默认 false): 自动记录对话内容
-  - ⚠️ **隐私保护**: 默认会跳过包含 PII（邮箱、电话号码）的文本
+  -  **隐私保护**: 默认会跳过包含 PII（邮箱、电话号码）的文本
   - 需要配合 `allowPIICapture` 才能捕获 PII
 - **allowPIICapture** (默认 false): 允许捕获包含 PII 的文本
-  - ⚠️ **隐私风险**: 仅在理解隐私影响后启用
+  -  **隐私风险**: 仅在理解隐私影响后启用
   - 需要 `autoCapture` 同时启用才生效
 - **autoRecall** (默认 true): 自动注入相关记忆到对话
 - **captureMaxChars** (默认 500): 单条记忆最大字符数
@@ -131,7 +131,7 @@ npm rebuild                    # 然后重新构建原生模块
   - 达到上限时自动删除最旧的记忆（LRU 淘汰策略）
   - 范围：100-1000000 条
   - 设置为 999999 表示无限制（不会自动删除旧记忆）
-  - ⚠️ 无限制模式可能导致内存耗尽，请谨慎使用
+  -  无限制模式可能导致内存耗尽，请谨慎使用
   - 外部 Qdrant 模式不受此限制
 
 ## 隐私与安全
@@ -141,7 +141,7 @@ npm rebuild                    # 然后重新构建原生模块
 - **磁盘持久化**（默认）: 数据保存到 `~/.openclaw-memory/` 并在重启后恢复
   - 设置 `persistToDisk: false` 可切换到纯内存模式（重启后清空）
 - **Qdrant 模式**: 如果配置了 `qdrantUrl`，数据会发送到该服务器
-  - ⚠️ 仅配置受信任的 Qdrant 服务器
+  -  仅配置受信任的 Qdrant 服务器
   - 建议使用本地 Qdrant 实例或专用服务账户
 
 ### 网络访问
@@ -154,7 +154,7 @@ npm rebuild                    # 然后重新构建原生模块
 - **autoCapture** 默认关闭，需要手动开启
 - **PII 保护**: 默认情况下，即使启用 autoCapture，包含邮箱或电话号码的文本也会被自动跳过
 - **allowPIICapture**: 设置为 true 才能捕获包含 PII 的文本
-  - ⚠️ **仅在理解隐私风险后启用**
+  -  **仅在理解隐私风险后启用**
   - 适用场景：个人笔记、测试环境
   - 不适用场景：共享环境、生产环境、处理他人数据
 - 建议仅在个人环境使用，避免在共享或生产环境开启

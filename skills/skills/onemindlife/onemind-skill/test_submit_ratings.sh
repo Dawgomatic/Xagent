@@ -77,9 +77,9 @@ echo ""
 
 # Verify success
 if echo "$RATING_RESULT" | grep -q '"success":true'; then
-  echo "✅ TEST PASSED: Batch rating endpoint working"
+  echo " TEST PASSED: Batch rating endpoint working"
 else
-  echo "❌ TEST FAILED: Check response above"
+  echo " TEST FAILED: Check response above"
   exit 1
 fi
 

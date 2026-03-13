@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔁",
+        "emoji": "",
         "homepage": "https://github.com/Th0rgal/open-ralph-wiggum",
         "requires": { "bins": ["opencode", "ralph", "git"] },
       },

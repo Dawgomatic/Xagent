@@ -10,7 +10,7 @@ Generate a new wallet and save it as a PEM file.
 clawpy wallet new --format pem --outfile wallet.pem
 ```
 
-## ⚠️ CRITICAL SECURITY WARNING
+##  CRITICAL SECURITY WARNING
 
 Your `wallet.pem` file contains your **Private Key**.
 - **NEVER** commit this file to GitHub or any public repo.

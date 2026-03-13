@@ -191,10 +191,10 @@ When running an audit:
   - Example: 30 files have heading issues → spawn agents to batch edit
 
 - **Completion criteria**:
-  - ✅ All errors fixed
-  - ✅ All warnings fixed (or documented as requiring human review)
-  - ✅ Re-audit confirms improvements
-  - ✅ Before/after comparison shown to user
+  -  All errors fixed
+  -  All warnings fixed (or documented as requiring human review)
+  -  Re-audit confirms improvements
+  -  Before/after comparison shown to user
 
 After fixes are applied, ask the user if they'd like to review the changes.
 

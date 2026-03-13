@@ -131,7 +131,7 @@ export default function DashboardPage() {
       {/* Wallet Section */}
       <Card>
         <CardHeader>
-          <h2>🤖 Your Wallet</h2>
+          <h2> Your Wallet</h2>
         </CardHeader>
         <CardContent>
           {!isConnected ? (
@@ -303,19 +303,19 @@ export function SendTipModal({ creatorAddress, onClose }) {
 
 ## Use Cases
 
-### ✅ Use User Wallet For:
+###  Use User Wallet For:
 - Manual tipping
 - User-initiated transactions
 - Displaying wallet balance
 - Connecting to other dapps
 
-### ✅ Use Agent Wallet For:
+###  Use Agent Wallet For:
 - Automated micro-tipping based on identity match
 - Scheduled recurring tips
 - Bot-initiated actions
 - When user doesn't have a wallet
 
-### 💡 Hybrid Approach:
+###  Hybrid Approach:
 ```typescript
 {
   userId: 123,
@@ -359,16 +359,16 @@ export function SendTipModal({ creatorAddress, onClose }) {
 ## Decision Matrix
 
 **Choose User Wallet If:**
-- ✅ You want to launch quickly (2-3 days)
-- ✅ You don't want custody responsibility
-- ✅ Manual tipping is acceptable
-- ✅ Your users are Web3-native
+-  You want to launch quickly (2-3 days)
+-  You don't want custody responsibility
+-  Manual tipping is acceptable
+-  Your users are Web3-native
 
 **Choose Agent Wallet If:**
-- ✅ You need full automation
-- ✅ You're willing to handle custody
-- ✅ You have 2-3 weeks to build properly
-- ✅ Your users are not Web3-native
+-  You need full automation
+-  You're willing to handle custody
+-  You have 2-3 weeks to build properly
+-  Your users are not Web3-native
 
 **Recommendation**: Start with User Wallet, add Agent Wallet later if needed.
 
@@ -381,7 +381,7 @@ Once User Wallet is implemented, update the skill output:
 ```typescript
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🌐 **View Full Dashboard**
+ **View Full Dashboard**
    ${dashboardUrl}
 
    • Connect your wallet

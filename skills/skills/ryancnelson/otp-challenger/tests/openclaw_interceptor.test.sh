@@ -33,9 +33,9 @@ assert_blocked() {
 
     output=$(./interceptor.sh "$input" 2>&1) || true
     if [[ "$output" == *"[SECURITY BLOCK]"* ]]; then
-        echo "✅ PASS: $label blocked correctly."
+        echo " PASS: $label blocked correctly."
     else
-        echo "❌ FAIL: $label was NOT blocked."
+        echo " FAIL: $label was NOT blocked."
         echo "   Output: $output"
         exit 1
     fi
@@ -47,9 +47,9 @@ assert_passed() {
 
     output=$(./interceptor.sh "$input" 2>&1)
     if [[ "$output" == "$input" ]]; then
-        echo "✅ PASS: $label passed through correctly."
+        echo " PASS: $label passed through correctly."
     else
-        echo "❌ FAIL: $label was incorrectly blocked or modified."
+        echo " FAIL: $label was incorrectly blocked or modified."
         echo "   Expected: $input"
         echo "   Got: $output"
         exit 1

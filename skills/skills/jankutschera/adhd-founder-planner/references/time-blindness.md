@@ -1,4 +1,4 @@
-# Time-Blindness Friendly Planning ⏰
+# Time-Blindness Friendly Planning 
 
 ## The Problem
 
@@ -12,41 +12,41 @@ ADHD brains often:
 ## The Solution: Relative Time
 
 ### No Clock Times
-❌ "Email at 9am"  
-✅ "Email (morning block)"
+ "Email at 9am"  
+ "Email (morning block)"
 
-❌ "Meeting at 2pm"  
-✅ "Meeting (afternoon)"
+ "Meeting at 2pm"  
+ "Meeting (afternoon)"
 
-❌ "Work on project 10-12"  
-✅ "Work on project (high energy)"
+ "Work on project 10-12"  
+ "Work on project (high energy)"
 
 ### Time Markers We Use
 
 | Marker | Meaning | Typical Range |
 |--------|---------|---------------|
-| 🌅 Morning | First thing | 6am - 11am |
-| ☕ Mid-morning | After settling in | 9am - 12pm |
-| 🌞 Midday | Lunch-adjacent | 11am - 2pm |
-| 🌤️ Afternoon | Post-lunch | 1pm - 6pm |
-| 🌙 Evening | Winding down | 5pm - 10pm |
-| 🦉 Night | Night owls | 9pm - 2am |
+|  Morning | First thing | 6am - 11am |
+|  Mid-morning | After settling in | 9am - 12pm |
+|  Midday | Lunch-adjacent | 11am - 2pm |
+|  Afternoon | Post-lunch | 1pm - 6pm |
+|  Evening | Winding down | 5pm - 10pm |
+|  Night | Night owls | 9pm - 2am |
 
 ### Duration Estimates (Not Timestamps)
 
 | Symbol | Duration | Use For |
 |--------|----------|---------|
-| ⚡ | 5 min | Quick wins |
-| ⏱️ | 15 min | Short tasks |
-| 🕐 | 30 min | Medium tasks |
-| ⏳ | 60+ min | Deep work |
+|  | 5 min | Quick wins |
+|  | 15 min | Short tasks |
+|  | 30 min | Medium tasks |
+|  | 60+ min | Deep work |
 
 Example:
 ```
-- [ ] ⚡ Check email (5 min)
-- [ ] ⏱️ Review proposal (15 min)
-- [ ] 🕐 Team meeting (30 min)
-- [ ] ⏳ Write report (60+ min)
+- [ ]  Check email (5 min)
+- [ ]  Review proposal (15 min)
+- [ ]  Team meeting (30 min)
+- [ ]  Write report (60+ min)
 ```
 
 ## Transition Buffers
@@ -93,11 +93,11 @@ Instead of scheduling by clock time, schedule by energy:
 
 ```
 My Energy Pattern:
-🌅 Morning: 🔥 High (do hard stuff)
-☕ Mid-morning: 💧 Medium (calls, email)
-🌞 Midday: ❄️ Low (admin, easy tasks)
-🌤️ Afternoon: 💧 Medium (standard work)
-🌙 Evening: 🔥 High (second wind for deep work)
+ Morning:  High (do hard stuff)
+ Mid-morning:  Medium (calls, email)
+ Midday:  Low (admin, easy tasks)
+ Afternoon:  Medium (standard work)
+ Evening:  High (second wind for deep work)
 
 NOT:
 9am - Email
@@ -105,9 +105,9 @@ NOT:
 11am - Calls
 
 BUT:
-🌅 Morning: Deep work
-☕ Mid-morning: Calls + Email
-🌞 Midday: Admin
+ Morning: Deep work
+ Mid-morning: Calls + Email
+ Midday: Admin
 ```
 
 ## The "Not Now" Problem
@@ -149,13 +149,13 @@ Use: "Deadline is in 3 work blocks" (count work sessions)
 ## The Planner's Promise
 
 **This planner will never:**
-- ❌ Shame you for "missing" a time slot
-- ❌ Require rigid adherence to schedules
-- ❌ Assume you can estimate time accurately
-- ❌ Make you feel bad for time blindness
+-  Shame you for "missing" a time slot
+-  Require rigid adherence to schedules
+-  Assume you can estimate time accurately
+-  Make you feel bad for time blindness
 
 **This planner will:**
-- ✅ Suggest tasks based on energy, not clock time
-- ✅ Remind you gently of time passing
-- ✅ Help you batch similar tasks
-- ✅ Celebrate completion, not punctuality
+-  Suggest tasks based on energy, not clock time
+-  Remind you gently of time passing
+-  Help you batch similar tasks
+-  Celebrate completion, not punctuality

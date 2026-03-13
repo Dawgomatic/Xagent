@@ -5,9 +5,9 @@
 LOG_FILE="${1:-/tmp/jami_listener.log}"
 POLL_INTERVAL=5
 
-echo "🎧 Jami Listener started"
-echo "📝 Logging to: $LOG_FILE"
-echo "⏱️  Poll interval: ${POLL_INTERVAL}s"
+echo " Jami Listener started"
+echo " Logging to: $LOG_FILE"
+echo "  Poll interval: ${POLL_INTERVAL}s"
 echo ""
 echo "Press Ctrl+C to stop"
 echo ""
@@ -26,7 +26,7 @@ while true; do
     
     if [ "$CALLS" -gt 0 ]; then
         TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-        echo "[$TIMESTAMP] 📞 Active calls detected: $CALLS" | tee -a "$LOG_FILE"
+        echo "[$TIMESTAMP]  Active calls detected: $CALLS" | tee -a "$LOG_FILE"
         
         # List call details
         jami call list 2>/dev/null | tee -a "$LOG_FILE"

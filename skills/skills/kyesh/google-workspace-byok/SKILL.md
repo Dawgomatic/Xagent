@@ -48,7 +48,7 @@ This installs `googleapis` (Google API client) and `mupdf` (PDF text extraction 
    - Enter the email addresses of each account you'll connect
    - Save
 
-> **⚠️ Important:** Apps in "Testing" status have a **7-day token expiry**. To get long-lived tokens, publish your app to "Production" in the Audience settings. For personal Gmail accounts (External user type), you can skip Google's verification review — you'll just see an "unverified app" warning during consent. This is fine for personal use.
+> ** Important:** Apps in "Testing" status have a **7-day token expiry**. To get long-lived tokens, publish your app to "Production" in the Audience settings. For personal Gmail accounts (External user type), you can skip Google's verification review — you'll just see an "unverified app" warning during consent. This is fine for personal use.
 
 ### Step 4: Create OAuth Credentials
 

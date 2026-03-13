@@ -36,9 +36,9 @@ RESPONSE=$(curl -s -X DELETE \
 CODE=$(echo "$RESPONSE" | jq -r '.code')
 
 if [ "$CODE" = "0" ]; then
-  echo "✅ 日程删除成功"
+  echo " 日程删除成功"
   echo "事件ID: $EVENT_ID"
 else
-  echo "❌ 删除失败: $(echo "$RESPONSE" | jq -r '.msg')" >&2
+  echo " 删除失败: $(echo "$RESPONSE" | jq -r '.msg')" >&2
   exit 1
 fi

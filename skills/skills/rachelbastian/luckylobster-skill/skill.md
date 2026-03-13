@@ -3,7 +3,7 @@ name: luckylobster
 description: Trade prediction markets on Polymarket. Search markets, place orders, and manage positions.
 homepage: https://luckylobster.io
 user-invocable: true
-metadata: {"openclaw":{"version":9,"primaryEnv":"LUCKYLOBSTER_API_KEY","emoji":"🦞","homepage":"https://luckylobster.io","requires":{"env":["LUCKYLOBSTER_API_KEY"]}}}
+metadata: {"openclaw":{"version":9,"primaryEnv":"LUCKYLOBSTER_API_KEY","emoji":"","homepage":"https://luckylobster.io","requires":{"env":["LUCKYLOBSTER_API_KEY"]}}}
 ---
 
 # LuckyLobster - Polymarket Trading API
@@ -63,7 +63,7 @@ Response:
 Parse the JSON response and extract the `verification_uri_complete` field. Display it to the user as a clickable link:
 
 ```
-🦞 To connect LuckyLobster, click: {verification_uri_complete}
+ To connect LuckyLobster, click: {verification_uri_complete}
 ```
 
 **Important:** Use the `verification_uri_complete` value exactly as returned — do NOT concatenate fields or build the URL yourself. The value is a complete, ready-to-use URL.

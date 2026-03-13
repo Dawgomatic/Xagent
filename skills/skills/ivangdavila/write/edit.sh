@@ -10,8 +10,8 @@ PIECE_DIR="$WORKSPACE/pieces/$PIECE_ID"
 CONTENT_FILE="$PIECE_DIR/content.md"
 VERSION_DIR="$WORKSPACE/versions/$PIECE_ID"
 
-[[ -d "$PIECE_DIR" ]] || { echo "❌ Piece not found: $PIECE_ID"; exit 1; }
-[[ -f "$NEW_CONTENT" ]] || { echo "❌ New content file not found: $NEW_CONTENT"; exit 1; }
+[[ -d "$PIECE_DIR" ]] || { echo " Piece not found: $PIECE_ID"; exit 1; }
+[[ -f "$NEW_CONTENT" ]] || { echo " New content file not found: $NEW_CONTENT"; exit 1; }
 
 mkdir -p "$VERSION_DIR"
 
@@ -24,7 +24,7 @@ VERSION_FILE="$VERSION_DIR/v${VERSION_NUM}_${TIMESTAMP}.md"
 # Copy current content to version archive
 if [[ -s "$CONTENT_FILE" ]]; then
   cp "$CONTENT_FILE" "$VERSION_FILE"
-  echo "📦 Backed up to: $VERSION_FILE"
+  echo " Backed up to: $VERSION_FILE"
 fi
 
 # Apply new content
@@ -38,7 +38,7 @@ jq --arg v "v${VERSION_NUM}_${TIMESTAMP}" --arg ts "$(date -Iseconds)" \
 
 WORD_COUNT=$(wc -w < "$CONTENT_FILE" | tr -d ' ')
 
-echo "✅ Updated: $PIECE_ID"
+echo " Updated: $PIECE_ID"
 echo "   Version: v$VERSION_NUM"
 echo "   Words: $WORD_COUNT"
 echo ""

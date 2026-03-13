@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📧",
+        "emoji": "",
         "requires": { "bins": ["python3"], "env": ["THRD_API_KEY"] },
         "install":
           [

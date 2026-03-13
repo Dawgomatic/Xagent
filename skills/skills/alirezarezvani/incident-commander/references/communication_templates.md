@@ -25,7 +25,7 @@ This document provides standardized communication templates for incident respons
 
 ### Initial Alert - Internal Teams
 
-**Subject:** 🚨 [SEV1] CRITICAL: {Service} Complete Outage - Immediate Response Required
+**Subject:**  [SEV1] CRITICAL: {Service} Complete Outage - Immediate Response Required
 
 ```
 CRITICAL INCIDENT ALERT - IMMEDIATE ATTENTION REQUIRED
@@ -41,8 +41,8 @@ Immediate Actions Needed:
 ✓ Incident Commander: {Name} - ASSIGNED
 ✓ War Room: {Bridge/Chat Link} - JOIN NOW
 ✓ On-Call Response: {Team} - PAGED
-⏳ Executive Notification: In progress
-⏳ Status Page Update: Within 15 minutes
+ Executive Notification: In progress
+ Status Page Update: Within 15 minutes
 
 Current Situation:
 {Brief description of what we know}
@@ -60,7 +60,7 @@ THIS IS A CUSTOMER-IMPACTING INCIDENT REQUIRING IMMEDIATE ATTENTION
 
 ### Executive Notification - SEV1
 
-**Subject:** 🚨 URGENT: Customer-Impacting Outage - {Service}
+**Subject:**  URGENT: Customer-Impacting Outage - {Service}
 
 ```
 EXECUTIVE ALERT: Critical customer-facing incident
@@ -184,7 +184,7 @@ We apologize for the inconvenience. A full post-incident review will be conducte
 
 ### Team Notification - SEV2
 
-**Subject:** ⚠️ [SEV2] {Service} Performance Issues - Response Team Mobilizing
+**Subject:**  [SEV2] {Service} Performance Issues - Response Team Mobilizing
 
 ```
 SEV2 INCIDENT: Performance degradation requiring active response
@@ -206,8 +206,8 @@ Response Team:
 
 Immediate Actions:
 ✓ {Action 1 - completed}
-⏳ {Action 2 - in progress}
-⏳ {Action 3 - next step}
+ {Action 2 - in progress}
+ {Action 3 - next step}
 
 Metrics:
 - Error Rate: {Current vs normal}

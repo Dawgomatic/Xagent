@@ -2,7 +2,7 @@
 name: auto-whisper-safe
 version: 1.0.0
 description: RAM-safe voice transcription with auto-chunking — works on 16GB machines without crashes
-emoji: 🎙️
+emoji: 
 tags:
   - whisper
   - transcription
@@ -51,11 +51,11 @@ WHISPER_LANG=en ./transcribe.sh /path/to/audio.ogg
 
 | Model | RAM | Speed | Accuracy | Recommended For |
 |-------|-----|-------|----------|-----------------|
-| `tiny` | ~1GB | ⚡⚡⚡ | ★★ | Quick previews, low-RAM systems |
-| `base` | ~1.5GB | ⚡⚡ | ★★★ | **Default — best balance** ✅ |
-| `small` | ~2.5GB | ⚡ | ★★★★ | When accuracy matters more |
-| `medium` | ~5GB | 🐢 | ★★★★★ | 32GB+ RAM only |
-| `turbo` | ~6GB | 🐢🐢 | ★★★★★ | Dedicated transcription machines |
+| `tiny` | ~1GB |  | ★★ | Quick previews, low-RAM systems |
+| `base` | ~1.5GB |  | ★★★ | **Default — best balance**  |
+| `small` | ~2.5GB |  | ★★★★ | When accuracy matters more |
+| `medium` | ~5GB |  | ★★★★★ | 32GB+ RAM only |
+| `turbo` | ~6GB |  | ★★★★★ | Dedicated transcription machines |
 
 ## OpenClaw Integration
 
@@ -104,12 +104,12 @@ whisper --help && ffmpeg -version
 
 ## Why This Over Other Whisper Skills
 
-- ✅ **RAM-safe**: Won't crash your 16GB machine
-- ✅ **Auto-chunking**: Handles 1-hour podcasts without issues
-- ✅ **Cleanup**: No temp files left behind
-- ✅ **Progress**: Shows chunk-by-chunk progress
-- ✅ **Configurable**: Model + language via env vars
-- ✅ **OpenClaw-native**: Drop-in for any agent's BOOTSTRAP.md
+-  **RAM-safe**: Won't crash your 16GB machine
+-  **Auto-chunking**: Handles 1-hour podcasts without issues
+-  **Cleanup**: No temp files left behind
+-  **Progress**: Shows chunk-by-chunk progress
+-  **Configurable**: Model + language via env vars
+-  **OpenClaw-native**: Drop-in for any agent's BOOTSTRAP.md
 
 ## Real-World Performance
 
@@ -117,18 +117,18 @@ Tested on Ubuntu 22.04, 16GB RAM, running OpenClaw (10 agents) + Ollama simultan
 
 | Audio Length | Model | RAM Peak | Time | Result |
 |-------------|-------|----------|------|--------|
-| 2 min voice memo | base | 1.4GB | ~15s | ✅ Perfect |
-| 12 min podcast clip | base | 1.5GB (chunked) | ~90s | ✅ 2 chunks, seamless |
-| 45 min interview | base | 1.5GB (chunked) | ~6min | ✅ 5 chunks, seamless |
-| 2 min voice memo | tiny | 0.9GB | ~8s | ✅ Good enough for quick reads |
+| 2 min voice memo | base | 1.4GB | ~15s |  Perfect |
+| 12 min podcast clip | base | 1.5GB (chunked) | ~90s |  2 chunks, seamless |
+| 45 min interview | base | 1.5GB (chunked) | ~6min |  5 chunks, seamless |
+| 2 min voice memo | tiny | 0.9GB | ~8s |  Good enough for quick reads |
 
 ## Supported Audio Formats
 
 ffmpeg handles the conversion, so virtually any format works:
-- ✅ `.ogg` (Telegram voice messages)
-- ✅ `.mp3`, `.m4a`, `.wav`, `.flac`
-- ✅ `.webm` (browser recordings)
-- ✅ `.opus` (WhatsApp voice messages)
+-  `.ogg` (Telegram voice messages)
+-  `.mp3`, `.m4a`, `.wav`, `.flac`
+-  `.webm` (browser recordings)
+-  `.opus` (WhatsApp voice messages)
 
 ## Changelog
 

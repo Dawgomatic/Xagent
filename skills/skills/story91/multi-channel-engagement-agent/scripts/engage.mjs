@@ -293,16 +293,16 @@ function generateDefaultReply(post, persona) {
 // ============================================
 
 async function engage(platform, config, state, persona) {
-  console.log(`\n🎯 Engaging on ${platform}...`);
+  console.log(`\n Engaging on ${platform}...`);
   
   const platformConfig = config.platforms[platform];
   if (!platformConfig?.enabled) {
-    console.log(`⏭️  ${platform} is disabled, skipping.`);
+    console.log(`  ${platform} is disabled, skipping.`);
     return null;
   }
 
   // Fetch trending
-  console.log(`📥 Fetching trending...`);
+  console.log(` Fetching trending...`);
   let trending;
   switch (platform) {
     case 'twitter':
@@ -316,30 +316,30 @@ async function engage(platform, config, state, persona) {
       break;
   }
   
-  console.log(`📊 Found ${trending.length} trending posts`);
+  console.log(` Found ${trending.length} trending posts`);
 
   // Filter already replied
   const replied = state.repliedPosts[platform] || [];
   const unreplied = trending.filter(post => !replied.includes(post.id));
   
-  console.log(`🔍 ${unreplied.length} unreplied posts`);
+  console.log(` ${unreplied.length} unreplied posts`);
   
   if (unreplied.length === 0) {
-    console.log(`✅ All trending already replied, skipping.`);
+    console.log(` All trending already replied, skipping.`);
     return null;
   }
 
   // Pick random unreplied
   const target = unreplied[Math.floor(Math.random() * unreplied.length)];
-  console.log(`🎲 Selected: @${target.authorUsername}`);
-  console.log(`📝 "${target.text.substring(0, 80)}..."`);
+  console.log(` Selected: @${target.authorUsername}`);
+  console.log(` "${target.text.substring(0, 80)}..."`);
 
   // Generate reply
   const replyText = generateReply(target, persona);
-  console.log(`💬 Reply: "${replyText.substring(0, 80)}..."`);
+  console.log(` Reply: "${replyText.substring(0, 80)}..."`);
 
   // Post reply
-  console.log(`📤 Posting reply...`);
+  console.log(` Posting reply...`);
   let result;
   switch (platform) {
     case 'twitter':
@@ -358,7 +358,7 @@ async function engage(platform, config, state, persona) {
   state.stats.totalReplies++;
   state.stats.byPlatform[platform]++;
 
-  console.log(`✅ Reply posted successfully!`);
+  console.log(` Reply posted successfully!`);
   
   return {
     platform,
@@ -394,10 +394,10 @@ async function main() {
   const state = loadState(stateFile);
   const persona = config.persona;
 
-  console.log('🤖 Multi-Channel Engagement Agent');
-  console.log(`📁 Config: ${configPath}`);
-  console.log(`💾 State: ${stateFile}`);
-  console.log(`🎭 Persona: ${persona.name}`);
+  console.log(' Multi-Channel Engagement Agent');
+  console.log(` Config: ${configPath}`);
+  console.log(` State: ${stateFile}`);
+  console.log(` Persona: ${persona.name}`);
 
   const platforms = allPlatforms 
     ? ['twitter', 'farcaster', 'moltbook'].filter(p => config.platforms[p]?.enabled)
@@ -410,17 +410,17 @@ async function main() {
       const result = await engage(platform, config, state, persona);
       if (result) results.push(result);
     } catch (error) {
-      console.error(`❌ Error on ${platform}: ${error.message}`);
+      console.error(` Error on ${platform}: ${error.message}`);
     }
   }
 
   // Save state
   saveState(stateFile, state);
-  console.log(`\n💾 State saved (${state.stats.totalReplies} total replies)`);
+  console.log(`\n State saved (${state.stats.totalReplies} total replies)`);
 
   // Summary
   if (results.length > 0) {
-    console.log('\n📊 Summary:');
+    console.log('\n Summary:');
     results.forEach(r => {
       console.log(`  ${r.platform}: Replied to @${r.target.author}`);
     });

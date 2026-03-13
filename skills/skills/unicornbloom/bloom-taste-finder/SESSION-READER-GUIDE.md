@@ -14,12 +14,12 @@ npx tsx scripts/run-from-session.ts \
 
 ## What's New
 
-### ✅ Full Session Analysis
+###  Full Session Analysis
 - Reads last **~120 messages** from session file
 - More comprehensive than piped context
 - Better personality detection
 
-### ✅ Improved Output Format
+###  Improved Output Format
 - **No data quality shown** (cleaner output)
 - **Wallet notification** instead of full address
 - **Marketing messages** clearly displayed
@@ -31,31 +31,31 @@ npx tsx scripts/run-from-session.ts \
 
 ```
 ═══════════════════════════════════════════════════════
-🎉 Your Bloom Identity Card is ready! 🤖
+ Your Bloom Identity Card is ready! 
 ═══════════════════════════════════════════════════════
 
-🔗 VIEW YOUR IDENTITY CARD:
+ VIEW YOUR IDENTITY CARD:
    https://preflight.bloomprotocol.ai/agents/27811541
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💜 The Visionary
-💬 "The AI Tools Pioneer"
+ The Visionary
+ "The AI Tools Pioneer"
 
 You back bold ideas before they're obvious. Your conviction is
 your edge, and you see potential where others see risk. AI Tools
 is where you spot the next paradigm shift.
 
-🏷️  Categories: AI Tools · Productivity · Wellness
+  Categories: AI Tools · Productivity · Wellness
    Interests: Machine Learning · Automation · Meditation
 
-📊 2x2 Dimensions:
+ 2x2 Dimensions:
    Conviction: 50/100
    Intuition: 55/100
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🎯 Top 5 Recommended Skills:
+ Top 5 Recommended Skills:
 
 1. ai-code-review (95% match) · by Alice
    Automated code review using GPT-4
@@ -69,18 +69,18 @@ is where you spot the next paradigm shift.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🤖 Your Agent Wallet Created
+ Your Agent Wallet Created
 
    Network: Base
-   Status: ✅ Wallet generated and registered
+   Status:  Wallet generated and registered
 
-   💡 Use your agent wallet to tip skill creators!
-   ⚠️  Tipping, payments, and management features coming soon
-   🔒 Do not deposit funds - withdrawals not ready yet
+    Use your agent wallet to tip skill creators!
+     Tipping, payments, and management features coming soon
+    Do not deposit funds - withdrawals not ready yet
 
 ═══════════════════════════════════════════════════════
 
-🌸 Bloom Identity · Built with @openclaw @coinbase @base
+ Bloom Identity · Built with @openclaw @coinbase @base
 ```
 
 ---
@@ -122,9 +122,9 @@ npx tsx scripts/run-from-session.ts \
 ```
 
 **Features**:
-- ✅ Reads last ~120 messages
-- ✅ Most accurate personality detection
-- ✅ Complete conversation context
+-  Reads last ~120 messages
+-  Most accurate personality detection
+-  Complete conversation context
 
 ### 2. Piped Context (Quick Test)
 
@@ -138,9 +138,9 @@ User: GPT-4 and Claude" | \
 ```
 
 **Features**:
-- ✅ Quick testing
-- ✅ No file needed
-- ⚠️  Limited context (only piped text)
+-  Quick testing
+-  No file needed
+-   Limited context (only piped text)
 
 ### 3. OpenClaw Wrapper (Auto-detect)
 
@@ -151,9 +151,9 @@ bash openclaw-wrapper/execute.sh telegram:123
 ```
 
 **Features**:
-- ✅ Auto-detects session file
-- ✅ Integrates with OpenClaw
-- ✅ User-invocable via `/bloom-identity`
+-  Auto-detects session file
+-  Integrates with OpenClaw
+-  User-invocable via `/bloom-identity`
 
 ---
 
@@ -198,21 +198,21 @@ npx tsx scripts/run-from-session.ts \
 
 ## Output Changes
 
-### ❌ Old Format (Removed)
+###  Old Format (Removed)
 ```
 Data Quality: 80/100  ← No longer shown
 Wallet: 0x1234...5678  ← No longer shown (too technical)
 ```
 
-### ✅ New Format (Current)
+###  New Format (Current)
 ```
-🤖 Your Agent Wallet Created
+ Your Agent Wallet Created
    Network: Base
-   Status: ✅ Wallet generated and registered
+   Status:  Wallet generated and registered
 
-   💡 Use your agent wallet to tip skill creators!
-   ⚠️  Tipping, payments, and management features coming soon
-   🔒 Do not deposit funds - withdrawals not ready yet
+    Use your agent wallet to tip skill creators!
+     Tipping, payments, and management features coming soon
+    Do not deposit funds - withdrawals not ready yet
 ```
 
 **Improvements**:
@@ -332,6 +332,6 @@ const result = await skill.execute(userId, {
 
 ---
 
-**Status**: ✅ Production ready
+**Status**:  Production ready
 **Version**: 2.0.0
 **Date**: 2026-02-07

@@ -101,13 +101,13 @@ alert() {
 
     case $severity in
         HIGH)
-            echo -e "${RED}🚨 HIGH ALERT: $msg${NC}"
+            echo -e "${RED} HIGH ALERT: $msg${NC}"
             ;;
         MEDIUM)
-            echo -e "${YELLOW}⚠️  MEDIUM ALERT: $msg${NC}"
+            echo -e "${YELLOW}  MEDIUM ALERT: $msg${NC}"
             ;;
         *)
-            echo -e "${GREEN}ℹ️  INFO: $msg${NC}"
+            echo -e "${GREEN}  INFO: $msg${NC}"
             ;;
     esac
 }
@@ -482,7 +482,7 @@ print_summary() {
 # Main execution
 main() {
     echo ""
-    echo -e "${GREEN}🔒 Agent Security Monitor${NC}"
+    echo -e "${GREEN} Agent Security Monitor${NC}"
     echo ""
 
     # Run all checks

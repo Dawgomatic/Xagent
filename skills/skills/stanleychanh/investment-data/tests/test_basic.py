@@ -16,7 +16,7 @@ def test_init():
     """测试初始化"""
     client = InvestmentData()
     assert client is not None
-    print("✅ 初始化测试通过")
+    print(" 初始化测试通过")
 
 
 def test_get_stock_daily():
@@ -30,7 +30,7 @@ def test_get_stock_daily():
     assert 'trade_date' in df.columns
     assert 'close' in df.columns
 
-    print("✅ 股票数据查询测试通过")
+    print(" 股票数据查询测试通过")
 
 
 def test_get_stock_list():
@@ -42,7 +42,7 @@ def test_get_stock_list():
     assert len(stocks) > 0
     assert "000001.SZ" in stocks
 
-    print("✅ 股票列表查询测试通过")
+    print(" 股票列表查询测试通过")
 
 
 if __name__ == "__main__":
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     test_get_stock_daily()
     test_get_stock_list()
 
-    print("\n✅ 所有测试通过！")
+    print("\n 所有测试通过！")

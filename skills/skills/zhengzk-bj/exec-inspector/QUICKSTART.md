@@ -1,10 +1,10 @@
 # Exec Inspector - 快速开始指南
 
-## 🎉 恭喜！工具已就绪
+##  恭喜！工具已就绪
 
 exec-inspector 已经安装完成并可以使用了！
 
-## ⚡ 1 分钟快速设置
+##  1 分钟快速设置
 
 ### 第一步：添加别名（可选但推荐）
 
@@ -42,7 +42,7 @@ exec-list
 ~/.openclaw/scripts/exec-history.sh list
 ```
 
-## 📖 常用命令速查
+##  常用命令速查
 
 | 命令 | 说明 | 示例 |
 |------|------|------|
@@ -54,14 +54,14 @@ exec-list
 | `exec-history all-tools` | 查看所有工具统计 | `exec-history all-tools` |
 | `exec-history chart` | 查看执行时间线 | `exec-history chart` |
 
-## 🎯 快速示例
+##  快速示例
 
 ### 示例 1：查看最近执行了什么
 
 ```bash
 $ exec-list
 
-📋 Recent exec commands (last 20):
+ Recent exec commands (last 20):
   1. 2026-02-10 15:30:45 | ls -la
   2. 2026-02-10 15:28:12 | git status
   3. 2026-02-10 15:25:33 | npm install
@@ -73,7 +73,7 @@ $ exec-list
 ```bash
 $ exec-stats
 
-📊 Command usage statistics:
+ Command usage statistics:
 
    4  null
    3  ls
@@ -90,14 +90,14 @@ Total exec commands: 19
 ```bash
 $ exec-search git
 
-🔍 Searching for commands containing: git
+ Searching for commands containing: git
 
   1. 2026-02-10 15:28:12 | git status
   2. 2026-02-10 14:45:30 | git pull origin main
   3. 2026-02-10 12:20:15 | git commit -m "update"
 ```
 
-## 🔧 依赖检查
+##  依赖检查
 
 确保已安装 `jq`（JSON 处理工具）：
 
@@ -112,18 +112,18 @@ brew install jq
 sudo apt-get install jq
 ```
 
-## 📚 完整文档
+##  完整文档
 
 - [README.md](./README.md) - 详细使用说明
 - [SKILL.md](./SKILL.md) - Skill 技术文档
 
-## 💡 提示
+##  提示
 
 1. **不需要别名也能用**：即使没有设置别名，你也可以直接运行 `~/.openclaw/scripts/exec-history.sh`
 2. **查看帮助**：运行 `exec-history help` 查看所有可用命令
 3. **AI 助手集成**：直接在 OpenClaw 对话中说 "查看最近的 exec 执行记录"，AI 会自动帮你运行相应命令
 
-## 🎉 开始使用吧！
+##  开始使用吧！
 
 现在就试试运行 `exec-list` 查看你的命令历史！
 

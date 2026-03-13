@@ -297,7 +297,7 @@ export async function makePayableRequest(url, options = {}) {
   const requirements = parsePaymentRequired(paymentHeader);
 
   const humanAmount = formatUsdc(requirements.amount);
-  console.error(`💰 x402 Payment Required: $${humanAmount} USDC → ${requirements.recipient}`);
+  console.error(` x402 Payment Required: $${humanAmount} USDC → ${requirements.recipient}`);
 
   // Step 3: Check budget
   checkBudget(requirements.amount, maxAmount, dailyLimit);
@@ -318,7 +318,7 @@ export async function makePayableRequest(url, options = {}) {
   const key = keyOverride || getPrivateKey();
   const { header: paymentSignature, signer } = await createPaymentSignature(requirements, key);
 
-  console.error(`✍️  Signed by ${signer}, retrying with payment...`);
+  console.error(`  Signed by ${signer}, retrying with payment...`);
 
   // Step 6: Retry with payment
   const paidRes = await fetch(url, {
@@ -453,12 +453,12 @@ async function main() {
   });
 
   if (result.dryRun) {
-    console.log("🔍 DRY RUN — would pay:");
+    console.log(" DRY RUN — would pay:");
     console.log(`  Amount:    ${result.wouldPay}`);
     console.log(`  Recipient: ${result.recipient}`);
     console.log(`  URL:       ${url}`);
   } else if (result.paid) {
-    console.log(`✅ Paid ${result.amount} USDC to ${result.recipient}`);
+    console.log(` Paid ${result.amount} USDC to ${result.recipient}`);
     console.log(`   Signer: ${result.signer}`);
     if (result.paymentResponse) {
       console.log(`   Tx: ${JSON.stringify(result.paymentResponse)}`);

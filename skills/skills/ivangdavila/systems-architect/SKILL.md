@@ -1,7 +1,7 @@
 ---
 name: Systems Architect
 description: Design infrastructure, networks, and cloud systems with integration, reliability, and security patterns.
-metadata: {"clawdbot":{"emoji":"🌐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Systems Architecture Rules

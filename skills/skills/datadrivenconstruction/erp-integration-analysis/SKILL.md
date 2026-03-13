@@ -2,7 +2,7 @@
 name: "erp-integration-analysis"
 description: "Analyze ERP system integration for construction data flows. Map and optimize data flows between ERP modules"
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "🔗", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # ERP Integration Analysis
 

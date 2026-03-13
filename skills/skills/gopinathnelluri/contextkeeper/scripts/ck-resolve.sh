@@ -102,14 +102,14 @@ resolve_intent() {
   local phrase="$1"
   local lowered=$(echo "$phrase" | tr '[:upper:]' '[:lower:]')
   
-  echo -e "${BOLD}${CYAN}🔮 ContextKeeper Intent Resolution${RESET}"
+  echo -e "${BOLD}${CYAN} ContextKeeper Intent Resolution${RESET}"
   echo -e "${DIM}Query: \"$phrase\"${RESET}"
   echo ""
   
   # Pattern matching
   case "$lowered" in
     *[\ \"\']yesterday*|yesterday)
-      echo -e "${BOLD}📅 Yesterday's Context${RESET}"
+      echo -e "${BOLD} Yesterday's Context${RESET}"
       echo "─────────────────────────────────────────"
       local yest_file=$(checkpoint_from_date yesterday)
       if [ -f "$yest_file" ]; then
@@ -124,13 +124,13 @@ resolve_intent() {
           echo -e "${CYAN}→ Suggestion: Run 'ck-summarize.sh recent' for details${RESET}"
         fi
       else
-        echo -e "${YELLOW}⚠️ No checkpoint found from yesterday${RESET}"
+        echo -e "${YELLOW} No checkpoint found from yesterday${RESET}"
         echo "   Run: ckpt.sh \"Starting fresh\" to create one"
       fi
       ;;
 
     *[\ \"\']it*|*[\ \"\']that*|*[\ \"\']this*|it|that|this|thing|the\ thing)
-      echo -e "${BOLD}📦 Current Context Resolution${RESET}"
+      echo -e "${BOLD} Current Context Resolution${RESET}"
       echo "─────────────────────────────────────────"
       local current="$CKPT_DIR/current-state.json"
       if [ -L "$current" ] && [ -f "$current" ]; then
@@ -150,13 +150,13 @@ resolve_intent() {
         echo "   • ckpt.sh \"message\"      → Create new checkpoint"
         echo "   • cd $(grep '"git_dir"' "$current" 2>/dev/null | head -1 | sed 's/.*: *"\([^"]*\)".*/\1/' || echo 'project_dir')"
       else
-        echo -e "${YELLOW}⚠️ No current context found${RESET}"
+        echo -e "${YELLOW} No current context found${RESET}"
         echo "   Run: ckpt.sh from your project directory"
       fi
       ;;
 
     *finish*|*complete*|*wrap*)
-      echo -e "${BOLD}🎯 Finish Intent Detected${RESET}"
+      echo -e "${BOLD} Finish Intent Detected${RESET}"
       echo "─────────────────────────────────────────"
       # Find in-progress projects
       local found=0
@@ -181,7 +181,7 @@ resolve_intent() {
       fi
       
       if [ $found -eq 0 ]; then
-        echo -e "${YELLOW}⚠️ No active projects to finish${RESET}"
+        echo -e "${YELLOW} No active projects to finish${RESET}"
         echo "   Use: ckpt.sh \"Starting work on X\" to track a project"
       else
         echo ""
@@ -190,7 +190,7 @@ resolve_intent() {
       ;;
 
     *continue*|*resume*|*pick*up*|*where*|*left*off*)
-      echo -e "${BOLD}▶️ Continue from Last Session${RESET}"
+      echo -e "${BOLD} Continue from Last Session${RESET}"
       echo "─────────────────────────────────────────"
       local newest=$(find "$CHECKPOINTS_DIR" -name "*.json" -type f 2>/dev/null | sort | tail -1)
       if [ -f "$newest" ]; then

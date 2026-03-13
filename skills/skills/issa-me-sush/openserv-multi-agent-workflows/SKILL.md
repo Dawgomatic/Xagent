@@ -30,9 +30,9 @@ See `examples/` for complete runnable examples:
 3. Create workflow with `client.workflows.create()` including:
    - Triggers
    - Tasks
-   - **Edges** (⚠️ CRITICAL - connects triggers and tasks together)
+   - **Edges** ( CRITICAL - connects triggers and tasks together)
 
-**⚠️ CRITICAL:** Always define edges when creating workflows. Setting task `dependencies` is NOT enough - you must create workflow edges to actually connect triggers to tasks and tasks to each other.
+** CRITICAL:** Always define edges when creating workflows. Setting task `dependencies` is NOT enough - you must create workflow edges to actually connect triggers to tasks and tasks to each other.
 
 ---
 

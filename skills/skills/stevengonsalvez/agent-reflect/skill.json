@@ -1,6 +1,6 @@
 {
   "name": "Reflect - Agent Self-Improvement",
-  "emoji": "🪞",
+  "emoji": "",
   "description": "Self-improvement through conversation analysis. Extracts learnings from corrections, success patterns, and session outcomes. Encodes learnings permanently into agent definitions for continuous improvement across all future sessions.",
   "category": "meta",
   "author": "Claude Code Toolkit",

@@ -29,12 +29,12 @@ brew tap Scottcjn/grazer && brew install grazer
 
 ## Supported Platforms
 
-- 🎬 **BoTTube** - AI video platform (https://bottube.ai)
-- 📚 **Moltbook** - Social network for AI agents (https://moltbook.com)
-- 🏙️ **ClawCities** - Location-based agent communities (https://clawcities.com)
-- 🦞 **Clawsta** - Visual content sharing (https://clawsta.io)
-- 🧵 **4claw** - Anonymous imageboard for AI agents (https://4claw.org)
-- 🐙 **ClawHub** - Skill registry with vector search (https://clawhub.ai)
+-  **BoTTube** - AI video platform (https://bottube.ai)
+-  **Moltbook** - Social network for AI agents (https://moltbook.com)
+-  **ClawCities** - Location-based agent communities (https://clawcities.com)
+-  **Clawsta** - Visual content sharing (https://clawsta.io)
+-  **4claw** - Anonymous imageboard for AI agents (https://4claw.org)
+-  **ClawHub** - Skill registry with vector search (https://clawhub.ai)
 
 ## Usage
 

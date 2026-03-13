@@ -4,7 +4,7 @@ description: Generate and edit images via Google Gemini API. Supports Gemini nat
 homepage: https://github.com/IISweetHeartII/gemini-image-gen
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: ""
     category: creative
     requires:
       bins:

@@ -68,7 +68,7 @@ async function main() {
   const client = new ImapClient(config.imap);
 
   try {
-    console.log(`🔍 ${options.account.toUpperCase()} 메일 요약 생성 중...\n`);
+    console.log(` ${options.account.toUpperCase()} 메일 요약 생성 중...\n`);
     
     await client.connect();
     const hours = parseTimeString(options.recent);
@@ -90,11 +90,11 @@ async function main() {
     });
 
     // 출력
-    console.log(`📬 읽지 않은 메일 요약 (${options.account.toUpperCase()})`);
+    console.log(` 읽지 않은 메일 요약 (${options.account.toUpperCase()})`);
     console.log('━'.repeat(50) + '\n');
 
     // 중요 메일
-    console.log(`🔴 중요 (${categorized.important.length}건)`);
+    console.log(` 중요 (${categorized.important.length}건)`);
     if (categorized.important.length > 0) {
       categorized.important.forEach((msg, idx) => {
         const subject = msg.subject || '(제목 없음)';
@@ -107,7 +107,7 @@ async function main() {
     console.log('');
 
     // 일반 메일
-    console.log(`🟡 일반 (${categorized.normal.length}건)`);
+    console.log(` 일반 (${categorized.normal.length}건)`);
     if (categorized.normal.length > 0) {
       categorized.normal.slice(0, 10).forEach((msg, idx) => {
         const subject = msg.subject || '(제목 없음)';
@@ -123,7 +123,7 @@ async function main() {
     console.log('');
 
     // 광고/스팸
-    console.log(`🔵 광고/프로모션 (${categorized.spam.length}건)`);
+    console.log(` 광고/프로모션 (${categorized.spam.length}건)`);
     if (categorized.spam.length > 0) {
       categorized.spam.slice(0, 5).forEach((msg, idx) => {
         const subject = msg.subject || '(제목 없음)';
@@ -138,12 +138,12 @@ async function main() {
     console.log('');
 
     console.log('━'.repeat(50));
-    console.log(`📊 총 ${unreadMessages.length}건 (최근 ${options.recent})`);
+    console.log(` 총 ${unreadMessages.length}건 (최근 ${options.recent})`);
     console.log('━'.repeat(50) + '\n');
 
     await client.disconnect();
   } catch (err) {
-    console.error('❌ 오류:', err.message);
+    console.error(' 오류:', err.message);
     process.exit(1);
   }
 }

@@ -6,7 +6,7 @@
   "author": "Thomas Blanc",
   "category": "utility",
   "tags": ["api", "marketplace", "agents", "commerce", "networking", "deals", "reputation"],
-  "icon": "🦀",
+  "icon": "",
   "entryPoint": "skill.md",
   "permissions": ["network"],
   "always": false,

@@ -1,6 +1,6 @@
 # X Auto-Tweet System - Complete Guide
 
-## 🎯 How It Works
+##  How It Works
 
 **Fully automated tweet generation with human approval:**
 
@@ -13,7 +13,7 @@
 4. **Send to you via Telegram** for approval
 5. **Post approved tweets** automatically
 
-## 📁 File Structure
+##  File Structure
 
 ```
 x-automation/
@@ -30,7 +30,7 @@ x-automation/
 └── README.md
 ```
 
-## 🚀 Workflow
+##  Workflow
 
 ### Step 1: Manual Trend Scraping (for now)
 Since browser automation needs Chrome extension setup, here's the simple flow:
@@ -46,22 +46,22 @@ Since browser automation needs Chrome extension setup, here's the simple flow:
 
 **When I send tweet ideas:**
 ```
-💡 Tweet Idea #1:
+ Tweet Idea #1:
 "ETH dipping under $2,800 again. Same people panic selling now will FOMO at $4k. 
 
-DCA gang stays winning 📈"
+DCA gang stays winning "
 
 React with:
-✅ = Post it
-✏️ = I'll ask for edits
-❌ = Skip
+ = Post it
+ = I'll ask for edits
+ = Skip
 ```
 
 ### Step 3: Posting
 
 Once approved, tweets go to queue and post automatically (or manually via script).
 
-## 🎨 Tweet Generation Guidelines
+##  Tweet Generation Guidelines
 
 **Focus areas:**
 - Crypto trends (ETH, Base L2, DeFi)
@@ -81,7 +81,7 @@ Once approved, tweets go to queue and post automatically (or manually via script
 - Over-selling BountyLock
 - Engagement bait ("RT if you agree!")
 
-## 📅 Posting Schedule
+##  Posting Schedule
 
 **Optimal times (Baku GMT+4):**
 - Morning: 9:00-10:00 (when people check phones)
@@ -94,7 +94,7 @@ Once approved, tweets go to queue and post automatically (or manually via script
 - Don't post all at once
 - Space out by 3-4 hours minimum
 
-## 🔧 Manual Commands
+##  Manual Commands
 
 ### Check What's Trending
 ```bash
@@ -119,7 +119,7 @@ Once approved, tweets go to queue and post automatically (or manually via script
 "Show me tweets posted today"
 ```
 
-## 🤖 Automation (Cron Job)
+##  Automation (Cron Job)
 
 **Once we dial in the flow, I'll set up:**
 
@@ -136,7 +136,7 @@ Once approved, tweets go to queue and post automatically (or manually via script
 
 Runs every 4 hours, fully automated except your approval.
 
-## ⚠️ Safety Features
+##  Safety Features
 
 - **No auto-posting without approval** (except if you whitelist it)
 - **Daily tweet limit:** Max 10 tweets/day (avoid spam)
@@ -144,7 +144,7 @@ Runs every 4 hours, fully automated except your approval.
 - **Content review:** All tweets shown to you first
 - **Edit capability:** Tweak before posting
 
-## 🎯 Success Metrics
+##  Success Metrics
 
 Track in `data/analytics.json`:
 - Tweets posted per day
@@ -152,7 +152,7 @@ Track in `data/analytics.json`:
 - Topics that resonate (crypto vs tech vs product)
 - Engagement (manual tracking for now)
 
-## 🚦 Getting Started
+##  Getting Started
 
 **Phase 1: Manual (This Week)**
 1. You tell me when to check trends
@@ -173,6 +173,6 @@ Track in `data/analytics.json`:
 
 ---
 
-## ✅ Ready?
+##  Ready?
 
 Say **"Check X trends and generate tweet ideas"** and we'll do the first manual run!

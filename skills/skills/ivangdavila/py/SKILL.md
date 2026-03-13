@@ -3,7 +3,7 @@ name: Python
 slug: python
 version: 1.0.1
 description: Write reliable Python avoiding mutable defaults, import traps, and common runtime surprises.
-metadata: {"clawdbot":{"emoji":"🐍","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

@@ -52,7 +52,7 @@ def show_index(cfg: dict, token: str):
         vol = out.get('acml_vol', '0')
         sign = out.get('prdy_vrss_sign', '3')
 
-        emoji = {'1': '🔺', '2': '🔼', '4': '🔻', '5': '🔽'}.get(sign, '➡️')
+        emoji = {'1': '', '2': '', '4': '', '5': ''}.get(sign, '')
         print(f"{emoji} {name}: {idx_val} ({'+' if safe_float(change) >= 0 else ''}{change}, {fmt_rate(rate)})")
         print(f"   거래량: {fmt_num(vol)}주")
 
@@ -65,10 +65,10 @@ def show_volume_rank(cfg: dict, token: str, limit: int = 15):
 
     items = data.get('output', [])
     if not items:
-        print("📊 거래량 데이터 없음")
+        print(" 거래량 데이터 없음")
         return
 
-    print(f"📊 거래량 상위 종목 (상위 {min(limit, len(items))}개)")
+    print(f" 거래량 상위 종목 (상위 {min(limit, len(items))}개)")
     print()
 
     for i, item in enumerate(items[:limit], 1):
@@ -79,7 +79,7 @@ def show_volume_rank(cfg: dict, token: str, limit: int = 15):
         volume = safe_int(item.get('acml_vol'))
         sign = item.get('prdy_vrss_sign', '3')
 
-        emoji = {'1': '🔺', '2': '🔼', '4': '🔻', '5': '🔽'}.get(sign, '➡️')
+        emoji = {'1': '', '2': '', '4': '', '5': ''}.get(sign, '')
         print(f"  {i:2d}. {emoji} {name} ({code}) {fmt_price(price)} ({fmt_rate(change_rate)}) 거래량 {fmt_num(volume)}")
 
 
@@ -96,7 +96,7 @@ def main():
     token = get_token(cfg)
 
     if args.action in ('all', 'index'):
-        print("📈 시장 지수")
+        print(" 시장 지수")
         show_index(cfg, token)
         print()
 

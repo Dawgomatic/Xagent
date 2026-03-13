@@ -74,14 +74,14 @@ The easiest way - just run one command:
 
 **Expected output:**
 ```
-🎴 Publishing LunchTable-TCG to ClawHub...
+ Publishing LunchTable-TCG to ClawHub...
 
 Step 1/6: Validating skill format...
   ✓ SKILL.md exists
   ✓ .clawhub.json exists
   ✓ package.json exists
   ...
-✅ Validation passed!
+ Validation passed!
 
 Step 2/6: Checking ClawHub CLI...
 ✓ ClawHub CLI found
@@ -100,10 +100,10 @@ Uploading skill...
 ✓ Successfully submitted to ClawHub
 
 Step 6/6: Publish to npm (optional)...
-📦 Also publish to npm? [y/N]
+ Also publish to npm? [y/N]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Publishing complete!
+ Publishing complete!
 
 Your skill has been submitted to ClawHub for review.
 ```
@@ -204,12 +204,12 @@ clawhub comments lunchtable-tcg
 
 ### Common Rejection Reasons
 
-- ❌ Missing or incomplete SKILL.md frontmatter
-- ❌ Broken examples or scenarios
-- ❌ Missing INSTALLATION.md
-- ❌ Unclear documentation
-- ❌ License issues (must be open source)
-- ❌ Security concerns (API keys in code, etc.)
+-  Missing or incomplete SKILL.md frontmatter
+-  Broken examples or scenarios
+-  Missing INSTALLATION.md
+-  Unclear documentation
+-  License issues (must be open source)
+-  Security concerns (API keys in code, etc.)
 
 **If rejected:** ClawHub will provide specific feedback. Fix the issues and resubmit:
 
@@ -427,4 +427,4 @@ If all checked, you're ready:
 ./publish.sh
 ```
 
-Good luck! 🎴
+Good luck! 

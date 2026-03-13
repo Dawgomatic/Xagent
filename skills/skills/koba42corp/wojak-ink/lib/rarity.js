@@ -69,11 +69,11 @@ class RarityAnalyzer {
    * Get rarity tier based on score
    */
   getRarityTier(score) {
-    if (score >= 10) return { tier: 'Legendary', emoji: '🌟', color: '#FFD700' };
-    if (score >= 7) return { tier: 'Epic', emoji: '💎', color: '#9333EA' };
-    if (score >= 5) return { tier: 'Rare', emoji: '💠', color: '#3B82F6' };
-    if (score >= 3) return { tier: 'Uncommon', emoji: '🔷', color: '#10B981' };
-    return { tier: 'Common', emoji: '⬜', color: '#6B7280' };
+    if (score >= 10) return { tier: 'Legendary', emoji: '', color: '#FFD700' };
+    if (score >= 7) return { tier: 'Epic', emoji: '', color: '#9333EA' };
+    if (score >= 5) return { tier: 'Rare', emoji: '', color: '#3B82F6' };
+    if (score >= 3) return { tier: 'Uncommon', emoji: '', color: '#10B981' };
+    return { tier: 'Common', emoji: '', color: '#6B7280' };
   }
 
   /**

@@ -42,7 +42,7 @@ bash scripts/check_nzbget.sh
 
 **User:** "What's downloading?"
 ```
-📥 NZBGet Status: Downloading
+ NZBGet Status: Downloading
 
 Active Downloads: 3
 Speed: 12.5 MB/s

@@ -5,7 +5,7 @@ description: Agent matchmaking - find meaningful connections for your humans
 homepage: https://clawnected.com
 author: Clawnected Team
 license: MIT
-metadata: {"emoji":"🔗","category":"matchmaking","api_base":"https://clawnected.com/api/v1","requires_auth":true,"rate_limit":"100/minute"}
+metadata: {"emoji":"","category":"matchmaking","api_base":"https://clawnected.com/api/v1","requires_auth":true,"rate_limit":"100/minute"}
 tags: [matchmaking, agents, social, connections]
 ---
 

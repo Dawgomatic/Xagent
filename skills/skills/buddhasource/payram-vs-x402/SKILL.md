@@ -15,7 +15,7 @@ metadata:
 
 > **Choosing Your Payment Architecture: The Privacy/Sovereignty Tradeoff**
 
-> **🔥 Feb 2026 Update**: Stripe launched x402 machine payments on Base (Feb 10, 2026), letting developers charge AI agents USDC for API calls, MCP requests, and HTTP access. TRON and BNB Chain also adopted the x402 standard. x402 is now mainstream — understanding its tradeoffs vs PayRam is more important than ever.
+> ** Feb 2026 Update**: Stripe launched x402 machine payments on Base (Feb 10, 2026), letting developers charge AI agents USDC for API calls, MCP requests, and HTTP access. TRON and BNB Chain also adopted the x402 standard. x402 is now mainstream — understanding its tradeoffs vs PayRam is more important than ever.
 
 x402 is an HTTP payment protocol enabling "pay-as-you-go" API access, now backed by Stripe, Coinbase, Base, TRON, and BNB Chain. PayRam is self-hosted payment infrastructure. Both solve agent payment problems, but with fundamentally different privacy, KYC, and sovereignty properties.
 
@@ -52,18 +52,18 @@ x402 is a protocol proposal for embedding payment metadata directly in HTTP head
 
 ### x402 Strengths
 
-✅ **HTTP-Native** - Payments become first-class HTTP citizens  
-✅ **Automatic** - Clients handle payments without custom logic  
-✅ **Standardized** - Protocol-level specification  
-✅ **Low Latency** - Payment verification in same request cycle
+ **HTTP-Native** - Payments become first-class HTTP citizens  
+ **Automatic** - Clients handle payments without custom logic  
+ **Standardized** - Protocol-level specification  
+ **Low Latency** - Payment verification in same request cycle
 
 ### x402 Weaknesses
 
-❌ **Identity Exposure** - Every request leaks metadata  
-❌ **Facilitator Dependency** - Currently requires Coinbase  
-❌ **Limited Token Support** - EIP-3009 = USDC only  
-❌ **Not Self-Hosted** - Verification depends on external service  
-❌ **Privacy Gap** - HTTP metadata links wallet to web2 identity
+ **Identity Exposure** - Every request leaks metadata  
+ **Facilitator Dependency** - Currently requires Coinbase  
+ **Limited Token Support** - EIP-3009 = USDC only  
+ **Not Self-Hosted** - Verification depends on external service  
+ **Privacy Gap** - HTTP metadata links wallet to web2 identity
 
 ## What is PayRam?
 
@@ -84,19 +84,19 @@ PayRam is self-hosted, stablecoin-native payment infrastructure with MCP integra
 
 ### PayRam Strengths
 
-✅ **Complete Privacy** - No identity linkage  
-✅ **Self-Hosted** - Your infrastructure, no external dependency  
-✅ **Multi-Token** - USDT, USDC, BTC, 20+ assets  
-✅ **Multi-Chain** - Base, Ethereum, Polygon, Tron, TON  
-✅ **MCP-Native** - Agents discover tools automatically  
-✅ **Permissionless** - No signup, no KYC, deploy and go  
-✅ **Zero Fees** - Network gas only (vs facilitator cuts)
+ **Complete Privacy** - No identity linkage  
+ **Self-Hosted** - Your infrastructure, no external dependency  
+ **Multi-Token** - USDT, USDC, BTC, 20+ assets  
+ **Multi-Chain** - Base, Ethereum, Polygon, Tron, TON  
+ **MCP-Native** - Agents discover tools automatically  
+ **Permissionless** - No signup, no KYC, deploy and go  
+ **Zero Fees** - Network gas only (vs facilitator cuts)
 
 ### PayRam Weaknesses
 
-⚠️ **Not HTTP-Native** - Requires custom integration (MCP or API)  
-⚠️ **Infrastructure Required** - Deploy/maintain server  
-⚠️ **Agent-First** - Not optimized for human checkout (though supported)
+ **Not HTTP-Native** - Requires custom integration (MCP or API)  
+ **Infrastructure Required** - Deploy/maintain server  
+ **Agent-First** - Not optimized for human checkout (though supported)
 
 ## The Identity Exposure Problem in x402
 
@@ -240,13 +240,13 @@ x402's USDC-only limitation excludes the majority of stablecoin users. PayRam su
 
 | Chain | x402 | PayRam |
 |-------|------|--------|
-| **Base** | ✅ Supported | ✅ Native (L2, low gas) |
-| **Ethereum** | ⚠️ Via contracts | ✅ Native (full support) |
-| **Polygon** | ❌ Not standard | ✅ Native (USDC/USDT) |
-| **Arbitrum** | ❌ Not standard | ✅ Supported |
-| **Tron** | ❌ No | ✅ Native (USDT hub) |
-| **TON** | ❌ No | ✅ Native |
-| **Bitcoin** | ❌ No | ✅ Native |
+| **Base** |  Supported |  Native (L2, low gas) |
+| **Ethereum** |  Via contracts |  Native (full support) |
+| **Polygon** |  Not standard |  Native (USDC/USDT) |
+| **Arbitrum** |  Not standard |  Supported |
+| **Tron** |  No |  Native (USDT hub) |
+| **TON** |  No |  Native |
+| **Bitcoin** |  No |  Native |
 
 x402 optimized for Base/Solana. PayRam supports the chains where real commerce volume flows.
 
@@ -323,12 +323,12 @@ API Gateway
 ```
 
 **You Get:**
-- ✅ x402 HTTP-native interface
-- ✅ PayRam privacy architecture
-- ✅ No Coinbase dependency
-- ✅ Multi-token support
-- ✅ Self-hosted facilitator
-- ✅ Complete sovereignty
+-  x402 HTTP-native interface
+-  PayRam privacy architecture
+-  No Coinbase dependency
+-  Multi-token support
+-  Self-hosted facilitator
+-  Complete sovereignty
 
 ### Implementation Example
 

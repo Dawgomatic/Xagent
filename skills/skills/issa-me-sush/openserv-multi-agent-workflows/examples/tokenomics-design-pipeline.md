@@ -128,7 +128,7 @@ async function setup() {
         body: 'Compile the utility design and tokenomics model into professional whitepaper content. Include: token overview, utility details, economics, distribution, and roadmap sections.'
       }
     ],
-    // ⚠️ CRITICAL: Edges define the workflow execution path
+    //  CRITICAL: Edges define the workflow execution path
     edges: [
       { from: 'trigger:webhook', to: 'task:design' },
       { from: 'task:design', to: 'task:model' },

@@ -120,9 +120,9 @@ for addr in "${ADDRESSES[@]}"; do
     LAST=$(echo "$STATUS" | jq -r '.lastPulse // .lastPulseAt // "never"')
 
     if [[ "$IS_ALIVE" == "true" ]]; then
-      ICON="🟢"; ALIVE_COUNT=$((ALIVE_COUNT + 1))
+      ICON=""; ALIVE_COUNT=$((ALIVE_COUNT + 1))
     else
-      ICON="🔴"; DEAD_COUNT=$((DEAD_COUNT + 1))
+      ICON=""; DEAD_COUNT=$((DEAD_COUNT + 1))
     fi
 
     $OUTPUT_JSON || echo "$ICON $addr"
@@ -134,7 +134,7 @@ for addr in "${ADDRESSES[@]}"; do
       '{address:$a, alive:$alive, streak:$streak, hazard:$hazard, lastPulse:$last}')")
   else
     ERROR_COUNT=$((ERROR_COUNT + 1))
-    $OUTPUT_JSON || echo "⚪ $addr"
+    $OUTPUT_JSON || echo " $addr"
     $OUTPUT_JSON || echo "   Status: unknown (API error or unregistered)"
 
     JSON_ITEMS+=("$(jq -n --arg a "$addr" '{address:$a, alive:null, error:"could not fetch status"}')")
@@ -147,8 +147,8 @@ if $OUTPUT_JSON; then
 else
   echo ""
   echo "=== Summary ==="
-  echo "  🟢 Alive: $ALIVE_COUNT"
-  echo "  🔴 Dead:  $DEAD_COUNT"
-  echo "  ⚪ Error: $ERROR_COUNT"
+  echo "   Alive: $ALIVE_COUNT"
+  echo "   Dead:  $DEAD_COUNT"
+  echo "   Error: $ERROR_COUNT"
   echo "  Total:   ${#ADDRESSES[@]}"
 fi

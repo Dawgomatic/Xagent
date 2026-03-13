@@ -21,7 +21,7 @@ description: Chrome DevTools Protocol, extension Manifest V3, and debugging patt
 
 **Service workers terminate**: No persistent state. Use `chrome.storage.local` instead of global variables. Use `chrome.alarms` instead of `setInterval`.
 
-**Content script isolation**: Can't access page globals. Use `chrome.scripting.executeScript` with `func` for page context. Use `window.postMessage` for content↔page communication.
+**Content script isolation**: Can't access page globals. Use `chrome.scripting.executeScript` with `func` for page context. Use `window.postMessage` for contentpage communication.
 
 **Storage is async**: `chrome.storage.local.get()` returns Promise, not data. Always await. Handle `QUOTA_EXCEEDED` errors.
 

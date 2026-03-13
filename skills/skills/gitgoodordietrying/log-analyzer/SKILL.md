@@ -1,7 +1,7 @@
 ---
 name: log-analyzer
 description: Parse, search, and analyze application logs across formats. Use when debugging from log files, setting up structured logging, analyzing error patterns, correlating events across services, parsing stack traces, or monitoring log output in real time.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"anyBins":["grep","awk","jq","python3"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["grep","awk","jq","python3"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Log Analyzer

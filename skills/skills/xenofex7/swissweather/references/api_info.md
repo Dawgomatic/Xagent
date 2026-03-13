@@ -64,7 +64,7 @@ Official Swiss weather data from MeteoSwiss (Federal Office of Meteorology and C
 }
 ```
 
-**Status**: ⚠️ As of Jan 2026, this API may be unstable or changed. If it fails, use current weather CSV instead or check MeteoSwiss website for updated endpoints.
+**Status**:  As of Jan 2026, this API may be unstable or changed. If it fails, use current weather CSV instead or check MeteoSwiss website for updated endpoints.
 
 ### 3. Weather Warnings
 

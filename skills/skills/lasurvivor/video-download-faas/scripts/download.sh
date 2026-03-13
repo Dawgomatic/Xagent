@@ -52,7 +52,7 @@ cat > "$SESSION_FILE" <<EOF
 EOF
 
 # Return immediately with session info
-echo "✅ Download started in background"
+echo " Download started in background"
 echo ""
 echo "Session ID: $SESSION_NAME"
 echo "PID: $PID"

@@ -14,7 +14,7 @@
       "agent": "notification-agent",
       "action": "send_telegram",
       "input": {
-        "message": "📰 New Research Article\n\n**{{payload.title}}**\n\nImportance: {{payload.importance}}/10\n{{payload.url}}"
+        "message": " New Research Article\n\n**{{payload.title}}**\n\nImportance: {{payload.importance}}/10\n{{payload.url}}"
       }
     }
   ]

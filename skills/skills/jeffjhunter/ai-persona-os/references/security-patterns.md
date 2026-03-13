@@ -269,7 +269,7 @@ Write what happened:
 **Step 3: Alert**
 Tell your human immediately:
 ```
-⚠️ SECURITY ALERT
+ SECURITY ALERT
 
 What: [Brief description]
 Source: [Where it came from]

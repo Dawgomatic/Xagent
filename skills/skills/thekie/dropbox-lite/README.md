@@ -1,4 +1,4 @@
-# Dropbox Skill for Clawdbot 📦
+# Dropbox Skill for Clawdbot 
 
 A lightweight, cross-platform Dropbox integration for Clawdbot.
 
@@ -8,17 +8,17 @@ There's already a Dropbox skill on ClawdHub, but it requires macOS (Swift + Keyc
 
 | Feature | This Skill | Other (Swift) |
 |---------|------------|---------------|
-| **Platform** | ✅ Linux, macOS, Windows | ❌ macOS only |
-| **Setup** | ✅ Just Python + env vars | ❌ Git clone + compile |
-| **Dependencies** | ✅ `requests` only | ❌ SwiftyDropbox SDK |
-| **Server-friendly** | ✅ Headless/SSH ready | ❌ Requires Keychain |
-| **Complexity** | ✅ Simple CLI script | ⚠️ MCP server |
+| **Platform** |  Linux, macOS, Windows |  macOS only |
+| **Setup** |  Just Python + env vars |  Git clone + compile |
+| **Dependencies** |  `requests` only |  SwiftyDropbox SDK |
+| **Server-friendly** |  Headless/SSH ready |  Requires Keychain |
+| **Complexity** |  Simple CLI script |  MCP server |
 
 ### Perfect For:
-- 🖥️ **Linux servers** — no GUI needed
-- 🤖 **Automated workflows** — cron jobs, scripts
-- ☁️ **Headless environments** — VPS, containers
-- 🚀 **Quick setup** — running in minutes, not hours
+-  **Linux servers** — no GUI needed
+-  **Automated workflows** — cron jobs, scripts
+-  **Headless environments** — VPS, containers
+-  **Quick setup** — running in minutes, not hours
 
 ## Installation
 

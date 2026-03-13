@@ -65,7 +65,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <body>
 <div class="app">
 <div class="top">
-  <div class="logo">📋 <span>__TITLE__</span></div>
+  <div class="logo"> <span>__TITLE__</span></div>
   <div class="clock" id="clock"></div>
 </div>
 <div class="kpi">
@@ -74,7 +74,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="k kg"><div class="kn" id="kc">-</div><div class="kl">Completed</div></div>
   <div class="k kp"><div class="kn" id="kp">-</div><div class="kl">Paused</div></div>
 </div>
-<input class="search" type="text" placeholder="🔍 Search projects, files, keywords..." id="search" aria-label="Search projects">
+<input class="search" type="text" placeholder=" Search projects, files, keywords..." id="search" aria-label="Search projects">
 <div id="content"></div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -93,7 +93,7 @@ function showToast(msg){
 
 function copyPath(f,e){
   e.stopPropagation();
-  navigator.clipboard.writeText(WS+f).then(()=>showToast('📋 Copied: '+f));
+  navigator.clipboard.writeText(WS+f).then(()=>showToast(' Copied: '+f));
 }
 
 function openDir(f,e){
@@ -101,23 +101,23 @@ function openDir(f,e){
   const full=WS+f;
   const dir=full.substring(0,full.lastIndexOf('/')+1);
   window.open('file://'+dir,'_blank');
-  showToast('📂 Opening: '+dir.split('/').slice(-2).join('/'));
+  showToast(' Opening: '+dir.split('/').slice(-2).join('/'));
 }
 
 function fileButtons(f){
   const short=f.split('/').pop();
   return '<div class="fgrp">'
-    +'<button class="fl" onclick="copyPath(\''+f+'\',event)" title="'+f+'">📄 '+short+'</button>'
-    +'<button class="fbtn fbtn-copy" onclick="copyPath(\''+f+'\',event)" title="Copy full path">📋</button>'
-    +'<button class="fbtn fbtn-dir" onclick="openDir(\''+f+'\',event)" title="Open containing folder">📂</button>'
+    +'<button class="fl" onclick="copyPath(\''+f+'\',event)" title="'+f+'"> '+short+'</button>'
+    +'<button class="fbtn fbtn-copy" onclick="copyPath(\''+f+'\',event)" title="Copy full path"></button>'
+    +'<button class="fbtn fbtn-dir" onclick="openDir(\''+f+'\',event)" title="Open containing folder"></button>'
     +'</div>';
 }
 
 const secs=[
-  {id:'decision',icon:'🎯',title:'Main Quests',filter:p=>p.status==='decision',bar:'qbr',bg:'bgd',label:'Decision'},
-  {id:'active',icon:'📋',title:'Side Quests',filter:p=>p.status==='active',bar:'qby',bg:'bga',label:'Active'},
-  {id:'done',icon:'✅',title:'Completed',filter:p=>p.status==='done',bar:'qbg',bg:'bgc',label:'Done'},
-  {id:'paused',icon:'💤',title:'Icebox',filter:p=>p.status==='paused',bar:'qbm',bg:'bgp',label:'Paused'},
+  {id:'decision',icon:'',title:'Main Quests',filter:p=>p.status==='decision',bar:'qbr',bg:'bgd',label:'Decision'},
+  {id:'active',icon:'',title:'Side Quests',filter:p=>p.status==='active',bar:'qby',bg:'bga',label:'Active'},
+  {id:'done',icon:'',title:'Completed',filter:p=>p.status==='done',bar:'qbg',bg:'bgc',label:'Done'},
+  {id:'paused',icon:'',title:'Icebox',filter:p=>p.status==='paused',bar:'qbm',bg:'bgp',label:'Paused'},
 ];
 
 function matchesQuery(p, q) {
@@ -159,7 +159,7 @@ function render(){
         +'<div class="qr">'+(p.priority?'<span class="pri">'+p.priority+'</span>':'')
         +'<span class="bg '+s.bg+'">'+s.label+'</span></div></div>'
         +'<div class="qd">'
-        +(p.deadline?'<div class="dl">⏰ '+p.deadline+'</div>':'')
+        +(p.deadline?'<div class="dl"> '+p.deadline+'</div>':'')
         +(hp?'<div class="prog"><div class="prog-f" style="width:'+p.progress+'%"></div></div><div class="prog-l">'+p.progress+'%</div>':'')
         +'<div class="desc">'+(p.desc||'')+'</div>'
         +((p.files||[]).length?'<div class="fs">'+p.files.map(f=>fileButtons(f)).join('')+'</div>':'')
@@ -175,7 +175,7 @@ function render(){
     const div=document.createElement('div');
     div.className='sec';
     const items=Object.values(REG.infra);
-    div.innerHTML='<div class="sec-h"><span>🔧</span><span class="sec-t">Infrastructure</span><span class="sec-c">'+items.length+'</span></div>';
+    div.innerHTML='<div class="sec-h"><span></span><span class="sec-t">Infrastructure</span><span class="sec-c">'+items.length+'</span></div>';
     items.forEach(i=>{
       const el=document.createElement('div');
       el.className='q';
@@ -193,7 +193,7 @@ function render(){
     const div=document.createElement('div');
     div.className='sec';
     const items=Object.values(REG.research);
-    div.innerHTML='<div class="sec-h"><span>📊</span><span class="sec-t">Research</span><span class="sec-c">'+items.length+'</span></div>';
+    div.innerHTML='<div class="sec-h"><span></span><span class="sec-t">Research</span><span class="sec-c">'+items.length+'</span></div>';
     items.forEach(r=>{
       const el=document.createElement('div');
       el.className='q';

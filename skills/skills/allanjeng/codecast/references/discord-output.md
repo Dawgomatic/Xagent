@@ -1,26 +1,26 @@
 # What Discord Sees
 
 ## Claude Code (stream-json)
-- ⚙️ Model info and permission mode
-- 📝 File writes with line count and smart content preview
-- ✏️ File edits
-- 🖥️ Bash commands
-- 📤 Bash command output (truncated to 800 chars)
-- 👁️ File reads (hide with `--skip-reads`)
-- 🔍 Web searches
-- 💬 Assistant messages
-- ✅/❌ Completion summary with turns, duration, cost, and session stats
+-  Model info and permission mode
+-  File writes with line count and smart content preview
+-  File edits
+-  Bash commands
+-  Bash command output (truncated to 800 chars)
+-  File reads (hide with `--skip-reads`)
+-  Web searches
+-  Assistant messages
+- / Completion summary with turns, duration, cost, and session stats
 
 ## Codex (--json)
-- ⚙️ Session thread ID
-- 🖥️ Command executions
-- 📤 Command output (truncated)
-- 📝 File creates / ✏️ File modifications
-- 🧠 Reasoning traces
-- 🔍 Web searches / 🔧 MCP tool calls / 📋 Plan updates
-- 💬 Agent messages
-- 📊 Token usage per turn
-- ✅ Session summary with cost and stats
+-  Session thread ID
+-  Command executions
+-  Command output (truncated)
+-  File creates /  File modifications
+-  Reasoning traces
+-  Web searches /  MCP tool calls /  Plan updates
+-  Agent messages
+-  Token usage per turn
+-  Session summary with cost and stats
 
 ## Other agents (raw mode)
 - Output in code blocks with ANSI stripping

@@ -35,10 +35,10 @@ const colors = {
   dim: '\x1b[2m'
 };
 
-function log(msg) { console.log(`📦 ${msg}`); }
-function success(msg) { console.log(`${colors.green}✅ ${msg}${colors.reset}`); }
-function warn(msg) { console.log(`${colors.yellow}⚠️  ${msg}${colors.reset}`); }
-function error(msg) { console.error(`${colors.red}❌ ${msg}${colors.reset}`); }
+function log(msg) { console.log(` ${msg}`); }
+function success(msg) { console.log(`${colors.green} ${msg}${colors.reset}`); }
+function warn(msg) { console.log(`${colors.yellow}  ${msg}${colors.reset}`); }
+function error(msg) { console.error(`${colors.red} ${msg}${colors.reset}`); }
 
 function runCmd(cmd, options = {}) {
   try {
@@ -104,7 +104,7 @@ async function runDoctor(pkg) {
       return JSON.parse(result);
     } catch {
       // Non-JSON output, try to parse status
-      if (result.includes('healthy') || result.includes('✅') || result.includes('passed')) {
+      if (result.includes('healthy') || result.includes('') || result.includes('passed')) {
         return { status: 'healthy' };
       }
       return { status: 'unknown', message: result.substring(0, 100) };
@@ -138,7 +138,7 @@ async function cmdList() {
   }
   
   // NPM packages (public)
-  console.log('\n  📦 Public (npm install):\n');
+  console.log('\n   Public (npm install):\n');
   for (const [id, pkg] of npmPackages) {
     const installed = state.installed[id];
     const statusIcon = installed ? colors.green + '✓' + colors.reset : colors.dim + '○' + colors.reset;
@@ -151,7 +151,7 @@ async function cmdList() {
   }
   
   // Internal packages (require GitHub access)
-  console.log('\n  🔒 Internal (requires GitHub access):\n');
+  console.log('\n   Internal (requires GitHub access):\n');
   for (const [id, pkg] of internalPackages) {
     const localPath = pkg.localPath?.replace('~', os.homedir());
     const exists = localPath && fs.existsSync(localPath);
@@ -249,7 +249,7 @@ async function cmdDoctor(options = {}) {
     if (pkg.installType === 'internal') {
       const localPath = pkg.localPath?.replace('~', os.homedir());
       if (!localPath || !fs.existsSync(localPath)) {
-        if (!json) console.log(`  ⚪ ${pkg.name} — not cloned (exo internal clone)`);
+        if (!json) console.log(`   ${pkg.name} — not cloned (exo internal clone)`);
         continue;
       }
     } else if (!state.installed[id] && !pkg.npm) {
@@ -259,7 +259,7 @@ async function cmdDoctor(options = {}) {
     // Check if installed (npm packages)
     const version = await getInstalledVersion(pkg);
     if (!version && pkg.npm && pkg.installType !== 'local') {
-      if (!json) console.log(`  ⚪ ${pkg.name} — not installed`);
+      if (!json) console.log(`   ${pkg.name} — not installed`);
       continue;
     }
     
@@ -280,9 +280,9 @@ async function cmdDoctor(options = {}) {
     results.push(result);
     
     if (!json) {
-      const statusIcon = health.status === 'healthy' ? '✅' : 
-                         health.status === 'no-doctor' ? '✅' :  // No doctor = assume OK for internal
-                         health.status === 'error' ? '❌' : '⚠️';
+      const statusIcon = health.status === 'healthy' ? '' : 
+                         health.status === 'no-doctor' ? '' :  // No doctor = assume OK for internal
+                         health.status === 'error' ? '' : '';
       const updateBadge = updateAvailable ? ` ${colors.yellow}→ v${latestVersion}${colors.reset}` : '';
       const versionStr = version ? `v${version}` : (pkg.installType === 'internal' ? colors.dim + '(internal)' + colors.reset : '');
       console.log(`  ${statusIcon} ${pkg.name} ${versionStr}${updateBadge}`);
@@ -315,7 +315,7 @@ async function cmdDoctor(options = {}) {
     success(`All ${healthy} packages healthy (${parts.join(', ')})`);
   } else {
     if (issues > 0) warn(`${issues} package(s) have issues`);
-    if (updates > 0) console.log(`📦 ${updates} update(s) available — run: exo update`);
+    if (updates > 0) console.log(` ${updates} update(s) available — run: exo update`);
   }
   console.log('');
   
@@ -346,7 +346,7 @@ async function cmdUpdate(options = {}) {
     const latest = await getNpmVersion(pkg.npm);
     if (latest && latest !== installed) {
       updatesAvailable.push({ id, pkg, installed, latest });
-      console.log(`  📦 ${pkg.name}: ${installed} → ${latest}`);
+      console.log(`   ${pkg.name}: ${installed} → ${latest}`);
     }
   }
   
@@ -516,7 +516,7 @@ async function cmdCronSetup() {
     sessionTarget: 'main',
     payload: {
       kind: 'systemEvent',
-      text: '🔧 Daily E.x.O. health check: Run `exo doctor --telegram` to check all tools and send report if issues found.'
+      text: ' Daily E.x.O. health check: Run `exo doctor --telegram` to check all tools and send report if issues found.'
     }
   };
   
@@ -536,17 +536,17 @@ async function sendTelegramReport(results) {
   const issues = results.filter(r => r.health.status === 'error');
   const updates = results.filter(r => r.updateAvailable);
   
-  let msg = '🔧 E.x.O. Health Report\n\n';
+  let msg = ' E.x.O. Health Report\n\n';
   
   for (const r of results) {
-    const icon = r.health.status === 'healthy' ? '✅' : 
-                 r.health.status === 'error' ? '❌' : '⚪';
+    const icon = r.health.status === 'healthy' ? '' : 
+                 r.health.status === 'error' ? '' : '';
     const update = r.updateAvailable ? ` → v${r.latestVersion}` : '';
     msg += `${icon} ${r.name} v${r.version}${update}\n`;
   }
   
   if (updates.length > 0) {
-    msg += `\n📦 ${updates.length} update(s) available\nRun: exo update`;
+    msg += `\n ${updates.length} update(s) available\nRun: exo update`;
   }
   
   // This would use OpenClaw's message tool

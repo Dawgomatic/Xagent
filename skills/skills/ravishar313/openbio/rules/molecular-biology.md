@@ -50,10 +50,10 @@ What molecular biology task?
 
 ### GC Clamp Rule
 ```
-✅ End with G or C (1-2 bases)
+ End with G or C (1-2 bases)
    → ATGCATGCATGC (ends in GC)
 
-❌ End with multiple A/T
+ End with multiple A/T
    → ATGCATGCATAAA (weak 3' end)
 ```
 
@@ -78,57 +78,57 @@ What molecular biology task?
 
 ```
 Gibson Assembly:
-✅ Few parts (2-6)
-✅ Any sequence (no BsaI sites needed)
-✅ Quick, one-step reaction
-❌ Not great for many parts (recombination drops)
+ Few parts (2-6)
+ Any sequence (no BsaI sites needed)
+ Quick, one-step reaction
+ Not great for many parts (recombination drops)
 
 Golden Gate:
-✅ Many parts (4+)
-✅ Combinatorial libraries
-✅ Standardized parts (MoClo, etc.)
-❌ Requires removal of internal BsaI/BbsI sites
+ Many parts (4+)
+ Combinatorial libraries
+ Standardized parts (MoClo, etc.)
+ Requires removal of internal BsaI/BbsI sites
 
 Traditional Cloning:
-✅ Simple insert into vector
-✅ Well-characterized system
-❌ Leaves restriction site scar
-❌ Limited by available RE sites
+ Simple insert into vector
+ Well-characterized system
+ Leaves restriction site scar
+ Limited by available RE sites
 ```
 
 ## Common Mistakes
 
 ### Wrong: Tm calculation method mismatch
 ```
-❌ Mixing Tm from different calculators
+ Mixing Tm from different calculators
    → Primers designed with different methods
 ```
 **Why wrong**: Tm formulas vary (nearest-neighbor vs. %GC method).
 
 ```
-✅ Use same method consistently
+ Use same method consistently
    evaluate_primers uses nearest-neighbor with salt correction
 ```
 
 ### Wrong: Ignoring secondary structure
 ```
-❌ Long primer with GGGCCC = hairpin formation
+ Long primer with GGGCCC = hairpin formation
 ```
 
 ```
-✅ Check with evaluate_primers
+ Check with evaluate_primers
    Will report hairpin ΔG
    Redesign if ΔG < -3 kcal/mol
 ```
 
 ### Wrong: Gibson overlaps too short
 ```
-❌ 10 bp overlaps "should be enough"
+ 10 bp overlaps "should be enough"
 ```
 **Why wrong**: Short overlaps = low efficiency, especially with GC-poor regions.
 
 ```
-✅ Overlap guidelines:
+ Overlap guidelines:
    - Minimum: 15 bp
    - Recommended: 20-25 bp
    - GC-poor regions: 30-40 bp
@@ -136,11 +136,11 @@ Traditional Cloning:
 
 ### Wrong: Not checking for internal enzyme sites
 ```
-❌ Designing Golden Gate with BsaI site inside your gene
+ Designing Golden Gate with BsaI site inside your gene
 ```
 
 ```
-✅ Before assembly:
+ Before assembly:
    restriction_find_sites for Type IIS enzyme
    Remove internal sites by synonymous mutations
 ```

@@ -91,9 +91,9 @@
 
 | Module | Status | Mastery | Last Review |
 |--------|--------|---------|-------------|
-| Mod 1 | ✅ Complete | 85% | 2026-02-10 |
-| Mod 2 | 🔄 In Progress | 60% | 2026-02-14 |
-| Mod 3 | ⬜ Not Started | - | - |
+| Mod 1 |  Complete | 85% | 2026-02-10 |
+| Mod 2 |  In Progress | 60% | 2026-02-14 |
+| Mod 3 |  Not Started | - | - |
 ```
 
 ## Managing Multiple Degrees

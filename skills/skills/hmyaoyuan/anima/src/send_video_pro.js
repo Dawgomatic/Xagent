@@ -8,7 +8,7 @@ const APP_ID = process.env.FEISHU_APP_ID;
 const APP_SECRET = process.env.FEISHU_APP_SECRET;
 const TARGET_ID = process.argv[2];
 if (!TARGET_ID) {
-  console.error("❌ Usage: node send_video_pro.js <target_open_id> [video_path]");
+  console.error(" Usage: node send_video_pro.js <target_open_id> [video_path]");
   process.exit(1);
 }
 const VIDEO_PATH = process.argv[3] ? path.resolve(process.argv[3]) : path.resolve(__dirname, '../output/final_fixed_voice.mp4');

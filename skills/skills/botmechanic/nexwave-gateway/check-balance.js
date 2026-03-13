@@ -15,7 +15,7 @@ console.log("══════════════════════�
 console.log(`Account: ${walletAddress}\n`);
 
 // Fetch supported chain info
-console.log("📡 Fetching Gateway API info...");
+console.log(" Fetching Gateway API info...");
 const info = await gatewayClient.info();
 console.log(`   API Version: ${info.version}`);
 console.log("   Supported chains:");
@@ -23,12 +23,12 @@ for (const domain of info.domains) {
   const hasWallet = "walletContract" in domain;
   const hasMinter = "minterContract" in domain;
   console.log(
-    `   • ${domain.chain} ${domain.network} — wallet: ${hasWallet ? "✅" : "❌"}, minter: ${hasMinter ? "✅" : "❌"}`
+    `   • ${domain.chain} ${domain.network} — wallet: ${hasWallet ? "" : ""}, minter: ${hasMinter ? "" : ""}`
   );
 }
 
 // Check unified balance
-console.log("\n💰 Checking unified USDC balance...");
+console.log("\n Checking unified USDC balance...");
 const { balances } = await gatewayClient.balances("USDC", walletAddress);
 
 let totalBalance = 0;
@@ -40,7 +40,7 @@ for (const balance of balances) {
   console.log(`   • ${chainName}: ${balance.balance} USDC`);
 }
 
-console.log(`\n   📊 Total unified balance: ${totalBalance.toFixed(6)} USDC`);
+console.log(`\n    Total unified balance: ${totalBalance.toFixed(6)} USDC`);
 console.log("\n═══════════════════════════════════════════════");
 
 process.exit(0);

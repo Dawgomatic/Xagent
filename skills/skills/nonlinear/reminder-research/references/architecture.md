@@ -21,7 +21,7 @@ graph TD
     D -->|queries| E[Apple Reminders via remindctl]
     E -->|returns JSON| D
     
-    D -->|filters| F{Has 💎 in notes?}
+    D -->|filters| F{Has  in notes?}
     F -->|Yes| G[SKIP - already processed]
     F -->|No| H{Notes empty?}
     
@@ -39,7 +39,7 @@ graph TD
     M --> Q[AI: Generic research]
     N --> R[AI: Follow custom instructions]
     
-    O --> S[Update notes with 💎 + analysis]
+    O --> S[Update notes with  + analysis]
     P --> S
     Q --> S
     R --> S
@@ -66,7 +66,7 @@ graph TD
 
 **1. Detection Script (`process-reminders.sh`)**
 - Queries all incomplete reminders via `remindctl all --json`
-- Filters for items **without 💎** at start of notes
+- Filters for items **without ** at start of notes
 - Categorizes by list + notes presence
 - Outputs pipe-delimited format:
 
@@ -86,8 +86,8 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
   - **CUSTOM_ITEM**: Parse instructions → multi-source (librarian + web + constraints)
 
 **3. Result Update**
-- Formats research findings with 💎 signifier
-- Updates reminder notes via `remindctl edit <id> --notes "💎 ..."`
+- Formats research findings with  signifier
+- Updates reminder notes via `remindctl edit <id> --notes " ..."`
 - Announces completion
 
 ### Output: Updated Reminder
@@ -97,7 +97,7 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
   "id": "ABC-123",
   "title": "Bitcoin regulation",
   "listName": "TODO",
-  "notes": "💎 RESEARCH RESULTS\n\nBook: Graeber argues...\n\nWeb: SEC approved...",
+  "notes": " RESEARCH RESULTS\n\nBook: Graeber argues...\n\nWeb: SEC approved...",
   "isCompleted": false
 }
 ```
@@ -106,8 +106,8 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
 
 | Signifier | Meaning | Action |
 |-----------|---------|--------|
-| **No 💎** | Needs processing | Process according to Gen 2/3 logic |
-| **💎** at start | Already processed | Skip (don't re-research) |
+| **No ** | Needs processing | Process according to Gen 2/3 logic |
+| **** at start | Already processed | Skip (don't re-research) |
 | Empty notes | Gen 2 (list-based) | Use default behavior for list |
 | Notes with instructions | Gen 3 (custom) | Follow specific instructions |
 
@@ -121,7 +121,7 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
 ```json
 {
   "kind": "agentTurn",
-  "message": "Run reminder-research skill: Check for reminders without notes or custom instructions, process them according to Gen 3 logic (custom instructions or list-based defaults), update notes with 💎 results. Use ~/.openclaw/workspace/skills/reminder-research/process-reminders.sh to detect items, then process each type appropriately."
+  "message": "Run reminder-research skill: Check for reminders without notes or custom instructions, process them according to Gen 3 logic (custom instructions or list-based defaults), update notes with  results. Use ~/.openclaw/workspace/skills/reminder-research/process-reminders.sh to detect items, then process each type appropriately."
 }
 ```
 
@@ -143,9 +143,9 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
 
 ## List-Based Behavior Matrix
 
-| List Name | Empty Notes Behavior | With 💎 | Custom Instructions |
+| List Name | Empty Notes Behavior | With  | Custom Instructions |
 |-----------|---------------------|---------|-------------------|
-| 🛒 Groceries | SKIP (no processing) | SKIP | Follow if provided |
+|  Groceries | SKIP (no processing) | SKIP | Follow if provided |
 | claw | System analysis + solutions | SKIP | Follow if provided |
 | Shopping | Product search + prices | SKIP | Follow if provided |
 | TODO | Generic research + how-to | SKIP | Follow if provided |
@@ -155,7 +155,7 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
 ## Evolution History
 
 **Gen 1 (deprecated):**
-- Manual emoji trigger (🔍)
+- Manual emoji trigger ()
 - Required explicit marking
 - High friction
 
@@ -167,7 +167,7 @@ CUSTOM_ITEM|<id>|<list>|<title>|<instructions>
 **Gen 3 (NEW - 2026-02-05):**
 - Custom instructions in notes
 - Multi-source research (books + web + constraints)
-- 💎 result tracking
+-  result tracking
 - Maximum flexibility
 
 ## Dependencies

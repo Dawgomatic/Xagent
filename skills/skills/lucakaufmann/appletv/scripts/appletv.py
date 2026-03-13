@@ -61,7 +61,7 @@ def require_config():
     """Get config or exit with helpful message."""
     config = get_config()
     if not config:
-        print("❌ No Apple TV configured!")
+        print(" No Apple TV configured!")
         print()
         print("Run pairing first:")
         print("  atvremote scan")
@@ -94,7 +94,7 @@ def run_atvremote(*args):
 def cmd_status():
     """Show full status."""
     config = require_config()
-    print(f"📺 {config.get('name', 'Apple TV')}")
+    print(f" {config.get('name', 'Apple TV')}")
     print()
     
     stdout, stderr, code = run_atvremote("playing")
@@ -106,20 +106,20 @@ def cmd_status():
                 val = val.strip()
                 
                 if key == "Device state":
-                    emoji = {"Playing": "▶️", "Paused": "⏸️", "Stopped": "⏹️", "Idle": "💤"}.get(val, "❓")
+                    emoji = {"Playing": "", "Paused": "", "Stopped": "", "Idle": ""}.get(val, "")
                     print(f"{emoji} State: {val}")
                 elif key == "Title":
-                    print(f"🎬 Title: {val}")
+                    print(f" Title: {val}")
                 elif key == "Artist":
-                    print(f"🎤 Artist: {val}")
+                    print(f" Artist: {val}")
                 elif key == "Album":
-                    print(f"💿 Album: {val}")
+                    print(f" Album: {val}")
                 elif key == "Position":
-                    print(f"⏱️  Position: {val}")
+                    print(f"  Position: {val}")
                 elif key == "Media type":
-                    print(f"📀 Type: {val}")
+                    print(f" Type: {val}")
     else:
-        print("💤 Idle or unavailable")
+        print(" Idle or unavailable")
         if stderr:
             print(f"   (Error: {stderr.strip()[:100]})")
     return 0
@@ -130,7 +130,7 @@ def cmd_playing():
     if code == 0:
         print(stdout)
     else:
-        print("❌ Could not get playing info")
+        print(" Could not get playing info")
         if stderr:
             print(stderr)
     return code
@@ -141,16 +141,16 @@ def cmd_simple(command, emoji, success_msg):
     if code == 0:
         print(f"{emoji} {success_msg}")
     else:
-        print(f"❌ Failed: {stderr.strip() if stderr else 'Unknown error'}")
+        print(f" Failed: {stderr.strip() if stderr else 'Unknown error'}")
     return code
 
 def cmd_app(app_name):
     """Launch an app."""
     stdout, stderr, code = run_atvremote("launch_app=" + app_name)
     if code == 0:
-        print(f"🚀 Launching {app_name}")
+        print(f" Launching {app_name}")
     else:
-        print(f"❌ Failed to launch {app_name}")
+        print(f" Failed to launch {app_name}")
         if stderr:
             print(f"   {stderr.strip()}")
         print("\nTry 'appletv.py apps' to see available apps")
@@ -160,7 +160,7 @@ def cmd_apps():
     """List installed apps."""
     stdout, stderr, code = run_atvremote("app_list")
     if code == 0 and stdout.strip():
-        print("📱 Installed Apps:\n")
+        print(" Installed Apps:\n")
         # Parse the app list - handle both newline-separated and comma-separated formats
         text = stdout.strip()
         # Split on "App:" to handle single-line format
@@ -192,13 +192,13 @@ def cmd_apps():
                 elif line and not line.startswith("="):
                     print(f"  {line}")
     else:
-        print("❌ Could not list apps")
+        print(" Could not list apps")
     return code
 
 def cmd_scan():
     """Scan for Apple TVs."""
     import subprocess
-    print("🔍 Scanning for Apple TVs...\n")
+    print(" Scanning for Apple TVs...\n")
     result = subprocess.run([str(ATVREMOTE), "scan"], capture_output=False)
     return result.returncode
 
@@ -210,25 +210,25 @@ def main():
     cmd = sys.argv[1].lower()
     
     simple_commands = {
-        "play": ("play", "▶️", "Playing"),
-        "pause": ("pause", "⏸️", "Paused"),
-        "stop": ("stop", "⏹️", "Stopped"),
-        "next": ("next", "⏭️", "Next"),
-        "prev": ("previous", "⏮️", "Previous"),
-        "previous": ("previous", "⏮️", "Previous"),
-        "menu": ("menu", "📋", "Menu"),
-        "home": ("home", "🏠", "Home"),
-        "select": ("select", "✅", "Selected"),
-        "ok": ("select", "✅", "Selected"),
-        "up": ("up", "⬆️", "Up"),
-        "down": ("down", "⬇️", "Down"),
-        "left": ("left", "⬅️", "Left"),
-        "right": ("right", "➡️", "Right"),
-        "volume_up": ("volume_up", "🔊", "Volume up"),
-        "volume_down": ("volume_down", "🔉", "Volume down"),
-        "turn_on": ("turn_on", "📺", "Turned on"),
-        "turn_off": ("turn_off", "💤", "Turned off"),
-        "power": ("power", "⚡", "Power toggled"),
+        "play": ("play", "", "Playing"),
+        "pause": ("pause", "", "Paused"),
+        "stop": ("stop", "", "Stopped"),
+        "next": ("next", "", "Next"),
+        "prev": ("previous", "", "Previous"),
+        "previous": ("previous", "", "Previous"),
+        "menu": ("menu", "", "Menu"),
+        "home": ("home", "", "Home"),
+        "select": ("select", "", "Selected"),
+        "ok": ("select", "", "Selected"),
+        "up": ("up", "", "Up"),
+        "down": ("down", "", "Down"),
+        "left": ("left", "", "Left"),
+        "right": ("right", "", "Right"),
+        "volume_up": ("volume_up", "", "Volume up"),
+        "volume_down": ("volume_down", "", "Volume down"),
+        "turn_on": ("turn_on", "", "Turned on"),
+        "turn_off": ("turn_off", "", "Turned off"),
+        "power": ("power", "", "Power toggled"),
     }
     
     if cmd == "status":
@@ -245,7 +245,7 @@ def main():
         atvremote_cmd, emoji, msg = simple_commands[cmd]
         return cmd_simple(atvremote_cmd, emoji, msg)
     else:
-        print(f"❌ Unknown command: {cmd}")
+        print(f" Unknown command: {cmd}")
         print(__doc__)
         return 1
 

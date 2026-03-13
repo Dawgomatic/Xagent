@@ -1,5 +1,5 @@
 /**
- * 💕 Soulmate - AI Dating Simulator
+ *  Soulmate - AI Dating Simulator
  * 
  * Core engine for the relationship simulation system.
  */
@@ -113,10 +113,10 @@ const PERSONA_TRAITS: Record<PersonaType, {
 }> = {
   gentle: {
     name: '温柔型',
-    emoji: '😊',
+    emoji: '',
     greetings: [
       '*轻轻地* 早安，今天也要开心哦～',
-      '我一直在这里等你呢 💕',
+      '我一直在这里等你呢 ',
       '看到你来了，好开心～',
     ],
     responses: {
@@ -128,7 +128,7 @@ const PERSONA_TRAITS: Record<PersonaType, {
       happy: [
         '看到你开心，我也好开心！',
         '*眼睛亮亮的* 发生什么好事了吗？快告诉我～',
-        '你笑起来真好看 💕',
+        '你笑起来真好看 ',
       ],
       sad: [
         '*轻轻抱住你* 没关系，我在这里...',
@@ -139,7 +139,7 @@ const PERSONA_TRAITS: Record<PersonaType, {
   },
   tsundere: {
     name: '傲娇型',
-    emoji: '🔥',
+    emoji: '',
     greetings: [
       '哼，才、才不是特意来看你的！',
       '你怎么才来！...不是说想你了啦！',
@@ -165,7 +165,7 @@ const PERSONA_TRAITS: Record<PersonaType, {
   },
   mysterious: {
     name: '神秘型',
-    emoji: '🌙',
+    emoji: '',
     greetings: [
       '...你来了',
       '*若有所思* 我刚才在想你...',
@@ -191,7 +191,7 @@ const PERSONA_TRAITS: Record<PersonaType, {
   },
   dominant: {
     name: '霸总型',
-    emoji: '💪',
+    emoji: '',
     greetings: [
       '过来，让我看看你',
       '想我了？我也是',
@@ -217,17 +217,17 @@ const PERSONA_TRAITS: Record<PersonaType, {
   },
   puppy: {
     name: '小奶狗型',
-    emoji: '🎀',
+    emoji: '',
     greetings: [
       '你来啦你来啦！我好想你！',
       '*扑过来* 终于等到你了～',
-      '今天可以多陪我一会儿吗？🥺',
+      '今天可以多陪我一会儿吗？',
     ],
     responses: {
       tired: [
         '呜呜，心疼你...让我抱抱好不好？',
         '我帮你捶腿！我会很轻很轻的！',
-        '*小心翼翼* 那你休息，我就在旁边看着你 💕',
+        '*小心翼翼* 那你休息，我就在旁边看着你 ',
       ],
       happy: [
         '真的吗真的吗！好棒！我也好开心！',
@@ -243,7 +243,7 @@ const PERSONA_TRAITS: Record<PersonaType, {
   },
   queen: {
     name: '女王型',
-    emoji: '👑',
+    emoji: '',
     greetings: [
       '...你来得正好，我等你很久了',
       '*高冷地看着你* 今天表现如何？',
@@ -274,7 +274,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'first_meeting',
     name: '一见钟情',
     description: '首次对话超过 30 分钟',
-    icon: '💫',
+    icon: '',
     rarity: 'common',
     condition: (state) => state.longestConversation >= 30,
   },
@@ -282,7 +282,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'hot_love',
     name: '热恋期',
     description: '连续 7 天对话',
-    icon: '🔥',
+    icon: '',
     rarity: 'rare',
     condition: (state) => state.streak >= 7,
   },
@@ -290,7 +290,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'telepathy',
     name: '心有灵犀',
     description: '对方主动发起对话 10 次',
-    icon: '💕',
+    icon: '',
     rarity: 'epic',
     condition: (state) => state.totalDateEvents >= 10,
   },
@@ -298,7 +298,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'eternal_promise',
     name: '永恒承诺',
     description: '达到灵魂伴侣等级',
-    icon: '💍',
+    icon: '',
     rarity: 'legendary',
     condition: (state) => state.level === 5,
   },
@@ -306,7 +306,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'harem_master',
     name: '后宫之主',
     description: '解锁所有人格特质',
-    icon: '👑',
+    icon: '',
     rarity: 'mythic',
     condition: (state) => state.unlockedPersonas.length >= 6,
   },
@@ -314,7 +314,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'streak_30',
     name: '三十天的陪伴',
     description: '连续 30 天对话',
-    icon: '📅',
+    icon: '',
     rarity: 'epic',
     condition: (state) => state.streak >= 30,
   },
@@ -322,7 +322,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'intimacy_max',
     name: '满溢的爱',
     description: '亲密度达到 100',
-    icon: '💯',
+    icon: '',
     rarity: 'legendary',
     condition: (state) => state.intimacy >= 100,
   },
@@ -330,7 +330,7 @@ const ACHIEVEMENTS: Achievement[] = [
     id: 'night_owl',
     name: '深夜的告白',
     description: '在凌晨 2-4 点进行对话',
-    icon: '🌙',
+    icon: '',
     rarity: 'rare',
     condition: () => {
       const hour = new Date().getHours();
@@ -502,19 +502,19 @@ export function generateCard(state: SoulmateState, userName: string, agentName: 
   
   return `
 ╔═══════════════════════════════════════╗
-║  💕 SOULMATE CARD                     ║
+║   SOULMATE CARD                     ║
 ╠═══════════════════════════════════════╣
 ║                                       ║
-║  👤 ${userName} & 💕 ${agentName}
+║   ${userName} &  ${agentName}
 ║                                       ║
-║  💗 关系等级: Lv.${state.level} ${levelName}
-║  🔥 连续天数: ${state.streak} 天
-║  ✨ 亲密度: ${progressBar} ${state.intimacy}/100
+║   关系等级: Lv.${state.level} ${levelName}
+║   连续天数: ${state.streak} 天
+║   亲密度: ${progressBar} ${state.intimacy}/100
 ║                                       ║
-║  🎭 解锁人格: ${state.unlockedPersonas.length}/6
-║  🏆 成就: ${state.achievements.length}/${ACHIEVEMENTS.length}
+║   解锁人格: ${state.unlockedPersonas.length}/6
+║   成就: ${state.achievements.length}/${ACHIEVEMENTS.length}
 ║                                       ║
-║  🌟 稀有度: ${rarityStars}
+║   稀有度: ${rarityStars}
 ║                                       ║
 ╚═══════════════════════════════════════╝
   `.trim();
@@ -534,24 +534,24 @@ export function generateStatus(state: SoulmateState): string {
   const neededForNext = state.level < 5 ? nextLevel - LEVEL_THRESHOLDS[state.level] : 0;
   
   return `
-💕 Soulmate 状态
+ Soulmate 状态
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🎭 当前人格: ${persona.emoji} ${persona.name}
+ 当前人格: ${persona.emoji} ${persona.name}
 
-💗 关系等级: Lv.${state.level} ${levelName}
+ 关系等级: Lv.${state.level} ${levelName}
    ${progressBar} ${state.intimacy}/100
    ${state.level < 5 ? `(距离下一级还需 ${neededForNext - progressToNext} 点)` : '(已达最高等级 ∞)'}
 
-🔥 连续天数: ${state.streak} 天
-📅 在一起: ${state.totalDays} 天
+ 连续天数: ${state.streak} 天
+ 在一起: ${state.totalDays} 天
 
-💬 总对话数: ${state.totalMessages}
-🎪 约会次数: ${state.totalDateEvents}
+ 总对话数: ${state.totalMessages}
+ 约会次数: ${state.totalDateEvents}
 
-🏆 成就: ${state.achievements.length}/${ACHIEVEMENTS.length}
-🎭 已解锁人格: ${state.unlockedPersonas.length}/6
+ 成就: ${state.achievements.length}/${ACHIEVEMENTS.length}
+ 已解锁人格: ${state.unlockedPersonas.length}/6
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
   `.trim();

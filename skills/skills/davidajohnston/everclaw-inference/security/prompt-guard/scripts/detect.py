@@ -1364,24 +1364,24 @@ def main():
         print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
     else:
         emoji = {
-            "SAFE": "✅",
-            "LOW": "📝",
-            "MEDIUM": "⚠️",
-            "HIGH": "🔴",
-            "CRITICAL": "🚨",
+            "SAFE": "",
+            "LOW": "",
+            "MEDIUM": "",
+            "HIGH": "",
+            "CRITICAL": "",
         }
-        print(f"{emoji.get(result.severity.name, '❓')} {result.severity.name}")
+        print(f"{emoji.get(result.severity.name, '')} {result.severity.name}")
         print(f"Action: {result.action.value}")
         if result.reasons:
             print(f"Reasons: {', '.join(result.reasons)}")
         if result.patterns_matched:
             print(f"Patterns: {len(result.patterns_matched)} matched")
         if result.normalized_text:
-            print(f"⚠️ Homoglyphs detected, normalized text differs")
+            print(f" Homoglyphs detected, normalized text differs")
         if result.base64_findings:
-            print(f"⚠️ Suspicious base64: {len(result.base64_findings)} found")
+            print(f" Suspicious base64: {len(result.base64_findings)} found")
         if result.recommendations:
-            print(f"💡 {'; '.join(result.recommendations)}")
+            print(f" {'; '.join(result.recommendations)}")
 
 
 if __name__ == "__main__":

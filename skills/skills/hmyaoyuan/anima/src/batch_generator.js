@@ -44,7 +44,7 @@ function generate(row) {
   }
 
   if (!apiKey) {
-    console.error("❌ GEMINI_API_KEY not set in .env. Cannot generate sprites.");
+    console.error(" GEMINI_API_KEY not set in .env. Cannot generate sprites.");
     console.error("   Set GEMINI_API_KEY in your .env file to use Gemini image generation.");
     return false;
   }

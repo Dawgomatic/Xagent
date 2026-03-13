@@ -16,21 +16,21 @@ import { sendSelection } from "../../utils/inline-actions";
 await sendSelection(ctx, "Pick a color:", [
   {
     id: "red",
-    label: "🔴 Red",
+    label: " Red",
     handler: async (ctx) => {
       await ctx.conversation.sendText("You picked red!");
     },
   },
   {
     id: "blue",
-    label: "🔵 Blue",
+    label: " Blue",
     handler: async (ctx) => {
       await ctx.conversation.sendText("You picked blue!");
     },
   },
   {
     id: "green",
-    label: "🟢 Green",
+    label: " Green",
     handler: async (ctx) => {
       await ctx.conversation.sendText("You picked green!");
     },
@@ -46,12 +46,12 @@ import { sendSelection, ActionStyle } from "../../utils/inline-actions";
 await sendSelection(ctx, "Choose action:", [
   {
     id: "save",
-    label: "💾 Save",
+    label: " Save",
     handler: saveHandler,
   },
   {
     id: "delete",
-    label: "🗑️ Delete",
+    label: " Delete",
     style: ActionStyle.Danger,
     handler: deleteHandler,
   },

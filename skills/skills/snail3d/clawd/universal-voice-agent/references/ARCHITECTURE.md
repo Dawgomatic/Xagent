@@ -164,7 +164,7 @@ Haiku monitors conversation for goal completion signals:
 After call ends:
 
 ```
-✅ Order placed: 2 large pepperoni
+ Order placed: 2 large pepperoni
 • Pickup at 6pm
 • Total: $35
 • No onions as requested
@@ -174,7 +174,7 @@ Duration: 2m 15s
 Or on failure:
 
 ```
-⚠️ Customer service call (partial)
+ Customer service call (partial)
 • Policy: Cancellation fee $50
 • Fee: Non-waivable
 • Refund: $0

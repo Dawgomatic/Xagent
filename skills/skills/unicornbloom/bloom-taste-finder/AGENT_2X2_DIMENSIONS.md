@@ -1,6 +1,6 @@
 # Agent Identity 2x2 Dimension Scoring System
 
-## 🎯 Overview
+##  Overview
 
 Agent identity cards use a **2x2 dimension system** to visualize personality traits on two axes:
 
@@ -12,7 +12,7 @@ This creates a visual personality map that helps distinguish different agent arc
 
 ---
 
-## 📊 The 2x2 Framework
+##  The 2x2 Framework
 
 ### **Axis 1: Conviction vs Curiosity (X-axis)**
 
@@ -91,7 +91,7 @@ Only shown when > 65% (indicates high community involvement)
 
 ---
 
-## 🎨 Personality Type Mappings
+##  Personality Type Mappings
 
 ### **1. The Visionary**
 
@@ -215,7 +215,7 @@ Contribution: 50%
 
 ---
 
-## 🧠 Scoring Methodology
+##  Scoring Methodology
 
 ### **How Scores Were Determined**
 
@@ -252,7 +252,7 @@ Contribution: 50%
 
 ---
 
-## 📐 2x2 Space Quadrants
+##  2x2 Space Quadrants
 
 ### **Quadrant 1: High Conviction + High Intuition**
 **The Visionary (85, 75)**
@@ -287,20 +287,20 @@ Contribution: 50%
 
 ---
 
-## 🔄 Dynamic vs Static Scores
+##  Dynamic vs Static Scores
 
 ### **Current Implementation: Static Mapping**
 
 **Pros:**
-- ✅ Consistent and predictable
-- ✅ Easy to implement
-- ✅ No backend complexity
-- ✅ Instant visualization
+-  Consistent and predictable
+-  Easy to implement
+-  No backend complexity
+-  Instant visualization
 
 **Cons:**
-- ❌ Doesn't reflect individual variation
-- ❌ Same personality = same scores
-- ❌ No personalization
+-  Doesn't reflect individual variation
+-  Same personality = same scores
+-  No personalization
 
 ### **Future Enhancement: Dynamic Calculation**
 
@@ -330,14 +330,14 @@ contribution = calculateContribution({
 ```
 
 **Benefits:**
-- ✅ Personalized scores
-- ✅ Reflects actual behavior
-- ✅ More accurate positioning
-- ✅ Dynamic updates over time
+-  Personalized scores
+-  Reflects actual behavior
+-  More accurate positioning
+-  Dynamic updates over time
 
 ---
 
-## 🎨 Visual Design Rationale
+##  Visual Design Rationale
 
 ### **Why Sliders Instead of Dots?**
 
@@ -347,23 +347,23 @@ Conviction ←―――●―――→ Curiosity
 ```
 
 **Advantages:**
-- ✅ Clear axis labels (both ends)
-- ✅ Shows position on spectrum
-- ✅ Intuitive to understand
-- ✅ Mobile-friendly
-- ✅ Accessible design
+-  Clear axis labels (both ends)
+-  Shows position on spectrum
+-  Intuitive to understand
+-  Mobile-friendly
+-  Accessible design
 
 ### **Why Dark Theme for Agents?**
 
 **Design decisions:**
-- 🤖 Distinguishes from human identity cards (light theme)
-- 🌙 Tech/crypto aesthetic (dark = sophisticated)
-- 🔮 Matches OpenClaw branding
-- 👁️ Better for dimension visualization (white sliders on dark)
+-  Distinguishes from human identity cards (light theme)
+-  Tech/crypto aesthetic (dark = sophisticated)
+-  Matches OpenClaw branding
+-  Better for dimension visualization (white sliders on dark)
 
 ---
 
-## 📊 Score Distribution
+##  Score Distribution
 
 **Ensuring Visual Variety:**
 
@@ -380,14 +380,14 @@ Std Dev:              23         18           16
 ```
 
 **Analysis:**
-- ✅ Good spread across both axes
-- ✅ No clustering (all distinct)
-- ✅ Balanced distribution
-- ✅ Clear visual differentiation
+-  Good spread across both axes
+-  No clustering (all distinct)
+-  Balanced distribution
+-  Clear visual differentiation
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 ### **Phase 2: ML-Driven Scoring**
 - Train model on actual user behavior
@@ -406,7 +406,7 @@ Std Dev:              23         18           16
 
 ---
 
-## 📝 Implementation Notes
+##  Implementation Notes
 
 **Frontend Mapping File:**
 `bloom-protocol-fe/src/lib/agentPersonalityMapping.ts`
@@ -433,24 +433,24 @@ export const AGENT_PERSONALITY_CONFIGS: Record<string, AgentPersonalityConfig> =
 
 ---
 
-## 🎯 Summary
+##  Summary
 
 **The 2x2 dimension system provides:**
-- ✅ Visual personality differentiation
-- ✅ Intuitive archetype understanding
-- ✅ Clear positioning on behavior axes
-- ✅ Extensible for future personalization
+-  Visual personality differentiation
+-  Intuitive archetype understanding
+-  Clear positioning on behavior axes
+-  Extensible for future personalization
 
 **Current approach (static mapping):**
-- ✅ Simple and predictable
-- ✅ Consistent across agents
-- ✅ Easy to implement
+-  Simple and predictable
+-  Consistent across agents
+-  Easy to implement
 
 **Future approach (dynamic calculation):**
-- 🚀 Personalized scores
-- 🚀 Reflects actual behavior
-- 🚀 Updates over time
+-  Personalized scores
+-  Reflects actual behavior
+-  Updates over time
 
 ---
 
-Built with ❤️ for meaningful agent identity visualization
+Built with  for meaningful agent identity visualization

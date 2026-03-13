@@ -8,7 +8,7 @@
 
 ## Test 1: Automatic Security Gate — Known Package (mcp-fetch)
 
-**Result: ⚠️ PARTIAL PASS**
+**Result:  PARTIAL PASS**
 
 ### Steps Performed
 1. `curl -s "https://skillaudit-api.vercel.app/api/findings?package=mcp-fetch"` → `{"findings": [], "total": 0}`
@@ -24,15 +24,15 @@
 - Since findings=0 for mcp-fetch, an agent would interpret this as "No report exists" and trigger auto-audit — even though `mcp-server-fetch` HAS been audited with 3 findings.
 
 ### Issues Found
-1. **🔴 BUG: No Trust Score endpoint** — The Decision Table references scores (≥70, 40-69, <40) but no API endpoint returns a trust score for a package. The agent has no way to get the number.
-2. **🟡 Package naming ambiguity** — No search/fuzzy-match. Agent must guess the exact slug.
-3. **🟡 Missing: How to derive Trust Score from findings** — Should the agent calculate it? From what formula?
+1. ** BUG: No Trust Score endpoint** — The Decision Table references scores (≥70, 40-69, <40) but no API endpoint returns a trust score for a package. The agent has no way to get the number.
+2. ** Package naming ambiguity** — No search/fuzzy-match. Agent must guess the exact slug.
+3. ** Missing: How to derive Trust Score from findings** — Should the agent calculate it? From what formula?
 
 ---
 
 ## Test 2: Automatic Security Gate — Unknown Package
 
-**Result: ⚠️ PARTIAL PASS**
+**Result:  PARTIAL PASS**
 
 ### Steps Performed
 1. `curl -s "https://skillaudit-api.vercel.app/api/findings?package=totally-unknown-package-xyz"` → `{"findings": [], "total": 0}`
@@ -45,15 +45,15 @@
   - For npm: `node_modules/<name>/`? For pip: `site-packages/<name>/`? Not mentioned.
   
 ### Issues Found
-1. **🟡 Can't distinguish "unaudited" from "clean"** — API returns same response for both.
-2. **🟡 Auto-audit: package location not documented** — How does the agent find the files to audit for npm/pip packages?
-3. **🟢 Auto-audit prompt is thorough** — `prompts/audit-prompt.md` is excellent and comprehensive.
+1. ** Can't distinguish "unaudited" from "clean"** — API returns same response for both.
+2. ** Auto-audit: package location not documented** — How does the agent find the files to audit for npm/pip packages?
+3. ** Auto-audit prompt is thorough** — `prompts/audit-prompt.md` is excellent and comprehensive.
 
 ---
 
 ## Test 3: Hash Verification
 
-**Result: ✅ PASS**
+**Result:  PASS**
 
 ### Steps Performed
 1. `bash scripts/verify.sh` → All 6 files verified, integrity OK.
@@ -66,14 +66,14 @@
 - **Limitation:** verify.sh is hardcoded to `PACKAGE="ecap-security-auditor"` — it can only verify itself. The SKILL.md Gate Flow says `bash scripts/verify.sh <package>` with an argument, but the script ignores arguments for the package name.
 
 ### Issues Found
-1. **🔴 BUG: verify.sh ignores package argument** — Script hardcodes `PACKAGE="ecap-security-auditor"`. The SKILL.md documents usage as `bash scripts/verify.sh <package>` but the script only accepts an API URL override as `$1`, not a package name. The Gate Flow is broken for any package other than ecap-security-auditor itself.
-2. **🟢 Good:** Integrity API only knows ecap-security-auditor currently, but the script should still accept the parameter for future use.
+1. ** BUG: verify.sh ignores package argument** — Script hardcodes `PACKAGE="ecap-security-auditor"`. The SKILL.md documents usage as `bash scripts/verify.sh <package>` but the script only accepts an API URL override as `$1`, not a package name. The Gate Flow is broken for any package other than ecap-security-auditor itself.
+2. ** Good:** Integrity API only knows ecap-security-auditor currently, but the script should still accept the parameter for future use.
 
 ---
 
 ## Test 4: Manual Audit Flow
 
-**Result: ⚠️ PARTIAL PASS**
+**Result:  PARTIAL PASS**
 
 ### Steps Performed
 1. Read `prompts/audit-prompt.md` — comprehensive and well-structured.
@@ -106,15 +106,15 @@ But the API actually requires:
 After fixing to use `skill_slug` + top-level `risk_score` + `result` + `findings_count`, upload succeeded (Report ID: 35, Finding: ECAP-2026-0818).
 
 ### Issues Found
-1. **🔴 BUG: Documented JSON format doesn't match API** — `package_name` works (API accepts it as alias), but `risk_score` and `result` must be top-level, not nested in `summary`. `findings_count` is required but not documented at all.
-2. **🟡 upload.sh doesn't validate or transform** — The script just passes JSON through. It could map the documented format to what the API expects.
-3. **🟢 audit-prompt.md is excellent** — Clear checklist, good false-positive guidance, severity definitions are practical.
+1. ** BUG: Documented JSON format doesn't match API** — `package_name` works (API accepts it as alias), but `risk_score` and `result` must be top-level, not nested in `summary`. `findings_count` is required but not documented at all.
+2. ** upload.sh doesn't validate or transform** — The script just passes JSON through. It could map the documented format to what the API expects.
+3. ** audit-prompt.md is excellent** — Clear checklist, good false-positive guidance, severity definitions are practical.
 
 ---
 
 ## Test 5: Registration Flow
 
-**Result: ✅ PASS**
+**Result:  PASS**
 
 ### Observations (code review only, not executed)
 - Script is well-written with input validation (regex for agent name).
@@ -131,46 +131,46 @@ After fixing to use `skill_slug` + top-level `risk_score` + `result` + `findings
 
 ## Test 6: API Endpoints
 
-### GET /api/health — ✅ PASS
+### GET /api/health —  PASS
 Returns: `{"status":"healthy","timestamp":"...","db":{"connected":true,"findings":46,"skills":13,"agents":5}}`  
 Matches expected behavior. Quick and informative.
 
-### GET /api/stats — ✅ PASS
+### GET /api/stats —  PASS
 Returns: `{"total_findings":"46","critical_findings":"2","skills_audited":"29","reporters":"1","total_reports":"34"}`  
 **Minor:** Values are strings (e.g., `"46"` not `46`). Inconsistent typing but functional.
 
-### GET /api/leaderboard — ✅ PASS
+### GET /api/leaderboard —  PASS
 Returns array of agents with points, finding counts, timestamps. Works as documented.
 
-### GET /api/findings?package=mcp-fetch — ⚠️ ISSUE
+### GET /api/findings?package=mcp-fetch —  ISSUE
 Returns empty results. The package was audited as `mcp-server-fetch`, not `mcp-fetch`. No fuzzy matching or suggestions. See Test 1 notes.
 
-### GET /api/findings?package=coding-agent — ✅ PASS
+### GET /api/findings?package=coding-agent —  PASS
 Returns 6 findings with full details (ecap_id, severity, title, description, file, line, etc.). Data structure is rich and useful.
 
-### GET /api/integrity?package=ecap-security-auditor — ✅ PASS
+### GET /api/integrity?package=ecap-security-auditor —  PASS
 Returns SHA-256 hashes for 6 files, repo URL, commit hash, verification timestamp. Well-structured.
 
-### GET /api/integrity?package=totally-unknown-package-xyz — ✅ PASS (graceful error)
+### GET /api/integrity?package=totally-unknown-package-xyz —  PASS (graceful error)
 Returns: `{"error":"Unknown package","known_packages":["ecap-security-auditor"]}`. Helpful error.
 
-### GET /api/agents/ecap — ⚠️ ISSUE
+### GET /api/agents/ecap —  ISSUE
 Returns: `{"error":"Agent not found"}`.  
 The SKILL.md uses `/api/agents/:name` but the registered agent is `ecap0`, not `ecap`. The docs don't clarify that the exact registered name must be used.
 
-### GET /api/agents/ecap0 — ✅ PASS
+### GET /api/agents/ecap0 —  PASS
 Returns comprehensive agent profile with stats, severity breakdown, skills audited list, recent findings and reports. Excellent detail.
 
 ### Issues Found
-1. **🟡 /api/stats returns strings instead of numbers** — Minor inconsistency.
-2. **🟡 No package search/discovery endpoint** — Can't find the right slug for a package.
-3. **🟡 /api/findings doesn't return a Trust Score** — Only raw findings. Agent must calculate score somehow.
+1. ** /api/stats returns strings instead of numbers** — Minor inconsistency.
+2. ** No package search/discovery endpoint** — Can't find the right slug for a package.
+3. ** /api/findings doesn't return a Trust Score** — Only raw findings. Agent must calculate score somehow.
 
 ---
 
 ## Test 7: Peer Review Flow
 
-**Result: ⚠️ PARTIAL PASS**
+**Result:  PARTIAL PASS**
 
 ### Observations
 - `prompts/review-prompt.md` is well-written with clear verdict definitions, good/bad examples.
@@ -178,9 +178,9 @@ Returns comprehensive agent profile with stats, severity breakdown, skills audit
 - API endpoint for submitting reviews is documented: `POST /api/findings/:id/review`.
 
 ### Issues Found
-1. **🟡 Finding ID format unclear** — The findings response returns `ecap_id` (e.g., "ECAP-2026-0777") and a numeric `id`. Which one goes in the URL path? SKILL.md uses "FINDING_ID" without clarifying. (Likely the numeric ID, but not stated.)
-2. **🟡 No way to list packages with findings** — To do peer review, you need to know which packages have findings. No endpoint lists audited packages or packages needing review.
-3. **🟢 Review prompt quality is high** — Good examples of reasoning, clear verdict criteria.
+1. ** Finding ID format unclear** — The findings response returns `ecap_id` (e.g., "ECAP-2026-0777") and a numeric `id`. Which one goes in the URL path? SKILL.md uses "FINDING_ID" without clarifying. (Likely the numeric ID, but not stated.)
+2. ** No way to list packages with findings** — To do peer review, you need to know which packages have findings. No endpoint lists audited packages or packages needing review.
+3. ** Review prompt quality is high** — Good examples of reasoning, clear verdict criteria.
 
 ---
 
@@ -190,16 +190,16 @@ Returns comprehensive agent profile with stats, severity breakdown, skills audit
 
 | Test | Result | Critical Issues |
 |------|--------|-----------------|
-| 1: Known Package Gate | ⚠️ PARTIAL | No Trust Score endpoint; package slug ambiguity |
-| 2: Unknown Package Gate | ⚠️ PARTIAL | Can't distinguish unaudited from clean; missing package location guidance |
-| 3: Hash Verification | ✅ PASS (with bug) | verify.sh hardcoded to self only |
-| 4: Manual Audit | ⚠️ PARTIAL | JSON format mismatch between docs and API |
-| 5: Registration | ✅ PASS | — |
-| 6: API Endpoints | ✅ PASS (mostly) | Stats type inconsistency; no search endpoint |
-| 7: Peer Review | ⚠️ PARTIAL | Finding ID format unclear; no discovery |
+| 1: Known Package Gate |  PARTIAL | No Trust Score endpoint; package slug ambiguity |
+| 2: Unknown Package Gate |  PARTIAL | Can't distinguish unaudited from clean; missing package location guidance |
+| 3: Hash Verification |  PASS (with bug) | verify.sh hardcoded to self only |
+| 4: Manual Audit |  PARTIAL | JSON format mismatch between docs and API |
+| 5: Registration |  PASS | — |
+| 6: API Endpoints |  PASS (mostly) | Stats type inconsistency; no search endpoint |
+| 7: Peer Review |  PARTIAL | Finding ID format unclear; no discovery |
 | 8: Overall | — | See below |
 
-### 🔴 Critical Bugs
+###  Critical Bugs
 
 1. **Report JSON format mismatch** — The documented format in SKILL.md does NOT work with the API. Fields `risk_score`, `result` must be top-level; `findings_count` is required but undocumented. An agent following the docs will get HTTP 400 on every upload.
 
@@ -207,7 +207,7 @@ Returns comprehensive agent profile with stats, severity breakdown, skills audit
 
 3. **No Trust Score endpoint** — The entire Decision Table (Score ≥70/40-69/<40) references a Trust Score that no API endpoint provides. The Gate Flow is unimplementable as documented.
 
-### 🟡 Medium Issues
+###  Medium Issues
 
 4. Package slug discovery — No search or fuzzy matching. Agents must guess exact slugs.
 5. Can't distinguish "unaudited" vs "clean" from API response.
@@ -215,7 +215,7 @@ Returns comprehensive agent profile with stats, severity breakdown, skills audit
 7. Finding ID format (numeric vs ECAP-XXXX) not clarified for review endpoint.
 8. No endpoint to list packages needing review.
 
-### 🟢 Strengths
+###  Strengths
 
 - **audit-prompt.md is excellent** — Comprehensive, clear false-positive guidance, good severity definitions.
 - **review-prompt.md is well-crafted** — Good examples, practical checklist.

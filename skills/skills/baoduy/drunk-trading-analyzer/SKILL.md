@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "📈",
+        "emoji": "",
         "os": ["darwin", "linux", "win32"],
         "mcp_servers":
           ["tradingview-mcp", "alphavantage", "yahoo-finance-server"],

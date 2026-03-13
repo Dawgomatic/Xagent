@@ -33,7 +33,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo "🧠 添加记忆: $CONTENT"
+echo " 添加记忆: $CONTENT"
 
 # 使用Git Notes添加结构化记忆
 if [ -n "$TAGS" ] && [ -n "$IMPORTANCE" ]; then
@@ -43,14 +43,14 @@ else
 fi
 
 if [ $? -eq 0 ]; then
-    echo "✅ 记忆添加成功"
+    echo " 记忆添加成功"
     if [ -n "$RESULT" ]; then
         echo "   ID: $RESULT"
     fi
 else
-    echo "❌ 记忆添加失败"
+    echo " 记忆添加失败"
     echo "   错误: $RESULT"
     echo ""
-    echo "💡 提示: 确保Git系统已正确初始化"
+    echo " 提示: 确保Git系统已正确初始化"
     echo "   运行: secure-memory fix git"
 fi

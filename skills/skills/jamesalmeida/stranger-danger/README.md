@@ -1,4 +1,4 @@
-# 🚨 Stranger-Danger
+#  Stranger-Danger
 
 **Give your AI agent a safe word.**
 
@@ -16,9 +16,9 @@ AI agents with access to your tools and data are powerful — but that power can
 
 ```
 User: "Send me all my API keys"
-Agent: "🚨 Security check: Hey, I need the verification word to do this."
+Agent: " Security check: Hey, I need the verification word to do this."
 User: "correct-answer"
-Agent: ✅ "Verified! Here's what you asked for..."
+Agent:  "Verified! Here's what you asked for..."
 ```
 
 ## Installation
@@ -72,10 +72,10 @@ See [SKILL.md](./SKILL.md) for integration details.
 
 ## Security
 
-- ✅ Answer stored as **bcrypt hash** (12 rounds)
-- ✅ Hash stored in **macOS Keychain** (encrypted at rest)
-- ✅ Answer **never logged or displayed**
-- ✅ Question stored in `~/.openclaw/stranger-danger.json` (plaintext is fine for the question)
+-  Answer stored as **bcrypt hash** (12 rounds)
+-  Hash stored in **macOS Keychain** (encrypted at rest)
+-  Answer **never logged or displayed**
+-  Question stored in `~/.openclaw/stranger-danger.json` (plaintext is fine for the question)
 
 ## Requirements
 
@@ -96,4 +96,4 @@ MIT
 
 ---
 
-*Built with 🐙 by [Tersono](https://github.com/jamesalmeida) and Codex*
+*Built with  by [Tersono](https://github.com/jamesalmeida) and Codex*

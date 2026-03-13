@@ -10,7 +10,7 @@ For each competitor, maintain:
 - Positioning: How they describe themselves
 - Differentiation: What they claim is unique
 - Weaknesses: Known limitations, customer complaints
-- Threat Level: High / 🟡 Medium / 🟢 Low
+- Threat Level: High /  Medium /  Low
 - Last Updated: Date of last assessment
 
 ## Known Competitive Landscape

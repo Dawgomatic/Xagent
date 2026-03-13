@@ -2,7 +2,7 @@
 name: todoist
 description: Manage Todoist tasks. Use when the user mentions "todoist", "my tasks", "task list", "add a task", "complete task", or wants to interact with their Todoist account.
 homepage: https://github.com/LuoAndOrder/todoist-rs
-metadata: {"clawdbot":{"emoji":"✅","requires":{"bins":["td"]},"install":[{"id":"brew","kind":"brew","formula":"LuoAndOrder/tap/todoist-cli","bins":["td"],"label":"Install todoist-cli via Homebrew"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["td"]},"install":[{"id":"brew","kind":"brew","formula":"LuoAndOrder/tap/todoist-cli","bins":["td"],"label":"Install todoist-cli via Homebrew"}]}}
 ---
 
 # Todoist Integration

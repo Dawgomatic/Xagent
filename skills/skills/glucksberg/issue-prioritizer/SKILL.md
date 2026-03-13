@@ -110,10 +110,10 @@ Normalize titles (lowercase, remove punctuation/common words). If 70%+ word over
 Extract key terms from issue (error names, function names, components). Check if PR body discusses same things.
 
 **Confidence icons:**
-- 🔗 Explicit link (fixes/closes/resolves)
-- 📎 Referenced (#N mentioned)
-- 🔍 Similar title (fuzzy match)
-- 💡 Semantic match (same components)
+-  Explicit link (fixes/closes/resolves)
+-  Referenced (#N mentioned)
+-  Similar title (fuzzy match)
+-  Semantic match (same components)
 
 Remove linked issues from analysis. Report them separately before the main report.
 
@@ -265,11 +265,11 @@ Sort all issues by AdjustedScore descending.
   TOP 10 BY ADJUSTED SCORE
 ═══════════════════════════════════════════════════════════════
 
-  #123 [Adj: 3.50] ⭐ Quick Win
+  #123 [Adj: 3.50]  Quick Win
   Fix typo in README
   ├─ Difficulty: 1/10 | Importance: 4/10 | ROI: 4.00
-  ├─ Trip: ✅ Total Sanity (1/5) | Arch: ✅ Surgical (1/5)
-  ├─ Act: ✅ PR Ready (5/5) | Level: beginner
+  ├─ Trip:  Total Sanity (1/5) | Arch:  Surgical (1/5)
+  ├─ Act:  PR Ready (5/5) | Level: beginner
   └─ https://github.com/owner/repo/issues/123
 
 ═══════════════════════════════════════════════════════════════
@@ -296,17 +296,17 @@ Sort all issues by AdjustedScore descending.
   CRITICAL BUGS (Importance ≥ 8)
 ═══════════════════════════════════════════════════════════════
 
-  #111 [Adj: 1.67] 🔴 Critical
+  #111 [Adj: 1.67]  Critical
   App crashes on startup with large datasets
   ├─ Difficulty: 6/10 | Importance: 9/10 | ROI: 1.50
-  ├─ Trip: ✅ (2/5) | Arch: ✅ (2/5) | Act: ⚠️ (3/5)
+  ├─ Trip:  (2/5) | Arch:  (2/5) | Act:  (3/5)
   └─ https://github.com/owner/repo/issues/111
 
 ═══════════════════════════════════════════════════════════════
   TRIPPING ISSUES (Trip ≥ 4 — Review Carefully)
 ═══════════════════════════════════════════════════════════════
 
-  #999 [Trip: 🚨 5/5 — Tripping]
+  #999 [Trip:  5/5 — Tripping]
   Rewrite entire backend in Rust with blockchain storage
   ├─ Red Flags: "rewrite from scratch", "blockchain"
   ├─ Adjusted Score: 0.12 (heavily penalized)
@@ -316,13 +316,13 @@ Sort all issues by AdjustedScore descending.
   OVER-ENGINEERED (Arch ≥ 4 — Simpler Solution Likely Exists)
 ═══════════════════════════════════════════════════════════════
 
-  #777 [Arch: 🏗️ 5/5 — Transformational]
+  #777 [Arch:  5/5 — Transformational]
   Add form validation
   ├─ Proposed: New validation framework with schema definitions
   ├─ Simpler Alternative: Single validation function, 20 lines
   └─ Ask: Why create a framework for one form?
 
-  💡 TIP: Maintainers often reject PRs that change architecture
+   TIP: Maintainers often reject PRs that change architecture
      unnecessarily. Always start with the simplest fix.
 
 ═══════════════════════════════════════════════════════════════
@@ -337,28 +337,28 @@ Sort all issues by AdjustedScore descending.
 ═══════════════════════════════════════════════════════════════
 
   #123: Login crashes on empty password
-        └─ 🔗 PR #456: "Fix login validation" (explicit: fixes #123)
+        └─  PR #456: "Fix login validation" (explicit: fixes #123)
 
-  Detection: 🔗 Explicit link | 📎 Referenced | 🔍 Similar title | 💡 Semantic match
+  Detection:  Explicit link |  Referenced |  Similar title |  Semantic match
 
 ═══════════════════════════════════════════════════════════════
   SCALE LEGEND
 ═══════════════════════════════════════════════════════════════
 
   Trip (Solution Sanity):        Arch (Structural Impact):
-  ✅ 1-2 = Sane                  ✅ 1-2 = Minimal change
-  ⚠️  3  = Cautious              ⚠️  3  = Moderate
-  🚨 4-5 = Risky                 🏗️ 4-5 = Over-engineered
+   1-2 = Sane                   1-2 = Minimal change
+    3  = Cautious                3  = Moderate
+   4-5 = Risky                  4-5 = Over-engineered
 
   Actionability:
-  ✅ 4-5 = Ready for PR
-  ⚠️  3  = Needs Investigation
-  ❌ 1-2 = Not Actionable
+   4-5 = Ready for PR
+    3  = Needs Investigation
+   1-2 = Not Actionable
 
   AdjustedScore = ROI × TripMult × ArchMult × ActionMult
   Higher = Better (prioritize first)
 
-  🎯 SIMPLICITY PRINCIPLE: If a 10-line fix exists,
+   SIMPLICITY PRINCIPLE: If a 10-line fix exists,
      a 200-line refactor is wrong.
 
   Mode: SKILL (read-only) — analyzes only, never modifies.

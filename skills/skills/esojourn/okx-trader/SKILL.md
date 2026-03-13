@@ -38,7 +38,7 @@ Requires the following local files in `/root/.openclaw/workspace/okx_data/`:
 - `config.json`: API credentials.
 - `grid_settings.json`: Strategy parameters.
 
-## ⚠️ RISK WARNING
+##  RISK WARNING
 Trading cryptocurrencies involves significant risk. This skill is provided "as is" without warranties.
 - **Simulation First:** Always test with `OKX_IS_SIMULATION=true` before using real funds.
 - **Permissions:** Use API keys with "Trade" permissions only. **Disable "Withdrawal" permissions.**
@@ -85,7 +85,7 @@ Trading cryptocurrencies involves significant risk. This skill is provided "as i
 - `config.json`: API 凭据。
 - `grid_settings.json`: 策略参数。
 
-## ⚠️ 风险提示
+##  风险提示
 加密货币交易涉及巨大风险。本技能按“原样”提供，不作任何保证。
 - **模拟优先:** 在使用真实资金之前，务必先开启模拟盘测试 (`OKX_IS_SIMULATION=true`)。
 - **权限控制:** 仅使用具备“交易”权限的 API 密钥。**务必禁用“提现”权限。**

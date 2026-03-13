@@ -1,7 +1,7 @@
 ---
 name: auto-updater-gateway
 description: Schedule and run safe daily/weekly updates for Clawdbot + installed skills using the Gateway cron scheduler. Use when setting up "run updates at 04:00" jobs, rotating update reports, running `clawdhub update --all`, and (optionally) applying Clawdbot updates + restart + doctor.
-metadata: {"version":"1.0.1","clawdbot":{"emoji":"🔄","category":"automation","os":["windows","darwin","linux"],"requires":{"anyBins":["clawdbot","clawdhub"]}}}
+metadata: {"version":"1.0.1","clawdbot":{"emoji":"","category":"automation","os":["windows","darwin","linux"],"requires":{"anyBins":["clawdbot","clawdhub"]}}}
 ---
 
 # Auto-Updater (Gateway)

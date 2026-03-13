@@ -59,7 +59,7 @@ async function main() {
   const friendName = args[0];
   const messageText = args.slice(1).join(' ');
 
-  console.log('📤 ClawLink Send');
+  console.log(' ClawLink Send');
   console.log('='.repeat(50));
 
   // Load identity and friends

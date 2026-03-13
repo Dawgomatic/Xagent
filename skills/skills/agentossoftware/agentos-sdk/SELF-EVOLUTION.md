@@ -67,7 +67,7 @@ aos_check_before() {
   local related_mistakes
   related_mistakes=$(aos_search "mistakes $task_type" 5)
   
-  echo "⚠️ Check these before proceeding:" >&2
+  echo " Check these before proceeding:" >&2
   echo "$related_mistakes" | jq -r '.results[] | "- \(.value.lesson)"' >&2
 }
 

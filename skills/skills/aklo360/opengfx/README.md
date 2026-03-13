@@ -191,25 +191,25 @@ community-banner.png  # 1200x480 (2.5:1)
 ### Logo Service
 | Field | Required | Description |
 |-------|----------|-------------|
-| `concept` | ✅ | Brand concept, vibe, industry, style direction |
-| `brandName` / `brand_name` | ❌ | Brand name (AI generates if not provided) |
-| `tagline` | ❌ | Optional tagline/slogan |
+| `concept` |  | Brand concept, vibe, industry, style direction |
+| `brandName` / `brand_name` |  | Brand name (AI generates if not provided) |
+| `tagline` |  | Optional tagline/slogan |
 
 ### Social Service (Mode 1: From Logo Service)
 | Field | Required | Description |
 |-------|----------|-------------|
-| `brandSystemUrl` / `brand_system_url` | ✅ | URL to brand-system.json from logo service |
+| `brandSystemUrl` / `brand_system_url` |  | URL to brand-system.json from logo service |
 
 ### Social Service (Mode 2: BYOL)
 | Field | Required | Description |
 |-------|----------|-------------|
-| `logoUrl` / `logo_url` | ✅ | URL to your existing logo image |
-| `brandName` / `brand_name` | ✅ | Brand name |
-| `tagline` | ❌ | Optional tagline |
-| `primaryColor` / `primary_color` | ❌ | Primary color hex (auto-extracted if not provided) |
-| `secondaryColor` / `secondary_color` | ❌ | Secondary color hex |
-| `backgroundColor` / `background_color` | ❌ | Background color hex |
-| `renderStyle` / `render_style` | ❌ | flat, gradient, glass, chrome, gold, neon, 3d |
+| `logoUrl` / `logo_url` |  | URL to your existing logo image |
+| `brandName` / `brand_name` |  | Brand name |
+| `tagline` |  | Optional tagline |
+| `primaryColor` / `primary_color` |  | Primary color hex (auto-extracted if not provided) |
+| `secondaryColor` / `secondary_color` |  | Secondary color hex |
+| `backgroundColor` / `background_color` |  | Background color hex |
+| `renderStyle` / `render_style` |  | flat, gradient, glass, chrome, gold, neon, 3d |
 
 ## Agent Details
 

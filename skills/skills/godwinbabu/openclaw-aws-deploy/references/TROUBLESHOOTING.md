@@ -128,8 +128,8 @@ openclaw pairing approve telegram <PAIRING_CODE>
 ### "Unknown model" Error
 
 **Cause 1:** Wrong provider prefix
-- ❌ `bedrock/model-id`
-- ✅ `amazon-bedrock/model-id`
+-  `bedrock/model-id`
+-  `amazon-bedrock/model-id`
 
 **Cause 2:** Model not enabled in Bedrock console
 - Go to AWS Bedrock Console → Model Access

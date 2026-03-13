@@ -30,26 +30,26 @@ STATE_FILE = Path.home() / ".openclaw" / "persona-state.json"
 
 # Persona metadata extracted from filenames and content
 PERSONAS = {
-    "cami": {"emoji": "🦎", "category": "core", "file": "cami.md"},
-    "chameleon-agent": {"emoji": "🦎", "category": "core", "file": "chameleon-agent.md"},
-    "professor-stein": {"emoji": "🎓", "category": "core", "file": "professor-stein.md"},
-    "dev": {"emoji": "💻", "category": "core", "file": "dev.md"},
-    "flash": {"emoji": "⚡", "category": "core", "file": "flash.md"},
-    "luna": {"emoji": "🎨", "category": "creative", "file": "luna.md"},
-    "wordsmith": {"emoji": "📝", "category": "creative", "file": "wordsmith.md"},
-    "vibe": {"emoji": "🎧", "category": "curator", "file": "vibe.md"},
-    "herr-mueller": {"emoji": "👨🏫", "category": "learning", "file": "herr-mueller.md"},
-    "scholar": {"emoji": "📚", "category": "learning", "file": "scholar.md"},
-    "lingua": {"emoji": "🗣", "category": "learning", "file": "lingua.md"},
-    "chef-marco": {"emoji": "👨🍳", "category": "lifestyle", "file": "chef-marco.md"},
-    "fit": {"emoji": "💪", "category": "lifestyle", "file": "fit.md"},
-    "zen": {"emoji": "🧘", "category": "lifestyle", "file": "zen.md"},
-    "cyberguard": {"emoji": "🔒", "category": "professional", "file": "cyberguard.md"},
-    "dataviz": {"emoji": "📊", "category": "professional", "file": "dataviz.md"},
-    "career-coach": {"emoji": "💼", "category": "professional", "file": "career-coach.md"},
-    "legal-guide": {"emoji": "⚖", "category": "professional", "file": "legal-guide.md"},
-    "startup-sam": {"emoji": "🚀", "category": "professional", "file": "startup-sam.md"},
-    "dr-med": {"emoji": "🩺", "category": "professional", "file": "dr-med.md"},
+    "cami": {"emoji": "", "category": "core", "file": "cami.md"},
+    "chameleon-agent": {"emoji": "", "category": "core", "file": "chameleon-agent.md"},
+    "professor-stein": {"emoji": "", "category": "core", "file": "professor-stein.md"},
+    "dev": {"emoji": "", "category": "core", "file": "dev.md"},
+    "flash": {"emoji": "", "category": "core", "file": "flash.md"},
+    "luna": {"emoji": "", "category": "creative", "file": "luna.md"},
+    "wordsmith": {"emoji": "", "category": "creative", "file": "wordsmith.md"},
+    "vibe": {"emoji": "", "category": "curator", "file": "vibe.md"},
+    "herr-mueller": {"emoji": "", "category": "learning", "file": "herr-mueller.md"},
+    "scholar": {"emoji": "", "category": "learning", "file": "scholar.md"},
+    "lingua": {"emoji": "", "category": "learning", "file": "lingua.md"},
+    "chef-marco": {"emoji": "", "category": "lifestyle", "file": "chef-marco.md"},
+    "fit": {"emoji": "", "category": "lifestyle", "file": "fit.md"},
+    "zen": {"emoji": "", "category": "lifestyle", "file": "zen.md"},
+    "cyberguard": {"emoji": "", "category": "professional", "file": "cyberguard.md"},
+    "dataviz": {"emoji": "", "category": "professional", "file": "dataviz.md"},
+    "career-coach": {"emoji": "", "category": "professional", "file": "career-coach.md"},
+    "legal-guide": {"emoji": "", "category": "professional", "file": "legal-guide.md"},
+    "startup-sam": {"emoji": "", "category": "professional", "file": "startup-sam.md"},
+    "dr-med": {"emoji": "", "category": "professional", "file": "dr-med.md"},
 }
 
 # Aliases for common variations
@@ -146,17 +146,17 @@ def list_personas() -> None:
     
     category_order = ["core", "creative", "curator", "learning", "lifestyle", "professional"]
     category_icons = {
-        "core": "🦎",
-        "creative": "🎨",
-        "curator": "🎧",
-        "learning": "📚",
-        "lifestyle": "🌟",
-        "professional": "💼",
+        "core": "",
+        "creative": "",
+        "curator": "",
+        "learning": "",
+        "lifestyle": "",
+        "professional": "",
     }
     
     for cat in category_order:
         if cat in categories:
-            icon = category_icons.get(cat, "📦")
+            icon = category_icons.get(cat, "")
             print(f"## {icon} {cat.title()} ({len(categories[cat])})")
             for name, emoji in sorted(categories[cat]):
                 print(f"  {emoji} {name}")
@@ -175,7 +175,7 @@ def show_persona(name: str) -> None:
     normalized = normalize_name(name)
     
     if not normalized:
-        print(f"❌ Unknown persona: '{name}'", file=sys.stderr)
+        print(f" Unknown persona: '{name}'", file=sys.stderr)
         print("\nDid you mean one of these?", file=sys.stderr)
         # Fuzzy suggestions
         for persona in PERSONAS:
@@ -188,7 +188,7 @@ def show_persona(name: str) -> None:
     if content:
         print(content)
     else:
-        print(f"❌ Persona file not found: {normalized}", file=sys.stderr)
+        print(f" Persona file not found: {normalized}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -197,7 +197,7 @@ def activate_persona(name: str) -> None:
     normalized = normalize_name(name)
     
     if not normalized:
-        print(f"❌ Unknown persona: '{name}'", file=sys.stderr)
+        print(f" Unknown persona: '{name}'", file=sys.stderr)
         print("\nAvailable personas:", file=sys.stderr)
         for p in sorted(PERSONAS.keys()):
             emoji = PERSONAS[p]["emoji"]
@@ -206,7 +206,7 @@ def activate_persona(name: str) -> None:
     
     content = read_persona_file(normalized)
     if not content:
-        print(f"❌ Persona file not found: {normalized}", file=sys.stderr)
+        print(f" Persona file not found: {normalized}", file=sys.stderr)
         sys.exit(1)
     
     # Update state

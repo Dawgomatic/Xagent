@@ -135,12 +135,12 @@ The `analysis` dict contains ~50 fields from the comprehensive analysis engine:
     "sortino_ratio": 1.80,
     "max_drawdown": 2500.00,
     "max_drawdown_pct": 15.0,
-    "risk_rating": "🟡 Medium Risk"
+    "risk_rating": " Medium Risk"
   },
 
   // ── Red Flags ──
   "red_flags": [
-    "✅ No major red flags detected"
+    " No major red flags detected"
   ],
 
   // ── Position Sizing ──
@@ -241,8 +241,8 @@ The `analysis` dict contains ~50 fields from the comprehensive analysis engine:
 - `streaks` may include `"unavailable": true` when activity data is not available.
 - `all_pnls` is an array of every individual position P&L — can be large for active traders.
 - `rank` can be an integer or the string `"N/A"` if the wallet is not on the Polymarket leaderboard.
-- `red_flags` always has at least one entry: `"✅ No major red flags detected"` if clean.
-- `risk_metrics.risk_rating` values: `"🟢 Low Risk"`, `"🟡 Medium Risk"`, or `"🔴 High Risk"`.
+- `red_flags` always has at least one entry: `" No major red flags detected"` if clean.
+- `risk_metrics.risk_rating` values: `" Low Risk"`, `" Medium Risk"`, or `" High Risk"`.
 - `position_sizing.consistency_rating` values: `"Consistent"` (cv < 50), `"Moderate"` (cv < 100), or `"Highly Variable"`.
 - `track_record_source` is `"activity"`, `"estimated"`, or `null`.
 - `open_positions_detail` is an array of all individual open positions sorted by unrealized P&L descending (biggest winners first). Each entry includes market title, slug, outcome, entry/current price, size, values, P&L, and resolution date. The slug can be used to construct Polymarket URLs: `https://polymarket.com/event/{slug}`.
@@ -261,7 +261,7 @@ The `analysis` dict contains ~50 fields from the comprehensive analysis engine:
   "win_rate": 65.5,
   "trade_count": 162,
   "sharpe_ratio": 1.25,
-  "red_flags": ["✅ No major red flags detected"],
+  "red_flags": [" No major red flags detected"],
   "cached": true,
   "usage": {
     "used_today": 5
@@ -392,7 +392,7 @@ Possible values: `"ok"` or `"degraded"`.
       "copy_score": 10.0,
       "recommendation": "Strong Copy — consistently profitable with strong risk management",
       "tier": "green",
-      "red_flags": ["✅ No major red flags detected"],
+      "red_flags": [" No major red flags detected"],
       "track_record_days": 365,
       "last_trade_date": "2026-02-14",
       "categories": {

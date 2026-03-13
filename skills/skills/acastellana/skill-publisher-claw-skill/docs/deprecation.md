@@ -29,7 +29,7 @@ Consider deprecation when:
 Add warning banner to README.md and SKILL.md:
 
 ```markdown
-> ⚠️ **DEPRECATED**: This skill is deprecated and will be archived on [DATE].
+>  **DEPRECATED**: This skill is deprecated and will be archived on [DATE].
 > Please migrate to [alternative-skill](link).
 > See [Migration Guide](#migration) below.
 ```
@@ -90,7 +90,7 @@ When removal date arrives:
 
 2. **Update README** with final notice:
    ```markdown
-   # ⚠️ ARCHIVED
+   #  ARCHIVED
    
    This skill has been archived and is no longer maintained.
    
@@ -108,7 +108,7 @@ When removal date arrives:
 ```markdown
 ---
 
-## ⚠️ Deprecation Notice
+##  Deprecation Notice
 
 **Status**: Deprecated as of [DATE]
 **Removal Date**: [DATE]

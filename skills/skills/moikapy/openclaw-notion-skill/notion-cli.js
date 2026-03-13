@@ -12,7 +12,7 @@ const { Client } = require("@notionhq/client");
 const getToken = () => {
   const token = process.env.NOTION_TOKEN;
   if (!token) {
-    console.error("❌ Error: NOTION_TOKEN not set");
+    console.error(" Error: NOTION_TOKEN not set");
     console.error("Add to ~/.openclaw/.env: NOTION_TOKEN=secret_xxxxxxxxxx");
     process.exit(1);
   }
@@ -64,12 +64,12 @@ const commands = {
     const notion = getClient();
     const results = await notion.search({ page_size: 20 });
 
-    console.log("✅ Connected to Notion!");
+    console.log(" Connected to Notion!");
     console.log(`Found ${results.results.length} accessible pages/databases:\n`);
 
     results.results.forEach((item, i) => {
       const title = item.title?.[0]?.text?.content || "Untitled";
-      const type = item.object === "database" ? "📊" : "📄";
+      const type = item.object === "database" ? "" : "";
       const id = item.id.replace(/-/g, "").slice(0, 8) + "...";
       console.log(`${i + 1}. ${type} ${title} (${id})`);
     });
@@ -178,7 +178,7 @@ const commands = {
     let cleanPageId;
     if (pageId.startsWith('#')) {
       if (!dbId) {
-        console.error("❌ Database ID required when using Notion ID reference (#3)");
+        console.error(" Database ID required when using Notion ID reference (#3)");
         console.error("Usage: get-page '#3' DATABASE_ID");
         process.exit(1);
       }
@@ -254,7 +254,7 @@ const commands = {
 
     const propsIdx = args.indexOf("--properties");
     if (propsIdx === -1 || !args[propsIdx + 1]) {
-      console.error("❌ Error: --properties required");
+      console.error(" Error: --properties required");
       process.exit(1);
     }
 
@@ -275,7 +275,7 @@ const commands = {
     let cleanPageId;
     if (pageId.startsWith('#')) {
       if (!dbId) {
-        console.error("❌ Database ID required when using Notion ID reference (#3)");
+        console.error(" Database ID required when using Notion ID reference (#3)");
         console.error("Usage: append-body '#3' --database DB_ID --text 'content'");
         process.exit(1);
       }
@@ -341,7 +341,7 @@ const commands = {
           blocks.push({ object: "block", type: "paragraph", paragraph: { rich_text: richText } });
       }
     } else {
-      console.error("❌ Error: --text or --blocks required");
+      console.error(" Error: --text or --blocks required");
       console.error("Examples:");
       console.error('  node notion-cli.js append-body PAGE_ID --text "Hello world"');
       console.error('  node notion-cli.js append-body PAGE_ID --text "My Heading" --type h2');
@@ -398,7 +398,7 @@ const commands = {
     const targetNumber = parseInt(numberStr.replace(/^#/, ""), 10);
 
     if (isNaN(targetNumber) || targetNumber < 1) {
-      console.error("❌ Invalid entry number. Use: entry-by-number DB_ID #3");
+      console.error(" Invalid entry number. Use: entry-by-number DB_ID #3");
       process.exit(1);
     }
 
@@ -408,7 +408,7 @@ const commands = {
     });
 
     if (targetNumber > response.results.length) {
-      console.error(`❌ Only ${response.results.length} entries found. #${targetNumber} doesn't exist.`);
+      console.error(` Only ${response.results.length} entries found. #${targetNumber} doesn't exist.`);
       process.exit(1);
     }
 
@@ -428,7 +428,7 @@ const commands = {
     const targetId = parseInt(notionId.replace(/^#/, ""), 10);
 
     if (isNaN(targetId)) {
-      console.error("❌ Invalid ID. Use: find-by-notion-id DB_ID #3");
+      console.error(" Invalid ID. Use: find-by-notion-id DB_ID #3");
       process.exit(1);
     }
 
@@ -444,7 +444,7 @@ const commands = {
     });
 
     if (!entry) {
-      console.error(`❌ No entry with Notion ID #${targetId} found`);
+      console.error(` No entry with Notion ID #${targetId} found`);
       console.log("\nAvailable entries:");
       response.results.forEach(p => {
         const idNum = p.properties.ID?.unique_id?.number;
@@ -546,7 +546,7 @@ const main = async () => {
 
   const handler = commands[cmd];
   if (!handler) {
-    console.error(`❌ Unknown command: ${cmd}`);
+    console.error(` Unknown command: ${cmd}`);
     showHelp();
     process.exit(1);
   }
@@ -554,9 +554,9 @@ const main = async () => {
   try {
     await handler(...args);
   } catch (err) {
-    console.error("❌ Error:", err.message);
+    console.error(" Error:", err.message);
     if (err.code === "object_not_found") {
-      console.error("💡 Make sure the page/database is shared with your integration (Share → Add connections)");
+      console.error(" Make sure the page/database is shared with your integration (Share → Add connections)");
     }
     process.exit(1);
   }

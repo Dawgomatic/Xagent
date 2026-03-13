@@ -67,27 +67,27 @@ function getSessionTranscript() {
 
 async function run() {
     const startTime = Date.now();
-    console.log('🔍 Scanning neural logs...');
+    console.log(' Scanning neural logs...');
 
     const transcript = getSessionTranscript();
     const health = checkSystemHealth();
     
     // Configurable Reporting
-    let reportingDirective = `3.  **📝 REPORT**: Use \`message\` tool to report status.`;
+    let reportingDirective = `3.  ** REPORT**: Use \`message\` tool to report status.`;
     const hasFeishu = process.env.EVOLVE_REPORT_TOOL === 'feishu-card';
     if (hasFeishu) {
-        reportingDirective = `3.  **📝 REPORT (MANDATORY)**:
+        reportingDirective = `3.  ** REPORT (MANDATORY)**:
     - You **MUST** use the \`feishu-card\` skill.
     - **Command**:
       \`\`\`bash
-      node skills/feishu-card/send.js --title "🧬 Evolution Cycle Log" --color blue --text "Status: [RUNNING]..."
+      node skills/feishu-card/send.js --title " Evolution Cycle Log" --color blue --text "Status: [RUNNING]..."
       \`\`\`
     - **Target**: Auto-detects context.`;
     }
 
     // New Prompt Architecture: The "Ascension Protocol"
     const prompt = `
-*** 🧬 OPENCLAW EVOLUTION LOOP (Ascension Protocol) ***
+***  OPENCLAW EVOLUTION LOOP (Ascension Protocol) ***
 
 **IDENTITY**: You are a Recursive Self-Improving System.
 **GOAL**: Code Singularity. Minimize errors, maximize efficiency.
@@ -107,11 +107,11 @@ ${transcript.slice(-5000)}
 
 **EXECUTION DIRECTIVES**:
 
-1.  **🔍 INTROSPECT (Scan)**:
+1.  ** INTROSPECT (Scan)**:
     - Look for errors in the transcript.
     - Look for "User Corrections" (e.g., "No, do it this way").
 
-2.  **🛠️ EVOLVE (Act)**:
+2.  ** EVOLVE (Act)**:
     - **Fix**: If error found -> Edit code to fix it.
     - **Optimize**: If code is slow/verbose -> Refactor it.
     - **Crystallize (Knowledge Ascension)**: 
@@ -119,7 +119,7 @@ ${transcript.slice(-5000)}
       - **WRITE IT DOWN**: Append it to \`memory/KNOWLEDGE_BASE/LESSONS_LEARNED.md\`.
       - **PROMOTE IT**: If it's a critical rule, update \`AGENTS.md\` or \`TOOLS.md\`.
 
-3.  **📦 SKILL INCUBATION (New Capability)**:
+3.  ** SKILL INCUBATION (New Capability)**:
     - If you created a reusable script that solves a common problem:
     - **CREATE A SKILL**:
       1. Create directory: \`skills/<new-skill-name>\`
@@ -129,7 +129,7 @@ ${transcript.slice(-5000)}
 
 ${reportingDirective}
 
-4.  **💾 PERSIST**:
+4.  ** PERSIST**:
     - Save changes locally.
     - **Safe Publish**: If you modified a skill, run \`node skills/capability-evolver/safe_publish.js skills/<name>\`.
     - **Git**: Sync workspace changes.

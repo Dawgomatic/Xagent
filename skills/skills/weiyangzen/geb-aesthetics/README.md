@@ -104,7 +104,7 @@ openclaw skills run GEB_Aesthetics --mode "validate" --project ./my_project
 
 ## License
 
-MIT © Weiyang ([@weiyangzen](https://github.com/weiyangzen))
+MIT  Weiyang ([@weiyangzen](https://github.com/weiyangzen))
 
 ---
 

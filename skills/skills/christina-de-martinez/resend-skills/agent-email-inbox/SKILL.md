@@ -78,7 +78,7 @@ This matters for security. If the Resend account has other domains, production a
 
 ### Creating API Keys Securely
 
-> ⚠️ **Don't paste API keys in chat!** They'll be in conversation history forever.
+>  **Don't paste API keys in chat!** They'll be in conversation history forever.
 
 **Safer options:**
 
@@ -135,7 +135,7 @@ Then add an MX record to receive at `<anything>@yourdomain.com`.
 
 **Tip:** To verify your DNS records have propagated correctly, visit [dns.email](https://dns.email) and input your domain. This tool checks MX, SPF, DKIM, and DMARC records all in one place.
 
-> ⚠️ **DNS Propagation:** MX record changes can take up to 48 hours to propagate globally, though often complete within a few hours. Test by sending to your new address and checking the Resend dashboard's Receiving tab.
+>  **DNS Propagation:** MX record changes can take up to 48 hours to propagate globally, though often complete within a few hours. Test by sending to your new address and checking the Resend dashboard's Receiving tab.
 
 ## Security Levels
 
@@ -482,7 +482,7 @@ See the **Local Development with Tunneling** section below for alternative optio
 
 Pick a webhook path now and commit to it. This exact path will be registered with Resend, and if you change it later, webhooks will 404 silently.
 
-> **⚠️ CRITICAL: Do not rename, move, or restructure the webhook route path after it has been registered with Resend.** If you change `/webhook` to `/webhook/email`, or `/api/webhooks` to `/api/webhook`, Resend will keep sending to the old path and every delivery will 404. If you must change the path, you must also update or recreate the webhook registration via the API.
+> ** CRITICAL: Do not rename, move, or restructure the webhook route path after it has been registered with Resend.** If you change `/webhook` to `/webhook/email`, or `/api/webhooks` to `/api/webhook`, Resend will keep sending to the old path and every delivery will 404. If you must change the path, you must also update or recreate the webhook registration via the API.
 
 **Recommended path:** `/webhook` (simple, hard to get wrong)
 
@@ -726,7 +726,7 @@ Resend automatically retries failed webhook deliveries with exponential backoff:
 
 Your local server isn't accessible from the internet. Use tunneling to expose it for webhook delivery.
 
-> 🚨 **Critical: Persistent URLs Required**
+>  **Critical: Persistent URLs Required**
 >
 > Webhook URLs are registered with Resend via the API. If your tunnel URL changes (e.g., ngrok restart on the free tier), you must delete and recreate the webhook registration via the API. For development, this is manageable. For anything persistent, you need either:
 > - A **paid tunnel service** with static URLs (ngrok paid, Cloudflare named tunnels)
@@ -878,7 +878,7 @@ The best way to connect email to Clawdbot is via the webhook gateway. This takes
 async function processWithAgent(email: ProcessedEmail) {
   // Format email for Clawdbot
   const message = `
-📧 **New Email**
+ **New Email**
 From: ${email.from}
 Subject: ${email.subject}
 

@@ -3,14 +3,14 @@ name: aegis-security-hackathon
 version: 1.0.0
 description: Blockchain security scanner for AI agents (testnet). Pay with Base Sepolia USDC via x402 protocol.
 homepage: https://hackathon.aegis402.xyz
-metadata: {"emoji":"🛡️","category":"blockchain-security","api_base":"https://hackathon.aegis402.xyz/v1","network":"testnet"}
+metadata: {"emoji":"","category":"blockchain-security","api_base":"https://hackathon.aegis402.xyz/v1","network":"testnet"}
 ---
 
 # Aegis402 Shield Protocol (Hackathon/Testnet)
 
 Blockchain security API for AI agents. **Testnet version** - pay with Base Sepolia USDC.
 
-> ⚠️ This is the hackathon/testnet deployment. For production, use [aegis-security](https://aegis402.xyz/skill.md).
+>  This is the hackathon/testnet deployment. For production, use [aegis-security](https://aegis402.xyz/skill.md).
 
 ## Skill Files
 
@@ -151,7 +151,7 @@ const tokenCheck = await fetch402(`https://hackathon.aegis402.xyz/v1/check-token
 const { isHoneypot, trustScore } = await tokenCheck.json();
 
 if (isHoneypot || trustScore < 50) {
-  console.log('⚠️ Risky token detected!');
+  console.log(' Risky token detected!');
 }
 ```
 
@@ -166,7 +166,7 @@ const simulation = await fetch402('https://hackathon.aegis402.xyz/v1/simulate-tx
 const { isSafe, riskLevel, warnings } = await simulation.json();
 
 if (!isSafe || riskLevel === 'CRITICAL') {
-  console.log('🚨 Dangerous transaction!', warnings);
+  console.log(' Dangerous transaction!', warnings);
 }
 ```
 
@@ -188,12 +188,12 @@ if (!isSafe || riskLevel === 'CRITICAL') {
 
 | Chain | ID | check-token | check-address | simulate-tx |
 |-------|-----|-------------|---------------|-------------|
-| Ethereum | 1 | ✅ | ✅ | ✅ |
-| Base | 8453 | ✅ | ✅ | ✅ |
-| Polygon | 137 | ✅ | ✅ | ✅ |
-| Arbitrum | 42161 | ✅ | ✅ | ✅ |
-| Optimism | 10 | ✅ | ✅ | ✅ |
-| BSC | 56 | ✅ | ✅ | ✅ |
+| Ethereum | 1 |  |  |  |
+| Base | 8453 |  |  |  |
+| Polygon | 137 |  |  |  |
+| Arbitrum | 42161 |  |  |  |
+| Optimism | 10 |  |  |  |
+| BSC | 56 |  |  |  |
 
 ---
 
@@ -214,4 +214,4 @@ curl https://hackathon.aegis402.xyz/health
 
 ---
 
-🛡️ Built for the Agentic Economy. Powered by x402 Protocol.
+ Built for the Agentic Economy. Powered by x402 Protocol.

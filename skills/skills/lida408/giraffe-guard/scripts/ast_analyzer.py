@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦒 Giraffe Guard AST Deep Analyzer
+ Giraffe Guard AST Deep Analyzer
 Semantic analysis of Python files using the built-in ast module.
 Catches evasion techniques that grep-based detection cannot:
   - Variable concatenation for shell commands
@@ -435,13 +435,13 @@ def output_text(findings_list):
     dim = "\033[2m"
 
     if not findings_list:
-        print(f"\n  {bold}🦒 AST Deep Analyzer: ✅ No issues found.{nc}\n")
+        print(f"\n  {bold} AST Deep Analyzer:  No issues found.{nc}\n")
         return
 
-    print(f"\n  {bold}🦒 AST Deep Analyzer: {len(findings_list)} findings{nc}\n")
+    print(f"\n  {bold} AST Deep Analyzer: {len(findings_list)} findings{nc}\n")
     for f in findings_list:
         color = colors.get(f["level"], nc)
-        icon = "🔴" if f["level"] == CRITICAL else "🟡" if f["level"] == WARNING else "[i] "
+        icon = "" if f["level"] == CRITICAL else "" if f["level"] == WARNING else "[i] "
         print(f"  {icon} {color}{f['level']}{nc} | {bold}{f['file']}:{f['line']}{nc} | {dim}{f['rule']}{nc}")
         print(f"     {f['content']}")
         if f.get("remediation"):

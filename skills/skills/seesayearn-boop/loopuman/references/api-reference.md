@@ -38,7 +38,7 @@ Get an API key. No authentication required.
   "message": "Welcome to Loopuman — The Human Layer for AI",
   "api_key": "lpm_abc123...",
   "user_id": "uuid",
-  "important": "⚠️ Save this API key now — it cannot be retrieved later."
+  "important": " Save this API key now — it cannot be retrieved later."
 }
 ```
 

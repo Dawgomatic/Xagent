@@ -148,14 +148,14 @@ AI SDK v5 + Zod initialization overhead exceeds Cloudflare Workers startup limit
 ### Solution
 
 ```typescript
-// ❌ BAD: Top-level imports cause startup overhead
+//  BAD: Top-level imports cause startup overhead
 import { createWorkersAI } from 'workers-ai-provider';
 import { generateText } from 'ai';
 import { complexSchema } from './schemas'; // Heavy Zod schemas
 
 const workersai = createWorkersAI({ binding: env.AI }); // Runs at startup!
 
-// ✅ GOOD: Lazy initialization inside handler
+//  GOOD: Lazy initialization inside handler
 export default {
   async fetch(request, env) {
     // Import inside handler
@@ -177,11 +177,11 @@ export default {
 ### Alternative Solution (Move Schemas Inside Routes)
 
 ```typescript
-// ❌ BAD: Top-level schema
+//  BAD: Top-level schema
 import { z } from 'zod';
 const PersonSchema = z.object({ /* complex schema */ });
 
-// ✅ GOOD: Schema inside handler
+//  GOOD: Schema inside handler
 export default {
   async fetch(request, env) {
     const { z } = await import('zod');
@@ -224,7 +224,7 @@ Stream errors are swallowed by `createDataStreamResponse()` or framework respons
 ### Solution
 
 ```typescript
-// ✅ GOOD: Add explicit error handling
+//  GOOD: Add explicit error handling
 const stream = streamText({
   model: openai('gpt-5'),
   prompt: 'Hello',
@@ -239,7 +239,7 @@ try {
   console.error('Stream error:', error);
 }
 
-// ✅ BETTER: Always log on server side
+//  BETTER: Always log on server side
 console.log('Starting stream...');
 const stream = streamText({
   model: openai('gpt-5'),
@@ -361,8 +361,8 @@ import { AI_InvalidArgumentError } from 'ai';
 try {
   const result = await generateText({
     model: openai('gpt-5'),
-    maxOutputTokens: -1,  // ❌ Invalid!
-    temperature: 3.0,      // ❌ Must be 0-2
+    maxOutputTokens: -1,  //  Invalid!
+    temperature: 3.0,      //  Must be 0-2
     prompt: 'Hello',
   });
 } catch (error) {
@@ -634,12 +634,12 @@ Complex Zod schemas slow down TypeScript type checking:
 ### Solution
 
 ```typescript
-// ❌ BAD: Complex schema at top level
+//  BAD: Complex schema at top level
 const ComplexSchema = z.object({
   // 100+ fields with nested objects...
 });
 
-// ✅ GOOD: Define inside function
+//  GOOD: Define inside function
 function generateData() {
   const schema = z.object({
     // Complex schema here
@@ -648,7 +648,7 @@ function generateData() {
   return generateObject({ model: openai('gpt-5'), schema, prompt: '...' });
 }
 
-// ✅ GOOD: Use z.lazy() for recursive
+//  GOOD: Use z.lazy() for recursive
 type Category = { name: string; subcategories?: Category[] };
 
 const CategorySchema: z.ZodType<Category> = z.lazy(() =>
@@ -658,7 +658,7 @@ const CategorySchema: z.ZodType<Category> = z.lazy(() =>
   })
 );
 
-// ✅ GOOD: Split large schemas
+//  GOOD: Split large schemas
 const AddressSchema = z.object({ /* ... */ });
 const PersonSchema = z.object({
   address: AddressSchema, // Reuse smaller schema

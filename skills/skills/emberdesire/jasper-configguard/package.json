@@ -1,7 +1,7 @@
 {
   "name": "jasper-configguard",
   "version": "1.0.0",
-  "description": "🛡️ Safe config changes for OpenClaw with automatic rollback. Never brick your gateway again.",
+  "description": " Safe config changes for OpenClaw with automatic rollback. Never brick your gateway again.",
   "main": "src/index.js",
   "bin": {
     "jasper-configguard": "./cli/configguard.js",

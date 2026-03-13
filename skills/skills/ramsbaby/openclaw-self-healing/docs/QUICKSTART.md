@@ -165,7 +165,7 @@ launchctl list | grep openclaw.healthcheck
 ```bash
 # Add Emergency Recovery Monitor cron
 openclaw cron add \
-  --name "🚨 Emergency Recovery 실패 감지" \
+  --name " Emergency Recovery 실패 감지" \
   --schedule '*/5 * * * *' \
   --command 'bash ~/openclaw/scripts/emergency-recovery-monitor.sh' \
   --session isolated \
@@ -188,7 +188,7 @@ openclaw cron add \
 3. Add to `crons` array:
    ```json
    {
-     "name": "🚨 Emergency Recovery 실패 감지",
+     "name": " Emergency Recovery 실패 감지",
      "schedule": {
        "kind": "every",
        "everyMs": 300000
@@ -267,7 +267,7 @@ curl -I http://localhost:18789/
 tail -f ~/openclaw/memory/healthcheck-$(date +%Y-%m-%d).log
 
 # Health Check runs every 5 minutes
-# Look for: "✅ Gateway healthy"
+# Look for: " Gateway healthy"
 ```
 
 ### Test Discord Notifications (if configured)
@@ -278,7 +278,7 @@ bash -c '
 source ~/.openclaw/.env
 curl -X POST "$DISCORD_WEBHOOK_URL" \
   -H "Content-Type: application/json" \
-  -d "{\"content\": \"✅ Self-Healing System test notification\"}"
+  -d "{\"content\": \" Self-Healing System test notification\"}"
 '
 
 # Check Discord channel for message
@@ -406,7 +406,7 @@ rm ~/openclaw/memory/claude-session-*.log
 ---
 
 <p align="center">
-  <strong>Installation complete! 🎉</strong>
+  <strong>Installation complete! </strong>
 </p>
 
 <p align="center">

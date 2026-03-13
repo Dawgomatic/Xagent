@@ -20,7 +20,7 @@ jq -c 'select(.timestamp > '"$LAST"' and .contact != "33608093808@c.us" and (.te
   # Send to Telegram
   curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
     --data-urlencode "chat_id=$CHAT_ID" \
-    --data-urlencode "text=🗓️ APPOINTMENT
+    --data-urlencode "text= APPOINTMENT
 $CONTACT
 $TEXT" \
     > /dev/null 2>&1

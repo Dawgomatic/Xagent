@@ -220,7 +220,7 @@ Ready-to-use templates for blog posts, social media, email marketing, video scri
 
 #### LinkedIn Post Framework
 ```
-🎯 Hook/Pattern Interrupt
+ Hook/Pattern Interrupt
 
 Context paragraph explaining the situation or challenge.
 
@@ -287,15 +287,15 @@ Here's what I learned:
 [Key insight or lesson]
 
 3 things that changed everything:
-1️⃣ [First point]
-2️⃣ [Second point]
-3️⃣ [Third point]
+ [First point]
+ [Second point]
+ [Third point]
 
 [Call-out or question to audience]
 
 Drop a [emoji] if you've experienced this too!
 
-What's your biggest challenge with [topic]? Let me know below 👇
+What's your biggest challenge with [topic]? Let me know below 
 
 -
 #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5

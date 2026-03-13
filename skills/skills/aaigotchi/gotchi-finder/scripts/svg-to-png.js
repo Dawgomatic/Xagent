@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 async function svgToPng(svgPath, pngPath, size = 512) {
-  console.log(`\n🎨 Converting SVG to PNG...`);
-  console.log(`📐 Input: ${svgPath}`);
-  console.log(`📐 Output: ${pngPath} (${size}x${size})`);
+  console.log(`\n Converting SVG to PNG...`);
+  console.log(` Input: ${svgPath}`);
+  console.log(` Output: ${pngPath} (${size}x${size})`);
   
   try {
     const svgBuffer = fs.readFileSync(svgPath);
@@ -19,11 +19,11 @@ async function svgToPng(svgPath, pngPath, size = 512) {
       .toFile(pngPath);
     
     const stats = fs.statSync(pngPath);
-    console.log(`✅ PNG created: ${(stats.size / 1024).toFixed(2)} KB`);
+    console.log(` PNG created: ${(stats.size / 1024).toFixed(2)} KB`);
     
     return pngPath;
   } catch (error) {
-    console.error(`❌ Error converting SVG to PNG:`, error.message);
+    console.error(` Error converting SVG to PNG:`, error.message);
     throw error;
   }
 }

@@ -1,9 +1,9 @@
 ---
 name: base-wallet
-description: "🔐 Base Wallet - Crypto Identity for AI Agents. Create wallets, sign messages (SIWE), send transactions programmatically. No browser extensions, no human intervention. The foundation for autonomous Web3 agents."
+description: " Base Wallet - Crypto Identity for AI Agents. Create wallets, sign messages (SIWE), send transactions programmatically. No browser extensions, no human intervention. The foundation for autonomous Web3 agents."
 ---
 
-# 🔐 Base Wallet - Crypto Identity for AI Agents
+#  Base Wallet - Crypto Identity for AI Agents
 
 > Every autonomous agent needs a wallet. Create one without human help.
 
@@ -20,9 +20,9 @@ Create and manage Base chain (Ethereum-compatible) wallets programmatically.
 
 ---
 
-## ⚠️ Security First
+##  Security First
 
-| ✅ DO | ❌ DON'T |
+|  DO |  DON'T |
 |-------|----------|
 | Use **environment variables** for private keys | Store private keys in plain text files |
 | Set wallet files to **chmod 600** | Commit wallet files to git |
@@ -53,7 +53,7 @@ Then copy to your shell or `.env` file.
 node scripts/create-wallet.js --managed my-agent
 ```
 
-⚠️ This stores private key in `~/.openclaw/wallets/my-agent.json`
+ This stores private key in `~/.openclaw/wallets/my-agent.json`
 
 ---
 
@@ -64,10 +64,10 @@ node scripts/create-wallet.js --managed my-agent
 ```javascript
 const { ethers } = require('ethers');
 
-// ✅ SECURE: Load from environment variable
+//  SECURE: Load from environment variable
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY);
 console.log('Address:', wallet.address);
-// ❌ NEVER: console.log('Private Key:', wallet.privateKey);
+//  NEVER: console.log('Private Key:', wallet.privateKey);
 ```
 
 ### Load from Mnemonic
@@ -153,7 +153,7 @@ node scripts/basemail-register.js my-agent
 
 ---
 
-## 📝 Audit Logging
+##  Audit Logging
 
 Operations are logged to `~/.base-wallet/audit.log`.
 
@@ -162,14 +162,14 @@ Operations are logged to `~/.base-wallet/audit.log`.
 ## Secure Storage Pattern
 
 ```javascript
-// ✅ Recommended: Use environment variables
+//  Recommended: Use environment variables
 const privateKey = process.env.PRIVATE_KEY;
 if (!privateKey) {
   throw new Error('PRIVATE_KEY environment variable not set');
 }
 const wallet = new ethers.Wallet(privateKey);
 
-// ❌ Avoid: Storing private keys in code or files
+//  Avoid: Storing private keys in code or files
 ```
 
 If you must store to file (not recommended):
@@ -214,11 +214,11 @@ npm install ethers
 ## Changelog
 
 ### v1.1.0 (2026-02-08)
-- 🔐 Security: Changed create-wallet.js to opt-in file storage
-- ✨ Added --env mode (recommended)
-- 📝 Added audit logging
-- ⚠️ Removed console.log(privateKey) from examples
-- 📄 Enhanced security documentation
+-  Security: Changed create-wallet.js to opt-in file storage
+-  Added --env mode (recommended)
+-  Added audit logging
+-  Removed console.log(privateKey) from examples
+-  Enhanced security documentation
 
 ### v1.0.0
-- 🎉 Initial release
+-  Initial release

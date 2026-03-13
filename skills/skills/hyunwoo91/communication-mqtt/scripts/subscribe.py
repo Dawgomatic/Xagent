@@ -6,7 +6,7 @@ import paho.mqtt.client as mqtt
 
 app = typer.Typer(add_completion=False)
 
-# 🔒 고정 MQTT 설정
+#  고정 MQTT 설정
 BROKER = "localhost"
 PORT = 1883
 KEEPALIVE = 30

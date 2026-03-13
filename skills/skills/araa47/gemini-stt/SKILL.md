@@ -1,7 +1,7 @@
 ---
 name: gemini-stt
 description: Transcribe audio files using Google's Gemini API or Vertex AI
-metadata: {"clawdbot":{"emoji":"🎤","os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin"]}}
 ---
 
 # Gemini Speech-to-Text Skill

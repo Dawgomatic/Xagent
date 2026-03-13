@@ -16,7 +16,7 @@ Use `profile=<PROFILE>` throughout — substitute with `chrome` or `openclaw` ba
 
 ---
 
-## ⚠️ Mandatory Between Every Profile — No Exceptions
+##  Mandatory Between Every Profile — No Exceptions
 
 Always navigate to the feed before loading a new profile. **Never skip this step.** Jumping directly between profile URLs is the primary trigger for LinkedIn's automation detection. This step must happen even if the previous profile loaded fine.
 

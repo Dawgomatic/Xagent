@@ -75,10 +75,10 @@ event AavegotchiInteracted(uint256 indexed _tokenId, uint256 kinship);
 ## Security
 
 **Safe Operations:**
-- ✅ No token transfers
-- ✅ No approvals needed
-- ✅ Only updates kinship state
-- ✅ Reverts if cooldown not ready
+-  No token transfers
+-  No approvals needed
+-  Only updates kinship state
+-  Reverts if cooldown not ready
 
 **Owner Check:**
 - Contract verifies `msg.sender` owns the gotchi

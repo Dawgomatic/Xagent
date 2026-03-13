@@ -40,18 +40,18 @@ function shouldNotify(contact) {
 
 function forwardToOpenClaw(data) {
   if (!NOTIFICATION_TARGET) {
-    console.log('⚠️  No NOTIFICATION_TARGET configured, skipping forward');
+    console.log('  No NOTIFICATION_TARGET configured, skipping forward');
     return;
   }
   
-  const msg = `📱 SMS from ${data.contact || 'Unknown'}: ${data.preview || data.message || '(no content)'}`;
+  const msg = ` SMS from ${data.contact || 'Unknown'}: ${data.preview || data.message || '(no content)'}`;
   
   try {
     const cmd = `openclaw message send -t "${NOTIFICATION_TARGET}" --channel ${NOTIFICATION_CHANNEL} -m "${msg.replace(/"/g, '\\"').replace(/\n/g, ' ')}"`;
     execSync(cmd, { timeout: 15000, stdio: 'pipe' });
-    console.log('✅ Forwarded to', NOTIFICATION_CHANNEL);
+    console.log(' Forwarded to', NOTIFICATION_CHANNEL);
   } catch (e) {
-    console.error('❌ Failed to forward:', e.message);
+    console.error(' Failed to forward:', e.message);
   }
 }
 
@@ -73,11 +73,11 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try {
         const data = JSON.parse(body);
-        console.log('\n📱 New SMS:', JSON.stringify(data, null, 2));
+        console.log('\n New SMS:', JSON.stringify(data, null, 2));
         
         // Rate limit check
         if (!shouldNotify(data.contact)) {
-          console.log('⏱️  Rate limited, skipping notification');
+          console.log('  Rate limited, skipping notification');
           res.writeHead(200, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ ok: true, rateLimited: true }));
           return;
@@ -111,7 +111,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`🎧 SMS webhook server listening on http://127.0.0.1:${PORT}`);
+  console.log(` SMS webhook server listening on http://127.0.0.1:${PORT}`);
   console.log('');
   console.log('Endpoints:');
   console.log('  POST /sms-inbound  - Receive SMS notifications');
@@ -123,7 +123,7 @@ server.listen(PORT, '127.0.0.1', () => {
   console.log(`  Channel: ${NOTIFICATION_CHANNEL}`);
   console.log('');
   if (!NOTIFICATION_TARGET) {
-    console.log('⚠️  Set SMS_NOTIFICATION_TARGET environment variable to enable forwarding');
+    console.log('  Set SMS_NOTIFICATION_TARGET environment variable to enable forwarding');
     console.log('   Example: SMS_NOTIFICATION_TARGET="telegram:123456789" node sms-webhook-server.js');
   }
 });

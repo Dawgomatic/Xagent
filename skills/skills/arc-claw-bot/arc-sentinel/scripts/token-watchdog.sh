@@ -69,11 +69,11 @@ emit_token() {
     if [[ "$OUTPUT_FORMAT" == "json" ]]; then
         printf '{"status":"%s","token":"%s","detail":"%s"}\n' "$status" "$name" "$detail"
     else
-        local color="$GREEN" icon="✅"
+        local color="$GREEN" icon=""
         case "$status" in
-            EXPIRED|CRITICAL) color="$RED"; icon="❌" ;;
-            EXPIRING|WARNING) color="$YELLOW"; icon="⚠️" ;;
-            OK|VALID|INFO)    color="$GREEN"; icon="✅" ;;
+            EXPIRED|CRITICAL) color="$RED"; icon="" ;;
+            EXPIRING|WARNING) color="$YELLOW"; icon="" ;;
+            OK|VALID|INFO)    color="$GREEN"; icon="" ;;
             MISSING)          color="$CYAN"; icon="—" ;;
         esac
         printf " ${icon} ${color}%-12s${RESET} %-28s %s\n" "[$status]" "$name" "$detail"
@@ -85,7 +85,7 @@ now_epoch() {
 }
 
 echo -e "${BOLD}${CYAN}═══════════════════════════════════════════${RESET}"
-echo -e "${BOLD}${CYAN}  🐕 Arc Sentinel — Token Watchdog${RESET}"
+echo -e "${BOLD}${CYAN}   Arc Sentinel — Token Watchdog${RESET}"
 echo -e "${BOLD}${CYAN}═══════════════════════════════════════════${RESET}"
 echo ""
 echo -e "${BOLD} Status       Token                        Detail${RESET}"

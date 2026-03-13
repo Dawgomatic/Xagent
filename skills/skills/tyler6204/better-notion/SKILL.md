@@ -1,7 +1,7 @@
 ---
 name: better-notion
 description: Full CRUD for Notion pages, databases, and blocks. Create, read, update, delete, search, and query.
-metadata: {"clawdbot":{"emoji":"📝"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # Notion

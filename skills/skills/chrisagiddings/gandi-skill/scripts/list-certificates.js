@@ -26,27 +26,27 @@ function formatDate(dateString) {
 // Main function
 async function main() {
   try {
-    console.log('🔒 Listing SSL/TLS certificates managed by Gandi...');
+    console.log(' Listing SSL/TLS certificates managed by Gandi...');
     console.log('');
     
     const certificates = await listCertificates();
     
     if (!certificates || certificates.length === 0) {
-      console.log('📭 No certificates found.');
+      console.log(' No certificates found.');
       console.log('');
-      console.log('💡 This lists certificates managed through Gandi\'s certificate API.');
+      console.log(' This lists certificates managed through Gandi\'s certificate API.');
       console.log('   External certificates or Let\'s Encrypt certificates managed');
       console.log('   outside of Gandi won\'t appear here.');
       console.log('');
-      console.log('📊 To check actual SSL status of your domains:');
+      console.log(' To check actual SSL status of your domains:');
       console.log('   node check-ssl.js');
       console.log('');
-      console.log('💡 To request a new certificate:');
+      console.log(' To request a new certificate:');
       console.log('   node request-certificate.js example.com');
       return;
     }
     
-    console.log(`📋 Certificates (${certificates.length} total):`);
+    console.log(` Certificates (${certificates.length} total):`);
     console.log('');
     
     certificates.forEach((cert, index) => {
@@ -58,12 +58,12 @@ async function main() {
       
       if (cert.status) {
         const statusEmoji = {
-          'valid': '✅',
-          'pending': '⏳',
-          'expired': '❌',
-          'revoked': '🚫'
+          'valid': '',
+          'pending': '',
+          'expired': '',
+          'revoked': ''
         };
-        console.log(`   Status: ${statusEmoji[cert.status] || '❓'} ${cert.status.toUpperCase()}`);
+        console.log(`   Status: ${statusEmoji[cert.status] || ''} ${cert.status.toUpperCase()}`);
       }
       
       if (cert.alt_names && cert.alt_names.length > 0) {
@@ -86,11 +86,11 @@ async function main() {
           const daysUntilExpiry = Math.ceil((validTo - now) / (1000 * 60 * 60 * 24));
           
           if (daysUntilExpiry < 0) {
-            console.log(`   ❌ Expired ${Math.abs(daysUntilExpiry)} days ago`);
+            console.log(`    Expired ${Math.abs(daysUntilExpiry)} days ago`);
           } else if (daysUntilExpiry < 30) {
-            console.log(`   ⚠️  Expires in ${daysUntilExpiry} days`);
+            console.log(`     Expires in ${daysUntilExpiry} days`);
           } else {
-            console.log(`   ✅ ${daysUntilExpiry} days remaining`);
+            console.log(`    ${daysUntilExpiry} days remaining`);
           }
         }
       }
@@ -104,23 +104,23 @@ async function main() {
       }
       
       if (cert.auto_renew !== undefined) {
-        console.log(`   Auto-renew: ${cert.auto_renew ? '✅ Enabled' : '❌ Disabled'}`);
+        console.log(`   Auto-renew: ${cert.auto_renew ? ' Enabled' : ' Disabled'}`);
       }
       
       console.log('');
     });
     
-    console.log('💡 To view certificate details:');
+    console.log(' To view certificate details:');
     console.log('   node cert-details.js <certificate-id>');
     console.log('');
-    console.log('💡 To request a new certificate:');
+    console.log(' To request a new certificate:');
     console.log('   node request-certificate.js example.com');
     console.log('');
-    console.log('📊 To check actual SSL status of all domains:');
+    console.log(' To check actual SSL status of all domains:');
     console.log('   node check-ssl.js');
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');
@@ -131,7 +131,7 @@ async function main() {
       console.error('  - API token lacks required scopes');
       console.error('  - Certificate management not available for your account');
       console.error('');
-      console.error('💡 This feature may require a Gandi SSL certificate subscription.');
+      console.error(' This feature may require a Gandi SSL certificate subscription.');
     } else if (error.statusCode === 404) {
       console.error('');
       console.error('Certificate API endpoint not found.');

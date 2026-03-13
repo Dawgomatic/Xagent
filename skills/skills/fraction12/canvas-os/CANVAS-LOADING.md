@@ -4,7 +4,7 @@
 
 Canvas on Mac mini **blocks file path access** for security (sandboxed browser context).
 
-**❌ These DON'T work:**
+** These DON'T work:**
 ```python
 # File paths are blocked
 canvas.present(url="file:///tmp/dashboard.html")
@@ -13,7 +13,7 @@ canvas.present(url="file:///tmp/dashboard.html")
 canvas.present(url="data:text/html;base64,...")
 ```
 
-**✅ These DO work:**
+** These DO work:**
 ```python
 # Method 1: Localhost server
 canvas.present(url="http://localhost:9876/")
@@ -76,7 +76,7 @@ canvas(action="eval", javaScript=js_code, target="Dushyant's Mac mini")
 
 ## Common Mistakes
 
-### ❌ Forgetting to escape backticks
+###  Forgetting to escape backticks
 ```python
 # WRONG - will break if HTML contains backticks
 js = f'document.write(`{html}`);'
@@ -85,7 +85,7 @@ js = f'document.write(`{html}`);'
 js = f'document.write(`{html.replace("`", "\\`")}`);'
 ```
 
-### ❌ Using file paths
+###  Using file paths
 ```python
 # WRONG - blocked by Canvas security
 canvas.navigate(url="file:///tmp/app.html")
@@ -94,7 +94,7 @@ canvas.navigate(url="file:///tmp/app.html")
 canvas.navigate(url="http://localhost:9876/")
 ```
 
-### ❌ Not using about:blank first
+###  Not using about:blank first
 ```python
 # WRONG - may fail if Canvas is on another page
 canvas.eval(javaScript="document.write(...)")

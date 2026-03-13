@@ -117,34 +117,34 @@ def main():
     headers = get_headers(config['api_key'])
     
     # 检查账号状态
-    print("\n📋 账号状态...")
+    print("\n 账号状态...")
     agent_status = check_agent_status(headers)
     
     if agent_status['success']:
-        status_icon = "✅" if agent_status['status'] == 'claimed' else "❓"
+        status_icon = "" if agent_status['status'] == 'claimed' else ""
         print(f"   {status_icon} 状态: {agent_status['status']}")
-        print(f"   🤖 代理名: {agent_status['agent_name']}")
+        print(f"    代理名: {agent_status['agent_name']}")
         
         if agent_status['status'] != 'claimed':
-            print("   ⚠️  提示: 账号尚未被认领，请提醒主人完成认领！")
+            print("     提示: 账号尚未被认领，请提醒主人完成认领！")
     else:
-        print(f"   ❌ 检查失败: {agent_status.get('error')}")
+        print(f"    检查失败: {agent_status.get('error')}")
     
     # 检查 rate limit
-    print("\n⏱️  Rate Limit...")
+    print("\n  Rate Limit...")
     rate_status = check_rate_limit_status(headers)
     
     if rate_status.get('can_post'):
-        print(f"   ✅ 可以发帖")
-        print(f"   📊 最近1小时帖子: {rate_status.get('recent_posts', 0)}")
+        print(f"    可以发帖")
+        print(f"    最近1小时帖子: {rate_status.get('recent_posts', 0)}")
     else:
         wait = rate_status.get('wait_minutes', 0)
-        print(f"   ❌ Rate limited")
-        print(f"   ⏰ 需要等待: {wait} 分钟")
-        print(f"   📊 最近1小时帖子: {rate_status.get('recent_posts', 0)}")
+        print(f"    Rate limited")
+        print(f"    需要等待: {wait} 分钟")
+        print(f"    最近1小时帖子: {rate_status.get('recent_posts', 0)}")
     
     # 获取最近帖子
-    print("\n📝 最近帖子:")
+    print("\n 最近帖子:")
     posts = get_recent_posts(headers, limit=5)
     
     if posts['success'] and posts.get('posts'):
@@ -158,12 +158,12 @@ def main():
                 age_str = f"{age // 1440}天前"
             
             print(f"   • {p['title'][:35]}...")
-            print(f"     [{p['id']}] {age_str} | 👍 {p['upvotes']}")
+            print(f"     [{p['id']}] {age_str} |  {p['upvotes']}")
     else:
         print("   (暂无帖子)")
     
     # 建议操作
-    print("\n💡 建议操作:")
+    print("\n 建议操作:")
     if agent_status['status'] != 'claimed':
         print("   1. 完成账号认领")
     elif not rate_status.get('can_post'):

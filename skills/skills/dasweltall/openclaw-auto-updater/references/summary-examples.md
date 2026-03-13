@@ -4,7 +4,7 @@ Reference examples for formatting the update report message.
 
 ## Full Update (Everything Changed)
 ```
-🔄 Daily Auto-Update Complete
+ Daily Auto-Update Complete
 
 **OpenClaw**
 Updated: v2026.2.1 → v2026.2.2
@@ -17,12 +17,12 @@ Updated: v2026.2.1 → v2026.2.2
 **Skills Already Current (5)**
 prj, gemini, browser, sag, himalaya
 
-✅ All updates completed successfully.
+ All updates completed successfully.
 ```
 
 ## No Updates Available
 ```
-🔄 Daily Auto-Update Check
+ Daily Auto-Update Check
 
 **OpenClaw**: v2026.2.2 (already latest)
 **Skills**: All installed skills are current.
@@ -31,7 +31,7 @@ Nothing to update today.
 
 ## Partial Update (Skills Only)
 ```
-🔄 Daily Auto-Update Complete
+ Daily Auto-Update Complete
 
 **OpenClaw**: v2026.2.2 (no update available)
 
@@ -42,19 +42,19 @@ Nothing to update today.
 **Skills Already Current (6)**
 prd, gemini, browser, sag, things-mac, peekaboo
 
-✅ Skill updates completed.
+ Skill updates completed.
 ```
 
 ## Update With Errors
 ```
-🔄 Daily Auto-Update Complete (with issues)
+ Daily Auto-Update Complete (with issues)
 
 **OpenClaw**: v2026.2.1 → v2026.2.2
 
-✅ **Skills Updated (1)**
+ **Skills Updated (1)**
 1. prd: 2.0.3 → 2.0.4
 
-❌ **Skills Failed (1)**
+ **Skills Failed (1)**
 1. nano-banana-pro: update failed
    Error: Network timeout while downloading v3.1.2
    Recommendation: Run `clawdhub update nano-banana-pro` manually
@@ -62,12 +62,12 @@ prd, gemini, browser, sag, things-mac, peekaboo
 **Skills Already Current (6)**
 prj, gemini, browser, sag, himalaya, peekaboo
 
-⚠️ Completed with 1 error.
+ Completed with 1 error.
 ```
 
 ## First Run / Setup Confirmation
 ```
-🔄 Auto-Updater Configured
+ Auto-Updater Configured
 Daily updates will run at 4:00 AM (Europe/Berlin).
 
 **What will be updated:**
@@ -83,7 +83,7 @@ To disable: `openclaw cron remove "Daily Auto-Update"`
 ```
 
 ## Formatting Guidelines
-1. Use emojis sparingly (🔄 + ✅/❌)
+1. Use emojis sparingly ( + /)
 2. Lead with what changed
 3. Group updated vs current vs failed
 4. Include version numbers (before → after)

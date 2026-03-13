@@ -45,7 +45,7 @@ POST /ai/generate-workflow
 - **Edit by prompt** — `POST /ai/workflow/:id/prompt`; workflow must be **draft** (undeploy first if deployed).
 - **Deploy** — `POST /workflows/:id/deploy` → draft/ended becomes **active** and runnable.
 - **Undeploy** — `POST /workflows/:id/undeploy` → back to **draft** so you can edit.
-- **Pause / Resume** — `POST /workflows/:id/pause`, `POST /workflows/:id/resume` (active ↔ paused).
+- **Pause / Resume** — `POST /workflows/:id/pause`, `POST /workflows/:id/resume` (active  paused).
 - **Stop** — `POST /workflows/:id/stop` → **ended** (no more runs; can deploy again later).
 - **Delete** — `DELETE /workflows/:id` removes the workflow permanently (any status).
 - **List workflows** — `GET /workflows` with optional `?status=draft`, `?smartAccountId=...`, pagination.

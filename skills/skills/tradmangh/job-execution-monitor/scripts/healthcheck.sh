@@ -93,7 +93,7 @@ echo "$CONFIG" | jq -r '.jobs | keys[]' | while read -r job_name; do
     already_alerted=$(echo "$STATE" | jq -r --arg k "$alert_key" '.alerts[$k] // 0')
     
     if (( already_alerted == 0 )); then
-      msg="🔴 Job-Observer: Job \"$job_name\" not found in cron list"
+      msg=" Job-Observer: Job \"$job_name\" not found in cron list"
       echo "$msg"
       send_wake "$msg"
       STATE=$(echo "$STATE" | jq --arg k "$alert_key" --arg t "$NOW" '.alerts[$k] = ($t | tonumber)')
@@ -112,7 +112,7 @@ echo "$CONFIG" | jq -r '.jobs | keys[]' | while read -r job_name; do
     already_alerted=$(echo "$STATE" | jq -r --arg k "$alert_key" '.alerts[$k] // 0')
     
     if (( already_alerted == 0 )); then
-      msg="🔴 Job-Observer: Job \"$job_name\" never ran"
+      msg=" Job-Observer: Job \"$job_name\" never ran"
       echo "$msg"
       send_wake "$msg"
       STATE=$(echo "$STATE" | jq --arg k "$alert_key" --arg t "$NOW" '.alerts[$k] = ($t | tonumber)')
@@ -133,7 +133,7 @@ echo "$CONFIG" | jq -r '.jobs | keys[]' | while read -r job_name; do
     if (( already_alerted == 0 )); then
       hours_ago=$((time_diff / 3600))
       mins_ago=$(( (time_diff % 3600) / 60 ))
-      msg="🔴 Job-Observer: \"$job_name\" missed schedule (expected $(date -d @$expected_time '+%H:%M'), last run ${hours_ago}h ${mins_ago}m ago)"
+      msg=" Job-Observer: \"$job_name\" missed schedule (expected $(date -d @$expected_time '+%H:%M'), last run ${hours_ago}h ${mins_ago}m ago)"
       echo "$msg"
       send_wake "$msg"
       STATE=$(echo "$STATE" | jq --arg k "$alert_key" --arg t "$NOW" '.alerts[$k] = ($t | tonumber)')
@@ -144,7 +144,7 @@ echo "$CONFIG" | jq -r '.jobs | keys[]' | while read -r job_name; do
     was_alerted=$(echo "$STATE" | jq -r --arg k "$alert_key" '.alerts[$k] // 0')
     
     if (( was_alerted > 0 )); then
-      msg="✅ Job-Observer: \"$job_name\" recovered (last run $(date -d @$last_run '+%H:%M'))"
+      msg=" Job-Observer: \"$job_name\" recovered (last run $(date -d @$last_run '+%H:%M'))"
       echo "$msg"
       send_wake "$msg"
       STATE=$(echo "$STATE" | jq --arg k "$alert_key" 'del(.alerts[$k])')
@@ -156,4 +156,4 @@ done
 STATE=$(echo "$STATE" | jq --arg t "$NOW" '.lastCheck = ($t | tonumber)')
 echo "$STATE" > "$STATE_FILE"
 
-echo "✅ Job-Observer check complete ($(date '+%Y-%m-%d %H:%M:%S'))"
+echo " Job-Observer check complete ($(date '+%Y-%m-%d %H:%M:%S'))"

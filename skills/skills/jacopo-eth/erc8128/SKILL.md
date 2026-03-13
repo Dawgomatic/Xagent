@@ -7,7 +7,7 @@ description: Sign and verify HTTP requests with Ethereum wallets using ERC-8128.
 
 ERC-8128 extends RFC 9421 (HTTP Message Signatures) with Ethereum wallet signing. It enables HTTP authentication using existing Ethereum keys—no new credentials needed.
 
-📚 **Full documentation:** [erc8128.slice.so](https://erc8128.slice.so)
+ **Full documentation:** [erc8128.slice.so](https://erc8128.slice.so)
 
 ## When to Use
 
@@ -95,7 +95,7 @@ if (result.ok) {
 
 **class-bound**: Signs only the components you explicitly specify. Reusable across similar requests. Requires `components` array.
 
-📖 See [Request Binding](https://erc8128.slice.so/concepts/request-binding) for details.
+ See [Request Binding](https://erc8128.slice.so/concepts/request-binding) for details.
 
 ### Verify policy
 
@@ -106,7 +106,7 @@ if (result.ok) {
 | `replayable` | `boolean` | `false` | Allow nonce-less signatures |
 | `classBoundPolicies` | `string[]` \| `string[][]` | — | Accepted class-bound component sets |
 
-📖 See [Verifying Requests](https://erc8128.slice.so/guides/verifying-requests) and [VerifyPolicy](https://erc8128.slice.so/api/types#verifypolicy) for full options.
+ See [Verifying Requests](https://erc8128.slice.so/guides/verifying-requests) and [VerifyPolicy](https://erc8128.slice.so/api/types#verifypolicy) for full options.
 
 ## CLI: erc8128 curl
 
@@ -129,7 +129,7 @@ erc8128 curl -X POST \
 erc8128 curl --dry-run -d @body.json --keyfile ~/.keys/bot.key https://api.example.com
 ```
 
-📖 See [CLI Guide](https://erc8128.slice.so/guides/cli) for full documentation.
+ See [CLI Guide](https://erc8128.slice.so/guides/cli) for full documentation.
 
 ## Common Patterns
 
@@ -218,7 +218,7 @@ type VerifyFailReason =
   | 'bad_signature_check'
 ```
 
-📖 See [VerifyFailReason](https://erc8128.slice.so/api/types#verifyfailreason) for descriptions.
+ See [VerifyFailReason](https://erc8128.slice.so/api/types#verifyfailreason) for descriptions.
 
 ## Key Management
 

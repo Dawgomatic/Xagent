@@ -2,7 +2,7 @@
 name: sure
 description: Get report from Sure personal financial board
 homepage: https://sure.am
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bin": ["curl"],"env":["SURE_API_KEY", "SURE_BASE_URL"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bin": ["curl"],"env":["SURE_API_KEY", "SURE_BASE_URL"]}}}
 ---
 # Sure Skill
 

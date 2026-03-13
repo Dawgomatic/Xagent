@@ -27,7 +27,7 @@ def get_access_token():
         )
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
-        print(f"❌ gcloud auth failed: {e}", flush=True)
+        print(f" gcloud auth failed: {e}", flush=True)
         sys.exit(1)
 
 
@@ -40,13 +40,13 @@ def download_from_gcs(gcs_uri: str, local_path: str) -> bool:
         )
         mp4_files = [f for f in result.stdout.strip().split("\n") if f.endswith(".mp4")]
         if not mp4_files:
-            print(f"⚠️ No MP4 found in {gcs_uri}", flush=True)
+            print(f" No MP4 found in {gcs_uri}", flush=True)
             return False
 
         target = mp4_files[0]
         os.makedirs(os.path.dirname(local_path), exist_ok=True)
         subprocess.run(["gsutil", "cp", target, local_path], check=True)
-        print(f"✅ Downloaded: {local_path}", flush=True)
+        print(f" Downloaded: {local_path}", flush=True)
         return True
     except subprocess.CalledProcessError:
         return False
@@ -80,12 +80,12 @@ def generate_single(prompt: str, output_path: str, project_id: str,
         }
     }
 
-    print(f"🎬 Generating: {filename}", flush=True)
+    print(f" Generating: {filename}", flush=True)
     print(f"   Prompt: {prompt[:80]}...", flush=True)
 
     resp = requests.post(url, headers=headers, json=data)
     if resp.status_code != 200:
-        print(f"❌ API error {resp.status_code}: {resp.text}", flush=True)
+        print(f" API error {resp.status_code}: {resp.text}", flush=True)
         return False
 
     op_name = resp.json().get("name")
@@ -99,7 +99,7 @@ def generate_single(prompt: str, output_path: str, project_id: str,
     while time.time() - start < timeout:
         time.sleep(15)
         elapsed = int(time.time() - start)
-        print(f"   ⏳ Waiting... ({elapsed}s)", flush=True)
+        print(f"    Waiting... ({elapsed}s)", flush=True)
 
         poll = requests.post(fetch_url, headers=headers,
                              json={"operationName": op_name})
@@ -109,11 +109,11 @@ def generate_single(prompt: str, output_path: str, project_id: str,
         result = poll.json()
         if result.get("done"):
             if "error" in result:
-                print(f"❌ Generation failed: {result['error']}", flush=True)
+                print(f" Generation failed: {result['error']}", flush=True)
                 return False
             return download_from_gcs(gcs_uri, output_path)
 
-    print(f"❌ Timeout ({timeout}s)", flush=True)
+    print(f" Timeout ({timeout}s)", flush=True)
     return False
 
 
@@ -130,7 +130,7 @@ def generate_from_yaml(scene_list_path: str, output_dir: str, **kwargs):
         output_path = os.path.join(output_dir, f"{sid}.mp4")
 
         if os.path.exists(output_path):
-            print(f"⏭️ {sid}.mp4 already exists, skipping", flush=True)
+            print(f" {sid}.mp4 already exists, skipping", flush=True)
             results.append({"id": sid, "status": "skipped"})
             continue
 
@@ -143,9 +143,9 @@ def generate_from_yaml(scene_list_path: str, output_dir: str, **kwargs):
         results.append({"id": sid, "status": "ok" if ok else "failed"})
         time.sleep(5)
 
-    print("\n📊 Results:")
+    print("\n Results:")
     for r in results:
-        icon = "✅" if r["status"] == "ok" else "⏭️" if r["status"] == "skipped" else "❌"
+        icon = "" if r["status"] == "ok" else "" if r["status"] == "skipped" else ""
         print(f"  {icon} {r['id']}: {r['status']}")
 
 

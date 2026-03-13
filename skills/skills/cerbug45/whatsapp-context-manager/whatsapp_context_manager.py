@@ -809,38 +809,38 @@ class ContextManager:
         
         # Customer type insight
         if customer.is_vip:
-            insights.append("🌟 VIP Customer - Prioritize response")
+            insights.append(" VIP Customer - Prioritize response")
         
         # Message history insight
         if customer.total_messages == 1:
-            insights.append("👋 First time contacting us")
+            insights.append(" First time contacting us")
         elif customer.total_messages > 20:
-            insights.append(f"📊 Frequent customer ({customer.total_messages} messages)")
+            insights.append(f" Frequent customer ({customer.total_messages} messages)")
         
         # Order insight
         if active_orders:
             order = active_orders[0]
-            insights.append(f"📦 Active Order: #{order.order_id} - {order.status}")
+            insights.append(f" Active Order: #{order.order_id} - {order.status}")
             if order.tracking_number:
-                insights.append(f"🚚 Tracking: {order.tracking_number}")
+                insights.append(f" Tracking: {order.tracking_number}")
             if order.estimated_delivery:
-                insights.append(f"📅 Est. Delivery: {order.estimated_delivery}")
+                insights.append(f" Est. Delivery: {order.estimated_delivery}")
         
         # Sentiment trend
         if len(customer.sentiment_history) >= 3:
             recent_sentiments = customer.sentiment_history[-3:]
             if all(s in ['negative', 'very_negative'] for s in recent_sentiments):
-                insights.append("⚠️ Customer has been consistently unhappy")
+                insights.append(" Customer has been consistently unhappy")
         
         # Response time expectation
         if customer.avg_response_time > 0:
             avg_mins = customer.avg_response_time / 60
             if avg_mins < 5:
-                insights.append(f"⚡ Customer expects fast replies (~{avg_mins:.0f}min)")
+                insights.append(f" Customer expects fast replies (~{avg_mins:.0f}min)")
         
         # Category-specific insights
         if category == MessageCategory.ORDER_STATUS and not active_orders:
-            insights.append("ℹ️ Asking about order but no active orders found")
+            insights.append(" Asking about order but no active orders found")
         
         return insights
     
@@ -856,24 +856,24 @@ class ContextManager:
         
         # Critical priority warning
         if priority == MessagePriority.CRITICAL:
-            warnings.append("🚨 CRITICAL: Requires immediate attention!")
+            warnings.append(" CRITICAL: Requires immediate attention!")
         
         # Very negative sentiment warning
         if sentiment == CustomerSentiment.VERY_NEGATIVE:
-            warnings.append("😡 Customer is very upset - handle with care")
+            warnings.append(" Customer is very upset - handle with care")
         
         # Multiple recent contacts
         recent_count = len([m for m in recent_messages 
                            if m.direction == "inbound" and 
                            (datetime.now() - datetime.fromisoformat(m.timestamp)).seconds < 3600])
         if recent_count > 3:
-            warnings.append(f"⏰ Customer messaged {recent_count} times in last hour")
+            warnings.append(f" Customer messaged {recent_count} times in last hour")
         
         # No response to previous message
         if len(recent_messages) >= 2:
             last_two = recent_messages[-2:]
             if all(m.direction == "inbound" for m in last_two):
-                warnings.append("💬 Previous message was not answered")
+                warnings.append(" Previous message was not answered")
         
         return warnings
     

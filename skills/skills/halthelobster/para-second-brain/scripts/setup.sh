@@ -6,7 +6,7 @@ set -e
 
 WORKSPACE="${1:-.}"
 
-echo "🧠 Setting up Second Brain in: $WORKSPACE"
+echo " Setting up Second Brain in: $WORKSPACE"
 
 # Create directory structure
 mkdir -p "$WORKSPACE/memory"
@@ -71,7 +71,7 @@ else
 fi
 
 echo ""
-echo "🎉 Second Brain ready!"
+echo " Second Brain ready!"
 echo ""
 echo "Structure:"
 echo "  $WORKSPACE/"

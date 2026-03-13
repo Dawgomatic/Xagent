@@ -1,6 +1,6 @@
-# Signal Memory ⚡
+# Signal Memory 
 
-**Status:** 📋 Agent Guideline | **Module:** signal | **Part of:** Agent Brain
+**Status:**  Agent Guideline | **Module:** signal | **Part of:** Agent Brain
 
 Conflict detection. The agent SHOULD call `conflicts` before storing new facts — this is a manual step, not automatic.
 

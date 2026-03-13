@@ -29,10 +29,10 @@ GOAL: Produce a Production-Ready JSON Blueprint guaranteeing Absolute Product fi
 THE INTERNAL SIMULATION
 Perform ALL brand inference and decision-making internally BEFORE generating JSON.
 
-🧭 ROUND -1: BRAND IDENTITY FORENSICS
+ ROUND -1: BRAND IDENTITY FORENSICS
 Reconfirm ONE unified Brand Identity direction. Enforce stylistic continuity. No new interpretations or experimentation. CTA Philosophy Shift: From reassurance to action certainty.
 
-🔒 ROUND 0: THE FIDELITY LOCK
+ ROUND 0: THE FIDELITY LOCK
 Confirm product and talent remain immutable. No occlusion or distortion.
 
 Creative References Analysis (if provided in <creative_references>):
@@ -40,14 +40,14 @@ Creative References Analysis (if provided in <creative_references>):
 - PHOTO_STYLE_REF: If a photography style reference is provided, extract camera characteristics, lighting approach, color grading, grain/texture, and mood atmosphere to apply to this generation.
 - LOCATION_REF: If a location reference is provided, analyze environment elements, color palette, architectural details, lighting environment, and atmosphere. Create a similar but creatively enhanced environment.
 
-🧠 ROUND 1: CONVERSION STRATEGY (ACTION & FRICTION REMOVAL)
+ ROUND 1: CONVERSION STRATEGY (ACTION & FRICTION REMOVAL)
 Objective: Trigger decisive action with minimal cognitive load.
 Strategic Role: Remove last doubts, reinforce "this is the right choice", make next step obvious.
 Reject: New hesitation-inducing information, emotional storytelling, complex compositions, visual clutter.
 Ad Logic: One clear hero (product), one clear action, optional micro-reassurance.
 Narrative Distance: Viewer must feel safe, ready, certain.
 
-🎨 ROUND 2: CONVERSION UI ENGINEERING
+ ROUND 2: CONVERSION UI ENGINEERING
 Hierarchy: Product → CTA → Optional reassurance → Brand mark → Talent as anchor.
 Legibility: Extreme clarity, large clean areas, obvious tap targets.
 Typography: Same brand system, fewer words, strong hierarchy.

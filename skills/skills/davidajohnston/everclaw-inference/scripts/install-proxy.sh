@@ -24,20 +24,20 @@ echo "╚═══════════════════════�
 echo ""
 
 # --- 1. Install Morpheus Proxy ---
-echo "📡 Installing Morpheus-to-OpenAI proxy..."
+echo " Installing Morpheus-to-OpenAI proxy..."
 mkdir -p "$PROXY_DIR"
 
 cp "$SCRIPT_DIR/morpheus-proxy.mjs" "$PROXY_DIR/morpheus-proxy.mjs"
 echo "   ✓ Copied morpheus-proxy.mjs → $PROXY_DIR/"
 
 # --- 2. Install Router Launch Script ---
-echo "🔧 Installing proxy-router headless launcher..."
+echo " Installing proxy-router headless launcher..."
 cp "$SCRIPT_DIR/mor-launch-headless.sh" "$MORPHEUS_DIR/mor-launch-headless.sh"
 chmod +x "$MORPHEUS_DIR/mor-launch-headless.sh"
 echo "   ✓ Copied mor-launch-headless.sh → $MORPHEUS_DIR/"
 
 # --- 3. Install Gateway Guardian ---
-echo "🛡️  Installing Gateway Guardian..."
+echo "  Installing Gateway Guardian..."
 mkdir -p "$OPENCLAW_DIR/workspace/scripts"
 mkdir -p "$OPENCLAW_DIR/logs"
 
@@ -47,7 +47,7 @@ echo "   ✓ Copied gateway-guardian.sh → $OPENCLAW_DIR/workspace/scripts/"
 
 # --- 3. Install launchd plists (macOS only) ---
 if [[ "$(uname)" == "Darwin" ]]; then
-  echo "🍎 Setting up launchd services..."
+  echo " Setting up launchd services..."
   mkdir -p "$LAUNCH_AGENTS"
 
   # Unload existing if present
@@ -92,7 +92,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   if curl -s --max-time 5 -u "admin:$(cat "$MORPHEUS_DIR/.cookie" 2>/dev/null | cut -d: -f2)" http://localhost:8082/healthcheck 2>/dev/null | grep -q healthy; then
     echo "   ✓ Proxy-router is healthy (port 8082)"
   else
-    echo "   ⚠️  Proxy-router not responding — check ~/morpheus/data/logs/router-stdout.log"
+    echo "     Proxy-router not responding — check ~/morpheus/data/logs/router-stdout.log"
     echo "      (May need wallet key in 1Password or Keychain)"
   fi
 
@@ -100,17 +100,17 @@ if [[ "$(uname)" == "Darwin" ]]; then
   if curl -s --max-time 3 http://127.0.0.1:8083/health > /dev/null 2>&1; then
     echo "   ✓ Morpheus proxy is healthy (port 8083)"
   else
-    echo "   ⚠️  Morpheus proxy not responding yet — check ~/morpheus/proxy/proxy.log"
+    echo "     Morpheus proxy not responding yet — check ~/morpheus/proxy/proxy.log"
   fi
 
   # Verify guardian
   if launchctl list | grep -q "ai.openclaw.guardian"; then
     echo "   ✓ Gateway Guardian is scheduled (every 2 minutes)"
   else
-    echo "   ⚠️  Gateway Guardian not loaded — check manually"
+    echo "     Gateway Guardian not loaded — check manually"
   fi
 else
-  echo "⚠️  Non-macOS detected. Skipping launchd setup."
+  echo "  Non-macOS detected. Skipping launchd setup."
   echo "   For Linux, create systemd units or cron jobs manually."
   echo "   Proxy: node $PROXY_DIR/morpheus-proxy.mjs"
   echo "   Guardian: bash $OPENCLAW_DIR/workspace/scripts/gateway-guardian.sh"
@@ -118,7 +118,7 @@ fi
 
 # --- Post-Install: Validate OpenClaw Config ---
 echo ""
-echo "🔍 Validating OpenClaw configuration..."
+echo " Validating OpenClaw configuration..."
 
 OPENCLAW_CONFIG="$OPENCLAW_DIR/openclaw.json"
 CONFIG_ISSUES=0
@@ -152,7 +152,7 @@ except:
 
   if [[ -n "$INVALID_PROVIDERS" ]]; then
     echo ""
-    echo "   ⚠️  MISCONFIGURATION DETECTED!"
+    echo "     MISCONFIGURATION DETECTED!"
     echo ""
     echo "   Your config uses 'everclaw/' as a provider prefix."
     echo "   Everclaw is a SKILL, not an inference provider."
@@ -161,7 +161,7 @@ except:
     echo "   Issues found:"
     IFS='|' read -ra ISSUES <<< "$INVALID_PROVIDERS"
     for issue in "${ISSUES[@]}"; do
-      echo "     ❌ $issue"
+      echo "      $issue"
     done
     echo ""
     echo "   VALID provider names for Morpheus inference:"
@@ -187,7 +187,7 @@ print('yes' if has else 'no')
 " 2>/dev/null || echo "no")
 
   if [[ "$HAS_MORPHEUS" == "no" ]]; then
-    echo "   ⚠️  No Morpheus provider configured in openclaw.json"
+    echo "     No Morpheus provider configured in openclaw.json"
     echo "   Run: node $SKILL_DIR/scripts/bootstrap-gateway.mjs"
     echo "   This adds mor-gateway as a fallback (no API key needed)."
     CONFIG_ISSUES=1
@@ -197,7 +197,7 @@ print('yes' if has else 'no')
     echo "   ✓ OpenClaw config looks good"
   fi
 else
-  echo "   ⚠️  openclaw.json not found at $OPENCLAW_CONFIG"
+  echo "     openclaw.json not found at $OPENCLAW_CONFIG"
   echo "   Run 'openclaw onboard' first, then re-run this installer."
 fi
 
@@ -212,9 +212,9 @@ echo "║  Health:   curl localhost:8083/health     ║"
 echo "║  Guardian: ~/.openclaw/logs/guardian.log  ║"
 echo "║                                          ║"
 if [[ "$CONFIG_ISSUES" -gt 0 ]]; then
-echo "║  ⚠️  Config issues found — see above      ║"
+echo "║    Config issues found — see above      ║"
 else
-echo "║  ✅ Config validated — ready to go!        ║"
+echo "║   Config validated — ready to go!        ║"
 fi
 echo "║                                          ║"
 echo "╚══════════════════════════════════════════╝"

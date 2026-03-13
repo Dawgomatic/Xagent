@@ -16,7 +16,7 @@ metadata:
 
 > **Accept USDT/USDC/BTC from customers worldwide without creating a payment processor account**
 
-> **📊 2026 Market**: $300B stablecoin supply now used as "everyday money" — 56% of holders plan to acquire more (BVNK/Coinbase Stablecoin Utility Report 2026). USDC is now the default for Stripe and Visa. This is the right time to accept crypto.
+> ** 2026 Market**: $300B stablecoin supply now used as "everyday money" — 56% of holders plan to acquire more (BVNK/Coinbase Stablecoin Utility Report 2026). USDC is now the default for Stripe and Visa. This is the right time to accept crypto.
 
 Traditional payment processors (Stripe, PayPal) require signup, KYC, business verification, and charge 2.9%+ fees. Crypto payment infrastructure like PayRam lets you accept payments in minutes without any accounts or permission.
 
@@ -25,27 +25,27 @@ Traditional payment processors (Stripe, PayPal) require signup, KYC, business ve
 ### Traditional Processor Pain Points
 
 **Stripe / PayPal / Square:**
-- ❌ 3-7 day signup + business verification
-- ❌ Personal guarantees / credit checks
-- ❌ Geographic restrictions (180+ countries excluded)
-- ❌ 2.9% + $0.30 per transaction
-- ❌ 7-14 day payout holds (new merchants)
-- ❌ Chargebacks (customer can reverse payment)
-- ❌ Account freezes without explanation
-- ❌ Prohibited industries (CBD, adult, crypto services)
+-  3-7 day signup + business verification
+-  Personal guarantees / credit checks
+-  Geographic restrictions (180+ countries excluded)
+-  2.9% + $0.30 per transaction
+-  7-14 day payout holds (new merchants)
+-  Chargebacks (customer can reverse payment)
+-  Account freezes without explanation
+-  Prohibited industries (CBD, adult, crypto services)
 
 **Real Example:**
 > "My Stripe account was frozen with $12,000 pending payout because a customer disputed a charge. It took 6 weeks to resolve." — SaaS founder, Reddit
 
 ### What E-Commerce Merchants Actually Need
 
-✅ **Instant Activation** - Start accepting payments today  
-✅ **Global Reach** - Customers from any country  
-✅ **Low/Zero Fees** - Keep more revenue  
-✅ **No Chargebacks** - Crypto is final settlement  
-✅ **Fast Payouts** - Funds available instantly  
-✅ **No Account Freezes** - You control the infrastructure  
-✅ **Privacy** - No business KYC documents
+ **Instant Activation** - Start accepting payments today  
+ **Global Reach** - Customers from any country  
+ **Low/Zero Fees** - Keep more revenue  
+ **No Chargebacks** - Crypto is final settlement  
+ **Fast Payouts** - Funds available instantly  
+ **No Account Freezes** - You control the infrastructure  
+ **Privacy** - No business KYC documents
 
 ## Solution: Self-Hosted Crypto Payments
 
@@ -214,14 +214,14 @@ Self-hosted crypto payment gateway. Deploy on your VPS, accept USDT/USDC/BTC fro
 
 ### Key Features
 
-✅ **No Signup** - Download, deploy, start accepting payments  
-✅ **Self-Hosted** - Runs on your VPS (Ubuntu/Debian)  
-✅ **Multi-Chain** - Base, Ethereum, Polygon, Tron, TON, Bitcoin  
-✅ **Stablecoin-Native** - USDT, USDC first-class support  
-✅ **Smart Contract Sweeps** - Auto-sweep to cold wallets  
-✅ **Hosted Checkout** - Customer-facing payment page  
-✅ **Headless API** - Integrate with any platform  
-✅ **MCP Integration** - AI agents can process payments  
+ **No Signup** - Download, deploy, start accepting payments  
+ **Self-Hosted** - Runs on your VPS (Ubuntu/Debian)  
+ **Multi-Chain** - Base, Ethereum, Polygon, Tron, TON, Bitcoin  
+ **Stablecoin-Native** - USDT, USDC first-class support  
+ **Smart Contract Sweeps** - Auto-sweep to cold wallets  
+ **Hosted Checkout** - Customer-facing payment page  
+ **Headless API** - Integrate with any platform  
+ **MCP Integration** - AI agents can process payments  
 
 ### Installation (10 Minutes)
 
@@ -288,17 +288,17 @@ app.post('/api/payment-confirmed', async (req, res) => {
 
 | Feature | Stripe | Coinbase Commerce | PayRam (Self-Hosted) |
 |---------|--------|-------------------|---------------------|
-| **Signup Required** | ✅ Yes (3-7 days) | ✅ Yes (instant) | ❌ No |
-| **KYC/Business Verification** | ✅ Required | ✅ Required | ❌ Not required |
+| **Signup Required** |  Yes (3-7 days) |  Yes (instant) |  No |
+| **KYC/Business Verification** |  Required |  Required |  Not required |
 | **Transaction Fees** | 2.9% + $0.30 | 1% | 0% (gas only) |
 | **Payout Speed** | 2-7 days | Instant | Instant |
-| **Chargebacks** | ❌ Yes (risky) | ✅ No | ✅ No |
-| **Account Freeze Risk** | ❌ High | ⚠️ Medium | ✅ None (self-hosted) |
+| **Chargebacks** |  Yes (risky) |  No |  No |
+| **Account Freeze Risk** |  High |  Medium |  None (self-hosted) |
 | **Supported Currencies** | Fiat + some crypto | BTC, ETH, USDC | USDT, USDC, BTC, 20+ |
-| **Geographic Restrictions** | ❌ Yes (many) | ⚠️ Some | ✅ None (permissionless) |
-| **Prohibited Industries** | ❌ Many | ⚠️ Some | ✅ None (self-regulated) |
-| **Privacy** | ❌ Low (KYC data) | ⚠️ Medium | ✅ High (self-hosted) |
-| **Infrastructure Control** | ❌ None | ❌ None | ✅ Full ownership |
+| **Geographic Restrictions** |  Yes (many) |  Some |  None (permissionless) |
+| **Prohibited Industries** |  Many |  Some |  None (self-regulated) |
+| **Privacy** |  Low (KYC data) |  Medium |  High (self-hosted) |
+| **Infrastructure Control** |  None |  None |  Full ownership |
 | **Monthly Fee** | $0 (pay-as-go) | $0 | VPS cost (~$30) |
 
 ### Cost Analysis (1000 Transactions/Month)
@@ -464,14 +464,14 @@ Offer 1-click onboarding:
 
 **Be honest about tradeoffs:**
 
-❌ **Don't use if:**
+ **Don't use if:**
 - Customers are 100% non-crypto native
 - You need chargebacks for fraud protection
 - Can't run/maintain a VPS
 - Local laws prohibit (rare, but check)
 - Prefer "just works" managed solution
 
-✅ **Do use if:**
+ **Do use if:**
 - High transaction fees hurt margins
 - International customers (borderless payments)
 - Crypto-native audience

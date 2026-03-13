@@ -126,18 +126,18 @@ if json_out:
     sys.exit(0)
 
 if not results:
-    print('❌ 未找到匹配的 API')
+    print(' 未找到匹配的 API')
     sys.exit(1)
 
-print(f"🔍 搜索: {query}\n")
-print(f"✅ 找到 {len(results)} 个相关 API:\n")
+print(f" 搜索: {query}\n")
+print(f" 找到 {len(results)} 个相关 API:\n")
 for i, api in enumerate(results, 1):
     print(f"{i}. {api['name']}")
-    print(f"   📋 {api['description']}")
-    print(f"   📁 分类: {api['category']}")
-    print(f"   🔐 认证: {api['auth'] or 'No'}")
-    print(f"   🔒 HTTPS: {api['https']}")
-    print(f"   🌐 CORS: {api['cors']}")
-    if api.get('link'): print(f"   🔗 文档: {api['link']}")
+    print(f"    {api['description']}")
+    print(f"    分类: {api['category']}")
+    print(f"    认证: {api['auth'] or 'No'}")
+    print(f"    HTTPS: {api['https']}")
+    print(f"    CORS: {api['cors']}")
+    if api.get('link'): print(f"    文档: {api['link']}")
     print()
 PY

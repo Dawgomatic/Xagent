@@ -66,7 +66,7 @@ fi
 
 # Scan
 if ! echo "$message" | "$ARC_SHIELD" --strict 2>/dev/null; then
-    echo "❌ Message blocked by arc-shield" >&2
+    echo " Message blocked by arc-shield" >&2
     exit 1
 fi
 
@@ -99,7 +99,7 @@ message="$*"
 if echo "$message" | "$ARC_SHIELD" --strict 2>/dev/null; then
     openclaw message send --channel "$channel" "$message"
 else
-    echo "❌ Message blocked: contains secrets" >&2
+    echo " Message blocked: contains secrets" >&2
     exit 1
 fi
 ```
@@ -237,11 +237,11 @@ That's it. No system changes, no dependencies to clean up.
 
 ## Next Steps
 
-1. ✅ **Run tests**: `./tests/quick-test.sh`
-2. ✅ **Try demo**: `./examples/demo.sh`
-3. ✅ **Add patterns**: Edit `config/patterns.conf`
-4. ✅ **Integrate**: Set up pre-send hook
-5. ✅ **Read docs**: See `SKILL.md` for full details
+1.  **Run tests**: `./tests/quick-test.sh`
+2.  **Try demo**: `./examples/demo.sh`
+3.  **Add patterns**: Edit `config/patterns.conf`
+4.  **Integrate**: Set up pre-send hook
+5.  **Read docs**: See `SKILL.md` for full details
 
 ## Support
 

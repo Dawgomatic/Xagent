@@ -68,11 +68,11 @@ Use these in your API calls for smart routing:
 
 | Provider | Streaming | Tool Calling |
 |----------|-----------|--------------|
-| Anthropic (Claude) | ✅ | ✅ |
-| OpenAI (GPT-4) | ✅ | ✅ |
-| Google Gemini | ✅ | ✅ |
-| xAI (Grok) | ✅ | ✅ |
-| Moonshot | ✅ | ✅ |
+| Anthropic (Claude) |  |  |
+| OpenAI (GPT-4) |  |  |
+| Google Gemini |  |  |
+| xAI (Grok) |  |  |
+| Moonshot |  |  |
 
 ---
 

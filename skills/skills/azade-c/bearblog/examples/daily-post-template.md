@@ -36,7 +36,7 @@ Aujourd'hui...
 
 ---
 
-*À demain !* 🐐
+*À demain !* 
 
 {{ previous_post }}
 ```

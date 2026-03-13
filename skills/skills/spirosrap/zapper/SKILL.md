@@ -1,7 +1,7 @@
 ---
 name: zapper
 description: Query DeFi portfolio data across 50+ chains via Zapper's GraphQL API. Use when the user wants to check wallet balances, DeFi positions, NFT holdings, token prices, or transaction history. Supports Base, Ethereum, Polygon, Arbitrum, Optimism, and more. Requires ZAPPER_API_KEY.
-metadata: {"clawdbot":{"emoji":"⚡","homepage":"https://zapper.xyz","requires":{"bins":["curl","jq","python3"]}}}
+metadata: {"clawdbot":{"emoji":"","homepage":"https://zapper.xyz","requires":{"bins":["curl","jq","python3"]}}}
 ---
 
 # Zapper Skill

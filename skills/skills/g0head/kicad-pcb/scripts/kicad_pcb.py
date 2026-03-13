@@ -95,7 +95,7 @@ def set_current_project(project: dict):
 def check_kicad():
     """Check if KiCad CLI is available."""
     if not shutil.which("kicad-cli"):
-        print("❌ KiCad CLI not found!")
+        print(" KiCad CLI not found!")
         print("\nInstall KiCad:")
         print("  Ubuntu: sudo apt install kicad")
         print("  Or: https://www.kicad.org/download/")
@@ -124,7 +124,7 @@ def cmd_new(args):
     
     project_dir = projects_dir / name
     if project_dir.exists():
-        print(f"❌ Project already exists: {project_dir}")
+        print(f" Project already exists: {project_dir}")
         sys.exit(1)
     
     project_dir.mkdir(parents=True)
@@ -203,7 +203,7 @@ def cmd_new(args):
     }
     set_current_project(project)
     
-    print(f"✅ Created project: {name}")
+    print(f" Created project: {name}")
     print(f"   Path: {project_dir}")
     print(f"   Files:")
     print(f"     - {name}.kicad_pro")
@@ -219,14 +219,14 @@ def cmd_info(args):
     project = get_current_project()
     
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         print("   Use: kicad_pcb.py new <name>")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     
     print(f"╭─────────────────────────────────────╮")
-    print(f"│      🔧 KICAD PROJECT INFO          │")
+    print(f"│       KICAD PROJECT INFO          │")
     print(f"├─────────────────────────────────────┤")
     print(f"│  Name: {project['name']:<27} │")
     print(f"│  Path: {str(project_dir)[:27]:<27} │")
@@ -245,7 +245,7 @@ def cmd_open(args):
     project_path = Path(args.path).resolve()
     
     if not project_path.exists():
-        print(f"❌ Path not found: {project_path}")
+        print(f" Path not found: {project_path}")
         sys.exit(1)
     
     # Find project file
@@ -256,7 +256,7 @@ def cmd_open(args):
         project_dir = project_path
         pro_files = list(project_dir.glob("*.kicad_pro"))
         if not pro_files:
-            print(f"❌ No .kicad_pro file found in {project_dir}")
+            print(f" No .kicad_pro file found in {project_dir}")
             sys.exit(1)
         pro_file = pro_files[0]
     
@@ -269,7 +269,7 @@ def cmd_open(args):
     }
     set_current_project(project)
     
-    print(f"✅ Opened project: {name}")
+    print(f" Opened project: {name}")
     print(f"   Path: {project_dir}")
 
 
@@ -284,19 +284,19 @@ def cmd_drc(args):
     
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     pcb_file = project_dir / f"{project['name']}.kicad_pcb"
     
     if not pcb_file.exists():
-        print(f"❌ PCB file not found: {pcb_file}")
+        print(f" PCB file not found: {pcb_file}")
         sys.exit(1)
     
     output_file = project_dir / "drc_report.json"
     
-    print(f"🔍 Running DRC on {pcb_file.name}...")
+    print(f" Running DRC on {pcb_file.name}...")
     
     result = run_kicad_cli([
         "pcb", "drc",
@@ -307,11 +307,11 @@ def cmd_drc(args):
     ])
     
     if result.returncode != 0:
-        print(f"⚠️  DRC completed with issues")
+        print(f"  DRC completed with issues")
         if result.stderr:
             print(result.stderr)
     else:
-        print(f"✅ DRC passed!")
+        print(f" DRC passed!")
     
     # Parse and display results
     if output_file.exists():
@@ -320,7 +320,7 @@ def cmd_drc(args):
         
         violations = report.get("violations", [])
         if violations:
-            print(f"\n📋 Found {len(violations)} issues:")
+            print(f"\n Found {len(violations)} issues:")
             for v in violations[:10]:
                 severity = v.get("severity", "unknown")
                 desc = v.get("description", "No description")
@@ -328,7 +328,7 @@ def cmd_drc(args):
             if len(violations) > 10:
                 print(f"  ... and {len(violations) - 10} more")
         else:
-            print("\n✅ No violations found!")
+            print("\n No violations found!")
 
 
 def cmd_erc(args):
@@ -338,19 +338,19 @@ def cmd_erc(args):
     
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     sch_file = project_dir / f"{project['name']}.kicad_sch"
     
     if not sch_file.exists():
-        print(f"❌ Schematic file not found: {sch_file}")
+        print(f" Schematic file not found: {sch_file}")
         sys.exit(1)
     
     output_file = project_dir / "erc_report.json"
     
-    print(f"🔍 Running ERC on {sch_file.name}...")
+    print(f" Running ERC on {sch_file.name}...")
     
     result = run_kicad_cli([
         "sch", "erc",
@@ -361,9 +361,9 @@ def cmd_erc(args):
     ])
     
     if result.returncode != 0:
-        print(f"⚠️  ERC completed with issues")
+        print(f"  ERC completed with issues")
     else:
-        print(f"✅ ERC passed!")
+        print(f" ERC passed!")
 
 
 # =============================================================================
@@ -377,20 +377,20 @@ def cmd_export_gerbers(args):
     
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     pcb_file = project_dir / f"{project['name']}.kicad_pcb"
     
     if not pcb_file.exists():
-        print(f"❌ PCB file not found: {pcb_file}")
+        print(f" PCB file not found: {pcb_file}")
         sys.exit(1)
     
     output_dir = project_dir / "gerbers"
     output_dir.mkdir(exist_ok=True)
     
-    print(f"📤 Exporting Gerbers...")
+    print(f" Exporting Gerbers...")
     
     result = run_kicad_cli([
         "pcb", "export", "gerbers",
@@ -399,14 +399,14 @@ def cmd_export_gerbers(args):
     ])
     
     if result.returncode != 0:
-        print(f"❌ Gerber export failed")
+        print(f" Gerber export failed")
         if result.stderr:
             print(result.stderr)
         sys.exit(1)
     
     # Count exported files
     gerber_files = list(output_dir.glob("*"))
-    print(f"✅ Exported {len(gerber_files)} Gerber files to {output_dir}")
+    print(f" Exported {len(gerber_files)} Gerber files to {output_dir}")
     for f in gerber_files:
         print(f"   {f.name}")
 
@@ -418,7 +418,7 @@ def cmd_export_drill(args):
     
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
@@ -427,7 +427,7 @@ def cmd_export_drill(args):
     output_dir = project_dir / "gerbers"
     output_dir.mkdir(exist_ok=True)
     
-    print(f"📤 Exporting drill files...")
+    print(f" Exporting drill files...")
     
     result = run_kicad_cli([
         "pcb", "export", "drill",
@@ -440,16 +440,16 @@ def cmd_export_drill(args):
     ])
     
     if result.returncode == 0:
-        print(f"✅ Drill files exported to {output_dir}")
+        print(f" Drill files exported to {output_dir}")
     else:
-        print(f"❌ Drill export failed")
+        print(f" Drill export failed")
 
 
 def cmd_export_bom(args):
     """Export bill of materials."""
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
@@ -458,8 +458,8 @@ def cmd_export_bom(args):
     # For now, create a simple BOM from schematic parsing
     # Full implementation would use kicad-cli sch export bom
     
-    print(f"📤 Exporting BOM...")
-    print(f"⚠️  BOM export requires populated schematic")
+    print(f" Exporting BOM...")
+    print(f"  BOM export requires populated schematic")
     print(f"   Output: {project_dir}/bom.csv")
 
 
@@ -467,20 +467,20 @@ def cmd_package_for_fab(args):
     """Create ZIP with all fabrication files."""
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     gerber_dir = project_dir / "gerbers"
     
     if not gerber_dir.exists() or not list(gerber_dir.glob("*")):
-        print("⚠️  No Gerber files found. Running export first...")
+        print("  No Gerber files found. Running export first...")
         # Would call cmd_export_gerbers here
     
     output_name = args.output or f"{project['name']}_fab.zip"
     output_path = project_dir / output_name
     
-    print(f"📦 Creating fabrication package...")
+    print(f" Creating fabrication package...")
     
     with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as zf:
         if gerber_dir.exists():
@@ -488,9 +488,9 @@ def cmd_package_for_fab(args):
                 zf.write(f, f.name)
     
     size_kb = output_path.stat().st_size / 1024
-    print(f"✅ Created: {output_path}")
+    print(f" Created: {output_path}")
     print(f"   Size: {size_kb:.1f} KB")
-    print(f"\n📤 Ready to upload to PCBWay!")
+    print(f"\n Ready to upload to PCBWay!")
 
 
 # =============================================================================
@@ -504,19 +504,19 @@ def cmd_preview_schematic(args):
     
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     sch_file = project_dir / f"{project['name']}.kicad_sch"
     
     if not sch_file.exists():
-        print(f"❌ Schematic file not found: {sch_file}")
+        print(f" Schematic file not found: {sch_file}")
         sys.exit(1)
     
     output_file = project_dir / "schematic_preview.svg"
     
-    print(f"🖼️  Generating schematic preview...")
+    print(f"  Generating schematic preview...")
     
     result = run_kicad_cli([
         "sch", "export", "svg",
@@ -525,7 +525,7 @@ def cmd_preview_schematic(args):
     ])
     
     if result.returncode == 0 and output_file.exists():
-        print(f"✅ Preview saved: {output_file}")
+        print(f" Preview saved: {output_file}")
         
         # Try to convert to PNG for easier viewing
         try:
@@ -536,7 +536,7 @@ def cmd_preview_schematic(args):
         except ImportError:
             print("   (Install cairosvg for PNG conversion)")
     else:
-        print(f"❌ Preview generation failed")
+        print(f" Preview generation failed")
 
 
 def cmd_preview_pcb(args):
@@ -546,17 +546,17 @@ def cmd_preview_pcb(args):
     
     project = get_current_project()
     if not project:
-        print("❌ No project selected")
+        print(" No project selected")
         sys.exit(1)
     
     project_dir = Path(project["path"])
     pcb_file = project_dir / f"{project['name']}.kicad_pcb"
     
     if not pcb_file.exists():
-        print(f"❌ PCB file not found: {pcb_file}")
+        print(f" PCB file not found: {pcb_file}")
         sys.exit(1)
     
-    print(f"🖼️  Generating PCB previews...")
+    print(f"  Generating PCB previews...")
     
     # Export SVG for each major layer
     layers = ["F.Cu", "B.Cu", "F.Silkscreen", "Edge.Cuts"]
@@ -570,7 +570,7 @@ def cmd_preview_pcb(args):
             str(pcb_file)
         ])
         if result.returncode == 0:
-            print(f"   ✅ {layer}: {output_file.name}")
+            print(f"    {layer}: {output_file.name}")
     
     # Try 3D export
     glb_file = project_dir / "pcb_3d.glb"
@@ -580,7 +580,7 @@ def cmd_preview_pcb(args):
         str(pcb_file)
     ])
     if result.returncode == 0 and glb_file.exists():
-        print(f"   ✅ 3D: {glb_file.name}")
+        print(f"    3D: {glb_file.name}")
 
 
 # =============================================================================
@@ -592,7 +592,7 @@ def cmd_pcbway_quote(args):
     project = get_current_project()
     
     print(f"╭─────────────────────────────────────╮")
-    print(f"│       💰 PCBWAY QUOTE ESTIMATE      │")
+    print(f"│        PCBWAY QUOTE ESTIMATE      │")
     print(f"├─────────────────────────────────────┤")
     
     # Parse options
@@ -619,15 +619,15 @@ def cmd_pcbway_quote(args):
     print(f"│  TOTAL:       ${board_cost + shipping:>7.2f}              │")
     print(f"╰─────────────────────────────────────╯")
     
-    print(f"\n⚠️  This is an estimate. Actual price may vary.")
-    print(f"📤 To order: Upload Gerbers at pcbway.com/orderonline.aspx")
+    print(f"\n  This is an estimate. Actual price may vary.")
+    print(f" To order: Upload Gerbers at pcbway.com/orderonline.aspx")
     
     if project:
         gerber_zip = Path(project["path"]) / f"{project['name']}_fab.zip"
         if gerber_zip.exists():
-            print(f"\n✅ Gerber package ready: {gerber_zip}")
+            print(f"\n Gerber package ready: {gerber_zip}")
         else:
-            print(f"\n💡 Run `package-for-fab` first to create Gerber ZIP")
+            print(f"\n Run `package-for-fab` first to create Gerber ZIP")
 
 
 # =============================================================================
@@ -637,7 +637,7 @@ def cmd_pcbway_quote(args):
 def main():
     parser = argparse.ArgumentParser(
         prog="kicad_pcb",
-        description="🔧 KiCad PCB Automation — Design to Manufacturing",
+        description=" KiCad PCB Automation — Design to Manufacturing",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     

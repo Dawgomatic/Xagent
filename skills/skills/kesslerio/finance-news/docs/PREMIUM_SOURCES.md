@@ -22,10 +22,10 @@ If you have subscriptions and want premium content, follow the steps below.
 
 **Use free sources only.** They provide 90% of the value without authentication complexity:
 
-- ✅ Yahoo Finance (free, reliable)
-- ✅ CNBC (free, real-time news)
-- ✅ MarketWatch (free, broad coverage)
-- ✅ Reuters (free via Yahoo RSS)
+-  Yahoo Finance (free, reliable)
+-  CNBC (free, real-time news)
+-  MarketWatch (free, broad coverage)
+-  Reuters (free via Yahoo RSS)
 
 **To disable premium sources:**
 1. Edit `config/config.json` (legacy: `config/sources.json`)

@@ -405,8 +405,8 @@ LEVEL 0: CONTEXT DIAGRAM
                               │                  │
      ┌────────────┐           │   E-Commerce     │           ┌────────────┐
      │            │  Orders   │    System        │  Payment  │            │
-     │  Customer  │──────────▶│                  │──────────▶│  Payment   │
-     │            │◀──────────│                  │◀──────────│  Gateway   │
+     │  Customer  │──────────│                  │──────────│  Payment   │
+     │            │──────────│                  │──────────│  Gateway   │
      └────────────┘  Status   │                  │  Result   └────────────┘
                               │                  │
                               └──────────────────┘
@@ -427,7 +427,7 @@ LEVEL 1: EXPANDED VIEW
 │                                                                      │
 │   ┌─────────┐       ┌─────────┐       ┌─────────┐       ┌─────────┐ │
 │   │         │       │   Web   │       │  Order  │       │ Payment │ │
-│   │   CDN   │──────▶│ Server  │──────▶│ Service │──────▶│ Service │ │
+│   │   CDN   │──────│ Server  │──────│ Service │──────│ Service │ │
 │   │         │       │         │       │         │       │         │ │
 │   └─────────┘       └────┬────┘       └────┬────┘       └────┬────┘ │
 │                          │                 │                 │      │

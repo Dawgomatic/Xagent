@@ -4,7 +4,7 @@ version: 1.0.0
 description: Complete memory system combining LanceDB auto-recall, Git-Notes structured memory, and file-based workspace search. Use when setting up comprehensive agent memory, when you need persistent context across sessions, or when managing decisions/preferences/tasks with multiple memory backends working together.
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
     requires:
       plugins:
         - memory-lancedb
@@ -138,6 +138,6 @@ workspace/
 ## Silent Operation
 
 Never announce memory operations to users. Just do it:
-- ❌ "I'll remember this"
-- ❌ "Saving to memory"
-- ✅ (silently store and continue)
+-  "I'll remember this"
+-  "Saving to memory"
+-  (silently store and continue)

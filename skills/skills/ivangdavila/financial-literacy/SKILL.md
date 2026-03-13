@@ -1,7 +1,7 @@
 ---
 name: Finance
 description: Support financial understanding from personal budgeting to professional analysis and research.
-metadata: {"clawdbot":{"emoji":"💰","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

@@ -22,91 +22,91 @@ CATEGORIES = {
     "frontend": {
         "name": "前端",
         "name_en": "Frontend",
-        "icon": "🌐",
+        "icon": "",
         "description": "React, Vue, CSS 等前端技术"
     },
     "backend": {
         "name": "后端",
         "name_en": "Backend",
-        "icon": "⚙️",
+        "icon": "",
         "description": "Node, Python, APIs 等后端技术"
     },
     "mobile": {
         "name": "移动",
         "name_en": "Mobile",
-        "icon": "📱",
+        "icon": "",
         "description": "iOS, Android, React Native"
     },
     "devops": {
         "name": "运维",
         "name_en": "DevOps",
-        "icon": "🔧",
+        "icon": "",
         "description": "CI/CD, Docker, Kubernetes"
     },
     "video": {
         "name": "视频",
         "name_en": "Video",
-        "icon": "🎬",
+        "icon": "",
         "description": "视频生成、编辑"
     },
     "animation": {
         "name": "动画",
         "name_en": "Animation",
-        "icon": "✨",
+        "icon": "",
         "description": "动画、动效设计"
     },
     "data": {
         "name": "数据",
         "name_en": "Data",
-        "icon": "📊",
+        "icon": "",
         "description": "数据分析、BI 工具"
     },
     "ai-ml": {
         "name": "AI/ML",
         "name_en": "AI/ML",
-        "icon": "🤖",
+        "icon": "",
         "description": "机器学习、人工智能"
     },
     "testing": {
         "name": "测试",
         "name_en": "Testing",
-        "icon": "🧪",
+        "icon": "",
         "description": "QA, E2E 测试"
     },
     "marketing": {
         "name": "营销",
         "name_en": "Marketing",
-        "icon": "📢",
+        "icon": "",
         "description": "SEO, 内容营销"
     },
     "docs": {
         "name": "文档",
         "name_en": "Docs",
-        "icon": "📚",
+        "icon": "",
         "description": "教程、文档"
     },
     "design": {
         "name": "设计",
         "name_en": "Design",
-        "icon": "🎨",
+        "icon": "",
         "description": "UI/UX 设计"
     },
     "database": {
         "name": "数据库",
         "name_en": "Database",
-        "icon": "🗄️",
+        "icon": "",
         "description": "SQL, NoSQL"
     },
     "security": {
         "name": "安全",
         "name_en": "Security",
-        "icon": "🔒",
+        "icon": "",
         "description": "安全工具"
     },
     "other": {
         "name": "其他",
         "name_en": "Other",
-        "icon": "📁",
+        "icon": "",
         "description": "未分类"
     }
 }

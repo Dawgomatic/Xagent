@@ -344,7 +344,7 @@ Atrous convolutions for multi-scale context.
 
 ```
 Image → Backbone → ASPP → Decoder → Segmentation
-              ↘    ↗
+                  
           Low-level features
 ```
 
@@ -513,9 +513,9 @@ Bottom-up augmentation after FPN.
 
 ```
 FPN top-down → Bottom-up augmentation
-P2 → N2 ↘
-P3 → N3 → N3 ↘
-P4 → N4 → N4 → N4 ↘
+P2 → N2 
+P3 → N3 → N3 
+P4 → N4 → N4 → N4 
 P5 → N5 → N5 → N5 → N5
 ```
 

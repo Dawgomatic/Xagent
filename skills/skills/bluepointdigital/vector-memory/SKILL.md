@@ -68,9 +68,9 @@ Check which method is active.
 
 | Feature | Built-in | Vector | Smart Wrapper |
 |---------|----------|--------|---------------|
-| Synonyms | ❌ | ✅ | ✅ (when ready) |
-| Setup | Built-in | Requires sync | ✅ Zero config |
-| Fallback | N/A | Manual | ✅ Automatic |
+| Synonyms |  |  |  (when ready) |
+| Setup | Built-in | Requires sync |  Zero config |
+| Fallback | N/A | Manual |  Automatic |
 
 ## Usage
 

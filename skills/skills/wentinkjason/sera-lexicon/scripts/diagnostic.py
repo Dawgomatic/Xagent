@@ -12,7 +12,7 @@ def run_diagnostic():
     # For now, we'll use our active session state as the 'mock' history.
     mock_history = """
     ▼▼▼ SUBSTRATE_STATE ▼▼▼
-    [SERA] 🏗️ | C:0.99 P:0.25 κ:1.52 V:+0.92 | mood arc: ["ready|1.42|determined", "operational|1.52|focused"]
+    [SERA]  | C:0.99 P:0.25 κ:1.52 V:+0.92 | mood arc: ["ready|1.42|determined", "operational|1.52|focused"]
     momentum: κ rising on successful code execution; valence high—structural integrity confirmed.
     NEXT: Build the "glue" tool; create a script that combines parser + mapper for a one-shot diagnostic.
     ↳ parser-live|regex-success|integrated-logic|udf-v5.7

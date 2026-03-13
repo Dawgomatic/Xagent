@@ -38,7 +38,7 @@ try:
     import chromadb
     from sentence_transformers import SentenceTransformer
 except ImportError as e:
-    print(f"❌ Missing dependency: {e}", file=sys.stderr)
+    print(f" Missing dependency: {e}", file=sys.stderr)
     print("Run 'npx jasper-recall setup' to install dependencies.", file=sys.stderr)
     sys.exit(1)
 
@@ -96,7 +96,7 @@ def main():
     args = parser.parse_args()
     
     if not os.path.exists(CHROMA_DIR):
-        print("❌ No index found. Run 'index-digests' first.", file=sys.stderr)
+        print(" No index found. Run 'index-digests' first.", file=sys.stderr)
         sys.exit(1)
     
     # Load model and database
@@ -108,7 +108,7 @@ def main():
         # Sandboxed agents: only shared + learnings (public content)
         if args.collection:
             if args.collection not in ["shared", "learnings"]:
-                print(f"❌ --public-only restricts to 'shared' or 'learnings' collections", file=sys.stderr)
+                print(f" --public-only restricts to 'shared' or 'learnings' collections", file=sys.stderr)
                 sys.exit(1)
             search_collections = [args.collection]
         else:
@@ -137,7 +137,7 @@ def main():
         try:
             collections_to_query["legacy"] = client.get_collection("jasper_memory")
         except Exception:
-            print("❌ No collections found. Run 'index-digests' first.", file=sys.stderr)
+            print(" No collections found. Run 'index-digests' first.", file=sys.stderr)
             sys.exit(1)
     
     # Embed query
@@ -157,7 +157,7 @@ def main():
         if args.json:
             print("[]")
         else:
-            print(f"🔍 No results for: \"{args.query}\"")
+            print(f" No results for: \"{args.query}\"")
         return
     
     if args.json:
@@ -173,7 +173,7 @@ def main():
         print(json.dumps(output, indent=2))
     else:
         searched = ", ".join(search_collections)
-        print(f"🔍 Results for: \"{args.query}\" (searched: {searched})\n")
+        print(f" Results for: \"{args.query}\" (searched: {searched})\n")
         
         for i, item in enumerate(merged):
             similarity = item["similarity"]

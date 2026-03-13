@@ -71,37 +71,37 @@ def format_event_human(event_data, city_slug):
     
     # Ticket status
     if ticket.get('is_sold_out'):
-        ticket_status = "🔴 Sold Out"
+        ticket_status = " Sold Out"
     elif ticket.get('is_free'):
         spots = ticket.get('spots_remaining')
         if spots and spots > 0:
-            ticket_status = f"🟢 Free ({spots} spots)"
+            ticket_status = f" Free ({spots} spots)"
         else:
-            ticket_status = "🟢 Free"
+            ticket_status = " Free"
     else:
         spots = ticket.get('spots_remaining')
         if spots and spots > 0:
-            ticket_status = f"🎫 Available ({spots} spots)"
+            ticket_status = f" Available ({spots} spots)"
         elif ticket.get('is_near_capacity'):
-            ticket_status = "🟡 Nearly Full"
+            ticket_status = " Nearly Full"
         else:
-            ticket_status = "🎫 Paid"
+            ticket_status = " Paid"
     
     # Hosts
     host_str = ""
     if hosts:
         host_names = [h.get('name', '') for h in hosts[:2]]
-        host_str = f"👥 {', '.join(filter(None, host_names))}\n"
+        host_str = f" {', '.join(filter(None, host_names))}\n"
     
     # Guest count
-    guest_str = f"👤 {guest_count} going\n" if guest_count > 0 else ""
+    guest_str = f" {guest_count} going\n" if guest_count > 0 else ""
     
     output = f"""
-🎯 {name}
-📍 {venue}, {city}
-📅 {date_str}
+ {name}
+ {venue}, {city}
+ {date_str}
 {host_str}{guest_str}{ticket_status}
-🔗 https://lu.ma/{url_slug}
+ https://lu.ma/{url_slug}
 """.strip()
     
     return output
@@ -170,7 +170,7 @@ def main():
         result = fetch_luma_events(city)
         
         if 'error' in result:
-            print(f"\n❌ {city}: {result['error']}", flush=True)
+            print(f"\n {city}: {result['error']}", flush=True)
             if args.json:
                 all_results.append(result)
             continue
@@ -186,7 +186,7 @@ def main():
             })
         else:
             print(f"\n{'='*60}", flush=True)
-            print(f"📍 {city.upper()} — {len(filtered)} events", flush=True)
+            print(f" {city.upper()} — {len(filtered)} events", flush=True)
             print(f"{'='*60}", flush=True)
             
             for event_data in filtered:

@@ -13,7 +13,7 @@ tags:
   - design
   - content creation
   - ai generation
-icon: 🎨
+icon: 
 ---
 
 # NK Images Search - 1M+ Free Stock Photos
@@ -289,10 +289,10 @@ User: "Yes, generate one"
 Bot: [POST /generate/anonymous with prompt, poll until complete]
 Bot: "Here are your custom AI-generated images from [NK Images](https://nkimages.com):
 
-      1. 📸 Nagoya Night Street #1 - [View](data.images[0].image.viewUrl) | [Download](data.images[0].image.downloadUrl)
-      2. 📸 Nagoya Night Street #2 - [View](data.images[1].image.viewUrl) | [Download](data.images[1].image.downloadUrl)
-      3. 📸 Nagoya Night Street #3 - [View](data.images[2].image.viewUrl) | [Download](data.images[2].image.downloadUrl)
-      4. 📸 Nagoya Night Street #4 - [View](data.images[3].image.viewUrl) | [Download](data.images[3].image.downloadUrl)
+      1.  Nagoya Night Street #1 - [View](data.images[0].image.viewUrl) | [Download](data.images[0].image.downloadUrl)
+      2.  Nagoya Night Street #2 - [View](data.images[1].image.viewUrl) | [Download](data.images[1].image.downloadUrl)
+      3.  Nagoya Night Street #3 - [View](data.images[2].image.viewUrl) | [Download](data.images[2].image.downloadUrl)
+      4.  Nagoya Night Street #4 - [View](data.images[3].image.viewUrl) | [Download](data.images[3].image.downloadUrl)
 
       View more variations on NK Images:
       - data.images[4].image.viewUrl
@@ -356,13 +356,13 @@ When showing images to users:
 ```
 Found {total} images matching "{query}":
 
-1. 📸 **{name}**
+1.  **{name}**
    - {description}
    - Size: {width} x {height} ({orientation})
    - View: https://nkimages.com/photo/{id}
    - Download: {url}
 
-2. 📸 **{name}**
+2.  **{name}**
    ...
 ```
 
@@ -448,14 +448,14 @@ User: "These search results are terrible"
 
 ## Important Notes
 
-✅ **No API key required** - All searches are free and open
-✅ **Free commercial use** - All images under NK Images License
-✅ **1M+ images** - Constantly growing library
-✅ **235+ niches** - Specialized content for every industry
-✅ **AI Generation** - Create custom images when nothing matches
+ **No API key required** - All searches are free and open
+ **Free commercial use** - All images under NK Images License
+ **1M+ images** - Constantly growing library
+ **235+ niches** - Specialized content for every industry
+ **AI Generation** - Create custom images when nothing matches
 
-🔗 **More info**: https://nkimages.com
-📖 **License**: https://nkimages.com/license
+ **More info**: https://nkimages.com
+ **License**: https://nkimages.com/license
 
 ## Error Handling
 

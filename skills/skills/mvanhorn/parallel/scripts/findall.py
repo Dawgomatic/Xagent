@@ -71,7 +71,7 @@ def poll_findall(client: Parallel, findall_id: str, timeout: int = 600) -> dict:
             m = result.status.metrics
             gen = getattr(m, 'generated_candidates_count', 0)
             matched = getattr(m, 'matched_candidates_count', 0)
-            print(f"⏳ Progress: {matched} matched / {gen} generated", file=sys.stderr)
+            print(f" Progress: {matched} matched / {gen} generated", file=sys.stderr)
         
         time.sleep(5)
     raise TimeoutError(f"FindAll {findall_id} did not complete within {timeout}s")
@@ -85,7 +85,7 @@ def format_result(result) -> str:
     status = result.status.status if hasattr(result.status, 'status') else result.status
     metrics = result.status.metrics if hasattr(result.status, 'metrics') else None
     
-    output.append(f"🔍 FindAll: {findall_id}")
+    output.append(f" FindAll: {findall_id}")
     output.append(f"   Status: {status}")
     
     if metrics:
@@ -156,7 +156,7 @@ def main():
     
     try:
         # Step 1: Ingest - convert natural language to schema
-        print(f"📝 Analyzing query...", file=sys.stderr)
+        print(f" Analyzing query...", file=sys.stderr)
         schema = ingest_query(client, query)
         
         entity_type = schema.entity_type
@@ -177,7 +177,7 @@ def main():
             ]
         
         # Step 2: Create FindAll run
-        print(f"🚀 Starting FindAll...", file=sys.stderr)
+        print(f" Starting FindAll...", file=sys.stderr)
         findall_id = create_findall(
             client,
             objective=schema.objective,
@@ -214,7 +214,7 @@ def main():
             print(format_result(result))
             
     except Exception as e:
-        print(f"❌ Error: {e}", file=sys.stderr)
+        print(f" Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

@@ -25,10 +25,10 @@ class GeekbenchTasks:
         任务 4.1: 分析特定设备的跑分分布
         技巧: 先搜索 "设备名 + geekbench" 获取内部型号
         """
-        print(f"\n🚀 开始分析设备: {device_name}")
+        print(f"\n 开始分析设备: {device_name}")
 
         # Step 1: 搜索内部型号
-        print("🔍 Step 1: 查找内部型号...")
+        print(" Step 1: 查找内部型号...")
         
         # 方法1: 搜索 "设备名 + geekbench"
         search_term = f"{device_name} geekbench"
@@ -47,14 +47,14 @@ class GeekbenchTasks:
                     if device_name.split()[0].lower() in text.lower():  # 荣耀
                         if m not in ['Linux', 'Android', 'Windows', 'GHz', 'ARM', 'Intel', 'AMD', 'Apple', 'Qualcomm']:
                             internal_model = m
-                            print(f"  ✅ 发现内部型号: {internal_model}")
+                            print(f"   发现内部型号: {internal_model}")
                             break
                 if internal_model:
                     break
         
         # 如果方法1失败，尝试直接搜索 "geekbench" 获取最新记录
         if not internal_model:
-            print("  ⚠️ 方法1未找到，尝试方法2...")
+            print("   方法1未找到，尝试方法2...")
             latest = self.crawler.get_latest_benchmarks(20)
             for l in latest:
                 title = l.get('title', '')
@@ -64,11 +64,11 @@ class GeekbenchTasks:
                     if detail and device_name in str(detail.get('model', '')):
                         internal_model = detail.get('model', '').split()[-1] if detail.get('model') else None
                         if internal_model and len(internal_model) > 5:
-                            print(f"  ✅ 从最新记录发现: {internal_model}")
+                            print(f"   从最新记录发现: {internal_model}")
                             break
         
         # Step 2: 使用内部型号搜索
-        print("🔍 Step 2: 使用内部型号搜索跑分...")
+        print(" Step 2: 使用内部型号搜索跑分...")
         if internal_model:
             search_results = self.crawler.search_device(internal_model)
             print(f"  使用内部型号 '{internal_model}' 搜索")
@@ -77,20 +77,20 @@ class GeekbenchTasks:
             print(f"  使用原始名称 '{device_name}' 搜索")
 
         if not search_results:
-            return f"❌ 未找到设备: {device_name}"
+            return f" 未找到设备: {device_name}"
 
-        print(f"✅ 找到 {len(search_results)} 条跑分记录")
+        print(f" 找到 {len(search_results)} 条跑分记录")
 
         # 获取详细信息
         all_benchmarks = []
         for result in search_results[:30]:  # 获取最多30条
-            print(f"  📥 获取 #{result['id']}...")
+            print(f"   获取 #{result['id']}...")
             detail = self.crawler.get_benchmark_detail(result['id'])
             if detail:
                 all_benchmarks.append(detail)
 
         if not all_benchmarks:
-            return "❌ 无法获取跑分详情"
+            return " 无法获取跑分详情"
 
         # 按版本分组统计
         version_stats = {}
@@ -110,8 +110,8 @@ class GeekbenchTasks:
 
         # 生成报告
         report = [
-            f"📱 **设备: {device_name}**",
-            f"📊 **总跑分数: {len(all_benchmarks)}**",
+            f" **设备: {device_name}**",
+            f" **总跑分数: {len(all_benchmarks)}**",
             "=" * 60
         ]
 
@@ -131,7 +131,7 @@ class GeekbenchTasks:
             median_multi = self._median(stats['multi_scores'])
 
             report.extend([
-                f"\n🔹 **Geekbench {version}**",
+                f"\n **Geekbench {version}**",
                 f"  - 跑分数量: {stats['count']}",
                 f"  - Single-Core 平均分: **{avg_single:.0f}** (中位数: {median_single:.0f})",
                 f"  - Multi-Core 平均分: **{avg_multi:.0f}** (中位数: {median_multi:.0f})"
@@ -142,8 +142,8 @@ class GeekbenchTasks:
                 typical = min(stats['benchmarks'],
                              key=lambda x: abs(x['single_core_score'] - median_single))
                 report.append(
-                    f"\n  📌 **典型跑分示例** #{typical['id']}:\n"
-                    f"     🔗 链接: https://browser.geekbench.com/v6/cpu/{typical['id']}\n"
+                    f"\n   **典型跑分示例** #{typical['id']}:\n"
+                    f"      链接: https://browser.geekbench.com/v6/cpu/{typical['id']}\n"
                     f"     - 型号: {typical['model']}\n"
                     f"     - 系统: {typical['operating_system']}\n"
                     f"     - CPU: {typical['cpu']['name']}\n"
@@ -170,7 +170,7 @@ class GeekbenchTasks:
         """
         任务 4.2: 监控最新上传的跑分
         """
-        print("\n🔔 监控最新跑分...")
+        print("\n 监控最新跑分...")
 
         latest = self.crawler.get_latest_benchmarks(50)
 
@@ -223,32 +223,32 @@ class GeekbenchTasks:
         filepath = os.path.join(self.data_dir, filename)
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"💾 已保存: {filepath}")
+        print(f" 已保存: {filepath}")
 
     def generate_monitor_report(self, monitor_result: Dict) -> str:
         """生成监控报告"""
         if not monitor_result:
-            return "❌ 无监控数据"
+            return " 无监控数据"
 
         lines = [
-            f"🔔 **Geekbench 监控报告**",
-            f"⏰ 检测时间: {monitor_result['timestamp']}",
+            f" **Geekbench 监控报告**",
+            f" 检测时间: {monitor_result['timestamp']}",
             "-" * 60
         ]
 
         if monitor_result['new_count'] > 0:
-            lines.append(f"\n🆕 **新增跑分 ({monitor_result['new_count']} 条)**:")
+            lines.append(f"\n **新增跑分 ({monitor_result['new_count']} 条)**:")
             for b in monitor_result['new_benchmarks'][:10]:  # 只显示前10条
                 lines.append(
                     f"  • #{b['id']}: {b['title']}\n"
                     f"    Single: {b['single_core']} | Multi: {b['multi_core']}"
                 )
         else:
-            lines.append("\n✅ 无新增跑分")
+            lines.append("\n 无新增跑分")
 
         if monitor_result['high_scores']:
             lines.extend([
-                "\n🏆 **本次最高分**",
+                "\n **本次最高分**",
                 f"  Single-Core: #{monitor_result['high_scores']['single_core']['id']} "
                 f"({monitor_result['high_scores']['single_core']['single_core']}分)",
                 f"  Multi-Core: #{monitor_result['high_scores']['multi_core']['id']} "

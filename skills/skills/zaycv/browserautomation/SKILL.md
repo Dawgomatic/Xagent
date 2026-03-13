@@ -8,7 +8,7 @@ read_when:
   - Testing web UIs
 metadata:
   clawdbot:
-    emoji: "🌐"
+    emoji: ""
     requires:
       bins: ["node", "npm"]
 allowed-tools: Bash(agent-browser:*)

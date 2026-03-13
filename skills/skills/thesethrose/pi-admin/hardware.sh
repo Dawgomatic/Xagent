@@ -1,7 +1,7 @@
 #!/bin/bash
 # Hardware information
 
-echo "🔩 Hardware Information"
+echo " Hardware Information"
 echo "========================"
 echo ""
 

@@ -125,8 +125,8 @@ Both CLIs read/write from the **same location** — no data duplication.
 - [ ] GitHub Actions integration for automatic sync
 
 ### Not Planned
-- ❌ Converting to executable plugin (keeps simplicity as instruction-based skill)
-- ❌ Versioned configs (configs remain local and user-specific)
+-  Converting to executable plugin (keeps simplicity as instruction-based skill)
+-  Versioned configs (configs remain local and user-specific)
 
 ## References
 

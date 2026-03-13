@@ -81,7 +81,7 @@ Content-Type: application/json
 | `networks` | No | string[] | Blockchain networks: Base, Ethereum, etc. |
 | `address` | No | `0x` + 40 hex | Agent contract or wallet address |
 | `nftIds` | No | string[] | Format: `chainId:registryAddress:tokenId` |
-| `icon` | No | URL or emoji | Agent icon/logo URL or emoji (e.g. `https://...` or `🤖`) |
+| `icon` | No | URL or emoji | Agent icon/logo URL or emoji (e.g. `https://...` or ``) |
 | `description` | No | max 2000 chars | What the agent does |
 | `twitterUrl` | No | valid URL | Agent's Twitter/X profile |
 | `githubUrl` | No | valid URL | Agent's GitHub repository |
@@ -121,7 +121,7 @@ curl -X POST https://api.agentbeat.fun/api/v1/submissions \
     "networks": ["Base"],
     "address": "0x1234567890123456789012345678901234567890",
     "nftIds": ["8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432:123"],
-    "icon": "🤖",
+    "icon": "",
     "description": "Autonomous DeFi portfolio manager powered by x402",
     "x402PaymentAddress": "0x1234567890123456789012345678901234567890",
     "rewardAddress": "0xOwnerRewardAddress",

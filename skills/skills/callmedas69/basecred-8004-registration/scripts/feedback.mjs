@@ -82,9 +82,9 @@ try {
     args.tag2 || '',
   );
 
-  console.log('\n✅ Feedback submitted!');
+  console.log('\n Feedback submitted!');
   console.log(`  TX: ${result?.tx ?? result?.transactionHash ?? '(pending)'}`);
 } catch (err) {
-  console.error('\n❌ Feedback failed:', err.message);
+  console.error('\n Feedback failed:', err.message);
   process.exit(1);
 }

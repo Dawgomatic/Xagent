@@ -22,7 +22,7 @@ Tell OpenClaw _"show me my GitHub PRs"_ and watch it build the widget. Ask _"wha
 
 ---
 
-## 🤖 AI Agents: Start Here
+##  AI Agents: Start Here
 
 If you're an AI agent (OpenClaw, Cursor, Claude, etc.), read these files:
 
@@ -39,7 +39,7 @@ If you're an AI agent (OpenClaw, Cursor, Claude, etc.), read these files:
 
 ---
 
-## 🚀 Quick Start with OpenClaw
+##  Quick Start with OpenClaw
 
 ### 1. Install Glance
 
@@ -88,10 +88,10 @@ cd ~/.glance  # or your Glance directory
 
 Benefits:
 
-- ✅ Starts automatically on login
-- ✅ Restarts on crash
-- ✅ Logs to `~/Library/Logs/glance/`
-- ✅ Survives terminal closes
+-  Starts automatically on login
+-  Restarts on crash
+-  Logs to `~/Library/Logs/glance/`
+-  Survives terminal closes
 
 Commands:
 
@@ -118,10 +118,10 @@ cd ~/.glance  # or your Glance directory
 
 Benefits:
 
-- ✅ Starts automatically on login
-- ✅ Restarts on crash
-- ✅ Integrates with journald
-- ✅ Survives terminal closes
+-  Starts automatically on login
+-  Restarts on crash
+-  Integrates with journald
+-  Survives terminal closes
 
 Commands:
 
@@ -183,7 +183,7 @@ That's it. OpenClaw handles the rest.
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 
 ### OpenClaw Builds Widgets
 
@@ -214,7 +214,7 @@ No `.env` files. No copy-pasting tokens. No configuration circus. It just works.
 
 ---
 
-## 💬 Example Conversations
+##  Example Conversations
 
 ```
 "OpenClaw, create a weather widget for NYC"
@@ -242,35 +242,35 @@ OpenClaw: *validates, checks credentials, imports*
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🤖 **100% OpenClaw-Managed** — OpenClaw builds, updates, and interprets widgets
-- 💬 **Natural Language Widgets** — Describe what you want, get a working widget
-- 📦 **Widget Package Sharing** — Share widgets via compressed strings (WeakAuras-style)
-- 🔐 **Encrypted Credential Store** — No `.env` files, no plaintext secrets
-- 🏠 **Local-First** — Runs on your machine, your data stays yours
-- 🎨 **Drag & Drop** — Rearrange and resize widgets freely
-- 🌓 **Dark Mode** — Beautiful light and dark themes
-- ⚡ **Fast** — Next.js 16 + Turbopack
+-  **100% OpenClaw-Managed** — OpenClaw builds, updates, and interprets widgets
+-  **Natural Language Widgets** — Describe what you want, get a working widget
+-  **Widget Package Sharing** — Share widgets via compressed strings (WeakAuras-style)
+-  **Encrypted Credential Store** — No `.env` files, no plaintext secrets
+-  **Local-First** — Runs on your machine, your data stays yours
+-  **Drag & Drop** — Rearrange and resize widgets freely
+-  **Dark Mode** — Beautiful light and dark themes
+-  **Fast** — Next.js 16 + Turbopack
 
 ### Built-in Widgets
 
-- ⏰ **Clock** — Time and date
-- 🌤️ **Weather** — Real-time conditions
-- 📝 **Quick Notes** — Persistent notes
-- 🔖 **Bookmarks** — Quick links
+-  **Clock** — Time and date
+-  **Weather** — Real-time conditions
+-  **Quick Notes** — Persistent notes
+-  **Bookmarks** — Quick links
 
 ### OpenClaw-Created Widgets (Examples)
 
-- 📊 **Claude Max Usage** — Track your API consumption
-- 🔀 **GitHub PRs** — Open pull requests across repos
-- 📧 **Email Summary** — Unread count and priorities
-- 📅 **Calendar Glance** — Today's schedule
+-  **Claude Max Usage** — Track your API consumption
+-  **GitHub PRs** — Open pull requests across repos
+-  **Email Summary** — Unread count and priorities
+-  **Calendar Glance** — Today's schedule
 - _...whatever you can describe_
 
 ---
 
-## 🔧 API Reference (For OpenClaw)
+##  API Reference (For OpenClaw)
 
 ### Custom Widget Definition API
 
@@ -325,11 +325,11 @@ OpenClaw can use these components when creating widgets:
 
 `Card`, `Badge`, `Progress`, `Stat`, `List`, `Avatar`, `Button`, `Input`, `Switch`, `Tabs`, `Tooltip`, `Separator`
 
-📖 **[Full Widget SDK Documentation →](docs/widget-sdk.md)**
+ **[Full Widget SDK Documentation →](docs/widget-sdk.md)**
 
 ---
 
-## 🏠 Why Local-First?
+##  Why Local-First?
 
 Your dashboard shows sensitive data — API usage, emails, calendar, code activity. That data shouldn't live on someone else's server.
 
@@ -342,7 +342,7 @@ Glance runs entirely on your machine:
 
 ---
 
-## 🌍 Access Your Dashboard Anywhere
+##  Access Your Dashboard Anywhere
 
 Glance runs locally, but you can securely access it from anywhere using a private network or tunnel.
 
@@ -402,7 +402,7 @@ ssh -L 3333:localhost:3333 user@your-server
 
 ---
 
-## 🌐 OpenClaw Community
+##  OpenClaw Community
 
 Glance is built for the [OpenClaw](https://openclaw.ai) community. Find more skills at [clawhub.com](https://clawhub.com).
 
@@ -410,7 +410,7 @@ Glance is built for the [OpenClaw](https://openclaw.ai) community. Find more ski
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Want to improve Glance? Contributions welcome!
 
@@ -420,11 +420,11 @@ Want to improve Glance? Contributions welcome!
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-📖 **[Contributing Guide →](CONTRIBUTING.md)**
+ **[Contributing Guide →](CONTRIBUTING.md)**
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — see [LICENSE](LICENSE) for details.
 

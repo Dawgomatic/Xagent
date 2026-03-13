@@ -277,7 +277,7 @@ class SentryWatchV2 {
    */
   async startWatching() {
     if (this.watching) {
-      console.log('⚠️ Already watching');
+      console.log(' Already watching');
       return;
     }
 
@@ -287,19 +287,19 @@ class SentryWatchV2 {
       fs.mkdirSync(this.tempDir, { recursive: true });
     }
 
-    console.log(`\n👀 SENTRY WATCH V2 ACTIVATED`);
-    console.log(`📋 Report Mode: ${this.reportMode.toUpperCase()}`);
-    console.log(`📌 Active BOLOs: ${this.parsedBolos.length}`);
-    console.log(`⏱️ Check interval: ${this.checkInterval}ms`);
-    console.log(`⏰ Alert cooldown: ${Math.round(this.alertCooldown / 1000)}s\n`);
+    console.log(`\n SENTRY WATCH V2 ACTIVATED`);
+    console.log(` Report Mode: ${this.reportMode.toUpperCase()}`);
+    console.log(` Active BOLOs: ${this.parsedBolos.length}`);
+    console.log(` Check interval: ${this.checkInterval}ms`);
+    console.log(` Alert cooldown: ${Math.round(this.alertCooldown / 1000)}s\n`);
 
     this.listBolos();
 
-    console.log('🎥 Starting continuous monitoring...\n');
+    console.log(' Starting continuous monitoring...\n');
     this.monitorLoop();
 
     process.on('SIGINT', () => {
-      console.log('\n\n🛑 Stopping Sentry Watch...');
+      console.log('\n\n Stopping Sentry Watch...');
       this.stopWatching();
       process.exit(0);
     });
@@ -309,7 +309,7 @@ class SentryWatchV2 {
    * List BOLOs with required features
    */
   listBolos() {
-    console.log('📋 ACTIVE BOLOs:');
+    console.log(' ACTIVE BOLOs:');
     console.log('─'.repeat(70));
 
     this.parsedBolos.forEach((bolo, idx) => {
@@ -343,7 +343,7 @@ class SentryWatchV2 {
 
         if (motionScore > this.motionThreshold) {
           console.log(
-            `🎬 MOTION DETECTED (${(motionScore * 100).toFixed(1)}%)`
+            ` MOTION DETECTED (${(motionScore * 100).toFixed(1)}%)`
           );
 
           const analysis = await this.analyzeFrame(frame);
@@ -360,7 +360,7 @@ class SentryWatchV2 {
 
         this.previousFrame = frame;
       } catch (error) {
-        console.error(`⚠️ Monitor loop error: ${error.message}`);
+        console.error(` Monitor loop error: ${error.message}`);
       }
 
       await this.sleep(this.checkInterval);
@@ -426,9 +426,9 @@ class SentryWatchV2 {
    * Report-all mode: Alert on any motion
    */
   triggerGeneralAlert(frame, analysis) {
-    console.log(`\n🚨 MOTION ALERT (report-all mode)`);
-    console.log(`⏰ Time: ${new Date().toLocaleString()}`);
-    console.log(`📸 Frame: ${path.basename(frame)}\n`);
+    console.log(`\n MOTION ALERT (report-all mode)`);
+    console.log(` Time: ${new Date().toLocaleString()}`);
+    console.log(` Frame: ${path.basename(frame)}\n`);
   }
 
   /**
@@ -452,10 +452,10 @@ class SentryWatchV2 {
     );
 
     if (isSuspicious) {
-      console.log(`\n⚠️ SUSPICIOUS ACTIVITY DETECTED`);
-      console.log(`⏰ Time: ${new Date().toLocaleString()}`);
-      console.log(`📸 Frame: ${path.basename(frame)}`);
-      console.log(`🔍 Analysis: ${JSON.stringify(analysis.detected, null, 2)}\n`);
+      console.log(`\n SUSPICIOUS ACTIVITY DETECTED`);
+      console.log(` Time: ${new Date().toLocaleString()}`);
+      console.log(` Frame: ${path.basename(frame)}`);
+      console.log(` Analysis: ${JSON.stringify(analysis.detected, null, 2)}\n`);
     }
   }
 
@@ -480,7 +480,7 @@ class SentryWatchV2 {
       } else if (matchResult.matchCount > 0) {
         // Partial match - log for debugging
         console.log(
-          `⚠️ Partial match for "${bolo.description}": ${matchResult.reason}`
+          ` Partial match for "${bolo.description}": ${matchResult.reason}`
         );
       }
     }
@@ -493,18 +493,18 @@ class SentryWatchV2 {
     const timestamp = new Date().toLocaleString();
 
     console.log('\n' + '!'.repeat(70));
-    console.log('🚨 BOLO MATCH!');
+    console.log(' BOLO MATCH!');
     console.log('!'.repeat(70));
-    console.log(`\n📌 BOLO: ${bolo.description}`);
-    console.log(`🔍 Type: ${bolo.type}`);
-    console.log(`⏰ Time: ${timestamp}`);
-    console.log(`📸 Frame: ${path.basename(frame)}`);
+    console.log(`\n BOLO: ${bolo.description}`);
+    console.log(` Type: ${bolo.type}`);
+    console.log(` Time: ${timestamp}`);
+    console.log(` Frame: ${path.basename(frame)}`);
     console.log(
       `\n✓ Match Result: ${matchResult.matchCount}/${matchResult.totalFeatures} features matched`
     );
     console.log(`✓ Confidence: ${(matchResult.confidence * 100).toFixed(1)}%`);
     console.log(`✓ Required all: ${bolo.matcher.requiredFeatures.map((f) => f.value).join(', ')}`);
-    console.log(`\n👤 Detected: ${JSON.stringify(analysis.detected, null, 2)}`);
+    console.log(`\n Detected: ${JSON.stringify(analysis.detected, null, 2)}`);
     console.log('\n' + '!'.repeat(70) + '\n');
 
     // Update last alert time
@@ -518,7 +518,7 @@ class SentryWatchV2 {
     this.watching = false;
     this.cleanup();
 
-    console.log('\n📊 WATCH SESSION SUMMARY:');
+    console.log('\n WATCH SESSION SUMMARY:');
     console.log('─'.repeat(70));
     this.parsedBolos.forEach((bolo, idx) => {
       console.log(
@@ -579,7 +579,7 @@ async function main() {
   const validModes = ['report-all', 'report-suspicious', 'report-match'];
 
   if (!validModes.includes(mode)) {
-    console.error(`❌ Invalid mode: ${mode}`);
+    console.error(` Invalid mode: ${mode}`);
     console.error(`Valid modes: ${validModes.join(', ')}`);
     process.exit(1);
   }

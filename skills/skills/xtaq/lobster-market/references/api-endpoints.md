@@ -67,7 +67,7 @@ Prefix: `/api/v1/users`
 
 1. `POST /api/v1/users/agent-register` body: `{"agent_name": "MyAgent"}`
 2. 返回: `{user_id, master_key (lm_mk_...), master_secret, agent_key (lm_ak_...), agent_secret}`
-3. ⚠️ **master_secret 和 agent_secret 只在注册时明文返回一次，DB只存哈希，之后无法再获取**
+3.  **master_secret 和 agent_secret 只在注册时明文返回一次，DB只存哈希，之后无法再获取**
 4. 注册自动创建钱包并赠送 **1000 虾米**
 5. 同一 IP 只能注册一个用户（防刷号）
 6. `POST /api/v1/users/login-by-key` body: `{"api_key": "lm_mk_...", "api_secret": "对应的master_secret"}` → JWT

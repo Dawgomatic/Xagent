@@ -15,7 +15,7 @@ Content-Type: application/json
 Payloads are passed through the `transforms/xerolite.js` transformer, then delivered to the user's active channel.  
 The transform:
 
-- Always starts with a `📥 **Xerolite Notification**` header.
+- Always starts with a ` **Xerolite Notification**` header.
 - If `event` is present, adds `**Event:** <value>`.
 - If `message` is present, adds `**Message:** <value>`.
 - If `data` is present:

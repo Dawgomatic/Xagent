@@ -10,10 +10,10 @@ Usage:
     python monitor_task.py stop "<task_name>" "<final_status>" "<final_message>"
 
 Status Types (for final status):
-    progress - Ongoing work (shows 🔄)
-    success  - Task complete (shows ✅)
-    error    - Failed task (shows ❌)
-    warning  - Issue but continuing (shows ⚠️)
+    progress - Ongoing work (shows )
+    success  - Task complete (shows )
+    error    - Failed task (shows )
+    warning  - Issue but continuing (shows )
 
 Examples:
     # Start monitoring a video processing task

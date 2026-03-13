@@ -257,7 +257,7 @@ Recent improvements:
 - UTC timezone consistency
 - Benford's Law threshold optimization
 
-**Status:** 🟢 PRODUCTION READY
+**Status:**  PRODUCTION READY
 
 See `references/technical-docs/FIXES_APPLIED.md` for complete changelog.
 

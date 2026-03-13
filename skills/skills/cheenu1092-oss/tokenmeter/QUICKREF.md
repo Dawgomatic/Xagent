@@ -63,7 +63,7 @@ tokenmeter log \
 tokenmeter costs --period month
 
 # Compare "Total" to your $100 Max plan
-# If Total > $100: You're saving money ✅
+# If Total > $100: You're saving money 
 # If Total < $100: Consider downgrading (or enjoy peace of mind!)
 ```
 

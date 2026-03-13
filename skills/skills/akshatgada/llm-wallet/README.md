@@ -187,7 +187,7 @@ Add to `~/.openclaw/config.json5`:
 - **Chain ID**: 137
 - **Facilitator**: https://x402.polygon.technology
 - **USDC**: 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359
-- **⚠️ Real money** - use with caution
+- ** Real money** - use with caution
 
 ## Documentation
 

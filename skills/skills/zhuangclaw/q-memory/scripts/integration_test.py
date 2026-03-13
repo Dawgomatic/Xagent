@@ -49,7 +49,7 @@ class IntegrationTest:
     def run_all_tests(self):
         """運行所有測試"""
 
-        print("🧪 QST Memory v1.8.4 整合測試")
+        print(" QST Memory v1.8.4 整合測試")
         print("=" * 60)
         print()
 
@@ -70,7 +70,7 @@ class IntegrationTest:
     def test_phase1_subtasks(self):
         """Phase 1 測試：子任務列表管理"""
 
-        print("✅ Phase 1 測試：子任務列表管理")
+        print(" Phase 1 測試：子任務列表管理")
         print("-" * 60)
 
         try:
@@ -103,20 +103,20 @@ class IntegrationTest:
             self.subtask_manager.update_subtask(st1['id'], status='completed')
             self.test_results.append(("Phase 1.4", "更新子任務狀態", True))
 
-            print(f"   ✅ 添加 {len(subtasks)} 個子任務")
-            print(f"   ✅ 列出所有子任務")
-            print(f"   ✅ 更新子任務狀態")
+            print(f"    添加 {len(subtasks)} 個子任務")
+            print(f"    列出所有子任務")
+            print(f"    更新子任務狀態")
             print()
 
         except Exception as e:
             self.test_results.append(("Phase 1", "子任務列表管理", False))
-            print(f"   ❌ 測試失敗: {e}")
+            print(f"    測試失敗: {e}")
             print()
 
     def test_phase1_progress_calc(self):
         """Phase 1 測試：自動進度計算"""
 
-        print("✅ Phase 1 測試：自動進度計算")
+        print(" Phase 1 測試：自動進度計算")
         print("-" * 60)
 
         try:
@@ -125,18 +125,18 @@ class IntegrationTest:
 
             self.test_results.append(("Phase 1.5", f"進度計算: {progress}%", 0 < progress < 100))
 
-            print(f"   ✅ 自動計算進度: {progress}%")
+            print(f"    自動計算進度: {progress}%")
             print()
 
         except Exception as e:
             self.test_results.append(("Phase 1", "自動進度計算", False))
-            print(f"   ❌ 測試失敗: {e}")
+            print(f"    測試失敗: {e}")
             print()
 
     def test_phase2_auto_completion(self):
         """Phase 2 測試：自動完成檢測"""
 
-        print("✅ Phase 2 測試：自動完成檢測")
+        print(" Phase 2 測試：自動完成檢測")
         print("-" * 60)
 
         try:
@@ -150,18 +150,18 @@ class IntegrationTest:
 
             self.test_results.append(("Phase 2.1", "自動完成檢測", can_complete))
 
-            print(f"   ✅ 自動完成檢測: {can_complete}")
+            print(f"    自動完成檢測: {can_complete}")
             print()
 
         except Exception as e:
             self.test_results.append(("Phase 2", "自動完成檢測", False))
-            print(f"   ❌ 測試失敗: {e}")
+            print(f"    測試失敗: {e}")
             print()
 
     def test_phase2_stagnation(self):
         """Phase 2 測試：停滯檢測"""
 
-        print("✅ Phase 2 測試：停滯檢測")
+        print(" Phase 2 測試：停滯檢測")
         print("-" * 60)
 
         try:
@@ -170,7 +170,7 @@ class IntegrationTest:
 
             self.test_results.append(("Phase 2.2", "停滯檢測", stagnation_status is not None))
 
-            print(f"   ✅ 停滯檢測")
+            print(f"    停滯檢測")
             print(f"      啟用: {stagnation_status['enabled']}")
             print(f"      閾值: {stagnation_status['stagnation_threshold']} 分鐘")
             print(f"      當前停滯: {stagnation_status.get('current_stagnation_minutes') or 'N/A'} 分鐘")
@@ -178,13 +178,13 @@ class IntegrationTest:
 
         except Exception as e:
             self.test_results.append(("Phase 2", "停滯檢測", False))
-            print(f"   ❌ 測試失敗: {e}")
+            print(f"    測試失敗: {e}")
             print()
 
     def test_phase3_templates(self):
         """Phase 3 測試：任務模板"""
 
-        print("✅ Phase 3 測試：任務模板")
+        print(" Phase 3 測試：任務模板")
         print("-" * 60)
 
         try:
@@ -193,7 +193,7 @@ class IntegrationTest:
 
             self.test_results.append(("Phase 3.1", f"列出 {len(templates)} 個模板", len(templates) > 0))
 
-            print(f"   ✅ 可用模板數: {len(templates)}")
+            print(f"    可用模板數: {len(templates)}")
             for template in templates:
                 print(f"      • {template['name']} - {template['description']}")
 
@@ -202,19 +202,19 @@ class IntegrationTest:
 
             self.test_results.append(("Phase 3.2", "載入 Development 模板", template is not None))
 
-            print(f"   ✅ 載入 Development 模板")
+            print(f"    載入 Development 模板")
             print()
 
         except Exception as e:
             self.test_results.append(("Phase 3", "任務模板", False))
-            print(f"   ❌ 測試失敗: {e}")
+            print(f"    測試失敗: {e}")
             print()
 
     def print_summary(self):
         """打印測試總結"""
 
         print("=" * 60)
-        print("📊 測試總結")
+        print(" 測試總結")
         print("=" * 60)
 
         total = len(self.test_results)
@@ -223,18 +223,18 @@ class IntegrationTest:
 
         print()
         print(f"總測試數: {total}")
-        print(f"通過: {passed} ✅")
-        print(f"失敗: {failed} ❌")
+        print(f"通過: {passed} ")
+        print(f"失敗: {failed} ")
         print()
 
         if failed > 0:
-            print("❌ 失敗的測試:")
+            print(" 失敗的測試:")
             for test_name, description, result in self.test_results:
                 if not result:
                     print(f"   • {test_name}: {description}")
             print()
 
-        print("🐲 測試完成！")
+        print(" 測試完成！")
         print()
 
 

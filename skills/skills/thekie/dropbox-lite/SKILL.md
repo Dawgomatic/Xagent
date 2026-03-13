@@ -12,9 +12,9 @@ Upload, download, list, and search files in Dropbox. Supports automatic token re
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `DROPBOX_APP_KEY` | ✅ Yes | Your Dropbox app key |
-| `DROPBOX_APP_SECRET` | ✅ Yes | Your Dropbox app secret |
-| `DROPBOX_REFRESH_TOKEN` | ✅ Yes | OAuth refresh token (long-lived) |
+| `DROPBOX_APP_KEY` |  Yes | Your Dropbox app key |
+| `DROPBOX_APP_SECRET` |  Yes | Your Dropbox app secret |
+| `DROPBOX_REFRESH_TOKEN` |  Yes | OAuth refresh token (long-lived) |
 | `DROPBOX_ACCESS_TOKEN` | Optional | Short-lived access token (auto-refreshed) |
 
 Store in `~/.config/atlas/dropbox.env`:

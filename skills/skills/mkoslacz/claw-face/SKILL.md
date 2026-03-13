@@ -3,7 +3,7 @@ name: clawface
 description: Floating avatar widget for AI agents showing emotions, actions, and visual effects. Give your OpenClaw a face! Use when the user wants visual feedback, a floating status window, or to see agent emotions while it works. Triggers on "show avatar", "uruchom avatara", "pokaż avatara", "agent face", "visual feedback".
 ---
 
-# 🤖 ClawFace
+#  ClawFace
 
 **Give your OpenClaw a face!**
 
@@ -20,16 +20,16 @@ Got a dedicated machine running OpenClaw with a monitor? Tired of staring at log
 That's **1,215 unique combinations** + custom messages from your agent!
 
 Perfect for:
-- 💻 Laptop setups where you want to SEE your agent working
-- 🖥️ Dedicated OpenClaw machines with a monitor
-- 🎮 Making your AI assistant feel alive
-- 📺 Impressing your friends/coworkers
+-  Laptop setups where you want to SEE your agent working
+-  Dedicated OpenClaw machines with a monitor
+-  Making your AI assistant feel alive
+-  Impressing your friends/coworkers
 
-> ⚠️ **Note:** Only tested on macOS. Should work on Windows/Linux but YMMV.
+>  **Note:** Only tested on macOS. Should work on Windows/Linux but YMMV.
 
 ---
 
-## 🚀 Quick Test (try it now!)
+##  Quick Test (try it now!)
 
 ```bash
 # 1. Check if you have Python + tkinter:
@@ -46,7 +46,7 @@ python3 SKILL_PATH/scripts/avatar.py --mode robot
 python3 SKILL_PATH/scripts/avatar.py --demo
 ```
 
-Watch the avatar cycle through all emotions, actions, and effects automatically! 🎉
+Watch the avatar cycle through all emotions, actions, and effects automatically! 
 
 ### Manual control:
 ```bash
@@ -55,7 +55,7 @@ echo '{"emotion":"excited","action":"success","effect":"confetti","message":"It 
 
 ---
 
-## ⚠️ Requirements
+##  Requirements
 
 **Python 3.10+ with tkinter:**
 ```bash
@@ -70,7 +70,7 @@ python3 -c "import tkinter; print('OK')"
 
 ---
 
-## 📦 Full Installation
+##  Full Installation
 
 ### 1. Install the auto-thinking hook (recommended):
 ```bash
@@ -88,7 +88,7 @@ nohup python3 SKILL_PATH/scripts/avatar.py --mode robot > /dev/null 2>&1 &
 
 ---
 
-## 🎯 Core Principle: BE DYNAMIC!
+##  Core Principle: BE DYNAMIC!
 
 **Don't set one state and forget it.** Update the avatar continuously as you work:
 
@@ -104,7 +104,7 @@ Every action you take should be reflected. The avatar is your LIVE status indica
 
 ---
 
-## 🎭 State Reference
+##  State Reference
 
 ### Emotions
 | Emotion | Use when... |
@@ -153,9 +153,9 @@ Every action you take should be reflected. The avatar is your LIVE status indica
 
 ---
 
-## ⚡ Best Practices
+##  Best Practices
 
-### 🔴 MINIMUM FLOW FOR EVERY RESPONSE:
+###  MINIMUM FLOW FOR EVERY RESPONSE:
 ```
 thinking  →  processing user input
 speaking  →  sending your reply  
@@ -171,7 +171,7 @@ idle      →  done, waiting
 
 ---
 
-## 🔧 Technical Reference
+##  Technical Reference
 
 ### State File
 Write JSON to `~/.clawface/avatar_state.json`:
@@ -186,13 +186,13 @@ Write JSON to `~/.clawface/avatar_state.json`:
 
 ### Display Modes
 
-**🤖 Robot Mode** (`--mode robot`) — default
+** Robot Mode** (`--mode robot`) — default
 - LED-style pixel eyes with animations
 - Mechanical arms with claws
 - Retro-futuristic cyberpunk vibe
 - Best for: tech aesthetic, dedicated screens
 
-**😊 Face Mode** (`--mode face`)
+** Face Mode** (`--mode face`)
 - Simplified cartoon face
 - Expressive eyes and mouth
 - Friendly, approachable look

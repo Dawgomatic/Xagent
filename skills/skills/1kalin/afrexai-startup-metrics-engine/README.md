@@ -32,17 +32,17 @@ Founders, operators, and finance teams tracking startup health from pre-seed thr
 
 ---
 
-⚡ **Level Up Your Agent**
+ **Level Up Your Agent**
 
 Get the complete **SaaS Context Pack** ($47) — industry-specific frameworks, competitive intelligence, pricing strategy, and growth playbooks for SaaS companies:
 
-👉 [Browse Context Packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse Context Packs](https://afrexai-cto.github.io/context-packs/)
 
-🔗 **More free skills by AfrexAI:**
+ **More free skills by AfrexAI:**
 - [afrexai-pricing-strategy](https://clawhub.com/skills/afrexai-pricing-strategy) — Complete pricing system
 - [afrexai-data-analyst](https://clawhub.com/skills/afrexai-data-analyst) — DICE analysis framework
 - [afrexai-competitive-intel](https://clawhub.com/skills/afrexai-competitive-intel) — 7-phase competitive intelligence
 - [afrexai-prd-engine](https://clawhub.com/skills/afrexai-prd-engine) — Product requirements system
 - [afrexai-business-automation](https://clawhub.com/skills/afrexai-business-automation) — 5-phase automation lifecycle
 
-*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛*
+*Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) *

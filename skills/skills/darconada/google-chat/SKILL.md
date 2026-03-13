@@ -39,7 +39,7 @@ python3 scripts/send_webhook.py "$WEBHOOK_URL" "Reply message" --thread_key "uni
 Read config and send:
 ```bash
 WEBHOOK_URL=$(jq -r '.webhooks.acs_engineering_network' google-chat-config.json)
-python3 scripts/send_webhook.py "$WEBHOOK_URL" "Deploy completed ✅"
+python3 scripts/send_webhook.py "$WEBHOOK_URL" "Deploy completed "
 ```
 
 ### Method 2: OAuth (For Dynamic Messaging)
@@ -66,7 +66,7 @@ python3 scripts/send_oauth.py \
   "Deploy completed"
 ```
 
-**Note:** OAuth messages automatically include `🤖` emoji prefix. Use `--no-emoji` to disable this:
+**Note:** OAuth messages automatically include `` emoji prefix. Use `--no-emoji` to disable this:
 ```bash
 python3 scripts/send_oauth.py \
   --credentials google-chat-oauth-credentials.json \
@@ -222,7 +222,7 @@ urllib.request.urlopen(req)
 **Deploy notification to engineering channel:**
 ```bash
 WEBHOOK=$(jq -r '.webhooks.acs_engineering_network' google-chat-config.json)
-python3 scripts/send_webhook.py "$WEBHOOK" "🚀 Production deploy v2.1.0 completed"
+python3 scripts/send_webhook.py "$WEBHOOK" " Production deploy v2.1.0 completed"
 ```
 
 **Alert specific user about task:**
@@ -241,5 +241,5 @@ THREAD_KEY="deploy-$(date +%s)"
 
 python3 scripts/send_webhook.py "$WEBHOOK" "Starting deploy..." --thread_key "$THREAD_KEY"
 # ... deployment happens ...
-python3 scripts/send_webhook.py "$WEBHOOK" "Deploy completed ✅" --thread_key "$THREAD_KEY"
+python3 scripts/send_webhook.py "$WEBHOOK" "Deploy completed " --thread_key "$THREAD_KEY"
 ```

@@ -17,7 +17,7 @@ metadata:
       bins: ["python3"]
 ---
 
-# Skill Auditor v2.0 🔍🛡️
+# Skill Auditor v2.0 
 
 Comprehensive security scanner for OpenClaw/ClawHub skills. Merges static analysis, deobfuscation, and threat intelligence into a single Python tool.
 
@@ -55,11 +55,11 @@ python3 {baseDir}/scripts/audit_skill.py /path/to/skill --json
 
 | Score | Level | Action |
 |-------|-------|--------|
-| 0–20 | ✅ SAFE | Auto-install OK |
-| 21–40 | 🟢 LOW RISK | Proceed with caution |
-| 41–60 | 🟡 MEDIUM RISK | Manual review required |
-| 61–80 | 🟠 HIGH RISK | Expert review needed |
-| 81–100 | 🔴 CRITICAL | Do NOT install |
+| 0–20 |  SAFE | Auto-install OK |
+| 21–40 |  LOW RISK | Proceed with caution |
+| 41–60 |  MEDIUM RISK | Manual review required |
+| 61–80 |  HIGH RISK | Expert review needed |
+| 81–100 |  CRITICAL | Do NOT install |
 
 Exit codes: `0` = safe (≤20), `1` = review (21–60), `2` = dangerous (>60)
 
@@ -105,6 +105,6 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
 
 Fork of [skill-auditor-pro](https://clawhub.ai/skills/skill-auditor-pro) by sypsyp97, merged with [skill-security-auditor](https://clawhub.ai/skills/skill-security-auditor) by akm626.

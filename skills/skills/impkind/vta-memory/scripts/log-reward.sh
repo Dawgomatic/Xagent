@@ -10,7 +10,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/reward-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No reward state found at $STATE_FILE"
+  echo " No reward state found at $STATE_FILE"
   exit 1
 fi
 
@@ -86,7 +86,7 @@ mv "$STATE_FILE.tmp" "$STATE_FILE"
 LOG_FILE="$WORKSPACE/memory/reward-log.jsonl"
 echo "$REWARD_ENTRY" >> "$LOG_FILE"
 
-echo "⭐ Reward logged!"
+echo " Reward logged!"
 echo "   Type: $TYPE"
 echo "   Source: $SOURCE"
 echo "   Intensity: $INTENSITY"

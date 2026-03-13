@@ -48,7 +48,7 @@ run_test() {
             echo -e "${GREEN}✓${NC} Contains expected: \"$expected\""
             PASSED=$((PASSED + 1))
         else
-            echo -e "${YELLOW}⚠${NC} Warning: Expected \"$expected\" not found (this may be OK for some queries)"
+            echo -e "${YELLOW}${NC} Warning: Expected \"$expected\" not found (this may be OK for some queries)"
             WARNINGS=$((WARNINGS + 1))
         fi
     else

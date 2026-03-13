@@ -39,21 +39,21 @@ vd.generateAudio(fullText, 'josh', {
   const stats = fs.statSync(audioPath);
   const estimatedDuration = Math.round(stats.size / 3750); // Rough estimate
   
-  console.log('✅ Saved to Desktop');
+  console.log(' Saved to Desktop');
   console.log('Estimated duration:', Math.round(estimatedDuration / 60), 'minutes');
   
   // Play in QuickTime
   const { exec } = require('child_process');
   exec('open -a "QuickTime Player" "' + dest + '"');
-  console.log('▶️  Playing in QuickTime...');
+  console.log('  Playing in QuickTime...');
   
   // Auto-delete after 7 minutes
   setTimeout(() => {
     if (fs.existsSync(dest)) {
       fs.unlinkSync(dest);
-      console.log('🗑️  Cleaned up');
+      console.log('  Cleaned up');
     }
   }, 420000);
 }).catch(err => {
-  console.error('❌', err.message);
+  console.error('', err.message);
 });

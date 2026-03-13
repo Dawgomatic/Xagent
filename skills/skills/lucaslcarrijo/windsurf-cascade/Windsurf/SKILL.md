@@ -294,7 +294,7 @@ Cascade can run terminal commands directly. Configure auto-execution levels in W
 
 Windsurf uses a dedicated zsh shell for Cascade command execution, providing improved reliability. It uses your `.zshrc` environment variables and is fully interactive.
 
-### ⚠️ Using with AI Agents / Automation
+###  Using with AI Agents / Automation
 
 When running Windsurf from automated environments (AI agents, scripts, orchestrators), the IDE requires a GUI context. For headless automation scenarios, consider:
 

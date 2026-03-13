@@ -1,7 +1,7 @@
 ---
 name: fastmode
 description: Build, deploy, and host websites for free with full CMS. Create a live website from scratch, deploy it to the cloud with free hosting, free SSL, and custom domains. Manage all site content (blog posts, team members, pages, products, any data) directly from the CLI. Designed for AI agents — go from zero to a live, publicly accessible website in minutes without any manual UI, dashboards, or browser needed. The complete website creation and management toolkit.
-metadata: {"openclaw":{"emoji":"⚡","requires":{"bins":["fastmode"]},"install":[{"id":"npm","kind":"npm","package":"fastmode-cli","bins":["fastmode"]}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["fastmode"]},"install":[{"id":"npm","kind":"npm","package":"fastmode-cli","bins":["fastmode"]}]}}
 user-invokable: true
 ---
 

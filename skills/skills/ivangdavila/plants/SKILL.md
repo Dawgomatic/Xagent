@@ -1,7 +1,7 @@
 ---
 name: Plants
 description: Build a personal plant care system with watering schedules, care logs, and seasonal reminders.
-metadata: {"clawdbot":{"emoji":"🌱","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

@@ -68,11 +68,11 @@ In Clawdbot, users will be able to:
 
 ## What Makes This Unique
 
-✅ **First of its kind** — No other Clawdbot skill offers multi-persona debate system  
-✅ **Comprehensive personas** — Not just different opinions, but different *decision frameworks*  
-✅ **Archive system** — Debates become searchable, referenceable, learnable patterns  
-✅ **Production-ready** — Proper skill structure, documentation, templates, scripts  
-✅ **Extensible** — Users can create new personas (Skeptic, Artist, Lawyer, etc.)  
+ **First of its kind** — No other Clawdbot skill offers multi-persona debate system  
+ **Comprehensive personas** — Not just different opinions, but different *decision frameworks*  
+ **Archive system** — Debates become searchable, referenceable, learnable patterns  
+ **Production-ready** — Proper skill structure, documentation, templates, scripts  
+ **Extensible** — Users can create new personas (Skeptic, Artist, Lawyer, etc.)  
 
 ## Is It Actually First?
 

@@ -38,20 +38,20 @@ For detailed setup instructions, see [api-setup.md](references/api-setup.md).
 
 The skill displays flight information in a clean, readable format with:
 
-- ✈️ Airline and flight number
-- 🛩️ Aircraft type and registration
-- 🛫 Departure airport, terminal, gate, times
-- 🛬 Arrival airport, terminal, gate, times
-- 📊 Flight status with visual indicators
-- ⏱️ Delay calculations (if applicable)
-- 🌐 Live position, altitude, speed (when airborne)
+-  Airline and flight number
+-  Aircraft type and registration
+-  Departure airport, terminal, gate, times
+-  Arrival airport, terminal, gate, times
+-  Flight status with visual indicators
+-  Delay calculations (if applicable)
+-  Live position, altitude, speed (when airborne)
 
 Status indicators:
-- 🟢 Active/Airborne/En-route
-- ✅ Landed/Arrived
-- 🟡 Scheduled
-- 🟠 Delayed
-- 🔴 Cancelled
+-  Active/Airborne/En-route
+-  Landed/Arrived
+-  Scheduled
+-  Delayed
+-  Cancelled
 
 ## Advanced Usage
 

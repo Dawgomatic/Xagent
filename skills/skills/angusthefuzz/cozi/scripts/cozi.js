@@ -202,16 +202,16 @@ async function removeAppointment(session, year, month, apptId) {
 
 // Output formatters
 function formatLists(lists) {
-  console.log('\n📋 Your Cozi Lists:\n');
+  console.log('\n Your Cozi Lists:\n');
   lists.forEach(list => {
-    const icon = list.listType === 'shopping' ? '🛒' : '✅';
+    const icon = list.listType === 'shopping' ? '' : '';
     const completed = list.items.filter(i => i.status === 'complete').length;
     console.log(`${icon} ${list.title} (${list.listType})`);
     console.log(`   ID: ${list.listId}`);
     console.log(`   ${completed}/${list.items.length} items complete`);
     if (list.items.length > 0) {
       list.items.slice(0, 5).forEach(item => {
-        const check = item.status === 'complete' ? '☑' : '☐';
+        const check = item.status === 'complete' ? '' : '☐';
         console.log(`   ${check} ${item.text}`);
       });
       if (list.items.length > 5) {
@@ -223,12 +223,12 @@ function formatLists(lists) {
 }
 
 function formatList(list) {
-  const icon = list.listType === 'shopping' ? '🛒' : '✅';
+  const icon = list.listType === 'shopping' ? '' : '';
   console.log(`\n${icon} ${list.title} (${list.listType})`);
   console.log(`   ID: ${list.listId}`);
   console.log('');
   list.items.forEach(item => {
-    const check = item.status === 'complete' ? '☑' : '☐';
+    const check = item.status === 'complete' ? '' : '☐';
     console.log(`   ${check} ${item.text} [${item.itemId}]`);
   });
   console.log('');
@@ -237,7 +237,7 @@ function formatList(list) {
 function formatCalendar(data, year, month) {
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
                       'July', 'August', 'September', 'October', 'November', 'December'];
-  console.log(`\n📅 ${monthNames[month - 1]} ${year}\n`);
+  console.log(`\n ${monthNames[month - 1]} ${year}\n`);
   
   if (!data.days || !data.items) {
     console.log('   No appointments');

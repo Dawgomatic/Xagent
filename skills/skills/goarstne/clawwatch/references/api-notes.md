@@ -15,7 +15,7 @@
 - **Free tier:** 200 req/min without key, 500/min with free key from coincap.io.
 - **No API key required** — works out of the box.
 - **IDs are lowercase names:** `bitcoin`, `ethereum`, `solana`.
-- **⚠️ Returns numbers as strings** — always parse to float.
+- ** Returns numbers as strings** — always parse to float.
 - **Supports `ids` param:** `GET /assets?ids=bitcoin,ethereum` for filtered requests.
 - **No EUR prices** — USD only. Use as fallback, not primary.
 - **Convert from CoinPaprika IDs:** Strip the symbol prefix: `btc-bitcoin` → `bitcoin`.

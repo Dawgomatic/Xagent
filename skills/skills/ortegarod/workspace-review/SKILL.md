@@ -81,7 +81,7 @@ Each file has ONE job. Check for scope creep:
 
 ### 5. Git Status
 
-**⚠️ This workspace is PRIVATE. Never push to GitHub or any public remote.**
+** This workspace is PRIVATE. Never push to GitHub or any public remote.**
 
 ```bash
 cd ~/.openclaw/workspace && git status
@@ -136,16 +136,16 @@ After review, report:
 ```
 ## Workspace Review — YYYY-MM-DD
 
-### ✅ Passing
+###  Passing
 - [list what's correct]
 
-### ⚠️ Warnings
+###  Warnings
 - [list minor issues]
 
-### ❌ Issues
+###  Issues
 - [list things that need fixing]
 
-### 📋 Recommendations
+###  Recommendations
 - [specific actions to take]
 ```
 

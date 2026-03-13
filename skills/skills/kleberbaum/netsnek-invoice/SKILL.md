@@ -236,7 +236,7 @@ RUN:
 
 Display the result formatted:
 
-📋 *Rechnungen 2026*
+ *Rechnungen 2026*
 
 1. RE-6001 (uploaded)
 2. RE-6002 (uploaded)

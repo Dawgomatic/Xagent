@@ -22,11 +22,11 @@ Your personal reading assistant that helps you:
 
 ## Features
 
-- 📄 Article summarization
-- 📚 Book notes and insights
-- 🧠 Knowledge extraction
-- 📊 Reading progress tracking
-- 🔗 Connected ideas
+-  Article summarization
+-  Book notes and insights
+-  Knowledge extraction
+-  Reading progress tracking
+-  Connected ideas
 
 ## Customization
 

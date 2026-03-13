@@ -1,4 +1,4 @@
-# 🐾 Knowledge Base (RAG) — Your Second Brain
+#  Knowledge Base (RAG) — Your Second Brain
 
 > by Odin's Eye Enterprises — Ancient Wisdom. Modern Intelligence.
 
@@ -52,4 +52,4 @@ python kb.py search "topic"
 Save context: `python ingest.py "TEXT"`
 Retrieve context: `python query.py "QUESTION"`
 
-<!-- 🐾 Muninn never forgets -->
+<!--  Muninn never forgets -->

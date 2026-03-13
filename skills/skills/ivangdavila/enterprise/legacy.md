@@ -19,7 +19,7 @@ Gradually replace legacy by routing traffic through new system.
 
 ```
 [Client] → [Router] → [New Service] (growing)
-                   ↘ [Legacy] (shrinking)
+                    [Legacy] (shrinking)
 ```
 
 Best when: can intercept traffic, incremental value.
@@ -37,7 +37,7 @@ Best when: legacy concepts don't map cleanly.
 Keep legacy and new databases in sync during transition.
 
 ```
-[Legacy DB] ↔ [CDC/ETL] ↔ [New DB]
+[Legacy DB]  [CDC/ETL]  [New DB]
 ```
 
 Best when: data migration is the hard part.

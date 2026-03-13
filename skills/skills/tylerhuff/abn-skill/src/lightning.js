@@ -232,7 +232,7 @@ async function main() {
   switch (action) {
     case 'balance':
       const balance = await getBalance();
-      console.log(`💰 Wallet: ${balance.name}`);
+      console.log(` Wallet: ${balance.name}`);
       console.log(`   Balance: ${balance.balance.toLocaleString()} sats`);
       break;
       
@@ -240,7 +240,7 @@ async function main() {
       const sats = parseInt(args[0]) || 1000;
       const dealId = args[1] || `deal-${Date.now()}`;
       const invoice = await createInvoice(sats, dealId);
-      console.log(`\n⚡ Invoice created for ${sats} sats`);
+      console.log(`\n Invoice created for ${sats} sats`);
       console.log(`\nPayment Request (BOLT11):\n${invoice.paymentRequest}`);
       console.log(`\nPayment Hash: ${invoice.paymentHash}`);
       break;
@@ -263,7 +263,7 @@ async function main() {
         process.exit(1);
       }
       const status = await checkPayment(args[0]);
-      console.log(`Payment status: ${status.paid ? '✓ PAID' : '⏳ PENDING'}`);
+      console.log(`Payment status: ${status.paid ? '✓ PAID' : ' PENDING'}`);
       if (status.preimage) console.log(`Preimage: ${status.preimage}`);
       break;
       
@@ -283,7 +283,7 @@ async function main() {
       if (config) {
         console.log(`\n✓ Lightning configured: ${config.provider}`);
       } else {
-        console.log('\n⚠️  Lightning not configured (see above for setup)');
+        console.log('\n  Lightning not configured (see above for setup)');
       }
   }
 }

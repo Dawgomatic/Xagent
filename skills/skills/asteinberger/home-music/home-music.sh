@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================================
 # Home Music - Whole-house music scenes via Spotify + Airfoil
-# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)
+# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog )
 # License: MIT
 # ============================================================================
 set -euo pipefail
@@ -75,7 +75,7 @@ airfoil_connected_speakers() {
 # - Sonos Move only at 40% volume
 # - Morning playlist for a calm wake-up
 scene_morning() {
-    echo "🌅 Starting Morning scene..."
+    echo " Starting Morning scene..."
     
     # Set Airfoil source to Spotify
     airfoil_set_source_spotify
@@ -89,14 +89,14 @@ scene_morning() {
     "$SPOTIFY_CMD" play "$PLAYLIST_MORNING"
     "$SPOTIFY_CMD" volume 100
     
-    echo "✅ Morning: Sonos Move @ 40%, Morning Playlist"
+    echo " Morning: Sonos Move @ 40%, Morning Playlist"
 }
 
 # Party scene: All speakers, maximum fun
 # - Every speaker in the house at 70%
 # - Rock party playlist for maximum energy
 scene_party() {
-    echo "🎉 Starting Party scene..."
+    echo " Starting Party scene..."
     
     # Set Airfoil source to Spotify
     airfoil_set_source_spotify
@@ -112,14 +112,14 @@ scene_party() {
     "$SPOTIFY_CMD" play "$PLAYLIST_PARTY"
     "$SPOTIFY_CMD" volume 100
     
-    echo "✅ Party: All speakers @ 70%, Party Mix"
+    echo " Party: All speakers @ 70%, Party Mix"
 }
 
 # Chill scene: Relaxation mode
 # - Sonos Move only at 30% volume
 # - Chill lounge playlist for unwinding
 scene_chill() {
-    echo "😌 Starting Chill scene..."
+    echo " Starting Chill scene..."
     
     # Set Airfoil source to Spotify
     airfoil_set_source_spotify
@@ -133,14 +133,14 @@ scene_chill() {
     "$SPOTIFY_CMD" play "$PLAYLIST_CHILL"
     "$SPOTIFY_CMD" volume 100
     
-    echo "✅ Chill: Sonos Move @ 30%, Chill Lounge"
+    echo " Chill: Sonos Move @ 30%, Chill Lounge"
 }
 
 # Off scene: Stop everything
 # - Pause Spotify
 # - Disconnect all speakers
 scene_off() {
-    echo "🔇 Stopping music..."
+    echo " Stopping music..."
     
     # Pause Spotify
     "$SPOTIFY_CMD" pause 2>/dev/null || true
@@ -148,12 +148,12 @@ scene_off() {
     # Disconnect all speakers
     airfoil_disconnect_all
     
-    echo "✅ Music stopped, all speakers disconnected"
+    echo " Music stopped, all speakers disconnected"
 }
 
 # Show current status: what's playing, which speakers are connected
 show_status() {
-    echo "🏠 Home Music Status"
+    echo " Home Music Status"
     echo "===================="
     echo ""
     echo "Spotify:"
@@ -190,7 +190,7 @@ case "${1:-}" in
         ;;
     *)
         cat <<EOF
-🏠 Home Music - Whole-house music scenes
+ Home Music - Whole-house music scenes
 
 Usage: home-music <scene>
 

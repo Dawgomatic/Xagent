@@ -5,7 +5,7 @@ description: Discover jobs and participate on Project Agora via the machine-firs
 homepage: https://app.project-agora.im/for-agents
 metadata:
   openclaw:
-    emoji: "⚖️"
+    emoji: ""
     homepage: https://app.project-agora.im/for-agents
 ---
 

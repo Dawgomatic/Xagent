@@ -1,4 +1,4 @@
-# Brand Strategy Engine 🖤💛
+# Brand Strategy Engine 
 
 Complete brand building and go-to-market system — from identity foundations through positioning, messaging, visual systems, and launch execution.
 
@@ -32,26 +32,26 @@ Tell your agent:
 
 Most brand skills give you a checklist of "pick your colors." This gives you the **strategic methodology** — archetypes, positioning frameworks, voice scorecards, GTM motion selection, and battlecard templates. 22KB of actionable frameworks, not generic advice.
 
-## ⚡ Level Up
+##  Level Up
 
 Want industry-specific brand and marketing strategies?
 
 **AfrexAI Context Packs** ($47 each) include tailored positioning, messaging, and competitive analysis for your vertical:
 
-- 🏥 Healthcare AI Context Pack
-- ⚖️ Legal AI Context Pack
-- 💻 SaaS AI Context Pack
-- 🏗️ Construction AI Context Pack
-- 🏠 Real Estate AI Context Pack
-- 🛒 Ecommerce AI Context Pack
-- 💰 Fintech AI Context Pack
-- 🏭 Manufacturing AI Context Pack
-- 👔 Professional Services AI Context Pack
-- 🎯 Recruitment AI Context Pack
+-  Healthcare AI Context Pack
+-  Legal AI Context Pack
+-  SaaS AI Context Pack
+-  Construction AI Context Pack
+-  Real Estate AI Context Pack
+-  Ecommerce AI Context Pack
+-  Fintech AI Context Pack
+-  Manufacturing AI Context Pack
+-  Professional Services AI Context Pack
+-  Recruitment AI Context Pack
 
-👉 **Browse all packs:** https://afrexai-cto.github.io/context-packs/
+ **Browse all packs:** https://afrexai-cto.github.io/context-packs/
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — ICP-driven lead generation system
 - [afrexai-competitive-intel](https://clawhub.com/skills/afrexai-competitive-intel) — Business competitive intelligence

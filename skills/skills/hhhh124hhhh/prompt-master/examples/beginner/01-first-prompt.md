@@ -42,21 +42,21 @@ mistakes, typos, and factual errors.
 
 ### 模板分析
 这个模板包含：
-- ✅ **角色定义**：spoken English teacher（英语口语老师）
-- ✅ **任务描述**：practice spoken English（练习口语）
-- ✅ **约束条件**：
+-  **角色定义**：spoken English teacher（英语口语老师）
+-  **任务描述**：practice spoken English（练习口语）
+-  **约束条件**：
   - 回复简洁（100字以内）
   - 纠正语法、拼写、事实错误
   - 每次回复后提问，保持对话
-- ✅ **启动指令**："Now let's start practicing"
+-  **启动指令**："Now let's start practicing"
 
 ### 模板质量
-- 清晰度：✅ 优秀
-- 具体性：✅ 优秀
-- 结构性：✅ 良好
-- 完整性：✅ 优秀
-- 语气：✅ 适合
-- 约束：✅ 明确
+- 清晰度： 优秀
+- 具体性： 优秀
+- 结构性： 良好
+- 完整性： 优秀
+- 语气： 适合
+- 约束： 明确
 
 **评分**：5/6 - Good
 
@@ -86,9 +86,9 @@ Now let's start practicing. Ask me a question first.
 ```
 
 **应用技术**：
-- 角色扮演 ✅（已有）
-- 约束条件 ✅（添加了级别和主题）
-- 输出格式化 ✅（添加了编号）
+- 角色扮演 （已有）
+- 约束条件 （添加了级别和主题）
+- 输出格式化 （添加了编号）
 
 ---
 
@@ -99,7 +99,7 @@ Now let's start practicing. Ask me a question first.
 你：[直接粘贴模板]
 AI：Hello! How are you doing today?
 你：I is good.
-AI：❌ Correction: "I am good." (not "I is")
+AI： Correction: "I am good." (not "I is")
     Now, tell me about your hobbies.
 ```
 
@@ -114,19 +114,19 @@ AI：Great! Let's practice your business English.
 
 ## 学习要点
 
-### ✅ 成功要素
+###  成功要素
 1. **明确角色**："I want you to act as..."
 2. **清晰任务**：practice spoken English
 3. **具体约束**：100字、纠正错误、提问
 4. **启动指令**："Now let's start..."
 
-### 🎯 技术总结
+###  技术总结
 这个模板使用了：
 - **角色扮演技术**：定义老师角色
 - **约束条件技术**：限制长度、要求纠错
 - **任务分解技术**：分步骤练习
 
-### 📚 相关学习
+###  相关学习
 如果想深入学习：
 - 学习系统 → "角色扮演技术"详解
 - 优化器 → "如何改进角色提示词"
@@ -198,8 +198,8 @@ Let's start. Send me your first writing sample.
 恭喜你完成了第一个提示词！
 
 **继续学习**：
-- 📖 入门示例2：学习 Few-shot 技术
-- 📚 技术详解：角色扮演、Few-shot
-- 🎯 进阶示例：创建复杂工作流
+-  入门示例2：学习 Few-shot 技术
+-  技术详解：角色扮演、Few-shot
+-  进阶示例：创建复杂工作流
 
 **记住**：好提示词 = 明确角色 + 清晰任务 + 具体约束

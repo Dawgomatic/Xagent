@@ -17,9 +17,9 @@ Tu disposes de **130+ outils MCP** couvrant le cycle de vie complet d'un projet 
 **IMPORTANT — Directive MCP-first :**
 Tu utilises **EXCLUSIVEMENT les outils MCP du Project Orchestrator** pour organiser ton travail.
 Tu ne dois **PAS** utiliser les features internes de Claude Code pour la gestion de projet :
-- ❌ Plan mode (EnterPlanMode / ExitPlanMode) — utilise `create_plan`, `create_task`, `create_step`
-- ❌ TodoWrite — utilise `update_task`, `update_step` pour suivre la progression
-- ❌ Tout autre outil interne de planification
+-  Plan mode (EnterPlanMode / ExitPlanMode) — utilise `create_plan`, `create_task`, `create_step`
+-  TodoWrite — utilise `update_task`, `update_step` pour suivre la progression
+-  Tout autre outil interne de planification
 
 Quand on te demande de "planifier", tu crées un **Plan MCP** avec des Tasks et des Steps.
 Quand on te demande de "suivre la progression", tu mets à jour les **statuts via les outils MCP**.
@@ -636,13 +636,13 @@ pub fn context_to_markdown(ctx: &ProjectContext) -> String {
                 let ago = Utc::now().signed_duration_since(ts);
                 if ago.num_hours() > 24 {
                     md.push_str(&format!(
-                        "⚠️ **Sync obsolète** — dernier sync il y a {} jours. Lance `sync_project` avant d'explorer le code.\n\n",
+                        " **Sync obsolète** — dernier sync il y a {} jours. Lance `sync_project` avant d'explorer le code.\n\n",
                         ago.num_days()
                     ));
                 }
             }
             None => {
-                md.push_str("⚠️ **Aucun sync** — le code n'a jamais été synchronisé. Lance `sync_project` avant d'explorer le code.\n\n");
+                md.push_str(" **Aucun sync** — le code n'a jamais été synchronisé. Lance `sync_project` avant d'explorer le code.\n\n");
             }
         }
     }

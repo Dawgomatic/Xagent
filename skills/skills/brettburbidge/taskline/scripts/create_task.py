@@ -129,7 +129,7 @@ def create_task(title: str, description: str = "", priority: str = None, due_dat
 def format_task_summary(task: Dict) -> str:
     """Format task for display."""
     lines = [
-        f"✅ Created task: {task['title']}",
+        f" Created task: {task['title']}",
         f"   Status: {task['status']}"
     ]
     

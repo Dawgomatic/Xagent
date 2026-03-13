@@ -292,19 +292,19 @@ class ReportGenerator:
         # Determine level
         if score >= 50:
             level = "CRITICAL"
-            color = "🔴"
+            color = ""
         elif score >= 30:
             level = "HIGH"
-            color = "🟠"
+            color = ""
         elif score >= 15:
             level = "MEDIUM"
-            color = "🟡"
+            color = ""
         elif score >= 5:
             level = "LOW"
-            color = "🟢"
+            color = ""
         else:
             level = "MINIMAL"
-            color = "🔵"
+            color = ""
         
         reason_text = "; ".join(reasons) if reasons else "No significant issues detected"
         
@@ -319,39 +319,39 @@ class ReportGenerator:
         # Based on alerts
         if alert_analysis.get("unacknowledged", 0) > 5:
             recommendations.append(
-                "📋 **Review unacknowledged alerts** - "
+                " **Review unacknowledged alerts** - "
                 f"{alert_analysis['unacknowledged']} alerts need attention"
             )
         
         if alert_analysis["by_severity"].get("critical", 0) > 0:
             recommendations.append(
-                "🚨 **URGENT: Address critical alerts immediately** - "
+                " **URGENT: Address critical alerts immediately** - "
                 "These require immediate investigation"
             )
         
         # Based on file access
         if len(file_analysis.get("sensitive_accesses", [])) > 0:
             recommendations.append(
-                "🔐 **Review sensitive file accesses** - "
+                " **Review sensitive file accesses** - "
                 "Verify all credential file accesses were authorized"
             )
         
         # Based on API calls
         if len(api_analysis.get("errors", [])) > 10:
             recommendations.append(
-                "⚠️ **Investigate API errors** - "
+                " **Investigate API errors** - "
                 "High error rate may indicate configuration issues or attacks"
             )
         
         if len(api_analysis.get("large_requests", [])) > 5:
             recommendations.append(
-                "📤 **Review large outbound requests** - "
+                " **Review large outbound requests** - "
                 "Verify large data transfers are expected"
             )
         
         if not recommendations:
             recommendations.append(
-                "✅ **All clear** - No immediate actions required. "
+                " **All clear** - No immediate actions required. "
                 "Continue monitoring and maintain good security hygiene."
             )
         
@@ -384,7 +384,7 @@ class ReportGenerator:
         )
         
         # Build report
-        report = f"""# 🛡️ AgentGuard Security Report
+        report = f"""#  AgentGuard Security Report
 
 **Period:** {period.capitalize()}  
 **Range:** {start.strftime('%Y-%m-%d %H:%M')} to {end.strftime('%Y-%m-%d %H:%M')}  
@@ -398,7 +398,7 @@ class ReportGenerator:
 
 ---
 
-## 📊 Executive Summary
+##  Executive Summary
 
 | Metric | Count |
 |--------|-------|
@@ -410,15 +410,15 @@ class ReportGenerator:
 
 ---
 
-## 🚨 Alerts Breakdown
+##  Alerts Breakdown
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | {alert_analysis['by_severity'].get('critical', 0)} |
-| 🟠 High | {alert_analysis['by_severity'].get('high', 0)} |
-| 🟡 Medium | {alert_analysis['by_severity'].get('medium', 0)} |
-| 🟢 Low | {alert_analysis['by_severity'].get('low', 0)} |
-| 🔵 Info | {alert_analysis['by_severity'].get('info', 0)} |
+|  Critical | {alert_analysis['by_severity'].get('critical', 0)} |
+|  High | {alert_analysis['by_severity'].get('high', 0)} |
+|  Medium | {alert_analysis['by_severity'].get('medium', 0)} |
+|  Low | {alert_analysis['by_severity'].get('low', 0)} |
+|  Info | {alert_analysis['by_severity'].get('info', 0)} |
 
 """
         
@@ -432,7 +432,7 @@ class ReportGenerator:
         # File access section
         report += f"""---
 
-## 📁 File Access Analysis
+##  File Access Analysis
 
 **Total Operations:** {file_analysis['total_operations']:,}
 
@@ -442,7 +442,7 @@ class ReportGenerator:
             report += f"- {op_type}: {count:,}\n"
         
         if file_analysis['sensitive_accesses']:
-            report += f"\n### ⚠️ Sensitive File Accesses ({len(file_analysis['sensitive_accesses'])})\n\n"
+            report += f"\n###  Sensitive File Accesses ({len(file_analysis['sensitive_accesses'])})\n\n"
             for access in file_analysis['sensitive_accesses'][:10]:
                 report += f"- `{access['path']}` ({access['action']})\n"
         
@@ -450,7 +450,7 @@ class ReportGenerator:
         report += f"""
 ---
 
-## 🌐 API Call Analysis
+##  API Call Analysis
 
 **Total Calls:** {api_analysis['total_calls']:,}
 
@@ -460,7 +460,7 @@ class ReportGenerator:
             report += f"- {domain}: {count:,}\n"
         
         if api_analysis['errors']:
-            report += f"\n### ❌ API Errors ({len(api_analysis['errors'])})\n"
+            report += f"\n###  API Errors ({len(api_analysis['errors'])})\n"
             for error in api_analysis['errors'][:5]:
                 report += f"- Status {error['status']}: `{error['url']}`\n"
         
@@ -468,7 +468,7 @@ class ReportGenerator:
         report += f"""
 ---
 
-## 📡 External Communications
+##  External Communications
 
 **Total:** {comm_analysis['total_communications']:,}
 
@@ -481,7 +481,7 @@ class ReportGenerator:
         report += """
 ---
 
-## 💡 Recommendations
+##  Recommendations
 
 """
         for rec in recommendations:
@@ -534,7 +534,7 @@ def main():
         else:
             saved_path = generator.save_report(report, args.period)
             print(report)
-            print(f"\n📄 Report saved to: {saved_path}")
+            print(f"\n Report saved to: {saved_path}")
     
     elif args.command == "list":
         reports = sorted(REPORTS_DIR.glob("*.md"), reverse=True)

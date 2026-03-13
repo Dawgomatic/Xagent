@@ -1,4 +1,4 @@
-# DevRel & Developer Advocacy Engine 🛠️
+# DevRel & Developer Advocacy Engine 
 
 > The complete developer relations operating system — from DX audit to community building to business attribution. Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/).
 
@@ -45,17 +45,17 @@ clawhub install afrexai-devrel-engine
 - **Team structure** with hiring priority by stage
 - **DevRel quality rubric** (0-100) across 8 dimensions
 
-## ⚡ Level Up
+##  Level Up
 
 Want the complete context for your vertical?
 
 **[AfrexAI Context Packs — $47](https://afrexai-cto.github.io/context-packs/)** give your AI agent deep industry knowledge:
 
-- 🖥️ **SaaS Context Pack** — Perfect for developer-focused SaaS companies
-- 💰 **Fintech Context Pack** — For developer tools in financial services
-- 🏥 **Healthcare Context Pack** — For health tech developer platforms
+-  **SaaS Context Pack** — Perfect for developer-focused SaaS companies
+-  **Fintech Context Pack** — For developer tools in financial services
+-  **Healthcare Context Pack** — For health tech developer platforms
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-agent-engineering](https://clawhub.com/skills/afrexai-agent-engineering) — Build & orchestrate AI agents
 - [afrexai-community-growth-engine](https://clawhub.com/skills/afrexai-community-growth-engine) — Community building & monetization
@@ -65,4 +65,4 @@ Want the complete context for your vertical?
 
 ---
 
-Built with 🖤💛 by [AfrexAI](https://afrexai-cto.github.io/context-packs/)
+Built with  by [AfrexAI](https://afrexai-cto.github.io/context-packs/)

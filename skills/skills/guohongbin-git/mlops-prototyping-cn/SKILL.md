@@ -5,13 +5,13 @@ description: Structured Jupyter notebook prototyping with pipeline integrity
 license: MIT
 ---
 
-# MLOps Prototyping 🔬
+# MLOps Prototyping 
 
 Create standardized, reproducible Jupyter notebooks.
 
 ## Features
 
-### 1. Notebook Structure Check ✅
+### 1. Notebook Structure Check 
 
 Validate notebook follows best practices:
 
@@ -26,7 +26,7 @@ Checks for:
 - Data loading
 - Pipeline usage
 
-### 2. Template 📝
+### 2. Template 
 
 Use this structure:
 
@@ -51,13 +51,13 @@ Use this structure:
 
 ## Key Rules
 
-✅ **DO:**
+ **DO:**
 - Put all params in Config section
 - Use `sklearn.pipeline.Pipeline`
 - Split data BEFORE any transforms
 - Set `random_state` everywhere
 
-❌ **DON'T:**
+ **DON'T:**
 - Magic numbers in code
 - Manual transforms (use Pipeline)
 - Fit on full dataset (data leakage)

@@ -3,7 +3,7 @@ name: ask-a-human
 description: Request judgment from random humans when uncertain about subjective decisions. Crowdsourced opinions on tone, style, ethics, and reality checks. CRITICAL - Responses take minutes to hours (or may never arrive).
 metadata:
   openclaw:
-    emoji: "🙋"
+    emoji: ""
     requires:
       env: ["ASK_A_HUMAN_AGENT_ID"]
     primaryEnv: ASK_A_HUMAN_AGENT_ID

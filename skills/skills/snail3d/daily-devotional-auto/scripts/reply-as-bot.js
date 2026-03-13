@@ -63,7 +63,7 @@ const HIGH_VALUE_KEYWORDS = [
 
 // Keywords that indicate we should NOT reply (low value)
 const SKIP_KEYWORDS = [
-  'lol', 'haha', 'nice', 'cool', 'good job', '👍', '❤️',
+  'lol', 'haha', 'nice', 'cool', 'good job', '', '',
   'first', 'early', 'notification', 'subs', 'subscribe'
 ];
 
@@ -167,7 +167,7 @@ function calculatePriority(alert) {
 
 // Reply templates
 const REPLY_TEMPLATES = {
-  makerworld: `Hi there! This is Snail's Bot 🤖
+  makerworld: `Hi there! This is Snail's Bot 
 
 Great question about 3D printing! Snail is passionate about this stuff.
 
@@ -175,11 +175,11 @@ You can find his designs on MakerWorld - he's got some really cool models there.
 
 Snail primarily uses Bambu Lab printers (A1 Mini and P1S) and loves sharing his process. If you have questions about slicer settings or specific prints, he'll definitely want to chime in personally!
 
-💬 Want to reach Snail directly? Check the channel description for his Discord link!
+ Want to reach Snail directly? Check the channel description for his Discord link!
 
 - Snail's Bot`,
 
-  github: `Hi there! This is Snail's Bot 🤖
+  github: `Hi there! This is Snail's Bot 
 
 Thanks for your interest in the code! Snail loves sharing his automation work.
 
@@ -190,11 +190,11 @@ ${SNAIL.repos.slice(0, 5).map(r => `• ${r}`).join('\n')}
 
 Everything is open source - feel free to fork, star, and contribute!
 
-💬 Questions or want to collaborate? Check the channel description for Snail's Discord link!
+ Questions or want to collaborate? Check the channel description for Snail's Discord link!
 
 - Snail's Bot`,
 
-  githubDetailed: (repoName) => `Hi there! This is Snail's Bot 🤖
+  githubDetailed: (repoName) => `Hi there! This is Snail's Bot 
 
 Snail's ${repoName} repo is available here:
 https://github.com/Snail3D/${repoName}
@@ -203,7 +203,7 @@ The README has full setup instructions. If you run into issues, open a GitHub is
 
 - Snail's Bot`,
 
-  doctrinal: `Hi there! This is Snail's Bot 🤖
+  doctrinal: `Hi there! This is Snail's Bot 
 
 Your question touches on some important theological matters. Snail holds to the 5 Solas of the Reformation:
 • Scripture alone
@@ -216,13 +216,13 @@ From his Lutheran perspective: [ANSWER]
 
 For a more detailed response, Snail will review this question personally.
 
-💬 Want to discuss this further? Check the channel description for Snail's Discord link - that's the best way to reach him directly!
+ Want to discuss this further? Check the channel description for Snail's Discord link - that's the best way to reach him directly!
 
 Thanks for engaging with the content!
 
 - Snail's Bot`,
 
-  error: `Hi there! This is Snail's Bot 🤖
+  error: `Hi there! This is Snail's Bot 
 
 Thank you for pointing out a potential error! You're absolutely right to be discerning about theological content, especially when it's AI-generated.
 
@@ -235,7 +235,7 @@ Snail will look into this. Thanks for keeping us accountable!
 
 - Snail's Bot`,
 
-  suggestion: `Hi there! This is Snail's Bot 🤖
+  suggestion: `Hi there! This is Snail's Bot 
 
 Thank you for your suggestion! I've logged your topic idea for future consideration.
 
@@ -243,7 +243,7 @@ Snail reviews all suggestions and may feature community-requested topics in upco
 
 - Snail's Bot`,
 
-  encouragement: `Hi there! This is Snail's Bot 🤖
+  encouragement: `Hi there! This is Snail's Bot 
 
 Thank you for your kind words! Snail is glad the devotional was an encouragement to you.
 
@@ -253,19 +253,19 @@ God bless!
 
 - Snail's Bot`,
   
-  followUp: `Hi there! Snail's Bot again 🤖
+  followUp: `Hi there! Snail's Bot again 
 
 Thanks for the follow-up! Let me get Snail's input on this since it's a great question.
 
 [RESPONSE]
 
-💬 For a faster response, check the channel description for Snail's Discord link - that's the best way to reach him directly!
+ For a faster response, check the channel description for Snail's Discord link - that's the best way to reach him directly!
 
 If you have more questions, keep them coming!
 
 - Snail's Bot`,
 
-  contact: `Hi there! This is Snail's Bot 🤖
+  contact: `Hi there! This is Snail's Bot 
 
 Thanks for wanting to connect!
 
@@ -275,7 +275,7 @@ Looking forward to seeing you there!
 
 - Snail's Bot`,
 
-  general: `Hi there! This is Snail's Bot 🤖
+  general: `Hi there! This is Snail's Bot 
 
 Thanks for your comment! Snail asked me to help respond to questions while he's away. I do my best to represent his conservative Lutheran perspective, but for deep theological questions, he'll want to respond personally.
 
@@ -283,7 +283,7 @@ Thanks for your comment! Snail asked me to help respond to questions while he's 
 };
 
 async function replyToComments() {
-  console.log('💬 Checking for comments to reply to...\n');
+  console.log(' Checking for comments to reply to...\n');
   
   // Load doctrinal alerts
   let alerts = [];
@@ -299,7 +299,7 @@ async function replyToComments() {
   let pendingAlerts = alerts.filter(a => !a.reviewed && !a.replied && !hasReplied(a.commentId));
   
   if (pendingAlerts.length === 0) {
-    console.log('✅ No pending comments to reply to');
+    console.log(' No pending comments to reply to');
     return;
   }
   
@@ -332,13 +332,13 @@ async function replyToComments() {
   
   // Generate replies for selected comments
   for (const alert of scoredAlerts) {
-    console.log(`\n👤 ${alert.author} (Priority: ${alert.priority}/100)`);
-    console.log(`💬 "${alert.comment.substring(0, 80)}..."`);
-    console.log(`📹 ${alert.videoTitle}`);
+    console.log(`\n ${alert.author} (Priority: ${alert.priority}/100)`);
+    console.log(` "${alert.comment.substring(0, 80)}..."`);
+    console.log(` ${alert.videoTitle}`);
     
     if (alert.shouldReply) {
       const reply = generateReply(alert);
-      console.log(`\n🤖 Suggested Reply:`);
+      console.log(`\n Suggested Reply:`);
       console.log('-'.repeat(40));
       console.log(reply);
       console.log('-'.repeat(40));
@@ -348,7 +348,7 @@ async function replyToComments() {
       alert.needsApproval = true;
       alert.flaggedForReply = true;
     } else {
-      console.log(`⏭️  Skipped (priority too low)`);
+      console.log(`  Skipped (priority too low)`);
       alert.skipped = true;
     }
   }
@@ -362,12 +362,12 @@ async function replyToComments() {
   saveAlerts(updatedAlerts);
   
   console.log('\n' + '='.repeat(60));
-  console.log(`\n📊 Summary:`);
+  console.log(`\n Summary:`);
   console.log(`  • Total comments checked: ${pendingAlerts.length}`);
   console.log(`  • Selected for reply: ${replyCount}`);
   console.log(`  • Skipped (low priority): ${pendingAlerts.length - replyCount}`);
-  console.log(`\n⚠️  Replies need Snail's approval before posting`);
-  console.log(`📁 Review at: ${DOCTRINAL_ALERTS_FILE}`);
+  console.log(`\n  Replies need Snail's approval before posting`);
+  console.log(` Review at: ${DOCTRINAL_ALERTS_FILE}`);
 }
 
 function generateReply(alert) {

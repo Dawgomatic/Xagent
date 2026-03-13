@@ -8,7 +8,7 @@
 
 ---
 
-## 🧠 Features (v2.7.0)
+##  Features (v2.7.0)
 
 **Intelligent Multi-Signal Routing** — The skill uses sophisticated query analysis:
 
@@ -29,48 +29,48 @@ python3 scripts/search.py -q "search privately without tracking" # → SearXNG (
 
 ---
 
-## 🔍 When to Use Which Provider
+##  When to Use Which Provider
 
 ### Built-in Brave Search (OpenClaw default)
-- ✅ General web searches
-- ✅ Privacy-focused
-- ✅ Quick lookups
-- ✅ Default fallback
+-  General web searches
+-  Privacy-focused
+-  Quick lookups
+-  Default fallback
 
 ### Serper (Google Results)
-- 🛍 **Product specs, prices, shopping**
-- 📍 **Local businesses, places**
-- 🎯 **"Google it" - explicit Google results**
-- 📰 **Shopping/images needed**
-- 🏆 **Knowledge Graph data**
+-  **Product specs, prices, shopping**
+-  **Local businesses, places**
+-  **"Google it" - explicit Google results**
+-  **Shopping/images needed**
+-  **Knowledge Graph data**
 
 ### Tavily (AI-Optimized Research)
-- 📚 **Research questions, deep dives**
-- 🔬 **Complex multi-part queries**
-- 📄 **Need full page content** (not just snippets)
-- 🎓 **Academic/technical research**
-- 🔒 **Domain filtering** (trusted sources)
+-  **Research questions, deep dives**
+-  **Complex multi-part queries**
+-  **Need full page content** (not just snippets)
+-  **Academic/technical research**
+-  **Domain filtering** (trusted sources)
 
 ### Exa (Neural Semantic Search)
-- 🔗 **Find similar pages**
-- 🏢 **Company/startup discovery**
-- 📝 **Research papers**
-- 💻 **GitHub projects**
-- 📅 **Date-specific content**
+-  **Find similar pages**
+-  **Company/startup discovery**
+-  **Research papers**
+-  **GitHub projects**
+-  **Date-specific content**
 
 ### You.com (RAG/Real-time)
-- 🤖 **RAG applications** (LLM-ready snippets)
-- 📰 **Combined web + news** (single API call)
-- ⚡ **Real-time information** (current events)
-- 📋 **Summarization context** ("What's the latest...")
-- 🔄 **Live crawling** (full page content on demand)
+-  **RAG applications** (LLM-ready snippets)
+-  **Combined web + news** (single API call)
+-  **Real-time information** (current events)
+-  **Summarization context** ("What's the latest...")
+-  **Live crawling** (full page content on demand)
 
 ### SearXNG (Privacy-First/Self-Hosted)
-- 🔒 **Privacy-preserving search** (no tracking)
-- 🌐 **Multi-source aggregation** (70+ engines)
-- 💰 **$0 API cost** (self-hosted)
-- 🎯 **Diverse perspectives** (results from multiple engines)
-- 🏠 **Self-hosted environments** (full control)
+-  **Privacy-preserving search** (no tracking)
+-  **Multi-source aggregation** (70+ engines)
+-  **$0 API cost** (self-hosted)
+-  **Diverse perspectives** (results from multiple engines)
+-  **Self-hosted environments** (full control)
 
 ---
 
@@ -373,21 +373,21 @@ The `config.json` file lets you customize auto-routing and provider defaults:
 #### Strengths
 | Strength | Description |
 |----------|-------------|
-| 🎯 **Accuracy** | Google's search quality, knowledge graph, featured snippets |
-| 🛒 **Shopping** | Product prices, reviews, shopping results |
-| 📍 **Local** | Business listings, maps, places |
-| 📰 **News** | Real-time news with Google News integration |
-| 🖼 **Images** | Google Images search |
-| ⚡ **Speed** | Fastest response times (~200-400ms) |
+|  **Accuracy** | Google's search quality, knowledge graph, featured snippets |
+|  **Shopping** | Product prices, reviews, shopping results |
+|  **Local** | Business listings, maps, places |
+|  **News** | Real-time news with Google News integration |
+|  **Images** | Google Images search |
+|  **Speed** | Fastest response times (~200-400ms) |
 
 #### Best Use Cases
-- ✅ Product specifications and comparisons
-- ✅ Shopping and price lookups
-- ✅ Local business searches ("restaurants near me")
-- ✅ Quick factual queries (weather, conversions, definitions)
-- ✅ News headlines and current events
-- ✅ Image searches
-- ✅ When you need "what Google shows"
+-  Product specifications and comparisons
+-  Shopping and price lookups
+-  Local business searches ("restaurants near me")
+-  Quick factual queries (weather, conversions, definitions)
+-  News headlines and current events
+-  Image searches
+-  When you need "what Google shows"
 
 #### Getting Your API Key
 1. Go to [serper.dev](https://serper.dev)
@@ -404,21 +404,21 @@ The `config.json` file lets you customize auto-routing and provider defaults:
 #### Strengths
 | Strength | Description |
 |----------|-------------|
-| 📚 **Research Quality** | Optimized for comprehensive, accurate research |
-| 💬 **AI Answers** | Returns synthesized answers, not just links |
-| 📄 **Full Content** | Can return complete page content (raw_content) |
-| 🎯 **Domain Filtering** | Include/exclude specific domains |
-| 🔬 **Deep Mode** | Advanced search for thorough research |
-| 📰 **Topic Modes** | Specialized for general vs news content |
+|  **Research Quality** | Optimized for comprehensive, accurate research |
+|  **AI Answers** | Returns synthesized answers, not just links |
+|  **Full Content** | Can return complete page content (raw_content) |
+|  **Domain Filtering** | Include/exclude specific domains |
+|  **Deep Mode** | Advanced search for thorough research |
+|  **Topic Modes** | Specialized for general vs news content |
 
 #### Best Use Cases
-- ✅ Research questions requiring synthesized answers
-- ✅ Academic or technical deep dives
-- ✅ When you need actual page content (not just snippets)
-- ✅ Multi-source information comparison
-- ✅ Domain-specific research (filter to authoritative sources)
-- ✅ News research with context
-- ✅ RAG/LLM applications
+-  Research questions requiring synthesized answers
+-  Academic or technical deep dives
+-  When you need actual page content (not just snippets)
+-  Multi-source information comparison
+-  Domain-specific research (filter to authoritative sources)
+-  News research with context
+-  RAG/LLM applications
 
 #### Getting Your API Key
 1. Go to [tavily.com](https://tavily.com)
@@ -436,21 +436,21 @@ The `config.json` file lets you customize auto-routing and provider defaults:
 #### Strengths
 | Strength | Description |
 |----------|-------------|
-| 🧠 **Semantic Understanding** | Finds results by meaning, not keywords |
-| 🔗 **Similar Pages** | Find pages similar to a reference URL |
-| 🏢 **Company Discovery** | Excellent for finding startups, companies |
-| 📑 **Category Filters** | Filter by type (company, paper, tweet, etc.) |
-| 📅 **Date Filtering** | Precise date range searches |
-| 🎓 **Academic** | Great for research papers and technical content |
+|  **Semantic Understanding** | Finds results by meaning, not keywords |
+|  **Similar Pages** | Find pages similar to a reference URL |
+|  **Company Discovery** | Excellent for finding startups, companies |
+|  **Category Filters** | Filter by type (company, paper, tweet, etc.) |
+|  **Date Filtering** | Precise date range searches |
+|  **Academic** | Great for research papers and technical content |
 
 #### Best Use Cases
-- ✅ Conceptual queries ("companies building X")
-- ✅ Finding similar companies or pages
-- ✅ Startup and company discovery
-- ✅ Research paper discovery
-- ✅ Finding GitHub projects
-- ✅ Date-filtered searches for recent content
-- ✅ When keyword matching fails
+-  Conceptual queries ("companies building X")
+-  Finding similar companies or pages
+-  Startup and company discovery
+-  Research paper discovery
+-  Finding GitHub projects
+-  Date-filtered searches for recent content
+-  When keyword matching fails
 
 #### Getting Your API Key
 1. Go to [exa.ai](https://exa.ai)
@@ -468,20 +468,20 @@ The `config.json` file lets you customize auto-routing and provider defaults:
 #### Strengths
 | Strength | Description |
 |----------|-------------|
-| 🔒 **Privacy-First** | No tracking, no profiling, no data collection |
-| 🌐 **Multi-Engine** | Aggregates Google, Bing, DuckDuckGo, and 70+ more |
-| 💰 **Free** | $0 API cost (self-hosted, unlimited queries) |
-| 🎯 **Diverse Results** | Get perspectives from multiple search engines |
-| ⚙ **Customizable** | Choose which engines to use, SafeSearch, language |
-| 🏠 **Self-Hosted** | Full control over your search infrastructure |
+|  **Privacy-First** | No tracking, no profiling, no data collection |
+|  **Multi-Engine** | Aggregates Google, Bing, DuckDuckGo, and 70+ more |
+|  **Free** | $0 API cost (self-hosted, unlimited queries) |
+|  **Diverse Results** | Get perspectives from multiple search engines |
+|  **Customizable** | Choose which engines to use, SafeSearch, language |
+|  **Self-Hosted** | Full control over your search infrastructure |
 
 #### Best Use Cases
-- ✅ Privacy-sensitive searches (no tracking)
-- ✅ When you want diverse results from multiple engines
-- ✅ Budget-conscious (no API fees)
-- ✅ Self-hosted/air-gapped environments
-- ✅ Fallback when paid APIs are rate-limited
-- ✅ When "aggregate everything" is the goal
+-  Privacy-sensitive searches (no tracking)
+-  When you want diverse results from multiple engines
+-  Budget-conscious (no API fees)
+-  Self-hosted/air-gapped environments
+-  Fallback when paid APIs are rate-limited
+-  When "aggregate everything" is the goal
 
 #### Setting Up Your Instance
 ```bash
@@ -580,7 +580,7 @@ python3 scripts/search.py -p searxng -q "test" --searxng-url "http://localhost:8
 
 ## Workflow Examples
 
-### 🛒 Product Research Workflow
+###  Product Research Workflow
 
 ```bash
 # Step 1: Get product specs (auto-routed to Serper)
@@ -593,7 +593,7 @@ python3 scripts/search.py -q "MacBook Pro M3 Max price comparison"
 python3 scripts/search.py -q "detailed MacBook Pro M3 Max review"
 ```
 
-### 📚 Academic Research Workflow
+###  Academic Research Workflow
 
 ```bash
 # Step 1: Understand the topic (auto-routed to Tavily)
@@ -606,7 +606,7 @@ python3 scripts/search.py -p exa -q "transformer improvements" --category "resea
 python3 scripts/search.py -p exa -q "transformer implementation" --category github
 ```
 
-### 🏢 Competitive Analysis Workflow
+###  Competitive Analysis Workflow
 
 ```bash
 # Step 1: Find competitors (auto-routed to Exa)

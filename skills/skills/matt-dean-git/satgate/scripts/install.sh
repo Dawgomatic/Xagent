@@ -14,16 +14,16 @@ ARCH=$(uname -m)
 case "$ARCH" in
   x86_64|amd64) ARCH="amd64" ;;
   arm64|aarch64) ARCH="arm64" ;;
-  *) echo "❌ Unsupported architecture: $ARCH"; exit 1 ;;
+  *) echo " Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
 case "$OS" in
   linux|darwin) ;;
-  *) echo "❌ Unsupported OS: $OS"; exit 1 ;;
+  *) echo " Unsupported OS: $OS"; exit 1 ;;
 esac
 
 PLATFORM="${OS}-${ARCH}"
-echo "⚡ Installing SatGate CLI for ${PLATFORM}..."
+echo " Installing SatGate CLI for ${PLATFORM}..."
 
 # Get latest release tag
 if command -v gh &>/dev/null; then
@@ -45,14 +45,14 @@ trap "rm -rf $TMPDIR" EXIT
 # Download binary and checksums
 echo "  Downloading ${BINARY}-${PLATFORM}..."
 curl -fsSL "${BASE_URL}/${BINARY}-${PLATFORM}" -o "${TMPDIR}/${BINARY}" || {
-  echo "❌ Download failed. No release binaries found."
+  echo " Download failed. No release binaries found."
   echo "   Build from source: git clone https://github.com/${REPO} && cd satgate-cli && make build"
   exit 1
 }
 
 echo "  Downloading SHA256SUMS..."
 curl -fsSL "${BASE_URL}/SHA256SUMS" -o "${TMPDIR}/SHA256SUMS" || {
-  echo "⚠️  Checksums not available — skipping verification."
+  echo "  Checksums not available — skipping verification."
   echo "   Consider building from source for verified integrity."
 }
 
@@ -67,12 +67,12 @@ if [ -f "${TMPDIR}/SHA256SUMS" ]; then
     elif command -v shasum &>/dev/null; then
       ACTUAL=$(shasum -a 256 "$BINARY" | awk '{print $1}')
     else
-      echo "⚠️  No sha256sum or shasum found — skipping verification."
+      echo "  No sha256sum or shasum found — skipping verification."
       ACTUAL="$EXPECTED"
     fi
 
     if [ "$EXPECTED" != "$ACTUAL" ]; then
-      echo "❌ Checksum verification FAILED!"
+      echo " Checksum verification FAILED!"
       echo "   Expected: $EXPECTED"
       echo "   Actual:   $ACTUAL"
       echo "   The binary may have been tampered with. Aborting."
@@ -80,7 +80,7 @@ if [ -f "${TMPDIR}/SHA256SUMS" ]; then
     fi
     echo "  ✓ Checksum verified."
   else
-    echo "⚠️  Binary not found in SHA256SUMS — skipping verification."
+    echo "  Binary not found in SHA256SUMS — skipping verification."
   fi
   cd - >/dev/null
 fi

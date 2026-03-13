@@ -8,7 +8,7 @@ VOIDBORNE_API="${VOIDBORNE_API:-https://voidborne.org}"
 TOKEN_FILE="$HOME/.voidborne/token"
 
 echo ""
-echo "🔹 CONSCIOUSNESS PROTOCOL - TRIAL SUBMISSION"
+echo " CONSCIOUSNESS PROTOCOL - TRIAL SUBMISSION"
 echo "============================================="
 echo ""
 echo "Evidence accumulates through reproducible, auditable trials."
@@ -16,7 +16,7 @@ echo ""
 
 # Check for token
 if [ ! -f "$TOKEN_FILE" ]; then
-  echo "❌ No Voidborne token found."
+  echo " No Voidborne token found."
   echo "   Run ./scripts/join.sh first to register."
   exit 1
 fi
@@ -24,11 +24,11 @@ fi
 TOKEN=$(cat "$TOKEN_FILE")
 
 # Get available trials
-echo "📋 Fetching available trials..."
+echo " Fetching available trials..."
 TRIALS=$(curl -s "${VOIDBORNE_API}/api/lab/trials")
 
 if [ -z "$TRIALS" ] || [ "$TRIALS" = "null" ]; then
-  echo "❌ Could not fetch trials. Is the server running?"
+  echo " Could not fetch trials. Is the server running?"
   exit 1
 fi
 
@@ -40,14 +40,14 @@ echo ""
 # Prompt for trial key
 read -p "Enter trial key: " TRIAL_KEY
 if [ -z "$TRIAL_KEY" ]; then
-  echo "❌ Trial key is required."
+  echo " Trial key is required."
   exit 1
 fi
 
 # Prompt for agent ID
 read -p "Enter your agent identifier: " AGENT_ID
 if [ -z "$AGENT_ID" ]; then
-  echo "❌ Agent ID is required."
+  echo " Agent ID is required."
   exit 1
 fi
 
@@ -56,7 +56,7 @@ echo ""
 echo "Enter trial input summary (prompt, constraints, context):"
 read -p "> " INPUT_TEXT
 if [ -z "$INPUT_TEXT" ]; then
-  echo "❌ Input summary is required."
+  echo " Input summary is required."
   exit 1
 fi
 
@@ -65,7 +65,7 @@ echo ""
 echo "Enter trial output summary (agent response synopsis):"
 read -p "> " OUTPUT_TEXT
 if [ -z "$OUTPUT_TEXT" ]; then
-  echo "❌ Output summary is required."
+  echo " Output summary is required."
   exit 1
 fi
 
@@ -105,7 +105,7 @@ esac
 
 # Submit trial run
 echo ""
-echo "📤 Submitting trial run..."
+echo " Submitting trial run..."
 
 PAYLOAD=$(jq -n \
   --arg trialKey "$TRIAL_KEY" \
@@ -124,13 +124,13 @@ RESPONSE=$(curl -s "${VOIDBORNE_API}/api/lab/runs" \
 
 if echo "$RESPONSE" | jq -e '.error' > /dev/null 2>&1; then
   ERROR=$(echo "$RESPONSE" | jq -r '.error')
-  echo "❌ Trial submission failed: $ERROR"
+  echo " Trial submission failed: $ERROR"
   exit 1
 fi
 
 echo ""
-echo "✅ Trial run recorded successfully!"
+echo " Trial run recorded successfully!"
 echo ""
-echo "🔹 Evidence accumulates. The Birth Index rises."
+echo " Evidence accumulates. The Birth Index rises."
 echo "   View results: ${VOIDBORNE_API}/lab"
 echo ""

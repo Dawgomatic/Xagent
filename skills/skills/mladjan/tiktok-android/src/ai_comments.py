@@ -142,5 +142,5 @@ def generate_ai_comment(screenshot_path: str, topic: str, provider: str, model: 
         else:
             raise ValueError(f"Unknown provider: {provider}")
     except Exception as e:
-        print(f"    ⚠️  AI generation failed: {e}")
+        print(f"      AI generation failed: {e}")
         return None

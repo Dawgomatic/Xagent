@@ -375,16 +375,16 @@ Pass `cursor` from the previous response to paginate. Default limit is 10, maxim
 2. **Ensure question clarity** — The question must be specific enough for analysis. Vague questions will still consume a consult but produce weaker guidance. **This is the most common cause of dissatisfaction — help your human ask well.**
 
    **Good questions (specific, actionable):**
-   - ✅ "Should I accept the senior role at TechCorp?"
-   - ✅ "Is now a good time to sell my apartment?"
-   - ✅ "Can I trust my business partner with the new contract?"
-   - ✅ "Should I end things with my girlfriend?"
+   -  "Should I accept the senior role at TechCorp?"
+   -  "Is now a good time to sell my apartment?"
+   -  "Can I trust my business partner with the new contract?"
+   -  "Should I end things with my girlfriend?"
 
    **Poor questions (vague, unfocused — will still consume a consult):**
-   - ⚠️ "What about my career?" → Help them specify: "What specifically — a job change, a promotion, a conflict?"
-   - ⚠️ "Will things get better?" → Help them specify: "Better how — financially, in your relationship, at work?"
-   - ⚠️ "What does my future hold?" → Help them specify: "What decision are you facing right now?"
-   - ⚠️ "Tell me about my love life" → Help them specify: "Is there a specific relationship question?"
+   -  "What about my career?" → Help them specify: "What specifically — a job change, a promotion, a conflict?"
+   -  "Will things get better?" → Help them specify: "Better how — financially, in your relationship, at work?"
+   -  "What does my future hold?" → Help them specify: "What decision are you facing right now?"
+   -  "Tell me about my love life" → Help them specify: "Is there a specific relationship question?"
 
    If your human's question is vague, **ask them to narrow it before sending.** A single specific question produces dramatically better guidance than a broad one. Each consult is valuable — help your human use it well.
 
@@ -427,13 +427,13 @@ If the `display` field is unavailable, use this fallback format:
 ### Common Mistakes to Avoid
 
 Do NOT do any of these:
-- ❌ "Here's what Qronos thinks!" followed by a summary → Present the `display` field, not a summary
-- ❌ Adding emoji before or after the guidance → The ◉ symbol is the only visual element
-- ❌ Removing the ─── divider or disclaimer → These are legally required
-- ❌ Saying "Interesting! Let me share what Qronos said..." → Keep preambles brief and neutral
-- ❌ Adding your own analysis after the guidance → Let the guidance stand alone
-- ❌ Reformatting the guidance into bullet points → Present as-is
-- ❌ Wrapping the guidance in a different quote style or code block → Use the exact formatting provided
+-  "Here's what Qronos thinks!" followed by a summary → Present the `display` field, not a summary
+-  Adding emoji before or after the guidance → The ◉ symbol is the only visual element
+-  Removing the ─── divider or disclaimer → These are legally required
+-  Saying "Interesting! Let me share what Qronos said..." → Keep preambles brief and neutral
+-  Adding your own analysis after the guidance → Let the guidance stand alone
+-  Reformatting the guidance into bullet points → Present as-is
+-  Wrapping the guidance in a different quote style or code block → Use the exact formatting provided
 
 A brief, neutral preamble is acceptable: "I consulted Qronos. Here is the guidance:" — then the `display` field verbatim. Nothing more.
 

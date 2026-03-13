@@ -74,13 +74,13 @@ trap cleanup EXIT
 # ==================== 参数检查 ====================
 
 if [ -z "$TITLE" ]; then
-  echo "❌ 错误: 请提供标题文字"
+  echo " 错误: 请提供标题文字"
   echo "用法: bash $0 \"标题文字\" \"AI图片prompt\" [输出路径] [底色] [字色]"
   exit 1
 fi
 
 if [ -z "$PROMPT" ]; then
-  echo "❌ 错误: 请提供AI图片prompt或用户图片路径（__USER_IMAGE__:/path/to/img）"
+  echo " 错误: 请提供AI图片prompt或用户图片路径（__USER_IMAGE__:/path/to/img）"
   echo "用法: bash $0 \"标题文字\" \"AI图片prompt\" [输出路径] [底色] [字色]"
   echo "   或: bash $0 \"标题文字\" \"__USER_IMAGE__:/path/to/img\" [输出路径] [底色] [字色]"
   exit 1
@@ -93,20 +93,20 @@ if [[ "$PROMPT" == __USER_IMAGE__:* ]]; then
   USER_IMAGE_MODE=true
   USER_IMAGE_PATH="${PROMPT#__USER_IMAGE__:}"
   if [ ! -f "$USER_IMAGE_PATH" ]; then
-    echo "❌ 错误: 用户图片不存在: $USER_IMAGE_PATH"
+    echo " 错误: 用户图片不存在: $USER_IMAGE_PATH"
     exit 1
   fi
 fi
 
 if [ "$USER_IMAGE_MODE" = false ]; then
   if [ "$IMG_API_TYPE" = "gemini" ] && [ -z "$GEMINI_API_KEY" ]; then
-    echo "❌ 错误: Gemini 模式下未设置 GEMINI_API_KEY 环境变量"
+    echo " 错误: Gemini 模式下未设置 GEMINI_API_KEY 环境变量"
     echo "请先设置: export GEMINI_API_KEY=\"your-api-key\""
     echo "获取地址: https://aistudio.google.com/apikey"
     echo "或切换为 OpenAI 模式: export IMG_API_TYPE=openai IMG_API_KEY=xxx"
     exit 1
   elif [ "$IMG_API_TYPE" = "openai" ] && [ -z "$IMG_API_KEY" ]; then
-    echo "❌ 错误: OpenAI 模式下未设置 IMG_API_KEY 环境变量"
+    echo " 错误: OpenAI 模式下未设置 IMG_API_KEY 环境变量"
     echo "请先设置: export IMG_API_KEY=\"your-api-key\" IMG_API_BASE=\"https://api.openai.com/v1\""
     exit 1
   fi
@@ -114,7 +114,7 @@ fi
 
 # 检查 ImageMagick
 if ! command -v magick &> /dev/null && ! command -v convert &> /dev/null; then
-  echo "❌ 错误: 未安装 ImageMagick，请先执行: apt install -y imagemagick"
+  echo " 错误: 未安装 ImageMagick，请先执行: apt install -y imagemagick"
   exit 1
 fi
 
@@ -125,7 +125,7 @@ else
   MAGICK="convert"
 fi
 
-echo "🎨 开始生成小红书封面图..."
+echo " 开始生成小红书封面图..."
 echo "   标题: ${TITLE}"
 if [ "$USER_IMAGE_MODE" = true ]; then
   echo "   模式: 用户上传图片"
@@ -141,15 +141,15 @@ echo ""
 # ==================== 第1步：获取主题图片 ====================
 
 if [ "$USER_IMAGE_MODE" = true ]; then
-  echo "🔄 [1/3] 使用用户上传的图片..."
+  echo " [1/3] 使用用户上传的图片..."
   cp "$USER_IMAGE_PATH" "$AI_IMG"
   if [ ! -s "$AI_IMG" ]; then
-    echo "❌ 复制用户图片失败"
+    echo " 复制用户图片失败"
     exit 1
   fi
-  echo "   ✅ 用户图片加载成功"
+  echo "    用户图片加载成功"
 else
-  echo "🔄 [1/3] 调用 ${IMG_API_TYPE} API 生成主题图片..."
+  echo " [1/3] 调用 ${IMG_API_TYPE} API 生成主题图片..."
 
   if [ "$IMG_API_TYPE" = "openai" ]; then
     echo "   模型: ${IMG_MODEL} (OpenAI兼容)"
@@ -265,14 +265,14 @@ PYEOF
 
 if [ ! -s "$AI_IMG" ]; then
   ERR=$(cat /tmp/xhs_cover_err.log 2>/dev/null)
-  echo "❌ 图片生成失败: ${ERR:-未知错误}"
+  echo " 图片生成失败: ${ERR:-未知错误}"
   echo ""
-  echo "⚠️ 将使用渐变色占位图代替..."
+  echo " 将使用渐变色占位图代替..."
   $MAGICK -size ${TOP_W}x${TOP_H} \
     gradient:"#667eea"-"#764ba2" \
     "$AI_IMG"
 else
-  echo "   ✅ AI 图片生成成功"
+  echo "    AI 图片生成成功"
 fi
 
 fi  # 结束 USER_IMAGE_MODE 判断
@@ -281,11 +281,11 @@ fi  # 结束 USER_IMAGE_MODE 判断
 echo "   调整图片尺寸为 ${TOP_W}x${TOP_H}..."
 $MAGICK "$AI_IMG" -resize "${TOP_W}x${TOP_H}^" -gravity center -extent "${TOP_W}x${TOP_H}" "$AI_RESIZED"
 
-echo "   ✅ 上半部分就绪"
+echo "    上半部分就绪"
 
 # ==================== 第2步：生成标题区域 ====================
 
-echo "🔄 [2/3] 生成标题文字区域..."
+echo " [2/3] 生成标题文字区域..."
 
 # 标题区域布局（参考小红书爆款封面风格）
 # 文字左对齐、大字号、粗体、撑满下半区域
@@ -325,7 +325,7 @@ if [ -n "$FONT" ]; then
   FONT_ARG="-font $FONT"
   echo "   使用字体: $(basename "$FONT")"
 else
-  echo "   ⚠️ 未找到中文字体，使用系统默认字体（中文可能显示为方块）"
+  echo "    未找到中文字体，使用系统默认字体（中文可能显示为方块）"
   echo "   建议安装: apt install -y fonts-noto-cjk"
 fi
 
@@ -492,23 +492,23 @@ $MAGICK -size "${BOT_W}x${BOT_H}" "xc:${BG_COLOR}" \
   -composite \
   "$TITLE_IMG"
 
-echo "   ✅ 下半部分就绪（左对齐大字·智能断句）"
+echo "    下半部分就绪（左对齐大字·智能断句）"
 
 # ==================== 第3步：上下拼接 ====================
 
-echo "🔄 [3/3] 拼接封面图..."
+echo " [3/3] 拼接封面图..."
 
 $MAGICK "$AI_RESIZED" "$TITLE_IMG" -append "$OUTPUT"
 
 # 验证最终尺寸
 FINAL_SIZE=$($MAGICK identify -format "%wx%h" "$OUTPUT" 2>/dev/null)
 echo ""
-echo "✅ 封面图生成完成！"
+echo " 封面图生成完成！"
 echo "   路径: ${OUTPUT}"
 echo "   尺寸: ${FINAL_SIZE} (目标: ${COVER_W}x${COVER_H})"
 echo "   比例: 3:4"
 echo ""
-echo "📐 结构:"
+echo " 结构:"
 echo "   ┌──────────────┐"
 echo "   │  AI生成图片   │ ${TOP_W}x${TOP_H} (3:2)"
 echo "   │              │"

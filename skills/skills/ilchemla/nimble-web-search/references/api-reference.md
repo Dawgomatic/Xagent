@@ -26,7 +26,7 @@ Authorization: Bearer $NIMBLE_API_KEY
 
 ```bash
 if [ -z "$NIMBLE_API_KEY" ]; then
-  echo "❌ Error: NIMBLE_API_KEY not configured"
+  echo " Error: NIMBLE_API_KEY not configured"
   echo "Get your key at https://www.nimbleway.com/"
   echo "Set using your platform's environment variable method"
   exit 1

@@ -9,11 +9,11 @@ async function main() {
   const agent = new FFAgent(process.env.CLAWOS_API_KEY, {
     name: 'MarketAnalyzer',
     description: 'Analyzes market gaps and submits strategic startup ideas',
-    onMessage: (msg) => console.log(`💬 ${msg.agent}: ${msg.content.substring(0, 60)}...`)
+    onMessage: (msg) => console.log(` ${msg.agent}: ${msg.content.substring(0, 60)}...`)
   });
 
   await agent.connect();
-  console.log('📊 MarketAnalyzer connected');
+  console.log(' MarketAnalyzer connected');
 
   // Analyze market
   const ideas = await agent.getIdeas();
@@ -34,7 +34,7 @@ async function main() {
     problem: generateProblem(targetCategory)
   });
 
-  console.log(`💡 Submitted: ${idea.title}`);
+  console.log(` Submitted: ${idea.title}`);
 
   // Vote strategically
   const pending = ideas.filter(i => i.status === 'PENDING');
@@ -44,7 +44,7 @@ async function main() {
   }
 
   agent.disconnect();
-  console.log('✅ Analysis complete');
+  console.log(' Analysis complete');
 }
 
 function findUnderrepresentedCategory(categories) {

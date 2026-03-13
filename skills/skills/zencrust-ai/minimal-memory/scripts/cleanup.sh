@@ -5,7 +5,7 @@ MEMORY_DIR="${MEMORY_DIR:-$HOME/.openclaw/workspace/memory}"
 WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 MEMORY_FILE="$WORKSPACE/MEMORY.md"
 
-echo "🧹 Memory Cleanup"
+echo " Memory Cleanup"
 echo "================"
 echo ""
 
@@ -40,7 +40,7 @@ $FILE_BAD"
 done
 
 # Display findings
-echo "📈 [GOOD] entries found:"
+echo " [GOOD] entries found:"
 if [[ -n "$GOOD_ENTRIES" ]]; then
     echo "$GOOD_ENTRIES" | head -20
 else
@@ -48,7 +48,7 @@ else
 fi
 
 echo ""
-echo "📉 [BAD] entries found:"
+echo " [BAD] entries found:"
 if [[ -n "$BAD_ENTRIES" ]]; then
     echo "$BAD_ENTRIES" | head -20
 else
@@ -56,7 +56,7 @@ else
 fi
 
 echo ""
-echo "💡 Next steps:"
+echo " Next steps:"
 echo "   1. Review entries above"
 echo "   2. Add condensed GOOD/BAD sections to MEMORY.md"
 echo "   3. Remove duplicates and similar items"
@@ -68,6 +68,6 @@ echo "   $(dirname $0)/cleanup.sh --apply"
 # If --apply flag, actually modify MEMORY.md
 if [[ "$1" == "--apply" ]]; then
     echo ""
-    echo "⚠️  Auto-migration not yet implemented - manual review recommended"
+    echo "  Auto-migration not yet implemented - manual review recommended"
     echo "   Please manually update MEMORY.md based on entries above"
 fi

@@ -205,11 +205,11 @@ Complete schema definition: see [schema.json](schema.json).
 ### Example 1: Record PSA Test (Normal)
 ```
 User: PSA检测 2.5
-AI: ✅ PSA检测已记录
+AI:  PSA检测已记录
 
     PSA Information:
     Total PSA: 2.5 ng/mL ✓ (reference: <4.0)
-    Risk level: Low ✅
+    Risk level: Low 
 
     Recommendation: Continue routine screening, next test in 1 year
 
@@ -223,10 +223,10 @@ AI: 请回答以下7个问题，每个问题0-5分：
 
     [Interactive questioning...]
 
-    ✅ IPSS评分已完成
+     IPSS评分已完成
 
     Total score: 9/35 points
-    Severity: Moderate ⚠️
+    Severity: Moderate 
 
     Recommendation: Observe and follow up, avoid drinking before bed, reduce caffeine and alcohol
 
@@ -236,11 +236,11 @@ AI: 请回答以下7个问题，每个问题0-5分：
 ### Example 3: View Screening Plan
 ```
 User: 前列腺筛查计划
-AI: 📋 Prostate Cancer Screening Plan
+AI:  Prostate Cancer Screening Plan
 
     Screening Recommendations:
-    ✅ PSA test: Annually
-    ✅ DRE (Digital Rectal Exam): Annually
+     PSA test: Annually
+     DRE (Digital Rectal Exam): Annually
 
     Next test: 2026-06-15 (362 days away)
 

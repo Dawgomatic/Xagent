@@ -2,7 +2,7 @@
 name: mlx-tts
 description: Text-To-Speech with MLX (Apple Silicon) and opensource models (default QWen3-TTS) locally.
 author: guoqiao
-metadata: {"openclaw":{"always":true,"emoji":"🦞","homepage":"https://clawhub.ai/guoqiao/mlx-tts","os":["darwin"],"requires":{"bins":["brew"]}}}
+metadata: {"openclaw":{"always":true,"emoji":"","homepage":"https://clawhub.ai/guoqiao/mlx-tts","os":["darwin"],"requires":{"bins":["brew"]}}}
 triggers:
 - "/mlx-tts <text>"
 - "TTS ..."

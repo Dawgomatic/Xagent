@@ -108,7 +108,7 @@ def append_to_monthly(date, summary):
 
 def main():
     """Main rollup logic"""
-    print("🧠 Weekly Rollup - Fractal Memory System")
+    print(" Weekly Rollup - Fractal Memory System")
     print("=" * 50)
     
     # Load state
@@ -129,23 +129,23 @@ def main():
             print(f"✓ Already processed week {current_week}")
             return
     
-    print(f"📅 Processing: Week {current_week}")
+    print(f" Processing: Week {current_week}")
     
     # Read weekly file
     content = read_weekly_file(target_date)
     if not content:
-        print(f"⚠️  No weekly file found for {current_week}")
+        print(f"  No weekly file found for {current_week}")
         return
     
-    print(f"📖 Read {len(content)} characters from weekly file")
+    print(f" Read {len(content)} characters from weekly file")
     
     # Compress to monthly summary
     summary = compress_weekly(content)
     if not summary:
-        print("⚠️  No significant content to compress")
+        print("  No significant content to compress")
         return
     
-    print(f"✨ Compressed summary ({len(summary)} characters)")
+    print(f" Compressed summary ({len(summary)} characters)")
     
     # Append to monthly
     append_to_monthly(target_date, summary)

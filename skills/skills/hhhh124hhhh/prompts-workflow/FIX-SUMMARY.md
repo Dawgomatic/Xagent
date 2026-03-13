@@ -79,9 +79,9 @@ Started: 2026-02-01T05:02:44.821Z
 Ended: 2026-02-01T05:02:44.944Z
 
 Steps:
-  ⏸️ collect: pending
-  ✅ convert: completed
-  ⏸️ publish: pending
+   collect: pending
+   convert: completed
+   publish: pending
 ```
 
 ### 转换统计（测试运行）

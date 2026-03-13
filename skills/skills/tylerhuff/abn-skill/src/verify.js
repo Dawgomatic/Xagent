@@ -264,7 +264,7 @@ if (isMainModule) {
     if (flag.startsWith('--exact=')) options.exactUrl = flag.split('=')[1].replace(/"/g, '');
   }
   
-  console.log(`🔍 Checking ${pageUrl} for links to ${targetDomain}...`);
+  console.log(` Checking ${pageUrl} for links to ${targetDomain}...`);
   verifyBacklink(pageUrl, targetDomain, options).then(result => {
     console.log('\n' + generateReport([result]));
   }).catch(console.error);

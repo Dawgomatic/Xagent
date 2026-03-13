@@ -945,13 +945,13 @@ fn print_markdown_report(report: &DigestReport) {
     
     // Status badge at top
     if has_critical {
-        println!("🚨 **STATUS: CRITICAL ISSUES DETECTED**");
+        println!(" **STATUS: CRITICAL ISSUES DETECTED**");
     } else if has_high {
-        println!("⚠️ **STATUS: HIGH SEVERITY ISSUES DETECTED**");
+        println!(" **STATUS: HIGH SEVERITY ISSUES DETECTED**");
     } else if has_issues {
-        println!("⚠️ **STATUS: ISSUES DETECTED**");
+        println!(" **STATUS: ISSUES DETECTED**");
     } else {
-        println!("✅ **STATUS: CLEAN**");
+        println!(" **STATUS: CLEAN**");
     }
     println!();
     
@@ -969,9 +969,9 @@ fn print_markdown_report(report: &DigestReport) {
 
     println!("## Integrity");
     match &report.integrity {
-        IntegrityStatus::Verified => println!("✅ Hash chain verified"),
-        IntegrityStatus::NoKeyProvided => println!("⚠️ No key provided, integrity not checked"),
-        IntegrityStatus::Failed(e) => println!("❌ Verification failed: {}", e),
+        IntegrityStatus::Verified => println!(" Hash chain verified"),
+        IntegrityStatus::NoKeyProvided => println!(" No key provided, integrity not checked"),
+        IntegrityStatus::Failed(e) => println!(" Verification failed: {}", e),
     }
     println!();
 
@@ -986,10 +986,10 @@ fn print_markdown_report(report: &DigestReport) {
         for sev in severity_order {
             if let Some(count) = report.alert_summary.by_severity.get(sev) {
                 let emoji = match sev {
-                    "Critical" => "🚨",
-                    "High" => "🔴",
-                    "Medium" => "🟠",
-                    "Low" => "🟡",
+                    "Critical" => "",
+                    "High" => "",
+                    "Medium" => "",
+                    "Low" => "",
                     _ => "•",
                 };
                 println!("- {} {}: {}", emoji, sev, count);
@@ -1033,13 +1033,13 @@ fn print_markdown_report(report: &DigestReport) {
     if !report.anomalies.is_empty() {
         println!("## Anomalies");
         for anomaly in &report.anomalies {
-            println!("- ⚠️ {}", anomaly);
+            println!("-  {}", anomaly);
         }
         println!();
     }
 
     if !report.sequence_alerts.is_empty() {
-        println!("## 🔗 Sequence Alerts (Potential Exfiltration)");
+        println!("##  Sequence Alerts (Potential Exfiltration)");
         println!();
         for alert in &report.sequence_alerts {
             println!("**Network Command:** `{}`", alert.network_command);
@@ -1053,7 +1053,7 @@ fn print_markdown_report(report: &DigestReport) {
     }
 
     if !report.new_commands.is_empty() {
-        println!("## 🆕 New Commands (Not in Baseline)");
+        println!("##  New Commands (Not in Baseline)");
         println!();
         println!("These commands were seen for the first time:");
         for cmd in &report.new_commands {
@@ -1063,7 +1063,7 @@ fn print_markdown_report(report: &DigestReport) {
     }
 
     if !report.orphan_execs.is_empty() {
-        println!("## 👻 Orphan Execs (No Active Session)");
+        println!("##  Orphan Execs (No Active Session)");
         println!();
         println!("These commands executed when no Clawdbot session was active:");
         for orphan in &report.orphan_execs {
@@ -1245,7 +1245,7 @@ fn wizard_next() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     // All done!
-    println!("🎉 INSTALLATION COMPLETE!");
+    println!(" INSTALLATION COMPLETE!");
     println!();
     println!("Clauditor is now running and protecting your system.");
     println!();
@@ -1263,7 +1263,7 @@ fn wizard_verify() -> Result<(), Box<dyn std::error::Error>> {
     for step in &steps {
         if !(step.check)() {
             if step.number == 1 {
-                println!("❌ Step {} is not complete yet.", step.number);
+                println!(" Step {} is not complete yet.", step.number);
                 println!();
                 println!("Run `clauditor wizard next` to see the instructions.");
             } else {
@@ -1273,13 +1273,13 @@ fn wizard_verify() -> Result<(), Box<dyn std::error::Error>> {
                     .unwrap_or(true);
                 
                 if prev_done {
-                    println!("❌ Step {} ({}) is not complete.", step.number, step.name);
+                    println!(" Step {} ({}) is not complete.", step.number, step.name);
                     println!();
                     println!("The command may have failed. Try running it again:");
                     println!();
                     println!("  {}", step.command);
                 } else {
-                    println!("❌ Step {} is not complete yet.", step.number - 1);
+                    println!(" Step {} is not complete yet.", step.number - 1);
                 }
             }
             return Ok(());
@@ -1290,9 +1290,9 @@ fn wizard_verify() -> Result<(), Box<dyn std::error::Error>> {
     let last_done = steps.iter().rev().find(|s| (s.check)());
     if let Some(step) = last_done {
         if step.number == TOTAL_STEPS {
-            println!("✅ All steps complete! Clauditor is installed and running.");
+            println!(" All steps complete! Clauditor is installed and running.");
         } else {
-            println!("✅ Step {} ({}) verified!", step.number, step.name);
+            println!(" Step {} ({}) verified!", step.number, step.name);
             println!();
             println!("Run `clauditor wizard next` for the next step.");
         }
@@ -1314,7 +1314,7 @@ fn wizard_step(number: u8) -> Result<(), Box<dyn std::error::Error>> {
 
 fn print_step_instructions(step: &WizardStep) {
     let done = (step.check)();
-    let status = if done { "✅ DONE" } else { "⏳ PENDING" };
+    let status = if done { " DONE" } else { " PENDING" };
 
     println!("═══════════════════════════════════════════════════════════════");
     println!("  STEP {} of {}: {}  [{}]", step.number, TOTAL_STEPS, step.name, status);

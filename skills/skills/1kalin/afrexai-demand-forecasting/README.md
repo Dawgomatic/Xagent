@@ -25,6 +25,6 @@ A 5-point MAPE improvement on $10M revenue typically saves $450K-$1.15M annually
 
 This skill covers demand forecasting fundamentals. For complete, industry-specific agent configurations:
 
-👉 **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47/pack | Pick 3 for $97 | All 10 for $197
+ **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47/pack | Pick 3 for $97 | All 10 for $197
 
-👉 **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find your automation savings in 2 minutes
+ **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find your automation savings in 2 minutes

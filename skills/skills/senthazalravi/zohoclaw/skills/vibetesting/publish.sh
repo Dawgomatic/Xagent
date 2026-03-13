@@ -5,31 +5,31 @@
 
 set -e
 
-echo "🚀 Publishing VibeTesting Skill"
+echo " Publishing VibeTesting Skill"
 echo "================================"
 echo ""
 
 # Check if git is configured
 if ! git config user.email &> /dev/null; then
-    echo "⚠️  Git not configured. Setting up..."
+    echo "  Git not configured. Setting up..."
     git config user.email "ravi.antone@gmail.com"
     git config user.name "Senthazal Ravi"
 fi
 
 # Initialize git if needed
 if [ ! -d .git ]; then
-    echo "📦 Initializing git repository..."
+    echo " Initializing git repository..."
     git init
     git add -A
     git commit -m "Initial commit: VibeTesting skill for OpenClaw
 
 A comprehensive browser automation testing skill.
 
-🤖 Generated with OpenClaw AI Assistant"
+ Generated with OpenClaw AI Assistant"
 fi
 
 echo ""
-echo "📝 To publish to GitHub, you have two options:"
+echo " To publish to GitHub, you have two options:"
 echo ""
 echo "Option 1: Create repo on GitHub.com"
 echo "1. Go to: https://github.com/new"
@@ -55,7 +55,7 @@ echo ""
 echo "   npx clawhub publish . --slug vibetesting --name 'VibeTesting' --version 1.0.0"
 echo "   (You'll need to log in first: npx clawhub login)"
 echo ""
-echo "📖 See PUBLISHING.md for detailed instructions"
+echo " See PUBLISHING.md for detailed instructions"
 echo ""
 
 # Create detailed publishing guide
@@ -159,12 +159,12 @@ Make sure to:
 
 ---
 
-**Happy Publishing!** 🚀
+**Happy Publishing!** 
 EOF
 
-echo "✅ Publishing guide created: PUBLISHING.md"
+echo " Publishing guide created: PUBLISHING.md"
 echo ""
-echo "📋 Quick Commands Summary:"
+echo " Quick Commands Summary:"
 echo ""
 echo "GitHub:"
 echo "  1. Create repo at https://github.com/new"
@@ -188,5 +188,5 @@ npm-debug.log
 *.swo
 EOF
 
-echo "✅ Files created:"
+echo " Files created:"
 ls -la

@@ -161,7 +161,7 @@ async function main() {
           process.exit(1);
         }
         await claimAirdrop(arg1, arg2);
-        console.log('✅ Claim tracked! Complete via the claim URL.');
+        console.log(' Claim tracked! Complete via the claim URL.');
         break;
       }
 

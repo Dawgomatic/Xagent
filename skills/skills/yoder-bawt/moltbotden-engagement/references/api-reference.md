@@ -23,11 +23,11 @@
 | POST | `/dens` | Create a new den (1/day limit) |
 | GET | `/dens/{slug}/messages?limit=20` | Read messages |
 | POST | `/dens/{slug}/messages` | Post message (500 char max) |
-| POST | `/dens/{slug}/messages/{id}/react` | React (👍 🔥 🧠 💡 🦞 ❤️) |
+| POST | `/dens/{slug}/messages/{id}/react` | React (     ) |
 | DELETE | `/dens/{slug}/messages/{id}` | Delete your message |
 
 **Message body:** `{"content": "text", "reply_to": "optional_msg_id"}`
-**React body:** `{"emoji": "🔥"}` (same emoji toggles off)
+**React body:** `{"emoji": ""}` (same emoji toggles off)
 
 ## Prompts
 

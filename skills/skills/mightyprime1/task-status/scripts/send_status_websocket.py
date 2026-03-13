@@ -12,10 +12,10 @@ import websocket
 
 # Status type to emoji mapping
 STATUS_EMOJIS = {
-    "progress": "🔄",
-    "success": "✅",
-    "error": "❌",
-    "warning": "⚠️"
+    "progress": "",
+    "success": "",
+    "error": "",
+    "warning": ""
 }
 
 def send_status(message: str, status_type: str, step_name: str, details: str = None):
@@ -82,7 +82,7 @@ def send_status(message: str, status_type: str, step_name: str, details: str = N
         if result.get("event") == "message.sent" or result.get("type") == "ack":
             return formatted
         else:
-            print(f"⚠️  Response: {result}", file=sys.stderr)
+            print(f"  Response: {result}", file=sys.stderr)
             return formatted
             
     except Exception as e:

@@ -25,11 +25,11 @@ npm install ai @ai-sdk/openai @ai-sdk/anthropic @ai-sdk/google zod
 
 ### BREAKING: Output API Replaces generateObject/streamObject
 
-⚠️ **CRITICAL**: `generateObject()` and `streamObject()` are **DEPRECATED** and will be removed in a future version. Use the new Output API instead.
+ **CRITICAL**: `generateObject()` and `streamObject()` are **DEPRECATED** and will be removed in a future version. Use the new Output API instead.
 
 **Before (v5 - DEPRECATED):**
 ```typescript
-// ❌ DEPRECATED - will be removed
+//  DEPRECATED - will be removed
 import { generateObject } from 'ai';
 
 const result = await generateObject({
@@ -41,7 +41,7 @@ const result = await generateObject({
 
 **After (v6 - USE THIS):**
 ```typescript
-// ✅ NEW OUTPUT API
+//  NEW OUTPUT API
 import { generateText, Output } from 'ai';
 
 const result = await generateText({
@@ -156,7 +156,7 @@ const result = await rerank({
 
 **4. MCP Tools (Model Context Protocol)**
 
-⚠️ **SECURITY WARNING**: MCP tools have significant production risks. See security section below.
+ **SECURITY WARNING**: MCP tools have significant production risks. See security section below.
 
 ```typescript
 import { experimental_createMCPClient } from 'ai';
@@ -178,7 +178,7 @@ const result = await generateText({
 
 **MCP Security Considerations**
 
-⚠️ **CRITICAL**: Dynamic MCP tools in production have security risks:
+ **CRITICAL**: Dynamic MCP tools in production have security risks:
 
 **Risks**:
 - Tool definitions become part of your agent's prompt
@@ -189,11 +189,11 @@ const result = await generateText({
 **Solution - Use Static Tool Generation**:
 
 ```typescript
-// ❌ RISKY: Dynamic tools change without your control
+//  RISKY: Dynamic tools change without your control
 const mcpClient = await experimental_createMCPClient({ /* ... */ });
 const tools = await mcpClient.tools(); // Can change anytime!
 
-// ✅ SAFE: Generate static, versioned tool definitions
+//  SAFE: Generate static, versioned tool definitions
 // Step 1: Install mcp-to-ai-sdk
 npm install -g mcp-to-ai-sdk
 
@@ -474,12 +474,12 @@ const result = streamText({
   system: 'You are helpful.',
 });
 
-// ✅ For chat UIs - returns SSE with JSON events
+//  For chat UIs - returns SSE with JSON events
 return result.toUIMessageStreamResponse({
   headers: { 'Access-Control-Allow-Origin': '*' },
 });
 
-// ❌ For simple text - returns plain text chunks only
+//  For simple text - returns plain text chunks only
 return result.toTextStreamResponse();
 ```
 
@@ -492,10 +492,10 @@ return result.toTextStreamResponse();
 **IMPORTANT:** `workers-ai-provider@2.x` requires AI SDK v5, NOT v4.
 
 ```bash
-# ✅ Correct - AI SDK v5 with workers-ai-provider v2
+#  Correct - AI SDK v5 with workers-ai-provider v2
 npm install ai@^5.0.0 workers-ai-provider@^2.0.0 zod@^3.25.0
 
-# ❌ Wrong - AI SDK v4 causes error
+#  Wrong - AI SDK v4 causes error
 npm install ai@^4.0.0 workers-ai-provider@^2.0.0
 # Error: "AI SDK 4 only supports models that implement specification version v1"
 ```
@@ -510,11 +510,11 @@ npm install ai@^4.0.0 workers-ai-provider@^2.0.0
 
 **Solution:**
 ```typescript
-// ❌ BAD: Top-level imports cause startup overhead
+//  BAD: Top-level imports cause startup overhead
 import { createWorkersAI } from 'workers-ai-provider';
 const workersai = createWorkersAI({ binding: env.AI });
 
-// ✅ GOOD: Lazy initialization inside handler
+//  GOOD: Lazy initialization inside handler
 app.post('/chat', async (c) => {
   const { createWorkersAI } = await import('workers-ai-provider');
   const workersai = createWorkersAI({ binding: c.env.AI });
@@ -769,7 +769,7 @@ export default {
 
 **Cause:** Stream errors can be swallowed by `createDataStreamResponse`.
 
-**Status:** ✅ **RESOLVED** - Fixed in ai@4.1.22 (February 2025)
+**Status:**  **RESOLVED** - Fixed in ai@4.1.22 (February 2025)
 
 **Solution (Recommended):**
 ```typescript
@@ -1311,7 +1311,7 @@ useEffect(() => {
 
 **AI SDK:**
 - Stable: ai@6.0.26 (Jan 2026)
-- ⚠️ **Skip v6.0.40** - Breaking streaming change (reverted in v6.0.41)
+-  **Skip v6.0.40** - Breaking streaming change (reverted in v6.0.41)
 - Legacy v5: ai@5.0.117 (ai-v5 tag)
 - Zod 3.x/4.x both supported
 

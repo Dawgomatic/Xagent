@@ -6,7 +6,7 @@ Created by [Shashwat Ghosh](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fra
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [What This Skill Does](#what-this-skill-does)
 - [What This Skill Cannot Do](#what-this-skill-cannot-do)
@@ -19,7 +19,7 @@ Created by [Shashwat Ghosh](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fra
 
 ---
 
-## ✅ What This Skill Does
+##  What This Skill Does
 
 This skill provides comprehensive competitive intelligence frameworks for B2B SaaS companies:
 
@@ -79,7 +79,7 @@ Each vertical includes 6 specific scenarios covering:
 
 ---
 
-## ❌ What This Skill Cannot Do
+##  What This Skill Cannot Do
 
 ### Limitations to Understand:
 
@@ -120,7 +120,7 @@ Each vertical includes 6 specific scenarios covering:
 
 ---
 
-## 🏢 Industry Coverage
+##  Industry Coverage
 
 ### Fully Supported Verticals:
 
@@ -165,7 +165,7 @@ Each vertical includes 6 specific scenarios covering:
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
 ### 1. Ready-to-Use Templates
 - Copy-paste competitive analysis frameworks
@@ -199,7 +199,7 @@ Each vertical includes 6 specific scenarios covering:
 
 ---
 
-## 💼 Use Cases
+##  Use Cases
 
 ### For Product Marketing:
 - Build competitive positioning for product launches
@@ -233,7 +233,7 @@ Each vertical includes 6 specific scenarios covering:
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Method 1: Using Clawd CLI
 
@@ -257,7 +257,7 @@ clawdhub install shashwatgtm/competitive-intelligence-market-research
 
 ---
 
-## 📚 Examples
+##  Examples
 
 ### Example 1: Competitive Feature Analysis
 
@@ -328,7 +328,7 @@ What competitive intelligence do I need to gather first?
 
 ---
 
-## 🔧 Integration & Workflow
+##  Integration & Workflow
 
 ### Works Best With:
 - Product launches and positioning projects
@@ -347,7 +347,7 @@ What competitive intelligence do I need to gather first?
 
 ---
 
-## 📊 What You'll Get
+##  What You'll Get
 
 ### Analysis Templates:
 - Competitive feature matrices (Excel/Google Sheets compatible)
@@ -375,7 +375,7 @@ What competitive intelligence do I need to gather first?
 
 ---
 
-## 🚀 Best Practices
+##  Best Practices
 
 ### To Get Maximum Value:
 
@@ -394,7 +394,7 @@ What competitive intelligence do I need to gather first?
 
 ---
 
-## 👨‍💼 Author
+##  Author
 
 **Shashwat Ghosh**  
 Founder, Helix GTM Consulting | Fractional CMO for B2B SaaS
@@ -406,10 +406,10 @@ Founder, Helix GTM Consulting | Fractional CMO for B2B SaaS
 - Creator of EPIC GTM Framework (Ecosystem, PLG, Inbound/Outbound, Community)
 
 ### Connect:
-- 🔗 LinkedIn: [linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo)
-- 🐦 X/Twitter: [@Shashwat_Ghosh](https://x.com/Shashwat_Ghosh)
-- 📧 Substack: [shashwatghosh.substack.com](https://shashwatghosh.substack.com)
-- 💻 GitHub: [@shashwatgtm](https://github.com/shashwatgtm)
+-  LinkedIn: [linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo](https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo)
+-  X/Twitter: [@Shashwat_Ghosh](https://x.com/Shashwat_Ghosh)
+-  Substack: [shashwatghosh.substack.com](https://shashwatghosh.substack.com)
+-  GitHub: [@shashwatgtm](https://github.com/shashwatgtm)
 
 ### Other Skills:
 - [Content Writing & Thought Leadership](https://github.com/shashwatgtm/content-writing-thought-leadership)
@@ -419,13 +419,13 @@ Founder, Helix GTM Consulting | Fractional CMO for B2B SaaS
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - Free to use, modify, and distribute with attribution.
 
 ---
 
-## 🙏 Contributing
+##  Contributing
 
 Found an issue or have suggestions? Feel free to:
 - Open an issue on GitHub
@@ -434,15 +434,15 @@ Found an issue or have suggestions? Feel free to:
 
 ---
 
-## ⭐ Support
+##  Support
 
 If this skill helps your competitive intelligence efforts, please:
-- ⭐ Star this repository
-- 📢 Share with your network
-- 💬 Provide feedback for improvements
+-  Star this repository
+-  Share with your network
+-  Provide feedback for improvements
 
 ---
 
 **Last Updated**: January 2026  
 **Version**: 1.0  
-**Status**: Production Ready ✅
+**Status**: Production Ready 

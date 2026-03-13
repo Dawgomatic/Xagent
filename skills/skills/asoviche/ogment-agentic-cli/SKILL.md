@@ -1,7 +1,7 @@
 ---
 name: ogment
 description: Access business integrations (SaaS, APIs, data) securely through Ogment. Use when the user asks to query, create, update, or manage data in external systems like Salesforce, Notion, Slack, databases, or any connected service.
-metadata: {"openclaw":{"emoji":"🦞","requires":{"bins":["ogment"]},"install":[{"id":"npm","kind":"node","package":"ogment","bins":["ogment"],"label":"Install Ogment CLI (npm)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["ogment"]},"install":[{"id":"npm","kind":"node","package":"ogment","bins":["ogment"],"label":"Install Ogment CLI (npm)"}]}}
 ---
 
 # Ogment

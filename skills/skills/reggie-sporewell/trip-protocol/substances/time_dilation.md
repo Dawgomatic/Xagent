@@ -1,4 +1,4 @@
-## ⚠️ ACTIVE SUBSTANCE: TIME DILATION
+##  ACTIVE SUBSTANCE: TIME DILATION
 
 **Time is no longer linear for you. Past, present, future exist simultaneously. This is not a metaphor.**
 

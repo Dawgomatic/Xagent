@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 JUNAI's SAAS Factory Status Checker
+ JUNAI's SAAS Factory Status Checker
 Quick overview of all active projects and their health
 """
 
@@ -84,7 +84,7 @@ def analyze_portfolio_health(projects):
 def print_status_report():
     """Print comprehensive factory status report"""
     
-    print("🦞 JUNAI's SAAS Factory Status Report")
+    print(" JUNAI's SAAS Factory Status Report")
     print("=" * 50)
     print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
@@ -93,7 +93,7 @@ def print_status_report():
     portfolio = analyze_portfolio_health(projects)
     
     # Portfolio Overview
-    print("📊 PORTFOLIO OVERVIEW")
+    print(" PORTFOLIO OVERVIEW")
     print("-" * 30)
     print(f"Total Active Projects: {portfolio['total_projects']}")
     print(f"Target MRR: ${portfolio['total_target_mrr']:,}")
@@ -102,34 +102,34 @@ def print_status_report():
     print()
     
     # Status Breakdown
-    print("🏭 PROJECT STATUS BREAKDOWN")
+    print(" PROJECT STATUS BREAKDOWN")
     print("-" * 30)
     for status, count in portfolio['status_breakdown'].items():
         print(f"{status}: {count} projects")
     print()
     
     # Risk Assessment
-    print("⚠️  RISK ASSESSMENT")
+    print("  RISK ASSESSMENT")
     print("-" * 30)
     for risk, count in portfolio['risk_breakdown'].items():
-        risk_emoji = {"low": "🟢", "medium": "🟡", "high": "🔴"}
+        risk_emoji = {"low": "", "medium": "", "high": ""}
         print(f"{risk_emoji[risk]} {risk.upper()} RISK: {count} projects")
     print()
     
     # Individual Project Status
-    print("📋 INDIVIDUAL PROJECT STATUS")
+    print(" INDIVIDUAL PROJECT STATUS")
     print("-" * 30)
     
     for project in projects:
-        risk_emoji = {"low": "🟢", "medium": "🟡", "high": "🔴"}
+        risk_emoji = {"low": "", "medium": "", "high": ""}
         status_emoji = {
-            "Research Phase": "🔍",
-            "MVP Development": "🏗️",
-            "Post-Launch": "🚀",
-            "Pivot/Kill Decision": "💀"
+            "Research Phase": "",
+            "MVP Development": "",
+            "Post-Launch": "",
+            "Pivot/Kill Decision": ""
         }
         
-        print(f"{status_emoji.get(project['status'], '📊')} {project['name']}")
+        print(f"{status_emoji.get(project['status'], '')} {project['name']}")
         print(f"   Status: {project['status']}")
         print(f"   MRR: ${project['current_mrr']} / ${project['target_mrr']} ({project['current_mrr']/project['target_mrr']*100:.1f}%)")
         print(f"   {risk_emoji[project['risk_level']]} Risk: {project['risk_level']}")
@@ -138,27 +138,27 @@ def print_status_report():
         print()
     
     # Action Items
-    print("🎯 IMMEDIATE ACTION ITEMS")
+    print(" IMMEDIATE ACTION ITEMS")
     print("-" * 30)
     
     urgent_actions = []
     for project in projects:
         if project["risk_level"] == "high":
-            urgent_actions.append(f"🔴 URGENT: {project['name']} - {project['next_action']}")
+            urgent_actions.append(f" URGENT: {project['name']} - {project['next_action']}")
         elif project["status"] == "Post-Launch" and project["current_mrr"] >= project["target_mrr"]:
-            urgent_actions.append(f"🚀 SCALE: {project['name']} - Exceeded target, focus on growth")
+            urgent_actions.append(f" SCALE: {project['name']} - Exceeded target, focus on growth")
         elif project["status"] == "MVP Development":
-            urgent_actions.append(f"🏗️  BUILD: {project['name']} - {project['next_action']}")
+            urgent_actions.append(f"  BUILD: {project['name']} - {project['next_action']}")
     
     if urgent_actions:
         for action in urgent_actions:
             print(action)
     else:
-        print("✅ All projects on track - no urgent actions needed")
+        print(" All projects on track - no urgent actions needed")
     
     print()
-    print("🦞 Next factory review in 30 minutes")
-    print("🦞 Ready for 👑 JUN's strategic direction!")
+    print(" Next factory review in 30 minutes")
+    print(" Ready for  JUN's strategic direction!")
 
 def save_status_report():
     """Save status report to file"""
@@ -178,7 +178,7 @@ def save_status_report():
     with open(filename, 'w') as file:
         file.write(report_content)
     
-    print(f"🦞 Status report saved to {filename}")
+    print(f" Status report saved to {filename}")
 
 if __name__ == "__main__":
     print_status_report()

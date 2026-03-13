@@ -4,7 +4,7 @@ version: 1.0.0
 description: Design, preview, and generate UI code using Google Stitch (via MCP). Helps developers choose the best UI by generating previews first, allowing iteration, and then exporting code.
 metadata:
   openclaw:
-    emoji: 🎨
+    emoji: 
     requires:
       bins: ["npx", "mcporter"]
 ---

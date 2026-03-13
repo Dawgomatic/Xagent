@@ -4,7 +4,7 @@ description: CLI for Yandex Tracker (bash + curl). Queues, issues, comments, wor
 homepage: https://github.com/bkamuz/yandex-tracker-cli
 metadata:
   clawdbot:
-    emoji: "📋"
+    emoji: ""
     requires:
       env: ["TOKEN", "ORG_ID"]
       bins: ["curl", "jq"]

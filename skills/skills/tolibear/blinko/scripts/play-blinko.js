@@ -48,12 +48,12 @@ async function main() {
     throw new Error(`Bet out of range (0.0001-0.1 ETH). Got: ${betEth}`);
   }
 
-  console.log(`🎯 Blinko | ${betEth} ETH | hard=${hard} v2=${v2}`);
+  console.log(` Blinko | ${betEth} ETH | hard=${hard} v2=${v2}`);
 
   // 1. Wallet
   const wallet = new ethers.Wallet(loadKey(), new ethers.JsonRpcProvider(RPC, CHAIN));
   const addr = wallet.address;
-  console.log(`👛 ${addr}`);
+  console.log(` ${addr}`);
 
   // 2. Login
   const sig = await wallet.signMessage(SIGN_MSG);
@@ -65,7 +65,7 @@ async function main() {
   const jwt = login.data?.token || login.token;
   if (!jwt) throw new Error('Login failed: no token returned');
   const auth = { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` };
-  console.log('✅ Logged in');
+  console.log(' Logged in');
 
   // 3. Create game
   const cg = await api(`${API}/blinko/create-game`, {
@@ -75,7 +75,7 @@ async function main() {
   const d = cg.data || cg;
   const { gameId, signature: serverSig, gameParams: gp } = d;
   if (!gameId || !serverSig || !gp) throw new Error('Create game: missing response fields');
-  console.log(`🎲 Game ${gameId.slice(0, 18)}...`);
+  console.log(` Game ${gameId.slice(0, 18)}...`);
 
   // 4. On-chain createGame
   await sleep(2000);
@@ -91,7 +91,7 @@ async function main() {
     BigInt(gp.deadline),
   ];
   const tx1 = await contract.createGame(params, serverSig, ethers.randomBytes(32), { value: betWei });
-  console.log(`⛓️  createGame tx: ${tx1.hash}`);
+  console.log(`  createGame tx: ${tx1.hash}`);
   await tx1.wait();
 
   // 5. Play
@@ -108,11 +108,11 @@ async function main() {
   } else {
     tx2 = await contract.markGameAsLost(gameId, gameState, gameSeed, BigInt(deadline), settleSig);
   }
-  console.log(`⛓️  settle tx: ${tx2.hash}`);
+  console.log(`  settle tx: ${tx2.hash}`);
   await tx2.wait();
 
   // 7. Summary
-  console.log(`\n${win > 0n ? '🏆 WIN' : '💀 LOSS'} | Bet: ${betEth} ETH | Payout: ${ethers.formatEther(win)} ETH | RTP: ${result.rtp}%`);
+  console.log(`\n${win > 0n ? ' WIN' : ' LOSS'} | Bet: ${betEth} ETH | Payout: ${ethers.formatEther(win)} ETH | RTP: ${result.rtp}%`);
 }
 
-main().catch(e => { console.error('❌', e.message); process.exit(1); });
+main().catch(e => { console.error('', e.message); process.exit(1); });

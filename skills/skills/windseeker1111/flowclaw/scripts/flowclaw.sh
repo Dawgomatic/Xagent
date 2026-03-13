@@ -29,7 +29,7 @@ show_banner() {
      ╚██████╗███████╗██║  ██║╚███╔███╔╝
       ╚═════╝╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝
 
- 🦞 LLM subscription usage monitoring
+  LLM subscription usage monitoring
  and load balancing for OpenClaw.
 
 BANNER
@@ -83,7 +83,7 @@ cmd_monitor() {
   usage_json=$(bash "$SCRIPT_DIR/provider-usage.sh" --json $fresh_flag 2>/dev/null)
 
   if [ -z "$usage_json" ] || [ "$usage_json" = "{}" ]; then
-    echo "❌ No usage data available. Check provider configuration."
+    echo " No usage data available. Check provider configuration."
     exit 1
   fi
 
@@ -93,7 +93,7 @@ cmd_monitor() {
   fi
 
   # Human-readable usage report (no scoring, no routing recommendations)
-  echo "📊 FlowClaw Usage Report"
+  echo " FlowClaw Usage Report"
   echo ""
 
   python3 - "$usage_json" <<'PYEOF'
@@ -114,7 +114,7 @@ for provider_name, provider in data.items():
 
     for acct in accounts:
         name = acct.get("display_name", acct.get("email", acct.get("id", "unknown")))
-        print(f"  👤 {name}")
+        print(f"   {name}")
 
         windows = acct.get("windows", [])
         for w in windows:
@@ -127,15 +127,15 @@ for provider_name, provider in data.items():
             bar = "█" * filled + "░" * (bar_width - filled)
 
             if pct >= 90:
-                color = "🔴"
+                color = ""
             elif pct >= 60:
-                color = "🟡"
+                color = ""
             else:
-                color = "🟢"
+                color = ""
 
             line = f"     {label:15s} {color} {bar} {pct:3.0f}%"
             if remaining:
-                line += f"  ⏳{remaining}"
+                line += f"  {remaining}"
             print(line)
 
         extra = acct.get("extra_usage", {})
@@ -143,10 +143,10 @@ for provider_name, provider in data.items():
             spent = extra.get("spent", 0)
             limit = extra.get("limit", 0)
             if spent > 0 or limit > 0:
-                print(f"     💰 Extra usage:    ${spent:.2f}/${limit:.2f}")
+                print(f"      Extra usage:    ${spent:.2f}/${limit:.2f}")
         print()
 
-print(f"  📍 {datetime.now().strftime('%I:%M %p %Z')} · {datetime.now().strftime('%b %d, %Y')}")
+print(f"   {datetime.now().strftime('%I:%M %p %Z')} · {datetime.now().strftime('%b %d, %Y')}")
 PYEOF
 }
 
@@ -158,7 +158,7 @@ cmd_score() {
   usage_json=$(usage_collector)
 
   if [ -z "$usage_json" ] || [ "$usage_json" = "{}" ]; then
-    echo "❌ No usage data available. Check provider configuration."
+    echo " No usage data available. Check provider configuration."
     exit 1
   fi
 
@@ -238,33 +238,33 @@ print(f\"{best_same_family or ''} {' '.join(order)}\")
 import json, sys
 d = json.load(sys.stdin)
 for r in d.get('ranked', []):
-    status = '✅' if r['available'] else '🚫'
+    status = '' if r['available'] else ''
     print(f\"  #{r['rank']}  {status} {r['account']:15s}  score={r['score']:.4f}  {r['reason']}\")
 ")
 
-  echo "🧠 FlowClaw Optimization"
+  echo " FlowClaw Optimization"
   echo ""
   echo "$ranked_summary"
   echo ""
 
   if [ -z "$recommended_primary" ]; then
-    echo "⚠️  All accounts exhausted — no routing change needed."
+    echo "  All accounts exhausted — no routing change needed."
     log_history "none" "skip" "all_exhausted"
     return
   fi
 
-  echo "  🎯 Recommended primary: $recommended_primary"
-  echo "  📋 Anthropic profile order: $anthropic_order"
+  echo "   Recommended primary: $recommended_primary"
+  echo "   Anthropic profile order: $anthropic_order"
   echo ""
 
   # ── Info: switching to Google provider ──
   if [[ "$recommended_primary" == google-gemini-cli/* ]]; then
-    echo "  ℹ️  Routing to Google (Gemini CLI) — free tier credits available"
+    echo "    Routing to Google (Gemini CLI) — free tier credits available"
     echo ""
   fi
 
   if [ "$dry_run" -eq 1 ]; then
-    echo "  🔍 DRY RUN — no changes applied."
+    echo "   DRY RUN — no changes applied."
     echo ""
     echo "  Would run:"
     echo "    openclaw models auth order set --provider anthropic $anthropic_order"
@@ -274,13 +274,13 @@ for r in d.get('ranked', []):
   fi
 
   # Apply changes
-  echo "  ⚙️  Applying..."
+  echo "    Applying..."
 
   # 1. Reorder Anthropic profiles
   if [ -n "$anthropic_order" ]; then
     openclaw models auth order set --provider anthropic $anthropic_order 2>/dev/null && \
-      echo "  ✅ Anthropic profile order updated" || \
-      echo "  ⚠️  Failed to update Anthropic profile order"
+      echo "   Anthropic profile order updated" || \
+      echo "    Failed to update Anthropic profile order"
   fi
 
   # 2. Swap primary + fallbacks in openclaw.json
@@ -319,8 +319,8 @@ model_cfg["fallbacks"] = unique_models
 with open(config_path, "w") as f:
     json.dump(cfg, f, indent=4)
 
-print(f"  ✅ Primary model set to {recommended}")
-print(f"  ✅ Fallbacks: {', '.join(unique_models)}")
+print(f"   Primary model set to {recommended}")
+print(f"   Fallbacks: {', '.join(unique_models)}")
 PYEOF
 
   # Log to history
@@ -339,7 +339,7 @@ json.dump(state, open('$STATE_FILE', 'w'), indent=2)
 "
 
   echo ""
-  echo "  ✅ FlowClaw optimized!"
+  echo "   FlowClaw optimized!"
   rm -f "$CACHE_FILE"
 }
 
@@ -355,11 +355,11 @@ cmd_history() {
   local num_entries="${1:-20}"
 
   if [ ! -f "$HISTORY_FILE" ]; then
-    echo "📊 No routing history yet. Run 'flowclaw optimize' first."
+    echo " No routing history yet. Run 'flowclaw optimize' first."
     return
   fi
 
-  echo "📊 FlowClaw Routing History"
+  echo " FlowClaw Routing History"
   echo ""
 
   python3 - "$HISTORY_FILE" "$num_entries" << 'PYEOF'
@@ -384,7 +384,7 @@ entries = entries[-num:]
 
 # Assign symbols to providers
 provider_map = {}
-symbols = ["🔵", "🟢", "🟠", "🔴", "🟣", "⚪"]
+symbols = ["", "", "", "", "", ""]
 sym_idx = 0
 
 # Timeline
@@ -408,7 +408,7 @@ for e in entries:
 
     # Switchover marker
     if prev_primary and prev_primary != primary:
-        print(f"  │  ⚡ SWITCH: {prev_primary}")
+        print(f"  │   SWITCH: {prev_primary}")
         print(f"  │         → {primary}")
 
     print(f"  │ {time_str:>14s}  {sym} {primary}")
@@ -430,7 +430,7 @@ for provider, count in sorted(counts.items(), key=lambda x: -x[1]):
     pct = count / total * 100
     filled = int(pct / 100 * bar_width)
     bar = "█" * filled + "░" * (bar_width - filled)
-    sym = provider_map.get(provider, "⚪")
+    sym = provider_map.get(provider, "")
     short = provider.split("/")[-1] if "/" in provider else provider
     if len(short) > 25:
         short = short[:22] + "..."
@@ -467,17 +467,17 @@ case "${1:-help}" in
     cat <<'EOF'
 Usage: flowclaw <command> [options]
 
-📊 Usage Monitoring:
+ Usage Monitoring:
   status [--fresh] [--json]        Raw usage dashboard from all providers
   monitor [--json] [--cached]      Clean usage report (no scoring/routing)
 
-🧠 Load Balancing:
+ Load Balancing:
   score [--json]                   Scored ranking of all accounts
   optimize [--dry-run] [--verbose] Reorder OpenClaw routing for optimal usage
   auto                             Run optimize silently (for cron jobs)
   history [N]                      Routing history & switchover graph
 
-🛠  Utilities:
+  Utilities:
   test                             Run scoring engine unit tests
   help                             Show this help message
 

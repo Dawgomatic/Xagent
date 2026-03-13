@@ -218,16 +218,16 @@ We adapted the framework:
 
 Stock Analysis v6.0 is designed to be your **systematic second opinion**:
 
-- ✅ Multi-dimensional analysis
-- ✅ Clear recommendations
-- ✅ Risk detection
-- ✅ Explained reasoning
-- ✅ Fast and automated
+-  Multi-dimensional analysis
+-  Clear recommendations
+-  Risk detection
+-  Explained reasoning
+-  Fast and automated
 
 **NOT:**
-- ❌ Financial advice
-- ❌ Guaranteed returns
-- ❌ Replacement for research
-- ❌ Trading signals
+-  Financial advice
+-  Guaranteed returns
+-  Replacement for research
+-  Trading signals
 
-Use it wisely. 📈
+Use it wisely. 

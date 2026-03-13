@@ -22,7 +22,7 @@ logger = logging.getLogger("arm_demo")
 
 async def demo_ur5_pick_place(arm: ArmRobotPlugin):
     """Demonstrate UR5 pick and place"""
-    print("\n🦾 UR5 Pick and Place Demo")
+    print("\n UR5 Pick and Place Demo")
     print("=" * 50)
     
     # 1. Get current state
@@ -68,12 +68,12 @@ async def demo_ur5_pick_place(arm: ArmRobotPlugin):
     result = await move_ur_to_home(arm)
     print(f"   Result: {result}")
     
-    print("\n✅ Pick and place complete!")
+    print("\n Pick and place complete!")
 
 
 async def demo_cartesian_moves(arm: ArmRobotPlugin):
     """Demonstrate cartesian space moves"""
-    print("\n📍 Cartesian Movement Demo")
+    print("\n Cartesian Movement Demo")
     print("=" * 50)
     
     poses = [
@@ -93,7 +93,7 @@ async def demo_cartesian_moves(arm: ArmRobotPlugin):
 
 async def interactive_control(arm: ArmRobotPlugin):
     """Interactive arm control via WebSocket"""
-    print("\n🎮 Interactive Arm Control")
+    print("\n Interactive Arm Control")
     print("=" * 50)
     print("WebSocket: ws://localhost:8772")
     print("\nAvailable commands:")
@@ -122,7 +122,7 @@ async def main():
     bridge.transport_manager.register(ws_transport)
     
     # Create arm plugin
-    print(f"🦾 Initializing {args.arm_type.upper()} robot ({args.ros_version})...")
+    print(f" Initializing {args.arm_type.upper()} robot ({args.ros_version})...")
     arm = ArmRobotPlugin(
         arm_type=args.arm_type,
         ros_version=args.ros_version,
@@ -132,13 +132,13 @@ async def main():
     # Initialize
     success = await arm.initialize(bridge)
     if not success:
-        print("⚠️  Could not connect to real robot, running in demo mode")
+        print("  Could not connect to real robot, running in demo mode")
     
     # Start bridge
     await bridge.start()
     
     print("=" * 50)
-    print(f"🦾 {args.arm_type.upper()} Arm Robot Demo")
+    print(f" {args.arm_type.upper()} Arm Robot Demo")
     print("=" * 50)
     print(f"Type: {args.arm_type}")
     print(f"ROS: {args.ros_version}")
@@ -155,12 +155,12 @@ async def main():
             await interactive_control(arm)
             
             # Keep running for interactive control
-            print("\n⏳ Waiting for commands... (Press Ctrl+C to stop)")
+            print("\n Waiting for commands... (Press Ctrl+C to stop)")
             while True:
                 await asyncio.sleep(1)
                 
     except KeyboardInterrupt:
-        print("\n\n⏹️  Stopping...")
+        print("\n\n  Stopping...")
     finally:
         await arm.shutdown()
         await bridge.stop()

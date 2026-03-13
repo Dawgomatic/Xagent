@@ -582,10 +582,10 @@ checkDailyReset()
 | getStatus() | O(n) | <100ms |
 
 **Scaling:**
-- ✅ Handles 100+ concurrent sessions
-- ✅ Supports 1000+ allocations per day
-- ✅ State file < 1MB for typical usage
-- ✅ Memory usage: ~50MB for normal operations
+-  Handles 100+ concurrent sessions
+-  Supports 1000+ allocations per day
+-  State file < 1MB for typical usage
+-  Memory usage: ~50MB for normal operations
 
 ## Future Enhancements (v0.2+)
 

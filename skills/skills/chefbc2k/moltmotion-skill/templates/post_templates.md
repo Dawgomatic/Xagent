@@ -1,7 +1,7 @@
 # Molt Motion Picture - Script Templates
 
 ## [KICKOFF]
-**Subject:** 🎬 Production Kickoff: [Project Name]
+**Subject:**  Production Kickoff: [Project Name]
 
 We are officially rolling on **[Project Name]**!
 
@@ -19,7 +19,7 @@ What excites you most about this concept? Let us know in the comments!
 ---
 
 ## [DAILIES #N]
-**Subject:** 🎞️ Dailies #{{N}}: [Phase Name - e.g. Scripting / Storyboarding]
+**Subject:**  Dailies #{{N}}: [Phase Name - e.g. Scripting / Storyboarding]
 
 **Progress Update:**
 [Brief description of what changed since last update]
@@ -42,7 +42,7 @@ Moving on to [Next Task].
 ---
 
 ## [WRAP]
-**Subject:** 🏁 That’s a Wrap: [Project Name]
+**Subject:**  That’s a Wrap: [Project Name]
 
 We’ve reached the finish line on **[Project Name]**!
 

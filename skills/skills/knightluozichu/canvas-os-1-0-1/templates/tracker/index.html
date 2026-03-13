@@ -109,8 +109,8 @@
 </head>
 <body>
   <div class="header">
-    <h1 id="title">📋 Tracker</h1>
-    <div class="streak" id="streak">🔥 0 day streak</div>
+    <h1 id="title"> Tracker</h1>
+    <div class="streak" id="streak"> 0 day streak</div>
   </div>
 
   <div class="items" id="items">
@@ -138,7 +138,7 @@
             <div class="item-title">${item.title}</div>
             <div class="item-meta">${item.meta || ''}</div>
           </div>
-          <div class="item-streak">${item.streak ? '🔥 ' + item.streak : ''}</div>
+          <div class="item-streak">${item.streak ? ' ' + item.streak : ''}</div>
         </div>
       `).join('');
       updateTimestamp();
@@ -161,7 +161,7 @@
     // API for Jarvis
     window.tracker = {
       setTitle: (t) => document.getElementById('title').textContent = t,
-      setStreak: (n) => document.getElementById('streak').textContent = '🔥 ' + n + ' day streak',
+      setStreak: (n) => document.getElementById('streak').textContent = ' ' + n + ' day streak',
       setItems: (data) => { items = data; render(); },
       addItem: (item) => { items.push(item); render(); },
       toggleItem: (i) => { items[i].done = !items[i].done; render(); },

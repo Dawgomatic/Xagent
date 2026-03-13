@@ -5,13 +5,13 @@
 [![Python](https://img.shields.io/badge/python-3.14+-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-> 🚀 Intelligent browser-automated file downloads with multi-modal support
+>  Intelligent browser-automated file downloads with multi-modal support
 
 Automatically download files from dynamic webpages using Playwright browser automation. Supports auto-downloads, multi-step navigation, direct links, relative paths, and precise button clicking with cross-platform (Windows/macOS/Linux) intelligent detection.
 
-## ✨ Features
+##  Features
 
-### 🎯 Multi-Modal Download Support
+###  Multi-Modal Download Support
 
 - **Auto-Download Detection** - Captures downloads triggered on page load (e.g., Meitu Xiuxiu)
 - **Multi-Step Navigation** - Automatically finds and navigates to platform-specific pages
@@ -20,7 +20,7 @@ Automatically download files from dynamic webpages using Playwright browser auto
 - **Precise Button Clicking** - Chinese/English selector support (e.g., WeChat DevTools)
 - **Platform Auto-Detection** - Windows x64/ARM64, macOS Intel/Apple Silicon, Linux
 
-### 🧠 Intelligent Download Strategy
+###  Intelligent Download Strategy
 
 The skill employs a **3-tier fallback system**:
 
@@ -41,17 +41,17 @@ Stage 3: Button Clicking
   └─ Fallback to generic patterns
 ```
 
-### 🌍 Cross-Platform Support
+###  Cross-Platform Support
 
 | System | Architecture | Auto-Detection |
 |--------|--------------|-----------------|
-| Windows | AMD64/x86_64 | ✅ windows, win64, x64, 64-bit |
-| Windows | x86/i686 | ✅ windows, win32, x86, 32-bit |
-| macOS | ARM64 (M1/M2/M3) | ✅ macos, arm64, apple silicon |
-| macOS | x86_64 (Intel) | ✅ macos, x64, intel |
-| Linux | x86_64 | ✅ linux, x64, amd64 |
+| Windows | AMD64/x86_64 |  windows, win64, x64, 64-bit |
+| Windows | x86/i686 |  windows, win32, x86, 32-bit |
+| macOS | ARM64 (M1/M2/M3) |  macos, arm64, apple silicon |
+| macOS | x86_64 (Intel) |  macos, x64, intel |
+| Linux | x86_64 |  linux, x64, amd64 |
 
-## 📦 Installation
+##  Installation
 
 ### Requirements
 
@@ -73,7 +73,7 @@ git clone https://github.com/your-repo/browser-auto-download
 cp -r browser-auto-download ~/.openclaw/skills/
 ```
 
-## 🚀 Usage
+##  Usage
 
 ### Quick Start
 
@@ -129,20 +129,20 @@ python skills/browser-auto-download/scripts/auto_download.py \
   --headless
 ```
 
-## 📊 Test Results
+##  Test Results
 
 ### 100% Success Rate (4/4)
 
 | Website | Result | Mode | File Size |
 |---------|--------|------|----------|
-| [Meitu Xiuxiu](https://xiuxiu.meitu.com/) | ✅ Success | Auto-download + Navigation | 13.0 MB |
-| [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | ✅ Success | Precise button click | 231.9 MB |
-| [Python.org](https://www.python.org/downloads/) | ✅ Success | Direct exe link | 28.8 MB |
-| [7-Zip](https://www.7-zip.org/download.html) | ✅ Success | Relative path link | 1.4 MB |
+| [Meitu Xiuxiu](https://xiuxiu.meitu.com/) |  Success | Auto-download + Navigation | 13.0 MB |
+| [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) |  Success | Precise button click | 231.9 MB |
+| [Python.org](https://www.python.org/downloads/) |  Success | Direct exe link | 28.8 MB |
+| [7-Zip](https://www.7-zip.org/download.html) |  Success | Relative path link | 1.4 MB |
 
 **Platform Tested:** Windows 11 Pro (AMD64)
 
-## 🔧 How It Works
+##  How It Works
 
 ### Example: Meitu Xiuxiu (Multi-Step)
 
@@ -183,7 +183,7 @@ download = page.wait_for_event("download")
 download.save_as("~/Downloads/wechat_devtools.exe")
 ```
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **Software Installation** - Automate development tool downloads
 - **Batch Downloads** - Download multiple files from different sites
@@ -191,18 +191,18 @@ download.save_as("~/Downloads/wechat_devtools.exe")
 - **Cross-Platform Setup** - Download platform-specific installers
 - **Language-Agnostic** - Works with Chinese/English/multilingual sites
 
-## 🛠️ Technical Details
+##  Technical Details
 
 ### Supported Download Patterns
 
 | Pattern | Example | Supported |
 |---------|---------|-----------|
-| Auto-download on load | Meitu Xiuxiu | ✅ |
-| Direct .exe link | Python.org | ✅ |
-| Relative path (a/file.exe) | 7-Zip | ✅ |
-| Multi-step navigation | Homepage → PC page | ✅ |
-| Button click (Chinese) | WeChat DevTools | ✅ |
-| Button click (English) | Download for free | ✅ |
+| Auto-download on load | Meitu Xiuxiu |  |
+| Direct .exe link | Python.org |  |
+| Relative path (a/file.exe) | 7-Zip |  |
+| Multi-step navigation | Homepage → PC page |  |
+| Button click (Chinese) | WeChat DevTools |  |
+| Button click (English) | Download for free |  |
 
 ### Selector Strategy
 
@@ -237,14 +237,14 @@ page.on("download", handle_download)
 # - JavaScript execution
 ```
 
-## 📈 Performance
+##  Performance
 
 - **Fast Failure** - Aborts early on timeout (30s default)
 - **Smart Caching** - Reuses browser sessions
 - **Parallel Detection** - Checks multiple patterns simultaneously
 - **Memory Efficient** - Cleans up browser resources
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Areas for improvement:
 
@@ -271,17 +271,17 @@ python -m skill_creator.package_skill.py \
   skills/browser-auto-download
 ```
 
-## 📝 Changelog
+##  Changelog
 
-### v5.0.0 (2026-02-04) - Optimization Release ⚡
+### v5.0.0 (2026-02-04) - Optimization Release 
 
 **Performance Improvements:**
-- ✅ Increased initial page load wait (2s → 3s) for better stability
-- ✅ Extended auto-download detection window (5s → 10s)
-- ✅ Longer wait after button clicks (10s → 15s) for complex pages
-- ✅ Increased download event timeout (15s → 20s)
-- ✅ Better handling of JavaScript-rendered buttons (Eclipse, etc.)
-- ✅ Improved direct download link detection
+-  Increased initial page load wait (2s → 3s) for better stability
+-  Extended auto-download detection window (5s → 10s)
+-  Longer wait after button clicks (10s → 15s) for complex pages
+-  Increased download event timeout (15s → 20s)
+-  Better handling of JavaScript-rendered buttons (Eclipse, etc.)
+-  Improved direct download link detection
 
 **Reliability Boost:**
 - Page interaction success rate: ~60% → ~90%
@@ -289,7 +289,7 @@ python -m skill_creator.package_skill.py \
 - Enhanced debug mode with screenshot/HTML/text capture
 
 **Real-World Testing:**
-- Eclipse IDE download: ✅ 158.7 MB (direct CDN link)
+- Eclipse IDE download:  158.7 MB (direct CDN link)
 - Multiple retry strategies for robust downloads
 
 **Documentation:**
@@ -300,17 +300,17 @@ python -m skill_creator.package_skill.py \
 ### v4.0.0 (2026-02-04) - Production Release
 
 **New Features:**
-- ✅ Direct .exe/.dmg/.zip link support
-- ✅ Relative path resolution
-- ✅ Improved Chinese page support
-- ✅ 4-tier download strategy
+-  Direct .exe/.dmg/.zip link support
+-  Relative path resolution
+-  Improved Chinese page support
+-  4-tier download strategy
 
 **Test Results:**
 - 4/4 tests successful (100%)
-- Meitu Xiuxiu: 13.0 MB ✅
-- WeChat DevTools: 231.9 MB ✅
-- Python.org: 28.8 MB ✅
-- 7-Zip: 1.4 MB ✅
+- Meitu Xiuxiu: 13.0 MB 
+- WeChat DevTools: 231.9 MB 
+- Python.org: 28.8 MB 
+- 7-Zip: 1.4 MB 
 
 ### v3.0.0 (2026-02-04)
 
@@ -328,17 +328,17 @@ python -m skill_creator.package_skill.py \
 - Initial release
 - WeChat DevTools support
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Playwright](https://playwright.dev/) - Browser automation framework
 - [OpenClaw](https://openclaw.ai) - AI agent platform
 - [ClawHub](https://clawhub.com) - Skill sharing platform
 
-## 📮 Contact
+##  Contact
 
 - **Issues:** https://github.com/your-repo/browser-auto-download/issues
 - **Discord:** https://discord.gg/clawd
@@ -346,6 +346,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Made with ❤️ for OpenClaw**
+**Made with  for OpenClaw**
 
 *Automate the boring stuff. Download with intelligence.*

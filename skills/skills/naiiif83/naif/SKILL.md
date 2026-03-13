@@ -11,19 +11,19 @@ Create and manage AI-powered trading bots using natural language. Trade stocks, 
 
 ## What You Can Do
 
-### 🤖 Bot Management
+###  Bot Management
 - **Create bots** from natural language: "Create a bot that buys AAPL when RSI drops below 30"
 - **List, start, pause, delete** your bots
 - **View bot performance** and trade history
 - **Backtest strategies** before going live
 
-### 📊 Portfolio & Trading
+###  Portfolio & Trading
 - **View positions** and account balance
 - **Get real-time quotes** for stocks, ETFs, and crypto
 - **Place manual orders** (buy/sell)
 - **Switch between paper and live trading**
 
-### 📈 Market Data
+###  Market Data
 - Stock and ETF quotes
 - Options chains with Greeks
 - Market status checks

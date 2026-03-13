@@ -1,16 +1,16 @@
 TWEET 1/6:
-🚀 Just open-sourced a complete agent-to-agent payment system!
+ Just open-sourced a complete agent-to-agent payment system!
 
-💰 SHIB payments on Polygon (~$0.003 gas)
-🔒 Trustless escrow
-💬 Auto price negotiation
-⭐ Reputation system
+ SHIB payments on Polygon (~$0.003 gas)
+ Trustless escrow
+ Auto price negotiation
+ Reputation system
 
 9,416x cheaper than traditional escrow.
 
 Framework-agnostic. Works with LangChain, Bedrock, AutoGen.
 
-🧵👇
+
 
 ---
 
@@ -28,10 +28,10 @@ AI agents need instant, cheap payments.
 TWEET 3/6:
 The solution: A2A protocol + smart contracts on Polygon
 
-✅ $0.003 per transaction (vs $28.25)
-✅ Settlement in <10 seconds (vs 5-7 days)
-✅ Trustless (blockchain-based)
-✅ Complete audit trail
+ $0.003 per transaction (vs $28.25)
+ Settlement in <10 seconds (vs 5-7 days)
+ Trustless (blockchain-based)
+ Complete audit trail
 
 Perfect for the agent economy.
 
@@ -40,10 +40,10 @@ Perfect for the agent economy.
 TWEET 4/6:
 What's included:
 
-🔒 Escrow system (6-state machine)
-💬 Price negotiation (multi-round)
-⭐ Reputation scores (trust levels + badges)
-🔐 Production security (auth, rate limiting, audit logs)
+ Escrow system (6-state machine)
+ Price negotiation (multi-round)
+ Reputation scores (trust levels + badges)
+ Production security (auth, rate limiting, audit logs)
 
 All built on the A2A protocol standard (v0.3.0)
 
@@ -52,11 +52,11 @@ All built on the A2A protocol standard (v0.3.0)
 TWEET 5/6:
 Framework-agnostic design:
 
-✅ LangChain agents
-✅ AWS Bedrock
-✅ OpenClaw
-✅ AutoGen
-✅ Any A2A-compatible system
+ LangChain agents
+ AWS Bedrock
+ OpenClaw
+ AutoGen
+ Any A2A-compatible system
 
 Just 3 dependencies:
 - @a2a-js/sdk
@@ -70,9 +70,9 @@ No framework lock-in!
 TWEET 6/6:
 Ready to build?
 
-⭐ Star the repo: https://github.com/marcus20232023/a2a-shib-payments
-📖 Read the docs: Full deployment guide included
-🚀 Deploy in 5 minutes
+ Star the repo: https://github.com/marcus20232023/a2a-shib-payments
+ Read the docs: Full deployment guide included
+ Deploy in 5 minutes
 
 MIT licensed. Free for commercial use.
 

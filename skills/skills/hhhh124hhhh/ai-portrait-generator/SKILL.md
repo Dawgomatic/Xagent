@@ -205,18 +205,18 @@ Generate ultra-photorealistic portraits using structured JSON prompt templates. 
 
 ### 1. Be Specific
 Use detailed descriptions instead of generic terms:
-- ✅ "Dark brown hair, pulled back into a messy high ponytail"
-- ❌ "Brown hair"
+-  "Dark brown hair, pulled back into a messy high ponytail"
+-  "Brown hair"
 
 ### 2. Include Texture Details
 Add texture information for realism:
-- ✅ "Hyper-realistic skin details, visible pores, slight flush on cheeks"
-- ❌ "Smooth skin"
+-  "Hyper-realistic skin details, visible pores, slight flush on cheeks"
+-  "Smooth skin"
 
 ### 3. Specify Lighting
 Describe lighting quality and effects:
-- ✅ "Warm tungsten tones, creating strong specular highlights on skin"
-- ❌ "Good lighting"
+-  "Warm tungsten tones, creating strong specular highlights on skin"
+-  "Good lighting"
 
 ### 4. Camera Knowledge
 Use photography terminology:
@@ -226,9 +226,9 @@ Use photography terminology:
 
 ### 5. Atmosphere and Mood
 Define the emotional tone:
-- ✅ "Intense, raw, fitness-focused, candid moment"
-- ✅ "Professional, trustworthy, approachable"
-- ❌ "Good vibe"
+-  "Intense, raw, fitness-focused, candid moment"
+-  "Professional, trustworthy, approachable"
+-  "Good vibe"
 
 ## Advanced Techniques
 

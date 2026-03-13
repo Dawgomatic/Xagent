@@ -49,7 +49,7 @@ def log(msg):
 def send_telegram_photo(photo_path, caption=""):
     """Send photo notification to Telegram"""
     if not TELEGRAM_BOT_TOKEN:
-        log("⚠️ No Telegram token configured")
+        log(" No Telegram token configured")
         return False
     
     try:
@@ -63,19 +63,19 @@ def send_telegram_photo(photo_path, caption=""):
             }
             response = requests.post(url, files=files, data=data, timeout=30)
             if response.status_code == 200:
-                log("📤 Photo sent to Telegram")
+                log(" Photo sent to Telegram")
                 return True
             else:
-                log(f"❌ Telegram error: {response.text}")
+                log(f" Telegram error: {response.text}")
                 return False
     except Exception as e:
-        log(f"❌ Failed to send photo: {e}")
+        log(f" Failed to send photo: {e}")
         return False
 
 def send_telegram_message(text):
     """Send text notification to Telegram"""
     if not TELEGRAM_BOT_TOKEN:
-        log("⚠️ No Telegram token configured")
+        log(" No Telegram token configured")
         return False
     
     try:
@@ -89,7 +89,7 @@ def send_telegram_message(text):
         response = requests.post(url, data=data, timeout=10)
         return response.status_code == 200
     except Exception as e:
-        log(f"❌ Failed to send message: {e}")
+        log(f" Failed to send message: {e}")
         return False
 
 def capture_frame(path):
@@ -149,12 +149,12 @@ def trigger_motion_alert(image_path):
         json.dump(trigger, f)
     
     # Send Telegram notification
-    caption = f"🚨 <b>MOTION DETECTED</b>\n\n📍 Office Camera\n🕐 {datetime.now().strftime('%I:%M %p')}\n\nReply with:\n• 'analyze' - I\'ll check what I see\n• 'stream' - Get live view link"
+    caption = f" <b>MOTION DETECTED</b>\n\n Office Camera\n {datetime.now().strftime('%I:%M %p')}\n\nReply with:\n• 'analyze' - I\'ll check what I see\n• 'stream' - Get live view link"
     
     if send_telegram_photo(image_path, caption):
-        log("🚨 Motion alert sent to Telegram!")
+        log(" Motion alert sent to Telegram!")
     else:
-        log("⚠️ Failed to send Telegram alert")
+        log(" Failed to send Telegram alert")
     
     return trigger_file
 
@@ -188,7 +188,7 @@ def start_stream_server():
                 h1{color:#fff;font-family:sans-serif;}</style>
                 </head>
                 <body>
-                <h1>🎥 Office Camera - Live</h1>
+                <h1> Office Camera - Live</h1>
                 <img src="/stream.jpg?t=''' + str(int(time.time())) + '''" />
                 <p style="color:#666;">Auto-refresh every 2 seconds</p>
                 </body>
@@ -203,10 +203,10 @@ def start_stream_server():
     
     try:
         server = HTTPServer(('0.0.0.0', 8080), StreamHandler)
-        log("🌐 Stream server started on http://localhost:8080")
+        log(" Stream server started on http://localhost:8080")
         server.serve_forever()
     except Exception as e:
-        log(f"⚠️ Stream server error: {e}")
+        log(f" Stream server error: {e}")
 
 def update_stream():
     """Continuously update stream frame"""
@@ -222,7 +222,7 @@ def main():
     with open(ACTIVE_FILE, 'w') as f:
         f.write(str(os.getpid()))
     
-    log("🔥 OVERWATCH PRO ACTIVATED")
+    log(" OVERWATCH PRO ACTIVATED")
     log("Features:")
     log("  • Motion detection with Telegram alerts")
     log("  • Live stream at http://localhost:8080")
@@ -264,22 +264,22 @@ def main():
                     time.sleep(5)
                 else:
                     remaining = int(COOLDOWN - (now - last_alert))
-                    log(f"⏳ Motion (cooldown: {remaining}s)")
+                    log(f" Motion (cooldown: {remaining}s)")
     
     except KeyboardInterrupt:
-        log("🛑 Stopped by user")
+        log(" Stopped by user")
     except Exception as e:
-        log(f"❌ Error: {e}")
+        log(f" Error: {e}")
     finally:
         if os.path.exists(ACTIVE_FILE):
             os.remove(ACTIVE_FILE)
-        log("👋 Overwatch Pro deactivated")
+        log(" Overwatch Pro deactivated")
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == "stop":
         if os.path.exists(ACTIVE_FILE):
             os.remove(ACTIVE_FILE)
-            print("🛑 Stop signal sent")
+            print(" Stop signal sent")
     else:
         main()

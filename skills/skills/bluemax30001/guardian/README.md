@@ -1,4 +1,4 @@
-# 🛡️ Guardian — Your Agent's Immune System
+#  Guardian — Your Agent's Immune System
 
 > *"I heard OpenClaw has security risks. How do I lock it down?"*
 > Install Guardian. That's it.
@@ -49,11 +49,11 @@ You don't watch a terminal. You don't edit config files. You just get a message 
 
 ## After install — what you get
 
-### 🔔 Alerts (to your channel)
+###  Alerts (to your channel)
 - Critical threats → instant notification
 - Daily digest at 9am — clean/flagged summary, trends, top threats
 
-### 📊 Live dashboard
+###  Live dashboard
 Open `guardian.html` in a browser. See:
 - Messages scanned, clean rate, active threats
 - Threat list with severity, channel, description, timestamp
@@ -65,7 +65,7 @@ cd skills/guardian/dashboard && python3 -m http.server 8091
 # http://localhost:8091/guardian.html
 ```
 
-### ⚙️ Config you can actually understand
+###  Config you can actually understand
 
 ```bash
 python3 scripts/onboard.py --config-review
@@ -73,7 +73,7 @@ python3 scripts/onboard.py --config-review
 
 Get a plain-English review of every setting — what it does, whether yours is right, and what to change if not. No docs spelunking.
 
-### 🔧 Admin commands (when you need them)
+###  Admin commands (when you need them)
 
 ```bash
 python3 scripts/admin.py status          # is it running?

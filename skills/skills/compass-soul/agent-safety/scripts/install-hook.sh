@@ -33,7 +33,7 @@ set -euo pipefail
 SCAN_SCRIPT="__SCAN_SCRIPT__"
 
 if [ ! -f "$SCAN_SCRIPT" ]; then
-  echo "⚠ pre-publish-scan.sh not found at $SCAN_SCRIPT"
+  echo " pre-publish-scan.sh not found at $SCAN_SCRIPT"
   echo "  Blocking commit as a safety measure."
   echo "  Reinstall hook: bash <skill-dir>/scripts/install-hook.sh <repo>"
   exit 1
@@ -56,15 +56,15 @@ for f in $STAGED; do
   git show ":$f" > "$TMPDIR/$f" 2>/dev/null || continue
 done
 
-echo "🔒 Pre-commit security scan..."
+echo " Pre-commit security scan..."
 if ! bash "$SCAN_SCRIPT" "$TMPDIR"; then
   echo ""
-  echo "❌ Commit blocked. Fix issues above before committing."
+  echo " Commit blocked. Fix issues above before committing."
   echo "   To bypass (emergencies only): git commit --no-verify"
   exit 1
 fi
 
-echo "✅ Security scan passed."
+echo " Security scan passed."
 HOOKEOF
 
 # Inject actual path (portable across macOS and Linux)
@@ -75,6 +75,6 @@ else
 fi
 chmod +x "$HOOK"
 
-echo "✅ Pre-commit hook installed at $HOOK"
+echo " Pre-commit hook installed at $HOOK"
 echo "   Scans staged files using: $SCAN_SCRIPT"
 echo "   Bypass (emergencies): git commit --no-verify"

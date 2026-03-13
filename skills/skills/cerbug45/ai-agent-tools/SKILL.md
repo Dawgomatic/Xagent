@@ -1,10 +1,10 @@
 # AI Agent Tools - Python Utility Library for AI Agents
 
-## 📖 Overview
+##  Overview
 
 This library provides ready-to-use Python functions that AI agents can leverage to perform various tasks including file operations, text analysis, data transformation, memory management, and validation.
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -26,7 +26,7 @@ Simply copy the `ai_agent_tools.py` file into your project directory.
 - Python 3.7 or higher
 - No external dependencies (uses only standard library)
 
-## 🛠️ Available Tools
+##  Available Tools
 
 ### 1. FileTools - File Operations
 
@@ -243,7 +243,7 @@ is_valid = ValidationTools.is_valid_phone("0532 123 45 67")
 
 ---
 
-## 💡 Complete Usage Example
+##  Complete Usage Example
 
 ```python
 from ai_agent_tools import (
@@ -287,7 +287,7 @@ print(f"Processed {len(contacts)} contacts")
 print(f"Saved to: output/contacts.json")
 ```
 
-## 🎯 Best Practices
+##  Best Practices
 
 ### 1. Error Handling
 Always wrap file operations in try-except blocks:
@@ -331,7 +331,7 @@ filepath = os.path.join(base_dir, "data", "file.txt")
 content = FileTools.read_file(filepath)
 ```
 
-## 🔧 Advanced Usage
+##  Advanced Usage
 
 ### Chaining Operations
 
@@ -374,7 +374,7 @@ class DataProcessor:
         return report
 ```
 
-## 📦 Integration with AI Agents
+##  Integration with AI Agents
 
 ### Example: LangChain Integration
 
@@ -428,7 +428,7 @@ def execute_function(name, arguments):
         return FileTools.read_file(arguments["filepath"])
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run the built-in test suite:
 
@@ -458,7 +458,7 @@ Expected output:
 ✓ Tüm araçlar test edildi!
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! To contribute:
 
@@ -468,26 +468,26 @@ Contributions are welcome! To contribute:
 4. Push to the branch: `git push origin feature/new-tool`
 5. Submit a pull request
 
-## 📝 License
+##  License
 
 This project is open source and available under the MIT License.
 
-## 👤 Author
+##  Author
 
 **GitHub:** [@cerbug45](https://github.com/cerbug45)
 
-## 🐛 Issues & Support
+##  Issues & Support
 
 Found a bug or need help? Please open an issue on GitHub:
 https://github.com/cerbug45/ai-agent-tools/issues
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - [Python Documentation](https://docs.python.org/3/)
 - [Regular Expressions Guide](https://docs.python.org/3/howto/regex.html)
 - [JSON Format Specification](https://www.json.org/)
 
-## 🔄 Version History
+##  Version History
 
 ### v1.0.0 (2026-02-15)
 - Initial release
@@ -498,4 +498,4 @@ https://github.com/cerbug45/ai-agent-tools/issues
 
 ---
 
-**Happy Coding! 🚀**
+**Happy Coding! **

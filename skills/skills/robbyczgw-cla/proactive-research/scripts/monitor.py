@@ -80,7 +80,7 @@ def search_topic(topic: Dict, dry_run: bool = False) -> List[Dict]:
                 data = json.loads(result.stdout)
                 return data.get("results", [])
         except Exception as e:
-            print(f"⚠️ web-search-plus failed: {e}", file=sys.stderr)
+            print(f" web-search-plus failed: {e}", file=sys.stderr)
     
     # Fallback: Return mock results for testing
     if dry_run:
@@ -155,11 +155,11 @@ def send_alert(topic: Dict, result: Dict, priority: str, score: float, reason: s
     channels = topic.get("channels", [])
     
     # Build message
-    emoji_map = {"high": "🔥", "medium": "📌", "low": "📝"}
-    emoji = emoji_map.get(priority, "📌")
+    emoji_map = {"high": "", "medium": "", "low": ""}
+    emoji = emoji_map.get(priority, "")
     
     topic_name = topic.get("name", "Research Alert")
-    topic_emoji = topic.get("emoji", "🔍")
+    topic_emoji = topic.get("emoji", "")
     context = topic.get("context", "")
     
     message = f"{emoji} **{topic_name}** {topic_emoji}\n\n"
@@ -167,9 +167,9 @@ def send_alert(topic: Dict, result: Dict, priority: str, score: float, reason: s
     message += f"{result.get('snippet', '')}\n\n"
     
     if context:
-        message += f"💡 *Context:* {context}\n\n"
+        message += f" *Context:* {context}\n\n"
     
-    message += f"🔗 {result['url']}\n\n"
+    message += f" {result['url']}\n\n"
     message += f"_Score: {score:.2f} | {reason}_"
     
     if dry_run:
@@ -195,7 +195,7 @@ def send_telegram(message: str, priority: str):
     """Send via Telegram (requires OpenClaw message tool)."""
     # In real environment, this would use OpenClaw's message tool
     # For now, just log
-    print(f"📱 [TELEGRAM] {priority.upper()}: {message[:100]}...")
+    print(f" [TELEGRAM] {priority.upper()}: {message[:100]}...")
 
 
 def send_discord(message: str, priority: str):
@@ -207,7 +207,7 @@ def send_discord(message: str, priority: str):
     webhook_url = discord_config.get("webhook_url")
     
     if not webhook_url:
-        print("⚠️ Discord webhook not configured", file=sys.stderr)
+        print(" Discord webhook not configured", file=sys.stderr)
         return
     
     payload = {
@@ -218,14 +218,14 @@ def send_discord(message: str, priority: str):
     
     try:
         requests.post(webhook_url, json=payload, timeout=10)
-        print(f"✅ Sent to Discord")
+        print(f" Sent to Discord")
     except Exception as e:
-        print(f"❌ Discord send failed: {e}", file=sys.stderr)
+        print(f" Discord send failed: {e}", file=sys.stderr)
 
 
 def send_email(message: str, priority: str, subject: str):
     """Send via email."""
-    print(f"📧 [EMAIL] {priority.upper()}: {subject}")
+    print(f" [EMAIL] {priority.upper()}: {subject}")
 
 
 def monitor_topic(topic: Dict, state: Dict, settings: Dict, dry_run: bool = False, verbose: bool = False):
@@ -234,7 +234,7 @@ def monitor_topic(topic: Dict, state: Dict, settings: Dict, dry_run: bool = Fals
     topic_name = topic.get("name")
     
     if verbose:
-        print(f"\n🔍 Checking topic: {topic_name} ({topic_id})")
+        print(f"\n Checking topic: {topic_name} ({topic_id})")
     
     # Search
     results = search_topic(topic, dry_run=dry_run)
@@ -253,7 +253,7 @@ def monitor_topic(topic: Dict, state: Dict, settings: Dict, dry_run: bool = Fals
         # Check deduplication
         if is_duplicate(url, state, dedup_hours):
             if verbose:
-                print(f"   ⏭️  Skipping duplicate: {url}")
+                print(f"     Skipping duplicate: {url}")
             continue
         
         # Score
@@ -287,7 +287,7 @@ def monitor_topic(topic: Dict, state: Dict, settings: Dict, dry_run: bool = Fals
                     state["topics"][topic_id].get("alerts_today", 0) + 1
         else:
             if verbose:
-                print(f"   ⚠️ Rate limit reached, skipping alert")
+                print(f"    Rate limit reached, skipping alert")
     
     # Save medium priority to findings
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -301,7 +301,7 @@ def monitor_topic(topic: Dict, state: Dict, settings: Dict, dry_run: bool = Fals
             })
         
         if verbose:
-            print(f"   💾 Saved to digest: {result.get('title', '')[:50]}...")
+            print(f"    Saved to digest: {result.get('title', '')[:50]}...")
     
     # Update topic state
     if not dry_run:
@@ -331,7 +331,7 @@ def main():
     try:
         config = load_config()
     except FileNotFoundError as e:
-        print(f"❌ {e}", file=sys.stderr)
+        print(f" {e}", file=sys.stderr)
         sys.exit(1)
     
     state = load_state()
@@ -339,7 +339,7 @@ def main():
     topics = config.get("topics", [])
     
     if not topics:
-        print("⚠️ No topics configured", file=sys.stderr)
+        print(" No topics configured", file=sys.stderr)
         sys.exit(0)
     
     # Filter topics
@@ -360,17 +360,17 @@ def main():
     
     if not topics_to_check:
         if args.verbose:
-            print("✅ No topics due for checking")
+            print(" No topics due for checking")
         sys.exit(0)
     
-    print(f"🔍 Monitoring {len(topics_to_check)} topic(s)...")
+    print(f" Monitoring {len(topics_to_check)} topic(s)...")
     
     # Monitor each topic
     for topic in topics_to_check:
         try:
             monitor_topic(topic, state, settings, dry_run=args.dry_run, verbose=args.verbose)
         except Exception as e:
-            print(f"❌ Error monitoring {topic.get('name')}: {e}", file=sys.stderr)
+            print(f" Error monitoring {topic.get('name')}: {e}", file=sys.stderr)
             if args.verbose:
                 import traceback
                 traceback.print_exc()
@@ -378,9 +378,9 @@ def main():
     # Save state
     if not args.dry_run:
         save_state(state)
-        print("✅ State saved")
+        print(" State saved")
     
-    print("✅ Monitoring complete")
+    print(" Monitoring complete")
 
 
 if __name__ == "__main__":

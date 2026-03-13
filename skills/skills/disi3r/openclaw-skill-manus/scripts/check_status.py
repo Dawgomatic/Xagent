@@ -33,7 +33,7 @@ def get_task_status(api_key, task_id):
     response = requests.get(url, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error: {response.text}")
+        print(f" Error: {response.text}")
         sys.exit(1)
     
     return response.json()
@@ -50,13 +50,13 @@ def main():
     
     status = task.get("status", "unknown")
     status_icons = {
-        "pending": "⏳ Pending",
-        "running": "🔄 Running",
-        "completed": "✅ Completed",
-        "failed": "❌ Failed"
+        "pending": " Pending",
+        "running": " Running",
+        "completed": " Completed",
+        "failed": " Failed"
     }
     
-    print("📋 Task Status")
+    print(" Task Status")
     print("=" * 40)
     print(f"ID: {task_id}")
     print(f"Status: {status_icons.get(status, status)}")
@@ -71,7 +71,7 @@ def main():
         print(f"Credits: {credit_usage}")
     
     if status == "completed":
-        print(f"\n🔗 URL: https://manus.im/app/{task_id}")
+        print(f"\n URL: https://manus.im/app/{task_id}")
 
 if __name__ == "__main__":
     main()

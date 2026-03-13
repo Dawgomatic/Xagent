@@ -73,7 +73,7 @@ fs.mkdirSync(`${HOME}/.clawdbot/logs`, { recursive: true });
 const outPath = path.join(HOME, 'Library', 'LaunchAgents', `${LABEL}.plist`);
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, plist);
-console.log(`✅ Wrote: ${outPath}`);
+console.log(` Wrote: ${outPath}`);
 console.log();
 console.log('To start the service:');
 console.log(`  launchctl load ${outPath}`);

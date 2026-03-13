@@ -3,11 +3,11 @@
 > **Version**: 2.0 · **Author**: Hongping Zhang · **Last Updated**: 2026-02-16
 >
 > **What's New in v2.0**:
-> - 🆕 Extended input parameters: `hardware_platform`, `sequence_length`, `generation_length`, `precision`
-> - 📊 Enhanced outputs: confidence intervals, energy efficiency metrics, optimization insights
-> - 🔬 Full measurement transparency: software versions, limitations, extrapolation notes
-> - ⚠️ Robust parameter validation and error handling
-> - 💡 Context-specific recommendations and trade-off analysis
+> -  Extended input parameters: `hardware_platform`, `sequence_length`, `generation_length`, `precision`
+> -  Enhanced outputs: confidence intervals, energy efficiency metrics, optimization insights
+> -  Full measurement transparency: software versions, limitations, extrapolation notes
+> -  Robust parameter validation and error handling
+> -  Context-specific recommendations and trade-off analysis
 
 The EcoCompute Skill transforms your AI agent into an **LLM energy efficiency expert**, equipped with 93+ empirical measurements across 3 NVIDIA GPU architectures. It prevents common energy waste patterns that even experienced engineers miss.
 
@@ -161,21 +161,21 @@ What's the most energy-efficient setup?
   - Baseline (512→256): 345 J/1k tok measured on A800
   - Your config: ~345 J/1k tok (energy/token is relatively constant)
 
-## 💡 Optimization Insights
+##  Optimization Insights
 - Increasing to BS=32 would save additional 8% energy but increase latency to 112ms
 - Current config is 95.7% more efficient than BS=1 (common mistake)
 - If latency <50ms required, use BS=8 (still 87% better than BS=1)
 
-## ⚠️ Warning: Avoid These Pitfalls
+##  Warning: Avoid These Pitfalls
 - **DO NOT use `load_in_8bit=True`** on A800 — increases energy by 122–147%
 - If you must use INT8, set `llm_int8_threshold=0.0` (saves 3-5% vs FP16)
 - Avoid NF4 on datacenter GPUs with ample VRAM (11-18% energy penalty)
 
-## 📊 Detailed Analysis
+##  Detailed Analysis
 View interactive dashboard: https://hongping-zh.github.io/ecocompute-dynamic-eval/
 GitHub repository: https://github.com/hongping-zh/ecocompute-dynamic-eval
 
-## 🔬 Measurement Transparency
+##  Measurement Transparency
 - Hardware: NVIDIA A800, Driver 535.183.01
 - Software: PyTorch 2.4.1, CUDA 12.1, transformers 4.47.0
 - Method: NVML 10Hz power monitoring, n=10 runs, CV<2%
@@ -213,7 +213,7 @@ Your throughput matches the known pattern exactly:
 - FP16 baseline: 34.72 tok/s ← matches your 34.7 tok/s
 
 Root cause: bitsandbytes mixed-precision decomposition (threshold=6.0)
-causes INT8↔FP16 type conversion at every linear layer.
+causes INT8FP16 type conversion at every linear layer.
 
 ## Fix (one line)
 quantization_config = BitsAndBytesConfig(
@@ -280,9 +280,9 @@ batch size 1, 200K requests/month, hosted in China.
 - Or describe your setup
 
 **What you get**:
-- 🔴 Critical issues (>30% energy waste)
-- 🟡 Warnings (10–30% waste)
-- ✅ Good practices
+-  Critical issues (>30% energy waste)
+-  Warnings (10–30% waste)
+-  Good practices
 - Prioritized fix list with code snippets
 
 **Example prompt**:
@@ -300,7 +300,7 @@ for prompt in prompts:
 
 **Example output** (summarized):
 ```
-## 🔴 Critical Issues
+##  Critical Issues
 
 1. Default INT8 (no threshold override)
    Energy penalty: +17–147% vs FP16
@@ -344,10 +344,10 @@ for prompt in prompts:
 
 | Feature | General AI Agent | Agent + EcoCompute Skill |
 |---------|-----------------|-------------------------|
-| "Should I use INT8?" | "Yes, it saves memory and energy" ❌ | "Default INT8 wastes 17–147% energy. Use threshold=0.0" ✅ |
-| "NF4 for my 1.5B model?" | "Yes, 4-bit saves memory" ❌ | "No — 29% energy penalty. Use FP16 for ≤3B" ✅ |
-| "Best batch size?" | Generic advice | "BS=8 saves 87.5%, here's the exact data for your GPU" ✅ |
-| Data backing | Training data (potentially outdated) | **93+ real measurements**, CV < 2%, 3 GPU architectures ✅ |
+| "Should I use INT8?" | "Yes, it saves memory and energy"  | "Default INT8 wastes 17–147% energy. Use threshold=0.0"  |
+| "NF4 for my 1.5B model?" | "Yes, 4-bit saves memory"  | "No — 29% energy penalty. Use FP16 for ≤3B"  |
+| "Best batch size?" | Generic advice | "BS=8 saves 87.5%, here's the exact data for your GPU"  |
+| Data backing | Training data (potentially outdated) | **93+ real measurements**, CV < 2%, 3 GPU architectures  |
 
 **Core advantage**: This skill contains **empirical findings that contradict conventional wisdom**. Without it, AI agents will give well-intentioned but wrong advice about LLM energy efficiency.
 

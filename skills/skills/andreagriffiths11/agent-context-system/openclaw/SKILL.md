@@ -2,7 +2,7 @@
 name: agent-context
 description: Bootstrap persistent project context for AI coding agents.
 version: 1.3.0
-metadata: {"openclaw": {"emoji": "🧠", "homepage": "https://github.com/AndreaGriffiths11/agent-context-system", "os": ["darwin", "linux"], "requires": {"bins": ["bash"]}}}
+metadata: {"openclaw": {"emoji": "", "homepage": "https://github.com/AndreaGriffiths11/agent-context-system", "os": ["darwin", "linux"], "requires": {"bins": ["bash"]}}}
 ---
 
 # Agent Context System

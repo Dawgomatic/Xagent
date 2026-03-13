@@ -32,7 +32,7 @@ All notable changes to OpenClaw Token Optimizer are documented here.
 - **`native_openclaw` category in config-patches.json** — Clearly distinguishes patches that work today with zero external dependencies from those requiring API keys or beta features.
 
 ### Changed
-- `SKILL.md`: Configuration Patches section updated — `session_pruning`, `bootstrap_size_limits`, and `cache_retention_long` now listed as ✅ native (not ⏳ pending).
+- `SKILL.md`: Configuration Patches section updated — `session_pruning`, `bootstrap_size_limits`, and `cache_retention_long` now listed as  native (not  pending).
 - `config-patches.json`: Added `_categories.native_openclaw` grouping. Model routing patch updated to reflect Sonnet-primary setups (Haiku listed as optional with multi-provider note).
 - `heartbeat_optimizer.py`: Added `cache-ttl` subcommand and `CACHE_TTL_OPTIMAL_INTERVAL` constant (3300s = 55min). Plan output now includes cache TTL alignment recommendation when relevant.
 - Compliance with OpenClaw 2026.2.15 features: **72% → 92%+**

@@ -1,4 +1,4 @@
-# 🕌 CRITICAL: Ensure Prayer Reminders Never Fail
+#  CRITICAL: Ensure Prayer Reminders Never Fail
 
 ## The Most Important Thing
 
@@ -39,7 +39,7 @@ You MUST have these two cron jobs:
   "sessionTarget": "isolated",
   "payload": {
     "kind": "agentTurn",
-    "message": "🕌 SALAT FIRST - Check if it's time for prayer reminder:\n\n1. Run: python3 /path/to/check_prayer_reminder.py --prayer-times prayer_times.json --timezone YOUR_OFFSET\n2. If exit code is 1 (reminder needed), SEND THE MESSAGE IMMEDIATELY\n3. If exit code is 0 (no reminder), return HEARTBEAT_OK\n4. If exit code is 2 (error), alert that prayer times are missing\n\nThis is THE MOST IMPORTANT job. Prayer is the first priority. Never skip this check.",
+    "message": " SALAT FIRST - Check if it's time for prayer reminder:\n\n1. Run: python3 /path/to/check_prayer_reminder.py --prayer-times prayer_times.json --timezone YOUR_OFFSET\n2. If exit code is 1 (reminder needed), SEND THE MESSAGE IMMEDIATELY\n3. If exit code is 0 (no reminder), return HEARTBEAT_OK\n4. If exit code is 2 (error), alert that prayer times are missing\n\nThis is THE MOST IMPORTANT job. Prayer is the first priority. Never skip this check.",
     "timeoutSeconds": 30
   },
   "delivery": {
@@ -108,7 +108,7 @@ Add this to your `AGENTS.md`:
 ```markdown
 ## Every Session
 
-**🕌 SALAT FIRST - CRITICAL CHECK**
+** SALAT FIRST - CRITICAL CHECK**
 
 Before doing ANYTHING else, verify prayer reminder system is active:
 1. Check if cron job `prayer-times:reminder-check` exists and is enabled
@@ -194,4 +194,4 @@ If the system fails:
 
 > "Indeed, prayer has been decreed upon the believers at specified times." - Quran 4:103
 
-May Allah help us maintain our Salat 🤲
+May Allah help us maintain our Salat 

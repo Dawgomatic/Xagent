@@ -2,7 +2,7 @@
 name: taskr
 description: "Cloud Task Planning & Execution for OpenClaw. Makes your agent's work transparent and trackable. Structure all actions into persistent tasks with context notes. Watch progress unfold in real-time via web or mobile — no more \"what are you working on?\" interruptions."
 homepage: https://taskr.one
-metadata: {"openclaw":{"emoji":"📋","requires":{"env":["MCP_API_URL","MCP_USER_API_KEY","MCP_PROJECT_ID"]},"primaryEnv":"MCP_USER_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"env":["MCP_API_URL","MCP_USER_API_KEY","MCP_PROJECT_ID"]},"primaryEnv":"MCP_USER_API_KEY"}}
 ---
 
 # Taskr — Observable Task & Memory System
@@ -17,7 +17,7 @@ Taskr is an agent-first task management system. Humans observe progress in real-
 
 **Proactive transparency:** For any substantial work (3+ steps or >5 minutes), **offer to use Taskr** so the user can monitor progress remotely. Don't wait to be asked - suggest it!
 
-✅ **Use Taskr for:**
+ **Use Taskr for:**
 - Multi-step work that will take time (coding, research, analysis, builds)
 - Tasks spanning multiple sessions
 - Complex projects that benefit from structured breakdown
@@ -26,7 +26,7 @@ Taskr is an agent-first task management system. Humans observe progress in real-
 
 **Suggest it like:** "I'll track this work in Taskr so you can monitor progress from the web/mobile. Sound good?"
 
-❌ **Skip Taskr for:**
+ **Skip Taskr for:**
 - Single quick actions (<3 steps, <2 minutes)
 - Simple questions or information retrieval
 - Exploratory research without defined deliverables

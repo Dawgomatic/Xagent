@@ -3,7 +3,7 @@ name: coder-workspaces
 description: Manage Coder workspaces and AI coding agent tasks via CLI. List, create, start, stop, and delete workspaces. SSH into workspaces to run commands. Create and monitor AI coding tasks with Claude Code, Aider, or other agents.
 metadata:
   openclaw:
-    emoji: "🏗️"
+    emoji: ""
     requires:
       bins: ["coder"]
       env: ["CODER_URL", "CODER_SESSION_TOKEN"]

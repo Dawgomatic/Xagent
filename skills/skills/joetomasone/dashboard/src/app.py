@@ -224,10 +224,10 @@ def get_deliverables():
     """Get deliverables/folders."""
     # These could be configured or read from a file
     deliverables = [
-        {'id': '1', 'name': 'Daily Notes', 'icon': '📝', 'path': f'{WORKSPACE}/memory/', 'type': 'folder'},
-        {'id': '2', 'name': 'Scripts', 'icon': '⚡', 'path': f'{WORKSPACE}/scripts/', 'type': 'folder'},
-        {'id': '3', 'name': 'Skills', 'icon': '🛠️', 'path': f'{WORKSPACE}/skills/', 'type': 'folder'},
-        {'id': '4', 'name': 'Channel Logs', 'icon': '💬', 'path': f'{WORKSPACE}/memory/channel-logs/', 'type': 'folder'},
+        {'id': '1', 'name': 'Daily Notes', 'icon': '', 'path': f'{WORKSPACE}/memory/', 'type': 'folder'},
+        {'id': '2', 'name': 'Scripts', 'icon': '', 'path': f'{WORKSPACE}/scripts/', 'type': 'folder'},
+        {'id': '3', 'name': 'Skills', 'icon': '', 'path': f'{WORKSPACE}/skills/', 'type': 'folder'},
+        {'id': '4', 'name': 'Channel Logs', 'icon': '', 'path': f'{WORKSPACE}/memory/channel-logs/', 'type': 'folder'},
     ]
     return jsonify(deliverables)
 

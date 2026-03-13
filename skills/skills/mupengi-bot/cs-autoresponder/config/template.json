@@ -31,7 +31,7 @@
     "matchThreshold": 0.6,
     "maxResponseLength": 500,
     "includeEmoji": true,
-    "signOff": "- MUFI 고객센터 🎧"
+    "signOff": "- MUFI 고객센터 "
   },
   "escalationRules": {
     "negativeKeywords": ["환불", "불만", "화남", "실망", "최악", "사기", "소비자원"],

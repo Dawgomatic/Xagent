@@ -16,7 +16,7 @@ python3 ~/.openclaw/workspace/skills/public/minecraft-monitor/scripts/minecraft-
 ```
 
 ```
-🟢 corejourney.org:25565 - ONLINE (45ms)
+ corejourney.org:25565 - ONLINE (45ms)
    Version: 1.20.4
    Players: 3/20
    Online: Steve, Alex, CreeperHunter
@@ -49,7 +49,7 @@ python3 ~/.openclaw/workspace/skills/public/minecraft-monitor/scripts/minecraft-
 ## Output
 
 **Online server:**
-- 🟢 Green (good ping) / 🟡 Yellow (moderate) / 🟠 Orange (slow)
+-  Green (good ping) /  Yellow (moderate) /  Orange (slow)
 - Server address and port
 - Response time in milliseconds
 - Minecraft version
@@ -58,17 +58,17 @@ python3 ~/.openclaw/workspace/skills/public/minecraft-monitor/scripts/minecraft-
 - Server MOTD (message of the day)
 
 **Offline server:**
-- 🔴 Red indicator
+-  Red indicator
 - Error message (timeout, connection refused, etc.)
 
 ## What's Being Monitored
 
-- ✅ Online/offline status
-- ✅ Player count (current/max)
-- ✅ Response time/latency
-- ✅ Server version
-- ✅ Online player list (if available)
-- ✅ Server MOTD
+-  Online/offline status
+-  Player count (current/max)
+-  Response time/latency
+-  Server version
+-  Online player list (if available)
+-  Server MOTD
 
 ## Notes
 

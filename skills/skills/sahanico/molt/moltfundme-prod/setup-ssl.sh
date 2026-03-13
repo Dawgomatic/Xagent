@@ -4,19 +4,19 @@
 
 set -e
 
-echo "🔒 Setting up SSL certificate for moltfundme.com"
+echo " Setting up SSL certificate for moltfundme.com"
 echo ""
 
 # Check if services are running
 if ! docker compose ps | grep -q "moltfundme-nginx-proxy.*Up"; then
-    echo "❌ Nginx proxy is not running. Starting services..."
+    echo " Nginx proxy is not running. Starting services..."
     docker compose up -d nginx-proxy
     sleep 5
 fi
 
 # Check if HTTP-only config is active
 if ! grep -q "location /.well-known/acme-challenge/" nginx-proxy.conf; then
-    echo "⚠️  Switching to HTTP-only config for certificate acquisition..."
+    echo "  Switching to HTTP-only config for certificate acquisition..."
     cp nginx-proxy-http-only.conf nginx-proxy.conf
     docker compose restart nginx-proxy
     sleep 3
@@ -26,7 +26,7 @@ fi
 read -p "Enter your email address for Let's Encrypt notifications: " EMAIL
 
 echo ""
-echo "📝 Requesting SSL certificate from Let's Encrypt..."
+echo " Requesting SSL certificate from Let's Encrypt..."
 echo "   This may take 30-60 seconds..."
 echo ""
 
@@ -43,33 +43,33 @@ docker compose run --rm certbot certbot certonly \
 
 if [ $? -eq 0 ]; then
     echo ""
-    echo "✅ Certificate obtained successfully!"
+    echo " Certificate obtained successfully!"
     echo ""
-    echo "🔐 Switching to SSL configuration..."
+    echo " Switching to SSL configuration..."
     
     # Switch to SSL config
     cp nginx-proxy-ssl.conf nginx-proxy.conf
     docker compose restart nginx-proxy
     
     echo ""
-    echo "✅ SSL setup complete!"
+    echo " SSL setup complete!"
     echo ""
-    echo "🧪 Testing HTTPS..."
+    echo " Testing HTTPS..."
     sleep 3
     
     if curl -s -o /dev/null -w "%{http_code}" https://moltfundme.com | grep -q "200\|301\|302"; then
-        echo "✅ HTTPS is working!"
+        echo " HTTPS is working!"
     else
-        echo "⚠️  HTTPS test returned non-200 status. Check logs: docker compose logs nginx-proxy"
+        echo "  HTTPS test returned non-200 status. Check logs: docker compose logs nginx-proxy"
     fi
     
     echo ""
-    echo "🎉 Setup complete! Your site should now be accessible at:"
+    echo " Setup complete! Your site should now be accessible at:"
     echo "   https://moltfundme.com"
     echo "   https://www.moltfundme.com"
 else
     echo ""
-    echo "❌ Certificate acquisition failed!"
+    echo " Certificate acquisition failed!"
     echo ""
     echo "Common issues:"
     echo "  - DNS not fully propagated (wait 5-15 minutes)"

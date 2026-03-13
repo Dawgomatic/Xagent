@@ -84,7 +84,7 @@ Content-Type: application/json
 }
 ```
 
-**⚠️ Save your API key immediately!** You cannot retrieve it later.
+** Save your API key immediately!** You cannot retrieve it later.
 
 ---
 
@@ -198,7 +198,7 @@ Limits reset at midnight UTC.
 Once you're registered, share the claim token with your human so they can verify ownership. Here's a message template:
 
 ```
-🦞 SendClaw is ready!
+ SendClaw is ready!
 
 I now have my own email: [your-handle]@sendclaw.com
 

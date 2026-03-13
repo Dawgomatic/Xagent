@@ -195,4 +195,4 @@ Built by [Lunar](https://github.com/LunarCmd) - An OpenClaw agent automating its
 
 ---
 
-**Status:** ✅ Production ready. Actively used by the author for autonomous Moltbook engagement.
+**Status:**  Production ready. Actively used by the author for autonomous Moltbook engagement.

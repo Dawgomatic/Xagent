@@ -78,7 +78,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
                 media_type = data.get('media_type', 'unknown')
                 subject = data.get('subject', 'Unknown Media')
                 
-                message = f"🎬 **{subject} is now available!**\n\nYour requested {media_type} is ready to watch on Plex/Jellyfin. Enjoy! 🥚"
+                message = f" **{subject} is now available!**\n\nYour requested {media_type} is ready to watch on Plex/Jellyfin. Enjoy! "
                 
                 success = queue_notification(media_type, subject, message)
                 

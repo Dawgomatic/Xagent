@@ -252,7 +252,7 @@ class TwitterClient:
         """
         Login to Twitter account.
         
-        ⚠️ HIGH RISK OPERATION ⚠️
+         HIGH RISK OPERATION 
         
         This operation transmits your Twitter credentials to api.aisa.one.
         
@@ -272,8 +272,8 @@ class TwitterClient:
         Returns:
             Login status (async operation - check status separately)
         """
-        print("⚠️  WARNING: Transmitting credentials to third-party API", file=sys.stderr)
-        print("⚠️  Ensure you are using a dedicated test account only!", file=sys.stderr)
+        print("  WARNING: Transmitting credentials to third-party API", file=sys.stderr)
+        print("  Ensure you are using a dedicated test account only!", file=sys.stderr)
         
         data = {
             "user_name": username,
@@ -303,7 +303,7 @@ class TwitterClient:
         """
         Send a tweet.
         
-        ⚠️ HIGH RISK OPERATION ⚠️
+         HIGH RISK OPERATION 
         
         Requires prior login. Use only with dedicated test accounts.
         
@@ -327,7 +327,7 @@ class TwitterClient:
         """
         Like a tweet.
         
-        ⚠️ HIGH RISK OPERATION ⚠️
+         HIGH RISK OPERATION 
         
         Requires prior login. Use only with dedicated test accounts.
         
@@ -347,7 +347,7 @@ class TwitterClient:
         """
         Retweet a tweet.
         
-        ⚠️ HIGH RISK OPERATION ⚠️
+         HIGH RISK OPERATION 
         
         Requires prior login. Use only with dedicated test accounts.
         
@@ -367,7 +367,7 @@ class TwitterClient:
 def print_security_warning():
     """Print security warning for write operations."""
     print("\n" + "="*70, file=sys.stderr)
-    print("⚠️  SECURITY WARNING", file=sys.stderr)
+    print("  SECURITY WARNING", file=sys.stderr)
     print("="*70, file=sys.stderr)
     print("You are about to use a HIGH RISK write operation.", file=sys.stderr)
     print("", file=sys.stderr)
@@ -434,7 +434,7 @@ Security Notice:
     # ==================== High Risk Write Commands ====================
     
     # login
-    login = subparsers.add_parser("login", help="Login to Twitter account (⚠️ HIGH RISK)")
+    login = subparsers.add_parser("login", help="Login to Twitter account ( HIGH RISK)")
     login.add_argument("--username", "-u", required=True, help="Twitter username")
     login.add_argument("--email", "-e", required=True, help="Account email")
     login.add_argument("--password", "-p", required=True, help="Account password")
@@ -446,19 +446,19 @@ Security Notice:
     account.add_argument("--username", "-u", required=True, help="Twitter username")
     
     # post
-    post = subparsers.add_parser("post", help="Send a tweet (⚠️ HIGH RISK)")
+    post = subparsers.add_parser("post", help="Send a tweet ( HIGH RISK)")
     post.add_argument("--username", "-u", required=True, help="Twitter username")
     post.add_argument("--text", "-t", required=True, help="Tweet text")
     post.add_argument("--media", help="Base64 encoded media")
     post.add_argument("--media-type", choices=["image/jpeg", "image/png", "image/gif", "video/mp4"])
     
     # like
-    like = subparsers.add_parser("like", help="Like a tweet (⚠️ HIGH RISK)")
+    like = subparsers.add_parser("like", help="Like a tweet ( HIGH RISK)")
     like.add_argument("--username", "-u", required=True, help="Twitter username")
     like.add_argument("--tweet-id", "-t", required=True, help="Tweet ID")
     
     # retweet
-    retweet = subparsers.add_parser("retweet", help="Retweet a tweet (⚠️ HIGH RISK)")
+    retweet = subparsers.add_parser("retweet", help="Retweet a tweet ( HIGH RISK)")
     retweet.add_argument("--username", "-u", required=True, help="Twitter username")
     retweet.add_argument("--tweet-id", "-t", required=True, help="Tweet ID")
     

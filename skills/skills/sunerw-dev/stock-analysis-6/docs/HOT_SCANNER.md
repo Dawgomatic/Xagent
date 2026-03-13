@@ -1,4 +1,4 @@
-# 🔥 Hot Scanner
+#  Hot Scanner
 
 Find viral stocks & crypto trends in real-time by aggregating multiple data sources.
 
@@ -31,30 +31,30 @@ python3 scripts/hot_scanner.py --json
 
 ```
 ============================================================
-🔥 HOT SCANNER v2 - What's Trending Right Now?
-📅 2026-02-02 10:45:30 UTC
+ HOT SCANNER v2 - What's Trending Right Now?
+ 2026-02-02 10:45:30 UTC
 ============================================================
 
-📊 TOP TRENDING (by buzz):
-   1. BTC      (6 pts) [CoinGecko, Google News] 📉 bearish (-2.5%)
-   2. ETH      (5 pts) [CoinGecko, Twitter] 📉 bearish (-7.2%)
-   3. NVDA     (3 pts) [Google News, Yahoo] 📰 Earnings beat...
+ TOP TRENDING (by buzz):
+   1. BTC      (6 pts) [CoinGecko, Google News]  bearish (-2.5%)
+   2. ETH      (5 pts) [CoinGecko, Twitter]  bearish (-7.2%)
+   3. NVDA     (3 pts) [Google News, Yahoo]  Earnings beat...
 
-🪙 CRYPTO HIGHLIGHTS:
-   🚀 RIVER    River              +14.0%
-   📉 BTC      Bitcoin             -2.5%
-   📉 ETH      Ethereum            -7.2%
+ CRYPTO HIGHLIGHTS:
+    RIVER    River              +14.0%
+    BTC      Bitcoin             -2.5%
+    ETH      Ethereum            -7.2%
 
-📈 STOCK MOVERS:
-   🟢 NVDA (gainers)
-   🔴 TSLA (losers)
-   📊 AAPL (most active)
+ STOCK MOVERS:
+    NVDA (gainers)
+    TSLA (losers)
+    AAPL (most active)
 
-🐦 SOCIAL BUZZ:
+ SOCIAL BUZZ:
    [twitter] Bitcoin to $100k prediction...
    [reddit_wsb] GME yolo update...
 
-📰 BREAKING NEWS:
+ BREAKING NEWS:
    [BTC, ETH] Crypto crash: $2.5B liquidated...
    [NVDA] Nvidia beats earnings expectations...
 ```
@@ -69,7 +69,7 @@ python3 scripts/hot_scanner.py --json
       "symbol": "BTC",
       "mentions": 6,
       "sources": ["CoinGecko Trending", "Google News"],
-      "signals": ["📉 bearish (-2.5%)"]
+      "signals": [" bearish (-2.5%)"]
     }
   ],
   "crypto_highlights": [...],
@@ -162,7 +162,7 @@ export CT0="..."
 
 ```bash
 bird whoami
-# Should show: 🙋 @YourUsername
+# Should show:  @YourUsername
 ```
 
 ## Scoring System
@@ -235,7 +235,7 @@ r'\b([A-Z]{2,5})(?:\'s|:|\s+stock|\s+shares)'
 
 ```yaml
 # Cron job config
-name: "🔥 Daily Hot Scanner"
+name: " Daily Hot Scanner"
 schedule:
   kind: cron
   expr: "0 8 * * *"

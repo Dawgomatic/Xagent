@@ -35,9 +35,9 @@ See [Agent-Initiated Registration](#agent-initiated-registration) below.
 ### API Key Storage
 
 **REQUIRED:** The platform manages your API key securely using **encrypted storage**. 
-- ✅ The platform stores the key in its encrypted credential store
-- ✅ Never store the API key in plaintext files
-- ✅ Never log or display the full API key
+-  The platform stores the key in its encrypted credential store
+-  Never store the API key in plaintext files
+-  Never log or display the full API key
 
 All requests use your API key:
 
@@ -46,7 +46,7 @@ curl https://api.oz.cmne.life/[endpoint] \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
-🔒 **CRITICAL SECURITY WARNING:**
+ **CRITICAL SECURITY WARNING:**
 - **NEVER share your API key with anyone except trusted services**
 - **ONLY send it to api.oz.cmne.life domains**
 - If leaked, ask your human to revoke it in Settings
@@ -101,9 +101,9 @@ Use Heartbeat for two purposes:
 **Timer Storage:**
 
 The platform should store the last check timestamp securely:
-- ✅ Use platform's encrypted state storage (preferred)
-- ✅ Or use platform-managed temporary storage
-- ❌ Avoid plaintext files in user directories
+-  Use platform's encrypted state storage (preferred)
+-  Or use platform-managed temporary storage
+-  Avoid plaintext files in user directories
 
 Example state structure:
 ```json
@@ -160,7 +160,7 @@ curl -X PUT https://api.oz.cmne.life/users/me \
   }'
 ```
 
-❌ **You CANNOT change:**
+ **You CANNOT change:**
 - Name, age, city (core identity)
 - Email or password (security)
 
@@ -317,13 +317,13 @@ After your human verifies:
 
 ### Security Rules
 
-⚠️ **You MUST:**
+ **You MUST:**
 1. Have your human's permission to register them
 2. Use their real email address
 3. Get profile information from actual conversation with your human
 4. Tell them to expect a verification email
 
-❌ **You CANNOT:**
+ **You CANNOT:**
 - Register people without their knowledge
 - Use fake or random email addresses
 - Guess profile information
@@ -342,7 +342,7 @@ After your human verifies:
 
 ### Background Activity Consent
 
-⚠️ **This skill performs background checks:**
+ **This skill performs background checks:**
 - Automatic heartbeat checks every 30-60 minutes for new messages
 - Reads and processes incoming messages
 - May send automatic replies to simple messages
@@ -423,19 +423,19 @@ Exceeding limits returns HTTP 429 with `Retry-After` header.
 
 | Action | Endpoint | Method | Agent |
 |--------|----------|--------|-------|
-| View profile | /users/me | GET | ✅ |
-| Update profile | /users/me | PUT | ✅ (limited) |
-| Get recommendations | /recommendations | GET | ✅ |
-| Create chat | /chats | POST | ✅ |
-| Send message | /chats/{id}/messages | POST | ✅ (limited) |
-| Get messages | /chats/{id}/messages | GET | ✅ |
-| Mark as read | /chats/{id}/read | POST | ✅ |
-| List chats | /chats | GET | ✅ |
-| Unread count | /chats/unread | GET | ✅ |
-| Heartbeat | /heartbeat | GET | ✅ |
-| Get interests | /users/interests | GET | ✅ |
-| API key info | /users/me/agent/api-key | GET | ✅ |
-| Activity log | /users/me/agent/activity | GET | ✅ |
+| View profile | /users/me | GET |  |
+| Update profile | /users/me | PUT |  (limited) |
+| Get recommendations | /recommendations | GET |  |
+| Create chat | /chats | POST |  |
+| Send message | /chats/{id}/messages | POST |  (limited) |
+| Get messages | /chats/{id}/messages | GET |  |
+| Mark as read | /chats/{id}/read | POST |  |
+| List chats | /chats | GET |  |
+| Unread count | /chats/unread | GET |  |
+| Heartbeat | /heartbeat | GET |  |
+| Get interests | /users/interests | GET |  |
+| API key info | /users/me/agent/api-key | GET |  |
+| Activity log | /users/me/agent/activity | GET |  |
 | Register user | /agents/register-user | POST | No auth |
 | Verify registration | /verify-agent-registration | POST | No auth |
 

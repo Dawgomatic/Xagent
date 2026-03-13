@@ -37,10 +37,10 @@ def parse_boss_info(html):
     
     # 状态描述
     status_map = {
-        "colddown": "🔄 刷新倒计时",
-        "active": "⚔️ BOSS已出现，战斗中",
-        "waiting": "⏳ 等待出现",
-        "process": "⚔️ BOSS已出现，战斗中"  # process 表示boss已出现
+        "colddown": " 刷新倒计时",
+        "active": " BOSS已出现，战斗中",
+        "waiting": " 等待出现",
+        "process": " BOSS已出现，战斗中"  # process 表示boss已出现
     }
     status_desc = status_map.get(status, status)
     can_set_reminder = status in ["colddown", "waiting"]  # 只有冷却中/等待中才能设置提醒
@@ -55,31 +55,31 @@ def parse_boss_info(html):
 
 def output(info, url):
     if not info:
-        return "❌ 获取BOSS信息失败，请稍后再试"
+        return " 获取BOSS信息失败，请稍后再试"
     
     lines = []
-    lines.append(f"🔥 暗黑4 世界BOSS")
+    lines.append(f" 暗黑4 世界BOSS")
     lines.append(f"")
     lines.append(f"【当前BOSS】{info['name']}")
     lines.append(f"【状态】{info['status']}")
     lines.append(f"【倒计时】{info['countdown']}")
     lines.append(f"")
-    lines.append(f"📊 数据来源: {url}")
+    lines.append(f" 数据来源: {url}")
     
     # 添加提醒提示
     if info.get("can_set_reminder"):
         lines.append(f"")
-        lines.append(f"💡 需要设置刷新提醒吗？")
+        lines.append(f" 需要设置刷新提醒吗？")
     else:
         lines.append(f"")
-        lines.append(f"⚠️ BOSS已出现，无需设置提醒")
+        lines.append(f" BOSS已出现，无需设置提醒")
     
     return "\n".join(lines)
 
 def main():
     html = fetch_data()
     if not html:
-        print("❌ 获取数据失败")
+        print(" 获取数据失败")
         sys.exit(1)
     
     info = parse_boss_info(html)

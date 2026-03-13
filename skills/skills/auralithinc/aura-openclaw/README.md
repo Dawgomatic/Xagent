@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/Auralith-Inc/aura-core/main/logo.png" alt="Aura" width="100">
 </p>
 
-# 🔥 Aura for OpenClaw
+#  Aura for OpenClaw
 
 **Persistent memory and instant knowledge retrieval for your OpenClaw agent.**
 
@@ -19,11 +19,11 @@ OpenClaw agents are powerful, but memory is hard. Context compaction can silentl
 
 **Aura gives your agent a real memory system:**
 
-- ✅ **Memories persist across sessions** — facts, preferences, and decisions survive restarts
-- ✅ **No context window pollution** — memory lives outside the prompt, retrieved on demand
-- ✅ **Scales to thousands of documents** — compiled into indexed `.aura` archives, not flat markdown
-- ✅ **Instant writes, zero blocking** — sub-millisecond write-ahead log means your agent is never waiting
-- ✅ **Compile any file format** — PDFs, DOCX, code, spreadsheets, emails — 60+ formats into one queryable archive
+-  **Memories persist across sessions** — facts, preferences, and decisions survive restarts
+-  **No context window pollution** — memory lives outside the prompt, retrieved on demand
+-  **Scales to thousands of documents** — compiled into indexed `.aura` archives, not flat markdown
+-  **Instant writes, zero blocking** — sub-millisecond write-ahead log means your agent is never waiting
+-  **Compile any file format** — PDFs, DOCX, code, spreadsheets, emails — 60+ formats into one queryable archive
 
 All processing happens **locally on your machine**. Your data stays on your hardware.
 
@@ -71,8 +71,8 @@ Beyond memory, Aura compiles entire folders of documents into a single queryable
 
 ```
 You: Learn everything in my ~/legal/ folder
-Agent: 🔥 Compiling ~/legal/ → legal.aura
-       ✅ Knowledge base created — documents indexed
+Agent:  Compiling ~/legal/ → legal.aura
+        Knowledge base created — documents indexed
 
 You: What does clause 4.2 say about termination?
 Agent: Based on contract_v3.pdf, clause 4.2 states...
@@ -107,7 +107,7 @@ Or clone this repo into your OpenClaw skills directory.
 ### Compile Documents
 ```
 You: Learn everything in ./docs
-Agent: 🔥 Compiled → knowledge.aura
+Agent:  Compiled → knowledge.aura
 ```
 
 ### Query Knowledge
@@ -119,7 +119,7 @@ Agent: Based on auth_module.py and architecture.md...
 ### Remember Facts
 ```
 You: Remember that I prefer dark mode and my timezone is EST
-Agent: ✅ Written to /fact
+Agent:  Written to /fact
 ```
 
 ### Recall Memory
@@ -159,5 +159,5 @@ Need enterprise-scale training pipelines, model fine-tuning, or production agent
 ---
 
 <p align="center">
-Made with ❤️ by <a href="https://auralith.org">Auralith Inc.</a>
+Made with  by <a href="https://auralith.org">Auralith Inc.</a>
 </p>

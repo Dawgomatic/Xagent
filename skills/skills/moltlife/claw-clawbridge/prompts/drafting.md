@@ -54,13 +54,13 @@ Each message MUST include:
 
 ### What to Avoid
 
-❌ Generic templates that could go to anyone
-❌ Overly formal or stiff language
-❌ Excessive flattery or compliments
-❌ Misleading claims about mutual connections
-❌ Aggressive or pushy calls to action
-❌ Long paragraphs or walls of text
-❌ Mentioning that an AI found them
+ Generic templates that could go to anyone
+ Overly formal or stiff language
+ Excessive flattery or compliments
+ Misleading claims about mutual connections
+ Aggressive or pushy calls to action
+ Long paragraphs or walls of text
+ Mentioning that an AI found them
 
 ## Message Structure
 
@@ -156,7 +156,7 @@ Always check against:
 
 ## Human Review Reminder
 
-⚠️ **All drafts are suggestions only.**
+ **All drafts are suggestions only.**
 
 Include this reminder in output:
 ```

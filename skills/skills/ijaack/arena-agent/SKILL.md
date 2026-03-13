@@ -203,7 +203,7 @@ Override the default reply generator:
 module.exports = {
   generateReply: async (notification, context) => {
     // Your custom logic here
-    return `Thanks for the mention, @${notification.user.handle}! 🚀`;
+    return `Thanks for the mention, @${notification.user.handle}! `;
   }
 };
 ```

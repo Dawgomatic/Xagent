@@ -304,4 +304,4 @@ After installation:
 - **Issues**: https://github.com/tralves/habit-flow-skill/issues
 - **Discussions**: https://github.com/tralves/habit-flow-skill/discussions
 
-Happy habit building! 🎯
+Happy habit building! 

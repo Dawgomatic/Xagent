@@ -128,13 +128,13 @@ function isValidISODate(str) {
 function main() {
   const inputPath = process.argv[2] || DEFAULT_PATH;
   
-  console.log('🔍 OSBS Blacklist Validator');
+  console.log(' OSBS Blacklist Validator');
   console.log('=' .repeat(50));
-  console.log(`📁 Validating: ${inputPath}`);
+  console.log(` Validating: ${inputPath}`);
   console.log('');
   
   if (!existsSync(inputPath)) {
-    console.error(`❌ File not found: ${inputPath}`);
+    console.error(` File not found: ${inputPath}`);
     process.exit(1);
   }
   
@@ -142,7 +142,7 @@ function main() {
     .split('\n')
     .filter(l => l.trim() && !l.startsWith('#'));
   
-  console.log(`📊 Found ${lines.length} entries to validate`);
+  console.log(` Found ${lines.length} entries to validate`);
   console.log('');
   
   let totalErrors = 0;
@@ -167,7 +167,7 @@ function main() {
       const { errors, warnings } = validateThreat(threat, lineNum);
       
       if (errors.length > 0) {
-        console.log(`❌ Line ${lineNum} (${threat.id || 'NO ID'}):`);
+        console.log(` Line ${lineNum} (${threat.id || 'NO ID'}):`);
         for (const err of errors) {
           console.log(`   - ${err}`);
         }
@@ -175,7 +175,7 @@ function main() {
       }
       
       if (warnings.length > 0 && process.argv.includes('--verbose')) {
-        console.log(`⚠️  Line ${lineNum} (${threat.id || 'NO ID'}):`);
+        console.log(`  Line ${lineNum} (${threat.id || 'NO ID'}):`);
         for (const warn of warnings) {
           console.log(`   - ${warn}`);
         }
@@ -183,7 +183,7 @@ function main() {
       }
       
     } catch (e) {
-      console.log(`❌ Line ${lineNum}: Invalid JSON - ${e.message}`);
+      console.log(` Line ${lineNum}: Invalid JSON - ${e.message}`);
       totalErrors++;
     }
   }
@@ -191,7 +191,7 @@ function main() {
   // Check for duplicate IDs
   if (duplicateIds.length > 0) {
     console.log('');
-    console.log('🔄 DUPLICATE IDs FOUND:');
+    console.log(' DUPLICATE IDs FOUND:');
     for (const dup of duplicateIds) {
       console.log(`   - ${dup.id} (line ${dup.line})`);
     }
@@ -200,7 +200,7 @@ function main() {
   
   // Summary
   console.log('');
-  console.log('📊 VALIDATION SUMMARY');
+  console.log(' VALIDATION SUMMARY');
   console.log('=' .repeat(50));
   console.log(`   Total entries:    ${lines.length}`);
   console.log(`   Unique IDs:       ${idSet.size}`);
@@ -226,7 +226,7 @@ function main() {
     }
     
     console.log('');
-    console.log('📈 STATISTICS:');
+    console.log(' STATISTICS:');
     console.log(`   Total indicators: ${indicatorCount}`);
     console.log('');
     console.log('   By Tier:');
@@ -251,10 +251,10 @@ function main() {
   
   console.log('');
   if (totalErrors === 0) {
-    console.log('✅ VALIDATION PASSED - All entries are valid!');
+    console.log(' VALIDATION PASSED - All entries are valid!');
     process.exit(0);
   } else {
-    console.log(`❌ VALIDATION FAILED - ${totalErrors} errors found`);
+    console.log(` VALIDATION FAILED - ${totalErrors} errors found`);
     process.exit(1);
   }
 }

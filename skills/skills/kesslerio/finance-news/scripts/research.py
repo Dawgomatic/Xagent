@@ -36,7 +36,7 @@ def format_market_data(market_data: dict) -> str:
             if 'data' in idx and idx['data']:
                 price = idx['data'].get('price', 'N/A')
                 change_pct = idx['data'].get('change_percent', 0)
-                emoji = '📈' if change_pct >= 0 else '📉'
+                emoji = '' if change_pct >= 0 else ''
                 lines.append(f"- {idx['name']}: {price} ({change_pct:+.2f}%) {emoji}")
         lines.append("")
     
@@ -145,12 +145,12 @@ Deliver a substantial report (500-800 words).
         if result.returncode == 0:
             return result.stdout.strip()
         else:
-            return f"⚠️ Gemini research error: {result.stderr}"
+            return f" Gemini research error: {result.stderr}"
     
     except subprocess.TimeoutExpired:
-        return "⚠️ Gemini research timeout"
+        return " Gemini research timeout"
     except FileNotFoundError:
-        return "⚠️ Gemini CLI not found. Install: brew install gemini-cli"
+        return " Gemini CLI not found. Install: brew install gemini-cli"
 
 
 def format_raw_data_report(market_data: dict, portfolio_data: dict) -> str:
@@ -188,11 +188,11 @@ def generate_research_report(args):
     
     config_path = CONFIG_DIR / "config.json"
     if not config_path.exists():
-        print("⚠️ No config found. Run 'finance-news wizard' first.", file=sys.stderr)
+        print(" No config found. Run 'finance-news wizard' first.", file=sys.stderr)
         sys.exit(1)
     
     # Fetch fresh data
-    print("📡 Fetching market data...", file=sys.stderr)
+    print(" Fetching market data...", file=sys.stderr)
     
     # Get market overview
     market_data = get_market_news(
@@ -208,7 +208,7 @@ def generate_research_report(args):
             args.max_stocks if hasattr(args, 'max_stocks') else 10
         )
     except PortfolioError as exc:
-        print(f"⚠️ Skipping portfolio: {exc}", file=sys.stderr)
+        print(f" Skipping portfolio: {exc}", file=sys.stderr)
         portfolio_data = None
     
     # Build report
@@ -221,13 +221,13 @@ def generate_research_report(args):
     source = research_result['source']
 
     if not research_report.strip():
-        print("⚠️ No data available for research", file=sys.stderr)
+        print(" No data available for research", file=sys.stderr)
         return
 
     if source == 'gemini':
-        print("🔬 Running deep research with Gemini...", file=sys.stderr)
+        print(" Running deep research with Gemini...", file=sys.stderr)
     else:
-        print("🧾 Gemini not available; using raw data report", file=sys.stderr)
+        print(" Gemini not available; using raw data report", file=sys.stderr)
     
     # Add metadata header
     timestamp = datetime.now().isoformat()
@@ -251,7 +251,7 @@ def generate_research_report(args):
     with open(output_file, 'w') as f:
         f.write(full_report)
     
-    print(f"✅ Research report saved to: {output_file}", file=sys.stderr)
+    print(f" Research report saved to: {output_file}", file=sys.stderr)
     
     # Also output to stdout
     if args.json:

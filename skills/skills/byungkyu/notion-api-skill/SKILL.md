@@ -7,7 +7,7 @@ metadata:
   author: maton
   version: "1.0"
   clawdbot:
-    emoji: 🧠
+    emoji: 
     requires:
       env:
         - MATON_API_KEY
@@ -335,7 +335,7 @@ Content-Type: application/json
 Notion-Version: 2025-09-03
 
 {
-  "icon": {"type": "emoji", "emoji": "🚀"}
+  "icon": {"type": "emoji", "emoji": ""}
 }
 ```
 

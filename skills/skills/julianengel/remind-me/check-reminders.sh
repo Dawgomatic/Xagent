@@ -46,7 +46,7 @@ done < <(grep "^- \[ \]" "$REMINDERS_FILE")
 # Output due reminders
 if [[ ${#DUE_REMINDERS[@]} -gt 0 ]]; then
     for reminder in "${DUE_REMINDERS[@]}"; do
-        echo "⏰ $reminder"
+        echo " $reminder"
     done
 fi
 

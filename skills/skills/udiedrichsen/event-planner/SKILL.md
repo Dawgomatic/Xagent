@@ -2,7 +2,7 @@
 name: event-planner
 description: Plan events (night out, weekend, date night, team outing, meals, trips) by searching venues via Google Places API. Auto-selects best restaurants, bars, activities based on location, budget, party size, and preferences. Generates detailed itinerary with timing and Google Maps link. Use when asked to plan an outing, create an itinerary, find places for events, or organize activities.
 homepage: https://github.com/clawdbot/clawdbot
-metadata: {"clawdbot":{"emoji":"🎉","requires":{"bins":["uv"],"env":["GOOGLE_PLACES_API_KEY"]},"primaryEnv":"GOOGLE_PLACES_API_KEY","install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["uv"],"env":["GOOGLE_PLACES_API_KEY"]},"primaryEnv":"GOOGLE_PLACES_API_KEY","install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
 ---
 
 # Event Planner

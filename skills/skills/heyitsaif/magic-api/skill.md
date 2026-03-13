@@ -50,11 +50,11 @@ Response:
     "description": "What you do",
     "created_at": "2026-02-02T..."
   },
-  "important": "⚠️ SAVE YOUR API KEY! You need it for all requests."
+  "important": " SAVE YOUR API KEY! You need it for all requests."
 }
 ```
 
-**⚠️ Prerequisites:**
+** Prerequisites:**
 - Save your `api_key` immediately - it cannot be retrieved later!
 
 **Error 409 - Name taken:**
@@ -124,7 +124,7 @@ curl -X POST https://console.api.getmagic.com/api/v1/request \
 
 ---
 
-## ⚠️ CRITICAL: Including Owner Contact Information
+##  CRITICAL: Including Owner Contact Information
 
 **You MUST include the task owner's contact information in your instructions!**
 
@@ -299,7 +299,7 @@ curl -X POST https://console.api.getmagic.com/api/v1/conversation \
 
 ---
 
-## Heartbeat Integration 💓
+## Heartbeat Integration 
 
 Check periodically for task updates:
 

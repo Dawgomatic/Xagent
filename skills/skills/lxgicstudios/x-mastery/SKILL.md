@@ -169,21 +169,21 @@ Hours 6+:       Dead unless viral
 ## What KILLS Your Reach
 
 ### Instant Death Triggers
-- ❌ External links in main post (use replies)
-- ❌ Getting reported by multiple users
-- ❌ Posting identical content repeatedly
-- ❌ Using banned words/phrases
-- ❌ Aggressive follow/unfollow patterns
-- ❌ Automated behavior patterns
+-  External links in main post (use replies)
+-  Getting reported by multiple users
+-  Posting identical content repeatedly
+-  Using banned words/phrases
+-  Aggressive follow/unfollow patterns
+-  Automated behavior patterns
 
 ### Slow Death Triggers
-- ❌ Inconsistent posting schedule
-- ❌ Not replying to comments
-- ❌ Too many hashtags (>2)
-- ❌ Off-topic from your niche
-- ❌ High tweet deletion rate
-- ❌ Low follower-to-following ratio (<1.0)
-- ❌ No profile picture or bio
+-  Inconsistent posting schedule
+-  Not replying to comments
+-  Too many hashtags (>2)
+-  Off-topic from your niche
+-  High tweet deletion rate
+-  Low follower-to-following ratio (<1.0)
+-  No profile picture or bio
 
 ### Shadowban Indicators
 1. Your tweets don't appear in hashtag searches
@@ -200,7 +200,7 @@ Hours 6+:       Dead unless viral
 ### Thread Structure That Works
 
 ```
-Tweet 1: HOOK - Must stand alone, no "thread" or "🧵" in hook
+Tweet 1: HOOK - Must stand alone, no "thread" or "" in hook
 Tweet 2-3: The PROBLEM - Why this matters
 Tweet 4-7: The SOLUTION - Step by step value
 Tweet 8: SUMMARY - Key takeaways
@@ -360,11 +360,11 @@ Ratio < 1:1    = Follow-farming penalty
 
 ### Link Placement Strategy
 ```
-❌ Bad:  "Check out my course [link]"
-✅ Good: "I made a free guide on [topic]. Drop a 🔥 and I'll DM it to you."
-✅ Good: Thread → Link in final tweet or reply
-✅ Good: "Link in bio" (but don't overuse)
-✅ Good: Pin tweet with link, reference in other tweets
+ Bad:  "Check out my course [link]"
+ Good: "I made a free guide on [topic]. Drop a  and I'll DM it to you."
+ Good: Thread → Link in final tweet or reply
+ Good: "Link in bio" (but don't overuse)
+ Good: Pin tweet with link, reference in other tweets
 ```
 
 ---

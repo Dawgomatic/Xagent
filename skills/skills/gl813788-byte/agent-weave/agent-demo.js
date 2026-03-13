@@ -101,7 +101,7 @@ async function main() {
     description: '高并发性能压力测试'
   });
   
-  console.log(`   ✅ 已创建: ${agent1.name}, ${agent2.name}, ${agent3.name}\n`);
+  console.log(`    已创建: ${agent1.name}, ${agent2.name}, ${agent3.name}\n`);
 
   // 启动子Agent
   console.log('[2] 启动子Agent执行任务...\n');
@@ -189,10 +189,10 @@ async function main() {
       [agent1, agent2, agent3].forEach(agent => {
         agent.once('complete', () => {
           completed++;
-          console.log(`\n✅ 子Agent完成 (${completed}/${total}): ${agent.name}`);
+          console.log(`\n 子Agent完成 (${completed}/${total}): ${agent.name}`);
           
           if (completed === total) {
-            console.log('\n🎉 所有子Agent已完成！');
+            console.log('\n 所有子Agent已完成！');
             resolve();
           }
         });
@@ -207,16 +207,16 @@ async function main() {
   
   const finalStatus = manager.getAllAgentStatus();
   
-  console.log(`\n📊 总体统计：`);
+  console.log(`\n 总体统计：`);
   console.log(`  - 总Agent数: ${finalStatus.total}`);
   Object.entries(finalStatus.byStatus).forEach(([state, count]) => {
     console.log(`  - ${state}: ${count}`);
   });
   
-  console.log(`\n📋 各Agent详细结果：`);
+  console.log(`\n 各Agent详细结果：`);
   finalStatus.agents.forEach((agent, index) => {
-    const icon = agent.status === 'completed' ? '✅' : 
-                 agent.status === 'error' ? '❌' : '⏳';
+    const icon = agent.status === 'completed' ? '' : 
+                 agent.status === 'error' ? '' : '';
     console.log(`\n  ${index + 1}. ${icon} ${agent.name}`);
     console.log(`     ID: ${agent.id}`);
     console.log(`     状态: ${agent.status}`);
@@ -244,18 +244,18 @@ async function main() {
     agents: finalStatus.agents
   }, null, 2));
   
-  console.log(`\n✅ 完整报告已保存: ${reportPath}\n`);
+  console.log(`\n 完整报告已保存: ${reportPath}\n`);
   
   // 清理
   console.log('[清理] 关闭所有资源...');
   await manager.stopAll();
-  console.log('✅ 清理完成\n');
+  console.log(' 清理完成\n');
   
-  console.log('🎉 演示完成！');
+  console.log(' 演示完成！');
 }
 
 // 运行
 main().catch(error => {
-  console.error('❌ 执行失败:', error);
+  console.error(' 执行失败:', error);
   process.exit(1);
 });

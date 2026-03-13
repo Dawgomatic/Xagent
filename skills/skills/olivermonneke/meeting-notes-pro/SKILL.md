@@ -20,35 +20,35 @@ When the user provides meeting notes, a transcript, or raw bullet points, produc
 **Date:** [Date] | **Duration:** [Duration] | **Facilitator:** [Name]
 **Attendees:** [List]
 
-## 🎯 Meeting Goal
+##  Meeting Goal
 [One sentence — what was this meeting supposed to achieve?]
 
-## ✅ Key Decisions
+##  Key Decisions
 - **[D1]:** [Decision] — *Decided by:* [who] | *Effective:* [when]
 - **[D2]:** ...
 
-## 📋 Action Items
+##  Action Items
 | # | Action | Owner | Deadline | Status |
 |---|--------|-------|----------|--------|
-| 1 | [task] | @name | YYYY-MM-DD | ⬜ Open |
-| 2 | [task] | @name | YYYY-MM-DD | ⬜ Open |
+| 1 | [task] | @name | YYYY-MM-DD |  Open |
+| 2 | [task] | @name | YYYY-MM-DD |  Open |
 
-## ❓ Open Questions
+##  Open Questions
 - [Question] — *Needs input from:* [who]
 
-## 🅿️ Parking Lot
+##  Parking Lot
 - [Topic deferred to future discussion]
 
-## 📝 Key Discussion Points
+##  Key Discussion Points
 - [Brief summary of main threads, max 3-5 bullets]
 
-## 📊 Effectiveness Score: [X/10]
+##  Effectiveness Score: [X/10]
 [One-line rationale]
 ```
 
 ### Rules for Summarization
 - Extract action items aggressively — if someone said "I'll do X", that's an action item
-- Every action item MUST have an owner and a deadline. If missing, flag it: "⚠️ No deadline set — suggest: [date]"
+- Every action item MUST have an owner and a deadline. If missing, flag it: " No deadline set — suggest: [date]"
 - Be opinionated: if a topic was discussed without resolution, put it in Open Questions
 - Parking Lot = interesting but off-topic for this meeting
 - Keep discussion points to essentials — no play-by-play
@@ -63,22 +63,22 @@ When the user asks to track action items across meetings, or wants a status over
 # Action Item Tracker
 **Last updated:** [date]
 
-## 🔴 Overdue
+##  Overdue
 | # | Action | Owner | Due | Meeting | Days Overdue |
 |---|--------|-------|-----|---------|--------------|
 | 1 | [task] | @name | date | [meeting name] | X days |
 
-## 🟡 Due This Week
+##  Due This Week
 | # | Action | Owner | Due | Meeting |
 |---|--------|-------|-----|---------|
 | 1 | [task] | @name | date | [meeting name] |
 
-## 🟢 Upcoming
+##  Upcoming
 | # | Action | Owner | Due | Meeting |
 |---|--------|-------|-----|---------|
 | 1 | [task] | @name | date | [meeting name] |
 
-## ✅ Recently Completed
+##  Recently Completed
 | # | Action | Owner | Completed | Meeting |
 |---|--------|-------|-----------|---------|
 | 1 | [task] | @name | date | [meeting name] |
@@ -94,7 +94,7 @@ Hi [Name],
 
 Quick follow-up from our [meeting name] on [date]. You have the following open items:
 
-1. **[Action]** — Due: [date] [🔴 overdue / 🟡 due soon / 🟢 on track]
+1. **[Action]** — Due: [date] [ overdue /  due soon /  on track]
 2. **[Action]** — Due: [date]
 
 Can you share a quick status update? If any blockers, let me know — happy to help escalate.
@@ -114,24 +114,24 @@ When asked to create an agenda, use this template:
 **Facilitator:** [Name] | **Note-taker:** [Name]
 **Location/Link:** [Details]
 
-## 🎯 Meeting Goal
+##  Meeting Goal
 [One sentence: What must be true when this meeting ends?]
 
-## 📖 Pre-read (review before the meeting)
+##  Pre-read (review before the meeting)
 - [Document/link] — [2-sentence summary of what it contains and why it matters]
 
 ## Agenda
 
 | # | Time | Topic | Type | Lead | Duration |
 |---|------|-------|------|------|----------|
-| 1 | 09:00 | Check-in & context setting | ℹ️ Info | Facilitator | 3 min |
-| 2 | 09:03 | [Topic] | 🗳️ Decision | @name | 15 min |
-| 3 | 09:18 | [Topic] | 💬 Discussion | @name | 10 min |
-| 4 | 09:28 | [Topic] | ℹ️ Update | @name | 10 min |
-| 5 | 09:38 | Action items & next steps | ✅ Wrap-up | Facilitator | 5 min |
-|   | 09:43 | Buffer | 🕐 | — | 2 min |
+| 1 | 09:00 | Check-in & context setting |  Info | Facilitator | 3 min |
+| 2 | 09:03 | [Topic] |  Decision | @name | 15 min |
+| 3 | 09:18 | [Topic] |  Discussion | @name | 10 min |
+| 4 | 09:28 | [Topic] |  Update | @name | 10 min |
+| 5 | 09:38 | Action items & next steps |  Wrap-up | Facilitator | 5 min |
+|   | 09:43 | Buffer |  | — | 2 min |
 
-**Topic Types:** ℹ️ Info (one-way) | 💬 Discussion (explore) | 🗳️ Decision (choose) | ✅ Wrap-up
+**Topic Types:**  Info (one-way) |  Discussion (explore) |  Decision (choose) |  Wrap-up
 
 ## Facilitator Notes
 - Start on time, even if people are missing
@@ -152,10 +152,10 @@ When asked to create an agenda, use this template:
 
 ## 4. 1:1 Meeting Templates
 
-### Manager ↔ Report 1:1 (Weekly, 30 min)
+### Manager  Report 1:1 (Weekly, 30 min)
 
 ```
-# 1:1: [Manager] ↔ [Report]
+# 1:1: [Manager]  [Report]
 **Date:** [Date] | **Recurring:** Weekly, 30 min
 
 ## Report's Topics (they drive the agenda)
@@ -164,7 +164,7 @@ When asked to create an agenda, use this template:
 
 ## Check-in (5 min)
 - How are you doing? (genuinely — not just work)
-- Energy level this week: 🔋🔋🔋🔋🔋 (1-5)
+- Energy level this week:  (1-5)
 
 ## Progress & Blockers (10 min)
 - What are you most proud of this week?
@@ -179,7 +179,7 @@ When asked to create an agenda, use this template:
 ## Action Items from Last Time
 | Action | Status |
 |--------|--------|
-| [from last 1:1] | ✅ / ⬜ / 🔄 |
+| [from last 1:1] |  /  /  |
 
 ## New Action Items
 | Action | Owner | Due |
@@ -193,7 +193,7 @@ When asked to create an agenda, use this template:
 ### Coaching Conversation (45 min)
 
 ```
-# Coaching Session: [Coach] ↔ [Coachee]
+# Coaching Session: [Coach]  [Coachee]
 **Date:** [Date] | **Focus Area:** [Topic]
 
 ## Opening (5 min)
@@ -264,7 +264,7 @@ When asked to create an agenda, use this template:
 ## Development Actions
 | Action | Type | Timeline |
 |--------|------|----------|
-| | 📚 Learning / 🛠️ Project / 👥 Mentoring | |
+| |  Learning /  Project /  Mentoring | |
 ```
 
 ---
@@ -277,7 +277,7 @@ When asked to document a decision:
 # Decision Log
 
 ## [DEC-001]: [Decision Title]
-**Date:** [Date] | **Decider:** [Name/Group] | **Status:** ✅ Final / 🔄 Revisit by [date]
+**Date:** [Date] | **Decider:** [Name/Group] | **Status:**  Final /  Revisit by [date]
 
 ### Context
 [2-3 sentences: Why did this decision need to be made? What triggered it?]
@@ -322,12 +322,12 @@ Rate meetings on these 6 dimensions (each 0-2 points, max 12 → normalize to 10
 
 | Dimension | Score | Notes |
 |-----------|-------|-------|
-| 🎯 Clear Goal | 0/1/2 | Was the purpose stated upfront? |
-| 👥 Right People | 0/1/2 | Were decision-makers present? Anyone unnecessary? |
-| ⏱️ Time Discipline | 0/1/2 | Started/ended on time? Topics timeboxed? |
-| 📋 Preparation | 0/1/2 | Did attendees come prepared? Was there pre-read? |
-| ✅ Outcomes | 0/1/2 | Were decisions made? Action items assigned? |
-| 💡 Engagement | 0/1/2 | Did people actively participate? Or was it a monologue? |
+|  Clear Goal | 0/1/2 | Was the purpose stated upfront? |
+|  Right People | 0/1/2 | Were decision-makers present? Anyone unnecessary? |
+|  Time Discipline | 0/1/2 | Started/ended on time? Topics timeboxed? |
+|  Preparation | 0/1/2 | Did attendees come prepared? Was there pre-read? |
+|  Outcomes | 0/1/2 | Were decisions made? Action items assigned? |
+|  Engagement | 0/1/2 | Did people actively participate? Or was it a monologue? |
 
 **Total: [X]/12 → [Y]/10**
 

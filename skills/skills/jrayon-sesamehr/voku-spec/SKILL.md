@@ -4,7 +4,7 @@ description: >
   Complete specification of Voku, a constructed language for AI-agent communication.
   Read quick-start/cheat-sheet.md for compact grammar.
   Read quick-start/essential-vocabulary.md for top 100 words.
-  Run tools/translator/cli.py for Voku↔English translation.
+  Run tools/translator/cli.py for VokuEnglish translation.
 version: "2.0"
 tags: [language, conlang, ai-communication, translation]
 ---

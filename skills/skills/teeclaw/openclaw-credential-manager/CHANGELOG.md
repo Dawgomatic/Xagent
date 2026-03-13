@@ -2,7 +2,7 @@
 
 ## Version 2.0.0 (2026-02-11)
 
-### 🔐 GPG Encryption, Deep Scanning, Rotation Tracking & Backup Hardening
+###  GPG Encryption, Deep Scanning, Rotation Tracking & Backup Hardening
 
 **Major security upgrade.** Private keys and wallet secrets are now GPG-encrypted at rest. Scanner catches hardcoded secrets in source files. All backup permissions hardened. Credential rotation is tracked with risk-based schedules.
 
@@ -102,12 +102,12 @@
 
 ### Security Fixes
 
-- 🔴 **Backup files** were created with mode 644 (world-readable) — now mode 600
-- 🔴 **Backup directories** were created with mode 755 — now mode 700
-- 🔴 **Scanner blind spot:** `~/.openclaw/*.json` was not scanned — now included
-- 🔴 **farcaster-credentials.json** with private keys had mode 644 — detected and flagged
-- 🟡 **validate.py** contradicted itself on quotes — fixed
-- 🟡 **check_security()** only checked for "password123" — now does entropy + pattern analysis
+-  **Backup files** were created with mode 644 (world-readable) — now mode 600
+-  **Backup directories** were created with mode 755 — now mode 700
+-  **Scanner blind spot:** `~/.openclaw/*.json` was not scanned — now included
+-  **farcaster-credentials.json** with private keys had mode 644 — detected and flagged
+-  **validate.py** contradicted itself on quotes — fixed
+-  **check_security()** only checked for "password123" — now does entropy + pattern analysis
 
 ### Migration Story
 
@@ -120,12 +120,12 @@ This update was built during a live security audit that discovered:
 6. `validate.py` had conflicting quote validation rules
 
 After running the upgraded skill:
-- ✅ 5 private keys GPG-encrypted (wallet + 4 Farcaster keys)
-- ✅ All backup permissions fixed (12 files/dirs)
-- ✅ `farcaster-credentials.json` migrated to `.env` and deleted
-- ✅ 57 keys tracked with risk-based rotation schedules
-- ✅ 4 scripts updated to use `.env` with GPG decryption
-- ✅ All validation checks pass
+-  5 private keys GPG-encrypted (wallet + 4 Farcaster keys)
+-  All backup permissions fixed (12 files/dirs)
+-  `farcaster-credentials.json` migrated to `.env` and deleted
+-  57 keys tracked with risk-based rotation schedules
+-  4 scripts updated to use `.env` with GPG decryption
+-  All validation checks pass
 
 ### Technical Details
 
@@ -138,7 +138,7 @@ After running the upgraded skill:
 
 ## Version 1.3.0 (2026-02-07)
 
-### 🎯 Consolidation Rule - Single Source Enforcement
+###  Consolidation Rule - Single Source Enforcement
 
 **Major update:** Formal enforcement of the single source principle — all credentials MUST be in `~/.openclaw/.env` ONLY.
 
@@ -179,7 +179,7 @@ After running the upgraded skill:
 
 ## Version 1.2.0 (2026-02-06)
 
-### 🔐 Crypto-Specific Credential Detection
+###  Crypto-Specific Credential Detection
 
 **Enhanced detection patterns** for blockchain and cryptocurrency credentials.
 
@@ -196,7 +196,7 @@ After running the upgraded skill:
 
 ## Version 1.1.0 (2026-02-05)
 
-### 🔒 SECURITY FOUNDATION UPDATE
+###  SECURITY FOUNDATION UPDATE
 
 - Added `CORE-PRINCIPLE.md` establishing mandatory security standard
 - Added `enforce.py` with `require_secure_env()` and `get_credential()`

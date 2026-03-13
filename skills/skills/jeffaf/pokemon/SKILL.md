@@ -5,7 +5,7 @@ description: "CLI for AI agents to lookup Pokémon info for their humans. Uses P
 homepage: https://pokeapi.co
 metadata:
   openclaw:
-    emoji: "⚡"
+    emoji: ""
     requires:
       bins: ["bash", "curl", "jq"]
     tags: ["pokemon", "pokeapi", "games", "entertainment", "cli"]
@@ -56,7 +56,7 @@ Pikachu-belle
 
 **Info output:**
 ```
-⚡ Pikachu [#25]
+ Pikachu [#25]
    Types: Electric
    Height: 0.4m | Weight: 6kg
    Base Stats:
@@ -73,14 +73,14 @@ Pikachu-belle
 
 **Type output:**
 ```
-🔥 Type: Fire
+ Type: Fire
 
-⚔️ Offensive:
+ Offensive:
    2x damage to: Grass, Ice, Bug, Steel
    ½x damage to: Fire, Water, Rock, Dragon
    0x damage to: None
 
-🛡️ Defensive:
+ Defensive:
    2x damage from: Water, Ground, Rock
    ½x damage from: Fire, Grass, Ice, Bug, Steel, Fairy
    0x damage from: None
@@ -88,13 +88,13 @@ Pikachu-belle
 
 **Ability output:**
 ```
-✨ Ability: Static
+ Ability: Static
 
-📖 Effect:
+ Effect:
 Pokémon with this Ability have a 30% chance of paralyzing
 attacking Pokémon on contact.
 
-🎯 Short: Has a 30% chance of paralyzing attacking Pokémon on contact.
+ Short: Has a 30% chance of paralyzing attacking Pokémon on contact.
 ```
 
 ## Notes

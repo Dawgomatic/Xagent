@@ -1,6 +1,6 @@
 # OpenCode Zen Free Models Reference
 
-> **⚠️ API Keys Required:**
+> ** API Keys Required:**
 > - **OpenCode models:** Requires OpenCode Zen API key
 > - **OpenRouter models:** Requires OpenRouter API key
 >
@@ -72,7 +72,7 @@
 | Model | Speed | Capability | Provider Diversification |
 |-------|-------|------------|-------------------------|
 | MiniMax M2.1 Free | Medium | Highest | Primary (OpenCode) |
-| Trinity Large Free | Medium | High | Fallback 1 (OpenRouter) ✅ |
+| Trinity Large Free | Medium | High | Fallback 1 (OpenRouter)  |
 | Kimi K2.5 Free | Medium-High | High | Fallback 2 (OpenCode) |
 
 ## Configuration Tips
@@ -80,14 +80,14 @@
 ### For High-Volume Tasks
 ```
 Primary: MiniMax M2.1 Free (OpenCode)
-Fallback 1: Trinity Large Free (OpenRouter) ✅ Provider Diversification
+Fallback 1: Trinity Large Free (OpenRouter)  Provider Diversification
 Fallback 2: Kimi K2.5 Free (OpenCode)
 ```
 
 ### For Critical Tasks
 ```
 Primary: MiniMax M2.1 Free (OpenCode)
-Fallback 1: Trinity Large Free (OpenRouter) ✅ Provider Diversification
+Fallback 1: Trinity Large Free (OpenRouter)  Provider Diversification
 Fallback 2: Kimi K2.5 Free (OpenCode)
 (Ensure at least one fallback is from different provider)
 ```

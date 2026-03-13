@@ -104,9 +104,9 @@ This is where 80% of testing time should be spent.
 - Are results realistic, not "too good to be true"?
 
 **Decision criteria**:
-- ✅ **Deploy**: Survives all stress tests with acceptable performance
-- 🔄 **Refine**: Core logic sound but needs parameter adjustment
-- ❌ **Abandon**: Fails stress tests or relies on fragile assumptions
+-  **Deploy**: Survives all stress tests with acceptable performance
+-  **Refine**: Core logic sound but needs parameter adjustment
+-  **Abandon**: Fails stress tests or relies on fragile assumptions
 
 ## Key Testing Principles
 

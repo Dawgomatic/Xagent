@@ -3,7 +3,7 @@ name: openkm-rest
 description: OpenKM Document Management via REST API (folders, documents, metadata, versioning, search, workflows)
 metadata:
   openclaw:
-    emoji: "📁"
+    emoji: ""
     requires:
       bins: ["python"]
       env:

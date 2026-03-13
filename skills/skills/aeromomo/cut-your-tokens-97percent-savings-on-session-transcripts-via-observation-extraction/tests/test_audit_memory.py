@@ -15,7 +15,7 @@ def audit_workspace_dir(tmp_path):
     (tmp_path / "MEMORY.md").write_text(
         "# Memory\n\n## 项目\n\n| Key | Value |\n|-----|-------|\n| A | 1 |\n\n## Empty\n"
     )
-    (tmp_path / "TOOLS.md").write_text("# Tools\n\n- SSH key: xyz\n- 🔧 Config done\n")
+    (tmp_path / "TOOLS.md").write_text("# Tools\n\n- SSH key: xyz\n-  Config done\n")
     mem = tmp_path / "memory"
     mem.mkdir()
     (mem / "2026-01-01.md").write_text("# Old note\n\nSome content here.\n")

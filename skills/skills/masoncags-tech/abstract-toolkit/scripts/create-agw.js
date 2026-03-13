@@ -38,7 +38,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("🔐 Creating Abstract Global Wallet...\n");
+  console.log(" Creating Abstract Global Wallet...\n");
   
   const account = privateKeyToAccount(privateKey);
   console.log("Signer EOA:", account.address);
@@ -53,15 +53,15 @@ async function main() {
     const agwAddress = abstractClient.account?.address;
     
     if (agwAddress) {
-      console.log("\n✅ Abstract Global Wallet Ready!");
+      console.log("\n Abstract Global Wallet Ready!");
       console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
       console.log("AGW Address:", agwAddress);
       console.log("Signer EOA:", account.address);
       console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
       console.log("\nExplorer: https://abscan.org/address/" + agwAddress);
-      console.log("\n📝 Note: The AGW smart contract deploys on first transaction.");
+      console.log("\n Note: The AGW smart contract deploys on first transaction.");
       console.log("   Fund it with ETH and make a transaction to activate.");
-      console.log("\n🎮 XP: Once active, your transactions earn Abstract XP!");
+      console.log("\n XP: Once active, your transactions earn Abstract XP!");
       
       return agwAddress;
     } else {

@@ -926,9 +926,9 @@ class UpgradePlanner:
             report.append("TOP PRIORITY UPGRADES:")
             report.append("-" * 30)
             for upgrade in high_priority:
-                risk_indicator = "🔴" if upgrade.risk_level in [UpgradeRisk.HIGH, UpgradeRisk.CRITICAL] else \
-                               "🟡" if upgrade.risk_level == UpgradeRisk.MEDIUM else "🟢"
-                security_indicator = " 🔒" if upgrade.security_updates else ""
+                risk_indicator = "" if upgrade.risk_level in [UpgradeRisk.HIGH, UpgradeRisk.CRITICAL] else \
+                               "" if upgrade.risk_level == UpgradeRisk.MEDIUM else ""
+                security_indicator = " " if upgrade.security_updates else ""
                 
                 report.append(f"{risk_indicator} {upgrade.name}: {upgrade.current_version} → {upgrade.latest_version}{security_indicator}")
                 report.append(f"   Type: {upgrade.update_type.value.title()} | Risk: {upgrade.risk_level.value.title()} | Priority: {upgrade.priority_score:.1f}")

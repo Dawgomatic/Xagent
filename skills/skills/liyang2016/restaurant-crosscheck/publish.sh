@@ -2,28 +2,28 @@
 # Quick publish script for ClawHub
 
 echo "=========================================="
-echo "📤 发布到 ClawHub"
+echo " 发布到 ClawHub"
 echo "=========================================="
 echo ""
 
 SKILL_DIR="$(dirname "$(readlink -f "$0")")"
 cd "$SKILL_DIR"
 
-echo "📁 Skill 目录: $SKILL_DIR"
+echo " Skill 目录: $SKILL_DIR"
 echo ""
 
 # Check if SKILL.md exists
 if [ ! -f "SKILL.md" ]; then
-    echo "❌ 错误: 找不到 SKILL.md"
+    echo " 错误: 找不到 SKILL.md"
     exit 1
 fi
 
-echo "✅ 找到 SKILL.md"
+echo " 找到 SKILL.md"
 echo ""
 
 # Check if clawhub is installed
 if ! command -v clawhub &> /dev/null; then
-    echo "❌ ClawHub CLI 未安装"
+    echo " ClawHub CLI 未安装"
     echo ""
     echo "请先安装:"
     echo "  npm install -g clawhub"
@@ -33,12 +33,12 @@ if ! command -v clawhub &> /dev/null; then
     exit 1
 fi
 
-echo "✅ ClawHub CLI 已安装"
+echo " ClawHub CLI 已安装"
 echo ""
 
 # Check if logged in
 if ! clawhub whoami &> /dev/null; then
-    echo "⚠️ 未登录 ClawHub"
+    echo " 未登录 ClawHub"
     echo ""
     echo "请先登录:"
     echo "  clawhub login"
@@ -51,7 +51,7 @@ if ! clawhub whoami &> /dev/null; then
     exit 1
 fi
 
-echo "✅ 已登录 ClawHub"
+echo " 已登录 ClawHub"
 echo ""
 
 echo "=========================================="
@@ -71,12 +71,12 @@ read -p "确认发布？(y/n): " -n 1 -r
 echo ""
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo "❌ 已取消"
+    echo " 已取消"
     exit 0
 fi
 
 echo ""
-echo "📤 正在发布..."
+echo " 正在发布..."
 echo ""
 
 # Publish
@@ -116,7 +116,7 @@ Files:
 
 echo ""
 echo "=========================================="
-echo "✅ 发布完成！"
+echo " 发布完成！"
 echo "=========================================="
 echo ""
 

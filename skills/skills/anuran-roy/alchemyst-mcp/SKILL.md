@@ -76,11 +76,11 @@ decisions, docs, or instructions without manual lookup.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `query` | `string` | ✅ | Natural-language search query |
-| `similarity_threshold` | `number` (0–1) | ✅ | Maximum similarity threshold — results at or below this score are returned |
-| `minimum_similarity_threshold` | `number` (0–1) | ✅ | Floor — results below this score are excluded |
-| `scope` | `"internal"` \| `"external"` | ❌ | Search scope; defaults to `"internal"` |
-| `metadata` | `object` \| `null` | ❌ | Optional filter by file metadata; defaults to `null` |
+| `query` | `string` |  | Natural-language search query |
+| `similarity_threshold` | `number` (0–1) |  | Maximum similarity threshold — results at or below this score are returned |
+| `minimum_similarity_threshold` | `number` (0–1) |  | Floor — results below this score are excluded |
+| `scope` | `"internal"` \| `"external"` |  | Search scope; defaults to `"internal"` |
+| `metadata` | `object` \| `null` |  | Optional filter by file metadata; defaults to `null` |
 
 **Metadata filter fields** (all required if metadata object is provided):
 
@@ -126,13 +126,13 @@ notes, code conventions, or any knowledge you want to persist and retrieve later
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `user_id` | `string` | ✅ | Unique identifier of the user submitting context |
-| `organization_id` | `string` \| `null` | ✅ | Organization ID; pass `null` if not applicable |
-| `documents` | `array` | ✅ | Array of document objects, each with a `content` string field (plus optional extra string fields) |
-| `source` | `string` | ✅ | Label describing where this context came from (e.g., `"project.auth.decisions"`) |
-| `context_type` | `"resource"` \| `"conversation"` \| `"instruction"` | ✅ | Type of context being stored |
-| `metadata` | `object` | ✅ | File metadata — all four fields required |
-| `scope` | `"internal"` \| `"external"` | ❌ | Defaults to `"internal"` |
+| `user_id` | `string` |  | Unique identifier of the user submitting context |
+| `organization_id` | `string` \| `null` |  | Organization ID; pass `null` if not applicable |
+| `documents` | `array` |  | Array of document objects, each with a `content` string field (plus optional extra string fields) |
+| `source` | `string` |  | Label describing where this context came from (e.g., `"project.auth.decisions"`) |
+| `context_type` | `"resource"` \| `"conversation"` \| `"instruction"` |  | Type of context being stored |
+| `metadata` | `object` |  | File metadata — all four fields required |
+| `scope` | `"internal"` \| `"external"` |  | Defaults to `"internal"` |
 
 **Metadata fields** (all required; note **snake_case** here, unlike the search tool):
 
@@ -143,7 +143,7 @@ notes, code conventions, or any knowledge you want to persist and retrieve later
 | `modalities` | `string[]` | Modalities present (e.g., `["text"]`, `["text", "image"]`) |
 | `size` | `number` | Size in bytes |
 
-> ⚠️ **Key naming difference:** `add_context` uses **snake_case** metadata keys (`file_name`,
+>  **Key naming difference:** `add_context` uses **snake_case** metadata keys (`file_name`,
 > `doc_type`, `size`), while `search_context` uses **camelCase** (`fileName`, `fileType`,
 > `fileSize`). Match the case to the tool you're calling.
 
@@ -199,8 +199,8 @@ what knowledge is available before a session.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `user_id` | `string` | ✅ | User ID to get context for |
-| `organization_id` | `string` \| `null` | ✅ | Organization ID; pass `null` if not applicable |
+| `user_id` | `string` |  | User ID to get context for |
+| `organization_id` | `string` \| `null` |  | Organization ID; pass `null` if not applicable |
 
 #### Example Call
 
@@ -224,8 +224,8 @@ available knowledge before deciding what to add.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `user_id` | `string` | ✅ | User ID to get documents for |
-| `organization_id` | `string` \| `null` | ✅ | Organization ID; pass `null` if not applicable |
+| `user_id` | `string` |  | User ID to get documents for |
+| `organization_id` | `string` \| `null` |  | Organization ID; pass `null` if not applicable |
 
 #### Example Call
 

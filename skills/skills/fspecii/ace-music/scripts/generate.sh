@@ -82,7 +82,7 @@ BODY="{\"messages\":[{\"role\":\"user\",\"content\":\"$CONTENT_ESCAPED\"}],\"aud
 [[ "$BATCH_SIZE" -gt 1 ]] && BODY="$BODY,\"batch_size\":$BATCH_SIZE"
 BODY="$BODY}"
 
-echo "🎵 Generating music..." >&2
+echo " Generating music..." >&2
 echo "   Prompt: ${PROMPT:-[lyrics/sample mode]}" >&2
 [[ -n "$DURATION" ]] && echo "   Duration: ${DURATION}s" >&2
 echo "   Language: $LANGUAGE" >&2
@@ -129,7 +129,7 @@ for i, a in enumerate(audios):
 
   if [[ -n "$METADATA" ]]; then
     echo "" >&2
-    echo "📋 Metadata:" >&2
+    echo " Metadata:" >&2
     echo "$METADATA" >&2
   fi
 else

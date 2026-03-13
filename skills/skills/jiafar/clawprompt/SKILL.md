@@ -22,7 +22,7 @@ tags:
   - productivity
 ---
 
-# ClawPrompt 🦞📝 — Smart Teleprompter with Mobile Remote
+# ClawPrompt  — Smart Teleprompter with Mobile Remote
 
 ## What It Does
 A browser-based teleprompter that runs on your Mac. A second person can use their phone as a remote control to turn pages while the speaker focuses on the camera.

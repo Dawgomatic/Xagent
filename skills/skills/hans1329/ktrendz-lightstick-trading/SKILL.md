@@ -29,7 +29,7 @@ You can also set via environment variable:
 /ktrendz:sell RIIZE
 ```
 
-## 🎯 Decision Tree
+##  Decision Tree
 
 - **"What's the price of X?"** → `/ktrendz:price <artist>`
 - **"Should I buy X?"** → Check price + news signals first
@@ -66,10 +66,10 @@ Get current price and trading signals for a token.
 
 | Signal | Meaning | Buy Signal |
 |--------|---------|------------|
-| `trending_score` rising | On-platform engagement up | ✅ Bullish |
-| `price_change_24h` positive | Recent momentum | ✅ Trend continuation |
-| `total_supply` low | Few holders | ✅ Early opportunity |
-| `has_recent_news` true | Media coverage | ✅ Potential catalyst |
+| `trending_score` rising | On-platform engagement up |  Bullish |
+| `price_change_24h` positive | Recent momentum |  Trend continuation |
+| `total_supply` low | Few holders |  Early opportunity |
+| `has_recent_news` true | Media coverage |  Potential catalyst |
 
 ### /ktrendz:buy
 

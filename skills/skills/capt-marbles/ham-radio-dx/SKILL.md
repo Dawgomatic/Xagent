@@ -5,17 +5,17 @@ version: 1.0.0
 author: captmarbles
 ---
 
-# Ham Radio DX Monitor 📻
+# Ham Radio DX Monitor 
 
 Monitor DX clusters in real-time, get notified of rare DX stations, and track active DX expeditions. Perfect for ham radio operators who want to catch rare contacts!
 
 ## Features
 
-📡 **Live DX Spots** - Connect to global DX cluster network  
-🌍 **Rare DX Alerts** - Notify when rare stations appear  
-📊 **Daily Digest** - Band activity summary  
-🗺️ **DX Expeditions** - Track active expeditions  
-⏰ **Automated Monitoring** - Run via cron for alerts  
+ **Live DX Spots** - Connect to global DX cluster network  
+ **Rare DX Alerts** - Notify when rare stations appear  
+ **Daily Digest** - Band activity summary  
+ **DX Expeditions** - Track active expeditions  
+ **Automated Monitoring** - Run via cron for alerts  
 
 ## Quick Start
 
@@ -37,7 +37,7 @@ python3 dx-monitor.py watch --new-only
 
 **Output:**
 ```
-📡 Latest DX Spots from EA7JXH
+ Latest DX Spots from EA7JXH
 
    20m   SSB      14.195   K1ABC        - CQ Contest
    40m   CW        7.015   VP8/G3XYZ    - Falklands
@@ -52,7 +52,7 @@ python3 dx-monitor.py digest
 
 **Output:**
 ```
-# 📡 DX Digest - 2026-01-27
+#  DX Digest - 2026-01-27
 
 ## Band Activity (last 100 spots)
 
@@ -63,8 +63,8 @@ python3 dx-monitor.py digest
 
 ## Rare DX Spotted
 
-   🌍 VP8/G3XYZ    40m      7.015 - Falklands Expedition
-   🌍 ZL2ABC       15m     21.074 - New Zealand
+    VP8/G3XYZ    40m      7.015 - Falklands Expedition
+    ZL2ABC       15m     21.074 - New Zealand
 ```
 
 ## DX Cluster Nodes
@@ -101,7 +101,7 @@ Integrate with Clawdbot message tool:
 ```bash
 # When rare DX appears, send Telegram alert
 python3 dx-monitor.py watch --new-only | grep -E "(VP8|ZL|VK|ZS|P5)" && \
-  echo "🚨 Rare DX spotted!" | # Send via Clawdbot message tool
+  echo " Rare DX spotted!" | # Send via Clawdbot message tool
 ```
 
 ## Example Prompts for Clawdbot
@@ -173,4 +173,4 @@ Common DX frequencies:
 - Contest mode (filter contest stations)
 - FT8/FT4 integration via PSKReporter
 
-73 and good DX! 📻🌍
+73 and good DX! 

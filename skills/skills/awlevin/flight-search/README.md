@@ -1,6 +1,6 @@
 ![flight-search banner](https://raw.githubusercontent.com/Olafs-World/flight-search/main/banner.png)
 
-# ✈️ flight-search
+#  flight-search
 
 [![PyPI](https://img.shields.io/pypi/v/flight-search)](https://pypi.org/project/flight-search/)
 [![Python](https://img.shields.io/pypi/pyversions/flight-search)](https://pypi.org/project/flight-search/)
@@ -11,23 +11,23 @@ CLI tool to search Google Flights. Get prices, times, and airlines from the comm
 ```bash
 $ flight-search DEN LAX --date 2026-03-01
 
-✈️  DEN → LAX
+  DEN → LAX
    One way · 2026-03-01
    Prices are currently: typical
 
 ──────────────────────────────────────────────────
-   Frontier ⭐ BEST
-   🕐 10:43 PM → 12:30 AM +1
-   ⏱️  2 hr 47 min
-   ✅ Nonstop
-   💰 $84
+   Frontier  BEST
+    10:43 PM → 12:30 AM +1
+     2 hr 47 min
+    Nonstop
+    $84
 
 ──────────────────────────────────────────────────
-   United ⭐ BEST
-   🕐 5:33 PM → 7:13 PM
-   ⏱️  2 hr 40 min
-   ✅ Nonstop
-   💰 $139
+   United  BEST
+    5:33 PM → 7:13 PM
+     2 hr 40 min
+    Nonstop
+    $139
 ```
 
 Built on top of [fast-flights](https://github.com/AWeirdDev/flights) - no API key required.

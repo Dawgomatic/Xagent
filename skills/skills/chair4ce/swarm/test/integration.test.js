@@ -21,7 +21,7 @@ async function test(name, fn) {
 }
 
 async function main() {
-console.log('\n🔗 INTEGRATION TESTS\n');
+console.log('\n INTEGRATION TESTS\n');
 
 let passed = 0;
 let failed = 0;
@@ -29,7 +29,7 @@ let failed = 0;
 // ============================================
 // Dispatcher Tests
 // ============================================
-console.log('📦 Dispatcher');
+console.log(' Dispatcher');
 
 // Test: Dispatcher can be instantiated
 if (await test('Dispatcher instantiates with defaults', async () => {
@@ -55,7 +55,7 @@ if (await test('Dispatcher accepts custom options', async () => {
 // ============================================
 // Event Emission Tests
 // ============================================
-console.log('\n📡 Event Emission');
+console.log('\n Event Emission');
 
 // Test: Dispatcher emits SWARM_START on orchestrate
 if (await test('Dispatcher emits SWARM_START event', async () => {
@@ -119,7 +119,7 @@ if (await test('Dispatcher emits PHASE_START event', async () => {
 // ============================================
 // Parallel Execution (with mock)
 // ============================================
-console.log('\n⚡ Parallel Execution');
+console.log('\n Parallel Execution');
 
 // Mock the WorkerNode for testing without API calls
 class MockWorkerNode {
@@ -227,7 +227,7 @@ if (await test('Task events emitted during parallel execution', async () => {
 // ============================================
 // Orchestration Tests
 // ============================================
-console.log('\n🎭 Orchestration');
+console.log('\n Orchestration');
 
 // Test: Multi-phase orchestration
 if (await test('Multi-phase orchestration works', async () => {

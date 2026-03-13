@@ -84,7 +84,7 @@ class WhaleCopier:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return json.loads(resp.read().decode())
         except Exception as e:
-            self._log(f"⚠️ Fetch error: {e}")
+            self._log(f" Fetch error: {e}")
             return None
     
     def get_balance(self):
@@ -170,12 +170,12 @@ class WhaleCopier:
     def execute_trade(self, trade, our_size, our_value):
         """Execute the copy trade"""
         if self.dry_run:
-            self._log(f"🧪 DRY RUN: Would buy {our_size} shares @ ${trade.get('price')} = ${our_value}")
+            self._log(f" DRY RUN: Would buy {our_size} shares @ ${trade.get('price')} = ${our_value}")
             return True
         
         # Real execution would go here
         # Requires CLOB API integration
-        self._log(f"⚠️ Live trading not implemented - use Polymarket CLOB API")
+        self._log(f" Live trading not implemented - use Polymarket CLOB API")
         return False
     
     def process_trades(self):
@@ -197,7 +197,7 @@ class WhaleCopier:
             # Check if we should copy
             should, reason = self.should_copy(trade)
             if not should:
-                self._log(f"⏭️ Skip: {reason}")
+                self._log(f" Skip: {reason}")
                 continue
             
             # Calculate copy size
@@ -209,7 +209,7 @@ class WhaleCopier:
             price = float(trade.get("price", 0))
             outcome = trade.get("outcome", "?")
             
-            self._log(f"📈 Whale {side}: {size:.0f} shares @ ${price:.3f} = ${size*price:.2f}")
+            self._log(f" Whale {side}: {size:.0f} shares @ ${price:.3f} = ${size*price:.2f}")
             self._log(f"   → Outcome: {outcome}")
             self._log(f"   → Our copy: {our_size} shares = ${our_value}")
             
@@ -222,26 +222,26 @@ class WhaleCopier:
     def run(self):
         """Main loop"""
         self._log("=" * 60)
-        self._log("🐋 POLYMARKET WHALE COPIER STARTING")
-        self._log(f"🎯 Target: {self.target[:10]}...{self.target[-6:]}")
-        self._log(f"📊 Copy: {self.copy_pct*100:.0f}% | Limits: ${self.min_usd}-${self.max_usd}")
-        self._log(f"🧪 Dry run: {self.dry_run}")
+        self._log(" POLYMARKET WHALE COPIER STARTING")
+        self._log(f" Target: {self.target[:10]}...{self.target[-6:]}")
+        self._log(f" Copy: {self.copy_pct*100:.0f}% | Limits: ${self.min_usd}-${self.max_usd}")
+        self._log(f" Dry run: {self.dry_run}")
         
         balance = self.get_balance()
-        self._log(f"💵 Balance: ${balance:.2f} USDC")
+        self._log(f" Balance: ${balance:.2f} USDC")
         
         cycle = 0
         while True:
             cycle += 1
-            self._log(f"\n🔄 Cycle #{cycle}")
+            self._log(f"\n Cycle #{cycle}")
             
             try:
                 new = self.process_trades()
-                self._log(f"📊 Processed {new} new trades")
+                self._log(f" Processed {new} new trades")
             except Exception as e:
-                self._log(f"❌ Error: {e}")
+                self._log(f" Error: {e}")
             
-            self._log(f"⏱️ Waiting {self.interval}s...")
+            self._log(f" Waiting {self.interval}s...")
             time.sleep(self.interval)
 
 
@@ -276,7 +276,7 @@ def main():
     
     # Validate
     if not config["target_wallet"]:
-        print("❌ No target wallet specified. Use --target or config.json")
+        print(" No target wallet specified. Use --target or config.json")
         sys.exit(1)
     
     # Run
@@ -284,7 +284,7 @@ def main():
     try:
         copier.run()
     except KeyboardInterrupt:
-        print("\n👋 Stopped")
+        print("\n Stopped")
 
 
 if __name__ == "__main__":

@@ -34,7 +34,7 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 # --- Main Logic ---
-echo "📦 Starting batch enrichment from '$INPUT_FILE'"
+echo " Starting batch enrichment from '$INPUT_FILE'"
 echo "   Outputting to '$OUTPUT_DIR' with $PARALLEL parallel worker(s)."
 
 process_lead() {
@@ -69,5 +69,5 @@ export ENRICH_SCRIPT
 # Skips header line with tail -n +2
 tail -n +2 "$INPUT_FILE" | xargs -I {} -P "$PARALLEL" bash -c 'process_lead "{}" "$OUTPUT_DIR" "$ENRICH_SCRIPT"'
 
-echo "✅ Batch enrichment complete."
+echo " Batch enrichment complete."
 echo "   Enriched profiles are in '$OUTPUT_DIR'"

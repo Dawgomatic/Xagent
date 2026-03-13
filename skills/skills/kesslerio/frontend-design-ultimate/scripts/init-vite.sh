@@ -9,11 +9,11 @@ PROJECT_NAME="${1:-my-site}"
 # Check Node version
 NODE_VERSION=$(node -v 2>/dev/null | cut -d'v' -f2 | cut -d'.' -f1)
 if [ -z "$NODE_VERSION" ] || [ "$NODE_VERSION" -lt 18 ]; then
-  echo "❌ Error: Node.js 18+ is required. Current: $(node -v 2>/dev/null || echo 'not installed')"
+  echo " Error: Node.js 18+ is required. Current: $(node -v 2>/dev/null || echo 'not installed')"
   exit 1
 fi
 
-echo "🚀 Creating Vite project: $PROJECT_NAME"
+echo " Creating Vite project: $PROJECT_NAME"
 
 # Create Vite project
 npm create vite@latest "$PROJECT_NAME" -- --template react-ts
@@ -22,7 +22,7 @@ cd "$PROJECT_NAME"
 # Create .nvmrc for Node version
 echo "18" > .nvmrc
 
-echo "📦 Installing dependencies..."
+echo " Installing dependencies..."
 
 # Install Tailwind CSS
 npm install -D tailwindcss postcss autoprefixer
@@ -36,7 +36,7 @@ npm install tailwindcss-animate class-variance-authority clsx tailwind-merge
 npm install lucide-react
 npm install @radix-ui/react-slot
 
-echo "⚙️ Configuring Tailwind..."
+echo " Configuring Tailwind..."
 
 # Create tailwind.config.ts
 cat > tailwind.config.ts << 'EOF'
@@ -327,15 +327,15 @@ cat > components.json << 'EOF'
 EOF
 
 echo ""
-echo "📦 Installing shadcn/ui components..."
+echo " Installing shadcn/ui components..."
 
 # Install common components via shadcn CLI
 npx shadcn@latest add button badge card accordion dialog navigation-menu tabs sheet separator avatar alert -y || {
-  echo "⚠️ Warning: Some shadcn components may not have installed. Run 'npx shadcn@latest add [name]' manually."
+  echo " Warning: Some shadcn components may not have installed. Run 'npx shadcn@latest add [name]' manually."
 }
 
 echo ""
-echo "✅ Project created successfully!"
+echo " Project created successfully!"
 echo ""
 echo "Installed:"
 echo "  ✓ React 18 + TypeScript + Vite"

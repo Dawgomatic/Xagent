@@ -23,7 +23,7 @@ set -euo pipefail
 # Constants & Defaults
 ###############################################################################
 VERSION="1.0.1"
-BRAND="Powered by CacheForge 🏥"
+BRAND="Powered by CacheForge "
 DEFAULT_SINCE="15m"
 DEFAULT_TAIL=200
 
@@ -60,7 +60,7 @@ Global flags:
   --version              Print version
   --help                 Show this help
 
-Powered by CacheForge 🏥
+Powered by CacheForge 
 EOF
   exit 0
 }

@@ -27,7 +27,7 @@ class GridTradingExample:
         self.grid_levels = self.calculate_grid_levels()
         self.active_positions = {}  # grid_price -> quantity
         
-        print(f"🎯 Grid Trading Example - {self.symbol}")
+        print(f" Grid Trading Example - {self.symbol}")
         print(f"   Price Range: ${self.lower_bound:.2f} - ${self.upper_bound:.2f}")
         print(f"   Grid Levels: {self.grid_count}")
         print(f"   Grid Size: {self.grid_size} {self.symbol}")
@@ -108,15 +108,15 @@ class GridTradingExample:
         
         if action == 'BUY':
             self.active_positions[price] = quantity
-            print(f"  📈 BUY: {quantity} {self.symbol} @ ${price:.4f}")
+            print(f"   BUY: {quantity} {self.symbol} @ ${price:.4f}")
             print(f"     Reason: {signal['reason']}")
         else:
             buy_price = signal.get('buy_price', price)
             profit = signal.get('potential_profit', 0)
-            profit_color = "🟢" if profit > 0 else "🔴"
+            profit_color = "" if profit > 0 else ""
             
             del self.active_positions[price]
-            print(f"  📉 SELL: {quantity} {self.symbol} @ ${price:.4f}")
+            print(f"   SELL: {quantity} {self.symbol} @ ${price:.4f}")
             print(f"     Profit: {profit_color} ${profit:+.2f}")
             print(f"     Reason: {signal['reason']}")
         
@@ -125,14 +125,14 @@ class GridTradingExample:
     def run_example_simulation(self, steps=50):
         """Run a complete simulation example."""
         print("\n" + "="*60)
-        print("🚀 STARTING GRID TRADING SIMULATION")
+        print(" STARTING GRID TRADING SIMULATION")
         print("="*60)
         
         # Start from middle of range
         current_price = (self.lower_bound + self.upper_bound) / 2
         
         for step in range(steps):
-            print(f"\n📊 Step {step+1}/{steps}:")
+            print(f"\n Step {step+1}/{steps}:")
             print(f"   Current Price: ${current_price:.4f}")
             print(f"   Active Positions: {len(self.active_positions)}")
             
@@ -151,26 +151,26 @@ class GridTradingExample:
         
         # Final summary
         print("\n" + "="*60)
-        print("📈 SIMULATION COMPLETE")
+        print(" SIMULATION COMPLETE")
         print("="*60)
         print(f"Final Price: ${current_price:.4f}")
         print(f"Remaining Positions: {len(self.active_positions)}")
         print(f"Total Trades Executed: {steps * len(self.grid_levels) // 10}")
         
         if self.active_positions:
-            print("\n💰 Remaining Positions:")
+            print("\n Remaining Positions:")
             for price, quantity in self.active_positions.items():
                 current_value = current_price * quantity
                 cost = price * quantity
                 pnl = current_value - cost
-                pnl_color = "🟢" if pnl > 0 else "🔴"
+                pnl_color = "" if pnl > 0 else ""
                 print(f"  • {quantity} {self.symbol} @ ${price:.4f}")
                 print(f"    Current Value: ${current_value:.2f}")
                 print(f"    P&L: {pnl_color} ${pnl:+.2f}")
 
 def main():
     """Run the grid trading example."""
-    print("📚 GRID TRADING STRATEGY EXAMPLE")
+    print(" GRID TRADING STRATEGY EXAMPLE")
     print("This example demonstrates how grid trading works:")
     print("• Multiple buy/sell orders at predefined price levels")
     print("• Profit from price oscillations within a range")
@@ -182,7 +182,7 @@ def main():
     strategy.run_example_simulation(steps=30)
     
     print("\n" + "="*60)
-    print("💡 KEY CONCEPTS DEMONSTRATED:")
+    print(" KEY CONCEPTS DEMONSTRATED:")
     print("1. Grid Level Calculation: Evenly spaced price levels")
     print("2. Buy Signals: When price drops to a grid level")
     print("3. Sell Signals: When price rises from a bought level")

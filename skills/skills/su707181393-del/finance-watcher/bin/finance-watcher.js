@@ -102,7 +102,7 @@ program
   .description('Show watchlist')
   .action(async () => {
     const config = await loadConfig();
-    console.log(chalk.bold('\n📊 Watchlist\n'));
+    console.log(chalk.bold('\n Watchlist\n'));
     
     console.log(chalk.cyan('Crypto:'));
     config.watchlist.crypto?.forEach(s => console.log(`  • ${s}`));
@@ -120,7 +120,7 @@ program
     const crypto = new CryptoAPI();
     const stock = new StockAPI();
     
-    console.log(chalk.blue('\n🔍 Fetching prices...\n'));
+    console.log(chalk.blue('\n Fetching prices...\n'));
     
     // Crypto prices
     if (config.watchlist.crypto?.length > 0) {
@@ -212,7 +212,7 @@ program
     const crypto = new CryptoAPI();
     const stock = new StockAPI();
     
-    console.log(chalk.blue('\n🔔 Checking alerts...\n'));
+    console.log(chalk.blue('\n Checking alerts...\n'));
     
     const triggered = await alerts.checkAll(crypto, stock);
     
@@ -220,7 +220,7 @@ program
       console.log(chalk.gray('No alerts triggered.'));
     } else {
       triggered.forEach(alert => {
-        console.log(chalk.yellow(`⚠️  ${alert.symbol}: ${alert.message}`));
+        console.log(chalk.yellow(`  ${alert.symbol}: ${alert.message}`));
       });
     }
   });
@@ -236,7 +236,7 @@ program
     const crypto = new CryptoAPI();
     const stock = new StockAPI();
     
-    console.log(chalk.blue('\n📈 Generating report...\n'));
+    console.log(chalk.blue('\n Generating report...\n'));
     
     const report = await reporter.generate(crypto, stock);
     

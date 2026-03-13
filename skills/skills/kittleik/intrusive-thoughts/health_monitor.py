@@ -59,11 +59,11 @@ def _save_json(path, data):
 # ---------------------------------------------------------------------------
 
 class Status:
-    GREEN = "green"    # 🟢 All systems operational
-    YELLOW = "yellow"  # 🟡 Issues detected, still functional
-    RED = "red"        # 🔴 Critical — requires attention
+    GREEN = "green"    #  All systems operational
+    YELLOW = "yellow"  #  Issues detected, still functional
+    RED = "red"        #  Critical — requires attention
 
-EMOJI = {Status.GREEN: "🟢", Status.YELLOW: "🟡", Status.RED: "🔴"}
+EMOJI = {Status.GREEN: "", Status.YELLOW: "", Status.RED: ""}
 
 
 def _default_status():
@@ -315,10 +315,10 @@ def get_dashboard_data():
 
     return {
         "overall": status["overall"],
-        "overall_emoji": EMOJI.get(status["overall"], "❓"),
+        "overall_emoji": EMOJI.get(status["overall"], ""),
         "components": {
             name: {
-                "emoji": EMOJI.get(c["status"], "❓"),
+                "emoji": EMOJI.get(c["status"], ""),
                 "status": c["status"],
                 "message": c["message"],
             }
@@ -368,7 +368,7 @@ def print_status():
     if data["recent_incidents"]:
         print(f"\nRecent Incidents:")
         for inc in data["recent_incidents"]:
-            resolved = "✅" if inc.get("resolved") else "❌"
+            resolved = "" if inc.get("resolved") else ""
             print(f"  {resolved} [{inc['id']}] {inc['component']}: {inc['description']}")
 
     print()
@@ -392,19 +392,19 @@ if __name__ == "__main__":
     elif args[0] == "heartbeat":
         source = args[1] if len(args) > 1 else "manual"
         record_heartbeat(source)
-        print("💓 Heartbeat recorded")
+        print(" Heartbeat recorded")
     elif args[0] == "incident":
         if len(args) < 4:
             print("Usage: health_monitor.py incident <component> <severity> <description>")
             sys.exit(1)
         inc = log_incident(args[1], args[2], " ".join(args[3:]))
-        print(f"📋 Incident logged: {inc['id']}")
+        print(f" Incident logged: {inc['id']}")
     elif args[0] == "resolve":
         if len(args) < 2:
             print("Usage: health_monitor.py resolve <incident-id>")
             sys.exit(1)
         resolve_incident(args[1])
-        print(f"✅ Resolved: {args[1]}")
+        print(f" Resolved: {args[1]}")
     elif args[0] == "json":
         print(json.dumps(get_dashboard_data(), indent=2, default=str))
     else:

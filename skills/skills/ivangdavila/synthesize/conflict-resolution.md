@@ -33,7 +33,7 @@ When resolution isn't possible:
 ## Documentation Format
 
 ```
-⚔️ CONFLICT: [topic]
+ CONFLICT: [topic]
    Source A: [claim] (weight: X)
    Source B: [claim] (weight: Y)
    Resolution: [reconciled/chose A/chose B/both presented]

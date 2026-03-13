@@ -32,9 +32,9 @@ Find influencers, track hashtags, discover content trends, and export results. N
 
 ---
 
-## ⚡ Setup
+##  Setup
 
-👉 **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — handles auth automatically.
+ **Follow [`xpoz-setup`](https://clawhub.ai/skills/xpoz-setup)** — handles auth automatically.
 
 ---
 
@@ -114,7 +114,7 @@ Every search generates a full export. Poll the `dataDumpExportOperationId` for a
 | | Instagram Graph API | Xpoz Instagram Search |
 |--|-------------------|----------------------|
 | **Setup** | Meta developer account + app review | One-click Xpoz auth |
-| **Keyword search** | ❌ Not available | ✅ Full-text + subtitles |
+| **Keyword search** |  Not available |  Full-text + subtitles |
 | **Find influencers** | Only if you know their username | Search by topic/content |
 | **Reels content** | Metadata only | Captions + spoken words |
 | **Export** | Manual pagination | One-click CSV |

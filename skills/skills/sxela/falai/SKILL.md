@@ -113,16 +113,16 @@ python3 scripts/fal_client.py models
 ```
 
 **Before submitting, verify:**
-- ✅ All `required` fields are present and non-empty
-- ✅ File fields (`image_url`, `video_url`, etc.) are URLs or base64 data URIs
-- ✅ Arrays (`image_urls`) have at least one item
-- ✅ Video files are within limits (200MB, 720-2160p)
+-  All `required` fields are present and non-empty
+-  File fields (`image_url`, `video_url`, etc.) are URLs or base64 data URIs
+-  Arrays (`image_urls`) have at least one item
+-  Video files are within limits (200MB, 720-2160p)
 
 **Example validation output:**
 ```
-⚠️  Note: Reference video in prompt as @Video1
-⚠️  Note: Max 4 total elements (video + images combined)
-❌ Validation failed:
+  Note: Reference video in prompt as @Video1
+  Note: Max 4 total elements (video + images combined)
+ Validation failed:
    - Missing required field: video_url
 ```
 

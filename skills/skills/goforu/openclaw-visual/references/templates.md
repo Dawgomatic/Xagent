@@ -50,7 +50,7 @@
   "IMAGE_URL": "https://example.com/photo.jpg",
   "TIME": "19:30",
   "DESCRIPTION": "回家路上看到的美丽日落",
-  "MOOD": "😊"
+  "MOOD": ""
 }
 ```
 
@@ -79,7 +79,7 @@
 {
   "DATE": "2026-02-01",
   "WEEKDAY": "Saturday",
-  "MOOD": "😊",
+  "MOOD": "",
   "ENERGY": "high",
   "HIGHLIGHTS": true,
   "HIGHLIGHTS_LIST": [
@@ -119,8 +119,8 @@
   "THEME": "blue",
   "STATS": true,
   "STATS_LIST": [
-    {"ICON": "✅", "VALUE": "15", "LABEL": "任务完成"},
-    {"ICON": "🎯", "VALUE": "95%", "LABEL": "效率"}
+    {"ICON": "", "VALUE": "15", "LABEL": "任务完成"},
+    {"ICON": "", "VALUE": "95%", "LABEL": "效率"}
   ],
   "DATE": "2026-02-01"
 }
@@ -151,9 +151,9 @@
   "DATE_RANGE": "2026-W05 (01/27 - 02/02)",
   "STATS": true,
   "STATS_LIST": [
-    {"ICON": "✅", "VALUE": "15", "LABEL": "完成任务"},
-    {"ICON": "📝", "VALUE": "7", "LABEL": "日记天数"},
-    {"ICON": "📸", "VALUE": "12", "LABEL": "记录瞬间"}
+    {"ICON": "", "VALUE": "15", "LABEL": "完成任务"},
+    {"ICON": "", "VALUE": "7", "LABEL": "日记天数"},
+    {"ICON": "", "VALUE": "12", "LABEL": "记录瞬间"}
   ],
   "MOOD_DATA": true,
   "MOOD_CHART_BARS": "...",

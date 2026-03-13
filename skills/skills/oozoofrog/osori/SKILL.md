@@ -2,7 +2,7 @@
 name: osori
 description: "Osori v1.6.1 — Local project registry & context loader with Telegram slash commands. Registry versioning + auto-migration + root filters + root management + doctor (preview-first + risk gate) + safe root remove + switch multi-match + GitHub count cache + alias/favorite + Entire integration commands. Find, switch, list, add/remove projects, check status. Triggers: work on X, find project X, list projects, project status, project switch. | 오소리 — 텔레그램 슬래시 명령어 지원 로컬 프로젝트 레지스트리."
 homepage: https://github.com/oozoofrog/osori
-metadata: { "openclaw": { "emoji": "🦦", "requires": { "bins": ["python3", "git", "gh"] }, "os": ["darwin", "linux"] } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3", "git", "gh"] }, "os": ["darwin", "linux"] } }
 ---
 
 # Osori (오소리)
@@ -247,9 +247,9 @@ Registry health check with preview-first pipeline and risk-gated fixes.
 ```
 
 Risk levels:
-- 🟢 **low** — schema normalization, migration, missing fields
-- 🟡 **medium** — duplicate removal, root reference repair
-- 🔴 **high** — registry re-initialization from corrupted state
+-  **low** — schema normalization, migration, missing fields
+-  **medium** — duplicate removal, root reference repair
+-  **high** — registry re-initialization from corrupted state
 
 Shell equivalent:
 

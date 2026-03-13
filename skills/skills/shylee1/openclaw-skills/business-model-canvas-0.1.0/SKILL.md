@@ -120,13 +120,13 @@ After filling all blocks, run these checks. Each one catches a common mistake:
 
 | Check | What to Verify |
 |---|---|
-| Value ↔ Segments | Does each value proposition directly address a pain that each segment actually has? |
-| Revenue ↔ Value | Are customers willing to pay the price you set for the value you deliver? (Cross-reference customer discovery data) |
-| Channels ↔ Segments | Can you actually reach your target segments through the channels you listed? |
-| Activities ↔ Time | Do your key activities fit within realistic available hours? (Block 10) |
-| Costs ↔ Revenue | Does your revenue exceed your costs at a realistic customer volume? (Unit economics) |
-| Resources ↔ Activities | Do you have every resource needed to execute every activity? |
-| Partnerships ↔ Risks | Are critical dependencies identified and mitigated? |
+| Value  Segments | Does each value proposition directly address a pain that each segment actually has? |
+| Revenue  Value | Are customers willing to pay the price you set for the value you deliver? (Cross-reference customer discovery data) |
+| Channels  Segments | Can you actually reach your target segments through the channels you listed? |
+| Activities  Time | Do your key activities fit within realistic available hours? (Block 10) |
+| Costs  Revenue | Does your revenue exceed your costs at a realistic customer volume? (Unit economics) |
+| Resources  Activities | Do you have every resource needed to execute every activity? |
+| Partnerships  Risks | Are critical dependencies identified and mitigated? |
 
 **For every "no" answer:** Either fix the block or fundamentally rethink the model. A business model with unresolved inconsistencies will fail predictably.
 

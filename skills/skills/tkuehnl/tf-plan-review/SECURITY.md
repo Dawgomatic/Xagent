@@ -32,13 +32,13 @@ No data is sent to CacheForge or any third party beyond what standard Terraform 
 - `terraform providers`
 
 **NEVER run (state-modifying / destructive):**
-- ❌ `terraform apply`
-- ❌ `terraform destroy`
-- ❌ `terraform import`
-- ❌ `terraform taint` / `terraform untaint`
-- ❌ `terraform state mv` / `terraform state rm` / `terraform state push`
-- ❌ `terraform force-unlock`
-- ❌ `terraform workspace new` / `terraform workspace delete`
+-  `terraform apply`
+-  `terraform destroy`
+-  `terraform import`
+-  `terraform taint` / `terraform untaint`
+-  `terraform state mv` / `terraform state rm` / `terraform state push`
+-  `terraform force-unlock`
+-  `terraform workspace new` / `terraform workspace delete`
 
 ## Abuse Cases & Mitigations
 

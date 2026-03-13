@@ -129,7 +129,7 @@ const TRIGGERS = {
 ## Sample Dashboard
 
 ```
-🔮 ContextKeeper
+ ContextKeeper
 ═══════════════
 
 Active: P002 (BotCall) — 2h ago
@@ -142,7 +142,7 @@ On Deck: P003 (SPIRIT) — completed
 ├─ Status: v0.1.6 published
 └─ Action: Update PR #391
 
-💡 Suggest: Continue P002 or switch to open PR?
+ Suggest: Continue P002 or switch to open PR?
 ```
 
 ## Implementation Priority

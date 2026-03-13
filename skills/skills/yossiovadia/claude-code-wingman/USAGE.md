@@ -45,7 +45,7 @@
 
 | Flag | Description | Required |
 |------|-------------|----------|
-| `--prompt <text>` | Task for Claude Code | ✅ Yes |
+| `--prompt <text>` | Task for Claude Code |  Yes |
 | `--workdir <path>` | Working directory | No (default: current dir) |
 | `--session <name>` | Session name | No (auto-generated) |
 | `--monitor` | Monitor in real-time | No |
@@ -90,7 +90,7 @@ tmux ls
 ## Cost Savings
 
 - **Without wingman:** Clawdbot does everything → uses your $20/month API budget
-- **With wingman:** Clawdbot spawns Claude Code → uses work's free API ✅
+- **With wingman:** Clawdbot spawns Claude Code → uses work's free API 
 
 Perfect for heavy coding tasks while keeping Clawdbot API costs minimal.
 

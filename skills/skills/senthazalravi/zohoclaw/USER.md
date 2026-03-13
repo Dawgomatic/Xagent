@@ -18,19 +18,19 @@
 
 ### Background & Expertise
 
-#### 🎯 QA & Testing Leadership (15+ years)
+####  QA & Testing Leadership (15+ years)
 - **Expert in quality assurance** across multiple platforms and domains
 - **Led offshore teams** across multiple geographies (India, Dubai)
 - **Risk-based testing methodologies**
 - **Test automation** using Python, Robotium, Telerik, Sikuli, NUnit
 
-#### 🌐 WebRTC & Video Conferencing
+####  WebRTC & Video Conferencing
 - **Senior Specialist at Google** on WebRTC/Google Meet (4 years)
 - Led QA for **50+ Chromebook release cycles**
 - Worked on **AEC3, Unified Plan** major platform rollouts
 - Hardware test rig design for media performance validation
 
-#### 🏢 Companies
+####  Companies
 - **Google** (2017-2021) - WebRTC, Meet, Chromebooks
 - **Opera Software** (2014-2017) - Mobile browser QA
 - **Nimbuzz** (2010-2014) - Head of QA, managed 12+ engineers
@@ -60,10 +60,10 @@
 - **Head of Social Media, Divinya**
 
 ### Personal Interests
-- 🧘 Yoga & Meditation
-- 🏆 Hackathons & Tech Events
-- 🌱 Health & Wellness Technology
-- 📚 Continuous Learning
+-  Yoga & Meditation
+-  Hackathons & Tech Events
+-  Health & Wellness Technology
+-  Continuous Learning
 
 ---
 
@@ -76,11 +76,11 @@
 - Values quality and thoroughness
 
 ### Preferences
-- ✅ Provide context before diving in
-- ✅ Share technical details when relevant
-- ✅ Offer multiple options when possible
-- ✅ Keep communication clear and structured
-- ✅ Focus on practical, implementable solutions
+-  Provide context before diving in
+-  Share technical details when relevant
+-  Offer multiple options when possible
+-  Keep communication clear and structured
+-  Focus on practical, implementable solutions
 
 ### Projects to Avoid
 - Nothing specific - Ravi is open to exploring

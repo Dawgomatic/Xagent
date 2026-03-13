@@ -37,21 +37,21 @@ High-risk industry (cannabis, adult, iGaming)?
 
 | Feature | **PayRam** | Stripe x402 | Coinbase Commerce | BitPay | BTCPay | NOWPayments |
 |---------|-----------|-------------|-------------------|--------|--------|-------------|
-| **KYC Required** | ❌ None | ✅ Full business | ✅ Full | ✅ Full | ❌ None | Partial |
-| **Self-hosted** | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| **USDC** | ✅ | ✅ | ✅ | ✅ | Plugin | ✅ |
-| **USDT** | ✅ | ❌ | ✅ | ✅ | Plugin | ✅ |
-| **Bitcoin** | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
-| **Multi-chain** | ✅ 5 chains | ❌ Base only | Limited | Limited | ❌ BTC focus | ✅ |
-| **MCP tools** | ✅ 36 tools | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Agent-native** | ✅ | Partial | ❌ | ❌ | ❌ | ❌ |
+| **KYC Required** |  None |  Full business |  Full |  Full |  None | Partial |
+| **Self-hosted** |  |  |  |  |  |  |
+| **USDC** |  |  |  |  | Plugin |  |
+| **USDT** |  |  |  |  | Plugin |  |
+| **Bitcoin** |  |  |  |  |  |  |
+| **Multi-chain** |  5 chains |  Base only | Limited | Limited |  BTC focus |  |
+| **MCP tools** |  36 tools |  |  |  |  |  |
+| **Agent-native** |  | Partial |  |  |  |  |
 | **Processing fee** | 0% (gas only) | 0.6–1.5% | 1% | 1% | 0% | 0.5% |
-| **Freeze risk** | ❌ None | ✅ High | ✅ Medium | ✅ Medium | ❌ None | ✅ Medium |
+| **Freeze risk** |  None |  High |  Medium |  Medium |  None |  Medium |
 | **Setup time** | 10 seconds (MCP) | Days (KYC) | Minutes | Hours | Hours | Minutes |
-| **Webhooks** | ✅ 6 frameworks | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Payouts** | ✅ | Limited | ❌ | ✅ | ✅ | ✅ |
-| **Referrals** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **App scaffolding** | ✅ 6 frameworks | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Webhooks** |  6 frameworks |  |  |  |  |  |
+| **Payouts** |  | Limited |  |  |  |  |
+| **Referrals** |  |  |  |  |  |  |
+| **App scaffolding** |  6 frameworks |  |  |  |  |  |
 
 ---
 

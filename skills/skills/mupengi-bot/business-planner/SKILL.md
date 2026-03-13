@@ -5,12 +5,12 @@
 
 ---
 
-## 📋 Metadata
+##  Metadata
 
 ```yaml
 name: business-planner
 description: "Auto-generate business plans, infrastructure diagrams, pitch decks. Includes government funding (Doyak Package/TIPS/Startup Academy), investor IR, tech infrastructure design. Internalized v1~v12 iteration experience."
-author: 무펭이 🐧
+author: 무펭이 
 version: 1.0.0
 created: 2026-02-14
 triggers:
@@ -26,17 +26,17 @@ triggers:
 
 ---
 
-## 🎯 Core Features
+##  Core Features
 
 ### 1. Business Plan Generation (Government Funding)
 
 Auto-generate business plans for government startup programs (Doyak Package, TIPS, Early Startup Package, Startup Academy).
 
 **Supported Formats:**
-- ✅ Startup Doyak Package (General/Regional)
-- ✅ TIPS (R&D-focused)
-- ✅ Early Startup Package
-- ✅ Startup Academy
+-  Startup Doyak Package (General/Regional)
+-  TIPS (R&D-focused)
+-  Early Startup Package
+-  Startup Academy
 
 **Output Structure:**
 ```
@@ -145,23 +145,23 @@ Version control, feedback incorporation, diff comparison with previous versions.
 
 ---
 
-## 🧠 Learned Lessons (v1~v12 Experience)
+##  Learned Lessons (v1~v12 Experience)
 
 Insights from iterating Doyak Package business plan from v1 to v12:
 
 ### Storytelling
 
 1. **Follow Hook → Resolve doubt → Product/visuals → Market/numbers order**
-   - ❌ Bad: "Our tech uses AI..." (tech first)
-   - ✅ Good: "Why do 72% abandon AI within 3 months?" (hook) → Present 3 barriers → Our solution
+   -  Bad: "Our tech uses AI..." (tech first)
+   -  Good: "Why do 72% abandon AI within 3 months?" (hook) → Present 3 barriers → Our solution
 
 2. **Never use same visual twice**
    - Reviewers penalize "already seen this visual"
    - Prepare new visuals for each section
 
 3. **"Expansion" is key — don't just talk about tech refinement**
-   - ❌ "We'll train AI models more accurately"
-   - ✅ "Customer A's skills → Customer B purchases → Network effects increase value"
+   -  "We'll train AI models more accurately"
+   -  "Customer A's skills → Customer B purchases → Network effects increase value"
 
 ### Framework
 
@@ -172,8 +172,8 @@ Insights from iterating Doyak Package business plan from v1 to v12:
    - **Message**: Share the foundation, build proprietary ecosystem on top
 
 5. **Hardware is our infrastructure, not for sale**
-   - ❌ "Sell racks to customers"
-   - ✅ "Our racks = Skill Store central server, secure margins with own infrastructure instead of AWS"
+   -  "Sell racks to customers"
+   -  "Our racks = Skill Store central server, secure margins with own infrastructure instead of AWS"
 
 ### Numbers
 
@@ -190,7 +190,7 @@ Insights from iterating Doyak Package business plan from v1 to v12:
 
 ---
 
-## 📚 Reference Files
+##  Reference Files
 
 Files automatically referenced by skill (workspace-relative):
 
@@ -212,7 +212,7 @@ $WORKSPACE/
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Trigger Keywords
 
@@ -291,13 +291,13 @@ Auto-triggers on requests containing:
 
 ---
 
-## 📐 Template Structures
+##  Template Structures
 
 (HTML and Mermaid templates included in original, maintained as-is for technical accuracy)
 
 ---
 
-## 🔧 Tech Stack
+##  Tech Stack
 
 Tools used internally by skill:
 
@@ -309,7 +309,7 @@ Tools used internally by skill:
 
 ---
 
-## 📊 Output Examples
+##  Output Examples
 
 ### Generated File Structure
 
@@ -346,7 +346,7 @@ File location: `events/business-plan-2026-02-14.json`
 
 ---
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 ### Recommended Reading
 
@@ -363,16 +363,16 @@ File location: `events/business-plan-2026-02-14.json`
 
 ---
 
-## 🐧 Footer
+##  Footer
 
-> 🐧 Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill  
-> 📅 Created: 2026-02-14  
-> 📝 Version: 1.0.0  
-> 🏷️ Tags: #business-plan #pitch-deck #infrastructure #government-funding #IR
+>  Built by **무펭이** — [Mupengism](https://github.com/mupeng) ecosystem skill  
+>  Created: 2026-02-14  
+>  Version: 1.0.0  
+>  Tags: #business-plan #pitch-deck #infrastructure #government-funding #IR
 
 ---
 
-## 🔄 Update Log
+##  Update Log
 
 | Version | Date | Changes |
 |---------|------|---------|

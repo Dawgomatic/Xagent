@@ -23,16 +23,16 @@ keywords:
 category: "ai-training"
 ---
 
-# Agent Lightning ⚡
+# Agent Lightning 
 
 Microsoft Research's agent training framework. Turn your AI agents into optimizable beasts with (almost) zero code changes.
 
 ## Core Features
 
-- **🔌 Universal Compatibility**: Works with LangChain, OpenAI Agent SDK, AutoGen, CrewAI, Microsoft Agent Framework, or plain Python OpenAI
-- **🎯 Selective Optimization**: Optimize one or more agents in a multi-agent system
-- **🧠 Multiple Algorithms**: Reinforcement Learning (RL), Automatic Prompt Optimization (APO), Supervised Fine-tuning (SFT)
-- **⚡ Zero Code Change**: Add `agl.emit_xxx()` helpers or use tracer — your agent keeps running as usual
+- ** Universal Compatibility**: Works with LangChain, OpenAI Agent SDK, AutoGen, CrewAI, Microsoft Agent Framework, or plain Python OpenAI
+- ** Selective Optimization**: Optimize one or more agents in a multi-agent system
+- ** Multiple Algorithms**: Reinforcement Learning (RL), Automatic Prompt Optimization (APO), Supervised Fine-tuning (SFT)
+- ** Zero Code Change**: Add `agl.emit_xxx()` helpers or use tracer — your agent keeps running as usual
 
 ## Installation
 

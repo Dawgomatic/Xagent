@@ -139,7 +139,7 @@ fn main() {
     write_process_status(&wp_internal, "running", None);
 
     eprintln!(
-        "🔄 Workplace server started — watching {}",
+        " Workplace server started — watching {}",
         chat_file.display()
     );
 
@@ -250,7 +250,7 @@ fn main() {
         }
     }
 
-    eprintln!("🛑 Workplace server shutting down");
+    eprintln!(" Workplace server shutting down");
     write_process_status(&wp_internal, "stopped", None);
 }
 

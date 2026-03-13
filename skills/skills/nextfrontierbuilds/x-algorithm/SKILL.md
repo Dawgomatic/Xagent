@@ -76,16 +76,16 @@ Everything you need to know about the X (Twitter) algorithm. Based on X's open-s
 ## What Kills Your Reach
 
 ### Instant Death
-- ❌ External links in main post
-- ❌ Getting reported/blocked
-- ❌ Posting same content repeatedly
-- ❌ Too many hashtags (>2)
+-  External links in main post
+-  Getting reported/blocked
+-  Posting same content repeatedly
+-  Too many hashtags (>2)
 
 ### Slow Death
-- ❌ Posting inconsistently
-- ❌ Not replying to comments
-- ❌ Off-topic from your niche
-- ❌ Corporate/formal tone
+-  Posting inconsistently
+-  Not replying to comments
+-  Off-topic from your niche
+-  Corporate/formal tone
 
 ---
 
@@ -105,8 +105,8 @@ Everything you need to know about the X (Twitter) algorithm. Based on X's open-s
 
 ### The No-Link Strategy
 ```
-❌ Bad:  "Check out my article [link]"
-✅ Good: "Here's what I learned (thread 🧵)"
+ Bad:  "Check out my article [link]"
+ Good: "Here's what I learned (thread )"
          → Link in reply or final thread post
 ```
 

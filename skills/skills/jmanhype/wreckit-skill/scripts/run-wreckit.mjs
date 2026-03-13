@@ -143,7 +143,7 @@ switch (command) {
     
 default:
     // If we don't recognize it, try passing it as a raw command (Power User feature)
-    console.warn(`⚠️  Warning: Unrecognized command '${command}'. Attempting raw pass-through.`);
+    console.warn(`  Warning: Unrecognized command '${command}'. Attempting raw pass-through.`);
     wreckitArgs.push(command);
     // Add any remaining args
     const remaining = args.filter(a => a !== '--command' && a !== command && a !== mode);
@@ -151,8 +151,8 @@ default:
 }
 
 // 4. Execution
-console.log(`🤖 Wreckit Wrapper v1.1.0 [Mode: ${mode.toUpperCase()}]`);
-console.log(`🚀 Executing: wreckit ${wreckitArgs.join(' ')}`);
+console.log(` Wreckit Wrapper v1.1.0 [Mode: ${mode.toUpperCase()}]`);
+console.log(` Executing: wreckit ${wreckitArgs.join(' ')}`);
 
 const child = spawn('wreckit', wreckitArgs, {
   stdio: 'inherit',
@@ -161,9 +161,9 @@ const child = spawn('wreckit', wreckitArgs, {
 
 child.on('close', (code) => {
   if (code === 0) {
-    console.log(`\n✅ Wreckit ${command} completed successfully.`);
+    console.log(`\n Wreckit ${command} completed successfully.`);
   } else {
-    console.log(`\n❌ Wreckit exited with code ${code}.`);
+    console.log(`\n Wreckit exited with code ${code}.`);
     process.exit(code);
   }
 });

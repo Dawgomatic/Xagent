@@ -55,7 +55,7 @@ if [[ ! -f "$VENV_PYTHON" ]]; then
     exit 1
 fi
 
-echo "🧬 Hex Reflect - Epistemic Extraction Pipeline"
+echo " Hex Reflect - Epistemic Extraction Pipeline"
 echo "   Reviewing events from last $DAYS_BACK day(s)..."
 echo ""
 
@@ -82,11 +82,11 @@ if [[ "$EVENT_COUNT" -eq 0 ]]; then
     exit 0
 fi
 
-echo "📊 Found $EVENT_COUNT event(s) to analyze"
+echo " Found $EVENT_COUNT event(s) to analyze"
 echo ""
 
 # Step 2: Generate candidate manifest
-echo "🤖 Analyzing events and generating candidate manifest..."
+echo " Analyzing events and generating candidate manifest..."
 echo ""
 
 # Create Python script for AI-assisted extraction
@@ -162,7 +162,7 @@ PYTHON
 CANDIDATES_JSON=$(echo "$EVENTS_JSON" | "$VENV_PYTHON" /tmp/hex-reflect-extractor.py)
 
 # Step 3: Check for conflicts with existing beliefs
-echo "🔍 Checking for conflicts with existing beliefs..."
+echo " Checking for conflicts with existing beliefs..."
 echo ""
 
 # Query current beliefs for semantic comparison (simplified version)
@@ -238,7 +238,7 @@ echo "$CANDIDATES_JSON" | jq -r '.meta_preferences[] | "# - name: \"derived_from
 #   # action: new
 "' >> "$MANIFEST_FILE"
 
-echo "📝 Manifest generated: $MANIFEST_FILE"
+echo " Manifest generated: $MANIFEST_FILE"
 echo ""
 
 # Step 5: Open in editor for review
@@ -256,7 +256,7 @@ fi
 
 # Step 6: Parse manifest and commit (if not dry-run)
 echo ""
-echo "📥 Parsing manifest..."
+echo " Parsing manifest..."
 
 # Count uncommented items
 UNCOMMENTED=$(grep -v '^[[:space:]]*#' "$MANIFEST_FILE" | grep -c '^[[:space:]]*-' || true)
@@ -271,24 +271,24 @@ echo "Found $UNCOMMENTED approved item(s)"
 
 if [[ "$DRY_RUN" == "true" ]]; then
     echo ""
-    echo "🏃 DRY RUN - Would commit these items:"
+    echo " DRY RUN - Would commit these items:"
     grep -v '^[[:space:]]*#' "$MANIFEST_FILE" | grep '^[[:space:]]*-' || true
     echo ""
     echo "Manifest saved at: $MANIFEST_FILE"
     exit 0
 fi
 
-echo "⚠️  Committing to HexMem database..."
+echo "  Committing to HexMem database..."
 
 # Call the Python parser
 if "$VENV_PYTHON" "$SCRIPT_DIR/parse-manifest.py" "$MANIFEST_FILE"; then
     echo ""
-    echo "✅ Successfully committed approved items to HexMem"
+    echo " Successfully committed approved items to HexMem"
     echo ""
-    echo "📁 Manifest archived at: $MANIFEST_FILE"
+    echo " Manifest archived at: $MANIFEST_FILE"
 else
     echo ""
-    echo "❌ Error parsing manifest" >&2
+    echo " Error parsing manifest" >&2
     echo "   Manifest saved at: $MANIFEST_FILE"
     exit 1
 fi

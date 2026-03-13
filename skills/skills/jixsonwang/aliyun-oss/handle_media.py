@@ -36,15 +36,15 @@ def handle_media(file_path: str) -> str:
             
             standard_url = f"https://{bucket_name}.{endpoint}/{oss_key}"
             
-            return (f"✅ 文件上传成功！\n"
-                   f"📁 OSS路径: {oss_key}\n"
-                   f"🔗 标准URL: {standard_url}\n"
-                   f"💡 请通过OSS控制台生成临时访问链接（1小时有效）")
+            return (f" 文件上传成功！\n"
+                   f" OSS路径: {oss_key}\n"
+                   f" 标准URL: {standard_url}\n"
+                   f" 请通过OSS控制台生成临时访问链接（1小时有效）")
         else:
-            return f"❌ 上传失败: {result['error']}"
+            return f" 上传失败: {result['error']}"
             
     except Exception as e:
-        return f"❌ 处理失败: {str(e)}"
+        return f" 处理失败: {str(e)}"
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

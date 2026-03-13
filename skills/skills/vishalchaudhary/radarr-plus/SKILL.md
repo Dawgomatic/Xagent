@@ -17,11 +17,11 @@ Example message caption:
 
 > **Shutter Island (2010)**
 >
-> ⭐ IMDb: 8.2/10
+>  IMDb: 8.2/10
 >
-> 🎬 Trailer: https://www.youtube.com/watch?v=qdPw9x9h5CY
+>  Trailer: https://www.youtube.com/watch?v=qdPw9x9h5CY
 >
-> Added to Radarr ✅ (Ultra-HD, /movies). I’ll post progress + “imported ✅” here.
+> Added to Radarr  (Ultra-HD, /movies). I’ll post progress + “imported ” here.
 
 ## Setup (one-time)
 

@@ -214,23 +214,23 @@ generate_report() {
     local risk_level icon recommendation
     if [ $risk_score -le 20 ]; then
         risk_level="SAFE"
-        icon="✅"
+        icon=""
         recommendation="Safe to install. No significant security concerns detected."
     elif [ $risk_score -le 40 ]; then
         risk_level="LOW RISK"
-        icon="⚠️"
+        icon=""
         recommendation="Proceed with caution. Minor security concerns detected."
     elif [ $risk_score -le 60 ]; then
         risk_level="MEDIUM RISK"
-        icon="🟡"
+        icon=""
         recommendation="Manual review recommended. Multiple red flags detected."
     elif [ $risk_score -le 80 ]; then
         risk_level="HIGH RISK"
-        icon="🔴"
+        icon=""
         recommendation="Expert review required. Serious security concerns detected. Do NOT install without thorough analysis."
     else
         risk_level="CRITICAL"
-        icon="☠️"
+        icon=""
         recommendation="DO NOT INSTALL. Malicious patterns detected matching known attack campaigns."
     fi
     
@@ -245,7 +245,7 @@ generate_report() {
     # Critical findings
     if [ ${#critical[@]} -gt 0 ]; then
         echo ""
-        echo -e "${RED}☠️ CRITICAL FINDINGS:${NC}"
+        echo -e "${RED} CRITICAL FINDINGS:${NC}"
         for finding in "${critical[@]}"; do
             echo -e "${RED}  $finding${NC}"
         done
@@ -254,7 +254,7 @@ generate_report() {
     # High risk findings
     if [ ${#high[@]} -gt 0 ]; then
         echo ""
-        echo -e "${YELLOW}🔴 HIGH RISK FINDINGS:${NC}"
+        echo -e "${YELLOW} HIGH RISK FINDINGS:${NC}"
         for finding in "${high[@]}"; do
             echo -e "${YELLOW}  $finding${NC}"
         done
@@ -263,7 +263,7 @@ generate_report() {
     # Medium risk findings
     if [ ${#medium[@]} -gt 0 ]; then
         echo ""
-        echo -e "${YELLOW}🟡 MEDIUM RISK FINDINGS:${NC}"
+        echo -e "${YELLOW} MEDIUM RISK FINDINGS:${NC}"
         for finding in "${medium[@]}"; do
             echo -e "${YELLOW}  $finding${NC}"
         done
@@ -272,7 +272,7 @@ generate_report() {
     # Social engineering
     if [ ${#social[@]} -gt 0 ]; then
         echo ""
-        echo -e "${YELLOW}⚠️ SOCIAL ENGINEERING INDICATORS:${NC}"
+        echo -e "${YELLOW} SOCIAL ENGINEERING INDICATORS:${NC}"
         for finding in "${social[@]}"; do
             echo -e "${YELLOW}  $finding${NC}"
         done
@@ -281,7 +281,7 @@ generate_report() {
     # Positive indicators
     if [ ${#positive[@]} -gt 0 ]; then
         echo ""
-        echo -e "${GREEN}✅ POSITIVE INDICATORS:${NC}"
+        echo -e "${GREEN} POSITIVE INDICATORS:${NC}"
         for item in "${positive[@]}"; do
             echo -e "${GREEN}  ✓ $item${NC}"
         done

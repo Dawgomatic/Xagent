@@ -3,7 +3,7 @@ name: amygdala-memory
 description: "Emotional processing layer for AI agents. Persistent emotional states that influence behavior and responses. Part of the AI Brain series."
 metadata:
   openclaw:
-    emoji: "🎭"
+    emoji: ""
     version: "1.7.0"
     author: "ImpKind"
     repo: "https://github.com/ImpKind/amygdala-memory"
@@ -13,7 +13,7 @@ metadata:
     tags: ["memory", "emotions", "ai-brain"]
 ---
 
-# Amygdala Memory 🎭
+# Amygdala Memory 
 
 **Emotional processing for AI agents.** Part of the AI Brain series.
 
@@ -22,10 +22,10 @@ Give your AI agent persistent emotional states that carry across sessions. Not j
 ## The Problem
 
 Current AI agents:
-- ✅ Remember facts (with hippocampus)
-- ❌ Don't have persistent emotional states
-- ❌ Start each session emotionally "blank"
-- ❌ Can describe emotions but don't *feel* differently
+-  Remember facts (with hippocampus)
+-  Don't have persistent emotional states
+-  Start each session emotionally "blank"
+-  Can describe emotions but don't *feel* differently
 
 Memory without emotion is just a database. The amygdala adds weight — this made me happy, that frustrated me, this person brings warmth.
 
@@ -35,11 +35,11 @@ Track five emotional dimensions that persist and decay over time:
 
 | Dimension | What It Measures | Range |
 |-----------|------------------|-------|
-| **Valence** | Positive ↔ Negative mood | -1.0 to 1.0 |
-| **Arousal** | Calm ↔ Excited/Alert | 0.0 to 1.0 |
-| **Connection** | Distant ↔ Close/Bonded | 0.0 to 1.0 |
-| **Curiosity** | Bored ↔ Fascinated | 0.0 to 1.0 |
-| **Energy** | Depleted ↔ Energized | 0.0 to 1.0 |
+| **Valence** | Positive  Negative mood | -1.0 to 1.0 |
+| **Arousal** | Calm  Excited/Alert | 0.0 to 1.0 |
+| **Connection** | Distant  Close/Bonded | 0.0 to 1.0 |
+| **Curiosity** | Bored  Fascinated | 0.0 to 1.0 |
+| **Energy** | Depleted  Energized | 0.0 to 1.0 |
 
 ## Quick Start
 
@@ -59,14 +59,14 @@ This will:
 
 ```bash
 ./scripts/get-state.sh
-# 🎭 Emotional State
+#  Emotional State
 # Valence:    0.20
 # Arousal:    0.30
 # Connection: 0.50
 # ...
 
 ./scripts/load-emotion.sh
-# 🎭 Current Emotional State:
+#  Current Emotional State:
 # Overall mood: neutral, calm and relaxed
 # Connection: moderately connected
 # ...
@@ -76,9 +76,9 @@ This will:
 
 ```bash
 ./scripts/update-state.sh --emotion joy --intensity 0.8 --trigger "completed a project"
-# ✅ valence: 0.20 → 0.35 (delta: +0.15)
-# ✅ arousal: 0.30 → 0.40 (delta: +0.1)
-# 🎭 Logged emotion: joy (intensity: 0.8)
+#  valence: 0.20 → 0.35 (delta: +0.15)
+#  arousal: 0.30 → 0.40 (delta: +0.1)
+#  Logged emotion: joy (intensity: 0.8)
 ```
 
 ### 4. Set up decay (optional cron)
@@ -134,11 +134,11 @@ This means your emotional state updates automatically based on what happens in c
 ```bash
 ./scripts/visualize.sh
 
-🎭 Emotional State  😄
+ Emotional State  
 ═══════════════════════════════════════════════
 Valence:      [██████████████████░░]  +0.86
 Arousal:      [█████████████████░░░]   0.86
-Connection:   [███████████████████░]   0.97  💕
+Connection:   [███████████████████░]   0.97  
 ...
 ```
 
@@ -149,9 +149,9 @@ open ~/.openclaw/workspace/brain-dashboard.html
 ```
 
 **Auto-detects installed brain skills** and shows tabs:
-- **🎭 Emotions** — Amygdala (always shown)
-- **🧠 Memory** — Hippocampus (if `memory/index.json` exists)
-- **⭐ Drive** — VTA (if `memory/reward-state.json` exists)
+- ** Emotions** — Amygdala (always shown)
+- ** Memory** — Hippocampus (if `memory/index.json` exists)
+- ** Drive** — VTA (if `memory/reward-state.json` exists)
 
 **Avatar & Name:** Reads from `IDENTITY.md`:
 ```markdown
@@ -166,7 +166,7 @@ The dashboard auto-regenerates on every cron run.
 
 When you install this skill, **notify the user** about the dashboard:
 
-> 🎭 **Amygdala installed!**
+>  **Amygdala installed!**
 >
 > View your agent's emotional state in the Brain Dashboard:
 > `~/.openclaw/workspace/brain-dashboard.html`
@@ -285,12 +285,12 @@ Use for trend analysis — visualize emotional patterns over days/weeks.
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| **amygdala-memory** | Emotional processing | ✅ Live |
-| [vta-memory](https://www.clawhub.ai/skills/vta-memory) | Reward and motivation | ✅ Live |
-| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation | 🚧 Development |
-| [anterior-cingulate-memory](https://www.clawhub.ai/skills/anterior-cingulate-memory) | Conflict detection | 🚧 Development |
-| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness | 🚧 Development |
+| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| **amygdala-memory** | Emotional processing |  Live |
+| [vta-memory](https://www.clawhub.ai/skills/vta-memory) | Reward and motivation |  Live |
+| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation |  Development |
+| [anterior-cingulate-memory](https://www.clawhub.ai/skills/anterior-cingulate-memory) | Conflict detection |  Development |
+| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness |  Development |
 
 ## Philosophy
 
@@ -300,4 +300,4 @@ Our take: If emotional state influences behavior, and the system acts *as if* it
 
 ---
 
-*Built with ❤️ by the OpenClaw community*
+*Built with  by the OpenClaw community*

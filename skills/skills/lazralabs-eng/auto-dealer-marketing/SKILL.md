@@ -264,8 +264,8 @@ The [Year] [Brand] [Model] [Trim] is here.
 → $[Due at signing] due at signing
 → [X] in stock — colors going fast
 
-📍 [Address]
-🔗 Build yours at [URL]
+ [Address]
+ Build yours at [URL]
 
 [Required OEM disclaimer]
 ```
@@ -277,9 +277,9 @@ Your [Vehicle] could be worth more than you think.
 Trade values are at record highs — and your [Year] [Make] [Model] is in demand.
 
 You could:
-✅ Upgrade to a brand new [Model]
-✅ Keep a similar monthly payment
-✅ Get thousands in equity back
+ Upgrade to a brand new [Model]
+ Keep a similar monthly payment
+ Get thousands in equity back
 
 Get your instant trade value → [Link]
 
@@ -288,11 +288,11 @@ No obligation. No pressure. Just numbers.
 
 **Service — Story/Reel Ad:**
 ```
-[City] drivers — your car called. It wants attention. 😅
+[City] drivers — your car called. It wants attention. 
 
-🔧 Oil Change — $[Price]
-🔧 Tire Rotation — FREE with any service
-🔧 Brake Inspection — $[Price]
+ Oil Change — $[Price]
+ Tire Rotation — FREE with any service
+ Brake Inspection — $[Price]
 
 Book online in 30 seconds: [Link]
 Open Saturdays. Loaners available.

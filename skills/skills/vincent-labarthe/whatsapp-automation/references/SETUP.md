@@ -47,7 +47,7 @@ Dashboard → Your Session → Webhooks
    - Replace `[YOUR_IP]` with your actual IP (e.g., `192.168.1.102`)
    - NOT localhost!
 
-2. **Events:** ✅ `message` and ✅ `session.status`
+2. **Events:**  `message` and  `session.status`
 
 3. Click **Update**
 
@@ -62,7 +62,7 @@ tail -f /tmp/whatsapp-store.log
 
 Should show:
 ```
-✅ Message stored: 33612345678@c.us - "your message"
+ Message stored: 33612345678@c.us - "your message"
 ```
 
 Or query:
@@ -98,7 +98,7 @@ EOF
 launchctl load ~/Library/LaunchAgents/com.whatsapp.store.plist
 ```
 
-## Done! ✅
+## Done! 
 
 Service running. Cron jobs active. You're set.
 

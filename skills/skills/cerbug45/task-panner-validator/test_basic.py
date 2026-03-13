@@ -32,7 +32,7 @@ def test_plan_creation():
     assert plan.status == TaskStatus.PENDING
     assert plan.checksum is not None
     
-    print("✅ Plan creation test passed")
+    print(" Plan creation test passed")
 
 
 def test_plan_validation():
@@ -54,7 +54,7 @@ def test_plan_validation():
     
     assert is_valid == True
     
-    print("✅ Plan validation test passed")
+    print(" Plan validation test passed")
 
 
 def test_dangerous_operations():
@@ -78,7 +78,7 @@ def test_dangerous_operations():
     assert len(warnings) > 0
     assert any("dangerous" in w.lower() for w in warnings)
     
-    print("✅ Dangerous operation detection test passed")
+    print(" Dangerous operation detection test passed")
 
 
 def test_plan_execution():
@@ -102,7 +102,7 @@ def test_plan_execution():
     assert len(results) == 1
     assert plan.status == TaskStatus.COMPLETED
     
-    print("✅ Plan execution test passed")
+    print(" Plan execution test passed")
 
 
 def test_checksum_integrity():
@@ -135,7 +135,7 @@ def test_checksum_integrity():
     new_checksum = plan.calculate_checksum()
     assert new_checksum != original_checksum
     
-    print("✅ Checksum integrity test passed")
+    print(" Checksum integrity test passed")
 
 
 def test_save_and_load():
@@ -165,7 +165,7 @@ def test_save_and_load():
     assert loaded_plan.title == plan.title
     assert len(loaded_plan.steps) == len(plan.steps)
     
-    print("✅ Save and load test passed")
+    print(" Save and load test passed")
 
 
 def run_all_tests():
@@ -183,13 +183,13 @@ def run_all_tests():
         test_save_and_load()
         
         print("\n" + "="*60)
-        print("✅ ALL TESTS PASSED")
+        print(" ALL TESTS PASSED")
         print("="*60 + "\n")
         
     except AssertionError as e:
-        print(f"\n❌ TEST FAILED: {e}\n")
+        print(f"\n TEST FAILED: {e}\n")
     except Exception as e:
-        print(f"\n❌ ERROR: {e}\n")
+        print(f"\n ERROR: {e}\n")
 
 
 if __name__ == "__main__":

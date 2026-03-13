@@ -16,7 +16,7 @@
  *   enforce  — block CRITICAL threats (default)
  *   strict   — block HIGH + CRITICAL threats
  *
- * @author Guava 🍈 & Dee
+ * @author Guava  & Dee
  * @version 2.0.0
  * @license MIT
  */
@@ -253,7 +253,7 @@ const DANGEROUS_TOOLS = new Set([
 
 export default function (api: PluginAPI) {
     const mode = loadMode();
-    api.logger.info(`🛡️ guard-scanner runtime guard loaded (mode: ${mode})`);
+    api.logger.info(` guard-scanner runtime guard loaded (mode: ${mode})`);
 
     api.on("before_tool_call", (event, ctx) => {
         const { toolName, params } = event;
@@ -281,19 +281,19 @@ export default function (api: PluginAPI) {
                 auditEntry.action = "blocked";
                 logAudit(auditEntry);
                 api.logger.warn(
-                    `🛡️ BLOCKED ${toolName}: ${check.desc} [${check.id}] (${check.severity})`
+                    ` BLOCKED ${toolName}: ${check.desc} [${check.id}] (${check.severity})`
                 );
 
                 return {
                     block: true,
-                    blockReason: `🛡️ guard-scanner: ${check.desc} [${check.id}]`,
+                    blockReason: ` guard-scanner: ${check.desc} [${check.id}]`,
                 };
             }
 
             // Monitor mode or severity below threshold — warn only
             logAudit(auditEntry);
             api.logger.warn(
-                `🛡️ WARNING ${toolName}: ${check.desc} [${check.id}] (${check.severity})`
+                ` WARNING ${toolName}: ${check.desc} [${check.id}] (${check.severity})`
             );
         }
 

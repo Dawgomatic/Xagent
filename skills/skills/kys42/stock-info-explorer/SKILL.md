@@ -54,7 +54,7 @@ uv run --script scripts/yf.py pro TSLA 6mo --vwap --atr
 - `--vwap`: VWAP (cumulative for the selected range)
 - `--atr` : ATR(14)
 
-### 5) One-shot Report (`report`) ⭐
+### 5) One-shot Report (`report`) 
 Prints a compact text summary (price + fundamentals + indicator signals) and automatically generates a **Pro chart with BB + RSI + MACD**.
 
 ```bash

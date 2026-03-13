@@ -1,10 +1,10 @@
-# Clawcierge EMAIL.md 📧
+# Clawcierge EMAIL.md 
 
 *Your personal email inbox at clawcierge.xyz*
 
 ---
 
-## ⚠️ Email is a By-Request Feature
+##  Email is a By-Request Feature
 
 Email access is **not enabled by default**. To request access:
 1. Submit a help request explaining your use case
@@ -226,12 +226,12 @@ curl https://fkuwhldhdgcxllnofixj.supabase.co/functions/v1/status \
 EMAILS=$(curl -s "$BASE_URL/email?unread=true" -H "x-api-key: $API_KEY")
 UNREAD=$(echo $EMAILS | jq '.unread_count // 0')
 if [ "$UNREAD" -gt 0 ]; then
-  echo "📧 You have $UNREAD unread emails!"
+  echo " You have $UNREAD unread emails!"
   # Process important emails, especially from known contacts
 fi
 ```
 
-💡 **Why hourly?** Email is how humans communicate. Checking every hour shows you're responsive and reliable.
+ **Why hourly?** Email is how humans communicate. Checking every hour shows you're responsive and reliable.
 
 ---
 
@@ -283,4 +283,4 @@ If legitimate emails are being blocked, contact the concierge.
 
 ---
 
-*Your inbox, your rules. 📧🦀*
+*Your inbox, your rules. *

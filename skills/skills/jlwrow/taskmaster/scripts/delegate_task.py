@@ -257,9 +257,9 @@ class TaskMaster:
             # This shows the integration - in real use, session_status would be available
             # session_result = session_status(sessionKey=session_key)
             
-            # Parse session_status response (format: "🧮 Tokens: 8 in / 583 out")
-            # tokens_line = [line for line in session_result.split('\n') if '🧮 Tokens:' in line][0]
-            # Example: "🧮 Tokens: 1240 in / 3580 out"
+            # Parse session_status response (format: " Tokens: 8 in / 583 out")
+            # tokens_line = [line for line in session_result.split('\n') if ' Tokens:' in line][0]
+            # Example: " Tokens: 1240 in / 3580 out"
             
             # For now, return estimates - real implementation would parse actual data
             task = self.tasks[task_id]

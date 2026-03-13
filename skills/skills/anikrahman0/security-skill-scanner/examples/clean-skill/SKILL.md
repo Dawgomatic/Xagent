@@ -87,13 +87,13 @@ module.exports = { getWeather };
 
 ## Security
 
-- ✅ No file system access
-- ✅ No shell commands
-- ✅ HTTPS only
-- ✅ No external downloads
-- ✅ API key from environment variables only
-- ✅ Input validation
-- ✅ Error handling
+-  No file system access
+-  No shell commands
+-  HTTPS only
+-  No external downloads
+-  API key from environment variables only
+-  Input validation
+-  Error handling
 
 ## License
 

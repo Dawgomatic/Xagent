@@ -26,13 +26,13 @@ This skill helps you:
 ### PDF to Other Formats
 | Target Format | Best For | Quality |
 |---------------|----------|---------|
-| **Word (.docx)** | Text-heavy documents | ⭐⭐⭐⭐ |
-| **Excel (.xlsx)** | Tables and data | ⭐⭐⭐⭐ |
-| **PowerPoint (.pptx)** | Presentations | ⭐⭐⭐ |
-| **Images (.png/.jpg)** | Visual snapshots | ⭐⭐⭐⭐⭐ |
-| **Text (.txt)** | Plain text extraction | ⭐⭐⭐⭐ |
-| **HTML** | Web content | ⭐⭐⭐ |
-| **Markdown (.md)** | Structured text | ⭐⭐⭐ |
+| **Word (.docx)** | Text-heavy documents |  |
+| **Excel (.xlsx)** | Tables and data |  |
+| **PowerPoint (.pptx)** | Presentations |  |
+| **Images (.png/.jpg)** | Visual snapshots |  |
+| **Text (.txt)** | Plain text extraction |  |
+| **HTML** | Web content |  |
+| **Markdown (.md)** | Structured text |  |
 
 ### Other Formats to PDF
 | Source Format | Quality Notes |
@@ -203,9 +203,9 @@ After conversion, check:
 ### Files to Convert
 | File | Pages | Status |
 |------|-------|--------|
-| document1.pdf | All | ✅ Complete |
-| document2.pdf | All | ✅ Complete |
-| document3.pdf | 1-5 | ⏳ Processing |
+| document1.pdf | All |  Complete |
+| document2.pdf | All |  Complete |
+| document3.pdf | 1-5 |  Processing |
 
 ### Settings Applied
 - Resolution: [X] DPI

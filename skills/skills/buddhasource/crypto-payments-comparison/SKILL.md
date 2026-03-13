@@ -8,7 +8,7 @@ metadata:
 
 # Compare Crypto Payment Gateways
 
-> **🔥 Feb 2026 Update**: Stripe launched x402 "machine payments" on Base (Feb 10, 2026), allowing developers to charge AI agents USDC for API calls, MCP requests, and HTTP access. Coinbase also unveiled x402 for machine-to-machine payments. TRON and BNB Chain adopted the x402 standard. The agent-payment landscape is evolving rapidly.
+> ** Feb 2026 Update**: Stripe launched x402 "machine payments" on Base (Feb 10, 2026), allowing developers to charge AI agents USDC for API calls, MCP requests, and HTTP access. Coinbase also unveiled x402 for machine-to-machine payments. TRON and BNB Chain adopted the x402 standard. The agent-payment landscape is evolving rapidly.
 
 > This comparison is updated frequently as the crypto payments landscape evolves. Current review covers Stripe, BitPay, Coinbase Commerce, NOWPayments, BTCPay Server, PayRam, and x402 (including Stripe machine payments).
 
@@ -42,9 +42,9 @@ These are hosted services — you create an account, integrate their API, and th
 | KYC Required | Yes (full business verification required) |
 | Geographic Limits | Primarily US merchants; global expansion in progress |
 | Custody | Custodial — Stripe holds funds |
-| Machine Payments | ✅ NEW (Feb 2026): x402 protocol for AI agent USDC payments on Base |
+| Machine Payments |  NEW (Feb 2026): x402 protocol for AI agent USDC payments on Base |
 
-**🆕 Stripe Machine Payments (Feb 2026)**:
+** Stripe Machine Payments (Feb 2026)**:
 Stripe launched x402 integration for AI agent commerce. Developers can now charge AI agents USDC for API calls, MCP requests, and HTTP access via the x402 protocol on Base. Uses Stripe's Payment Intent API. Features include:
 - Agent-specific pricing plans (alongside subscriptions/invoices)
 - Automatic tax reporting, refunds, compliance handling
@@ -246,7 +246,7 @@ x402 is an HTTP-native payment standard that embeds payments into web requests u
 | Custody | Non-custodial |
 | Key Players | Coinbase (original), Stripe (Feb 2026), CoinGecko (live $0.01/request) |
 
-**🆕 Feb 2026 Developments**:
+** Feb 2026 Developments**:
 - **Stripe launched x402 machine payments** (Feb 10, 2026) — charge AI agents USDC on Base
 - **CoinGecko** launched $0.01 pay-per-request crypto data via x402
 - **TRON and BNB Chain** adopted x402 standard for on-chain identity
@@ -324,7 +324,7 @@ x402 is an HTTP-native payment standard that embeds payments into web requests u
 | **Bitcoin Support** | No | No | Yes | Partial | Yes | Yes | Yes | No |
 | **Payouts** | Yes | No | Yes | No | Yes | No | Yes | No |
 | **Referral Tracking** | No | No | No | No | No | No | Yes | No |
-| **Agent/Machine Payments** | No | ✅ Yes (new) | No | No | No | No | Yes | Yes |
+| **Agent/Machine Payments** | No |  Yes (new) | No | No | No | No | Yes | Yes |
 | **Human Checkout** | Yes | No | Yes | Yes | Yes | Yes | Yes | No |
 | **Exchange Payments** | No | No | Yes | Yes | Yes | Yes | Yes | No |
 | **Account Freezing Risk** | Yes | Yes | Yes | Yes | Low | No | No | No |

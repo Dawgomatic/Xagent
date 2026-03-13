@@ -141,7 +141,7 @@ As of v2.0.14, **Multicall is the preferred approach** for batching `eth_call` r
 With v2.0.14, `eth_call` is 2-10x faster. The EVM execution time is now a small fraction of total CPU time — most overhead is per-RPC framework cost. Multicall amortizes this overhead across multiple calls.
 
 ```typescript
-// ✅ Preferred: Multicall (v2.0.14+)
+//  Preferred: Multicall (v2.0.14+)
 import { multicall } from 'viem/actions';
 
 const results = await multicall(client, {
@@ -217,10 +217,10 @@ WebSocket is **5-6x faster** for simple calls due to persistent connection.
 ### 1. Use WebSocket Over HTTP
 
 ```typescript
-// ❌ Slow: HTTP per request (TCP + TLS handshake each time)
+//  Slow: HTTP per request (TCP + TLS handshake each time)
 const result = await fetch(RPC_URL, { method: 'POST', ... });
 
-// ✅ Fast: Persistent WebSocket connection
+//  Fast: Persistent WebSocket connection
 const ws = new WebSocket('wss://mainnet.megaeth.com/ws');
 ws.send(JSON.stringify({ method: 'eth_sendRawTransactionSync', ... }));
 ```
@@ -248,12 +248,12 @@ const receipt = await rpc('eth_sendRawTransactionSync', [signedTxs[0]]);
 Don't wait for confirmations between transactions:
 
 ```typescript
-// ❌ Slow: Wait for each confirmation
+//  Slow: Wait for each confirmation
 for (const tx of transactions) {
   const receipt = await sendAndWait(tx);
 }
 
-// ✅ Fast: Pipeline with sequential nonces
+//  Fast: Pipeline with sequential nonces
 let nonce = await getNonce(address);
 const receipts = await Promise.all(
   transactions.map((tx, i) => 
@@ -295,12 +295,12 @@ For ultra-low latency:
 ### 6. Batch RPC Calls
 
 ```typescript
-// ❌ Slow: 3 sequential calls = 3x latency
+//  Slow: 3 sequential calls = 3x latency
 const a = await rpc('eth_call', [params1]);
 const b = await rpc('eth_call', [params2]);
 const c = await rpc('eth_call', [params3]);
 
-// ✅ Fast: Single batch = 1x latency
+//  Fast: Single batch = 1x latency
 const [a, b, c] = await fetch(RPC_URL, {
   body: JSON.stringify([
     { method: 'eth_call', params: [params1], id: 1 },

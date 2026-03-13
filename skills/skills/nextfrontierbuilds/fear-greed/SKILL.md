@@ -44,7 +44,7 @@ Drop-in React and HTML components. Real-time updates. No API key required. Power
 
 ### Terminal (Default)
 ```
-📊 Crypto Fear & Greed Index
+ Crypto Fear & Greed Index
 
    ┌─────────────────────┐
    │                     │
@@ -88,7 +88,7 @@ Fear & Greed: 72 (Greed)
 ```
 ┌────────┐
 │ FG: 72 │
-│   😀   │
+│      │
 └────────┘
 ```
 

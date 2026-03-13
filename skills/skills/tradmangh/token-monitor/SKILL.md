@@ -112,7 +112,7 @@ openclaw cron add --schedule "*/30 * * * *" \
 ### Low Quota Alert
 
 ```
-⚠️ Model Quota Alert (<20%):
+ Model Quota Alert (<20%):
 • openai-codex Day: 0% left
 • github-copilot Premium: 5% left
 ```
@@ -120,7 +120,7 @@ openclaw cron add --schedule "*/30 * * * *" \
 ### Recovery Alert
 
 ```
-✅ Quota Recovered (>=20%):
+ Quota Recovered (>=20%):
 • openai-codex 5h: 100% left
 ```
 

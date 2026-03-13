@@ -3,7 +3,7 @@ name: PayPal
 slug: paypal
 version: 1.0.0
 description: Integrate PayPal payments with proper webhook verification, OAuth handling, and security validation for checkout flows and subscriptions.
-metadata: {"clawdbot":{"emoji":"💳","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

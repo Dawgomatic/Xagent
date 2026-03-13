@@ -6,7 +6,7 @@
 
 const { ReputationSystem } = require('./reputation.js');
 
-console.log('🦪 Reputation System Test Suite\n');
+console.log(' Reputation System Test Suite\n');
 console.log('='.repeat(70));
 
 const rep = new ReputationSystem();
@@ -84,9 +84,9 @@ const top = rep.getTopRated(3, 2);
 console.log('Top Rated Agents:');
 top.forEach((agent, i) => {
   console.log(`  ${i + 1}. ${agent.agentId}`);
-  console.log(`     ⭐ ${agent.averageRating.toFixed(2)}/5 (${agent.totalRatings} reviews)`);
-  console.log(`     🏆 ${agent.trustLevel} (${agent.trustScore}/100)`);
-  console.log(`     ${agent.verified ? '✅' : '❌'} Verified`);
+  console.log(`      ${agent.averageRating.toFixed(2)}/5 (${agent.totalRatings} reviews)`);
+  console.log(`      ${agent.trustLevel} (${agent.trustScore}/100)`);
+  console.log(`     ${agent.verified ? '' : ''} Verified`);
   console.log(`     Badges: ${agent.badges.join(', ') || 'none'}`);
 });
 
@@ -133,7 +133,7 @@ Object.entries(stats.byTrustLevel).forEach(([level, count]) => {
 });
 
 console.log('\n' + '='.repeat(70));
-console.log('\n✅ All Tests Complete!\n');
+console.log('\n All Tests Complete!\n');
 
 console.log('Features Demonstrated:');
 console.log('  ✓ Star ratings (0-5)');

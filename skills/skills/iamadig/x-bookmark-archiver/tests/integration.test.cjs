@@ -12,7 +12,7 @@ const os = require('os');
 const TEST_DIR = path.join(os.tmpdir(), 'x-bookmark-integration-' + Date.now());
 const FIXTURES_DIR = path.join(__dirname, 'fixtures');
 
-console.log('\n🔬 Integration Test');
+console.log('\n Integration Test');
 console.log(`   Test dir: ${TEST_DIR}\n`);
 
 // Create test directories
@@ -62,7 +62,7 @@ function test(name, fn) {
 }
 
 // Test 1: Load and categorize bookmarks
-console.log('📋 Test: Load and categorize sample bookmarks');
+console.log(' Test: Load and categorize sample bookmarks');
 test('Sample data has 5 bookmarks', () => {
   if (sampleBookmarks.length !== 5) throw new Error(`Expected 5, got ${sampleBookmarks.length}`);
 });
@@ -96,7 +96,7 @@ test('YouTube bookmark categorized as videos', () => {
 });
 
 // Test 2: State operations
-console.log('\n💾 Test: State save/load cycle');
+console.log('\n Test: State save/load cycle');
 test('Save pending bookmarks', () => {
   state.savePending(sampleBookmarks);
   const loaded = state.loadPending();
@@ -118,7 +118,7 @@ test('Clear pending', () => {
 });
 
 // Test 3: Markdown generation (without AI)
-console.log('\n📝 Test: Markdown generation');
+console.log('\n Test: Markdown generation');
 test('Generate slug from title', () => {
   // Using the process.js logic
   function generateSlug(url, title) {
@@ -156,7 +156,7 @@ test('Generate slug from URL when no title', () => {
 });
 
 // Test 4: Directory structure
-console.log('\n📁 Test: Output directory structure');
+console.log('\n Test: Output directory structure');
 const knowledgeDir = path.join(TEST_DIR, 'X-knowledge');
 fs.mkdirSync(path.join(knowledgeDir, 'tools'), { recursive: true });
 fs.mkdirSync(path.join(knowledgeDir, 'articles'), { recursive: true });
@@ -191,7 +191,7 @@ This is a test summary.
 });
 
 // Cleanup
-console.log('\n🧹 Cleaning up...');
+console.log('\n Cleaning up...');
 fs.rmSync(TEST_DIR, { recursive: true, force: true });
 
-console.log('\n' + (process.exitCode ? '❌ Integration tests failed' : '✅ Integration tests passed'));
+console.log('\n' + (process.exitCode ? ' Integration tests failed' : ' Integration tests passed'));

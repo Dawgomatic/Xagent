@@ -5,22 +5,22 @@ description: This skill automates the extraction of structured news data from Go
 
 # Google News Automation Skill
 
-## 📖 Introduction
+##  Introduction
 This skill provides a one-stop news collection service using BrowserAct's Google News API template. It extracts structured news results directly from Google News, including headlines, sources, publication times, and article links, providing clean and ready-to-use data without manual scraping.
 
-## ✨ Features
+##  Features
 1. **No Hallucinations**: Uses predefined workflows to ensure stable and accurate data extraction, avoiding AI-generated hallucinations.
 2. **No CAPTCHA Issues**: Built-in mechanisms to bypass reCAPTCHA or other verification challenges automatically.
 3. **No IP Restrictions**: Overcomes regional IP limitations and geofencing for stable global access.
 4. **Fast Execution**: Executes tasks significantly faster than pure AI-driven browser automation.
 5. **Cost-Effective**: Reduces data acquisition costs compared to token-heavy AI solutions.
 
-## 🔑 API Key Guidance
+##  API Key Guidance
 Before running, check for the `BROWSERACT_API_KEY` environment variable. If it is not set, do not proceed with other actions. Instead, request and wait for the user to provide the key.
 **Agent must inform the user**:
 > "Since the BrowserAct API Key is not configured, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it to me here."
 
-## 🛠️ Input Parameters Details
+##  Input Parameters Details
 The Agent should configure the following parameters based on user needs when calling the script:
 
 1. **Search_Keywords**
@@ -45,7 +45,7 @@ The Agent should configure the following parameters based on user needs when cal
    - **Default**: `30`
    - **Recommendation**: Use 10-30 for real-time monitoring; use larger values for deep research.
 
-## 🚀 How to Call (Recommended)
+##  How to Call (Recommended)
 The Agent should execute the following command to get results:
 
 ```bash
@@ -53,14 +53,14 @@ The Agent should execute the following command to get results:
 python -u ./.cursor/skills/google-news-api-skill/scripts/google_news_api.py "search keywords" "time range" limit
 ```
 
-### ⏳ Progress Monitoring
+###  Progress Monitoring
 Since this task involves automated browser operations, it may take several minutes. The script will continuously output timestamped status logs (e.g., `[14:30:05] Task Status: running`).
 **Agent Note**:
 - Stay focused on the terminal output while waiting for the script.
 - As long as new status logs are being printed, the task is running normally. Do not assume it is hung or unresponsive.
 - Only consider retrying if the status remains unchanged for a long time or the script stops without returning results.
 
-## 📊 Output Data Specification
+##  Output Data Specification
 Upon success, the script prints results parsed from the API response. Fields include:
 - `headline`: Title of the news article.
 - `source`: Publisher or news outlet.
@@ -68,7 +68,7 @@ Upon success, the script prints results parsed from the API response. Fields inc
 - `published_time`: Timestamp displayed on Google News.
 - `author`: Name of the author (if available).
 
-## ⚠️ Error Handling & Retry Mechanism
+##  Error Handling & Retry Mechanism
 If an error occurs (e.g., network issues or task failure), follow this logic:
 
 1. **Check Output**:
@@ -78,7 +78,7 @@ If an error occurs (e.g., network issues or task failure), follow this logic:
 2. **Retry Limit**:
    - Automatic retry is limited to **one** attempt. If it fails again, stop and report the error message to the user.
 
-## 🌟 Typical Use Cases
+##  Typical Use Cases
 1. **Industry Trend Tracking**: Find the latest developments in fields like "Low-altitude economy" or "Generative AI".
 2. **PR Monitoring**: Monitor media exposure of a specific brand or company over the past 24 hours.
 3. **Competitor Intelligence**: Collect information on new products or marketing activities from competitors over the past week.

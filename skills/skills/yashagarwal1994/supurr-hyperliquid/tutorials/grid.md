@@ -21,7 +21,7 @@ A grid bot places a series of buy and sell orders at fixed price intervals (the 
 
 ---
 
-## 1️⃣ Setup Credentials
+##  Setup Credentials
 
 ```bash
 # First time only — saves to ~/.supurr/credentials.json
@@ -32,7 +32,7 @@ supurr init --address 0xYOUR_WALLET --api-wallet 0xYOUR_API_KEY
 
 ---
 
-## 2️⃣ Choose Your Market
+##  Choose Your Market
 
 Grid supports 4 market types. Pick based on what you want to trade:
 
@@ -44,7 +44,7 @@ Grid supports 4 market types. Pick based on what you want to trade:
 
 ---
 
-## 3️⃣ Generate Config
+##  Generate Config
 
 Pick your grid parameters:
 
@@ -72,7 +72,7 @@ supurr new grid \
 
 ---
 
-## 4️⃣ Backtest (Recommended)
+##  Backtest (Recommended)
 
 Before deploying real money, test against historical data:
 
@@ -90,7 +90,7 @@ Adjust parameters and re-run until you're satisfied.
 
 ---
 
-## 5️⃣ Deploy
+##  Deploy
 
 ```bash
 # Deploy from main wallet
@@ -107,7 +107,7 @@ The CLI will output a Bot ID and Pod Name on success.
 
 ---
 
-## 6️⃣ Monitor & Manage
+##  Monitor & Manage
 
 ```bash
 # Live monitoring (refreshes every 2s)

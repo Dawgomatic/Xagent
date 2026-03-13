@@ -1,7 +1,7 @@
 ---
 name: ga4
 description: Query Google Analytics 4 (GA4) data via the Analytics Data API. Use when you need to pull website analytics like top pages, traffic sources, user counts, sessions, conversions, or any GA4 metrics/dimensions. Supports custom date ranges and filtering.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # GA4 - Google Analytics 4 Data API

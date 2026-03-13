@@ -180,25 +180,25 @@ def main():
     trades = load_trades()
     
     if not trades:
-        print("❌ No trades logged yet. Log some trades first!")
+        print(" No trades logged yet. Log some trades first!")
         return
     
     if len(trades) < 5:
-        print(f"⚠️  Only {len(trades)} trades. Need at least 5 for rule generation.")
+        print(f"  Only {len(trades)} trades. Need at least 5 for rule generation.")
         print("   Keep logging trades to discover patterns!")
         return
     
     rules = generate_rules(trades)
     
     print(f"""
-🧠 LEARNED TRADING RULES
+ LEARNED TRADING RULES
 {'='*50}
 Generated from {len(trades)} trades
 {'='*50}
 """)
     
     if not rules:
-        print("📊 Not enough data to generate confident rules yet.")
+        print(" Not enough data to generate confident rules yet.")
         print("   Keep trading! Patterns will emerge with more data.")
         return
     
@@ -207,22 +207,22 @@ Generated from {len(trades)} trades
     avoid_rules = [r for r in rules if r["type"] == "AVOID"]
     
     if prefer_rules:
-        print("✅ PREFER (high win rate patterns):\n")
+        print(" PREFER (high win rate patterns):\n")
         for r in prefer_rules:
-            conf = "🔥" if r["confidence"] == "HIGH" else "📊"
+            conf = "" if r["confidence"] == "HIGH" else ""
             print(f"   {conf} {r['rule']}")
             print(f"      └─ {r['evidence']}\n")
     
     if avoid_rules:
-        print("🚫 AVOID (low win rate patterns):\n")
+        print(" AVOID (low win rate patterns):\n")
         for r in avoid_rules:
-            conf = "⚠️" if r["confidence"] == "HIGH" else "📊"
+            conf = "" if r["confidence"] == "HIGH" else ""
             print(f"   {conf} {r['rule']}")
             print(f"      └─ {r['evidence']}\n")
     
     # Save rules
     rules_file = save_rules(rules)
-    print(f"💾 Rules saved to: {rules_file}")
+    print(f" Rules saved to: {rules_file}")
 
 
 if __name__ == "__main__":

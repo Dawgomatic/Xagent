@@ -18,14 +18,14 @@ CYAN='\033[0;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
-ICON_SUCCESS="✅"
-ICON_ERROR="❌"
-ICON_INFO="ℹ️"
-ICON_WARNING="⚠️"
-ICON_LOCK="🔒"
-ICON_SHIELD="🛡️"
-ICON_SCAN="🔍"
-ICON_EXPLOIT="💥"
+ICON_SUCCESS=""
+ICON_ERROR=""
+ICON_INFO=""
+ICON_WARNING=""
+ICON_LOCK=""
+ICON_SHIELD=""
+ICON_SCAN=""
+ICON_EXPLOIT=""
 
 #-------------------------------------------------------------------------------
 # Configuration

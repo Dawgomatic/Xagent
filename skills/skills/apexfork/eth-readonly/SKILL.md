@@ -56,7 +56,7 @@ cast block-number --rpc-url $ETH_RPC_URL
 cast balance vitalik.eth --rpc-url https://ethereum.publicnode.com
 ```
 
-**⚠️ Rate Limits:** Public endpoints have limits. Infura free: 100k requests/day. Alchemy free: 300M compute units/month. Use narrow ranges for log queries.
+** Rate Limits:** Public endpoints have limits. Infura free: 100k requests/day. Alchemy free: 300M compute units/month. Use narrow ranges for log queries.
 
 ## Chain ID Check
 
@@ -190,7 +190,7 @@ cast base-fee --rpc-url $ETH_RPC_URL
 
 ## Event Log Queries
 
-**⚠️ REQUIRED: Always specify contract address and narrow block ranges.** Full-range queries can exhaust RPC limits instantly.
+** REQUIRED: Always specify contract address and narrow block ranges.** Full-range queries can exhaust RPC limits instantly.
 
 ```bash
 # Good: specific contract + block range

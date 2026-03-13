@@ -42,7 +42,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-echo -e "${GREEN}🚀 Clawdbot Export${NC}"
+echo -e "${GREEN} Clawdbot Export${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Validate paths
@@ -105,7 +105,7 @@ fi
 
 # Optional: credentials (dangerous)
 if [ "$INCLUDE_CREDENTIALS" = true ] && [ -d "$CONFIG_DIR/credentials" ]; then
-    echo -e "${RED}⚠ Including credentials (handle with care!)${NC}"
+    echo -e "${RED} Including credentials (handle with care!)${NC}"
     cp -r "$CONFIG_DIR/credentials" "$STAGING/config/"
 fi
 

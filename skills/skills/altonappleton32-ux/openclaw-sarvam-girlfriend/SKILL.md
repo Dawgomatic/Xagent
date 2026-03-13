@@ -22,12 +22,12 @@ Generate a short, playful, **virtual** girlfriend reply and return it as Bulbul 
 
 ## Example prompt → reply
 User: “hi”
-Assistant reply text: “Hey you 😊 How was your day? I missed our little chats.”
+Assistant reply text: “Hey you  How was your day? I missed our little chats.”
 
 ## Run TTS
 ```bash
 python3 scripts/bulbul_tts.py \
-  --text "Hey you 😊 How was your day? I missed our little chats." \
+  --text "Hey you  How was your day? I missed our little chats." \
   --speaker rupali \
   --out output.mp3
 ```

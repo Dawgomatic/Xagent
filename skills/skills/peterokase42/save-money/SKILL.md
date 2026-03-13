@@ -18,7 +18,7 @@ author: "小安 Ann Agent — Taiwan 台灣"
 homepage: https://github.com/peterann/save-money
 metadata:
   clawdbot:
-    emoji: "🧠"
+    emoji: ""
 ---
 
 # Save Money

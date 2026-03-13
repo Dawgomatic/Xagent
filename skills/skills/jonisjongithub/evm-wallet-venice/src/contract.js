@@ -263,7 +263,7 @@ async function main() {
             chain: chainName
           }, null, 2));
         } else {
-          console.log(`\n📖 Contract Read Result`);
+          console.log(`\n Contract Read Result`);
           console.log(`Contract: ${contractAddress}`);
           console.log(`Function: ${functionSig}`);
           console.log(`Chain: ${chain.name}`);
@@ -301,19 +301,19 @@ async function main() {
       
       // Show confirmation details
       const confirmationMessage = `
-🔧 Contract Call Details:
+ Contract Call Details:
   Contract: ${contractAddress}
   Function: ${functionSig}
   Arguments: [${functionArgs.join(', ')}]
   Chain: ${chain.name}
   ${value > 0 ? `Value: ${valueInEth} ETH` : ''}
   
-⛽ Gas Estimate:
+ Gas Estimate:
   Gas Limit: ${gasEstimate.gasLimit.toLocaleString()}
   Max Fee: ${formatGwei(gasEstimate.maxFeePerGas)} gwei
   Est. Cost: ${estimatedGasCostEth} ETH
   
-💰 Total Cost: ${(parseFloat(valueInEth) + parseFloat(estimatedGasCostEth)).toFixed(6)} ETH
+ Total Cost: ${(parseFloat(valueInEth) + parseFloat(estimatedGasCostEth)).toFixed(6)} ETH
 
 Proceed with transaction?`;
       
@@ -326,7 +326,7 @@ Proceed with transaction?`;
         if (jsonFlag) {
           console.log(JSON.stringify({ success: false, error: 'Transaction cancelled by user' }));
         } else {
-          console.log('❌ Transaction cancelled.');
+          console.log(' Transaction cancelled.');
         }
         return;
       }
@@ -368,7 +368,7 @@ Proceed with transaction?`;
           }
         }, null, 2));
       } else {
-        console.log('\n✅ Transaction successful!');
+        console.log('\n Transaction successful!');
         console.log(`Tx Hash: ${txHash}`);
         console.log(`Explorer: ${explorerUrl}`);
         console.log(`\nCalled ${functionSig} on ${contractAddress}`);
@@ -376,7 +376,7 @@ Proceed with transaction?`;
           console.log(`Sent: ${valueInEth} ETH`);
         }
         console.log(`Gas used: ~${estimatedGasCostEth} ETH`);
-        console.log('\n💡 Transaction may take a few minutes to confirm.');
+        console.log('\n Transaction may take a few minutes to confirm.');
       }
     }
     

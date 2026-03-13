@@ -9,17 +9,17 @@
 
 OpenClaw's native `memory/*.md` approach works great initially, but as memory files accumulate:
 
-- ❌ Every session loads all markdown files — slow and token-heavy
-- ❌ Text-based search is inefficient
-- ❌ No structured indexing or categorization
+-  Every session loads all markdown files — slow and token-heavy
+-  Text-based search is inefficient
+-  No structured indexing or categorization
 
 **claw-memory-lite** solves this with:
 
-- ✅ **SQLite Storage** — Query in <10ms, no external vector DB needed
-- ✅ **L0/L1/L2 Hierarchy** — Inspired by OpenViking, but lightweight (~200 lines)
-- ✅ **Auto-Extraction** — Cron/heartbeat-based, zero manual maintenance
-- ✅ **Zero External Dependencies** — Pure Python `sqlite3` (built-in)
-- ✅ **Privacy-First** — All data stays local, no API calls
+-  **SQLite Storage** — Query in <10ms, no external vector DB needed
+-  **L0/L1/L2 Hierarchy** — Inspired by OpenViking, but lightweight (~200 lines)
+-  **Auto-Extraction** — Cron/heartbeat-based, zero manual maintenance
+-  **Zero External Dependencies** — Pure Python `sqlite3` (built-in)
+-  **Privacy-First** — All data stays local, no API calls
 
 ## Quick Start (Recommended)
 

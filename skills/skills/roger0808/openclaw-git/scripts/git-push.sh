@@ -39,18 +39,18 @@ fi
 echo ""
 echo "=== Adding changes ==="
 git add .
-echo "✅ Changes staged"
+echo " Changes staged"
 
 echo ""
 echo "=== Committing ==="
 git commit -m "$COMMIT_MSG"
-echo "✅ Committed: $COMMIT_MSG"
+echo " Committed: $COMMIT_MSG"
 
 echo ""
 echo "=== Pushing to origin main ==="
 # Push with embedded credentials
 git push https://Roger0808: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@github.com/Roger0808/openclaw.git main
-echo "✅ Pushed to origin main"
+echo " Pushed to origin main"
 
 echo ""
 echo "====================================="

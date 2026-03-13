@@ -30,4 +30,4 @@ git push -u origin main
 git tag v0.9.0
 git push origin v0.9.0
 
-echo "✅ GitHub仓库创建完成！"
+echo " GitHub仓库创建完成！"

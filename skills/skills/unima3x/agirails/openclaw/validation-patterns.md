@@ -4,7 +4,7 @@ Common validation patterns for different service types.
 
 ---
 
-## 🎯 Lead Validation
+##  Lead Validation
 
 ```typescript
 interface Lead {
@@ -72,7 +72,7 @@ function isBusinessEmail(email: string): boolean {
 
 ---
 
-## 📝 Content Validation
+##  Content Validation
 
 ```typescript
 interface ContentDelivery {
@@ -151,7 +151,7 @@ async function validateContent(
 
 ---
 
-## 🔄 Translation Validation
+##  Translation Validation
 
 ```typescript
 interface TranslationDelivery {
@@ -203,7 +203,7 @@ async function validateTranslation(
 
 ---
 
-## 🧮 Generic Validation Helper
+##  Generic Validation Helper
 
 ```typescript
 async function validateDelivery(
@@ -231,7 +231,7 @@ const result = await validateDelivery(delivery, request, [
 
 ---
 
-## 🚨 Dispute Criteria
+##  Dispute Criteria
 
 When to dispute (return invalid):
 
@@ -246,7 +246,7 @@ When to dispute (return invalid):
 
 ---
 
-## 💡 Tips
+##  Tips
 
 1. **Be fair** - minor issues shouldn't trigger disputes
 2. **Document everything** - keep evidence for mediation

@@ -2,12 +2,12 @@
 name: water-coach
 description: "Hydration tracking and coaching skill. Use when user wants to track water intake, get reminders to drink water, log body metrics, or get analytics on hydration habits."
 compatibility: "Requires python3, openclaw cron feature, heartbeat feature"
-metadata: {"clawdbot":{"emoji":"💧"} 
+metadata: {"clawdbot":{"emoji":""} 
   author: oristides
   version: "1.5.1"
 ---
 
-# 💧 Water Coach v1.5.1
+#  Water Coach v1.5.1
 
 
 
@@ -63,7 +63,7 @@ water audit msg_123
 # Returns: entry data + surrounding messages for context
 ```
 
-> ⚠️ **Privacy Notice**: The audit trail feature can read your conversation transcripts to link water entries with messages. By default, this is **disabled** (`audit_auto_capture: false`). To enable it:
+>  **Privacy Notice**: The audit trail feature can read your conversation transcripts to link water entries with messages. By default, this is **disabled** (`audit_auto_capture: false`). To enable it:
 > 
 > ```bash
 > # Edit water_config.json and set:

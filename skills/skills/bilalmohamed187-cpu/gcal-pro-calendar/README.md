@@ -7,19 +7,19 @@
 ## Features
 
 ### Free Tier
-- ✅ View today's events
-- ✅ View tomorrow / this week
-- ✅ Search events
-- ✅ List calendars
-- ✅ Find free time slots
+-  View today's events
+-  View tomorrow / this week
+-  Search events
+-  List calendars
+-  Find free time slots
 
 ### Pro Tier ($12)
-- ✅ Everything in Free
-- ✅ Create events
-- ✅ Quick add (natural language)
-- ✅ Update/reschedule events
-- ✅ Delete events
-- ✅ Morning brief (via Clawdbot cron)
+-  Everything in Free
+-  Create events
+-  Quick add (natural language)
+-  Update/reschedule events
+-  Delete events
+-  Morning brief (via Clawdbot cron)
 
 ## Installation
 

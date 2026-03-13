@@ -2,19 +2,19 @@
 
 ## Pre-Release Validation
 
-### 1. Configuration Files ✅
+### 1. Configuration Files 
 - [x] `config/consolidator.template.yaml` - Uses port 3307 (local DB)
 - [x] `config/chaos-consolidator.service.template` - Systemd service
 - [x] Categories are flexible (not strict enum)
 - [x] Auto-capture paths use glob patterns
 
-### 2. Installation Script ✅
+### 2. Installation Script 
 - [x] Creates `~/.chaos/db` database with VARCHAR categories
 - [x] Downloads pre-built binaries or builds from source
 - [x] Sets up config directory structure
 - [x] Includes setup-service.sh for systemd
 
-### 3. Database Schema ✅
+### 3. Database Schema 
 **CRITICAL:** Local database uses flexible VARCHAR for `category` field.
 
 ```sql
@@ -85,8 +85,8 @@ chaos-consolidator --config ~/.chaos/config/consolidator.yaml --auto-capture --o
 # 6. Check logs
 tail -f ~/.chaos/consolidator.log
 
-# Expected: ✅ Extracted N memories from <file>
-# NOT: ⚠️ Failed to store memory: Error 1105
+# Expected:  Extracted N memories from <file>
+# NOT:  Failed to store memory: Error 1105
 ```
 
 ### Validation

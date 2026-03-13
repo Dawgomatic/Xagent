@@ -6,7 +6,7 @@ author: nix
 tags: [crypto, alpha, market-data, sentiment, polymarket, coingecko, fear-greed]
 ---
 
-# 📡 Crypto Alpha Scanner
+#  Crypto Alpha Scanner
 
 **Reliable market intelligence in one command.**
 
@@ -14,11 +14,11 @@ No API keys. No external dependencies. Just Python stdlib.
 
 ## Features
 
-- 📊 **Live Prices** — BTC, ETH, SOL with 24h change
-- 😱 **Fear & Greed Index** — Market sentiment gauge
-- 🔥 **Trending Coins** — What's hot on CoinGecko
-- 🎯 **Polymarket Hot** — Top prediction markets by volume
-- 💡 **Auto Insights** — Actionable commentary based on data
+-  **Live Prices** — BTC, ETH, SOL with 24h change
+-  **Fear & Greed Index** — Market sentiment gauge
+-  **Trending Coins** — What's hot on CoinGecko
+-  **Polymarket Hot** — Top prediction markets by volume
+-  **Auto Insights** — Actionable commentary based on data
 
 ## Quick Start
 
@@ -36,23 +36,23 @@ python3 scripts/scanner.py | ./scripts/post_telegram.sh
 ## Sample Output
 
 ```
-🤖 Alpha Report | 2026-02-11 19:00 UTC
+ Alpha Report | 2026-02-11 19:00 UTC
 
-📊 Market Pulse
-🔴 BTC: $67,216 (-2.3%)
-🔴 ETH: $1,943 (-3.2%)
-🔴 SOL: $80 (-3.9%)
-😱 Fear/Greed: 11 (Extreme Fear)
+ Market Pulse
+ BTC: $67,216 (-2.3%)
+ ETH: $1,943 (-3.2%)
+ SOL: $80 (-3.9%)
+ Fear/Greed: 11 (Extreme Fear)
 
-🔥 Trending: LayerZero, Uniswap, Bitcoin, Hyperliquid
+ Trending: LayerZero, Uniswap, Bitcoin, Hyperliquid
 
-🎯 Polymarket Hot
+ Polymarket Hot
 • Will Trump nominate Judy Shelton...? ($5.1M)
 • Will the Fed decrease rates...? ($3.3M)
 
-💡 Extreme fear = historically strong buy zone.
+ Extreme fear = historically strong buy zone.
 
-— Nix 🔥
+— Nix 
 ```
 
 ## Data Sources
@@ -82,11 +82,11 @@ Edit `scripts/scanner.py` to:
 
 ## Why This Skill?
 
-✅ **100% Reliable** — Only uses APIs that work  
-✅ **Zero Setup** — No API keys needed  
-✅ **Fast** — Runs in <3 seconds  
-✅ **Portable** — Pure Python, runs anywhere
+ **100% Reliable** — Only uses APIs that work  
+ **Zero Setup** — No API keys needed  
+ **Fast** — Runs in <3 seconds  
+ **Portable** — Pure Python, runs anywhere
 
 ---
 
-*Built by Nix 🔥 | Free alpha, forever*
+*Built by Nix  | Free alpha, forever*

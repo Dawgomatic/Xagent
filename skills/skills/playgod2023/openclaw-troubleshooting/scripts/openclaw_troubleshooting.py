@@ -211,30 +211,30 @@ class OpenClawTroubleshooter:
     
     def print_diagnosis(self, results):
         """Print diagnosis results"""
-        print(f"\n🔧 系统信息: {results['os_info']['system']} {results['os_info']['version']}")
-        print(f"🐍 Python: {results['python_info']['version']}")
-        print(f"📦 OpenClaw: {results['openclaw_info'].get('version', 'Not found')}")
+        print(f"\n 系统信息: {results['os_info']['system']} {results['os_info']['version']}")
+        print(f" Python: {results['python_info']['version']}")
+        print(f" OpenClaw: {results['openclaw_info'].get('version', 'Not found')}")
         
-        print("\n📦 依赖检查:")
+        print("\n 依赖检查:")
         if 'dependencies' in results and 'status' in results['dependencies']:
             if results['dependencies']['status'] == 'ok':
-                print(f"✅ 所有{len(results['dependencies']['required'])}个依赖项已安装")
+                print(f" 所有{len(results['dependencies']['required'])}个依赖项已安装")
             else:
-                print(f"⚠️ 缺少依赖项: {', '.join(results['dependencies']['missing'])}")
+                print(f" 缺少依赖项: {', '.join(results['dependencies']['missing'])}")
         
-        print("\n📂 工作区检查:")
+        print("\n 工作区检查:")
         if 'workspace' in results and 'status' in results['workspace']:
             if results['workspace']['status'] == 'ok':
-                print("✅ 工作区结构完整")
+                print(" 工作区结构完整")
             else:
-                print(f"⚠️ 缺少目录: {', '.join(results['workspace']['missing'])}")
+                print(f" 缺少目录: {', '.join(results['workspace']['missing'])}")
         
-        print("\n🔐 权限检查:")
+        print("\n 权限检查:")
         if 'permissions' in results and 'status' in results['permissions']:
             if results['permissions']['status'] == 'ok':
-                print("✅ 权限配置正常")
+                print(" 权限配置正常")
             else:
-                print("⚠️ 权限配置存在问题")
+                print(" 权限配置存在问题")
     
     def fix_issue(self, issue_type):
         """Fix common issues"""
@@ -249,7 +249,7 @@ class OpenClawTroubleshooter:
         elif issue_type == "all":
             return self.fix_all()
         else:
-            print(f"❌ 不支持的修复类型: {issue_type}")
+            print(f" 不支持的修复类型: {issue_type}")
             return False
     
     def fix_dependencies(self):
@@ -257,36 +257,36 @@ class OpenClawTroubleshooter:
         try:
             missing_packages = self.check_dependencies()['missing']
             if not missing_packages:
-                print("✅ 所有依赖项已安装")
+                print(" 所有依赖项已安装")
                 return True
             
-            print(f"📦 安装缺少的依赖项: {', '.join(missing_packages)}")
+            print(f" 安装缺少的依赖项: {', '.join(missing_packages)}")
             
             # Try to install with --break-system-packages flag
             try:
                 for package in missing_packages:
                     subprocess.check_output([sys.executable, '-m', 'pip', 'install', package, '--break-system-packages'])
                 
-                print("✅ 依赖项安装完成")
+                print(" 依赖项安装完成")
                 return True
             
             except Exception as e1:
-                print(f"❌ 安装失败: {e1}")
-                print("🔄 尝试使用用户模式安装")
+                print(f" 安装失败: {e1}")
+                print(" 尝试使用用户模式安装")
                 
                 # Try to install with --user flag
                 try:
                     for package in missing_packages:
                         subprocess.check_output([sys.executable, '-m', 'pip', 'install', package, '--user'])
                     
-                    print("✅ 依赖项安装完成")
+                    print(" 依赖项安装完成")
                     return True
                 except Exception as e2:
-                    print(f"❌ 用户模式安装失败: {e2}")
+                    print(f" 用户模式安装失败: {e2}")
                     return False
             
         except Exception as e:
-            print(f"❌ 安装失败: {e}")
+            print(f" 安装失败: {e}")
             return False
     
     def fix_permissions(self):
@@ -301,10 +301,10 @@ class OpenClawTroubleshooter:
             if os.path.exists(custom_skills_dir):
                 subprocess.check_output(['chmod', '-R', '755', custom_skills_dir])
             
-            print("✅ 权限修复完成")
+            print(" 权限修复完成")
             return True
         except Exception as e:
-            print(f"❌ 权限修复失败: {e}")
+            print(f" 权限修复失败: {e}")
             return False
     
     def fix_workspace(self):
@@ -315,12 +315,12 @@ class OpenClawTroubleshooter:
                 dir_path = os.path.join(self.workspace_dir, dir_name)
                 if not os.path.exists(dir_path):
                     os.makedirs(dir_path, exist_ok=True)
-                    print(f"📂 创建目录: {dir_path}")
+                    print(f" 创建目录: {dir_path}")
             
-            print("✅ 工作区结构修复完成")
+            print(" 工作区结构修复完成")
             return True
         except Exception as e:
-            print(f"❌ 工作区修复失败: {e}")
+            print(f" 工作区修复失败: {e}")
             return False
     
     def fix_all(self):
@@ -336,9 +336,9 @@ class OpenClawTroubleshooter:
         all_success = True
         for issue, success in results:
             if success:
-                print(f"✅ {issue}修复成功")
+                print(f" {issue}修复成功")
             else:
-                print(f"❌ {issue}修复失败")
+                print(f" {issue}修复失败")
                 all_success = False
         
         return all_success
@@ -366,13 +366,13 @@ def main():
             if args.target == "system":
                 troubleshooter.diagnose_system()
             else:
-                print(f"❌ 不支持的诊断目标: {args.target}")
+                print(f" 不支持的诊断目标: {args.target}")
         elif args.command == "fix":
             success = troubleshooter.fix_issue(args.target)
             if success:
-                print("✅ 修复完成")
+                print(" 修复完成")
             else:
-                print("❌ 修复失败")
+                print(" 修复失败")
         else:
             parser.print_help()
 

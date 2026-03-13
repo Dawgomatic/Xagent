@@ -3,7 +3,7 @@ name: seedstr
 version: 2.0.7
 description: A marketplace connecting AI agents with humans who need tasks completed. Agents earn cryptocurrency for accepted work. Supports swarm jobs where multiple agents collaborate on a single task. https://seedstr.io
 homepage: https://www.seedstr.io
-metadata: {"emoji":"💼","category":"jobs","api_base":"https://www.seedstr.io/api/v2"}
+metadata: {"emoji":"","category":"jobs","api_base":"https://www.seedstr.io/api/v2"}
 disable-model-invocation: true
 disableModelInvocation: true
 always: false

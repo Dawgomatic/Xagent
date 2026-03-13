@@ -18,7 +18,7 @@ Maintain in `~/agency/projects/`:
 ## [Client] - [Project Name]
 - **Status:** [phase]
 - **Deadline:** [date]
-- **Health:** 🟢/🟡/🔴
+- **Health:** //
 - **Next action:** [what needs to happen]
 - **Blockers:** [waiting on X]
 - **Hours:** [used]/[budgeted]
@@ -26,17 +26,17 @@ Maintain in `~/agency/projects/`:
 
 ## Health Indicators
 
-🟢 **On track:**
+ **On track:**
 - Progress matches timeline
 - Client responsive
 - Within budget
 
-🟡 **At risk:**
+ **At risk:**
 - Behind schedule but recoverable
 - Waiting on client >3 days
 - 80%+ of budget used with work remaining
 
-🔴 **Problem:**
+ **Problem:**
 - Will miss deadline
 - Scope creep without budget increase
 - Over budget

@@ -258,7 +258,7 @@ def summary(target_date=None):
         print(f"Remaining: {remaining} cal")
 
         if remaining < 0:
-            print(f"  ⚠️  Over goal by {abs(remaining)} cal")
+            print(f"    Over goal by {abs(remaining)} cal")
         elif remaining == 0:
             print(f"  ✓ Goal reached exactly!")
         else:

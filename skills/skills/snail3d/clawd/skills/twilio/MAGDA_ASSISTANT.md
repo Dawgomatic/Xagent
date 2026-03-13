@@ -1,24 +1,24 @@
-# 🤖 SMS Assistant for Magda
+#  SMS Assistant for Magda
 
 Your wife can text your Twilio number and I'll take actions on your behalf — add calendar events, create tasks, send you notes, and more.
 
 ## What Magda Can Do
 
-### 📅 Add to Calendar
+###  Add to Calendar
 ```
 "Add to calendar: Dinner with parents Friday at 7pm"
 "Schedule dentist appointment tomorrow at 2pm"
 "Remind Eric about the meeting on Monday at 9am"
 ```
 
-### ✅ Create Tasks
+###  Create Tasks
 ```
 "Add task: Pick up milk on the way home"
 "Tell Eric to call mom tomorrow"
 "Remind Eric to submit the report by Friday"
 ```
 
-### 📝 Send Notes
+###  Send Notes
 ```
 "Tell Eric the package arrived"
 "Let Eric know I'm running late"
@@ -86,7 +86,7 @@ ALLOWED_SENDERS = ["+19153097085"]  # Already done!
 
 Have Magda text: *"Add to calendar: Test event tomorrow at 3pm"*
 
-She should get back: *"✅ Added 'Test event' to Eric's calendar on 2025-02-04 at 15:00"*
+She should get back: *" Added 'Test event' to Eric's calendar on 2025-02-04 at 15:00"*
 
 ## Viewing Actions & Notifications
 
@@ -153,10 +153,10 @@ twilio/
 
 ## Safety Features
 
-✅ **Authorized Senders Only** — Only Magda's number is allowed  
-✅ **Confirmation Mode** — Calendar/tasks saved for your confirmation if automation fails  
-✅ **Audit Trail** — Everything logged for you to review  
-✅ **Reply Confirmations** — Magda knows if something worked or needs your OK  
+ **Authorized Senders Only** — Only Magda's number is allowed  
+ **Confirmation Mode** — Calendar/tasks saved for your confirmation if automation fails  
+ **Audit Trail** — Everything logged for you to review  
+ **Reply Confirmations** — Magda knows if something worked or needs your OK  
 
 ## Customization
 
@@ -239,4 +239,4 @@ if cmd_type == "weather":
 
 ---
 
-**Status:** Ready for Magda! 🎉
+**Status:** Ready for Magda! 

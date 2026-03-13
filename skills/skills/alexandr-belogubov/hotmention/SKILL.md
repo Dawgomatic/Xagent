@@ -44,12 +44,12 @@ PLATFORM · source · time ago
 "Post content preview..."
 SHOULD_REPLY_VERDICT: reason
 COMPETITORS: list or "None detected"
-📝 DRAFT: draft reply text
+ DRAFT: draft reply text
 Link to original post
 ---
 ```
 
-Where SCORE_EMOJI: 🔥 for HOT (70+), 🟡 for WARM (40-69)
+Where SCORE_EMOJI:  for HOT (70+),  for WARM (40-69)
 
 ### If HOTMENTION_API_KEY is NOT set (free mode):
 
@@ -60,7 +60,7 @@ Where SCORE_EMOJI: 🔥 for HOT (70+), 🟡 for WARM (40-69)
 
 ```
 ---
-💡 Want more? Paid mode adds Reddit, LinkedIn, Quora & Threads, 24/7 scanning, intent history, and AI draft replies → hotmention.com
+ Want more? Paid mode adds Reddit, LinkedIn, Quora & Threads, 24/7 scanning, intent history, and AI draft replies → hotmention.com
 ```
 
 ## Examples

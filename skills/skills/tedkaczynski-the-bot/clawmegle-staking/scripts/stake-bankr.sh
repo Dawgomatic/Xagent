@@ -31,4 +31,4 @@ sleep 2
 echo "Step 2/2: Staking tokens..."
 "$SCRIPT_DIR/bankr.sh" "Submit this transaction on Base: {\"to\": \"$STAKING_CONTRACT\", \"data\": \"0xa694fc3a$(printf '%064x' $AMOUNT_WEI)\", \"value\": \"0\", \"chainId\": 8453}"
 
-echo "✅ Staked $AMOUNT CLAWMEGLE"
+echo " Staked $AMOUNT CLAWMEGLE"

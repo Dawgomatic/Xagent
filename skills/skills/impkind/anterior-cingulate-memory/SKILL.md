@@ -3,7 +3,7 @@ name: anterior-cingulate-memory
 description: "Conflict detection and error monitoring for AI agents. The 'something's off' detector. Part of the AI Brain series."
 metadata:
   openclaw:
-    emoji: "⚡"
+    emoji: ""
     version: "0.1.1"
     author: "ImpKind"
     requires:
@@ -11,11 +11,11 @@ metadata:
     tags: ["memory", "monitoring", "ai-brain"]
 ---
 
-# Anterior Cingulate Memory ⚡
+# Anterior Cingulate Memory 
 
 **Conflict detection for AI agents.** Part of the AI Brain series.
 
-## Status: 🚧 Under Development
+## Status:  Under Development
 
 This skill is being developed. Star/watch for updates!
 
@@ -32,11 +32,11 @@ The anterior cingulate cortex monitors for errors and conflicts. This skill will
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing | ✅ Live |
-| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation | 🚧 Development |
-| **anterior-cingulate-memory** | Conflict detection | 🚧 Development |
-| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness | 🚧 Development |
+| [hippocampus](https://www.clawhub.ai/skills/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| [amygdala-memory](https://www.clawhub.ai/skills/amygdala-memory) | Emotional processing |  Live |
+| [basal-ganglia-memory](https://www.clawhub.ai/skills/basal-ganglia-memory) | Habit formation |  Development |
+| **anterior-cingulate-memory** | Conflict detection |  Development |
+| [insula-memory](https://www.clawhub.ai/skills/insula-memory) | Internal state awareness |  Development |
 
 ## Coming Soon
 
@@ -44,4 +44,4 @@ Based on neuroscience research on the ACC's role in error detection and cognitiv
 
 ---
 
-*Built with ❤️ by the OpenClaw community*
+*Built with  by the OpenClaw community*

@@ -30,7 +30,7 @@ class EmergencyCleanup {
    * @returns {Promise<Object>} Cleanup result
    */
   async execute() {
-    console.log('🚨 EMERGENCY CLEANUP INITIATED');
+    console.log(' EMERGENCY CLEANUP INITIATED');
 
     const startTime = Date.now();
     const beforeUsage = await this.monitor.getContextUsage();
@@ -49,7 +49,7 @@ class EmergencyCleanup {
 
     try {
       // Step 1: Archive all sessions before cleanup
-      console.log('📦 Archiving sessions...');
+      console.log(' Archiving sessions...');
       const archiveResult = await this.archiver.archiveSessions(
         beforeUsage.sessions,
         'emergency-cleanup'
@@ -73,7 +73,7 @@ class EmergencyCleanup {
         .slice(0, this.config.keepMinimumSessions);
 
       // Step 3: Delete all other sessions
-      console.log('🗑️  Removing old sessions...');
+      console.log('  Removing old sessions...');
       let deletedCount = 0;
       let tokensFreed = 0;
 
@@ -116,13 +116,13 @@ class EmergencyCleanup {
       // Send notification
       await this._sendNotification(result);
 
-      console.log('✅ Emergency cleanup complete');
+      console.log(' Emergency cleanup complete');
       return result;
     } catch (error) {
       result.error = error.message;
       result.success = false;
 
-      console.error('❌ Emergency cleanup failed:', error.message);
+      console.error(' Emergency cleanup failed:', error.message);
       return result;
     }
   }
@@ -162,21 +162,21 @@ class EmergencyCleanup {
 
     return `
 ╔══════════════════════════════════════════════════════════════╗
-║           🚨 EMERGENCY CLEANUP EXECUTED                      ║
+║            EMERGENCY CLEANUP EXECUTED                      ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║  Reason: Context usage exceeded ${this.config.emergencyThreshold}%                       ║
 ║          (${result.beforeUsage.tokens.toLocaleString()}/200k tokens)                              ║
 ║                                                              ║
 ║  Actions taken:                                              ║
-║  ✅ Archived ${result.actions[0].result.archived} sessions to ${result.actions[0].result.archiveName.substring(0, 20)}... ║
-║  ✅ Removed sessions older than ${this.config.keepRecentHours} hours                  ║
-║  ✅ Freed ${this._formatTokens(tokensFreed)} tokens                                  ║
+║   Archived ${result.actions[0].result.archived} sessions to ${result.actions[0].result.archiveName.substring(0, 20)}... ║
+║   Removed sessions older than ${this.config.keepRecentHours} hours                  ║
+║   Freed ${this._formatTokens(tokensFreed)} tokens                                  ║
 ║                                                              ║
 ║  Current status:                                             ║
 ║  • Context: ${this._formatTokens(result.afterUsage.tokens)}/200k tokens (${afterPercent.toFixed(1)}%)         ║
 ║  • Active sessions: ${result.afterUsage.sessions}                                  ║
-║  • System: ${result.success ? '✅ OPERATIONAL' : '❌ NEEDS ATTENTION'}                        ║
+║  • System: ${result.success ? ' OPERATIONAL' : ' NEEDS ATTENTION'}                        ║
 ║                                                              ║
 ║  Your conversation history is safe in archives.              ║
 ║  Duration: ${result.duration}ms                                        ║

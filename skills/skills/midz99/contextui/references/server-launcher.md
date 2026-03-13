@@ -12,17 +12,17 @@ Every Python-backed workflow follows the same structure:
 
 **User experience:** Open workflow → select venv → click "Install All" → click "Start Server" → use the workflow. Or enable auto-start and it handles everything automatically.
 
-## ⚠️ Canonical Source
+##  Canonical Source
 
 **Always copy from `examples/KokoroTTS/ui/ServerLauncher/`** — this is the canonical, tested version with all features:
 
-- ✅ GPU detection (CUDA/MPS/CPU)
-- ✅ GPU-aware PyTorch installation (auto wheel selection)
-- ✅ GPU-aware llama-cpp-python (CMAKE_ARGS)
-- ✅ Import validation (catches broken packages)
-- ✅ Connection error feedback
-- ✅ Download progress monitoring
-- ✅ CreateVenvForm as separate component (prevents input focus loss)
+-  GPU detection (CUDA/MPS/CPU)
+-  GPU-aware PyTorch installation (auto wheel selection)
+-  GPU-aware llama-cpp-python (CMAKE_ARGS)
+-  Import validation (catches broken packages)
+-  Connection error feedback
+-  Download progress monitoring
+-  CreateVenvForm as separate component (prevents input focus loss)
 
 Other examples may have older copies. When in doubt, sync from KokoroTTS.
 
@@ -203,7 +203,7 @@ useEffect(() => {
 
 ```typescript
 // Web server (almost every workflow)
-// ⚠️ ALWAYS use uvicorn[standard], not just uvicorn — includes websockets support!
+//  ALWAYS use uvicorn[standard], not just uvicorn — includes websockets support!
 packages: ['fastapi', 'uvicorn[standard]']
 
 // Data science
@@ -219,7 +219,7 @@ packages: ['fastapi', 'uvicorn[standard]', 'torch', 'llama-cpp-python']
 packages: ['fastapi', 'uvicorn[standard]', 'soundfile', 'scipy']
 ```
 
-## ⚠️ Critical Requirements
+##  Critical Requirements
 
 ### Always Use `uvicorn[standard]`
 Do NOT use just `uvicorn` — use `uvicorn[standard]`. The `[standard]` extra includes `websockets` which is required for WebSocket endpoints. Without it, FastAPI WebSocket routes will fail silently.

@@ -23,7 +23,7 @@ export async function checkBudgetAlerts() {
       type: 'daily_budget',
       threshold: config.budgetDaily,
       actual: dailyRow.total,
-      message: `⚠️ Daily budget alert: $${dailyRow.total.toFixed(4)} spent today (limit: $${config.budgetDaily.toFixed(2)})`,
+      message: ` Daily budget alert: $${dailyRow.total.toFixed(4)} spent today (limit: $${config.budgetDaily.toFixed(2)})`,
     });
   }
 
@@ -32,7 +32,7 @@ export async function checkBudgetAlerts() {
       type: 'monthly_budget',
       threshold: config.budgetMonthly,
       actual: monthlyRow.total,
-      message: `🚨 Monthly budget alert: $${monthlyRow.total.toFixed(4)} this month (limit: $${config.budgetMonthly.toFixed(2)})`,
+      message: ` Monthly budget alert: $${monthlyRow.total.toFixed(4)} this month (limit: $${config.budgetMonthly.toFixed(2)})`,
     });
   }
 

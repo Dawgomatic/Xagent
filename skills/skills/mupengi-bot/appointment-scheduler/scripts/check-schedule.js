@@ -29,7 +29,7 @@ function getBookingsForDate(dateStr) {
 }
 
 function displayBookings(dateStr, bookings) {
-  console.log(`\n📅 ${dateStr}`);
+  console.log(`\n ${dateStr}`);
   console.log('═'.repeat(60));
   
   if (bookings.length === 0) {
@@ -38,8 +38,8 @@ function displayBookings(dateStr, bookings) {
   }
   
   bookings.forEach(b => {
-    const statusEmoji = b.status === 'confirmed' ? '✅' : 
-                       b.status === 'noshow' ? '❌' : '⏳';
+    const statusEmoji = b.status === 'confirmed' ? '' : 
+                       b.status === 'noshow' ? '' : '';
     console.log(`  ${statusEmoji} ${b.time} | ${b.service} (${b.duration}분)`);
     console.log(`     고객: ${b.customer.name} ${b.customer.phone || ''}`);
     if (b.notes) {
@@ -55,7 +55,7 @@ if (weekMode) {
   const monday = new Date(today);
   monday.setDate(today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1));
   
-  console.log('📆 이번 주 예약 현황');
+  console.log(' 이번 주 예약 현황');
   for (let i = 0; i < 7; i++) {
     const date = new Date(monday);
     date.setDate(monday.getDate() + i);

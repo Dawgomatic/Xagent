@@ -2,7 +2,7 @@
 name: agent-cost-monitor
 version: 1.1.0
 description: Real-time token usage and cost tracking across all your OpenClaw agents — alerts, budgets, and optimization tips
-emoji: 💰
+emoji: 
 tags:
   - cost
   - monitoring
@@ -63,21 +63,21 @@ Ask your monitoring agent (or any agent with this skill):
 When generating a report, use this structure:
 
 ```markdown
-## 💰 Agent Cost Report — [Date]
+##  Agent Cost Report — [Date]
 
 ### Per-Agent Breakdown
 | Agent | Model | Tokens (24h) | Est. Cost | Status |
 |-------|-------|-------------|-----------|--------|
-| Central | Opus 4.6 | 125K | $1.87 | ⚠️ High |
-| Techops | Opus 4.6 | 89K | $1.33 | ✅ Normal |
-| Atlas | Sonnet 4.5 | 45K | $0.27 | ✅ Low |
-| Closer | Haiku 4.5 | 23K | $0.02 | ✅ Minimal |
-| Heartbeats | Ollama | 12K | $0.00 | ✅ Free |
+| Central | Opus 4.6 | 125K | $1.87 |  High |
+| Techops | Opus 4.6 | 89K | $1.33 |  Normal |
+| Atlas | Sonnet 4.5 | 45K | $0.27 |  Low |
+| Closer | Haiku 4.5 | 23K | $0.02 |  Minimal |
+| Heartbeats | Ollama | 12K | $0.00 |  Free |
 
 ### Summary
 - **Total 24h:** 294K tokens (~$3.49)
 - **Projected weekly:** ~$24.43
-- **Budget:** $20/week → ⚠️ 122% projected
+- **Budget:** $20/week →  122% projected
 
 ### Recommendations
 1. Move Techops from Opus → Sonnet for routine tasks (-40% cost)

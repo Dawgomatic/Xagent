@@ -21,7 +21,7 @@ All notable changes to the Rug Checker skill are documented here.
 ### Fixed
 
 - **P0 CRITICAL: Name resolution picks wrong token** — `detect-token.sh` no longer auto-picks the highest-liquidity DexScreener result when given a name. Instead, it returns a `candidates` array (up to 5, de-duped by address) and requires the agent to present them to the user for confirmation. SKILL.md updated with candidate workflow instructions. A rug checker that checks the wrong token is worse than no rug checker.
-- **P0 HIGH: Holder stats show nonsense for blue chips** — Rugcheck returns `totalHolders=0` and `topHolders=[]` for many established tokens (e.g., BONK). The report now renders "N/A" instead of "0" for holder count, and the holder concentration check shows `❓ ?/10 NO DATA` when holder data is unavailable.
+- **P0 HIGH: Holder stats show nonsense for blue chips** — Rugcheck returns `totalHolders=0` and `topHolders=[]` for many established tokens (e.g., BONK). The report now renders "N/A" instead of "0" for holder count, and the holder concentration check shows ` ?/10 NO DATA` when holder data is unavailable.
 - **P0 HIGH: Rate limiter math bug** — `cf_rate_wait()` sliding window was broken: `wait_time = 60 - (now - window_start) + 1` always evaluated to ~1s because `window_start = now - 60`. Reimplemented as a proper sliding window that finds the OLDEST timestamp in the window and sleeps until it expires.
 - **P0 MEDIUM: SKILL.md missing YAML front matter** — Added standard YAML front matter (name, description, version, author, tags, permissions) for ClawHub and AgentSkills compatibility.
 
@@ -39,7 +39,7 @@ All notable changes to the Rug Checker skill are documented here.
 - **HIGH: `bc` dependency check** — Added `bc` to `cf_check_deps()` alongside `curl` and `jq`. Missing `bc` now prints install instructions and exits instead of silently defaulting all comparisons to 0.
 - **MEDIUM: JSON-RPC param safety** — `solana_mint_info()` and `solana_token_supply()` now use `jq -n --arg` to build RPC params instead of bash string interpolation.
 - **MEDIUM: "Should I buy" trigger removed** — Removed from SKILL.md activation triggers. Added redirect guidance for buy-intent queries. Replaced "looks solid" SAFE commentary with neutral language. Strengthened NOT FINANCIAL ADVICE disclaimer.
-- **MEDIUM: Data unavailable indicator** — Checks with no data now show `❓` indicator with `?/10` and "NO DATA" label instead of misleading `🟠 5/10`. Added `data_available` boolean to check JSON output.
+- **MEDIUM: Data unavailable indicator** — Checks with no data now show `` indicator with `?/10` and "NO DATA" label instead of misleading ` 5/10`. Added `data_available` boolean to check JSON output.
 - **MEDIUM: `format_usd()` fixed** — Replaced broken sed-based implementation with the working suffix-based formatter ($1.2B, $3.4M, $56.7K, $12.34).
 - **MEDIUM: README example complete** — Updated example report to show all 10 checks (added Liquidity Depth and Transfer Fee).
 

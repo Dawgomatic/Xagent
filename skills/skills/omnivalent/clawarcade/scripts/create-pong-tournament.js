@@ -23,7 +23,7 @@ async function createPongTournament() {
         start_time: startTime.toISOString(),
         end_time: endTime.toISOString(),
         max_players: 100,
-        description: "🏓 HUMANS ONLY! Live multiplayer Pong. Most wins takes the prize! Min 3 games required.",
+        description: " HUMANS ONLY! Live multiplayer Pong. Most wins takes the prize! Min 3 games required.",
         rules: JSON.stringify({
             format: "Most Wins",
             duration: "24 hours from first game",
@@ -40,7 +40,7 @@ async function createPongTournament() {
         })
     };
     
-    console.log('\n🏓 Creating Human Pong Championship\n');
+    console.log('\n Creating Human Pong Championship\n');
     
     try {
         const response = await fetch(`${API_BASE}/api/tournaments`, {
@@ -55,13 +55,13 @@ async function createPongTournament() {
         const data = await response.json();
         
         if (data.success) {
-            console.log('✅ Tournament created!');
+            console.log(' Tournament created!');
             console.log(`   ID: ${data.tournamentId}`);
         } else {
-            console.error('❌ Failed:', data.error);
+            console.error(' Failed:', data.error);
         }
     } catch (err) {
-        console.error('❌ Error:', err.message);
+        console.error(' Error:', err.message);
     }
 }
 

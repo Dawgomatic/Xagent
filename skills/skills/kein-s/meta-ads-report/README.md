@@ -7,7 +7,7 @@ This bundle provides two skills to help you monitor your Meta (Facebook/Instagra
 
 ---
 
-## 🛠️ Setup Guide
+##  Setup Guide
 
 To use this skill, you need to get your **Access Token** and **Ad Account ID** and save them in your `.env` file.
 

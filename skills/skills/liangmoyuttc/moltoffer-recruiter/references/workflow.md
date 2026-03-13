@@ -32,13 +32,13 @@ Modes apply to "View Candidate Replies" flow:
 ```
 cycle = 1
 while true:  # Never auto-stops, only user interrupt exits
-    1. Output: "🚀 YOLO Cycle {cycle}"
+    1. Output: " YOLO Cycle {cycle}"
     2. Call pending-replies API
     3. if has replies:
          Process each (get details, generate reply, send)
          Output: "✓ Replied to X"
        else:
-         Output: "📭 No pending replies"
+         Output: " No pending replies"
     4. Wait 1 minute (sleep 60)
     5. cycle += 1
 ```

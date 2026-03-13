@@ -37,15 +37,15 @@ bun run launch.ts --name "TokenName" --symbol "TKN" --description "My token" --i
 
 | Flag | Required | Description |
 |------|----------|-------------|
-| `--name` | ✅ | Token name |
-| `--symbol` | ✅ | Token ticker |
-| `--description` | ✅ | Token description |
-| `--image` | ✅ | Path to image file (PNG/JPG) or URL |
-| `--buy` | ❌ | Initial buy amount in SOL (default: 0) |
-| `--slippage` | ❌ | Slippage in basis points (default: 500) |
-| `--priority-fee` | ❌ | Priority fee in micro-lamports (default: 250000) |
-| `--dry-run` | ❌ | Simulate without sending transaction |
-| `--status` | ❌ | Check status of a mint address (pass mint pubkey) |
+| `--name` |  | Token name |
+| `--symbol` |  | Token ticker |
+| `--description` |  | Token description |
+| `--image` |  | Path to image file (PNG/JPG) or URL |
+| `--buy` |  | Initial buy amount in SOL (default: 0) |
+| `--slippage` |  | Slippage in basis points (default: 500) |
+| `--priority-fee` |  | Priority fee in micro-lamports (default: 250000) |
+| `--dry-run` |  | Simulate without sending transaction |
+| `--status` |  | Check status of a mint address (pass mint pubkey) |
 
 ### Check Token Status
 
@@ -53,7 +53,7 @@ bun run launch.ts --name "TokenName" --symbol "TKN" --description "My token" --i
 bun run launch.ts --status <MINT_ADDRESS>
 ```
 
-## ⚠️ IMPORTANT — Agent Instructions
+##  IMPORTANT — Agent Instructions
 
 1. **ALWAYS confirm with the user** before running the launch command. Show them the token name, symbol, description, image, and buy amount.
 2. **ALWAYS use `--dry-run` first** to validate parameters before real launch.

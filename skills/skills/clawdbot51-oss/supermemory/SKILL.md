@@ -1,7 +1,7 @@
 ---
 name: supermemory
 description: Store and retrieve memories using the SuperMemory API. Add content, search memories, and chat with your knowledge base.
-metadata: {"moltbot":{"emoji":"🧠","requires":{"env":["SUPERMEMORY_API_KEY"]},"primaryEnv":"SUPERMEMORY_API_KEY"},"user-invocable":true}
+metadata: {"moltbot":{"emoji":"","requires":{"env":["SUPERMEMORY_API_KEY"]},"primaryEnv":"SUPERMEMORY_API_KEY"},"user-invocable":true}
 ---
 
 # SuperMemory

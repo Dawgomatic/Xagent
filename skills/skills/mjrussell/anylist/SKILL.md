@@ -4,7 +4,7 @@ description: Manage grocery and shopping lists via AnyList. Use when user asks a
 homepage: https://www.anylist.com
 metadata:
   clawdbot:
-    emoji: "🛒"
+    emoji: ""
     requires:
       bins: ["anylist"]
 ---

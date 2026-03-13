@@ -7,7 +7,7 @@ Standard format for presenting next steps after completing a command or workflow
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **{identifier}: {name}** — {one-line description}
 
@@ -40,7 +40,7 @@ Standard format for presenting next steps after completing a command or workflow
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **02-03: Refresh Token Rotation** — Add /api/auth/refresh with sliding expiry
 
@@ -64,7 +64,7 @@ Add note that this is the last plan and what comes after:
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **02-03: Refresh Token Rotation** — Add /api/auth/refresh with sliding expiry
 <sub>Final plan in Phase 2</sub>
@@ -87,7 +87,7 @@ Add note that this is the last plan and what comes after:
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Phase 2: Authentication** — JWT login flow with refresh tokens
 
@@ -116,7 +116,7 @@ Show completion status before next action:
 
 3/3 plans executed
 
-## ▶ Next Up
+##  Next Up
 
 **Phase 3: Core Features** — User dashboard, settings, and data export
 
@@ -141,7 +141,7 @@ When there's no clear primary action:
 ```
 ---
 
-## ▶ Next Up
+##  Next Up
 
 **Phase 3: Core Features** — User dashboard, settings, and data export
 
@@ -161,11 +161,11 @@ When there's no clear primary action:
 ```
 ---
 
-## 🎉 Milestone v1.0 Complete
+##  Milestone v1.0 Complete
 
 All 4 phases shipped
 
-## ▶ Next Up
+##  Next Up
 
 **Start v1.1** — questioning → research → requirements → roadmap
 

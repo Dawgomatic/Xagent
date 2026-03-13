@@ -171,9 +171,9 @@ def print_human(question, responses, judge_result, verdict):
     for r in responses:
         cost_str = f"${r['cost']:.4f}" if r['cost'] else "N/A"
         dur_str = f"{r['duration']:.1f}s"
-        print(f"🤖 {r['model']} ({cost_str}, {dur_str})")
+        print(f" {r['model']} ({cost_str}, {dur_str})")
         if r["error"]:
-            print(f"   ❌ Error: {r['error']}")
+            print(f"    Error: {r['error']}")
         else:
             # Truncate for display
             text = r["response"] or ""
@@ -187,14 +187,14 @@ def print_human(question, responses, judge_result, verdict):
     print(f"── Judge Verdict ({judge_result['model']}, {judge_cost}) ──\n")
 
     if verdict["winner"]:
-        print(f"🏆 Winner: {verdict['winner']}")
+        print(f" Winner: {verdict['winner']}")
     if verdict["reasoning"]:
-        print(f"💭 Reasoning: {verdict['reasoning']}")
+        print(f" Reasoning: {verdict['reasoning']}")
     if verdict["synthesized"]:
-        print(f"\n📝 Synthesized Answer:\n{verdict['synthesized']}")
+        print(f"\n Synthesized Answer:\n{verdict['synthesized']}")
 
     total_cost = sum(r["cost"] for r in responses) + (judge_result["cost"] or 0)
-    print(f"\n💰 Total Cost: ${total_cost:.4f}")
+    print(f"\n Total Cost: ${total_cost:.4f}")
     print("═" * 50)
 
 
@@ -213,7 +213,7 @@ def main():
     models = [m.strip() for m in args.models.split(",") if m.strip()]
 
     if not args.json_output:
-        print(f"🏛️  Convening council with {len(models)} models...")
+        print(f"  Convening council with {len(models)} models...")
         for m in models:
             print(f"   • {m}")
         print(f"   Judge: {args.judge}\n")
@@ -243,7 +243,7 @@ def main():
         sys.exit(1)
 
     if not args.json_output:
-        print("\n⚖️  Judge evaluating responses...")
+        print("\n  Judge evaluating responses...")
 
     judge_result = judge_responses(api_key, args.judge, args.question, responses,
                                    args.max_tokens * 2, args.timeout + 30)

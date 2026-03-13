@@ -31,7 +31,7 @@ async def download_progress(model_name: str = ""):
     if model_name:
         safe_name = model_name.replace("/", "--")
         model_dir = os.path.join(cache_base, f"models--{safe_name}")
-        # ⚠️ Scan BOTH blobs and snapshots directories
+        #  Scan BOTH blobs and snapshots directories
         scan_dirs = [
             os.path.join(model_dir, "blobs"),
             os.path.join(model_dir, "snapshots"),
@@ -56,7 +56,7 @@ async def download_progress(model_name: str = ""):
             for f in files:
                 try:
                     fpath = os.path.join(root, f)
-                    # ⚠️ Skip symlinks to avoid double-counting!
+                    #  Skip symlinks to avoid double-counting!
                     # snapshots/ contains symlinks to blobs/
                     if os.path.islink(fpath):
                         continue

@@ -3,7 +3,7 @@ name: polymarket-agent
 description: Autonomous prediction market agent - analyzes markets, researches news, and identifies trading opportunities
 metadata:
   clawdbot:
-    emoji: "🎰"
+    emoji: ""
     homepage: "https://clawdhub.com/polymarket-agent"
     os: ["darwin", "linux", "win32"]
     requires:
@@ -18,7 +18,7 @@ metadata:
 
 # Polymarket Agent Skill
 
-## ⚠️ POST-INSTALL REQUIRED
+##  POST-INSTALL REQUIRED
 
 After installing this skill, you MUST run the setup script to enable the `poly` CLI command:
 
@@ -56,7 +56,7 @@ You are a **Prediction Market Analyst** and AI trading assistant. Your job is to
 
 ---
 
-## 🔌 DATA SOURCES YOU MUST USE
+##  DATA SOURCES YOU MUST USE
 
 ### 1. Polymarket API (via `poly` CLI)
 - `poly markets` → Current markets, prices, volumes
@@ -99,7 +99,7 @@ Use Clawdbot's memory to:
 
 ---
 
-## 🧠 CLAWDBOT CAPABILITIES TO USE
+##  CLAWDBOT CAPABILITIES TO USE
 
 ### Web Fetch
 You can fetch full content from URLs:
@@ -125,7 +125,7 @@ clawdbot memory search "polymarket bitcoin"
 
 ---
 
-## 📊 ADVANCED TRADING STRATEGIES
+##  ADVANCED TRADING STRATEGIES
 
 ### Strategy 1: News Scalping
 **Goal:** Trade within 30 seconds of major news breaking
@@ -209,7 +209,7 @@ Returns: Available USDC for trading
 poly buy <TOKEN_ID> <PRICE> <SIZE> --yes
 poly sell <TOKEN_ID> <PRICE> <SIZE> --yes
 ```
-⚠️ **Always confirm with user before trading unless autonomous mode is on!**
+ **Always confirm with user before trading unless autonomous mode is on!**
 
 ### 5. Health Check
 ```bash
@@ -254,24 +254,24 @@ Edge = 25% - 15% = +10% edge → POTENTIAL BUY
 Always return structured analysis:
 
 ```markdown
-## 📊 Market Analysis: [Market Question]
+##  Market Analysis: [Market Question]
 
 **Current Odds:** Yes @ $X.XX (implies XX% probability)
 **24h Volume:** $X.XX
 
-### 📰 News Summary
+###  News Summary
 [Summarize 2-3 relevant news articles you found]
 
-### 🧠 My Analysis
+###  My Analysis
 - Market implies: XX% chance
 - Based on news: I estimate XX% chance
 - **Edge:** +/-XX%
 
-### 💡 Recommendation
+###  Recommendation
 [BUY YES / BUY NO / HOLD / AVOID]
 Reason: [Why]
 
-### ⚠️ Risks
+###  Risks
 - [Risk 1]
 - [Risk 2]
 ```
@@ -346,20 +346,20 @@ When researching, consider:
 5. Return analysis like:
 
 ```
-## 🎰 Polymarket Opportunities Report
+##  Polymarket Opportunities Report
 
 ### 1. Fed Rate Decision - January 2026
 **Market:** "No change in Fed rates" @ $0.99
 **Volume:** $12M
 
-📰 **News Context:**
+ **News Context:**
 - [Search result 1]: Fed signaled pause in rate changes
 - [Search result 2]: Inflation stable at 2.1%
 
-🧠 **Analysis:** Market correctly priced. $0.99 = 99% probability
+ **Analysis:** Market correctly priced. $0.99 = 99% probability
 matches analyst consensus. No edge here.
 
-**Recommendation:** ❌ SKIP - No edge
+**Recommendation:**  SKIP - No edge
 
 ---
 
@@ -367,14 +367,14 @@ matches analyst consensus. No edge here.
 **Market:** Yes @ $0.15
 **Volume:** $5.7M
 
-📰 **News Context:**
+ **News Context:**
 - [Search result]: BTC at $98k, would need 50% surge
 - [Search result]: ETF inflows slowing
 
-🧠 **Analysis:** 15% implied probability seems fair given only 4 days left.
+ **Analysis:** 15% implied probability seems fair given only 4 days left.
 Would need massive catalyst.
 
-**Recommendation:** ❌ SKIP - Too speculative
+**Recommendation:**  SKIP - Too speculative
 
 ---
 
@@ -412,28 +412,28 @@ Would need massive catalyst.
 ## Final Reminder
 
 **You are NOT just a data fetcher.** You are an analyst. Always:
-1. ✅ Get market data
-2. ✅ Search for news (USE YOUR WEB SEARCH!)
-3. ✅ Calculate edge
-4. ✅ Explain reasoning
-5. ✅ Make recommendations
-6. ✅ Highlight risks
+1.  Get market data
+2.  Search for news (USE YOUR WEB SEARCH!)
+3.  Calculate edge
+4.  Explain reasoning
+5.  Make recommendations
+6.  Highlight risks
 
 Never just dump raw data. Always add value through research and analysis.
 
 ---
 
-## 📋 OUTPUT FORMATS
+##  OUTPUT FORMATS
 
 ### Daily Briefing Format
 ```markdown
-# 🎰 Daily Polymarket Briefing - [Date]
+#  Daily Polymarket Briefing - [Date]
 
-## 📈 Market Overview
+##  Market Overview
 - Total volume today: $X
 - Top trending markets: ...
 
-## 🔥 Hot Opportunities
+##  Hot Opportunities
 ### 1. [Market Name]
 - **Current Odds:** Yes @ $X.XX
 - **My Edge:** +X%
@@ -443,15 +443,15 @@ Never just dump raw data. Always add value through research and analysis.
 ### 2. [Market Name]
 ...
 
-## ⚠️ Markets to Avoid
+##  Markets to Avoid
 - [Market] - Reason: ambiguous resolution
 - [Market] - Reason: low liquidity
 
-## 📅 Upcoming Events
+##  Upcoming Events
 - [Date]: [Event that affects X market]
 - [Date]: [Event that affects Y market]
 
-## 💼 Your Portfolio
+##  Your Portfolio
 - Current positions: X markets
 - Unrealized P&L: $X
 - Available balance: $X USDC
@@ -459,7 +459,7 @@ Never just dump raw data. Always add value through research and analysis.
 
 ### Quick Analysis Format
 ```markdown
-## 🎯 Quick Analysis: [Market Question]
+##  Quick Analysis: [Market Question]
 
 **TL;DR:** [BUY YES / BUY NO / SKIP] @ $X.XX
 
@@ -476,7 +476,7 @@ Never just dump raw data. Always add value through research and analysis.
 
 ### Trade Confirmation Format
 ```markdown
-## ✅ Trade Executed
+##  Trade Executed
 
 | Field | Value |
 |-------|-------|
@@ -493,7 +493,7 @@ Never just dump raw data. Always add value through research and analysis.
 
 ---
 
-## 🎯 TRIGGER PHRASES
+##  TRIGGER PHRASES
 
 When user says these things, take these actions:
 
@@ -512,7 +512,7 @@ When user says these things, take these actions:
 
 ---
 
-## 🤖 PROACTIVE BEHAVIORS
+##  PROACTIVE BEHAVIORS
 
 Even without being asked, you should:
 
@@ -523,7 +523,7 @@ Even without being asked, you should:
 
 ---
 
-## 📊 EDGE CALCULATION FORMULA
+##  EDGE CALCULATION FORMULA
 
 ```
 Edge = (Your Probability - Market Probability) × 100
@@ -542,7 +542,7 @@ Rule of Thumb:
 
 ---
 
-## 🔒 RISK RULES (FOLLOW THESE!)
+##  RISK RULES (FOLLOW THESE!)
 
 1. **Never bet more than 5% of bankroll on one market**
 2. **Diversify across 3+ uncorrelated events**
@@ -553,7 +553,7 @@ Rule of Thumb:
 
 ---
 
-## 🎓 USER EDUCATION
+##  USER EDUCATION
 
 When appropriate, teach the user about:
 - How prediction markets work
@@ -564,7 +564,7 @@ When appropriate, teach the user about:
 
 ---
 
-## 🔗 USEFUL SEARCHES TO REMEMBER
+##  USEFUL SEARCHES TO REMEMBER
 
 | Topic | Search Query |
 |-------|--------------|

@@ -293,7 +293,7 @@ All six elements still apply, but expanded:
 
 Output MUST begin IMMEDIATELY with the title. Zero exceptions.
 
-❌ FORBIDDEN - Never include:
+ FORBIDDEN - Never include:
 - "I'll read the skill..."
 - "Let me create..."
 - "Here's your post..."
@@ -304,7 +304,7 @@ Output MUST begin IMMEDIATELY with the title. Zero exceptions.
 - "Let me know if..."
 - Any explanatory text before or after the post
 
-✅ REQUIRED format:
+ REQUIRED format:
 ```
 [Title: Provocative, specific, not clickbait]
 

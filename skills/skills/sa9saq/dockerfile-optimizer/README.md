@@ -1,14 +1,14 @@
-# 🐳 dockerfile-optimizer
+#  dockerfile-optimizer
 
 Analyze and optimize Dockerfiles for size, speed, and security.
 
 ## Features
 
-- ✅ Best practice checks (layer optimization, caching, ordering)
-- 📦 Image size reduction suggestions (Alpine, multi-stage, cleanup)
-- 🔒 Security audit (secrets, root user, exposed ports)
-- 📝 Auto-generate optimized Dockerfile with explanations
-- 📊 Estimated size savings
+-  Best practice checks (layer optimization, caching, ordering)
+-  Image size reduction suggestions (Alpine, multi-stage, cleanup)
+-  Security audit (secrets, root user, exposed ports)
+-  Auto-generate optimized Dockerfile with explanations
+-  Estimated size savings
 
 ## Usage Examples
 

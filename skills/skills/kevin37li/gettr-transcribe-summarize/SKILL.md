@@ -2,7 +2,7 @@
 name: gettr-transcribe-summarize
 description: Download audio from a GETTR post (via HTML og:video), transcribe it locally with MLX Whisper on Apple Silicon (with timestamps via VTT), and summarize the transcript into bullet points and/or a timestamped outline. Use when given a GETTR post URL and asked to produce a transcript or summary.
 homepage: https://gettr.com
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["mlx_whisper","ffmpeg"]},"install":[{"id":"mlx-whisper","kind":"pip","package":"mlx-whisper","bins":["mlx_whisper"],"label":"Install mlx-whisper (pip)"},{"id":"ffmpeg","kind":"brew","formula":"ffmpeg","bins":["ffmpeg"],"label":"Install ffmpeg (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mlx_whisper","ffmpeg"]},"install":[{"id":"mlx-whisper","kind":"pip","package":"mlx-whisper","bins":["mlx_whisper"],"label":"Install mlx-whisper (pip)"},{"id":"ffmpeg","kind":"brew","formula":"ffmpeg","bins":["ffmpeg"],"label":"Install ffmpeg (brew)"}]}}
 ---
 
 # Gettr Transcribe + Summarize (MLX Whisper)

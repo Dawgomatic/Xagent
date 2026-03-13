@@ -39,7 +39,7 @@ bird search "(gem OR undervalued OR 100x) crypto" --min-likes 10 -n 15
 **Generate report in this exact format:**
 
 ```markdown
-# 🦅 Alpha Report — Feb 10, 2026
+#  Alpha Report — Feb 10, 2026
 
 ### 1. Good Morning
 [Simple greeting]
@@ -114,23 +114,23 @@ bird search "$PEPEAI (gem OR scam OR rug OR buy)" -n 20
 **Deliver analysis in this exact format:**
 
 ```
-📊 CT Sentiments:
+ CT Sentiments:
 [4-5 line summary based on top 20-30 recent tweets about the asset. What are people saying? Any patterns? Hype or concern? Specific details about the project/token/NFT]
-📈 Overall: [Bullish/Bearish/Neutral] (assessment at end of CT Sentiments section)
+ Overall: [Bullish/Bearish/Neutral] (assessment at end of CT Sentiments section)
 
-🐋 Takes of High-Rep Accounts:
+ Takes of High-Rep Accounts:
 [@Influencer1: "quote or summary of their take" — Bullish]
 [@Influencer2: "quote or summary of their take" — Bearish]
 [Or: No noticeable activity detected from high-rep accounts — Bearish]
 
-⚠️ Red Flags:
+ Red Flags:
 [Any contract issues, anon team, copycat name, LP not locked, etc. Or: None detected]
 
-📊 Score: XX/100
+ Score: XX/100
 
-✅ Verdict: [High/Medium/Low confidence — Bullish/Neutral/Bearish]
+ Verdict: [High/Medium/Low confidence — Bullish/Neutral/Bearish]
 
-⚡ NFA / DYOR
+ NFA / DYOR
 ```
 
 **How to gather data:**
@@ -199,4 +199,4 @@ bird search "$TICKER (from:DegenKing OR from:AlphaKing OR from:CryptoGem)" -n 20
 
 ---
 
-*Built for the agent economy. NFA. DYOR.* 🦅
+*Built for the agent economy. NFA. DYOR.* 

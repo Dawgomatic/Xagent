@@ -2,7 +2,7 @@
 name: mamo
 description: Interact with Mamo DeFi yield strategies on Base (Moonwell). Deposit/withdraw USDC, cbBTC, MAMO, or ETH into automated yield strategies. Check APY rates and account status.
 version: 1.0.0
-metadata: {"clawdbot":{"emoji":"🐮","category":"defi","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","category":"defi","requires":{"bins":["node"]}}}
 ---
 
 # Mamo — DeFi Yield Aggregator (Moonwell on Base)

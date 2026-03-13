@@ -1,6 +1,6 @@
 # Token Alert Skill
 
-🚨 **Monitor session tokens and get alerts at 75%/90%/95%**
+ **Monitor session tokens and get alerts at 75%/90%/95%**
 
 ## Overview
 
@@ -8,14 +8,14 @@ The Token Alert Skill automatically monitors your Clawdbot session token usage a
 
 ## Features
 
-- ✅ **6-Level Threshold System** - Alerts at 25%, 50%, 75%, 90%, 95%, 100%
-- ✅ **Material Design Progress Bar** - Box-style (▰/▱) with color gradients
-- ✅ **Rich UI Dashboard** - Interactive HTML dashboard with animations
-- ✅ **Session Status** - Shows current token usage on demand
-- ✅ **Telegram Alerts** - Get notified before hitting limits
-- ✅ **HEARTBEAT Integration** - Optional automated checks
-- ✅ **Stateless** - No state file needed, calculates on-demand
-- ✅ **Session Estimates** - Predicts remaining sessions (~50k avg)
+-  **6-Level Threshold System** - Alerts at 25%, 50%, 75%, 90%, 95%, 100%
+-  **Material Design Progress Bar** - Box-style (▰/▱) with color gradients
+-  **Rich UI Dashboard** - Interactive HTML dashboard with animations
+-  **Session Status** - Shows current token usage on demand
+-  **Telegram Alerts** - Get notified before hitting limits
+-  **HEARTBEAT Integration** - Optional automated checks
+-  **Stateless** - No state file needed, calculates on-demand
+-  **Session Estimates** - Predicts remaining sessions (~50k avg)
 
 ## Usage
 
@@ -45,28 +45,28 @@ python3 ~/clawd/skills/token-alert/scripts/check.py
 ### Automatic Alerts
 
 Grym will automatically alert you when:
-- 🟡 **25%** - Low warning (~150k tokens left)
-- 🟠 **50%** - Medium warning (~100k tokens left)
-- 🔶 **75%** - High warning (~50k tokens left)
-- 🔴 **90%** - Critical warning (~20k tokens left)
-- 🚨 **95%** - Emergency! (<10k tokens left)
+-  **25%** - Low warning (~150k tokens left)
+-  **50%** - Medium warning (~100k tokens left)
+-  **75%** - High warning (~50k tokens left)
+-  **90%** - Critical warning (~20k tokens left)
+-  **95%** - Emergency! (<10k tokens left)
 
 ### Example Output
 
 ```
-🔶 Token Alert: Achtung!
+ Token Alert: Achtung!
 
-🔶 ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▱▱▱▱▱▱ 78.0%
+ ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▱▱▱▱▱▱ 78.0%
 156,000 / 200,000 Tokens verwendet
 
-⚠️ Status: High Warning (Rot-Orange Zone)
-💡 Verbleibend: ~44k Tokens
-⏰ Geschätzte Sessions: <1 Session
+ Status: High Warning (Rot-Orange Zone)
+ Verbleibend: ~44k Tokens
+ Geschätzte Sessions: <1 Session
 
-🔧 Empfehlung:
-   ✅ Wichtige Entscheidungen jetzt treffen
-   ✅ Neue Session vorbereiten
-   ✅ Token-sparend arbeiten
+ Empfehlung:
+    Wichtige Entscheidungen jetzt treffen
+    Neue Session vorbereiten
+    Token-sparend arbeiten
 ```
 
 ## Installation
@@ -89,7 +89,7 @@ Add to `~/clawd/HEARTBEAT.md`:
 ```markdown
 ### Token Usage Check (täglich)
 - [ ] `python3 ~/clawd/skills/token-alert/scripts/check.py`
-- **Warning ab 70%:** "⚠️ Session bei XX% - Token-Sparend ab jetzt!"
+- **Warning ab 70%:** " Session bei XX% - Token-Sparend ab jetzt!"
 ```
 
 ## How It Works
@@ -170,4 +170,4 @@ MIT License - See LICENSE file
 
 ---
 
-Built with ❤️ by Grym 🥜
+Built with  by Grym 

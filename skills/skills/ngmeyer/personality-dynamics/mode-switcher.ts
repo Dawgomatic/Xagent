@@ -55,7 +55,7 @@ function getCurrentMode() {
 
 function setMode(mode) {
   if (!MODES[mode]) {
-    console.error(`❌ Unknown mode: ${mode}`);
+    console.error(` Unknown mode: ${mode}`);
     console.log(`Available: ${Object.keys(MODES).join(', ')}`);
     process.exit(1);
   }
@@ -63,7 +63,7 @@ function setMode(mode) {
   writeFileSync(STATE_FILE, mode);
   
   const config = MODES[mode];
-  console.log(`🎭 Switched to ${config.name} Mode`);
+  console.log(` Switched to ${config.name} Mode`);
   console.log(`   Tone: ${config.tone}`);
   console.log(`   Emoji: ${config.emoji ? 'yes' : 'no'}`);
   console.log(`   Verbosity: ${config.verbosity}`);

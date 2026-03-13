@@ -3,7 +3,7 @@ name: timecamp
 description: Use when the user asks about time tracking, time entries, tasks, timers, or anything related to TimeCamp. Triggers on keywords like "timecamp", "time entries", "timer", "tracking", "hours", "timesheet", "tasks list", "start timer", "stop timer", "activities", "computer activities".
 metadata:
   openclaw:
-    emoji: ⏱️
+    emoji: 
     requires:
       env: ["TIMECAMP_API_KEY"]
 ---

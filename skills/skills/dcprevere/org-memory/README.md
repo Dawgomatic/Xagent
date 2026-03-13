@@ -34,8 +34,8 @@ OpenClaw's default memory (`MEMORY.md` + semantic search) works well for simple 
 | Store 20+ entities (people, projects, companies) | Gets messy | Each entity = separate file |
 | "List all my clients" | Grep through text | `tag find client` → structured list |
 | Track relationships | Text references | Graph links with backlinks |
-| "What's due this week?" | ❌ Not possible | `agenda week` → parsed dates |
-| Task management | ❌ No date support | SCHEDULED, DEADLINE, repeaters |
+| "What's due this week?" |  Not possible | `agenda week` → parsed dates |
+| Task management |  No date support | SCHEDULED, DEADLINE, repeaters |
 
 **Use MEMORY.md** for: personal preferences, key dates, simple facts (<100 items).
 

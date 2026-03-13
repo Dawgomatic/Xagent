@@ -1,27 +1,27 @@
-# Binance Enhanced Skill for OpenClaw 🇬🇧
+# Binance Enhanced Skill for OpenClaw 
 
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Version](https://img.shields.io/badge/Version-2.0-orange)
 ![Status](https://img.shields.io/badge/Status-Production-ready-brightgreen)
 
-🇷🇺 **Russian version:** [README_RU.md](README_RU.md) | 🇬🇧 **English version:** [README.md](README.md)
+ **Russian version:** [README_RU.md](README_RU.md) |  **English version:** [README.md](README.md)
 
 **Enhanced Binance trading skill with full security infrastructure, monitoring, and automation.**
 
-> ⚡ **Created by 8 parallel agents in 20 minutes** using OpenClaw architecture
+>  **Created by 8 parallel agents in 20 minutes** using OpenClaw architecture
 
-## 🎯 Features
+##  Features
 
 | Category | Functions | Status |
 |----------|-----------|--------|
-| **🔐 Security** | Rate limiting system, API key encryption, detailed logging, security checklist | ✅ Ready |
-| **🤖 UX/UI** | Natural language command parser, interactive dialog, Telegram bot with inline buttons | ✅ Ready |
-| **📊 Monitoring** | Telegram/email/webhook notifications, web dashboard, automatic reports | ✅ Ready |
-| **⚡ Performance** | Price caching, async requests, JSON parsing optimization | ✅ Ready |
-| **📈 Strategies** | DCA, grid trading, arbitrage, backtesting, technical indicators | ✅ Ready |
+| ** Security** | Rate limiting system, API key encryption, detailed logging, security checklist |  Ready |
+| ** UX/UI** | Natural language command parser, interactive dialog, Telegram bot with inline buttons |  Ready |
+| ** Monitoring** | Telegram/email/webhook notifications, web dashboard, automatic reports |  Ready |
+| ** Performance** | Price caching, async requests, JSON parsing optimization |  Ready |
+| ** Strategies** | DCA, grid trading, arbitrage, backtesting, technical indicators |  Ready |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Installation
 ```bash
@@ -52,31 +52,31 @@ docker-compose up -d
 python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-## 📋 Requirements
+##  Requirements
 
 - **OpenClaw** (latest version)
 - **Python 3.8+** with pip
 - **Docker & Docker Compose** (optional, for containerized deployment)
 - **Binance API Keys** (with trading permissions)
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 binance-enhanced/
-├── 📁 security/          # Security system (limits, encryption, logging)
-├── 📁 ux/               # Natural language interface
-├── 📁 monitoring/       # Notifications and dashboard
-├── 📁 performance/      # Caching and optimization
-├── 📁 strategies/       # Trading algorithms
-├── 📁 telegram-bot/     # Telegram integration
-├── 📁 testing/          # Test infrastructure
-├── 📄 SKILL.md          # Skill documentation
-├── 📄 README.md         # This file (Russian version)
-├── 📄 README_EN.md      # English documentation
-└── 📄 install.sh        # Installation script
+├──  security/          # Security system (limits, encryption, logging)
+├──  ux/               # Natural language interface
+├──  monitoring/       # Notifications and dashboard
+├──  performance/      # Caching and optimization
+├──  strategies/       # Trading algorithms
+├──  telegram-bot/     # Telegram integration
+├──  testing/          # Test infrastructure
+├──  SKILL.md          # Skill documentation
+├──  README.md         # This file (Russian version)
+├──  README_EN.md      # English documentation
+└──  install.sh        # Installation script
 ```
 
-## 🔐 Security Features
+##  Security Features
 
 ### 1. API Key Encryption
 - AES-GCM encryption with PBKDF2 key derivation
@@ -98,7 +98,7 @@ binance-enhanced/
 - Dependency vulnerability scanning
 - Configuration validation
 
-## 🤖 Natural Language Interface
+##  Natural Language Interface
 
 ### Supported Commands:
 ```bash
@@ -121,7 +121,7 @@ get BTCUSDT price
 - **Auto-completion** for symbols and commands
 - **Telegram bot** with confirmation buttons
 
-## 📊 Monitoring & Alerts
+##  Monitoring & Alerts
 
 ### Real-time Notifications:
 - **Telegram**: Trade confirmations, errors, alerts
@@ -135,7 +135,7 @@ get BTCUSDT price
 - Trade history
 - Performance metrics
 
-## ⚡ Performance Optimization
+##  Performance Optimization
 
 ### 1. Caching System
 - Price data caching (Redis/Memory)
@@ -152,7 +152,7 @@ get BTCUSDT price
 - Reduced memory footprint
 - Faster response times
 
-## 📈 Trading Strategies
+##  Trading Strategies
 
 ### 1. Dollar-Cost Averaging (DCA)
 - Automated periodic purchases
@@ -174,7 +174,7 @@ get BTCUSDT price
 - Strategy performance metrics
 - Risk/reward calculations
 
-## 🤝 Integration
+##  Integration
 
 ### OpenClaw Integration
 ```json
@@ -204,7 +204,7 @@ get BTCUSDT price
 - Rate limiting
 - Webhook support
 
-## 🧪 Testing
+##  Testing
 
 ### Test Coverage:
 - **Unit tests**: Core functionality
@@ -223,7 +223,7 @@ pytest tests/integration/
 pytest tests/security/
 ```
 
-## 📚 Documentation
+##  Documentation
 
 ### Quick Links:
 - **[SKILL.md](SKILL.md)** - Detailed skill documentation
@@ -237,7 +237,7 @@ pytest tests/security/
 - Swagger UI: `http://localhost:8000/redoc`
 - Postman collection: `docs/postman_collection.json`
 
-## 🚀 Deployment
+##  Deployment
 
 ### Docker (Recommended)
 ```bash
@@ -271,7 +271,7 @@ kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables:
 ```bash
@@ -292,7 +292,7 @@ LOG_LEVEL=INFO
 - `security/config.yaml` - Security settings
 - `strategies/config.yaml` - Trading strategies
 
-## 📞 Support
+##  Support
 
 ### Community:
 - **GitHub Issues**: [Report bugs](https://github.com/s7cret/binance-enhanced/issues)
@@ -304,11 +304,11 @@ LOG_LEVEL=INFO
 - **[Binance API Docs](https://binance-docs.github.io/apidocs/)**
 - **[Skill Development Guide](SKILL.md)**
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **OpenClaw Team** for the amazing platform
 - **Binance** for their comprehensive API
@@ -316,8 +316,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**⭐ Star this repository if you find it useful!**
+** Star this repository if you find it useful!**
 
-**📢 Share your feedback and feature requests in Issues!**
+** Share your feedback and feature requests in Issues!**
 
-**🚀 Happy trading with Binance Enhanced!**
+** Happy trading with Binance Enhanced!**

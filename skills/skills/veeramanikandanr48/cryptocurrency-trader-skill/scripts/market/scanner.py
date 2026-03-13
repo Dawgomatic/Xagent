@@ -81,7 +81,7 @@ class MarketScanner:
 
         logger.info(f"Starting market scan across {len(self.categories)} categories")
         print(f"\n{'='*80}")
-        print(f"🔬 MARKET SCANNER - Finding Top {top_n} Opportunities")
+        print(f" MARKET SCANNER - Finding Top {top_n} Opportunities")
         print(f"{'='*80}")
 
         all_opportunities = []
@@ -92,7 +92,7 @@ class MarketScanner:
             if categories and category not in categories:
                 continue
 
-            print(f"\n📊 Scanning {category}...")
+            print(f"\n Scanning {category}...")
             logger.info(f"Scanning category: {category}")
 
             # Analyze each symbol in category
@@ -113,17 +113,17 @@ class MarketScanner:
                         analysis['category'] = category
                         all_opportunities.append(analysis)
 
-                        print(f"✅ EV: {ev_score:.3f}")
+                        print(f" EV: {ev_score:.3f}")
                         logger.info(f"{symbol} passed - EV: {ev_score:.3f}")
                     else:
-                        print(f"❌ Failed validation")
+                        print(f" Failed validation")
 
                     # Rate limiting
                     time.sleep(self.rate_limit_delay)
 
                 except Exception as e:
                     error_msg = str(e)[:50]
-                    print(f"⚠️  Error: {error_msg}")
+                    print(f"  Error: {error_msg}")
                     logger.error(f"Failed {symbol}: {str(e)}")
 
         # Sort by EV score and take top N
@@ -133,7 +133,7 @@ class MarketScanner:
         scan_duration = (datetime.now() - scan_start_time).total_seconds()
 
         print(f"\n{'='*80}")
-        print(f"📊 SCAN COMPLETE - {len(all_opportunities)} opportunities in {scan_duration:.1f}s")
+        print(f" SCAN COMPLETE - {len(all_opportunities)} opportunities in {scan_duration:.1f}s")
         print(f"{'='*80}")
         logger.info(f"Scan complete: {len(all_opportunities)} found, top {top_n} returned")
 
@@ -168,21 +168,21 @@ class MarketScanner:
             opportunities: List of opportunity dicts from scan_market()
         """
         if not opportunities:
-            print("\n⚠️  No execution-ready opportunities found.")
+            print("\n  No execution-ready opportunities found.")
             return
 
         print(f"\n{'='*80}")
-        print(f"🏆 TOP TRADING OPPORTUNITIES (Ranked by EV)")
+        print(f" TOP TRADING OPPORTUNITIES (Ranked by EV)")
         print(f"{'='*80}\n")
 
         for i, analysis in enumerate(opportunities, 1):
             rec = analysis['final_recommendation']
 
             print(f"#{i}. {analysis['symbol']} ({analysis['category']})")
-            print(f"   ⭐ EV: {analysis['ev_score']:.3f} | "
+            print(f"    EV: {analysis['ev_score']:.3f} | "
                   f"Action: {rec['action']} | "
                   f"Conf: {rec['confidence']}%")
-            print(f"   💰 Entry: ${rec['entry_price']} | "
+            print(f"    Entry: ${rec['entry_price']} | "
                   f"Stop: ${rec['stop_loss']} | "
                   f"Target: ${rec['take_profit']}")
             print()

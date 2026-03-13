@@ -6,7 +6,7 @@ disable-model-invocation: true
 user-invocable: true
 metadata:
   openclaw:
-    emoji: "🦞"
+    emoji: ""
     install:
       - id: vault-venv
         kind: exec
@@ -89,7 +89,7 @@ metadata:
           required: false
 ---
 
-# ResearchVault 🦞
+# ResearchVault 
 
 **Local-first research orchestration engine.**
 

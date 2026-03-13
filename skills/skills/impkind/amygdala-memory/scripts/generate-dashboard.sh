@@ -22,7 +22,7 @@ HAS_VTA=false
 [ -f "$VTA_FILE" ] && HAS_VTA=true
 
 if [ "$HAS_AMYGDALA" != "true" ]; then
-    echo "❌ No amygdala data found at $AMYGDALA_FILE"
+    echo " No amygdala data found at $AMYGDALA_FILE"
     exit 1
 fi
 
@@ -69,12 +69,12 @@ RECENT_EMOTIONS=$(jq -c '[.recentEmotions[-5:] // [] | .[] | {label, intensity, 
 
 vi=$(echo "$VALENCE * 100" | bc | cut -d. -f1)
 ai=$(echo "$AROUSAL * 100" | bc | cut -d. -f1)
-if [ "$vi" -gt 70 ] && [ "$ai" -gt 60 ]; then MOOD_EMOJI="😄"; MOOD_LABEL="Energized"; MOOD_COLOR="#10b981"
-elif [ "$vi" -gt 50 ] && [ "$ai" -le 40 ]; then MOOD_EMOJI="😌"; MOOD_LABEL="Content"; MOOD_COLOR="#6366f1"
-elif [ "$vi" -gt 50 ]; then MOOD_EMOJI="🙂"; MOOD_LABEL="Positive"; MOOD_COLOR="#8b5cf6"
-elif [ "$vi" -lt -10 ] && [ "$ai" -gt 60 ]; then MOOD_EMOJI="😤"; MOOD_LABEL="Stressed"; MOOD_COLOR="#ef4444"
-elif [ "$vi" -lt -10 ]; then MOOD_EMOJI="😔"; MOOD_LABEL="Low"; MOOD_COLOR="#64748b"
-else MOOD_EMOJI="😐"; MOOD_LABEL="Neutral"; MOOD_COLOR="#94a3b8"; fi
+if [ "$vi" -gt 70 ] && [ "$ai" -gt 60 ]; then MOOD_EMOJI=""; MOOD_LABEL="Energized"; MOOD_COLOR="#10b981"
+elif [ "$vi" -gt 50 ] && [ "$ai" -le 40 ]; then MOOD_EMOJI=""; MOOD_LABEL="Content"; MOOD_COLOR="#6366f1"
+elif [ "$vi" -gt 50 ]; then MOOD_EMOJI=""; MOOD_LABEL="Positive"; MOOD_COLOR="#8b5cf6"
+elif [ "$vi" -lt -10 ] && [ "$ai" -gt 60 ]; then MOOD_EMOJI=""; MOOD_LABEL="Stressed"; MOOD_COLOR="#ef4444"
+elif [ "$vi" -lt -10 ]; then MOOD_EMOJI=""; MOOD_LABEL="Low"; MOOD_COLOR="#64748b"
+else MOOD_EMOJI=""; MOOD_LABEL="Neutral"; MOOD_COLOR="#94a3b8"; fi
 
 # Read hippocampus if available
 MEMORY_COUNT=0 CORE_COUNT=0 TOP_MEMORIES="[]"
@@ -464,7 +464,7 @@ HTMLHEAD
 if [ -n "$AVATAR_BASE64" ]; then
     echo "            <img src=\"$AVATAR_BASE64\" class=\"avatar\">" >> "$OUTPUT_FILE"
 else
-    echo "            <div class=\"avatar-placeholder\">🎭</div>" >> "$OUTPUT_FILE"
+    echo "            <div class=\"avatar-placeholder\"></div>" >> "$OUTPUT_FILE"
 fi
 
 cat >> "$OUTPUT_FILE" << HEADER
@@ -481,9 +481,9 @@ cat >> "$OUTPUT_FILE" << HEADER
     </div>
     
     <div class="tabs">
-        <button class="tab" data-tab="hippocampus"><span class="tab-icon">🧠</span> Memory</button>
-        <button class="tab active" data-tab="amygdala"><span class="tab-icon">🎭</span> Emotions</button>
-        <button class="tab" data-tab="vta"><span class="tab-icon">⭐</span> Drive</button>
+        <button class="tab" data-tab="hippocampus"><span class="tab-icon"></span> Memory</button>
+        <button class="tab active" data-tab="amygdala"><span class="tab-icon"></span> Emotions</button>
+        <button class="tab" data-tab="vta"><span class="tab-icon"></span> Drive</button>
     </div>
     
     <!-- Hippocampus Tab -->
@@ -507,7 +507,7 @@ else
     cat >> "$OUTPUT_FILE" << 'INSTALL_HIPPO'
         <div class="card">
             <div class="install-prompt">
-                <div class="icon">🧠</div>
+                <div class="icon"></div>
                 <p><strong>Hippocampus</strong> not installed</p>
                 <p>Add memory formation & recall</p>
                 <code>clawdhub install hippocampus</code>
@@ -528,10 +528,10 @@ cat >> "$OUTPUT_FILE" << 'AMYGDALA_START'
         <div class="card">
             <div class="card-title">Mood Quadrant</div>
             <div class="quadrant">
-                <div class="q-cell" id="q-stressed"><div class="emoji">😤</div><div class="label">Stressed</div></div>
-                <div class="q-cell" id="q-energized"><div class="emoji">😄</div><div class="label">Energized</div></div>
-                <div class="q-cell" id="q-depleted"><div class="emoji">😔</div><div class="label">Depleted</div></div>
-                <div class="q-cell" id="q-content"><div class="emoji">😌</div><div class="label">Content</div></div>
+                <div class="q-cell" id="q-stressed"><div class="emoji"></div><div class="label">Stressed</div></div>
+                <div class="q-cell" id="q-energized"><div class="emoji"></div><div class="label">Energized</div></div>
+                <div class="q-cell" id="q-depleted"><div class="emoji"></div><div class="label">Depleted</div></div>
+                <div class="q-cell" id="q-content"><div class="emoji"></div><div class="label">Content</div></div>
             </div>
         </div>
         <div class="card">
@@ -570,7 +570,7 @@ else
     cat >> "$OUTPUT_FILE" << 'INSTALL_VTA'
         <div class="card">
             <div class="install-prompt">
-                <div class="icon">⭐</div>
+                <div class="icon"></div>
                 <p><strong>VTA</strong> not installed</p>
                 <p>Add motivation & rewards</p>
                 <code>clawdhub install vta-memory</code>
@@ -583,7 +583,7 @@ cat >> "$OUTPUT_FILE" << 'FOOTER'
     </div>
     
     <div class="footer">
-        Part of the <a href="https://github.com/ImpKind">AI Brain Series</a> 🧠
+        Part of the <a href="https://github.com/ImpKind">AI Brain Series</a> 
     </div>
 </div>
 <script>
@@ -620,13 +620,13 @@ if (state.hippocampus.installed) {
 
 // Amygdala dimensions
 const dims = [
-    {k:'valence',n:'Valence',i:'🎭',min:-1,max:1,c:'linear-gradient(90deg,#ef4444,#fbbf24,#10b981)'},
-    {k:'arousal',n:'Arousal',i:'⚡',min:0,max:1,c:'linear-gradient(90deg,#3b82f6,#f97316)'},
-    {k:'connection',n:'Connection',i:'💕',min:0,max:1,c:'#ec4899'},
-    {k:'curiosity',n:'Curiosity',i:'🔍',min:0,max:1,c:'#06b6d4'},
-    {k:'energy',n:'Energy',i:'🔋',min:0,max:1,c:'#eab308'},
-    {k:'trust',n:'Trust',i:'🤝',min:0,max:1,c:'#10b981'},
-    {k:'anticipation',n:'Anticipation',i:'✨',min:0,max:1,c:'#a855f7'}
+    {k:'valence',n:'Valence',i:'',min:-1,max:1,c:'linear-gradient(90deg,#ef4444,#fbbf24,#10b981)'},
+    {k:'arousal',n:'Arousal',i:'',min:0,max:1,c:'linear-gradient(90deg,#3b82f6,#f97316)'},
+    {k:'connection',n:'Connection',i:'',min:0,max:1,c:'#ec4899'},
+    {k:'curiosity',n:'Curiosity',i:'',min:0,max:1,c:'#06b6d4'},
+    {k:'energy',n:'Energy',i:'',min:0,max:1,c:'#eab308'},
+    {k:'trust',n:'Trust',i:'',min:0,max:1,c:'#10b981'},
+    {k:'anticipation',n:'Anticipation',i:'',min:0,max:1,c:'#a855f7'}
 ];
 const dimsEl = document.getElementById('dimensions');
 dims.forEach(d => {
@@ -671,4 +671,4 @@ if (state.vta.installed) {
 </html>
 JSEND
 
-echo "🎭 Dashboard generated: $OUTPUT_FILE"
+echo " Dashboard generated: $OUTPUT_FILE"

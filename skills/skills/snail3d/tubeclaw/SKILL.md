@@ -4,11 +4,11 @@ Analyze any YouTube video, extract key insights, remove fluff, and provide actio
 
 ## What It Does
 
-- 📥 Fetches YouTube video transcripts
-- 🧠 Analyzes content for key insights
-- ✂️ Removes advertising/sponsorship fluff
-- 🔗 Extracts mentioned resources/tools/links
-- 📝 Provides clean, actionable summary
+-  Fetches YouTube video transcripts
+-  Analyzes content for key insights
+-  Removes advertising/sponsorship fluff
+-  Extracts mentioned resources/tools/links
+-  Provides clean, actionable summary
 
 ## Usage
 

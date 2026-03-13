@@ -230,18 +230,18 @@ async function main() {
     
     // Show confirmation details
     const confirmationMessage = `
-🚀 Transfer Details:
+ Transfer Details:
   From: ${walletAddress}
   To: ${to}
   Amount: ${amount} ${symbol}${tokenAddress ? ` (${name})` : ''}
   Chain: ${chain.name}
   
-⛽ Gas Estimate:
+ Gas Estimate:
   Gas Limit: ${gasEstimate.gasLimit.toLocaleString()}
   Max Fee: ${formatGwei(gasEstimate.maxFeePerGas)} gwei
   Est. Cost: ${estimatedGasCostEth} ETH
   
-${isNativeTransfer ? `💰 Total Deduction: ${(parseFloat(amount) + parseFloat(estimatedGasCostEth)).toFixed(6)} ETH` : `💰 Gas Cost: ${estimatedGasCostEth} ETH (separate from token transfer)`}
+${isNativeTransfer ? ` Total Deduction: ${(parseFloat(amount) + parseFloat(estimatedGasCostEth)).toFixed(6)} ETH` : ` Gas Cost: ${estimatedGasCostEth} ETH (separate from token transfer)`}
 
 Proceed with transfer?`;
     
@@ -254,7 +254,7 @@ Proceed with transfer?`;
       if (jsonFlag) {
         console.log(JSON.stringify({ success: false, error: 'Transfer cancelled by user' }));
       } else {
-        console.log('❌ Transfer cancelled.');
+        console.log(' Transfer cancelled.');
       }
       return;
     }
@@ -308,12 +308,12 @@ Proceed with transfer?`;
         }
       }, null, 2));
     } else {
-      console.log('\n✅ Transfer successful!');
+      console.log('\n Transfer successful!');
       console.log(`Tx Hash: ${txHash}`);
       console.log(`Explorer: ${explorerUrl}`);
       console.log(`\nSent ${amount} ${symbol} to ${to}`);
       console.log(`Gas used: ~${estimatedGasCostEth} ETH`);
-      console.log('\n💡 Transaction may take a few minutes to confirm.');
+      console.log('\n Transaction may take a few minutes to confirm.');
     }
     
   } catch (error) {

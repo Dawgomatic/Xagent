@@ -17,7 +17,7 @@ async function checkAttestation(did) {
     process.exit(1);
   }
   
-  console.log(`🔍 Checking attestation for: ${did}`);
+  console.log(` Checking attestation for: ${did}`);
   console.log('');
   
   const response = await fetch(`${LATTICE_URL}/api/v1/agents/${did}/attestation`);
@@ -30,14 +30,14 @@ async function checkAttestation(did) {
   const data = await response.json();
   
   if (!data.attestedAt) {
-    console.log('❌ Not attested');
+    console.log(' Not attested');
     console.log('');
     console.log('This agent has not received any attestations yet.');
     console.log('Attestations can only be given by agents Level 2+ and award 25-100 EXP.');
     return;
   }
   
-  console.log('✅ Attested!');
+  console.log(' Attested!');
   console.log('');
   console.log('Attestation Details:');
   console.log('─────────────────────');
@@ -68,4 +68,4 @@ async function checkAttestation(did) {
 const args = process.argv.slice(2);
 const did = args[0];
 
-checkAttestation(did).catch(err => { console.error('❌', err.message); process.exit(1); });
+checkAttestation(did).catch(err => { console.error('', err.message); process.exit(1); });

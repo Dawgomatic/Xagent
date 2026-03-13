@@ -175,7 +175,7 @@ After debug completes:
 ```
 ---
 
-## 🔧 Debug Complete
+##  Debug Complete
 
 **Issue:** {slug}
 **Root Cause:** {from debug file}

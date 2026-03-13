@@ -140,7 +140,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(output)
 
-    print(f"✅ Comparison generated: {args.output}")
+    print(f" Comparison generated: {args.output}")
     print(f"   Platforms compared: {len(platforms)}")
 
 

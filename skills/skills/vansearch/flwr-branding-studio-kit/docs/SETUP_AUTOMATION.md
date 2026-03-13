@@ -22,4 +22,4 @@ Para que o GitHub publique sua skill automaticamente no marketplace, você preci
 
 ## Passo 3: Publicar!
 
-Agora, sempre que você criar uma **Release** no GitHub (ex: `v1.0.1`), a automação vai rodar sozinha e publicar sua atualização no marketplace! 🚀
+Agora, sempre que você criar uma **Release** no GitHub (ex: `v1.0.1`), a automação vai rodar sozinha e publicar sua atualização no marketplace! 

@@ -283,11 +283,11 @@ The pages are filled in this order:
 
 ```
 ✓ Completed: Personal Information 1
-📄 Next: Personal Information 2
-🆔 Application ID: AA00FBLCQP
-🔐 Security Question: What is the given name of your mother's mother?
-🔑 Answer: LiMei
-📊 Progress: 3/13 pages completed
+ Next: Personal Information 2
+ Application ID: AA00FBLCQP
+ Security Question: What is the given name of your mother's mother?
+ Answer: LiMei
+ Progress: 3/13 pages completed
 ```
 
 **Include in every report:**

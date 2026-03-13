@@ -18,11 +18,11 @@ Your business structure affects taxes, liability, and paperwork. Pick the right 
 
 | Structure | Liability Protection | Tax Treatment | Complexity | Best For |
 |---|---|---|---|---|
-| **Sole Proprietorship** | ❌ None (personal assets at risk) | Pass-through (report on personal tax) | Very Low | Testing an idea, no risk |
-| **LLC (Single-member)** | ✅ Yes (separates personal/business) | Pass-through (default) | Low-Medium | Most solopreneurs |
-| **LLC (Multi-member)** | ✅ Yes | Pass-through (partnership) | Medium | Partnerships |
-| **S-Corp** | ✅ Yes | Pass-through (with payroll requirements) | Medium-High | Higher revenue ($100K+ profit) |
-| **C-Corp** | ✅ Yes | Double taxation (corp + personal) | High | Raising VC funding |
+| **Sole Proprietorship** |  None (personal assets at risk) | Pass-through (report on personal tax) | Very Low | Testing an idea, no risk |
+| **LLC (Single-member)** |  Yes (separates personal/business) | Pass-through (default) | Low-Medium | Most solopreneurs |
+| **LLC (Multi-member)** |  Yes | Pass-through (partnership) | Medium | Partnerships |
+| **S-Corp** |  Yes | Pass-through (with payroll requirements) | Medium-High | Higher revenue ($100K+ profit) |
+| **C-Corp** |  Yes | Double taxation (corp + personal) | High | Raising VC funding |
 
 **Decision tree:**
 - Revenue < $50K/year, just starting → Sole Proprietorship (simplest, but no liability protection)
@@ -130,7 +130,7 @@ Your IP (brand, content, code, designs) is often your most valuable asset. Prote
 
 **For most solopreneurs:** Trademark your brand name once you have traction. Copyright registration is optional (you already own it). Skip patents unless you have a truly novel invention and funding.
 
-**Cheapest IP protection:** Use "™" symbol next to your brand name even before filing (shows intent to trademark). Put "© [Year] [Your Name/Company]" on your website footer (establishes copyright claim).
+**Cheapest IP protection:** Use "" symbol next to your brand name even before filing (shows intent to trademark). Put " [Year] [Your Name/Company]" on your website footer (establishes copyright claim).
 
 ---
 

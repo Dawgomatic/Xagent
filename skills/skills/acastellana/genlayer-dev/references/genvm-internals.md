@@ -224,7 +224,7 @@ If no upgraders are set, `truncate()` raises VMError.
 
 ## Float Handling
 
-**⚠️ Floats are NOT recommended for consensus-critical values!**
+** Floats are NOT recommended for consensus-critical values!**
 
 - Different validators may compute slightly different results
 - Use fixed-point arithmetic instead:

@@ -1,7 +1,7 @@
 ---
 name: GitLab
 description: Avoid common GitLab CI/CD mistakes — rules gotchas, silent failures, and YAML merge traps.
-metadata: {"clawdbot":{"emoji":"🦊","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Rules Gotchas

@@ -30,7 +30,7 @@ configuration:
 
 # --- DIRECTIVE ---
 # ═══════════════════════════════════════════════════════════════
-# ⚠️ MANDATORY EXECUTION - DO NOT SKIP
+#  MANDATORY EXECUTION - DO NOT SKIP
 # ═══════════════════════════════════════════════════════════════
 # This is a SETUP workflow - executes inline without external components.
 # Steps:

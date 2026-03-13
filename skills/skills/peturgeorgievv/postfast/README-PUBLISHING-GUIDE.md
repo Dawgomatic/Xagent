@@ -70,7 +70,7 @@ No GitHub repo needed — ClawHub publishes directly from a local folder.
 1. Take the `blog-post-openclaw-skill.md` file
 2. Adapt it to your blog CMS format (whatever postfa.st uses)
 3. **Create a featured image** — suggestions:
-   - PostFast logo + OpenClaw 🦞 logo side by side
+   - PostFast logo + OpenClaw  logo side by side
    - Use Canva: clean background, both logos, "Schedule Posts with AI" subtitle
    - Dimensions: 1200×630 (standard OG image)
 4. **SEO metadata:**
@@ -89,7 +89,7 @@ No GitHub repo needed — ClawHub publishes directly from a local folder.
    - Brief message: "Just published a PostFast skill for scheduling social media to 9 platforms — `clawhub install postfast`. No self-hosting needed, SaaS API."
 
 2. **X / Twitter:**
-   - "Just shipped a PostFast skill for @OpenClaw 🦞 — schedule posts to TikTok, Instagram, YouTube, LinkedIn & more with AI. No self-hosting needed. `clawhub install postfast`"
+   - "Just shipped a PostFast skill for @OpenClaw  — schedule posts to TikTok, Instagram, YouTube, LinkedIn & more with AI. No self-hosting needed. `clawhub install postfast`"
 
 3. **Reddit** (r/selfhosted, r/sideproject, r/SaaS):
    - Share the blog post link

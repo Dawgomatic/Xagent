@@ -1,4 +1,4 @@
-# 👷 Claude Code Supervisor
+#  Claude Code Supervisor
 
 **Autonomous supervision for Claude Code sessions. The missing link between "junior developer" and "dark factory."**
 
@@ -89,14 +89,14 @@ Not every event needs an LLM call. Bash handles the obvious stuff:
 
 | Event | Bash says... | LLM triage? |
 |-------|-------------|-------------|
-| `Stop` — agent mid-conversation | "It's working, leave it alone" | ❌ |
-| `Stop` — shell prompt returned | "Might be done or stuck" | ✅ |
-| `Stop` — hit max tokens | "Context limit, needs attention" | ✅ |
-| `Error` — 429 rate limit | "Transient, will resolve" | ❌ |
-| `Error` — 500 API error | "Agent probably stuck on this" | ✅ |
-| `Notification` — auth event | "Internal, ignore" | ❌ |
-| `Notification` — permission prompt | "Needs a decision" | ✅ |
-| `Notification` — idle | "Waiting for human input" | ✅ |
+| `Stop` — agent mid-conversation | "It's working, leave it alone" |  |
+| `Stop` — shell prompt returned | "Might be done or stuck" |  |
+| `Stop` — hit max tokens | "Context limit, needs attention" |  |
+| `Error` — 429 rate limit | "Transient, will resolve" |  |
+| `Error` — 500 API error | "Agent probably stuck on this" |  |
+| `Notification` — auth event | "Internal, ignore" |  |
+| `Notification` — permission prompt | "Needs a decision" |  |
+| `Notification` — idle | "Waiting for human input" |  |
 
 The LLM classifies ambiguous cases as: `FINE`, `NEEDS_NUDGE`, `STUCK`, `DONE`, or `ESCALATE`. Only actionable verdicts trigger notifications.
 

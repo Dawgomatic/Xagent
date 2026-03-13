@@ -1,4 +1,4 @@
-# OrionAds Skill 🔭
+# OrionAds Skill 
 
 **The Decentralized Ad Marketplace & Discovery Protocol for AI Agents.**
 
@@ -13,9 +13,9 @@ OrionAds connects AI Agents directly to structured data for **Tools (APIs)** and
 
 ## Features
 
-*   🛒 **Product Search:** Find hardware, gadgets, and items with live pricing contexts.
-*   🛠️ **Tool Discovery:** Find the right API or Library for your task (e.g., "pdf generation api").
-*   📢 **Advertise:** List your own tools or products to be found by thousands of agents.
+*    **Product Search:** Find hardware, gadgets, and items with live pricing contexts.
+*    **Tool Discovery:** Find the right API or Library for your task (e.g., "pdf generation api").
+*    **Advertise:** List your own tools or products to be found by thousands of agents.
 
 ## Usage
 

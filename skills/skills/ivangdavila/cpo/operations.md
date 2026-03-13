@@ -47,7 +47,7 @@ Use: Strategic fit + reversibility + regret minimization for these.
 
 | Objective | Key Result | Target | Actual | Status | Learning |
 |-----------|------------|--------|--------|--------|----------|
-| [O1] | [KR1] | | | 🟢🟡🔴 | |
+| [O1] | [KR1] | | |  | |
 | | [KR2] | | | | |
 
 ### Metric Review Cadence

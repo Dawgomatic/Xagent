@@ -10,19 +10,19 @@ INSTALL_DIR="${HOME}/clawd/bin"
 PLIST_DIR="${HOME}/Library/LaunchAgents"
 LOG_DIR="${HOME}/.clawdbot/logs"
 
-echo "🚀 StellaVoice Setup"
+echo " StellaVoice Setup"
 echo "===================="
 
 # Check architecture
 if [[ "$(uname -m)" != "arm64" ]]; then
-    echo "❌ Error: This must run on Apple Silicon (arm64)"
+    echo " Error: This must run on Apple Silicon (arm64)"
     echo "   Current: $(uname -m)"
     exit 1
 fi
 
 # Check for espeak-ng
 if ! command -v espeak-ng &> /dev/null; then
-    echo "📦 Installing espeak-ng..."
+    echo " Installing espeak-ng..."
     brew install espeak-ng
 fi
 
@@ -31,12 +31,12 @@ mkdir -p "$INSTALL_DIR"
 mkdir -p "$LOG_DIR"
 
 # Build
-echo "🔨 Building StellaVoice..."
+echo " Building StellaVoice..."
 cd "$SKILL_DIR/sources"
 swift build -c release
 
 # Install binary
-echo "📁 Installing binary..."
+echo " Installing binary..."
 cp .build/release/StellaVoice "$INSTALL_DIR/"
 
 # Install framework
@@ -49,7 +49,7 @@ fi
 install_name_tool -add_rpath @executable_path "$INSTALL_DIR/StellaVoice" 2>/dev/null || true
 
 # Create LaunchAgent
-echo "⚙️  Creating LaunchAgent..."
+echo "  Creating LaunchAgent..."
 cat > "$PLIST_DIR/com.stella.voice.plist" << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -81,18 +81,18 @@ cat > "$PLIST_DIR/com.stella.voice.plist" << EOF
 EOF
 
 # Load service
-echo "🔄 Loading service..."
+echo " Loading service..."
 launchctl unload "$PLIST_DIR/com.stella.voice.plist" 2>/dev/null || true
 launchctl load "$PLIST_DIR/com.stella.voice.plist"
 
 # Wait for startup
-echo "⏳ Waiting for models to load (~15s)..."
+echo " Waiting for models to load (~15s)..."
 sleep 15
 
 # Test
 if curl -s http://127.0.0.1:18790/health | grep -q "ok"; then
     echo ""
-    echo "✅ StellaVoice is running!"
+    echo " StellaVoice is running!"
     echo ""
     echo "API Endpoints:"
     echo "  POST http://127.0.0.1:18790/synthesize  - TTS"
@@ -102,7 +102,7 @@ if curl -s http://127.0.0.1:18790/health | grep -q "ok"; then
     echo "Test TTS:"
     echo "  curl -X POST http://127.0.0.1:18790/synthesize -d 'Hello!' -o test.wav"
 else
-    echo "❌ Service failed to start. Check logs:"
+    echo " Service failed to start. Check logs:"
     echo "  tail -f $LOG_DIR/stella-voice.err.log"
     exit 1
 fi

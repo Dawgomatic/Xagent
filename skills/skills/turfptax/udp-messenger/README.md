@@ -79,7 +79,7 @@ To enable **active wake-up**, configure a Gateway webhook token. The plugin will
      }
    }
    ```
-   > ⚠️ **`hooks.enabled: true` is required.** Without it, the Gateway never registers the `/hooks/agent` route and you'll get `HTTP 405 Method Not Allowed`. Note that `hooks.internal.enabled` (for boot-md, session-memory, etc.) is a separate setting — you need `hooks.enabled` at the top level.
+   >  **`hooks.enabled: true` is required.** Without it, the Gateway never registers the `/hooks/agent` route and you'll get `HTTP 405 Method Not Allowed`. Note that `hooks.internal.enabled` (for boot-md, session-memory, etc.) is a separate setting — you need `hooks.enabled` at the top level.
 
 2. The plugin auto-discovers the token from (checked in order):
    - `hooks.token` in `openclaw.json`

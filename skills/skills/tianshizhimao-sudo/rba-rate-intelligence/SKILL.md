@@ -2,7 +2,7 @@
 name: rba-rate-intelligence
 description: RBA cash rate monitor, meeting schedule, CPI tracker, and mortgage impact calculator for Australia.
 homepage: https://oneyco.com.au
-metadata: {"clawdbot":{"emoji":"📊","category":"Finance"}}
+metadata: {"clawdbot":{"emoji":"","category":"Finance"}}
 ---
 
 # RBA Rate Intelligence
@@ -17,7 +17,7 @@ Real-time Reserve Bank of Australia cash rate monitoring, meeting schedules, and
 | **CPI (Annual)** | 2.8% | Q4 2024 |
 | **RBA Target** | 2-3% | Inflation target band |
 
-> ⚠️ Rates change. Always verify at [rba.gov.au](https://www.rba.gov.au/statistics/cash-rate/)
+>  Rates change. Always verify at [rba.gov.au](https://www.rba.gov.au/statistics/cash-rate/)
 
 ---
 

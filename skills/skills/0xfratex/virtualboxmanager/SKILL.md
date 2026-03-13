@@ -2,7 +2,7 @@
 name: virtualbox
 description: "Control and manage VirtualBox virtual machines directly from openclaw. Start, stop, snapshot, clone, configure and monitor VMs using VBoxManage CLI. Supports full lifecycle management including VM creation, network configuration, shared folders, and performance monitoring."
 homepage: https://www.virtualbox.org/manual/ch08.html
-metadata: {"openclaw":{"emoji":"🖥️","requires":{"bins":["VBoxManage"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["VBoxManage"]}}}
 ---
 
 # VirtualBox Skill

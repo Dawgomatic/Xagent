@@ -82,7 +82,7 @@ def token_needs_refresh(token_data):
 
 def authorize():
     """Run device flow authorization. Requires human interaction."""
-    print("🔐 Fulcra Authorization — Device Flow")
+    print(" Fulcra Authorization — Device Flow")
     print("=" * 45)
 
     # Request device code
@@ -93,7 +93,7 @@ def authorize():
     })
 
     if status != 200:
-        print(f"❌ Failed to get device code: {data}")
+        print(f" Failed to get device code: {data}")
         sys.exit(1)
 
     device_code = data["device_code"]
@@ -103,7 +103,7 @@ def authorize():
     expires_in = data.get("expires_in", 900)
 
     print()
-    print(f"👉 Visit: {verification_url}")
+    print(f" Visit: {verification_url}")
     print(f"   Code:  {user_code}")
     print()
     print("Waiting for authorization...")
@@ -146,16 +146,16 @@ def authorize():
             save_token(token_data)
 
             print()
-            print(f"✅ Authorized!")
+            print(f" Authorized!")
             print(f"   Token expires: {expires_at.strftime('%Y-%m-%d %H:%M')}")
-            print(f"   Refresh token: {'✅ saved' if token_data.get('refresh_token') else '❌ not returned'}")
+            print(f"   Refresh token: {' saved' if token_data.get('refresh_token') else ' not returned'}")
             if token_data.get("user_id"):
                 print(f"   User ID: {token_data['user_id']}")
             print(f"   Saved to: {TOKEN_FILE}")
 
             if not token_data.get("refresh_token"):
                 print()
-                print("⚠️  No refresh token returned. Token will expire and need re-auth.")
+                print("  No refresh token returned. Token will expire and need re-auth.")
                 print("   This can happen if offline_access wasn't granted.")
             return token_data
 
@@ -166,16 +166,16 @@ def authorize():
                 interval += 2
             continue
         elif error == "expired_token":
-            print("❌ Device code expired. Please try again.")
+            print(" Device code expired. Please try again.")
             sys.exit(1)
         elif error == "access_denied":
-            print("❌ Authorization denied.")
+            print(" Authorization denied.")
             sys.exit(1)
         else:
-            print(f"❌ Unexpected error: {data}")
+            print(f" Unexpected error: {data}")
             sys.exit(1)
 
-    print("❌ Timed out waiting for authorization.")
+    print(" Timed out waiting for authorization.")
     sys.exit(1)
 
 
@@ -184,15 +184,15 @@ def refresh():
     token_data = load_token()
 
     if not token_data:
-        print("❌ No token file found. Run 'authorize' first.")
+        print(" No token file found. Run 'authorize' first.")
         sys.exit(1)
 
     if not token_data.get("refresh_token"):
-        print("❌ No refresh token saved. Run 'authorize' to get one.")
+        print(" No refresh token saved. Run 'authorize' to get one.")
         sys.exit(1)
 
     if not token_needs_refresh(token_data):
-        print(f"✅ Token still fresh (expires {token_data['expiration']})")
+        print(f" Token still fresh (expires {token_data['expiration']})")
         return token_data
 
     status, data = _auth0_post("/oauth/token", {
@@ -203,7 +203,7 @@ def refresh():
 
     if status != 200 or "access_token" not in data:
         error = data.get("error_description", data.get("error", "unknown"))
-        print(f"❌ Refresh failed: {error}")
+        print(f" Refresh failed: {error}")
         print("   You may need to re-authorize: python3 fulcra_auth.py authorize")
         sys.exit(1)
 
@@ -219,7 +219,7 @@ def refresh():
 
     save_token(token_data)
 
-    print(f"✅ Token refreshed! Expires: {expires_at.strftime('%Y-%m-%d %H:%M')}")
+    print(f" Token refreshed! Expires: {expires_at.strftime('%Y-%m-%d %H:%M')}")
     return token_data
 
 
@@ -228,7 +228,7 @@ def status():
     token_data = load_token()
 
     if not token_data:
-        print("❌ No token found. Run: python3 fulcra_auth.py authorize")
+        print(" No token found. Run: python3 fulcra_auth.py authorize")
         return
 
     has_access = bool(token_data.get("access_token"))
@@ -236,9 +236,9 @@ def status():
     is_valid = token_is_valid(token_data)
     exp = token_data.get("expiration", "unknown")
 
-    print(f"Access token:  {'✅' if has_access else '❌'}")
-    print(f"Refresh token: {'✅' if has_refresh else '❌'}")
-    print(f"Valid:         {'✅' if is_valid else '❌ expired'}")
+    print(f"Access token:  {'' if has_access else ''}")
+    print(f"Refresh token: {'' if has_refresh else ''}")
+    print(f"Valid:         {'' if is_valid else ' expired'}")
     print(f"Expires:       {exp}")
     if token_data.get("user_id"):
         print(f"User ID:       {token_data['user_id']}")
@@ -247,7 +247,7 @@ def status():
 
     if not has_refresh:
         print()
-        print("⚠️  No refresh token. Re-run 'authorize' to get one.")
+        print("  No refresh token. Re-run 'authorize' to get one.")
     elif not is_valid:
         print()
         print("Token expired. Run: python3 fulcra_auth.py refresh")

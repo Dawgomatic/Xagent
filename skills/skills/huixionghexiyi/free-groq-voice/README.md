@@ -17,11 +17,11 @@
 
 ## Features
 
-✅ **Completely FREE** - No payment required  
-✅ **50+ Languages** - Chinese, English, Japanese, Korean, etc.  
-✅ **High Accuracy** - Whisper-large-v3 (best model)  
-✅ **Fast** - Powered by Groq's LPU chip  
-✅ **Easy Setup** - Just add API key  
+ **Completely FREE** - No payment required  
+ **50+ Languages** - Chinese, English, Japanese, Korean, etc.  
+ **High Accuracy** - Whisper-large-v3 (best model)  
+ **Fast** - Powered by Groq's LPU chip  
+ **Easy Setup** - Just add API key  
 
 ## Cost Comparison
 

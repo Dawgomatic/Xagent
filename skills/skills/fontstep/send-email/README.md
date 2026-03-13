@@ -4,10 +4,10 @@ OpenClaw skill for sending emails via SMTP using the Python script. Credentials 
 
 ## Features
 
-- ✅ Support for 163, Gmail, QQ, and other SMTP providers
-- ✅ Python script with env from openclaw.json
-- ✅ Attachment support
-- ✅ No ~/.msmtprc or manual SMTP file config needed
+-  Support for 163, Gmail, QQ, and other SMTP providers
+-  Python script with env from openclaw.json
+-  Attachment support
+-  No ~/.msmtprc or manual SMTP file config needed
 
 ## Installation
 

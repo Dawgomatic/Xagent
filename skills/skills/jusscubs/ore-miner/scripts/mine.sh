@@ -18,12 +18,12 @@ else
 fi
 
 # Step 1: Get wallet address from account info
-echo "🔍 Fetching wallet address..."
+echo " Fetching wallet address..."
 ACCOUNT_INFO=$(curl -s "$API_URL/account/me" -H "$AUTH_HEADER")
 WALLET=$(echo "$ACCOUNT_INFO" | python3 -c "import sys,json; print(json.load(sys.stdin).get('wallet_address',''))" 2>/dev/null || echo "")
 
 if [ -z "$WALLET" ]; then
-  echo "❌ Could not get wallet address. Response:"
+  echo " Could not get wallet address. Response:"
   echo "$ACCOUNT_INFO"
   exit 1
 fi
@@ -45,7 +45,7 @@ case "$STRATEGY" in
   *)            RISK="medium" ;;
 esac
 
-echo "⛏️ Starting mining session on refinORE..."
+echo " Starting mining session on refinORE..."
 echo "  SOL per round: $SOL_AMOUNT"
 echo "  Tiles: $NUM_SQUARES"
 echo "  Strategy: $STRATEGY (mode=$TILE_MODE, risk=$RISK)"
@@ -68,10 +68,10 @@ HTTP_CODE=$(echo "$RESPONSE" | tail -1)
 BODY=$(echo "$RESPONSE" | sed '$d')
 
 if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-  echo "✅ Session started!"
+  echo " Session started!"
   echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
 else
-  echo "❌ Failed (HTTP $HTTP_CODE)"
+  echo " Failed (HTTP $HTTP_CODE)"
   echo "$BODY"
   exit 1
 fi

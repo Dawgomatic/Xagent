@@ -28,16 +28,16 @@ class Consolidator:
         workspace = Path(project['workspace'])
         tasks = project.get('tasks', [])
 
-        print(f"📦 Consolidating results for {project['name']}...")
+        print(f" Consolidating results for {project['name']}...")
 
         # Check task statuses
         completed = [t for t in tasks if t.get('status') == 'completed']
         failed = [t for t in tasks if t.get('status') == 'failed']
 
         if failed:
-            print(f"⚠️  {len(failed)} tasks failed:")
+            print(f"  {len(failed)} tasks failed:")
             for task in failed:
-                print(f"   ❌ {task['task_id']}: {task.get('result', {}).get('error', 'Unknown error')}")
+                print(f"    {task['task_id']}: {task.get('result', {}).get('error', 'Unknown error')}")
 
         if not completed:
             return {
@@ -47,14 +47,14 @@ class Consolidator:
                 'tasks_failed': len(failed)
             }
 
-        print(f"✅ {len(completed)}/{len(tasks)} tasks completed successfully")
+        print(f" {len(completed)}/{len(tasks)} tasks completed successfully")
 
         # Check for git conflicts
         conflicts = self._check_git_conflicts(workspace)
         if conflicts:
-            print(f"⚠️  Git conflicts detected:")
+            print(f"  Git conflicts detected:")
             for conflict in conflicts:
-                print(f"   🔥 {conflict}")
+                print(f"    {conflict}")
 
             # TODO: Use AI model to resolve conflicts
             # For now, mark as needs manual resolution
@@ -69,7 +69,7 @@ class Consolidator:
         # Run tests (if test files exist)
         test_result = self._run_tests(workspace)
         if test_result and not test_result['success']:
-            print(f"❌ Tests failed:")
+            print(f" Tests failed:")
             print(f"   {test_result['error']}")
             # Continue anyway, but mark in result
 
@@ -88,7 +88,7 @@ class Consolidator:
         if project.get('github_repo'):
             push_result = self._push_to_github(workspace)
             if not push_result['success']:
-                print(f"⚠️  Failed to push to GitHub: {push_result['error']}")
+                print(f"  Failed to push to GitHub: {push_result['error']}")
                 # Don't fail consolidation if push fails
 
         # Success
@@ -238,7 +238,7 @@ class Consolidator:
             )
             commit_sha = result.stdout.strip()
 
-            print(f"✅ Committed changes: {commit_sha[:7]}")
+            print(f" Committed changes: {commit_sha[:7]}")
 
             return {
                 'success': True,
@@ -300,7 +300,7 @@ Co-Authored-By: Claw Conductor <conductor@clawhub.ai>
                 timeout=30
             )
 
-            print(f"✅ Pushed to GitHub")
+            print(f" Pushed to GitHub")
 
             return {'success': True}
 

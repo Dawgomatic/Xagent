@@ -161,16 +161,16 @@ func (plan *AgentPlan) ForSystemPrompt() string {
 	sb.WriteString(fmt.Sprintf("Goal: %s\n\n", plan.Goal))
 
 	for _, step := range plan.Steps {
-		marker := "⬜"
+		marker := ""
 		switch step.Status {
 		case "completed":
-			marker = "✅"
+			marker = ""
 		case "in_progress":
-			marker = "🔄"
+			marker = ""
 		case "failed":
-			marker = "❌"
+			marker = ""
 		case "skipped":
-			marker = "⏭️"
+			marker = ""
 		}
 		sb.WriteString(fmt.Sprintf("%s %d. %s\n", marker, step.Index, step.Description))
 	}

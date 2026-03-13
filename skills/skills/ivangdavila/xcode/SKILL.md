@@ -1,7 +1,7 @@
 ---
 name: Xcode
 description: Avoid common Xcode mistakes — signing issues, build settings traps, and cache corruption fixes.
-metadata: {"clawdbot":{"emoji":"🔨","requires":{"bins":["xcodebuild"]},"os":["darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["xcodebuild"]},"os":["darwin"]}}
 ---
 
 ## Signing Issues

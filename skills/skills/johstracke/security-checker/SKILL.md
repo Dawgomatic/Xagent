@@ -84,16 +84,16 @@ clawhub publish /path/to/skill --slug my-skill ...
 
 ## Interpretation of Results
 
-### ✅ "No security issues found"
+###  "No security issues found"
 Code appears safe. Proceed with publishing.
 
-### ⚠️  "Warning" (Yellow)
+###   "Warning" (Yellow)
 Potentially risky pattern detected. Review the specific line and decide:
 - **Is it legitimate?** Document why in code comments or SKILL.md
 - **Can it be avoided?** Refactor to safer alternatives
 - **Is it necessary?** Clearly document the risk and purpose
 
-### 🔴 "Possible hardcoded secret"
+###  "Possible hardcoded secret"
 Secret detected. Before publishing:
 - Remove the secret
 - Use environment variables instead: `os.getenv('API_KEY')`
@@ -108,7 +108,7 @@ import os  # Used only for path.join() - safe file path construction
 workspace = os.path.join(os.path.expanduser("~"), ".openclaw", "workspace")
 ```
 
-**Scan result:** ⚠️ Warning about os import
+**Scan result:**  Warning about os import
 **Action:** Document safe usage pattern in code comments
 
 ### Hardcoded secret (must fix)
@@ -116,7 +116,7 @@ workspace = os.path.join(os.path.expanduser("~"), ".openclaw", "workspace")
 API_KEY = "sk-1234567890abcdef"  # DON'T DO THIS
 ```
 
-**Scan result:** 🔴 Possible hardcoded secret
+**Scan result:**  Possible hardcoded secret
 **Action:** Remove and use environment variable:
 ```python
 API_KEY = os.getenv("MY_SKILL_API_KEY")
@@ -131,7 +131,7 @@ with open("data.json", "w") as f:
     json.dump(data, f)
 ```
 
-**Scan result:** ✅ No issues
+**Scan result:**  No issues
 
 ## Best Practices
 
@@ -150,7 +150,7 @@ with open("data.json", "w") as f:
 # Pre-commit hook concept
 python3 /path/to/security_scan.py scripts/
 if [ $? -ne 0 ]; then
-    echo "❌ Security scan failed. Fix issues before committing."
+    echo " Security scan failed. Fix issues before committing."
     exit 1
 fi
 ```
@@ -162,15 +162,15 @@ fi
 
 SKILL_PATH=$1
 
-echo "🔒 Running security scan..."
+echo " Running security scan..."
 python3 /path/to/security_scan.py "$SKILL_PATH"
 
 if [ $? -ne 0 ]; then
-    echo "❌ Cannot publish: Security scan failed"
+    echo " Cannot publish: Security scan failed"
     exit 1
 fi
 
-echo "✅ Security scan passed"
+echo " Security scan passed"
 clawhub publish "$SKILL_PATH"
 ```
 
@@ -201,15 +201,15 @@ Publishing skills that pass security scans builds trust in the community:
 ```bash
 # research-assistant
 security_scan.py /home/ubuntu/.openclaw/workspace/skills/research-assistant
-# ✅ All clear
+#  All clear
 
 # task-runner  
 security_scan.py /home/ubuntu/.openclaw/workspace/skills/task-runner
-# ✅ All clear
+#  All clear
 
 # security-checker
 security_scan.py /home/ubuntu/.openclaw/workspace/skills/security-checker
-# ✅ All clear
+#  All clear
 ```
 
 All three skills passed security scans before publishing to ClawHub.

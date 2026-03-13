@@ -42,22 +42,22 @@ openclaw_dir_perms=$(echo "$runtime_json" | jq -r '.filesystem.openclaw_dir_perm
 # Determine overall score
 if [ "$count_critical" -gt 0 ]; then
     score_class="score-critical"
-    score_emoji="🔴"
+    score_emoji=""
     score_label="Critical"
     score_desc="즉시 조치가 필요합니다"
 elif [ "$count_high" -gt 0 ]; then
     score_class="score-high"
-    score_emoji="🟠"
+    score_emoji=""
     score_label="High Risk"
     score_desc="빠른 조치를 권장합니다"
 elif [ "$count_medium" -gt 0 ]; then
     score_class="score-medium"
-    score_emoji="🟡"
+    score_emoji=""
     score_label="Medium"
     score_desc="개선이 필요합니다"
 else
     score_class="score-good"
-    score_emoji="🟢"
+    score_emoji=""
     score_label="Good"
     score_desc="전반적으로 양호합니다"
 fi
@@ -65,25 +65,25 @@ fi
 # Generate runtime content
 runtime_content="
 <div class=\"runtime-card\">
-    <h4>🌐 Network</h4>
+    <h4> Network</h4>
     <div class=\"runtime-item\"><span>External IP</span><span class=\"runtime-value\">$external_ip</span></div>
     <div class=\"runtime-item\"><span>VPN</span><span class=\"runtime-value $([ "$vpn_type" != "none" ] && echo 'good' || echo 'warn')\">$vpn_type</span></div>
     <div class=\"runtime-item\"><span>Behind NAT</span><span class=\"runtime-value $([ "$behind_nat" = "true" ] && echo 'good' || echo 'warn')\">$behind_nat</span></div>
     <div class=\"runtime-item\"><span>Exposed</span><span class=\"runtime-value $([ "$potentially_exposed" = "true" ] && echo 'warn' || echo 'good')\">$potentially_exposed</span></div>
 </div>
 <div class=\"runtime-card\">
-    <h4>📦 Isolation</h4>
+    <h4> Isolation</h4>
     <div class=\"runtime-item\"><span>Container</span><span class=\"runtime-value $([ "$in_container" = "true" ] && echo 'good' || echo 'warn')\">$in_container</span></div>
     <div class=\"runtime-item\"><span>Type</span><span class=\"runtime-value\">$container_type</span></div>
 </div>
 <div class=\"runtime-card\">
-    <h4>👤 Privileges</h4>
+    <h4> Privileges</h4>
     <div class=\"runtime-item\"><span>User</span><span class=\"runtime-value\">$current_user</span></div>
     <div class=\"runtime-item\"><span>Root</span><span class=\"runtime-value $([ "$running_as_root" = "true" ] && echo 'bad' || echo 'good')\">$running_as_root</span></div>
     <div class=\"runtime-item\"><span>Sudo</span><span class=\"runtime-value $([ "$can_sudo" = "true" ] && echo 'warn' || echo 'good')\">$can_sudo</span></div>
 </div>
 <div class=\"runtime-card\">
-    <h4>📁 Filesystem</h4>
+    <h4> Filesystem</h4>
     <div class=\"runtime-item\"><span>~/.openclaw perms</span><span class=\"runtime-value $([ "$openclaw_dir_perms" = "700" ] && echo 'good' || echo 'warn')\">$openclaw_dir_perms</span></div>
 </div>
 "
@@ -134,7 +134,7 @@ generate_section() {
             [ -z "$finding" ] && continue
             local title=$(echo "$finding" | jq -r '.title')
             local action=$(echo "$finding" | jq -r '.action')
-            findings_html+="<li class=\"finding-item critical\">🔴 $title<br><small>→ $action</small></li>"
+            findings_html+="<li class=\"finding-item critical\"> $title<br><small>→ $action</small></li>"
         done <<< "$(echo "$audit_json" | jq -c ".findings.critical[] | select(.category == \"$category\")")"
         
         # High
@@ -142,7 +142,7 @@ generate_section() {
             [ -z "$finding" ] && continue
             local title=$(echo "$finding" | jq -r '.title')
             local action=$(echo "$finding" | jq -r '.action')
-            findings_html+="<li class=\"finding-item high\">🟠 $title<br><small>→ $action</small></li>"
+            findings_html+="<li class=\"finding-item high\"> $title<br><small>→ $action</small></li>"
         done <<< "$(echo "$audit_json" | jq -c ".findings.high[] | select(.category == \"$category\")")"
         
         # Medium
@@ -150,7 +150,7 @@ generate_section() {
             [ -z "$finding" ] && continue
             local title=$(echo "$finding" | jq -r '.title')
             local action=$(echo "$finding" | jq -r '.action')
-            findings_html+="<li class=\"finding-item medium\">🟡 $title<br><small>→ $action</small></li>"
+            findings_html+="<li class=\"finding-item medium\"> $title<br><small>→ $action</small></li>"
         done <<< "$(echo "$audit_json" | jq -c ".findings.medium[] | select(.category == \"$category\")")"
         
         # Low
@@ -158,7 +158,7 @@ generate_section() {
             [ -z "$finding" ] && continue
             local title=$(echo "$finding" | jq -r '.title')
             local action=$(echo "$finding" | jq -r '.action')
-            findings_html+="<li class=\"finding-item low\">🟢 $title<br><small>→ $action</small></li>"
+            findings_html+="<li class=\"finding-item low\"> $title<br><small>→ $action</small></li>"
         done <<< "$(echo "$audit_json" | jq -c ".findings.low[] | select(.category == \"$category\")")"
         
         # Info
@@ -166,7 +166,7 @@ generate_section() {
             [ -z "$finding" ] && continue
             local title=$(echo "$finding" | jq -r '.title')
             local action=$(echo "$finding" | jq -r '.action')
-            findings_html+="<li class=\"finding-item info\">⚪ $title<br><small>→ $action</small></li>"
+            findings_html+="<li class=\"finding-item info\"> $title<br><small>→ $action</small></li>"
         done <<< "$(echo "$audit_json" | jq -c ".findings.info[] | select(.category == \"$category\")")"
         
         findings_html+="</ul>"
@@ -211,12 +211,12 @@ fi
 
 # Generate all sections
 findings_sections=""
-findings_sections+=$(generate_section "CHANNEL" "📢" "Channels")
-findings_sections+=$(generate_section "AGENT" "🤖" "Agents")
-findings_sections+=$(generate_section "WORKSPACE" "📁" "Workspace")
-findings_sections+=$(generate_section "SKILL" "🧩" "Skills")
-findings_sections+=$(generate_section "CRON" "⏰" "Cron Jobs")
-findings_sections+=$(generate_section "NETWORK" "🌐" "Network")
+findings_sections+=$(generate_section "CHANNEL" "" "Channels")
+findings_sections+=$(generate_section "AGENT" "" "Agents")
+findings_sections+=$(generate_section "WORKSPACE" "" "Workspace")
+findings_sections+=$(generate_section "SKILL" "" "Skills")
+findings_sections+=$(generate_section "CRON" "" "Cron Jobs")
+findings_sections+=$(generate_section "NETWORK" "" "Network")
 
 # Read template and replace placeholders
 html=$(cat "$TEMPLATE")

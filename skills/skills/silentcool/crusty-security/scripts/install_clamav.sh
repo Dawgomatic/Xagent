@@ -158,7 +158,7 @@ $SUDO systemctl start clamav-freshclam 2>/dev/null || true
 
 # Verify
 if command -v clamscan &>/dev/null; then
-    log "✅ ClamAV installed successfully: $(clamscan --version 2>/dev/null)"
+    log " ClamAV installed successfully: $(clamscan --version 2>/dev/null)"
 else
     die "Installation failed — clamscan not found in PATH"
 fi

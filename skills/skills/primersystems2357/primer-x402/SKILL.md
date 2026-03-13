@@ -1,7 +1,7 @@
 ---
 name: primer-x402
 description: Make HTTP-native crypto payments using the x402 protocol. Pay for APIs, access paid resources, and handle 402 Payment Required responses with USDC on Base and other EVM chains.
-metadata: {"openclaw":{"emoji":"💸","requires":{"anyBins":["node","npx","python3","pip"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["node","npx","python3","pip"]}}}
 ---
 
 # x402 Payment Protocol

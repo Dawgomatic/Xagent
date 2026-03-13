@@ -4,16 +4,16 @@
 
 | Need | AutoAnimate | Motion |
 |------|-------------|--------|
-| List add/remove/sort | ✅ Perfect | ⚠️ Overkill |
-| Accordion expand/collapse | ✅ Perfect | ⚠️ Overkill |
-| Toast notifications | ✅ Perfect | ⚠️ Overkill |
-| Form validation errors | ✅ Perfect | ⚠️ Overkill |
-| Hero animations | ❌ Too simple | ✅ Perfect |
-| Drag and drop | ❌ Not supported | ✅ Perfect |
-| Scroll animations | ❌ Not supported | ✅ Perfect |
-| Gesture controls | ❌ Not supported | ✅ Perfect |
-| Spring physics | ❌ Not supported | ✅ Perfect |
-| SVG path morphing | ❌ Not supported | ✅ Perfect |
+| List add/remove/sort |  Perfect |  Overkill |
+| Accordion expand/collapse |  Perfect |  Overkill |
+| Toast notifications |  Perfect |  Overkill |
+| Form validation errors |  Perfect |  Overkill |
+| Hero animations |  Too simple |  Perfect |
+| Drag and drop |  Not supported |  Perfect |
+| Scroll animations |  Not supported |  Perfect |
+| Gesture controls |  Not supported |  Perfect |
+| Spring physics |  Not supported |  Perfect |
+| SVG path morphing |  Not supported |  Perfect |
 
 ---
 
@@ -295,29 +295,29 @@ export function App() {
 ### AutoAnimate
 
 **Strengths:**
-- ✅ 3.28 KB gzipped
-- ✅ No runtime overhead (pure CSS transitions)
-- ✅ Works with server-side rendering (with dynamic import)
-- ✅ Zero JavaScript for animations (CSS-based)
+-  3.28 KB gzipped
+-  No runtime overhead (pure CSS transitions)
+-  Works with server-side rendering (with dynamic import)
+-  Zero JavaScript for animations (CSS-based)
 
 **Limitations:**
-- ❌ No control over easing curves (uses CSS defaults)
-- ❌ No gesture support
-- ❌ No spring physics
+-  No control over easing curves (uses CSS defaults)
+-  No gesture support
+-  No spring physics
 
 ### Motion
 
 **Strengths:**
-- ✅ Full animation control
-- ✅ Gesture recognition
-- ✅ Spring physics
-- ✅ Layout animations (FLIP)
-- ✅ Scroll-linked animations
+-  Full animation control
+-  Gesture recognition
+-  Spring physics
+-  Layout animations (FLIP)
+-  Scroll-linked animations
 
 **Limitations:**
-- ❌ 22 KB gzipped (6.7x larger)
-- ❌ JavaScript-based animations (more overhead)
-- ❌ More complex API (higher maintenance)
+-  22 KB gzipped (6.7x larger)
+-  JavaScript-based animations (more overhead)
+-  More complex API (higher maintenance)
 
 ---
 
@@ -326,19 +326,19 @@ export function App() {
 ### AutoAnimate
 
 **Built-in:**
-- ✅ Respects `prefers-reduced-motion` automatically (no config needed)
-- ✅ Animations disabled if user has motion sensitivity
+-  Respects `prefers-reduced-motion` automatically (no config needed)
+-  Animations disabled if user has motion sensitivity
 
 **Manual:**
-- ❌ Can override with `disrespectUserMotionPreference: true` (don't do this!)
+-  Can override with `disrespectUserMotionPreference: true` (don't do this!)
 
 ### Motion
 
 **Built-in:**
-- ✅ Respects `prefers-reduced-motion` via `useReducedMotion()` hook
+-  Respects `prefers-reduced-motion` via `useReducedMotion()` hook
 
 **Manual:**
-- ❌ Need to manually check and disable animations:
+-  Need to manually check and disable animations:
   ```tsx
   const shouldReduceMotion = useReducedMotion();
   const variants = shouldReduceMotion ? disabledVariants : enabledVariants;

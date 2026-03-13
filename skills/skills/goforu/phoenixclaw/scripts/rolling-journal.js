@@ -212,7 +212,7 @@ function generateJournal(moments, startTime, endTime) {
       currentDate = moment.date;
       content += `## ${moment.date}\n\n`;
     } else if (moment.type === 'image') {
-      content += `- **${moment.time}** 📸 ${moment.description}\n`;
+      content += `- **${moment.time}**  ${moment.description}\n`;
     } else {
       content += `- **${moment.time}** ${moment.role}: ${moment.preview}\n`;
     }
@@ -282,7 +282,7 @@ async function main() {
   if (journalContent) {
     const today = new Date().toISOString().split('T')[0];
     const filename = saveJournal(journalContent, today);
-    console.log(`✅ Journal saved: ${filename}`);
+    console.log(` Journal saved: ${filename}`);
     console.log(`   Contains ${moments.filter(m => m.type !== 'date-marker').length} moments`);
   }
 }

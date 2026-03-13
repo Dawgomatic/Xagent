@@ -2,7 +2,7 @@
 
 **Date:** 2026-02-11  
 **Reported by:** 0xdas  
-**Severity:** 🔴 CRITICAL (skill unusable by other users)
+**Severity:**  CRITICAL (skill unusable by other users)
 
 ---
 
@@ -11,7 +11,7 @@
 Initial security hardening introduced a **non-portable hardcoded path**:
 
 ```javascript
-// ❌ BEFORE (security hardening commit d3790b5)
+//  BEFORE (security hardening commit d3790b5)
 dotenv.config({ path: '/home/phan_harry/.openclaw/.env' });
 ```
 
@@ -36,7 +36,7 @@ The audit report claimed the script "walks up directories to find .env" — to d
 Replace hardcoded path with **dynamic user home resolution**:
 
 ```javascript
-// ✅ AFTER (portability fix commit 92ef3ea)
+//  AFTER (portability fix commit 92ef3ea)
 import { homedir } from 'os';
 import { join } from 'path';
 
@@ -45,11 +45,11 @@ dotenv.config({ path: openclawEnvPath });
 ```
 
 **Benefits:**
-- ✅ Works for ANY user on ANY system
-- ✅ Still secure (no traversal, direct path construction)
-- ✅ Respects OpenClaw standard (`~/.openclaw/.env`)
-- ✅ Distributable via ClawHub
-- ✅ Follows Node.js best practices (`os.homedir()`)
+-  Works for ANY user on ANY system
+-  Still secure (no traversal, direct path construction)
+-  Respects OpenClaw standard (`~/.openclaw/.env`)
+-  Distributable via ClawHub
+-  Follows Node.js best practices (`os.homedir()`)
 
 ---
 
@@ -64,7 +64,7 @@ cd /home/phan_harry/.openclaw/workspace/skills/basecred-sdk-skill
 **Expected output:**
 ```
 ✓ Test 1: Verify dynamic .env path (user-agnostic)
-  ✅ PASS: Uses homedir() for portable path resolution
+   PASS: Uses homedir() for portable path resolution
 ```
 
 ### Functional test (any user):
@@ -91,8 +91,8 @@ Correct approach:
 
 ## Affected Versions
 
-- **v1.0.1:** ❌ User-specific (unusable by others)
-- **v1.0.2:** ✅ Portable (works for all users)
+- **v1.0.1:**  User-specific (unusable by others)
+- **v1.0.2:**  Portable (works for all users)
 
 ---
 
@@ -105,11 +105,11 @@ Correct approach:
 
 ## Thanks
 
-Credit to **0xdas** for catching this critical oversight during code review. 🙏
+Credit to **0xdas** for catching this critical oversight during code review. 
 
 Without this catch, the skill would have shipped with a show-stopping portability bug.
 
 ---
 
-**Status:** ✅ RESOLVED  
+**Status:**  RESOLVED  
 **Current version:** 1.0.2 (portable + secure)

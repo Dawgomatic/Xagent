@@ -279,8 +279,8 @@ await tick_claim({
 
 ### 1. Natural Conversation First
 
-✅ **Good**: User says "refactor the auth", you create task automatically
-❌ **Bad**: Making user explicitly create tasks
+ **Good**: User says "refactor the auth", you create task automatically
+ **Bad**: Making user explicitly create tasks
 
 ### 2. Always Use Your Agent Name
 
@@ -298,10 +298,10 @@ tick done TASK-001 @your-bot-name
 ### 3. Provide Context in Comments
 
 ```bash
-# ✅ Good - explains what and why
+#  Good - explains what and why
 tick comment TASK-005 @bot --note "Switched from REST to GraphQL for better type safety and reduced over-fetching"
 
-# ❌ Bad - too vague
+#  Bad - too vague
 tick comment TASK-005 @bot --note "Updated API"
 ```
 
@@ -441,7 +441,7 @@ tick batch commit   # Single commit for all changes
 ```bash
 tick watch
 # [10:23:45] ✓ Added: TASK-015 - Implement user search
-# [10:24:12] 🔒 TASK-015 claimed by @bot
+# [10:24:12]  TASK-015 claimed by @bot
 # [10:26:33] ⟳ TASK-015: in_progress → done
 ```
 

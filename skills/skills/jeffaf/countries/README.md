@@ -1,4 +1,4 @@
-# countries-skill 🌍
+# countries-skill 
 
 CLI for AI agents to lookup country info for their humans. Uses [REST Countries API](https://restcountries.com). No auth required.
 
@@ -33,14 +33,14 @@ countries all                      # List all countries
 
 **List format:**
 ```
-[US] United States — Washington D.C., Americas, Pop: 331M, 🇺🇸
-[JP] Japan — Tokyo, Asia, Pop: 125.8M, 🇯🇵
-[DE] Germany — Berlin, Europe, Pop: 83.2M, 🇩🇪
+[US] United States — Washington D.C., Americas, Pop: 331M, 
+[JP] Japan — Tokyo, Asia, Pop: 125.8M, 
+[DE] Germany — Berlin, Europe, Pop: 83.2M, 
 ```
 
 **Detailed info:**
 ```
-🌍 Japan
+ Japan
    Official: Japan
    Code: JP / JPN / 392
    Capital: Tokyo
@@ -52,9 +52,9 @@ countries all                      # List all countries
    Timezones: UTC+09:00
    Borders: None (island/isolated)
    Driving: left side
-   Flag: 🇯🇵
+   Flag: 
 
-🗺️ Map: https://goo.gl/maps/...
+ Map: https://goo.gl/maps/...
 ```
 
 ## Commands

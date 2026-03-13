@@ -20,7 +20,7 @@ async function setupSchema() {
     const schema = fs.readFileSync('schema.sql', 'utf8');
     await client.query(schema);
     
-    console.log('✅ Schema setup complete!');
+    console.log(' Schema setup complete!');
     
     // Test the schema
     const result = await client.query(`

@@ -2,7 +2,7 @@
 name: bitwarden
 description: Set up and use Bitwarden CLI (bw). Use when installing the CLI, unlocking vault, or reading/generating secrets via bw. Handles session management with BW_SESSION.
 homepage: https://bitwarden.com/help/cli/
-metadata: {"openclaw":{"emoji":"🔐","requires":{"bins":["bw","tmux"]},"install":[{"id":"brew-bw","kind":"brew","formula":"bitwarden-cli","bins":["bw"],"label":"Install Bitwarden CLI (brew)"},{"id":"brew-tmux","kind":"brew","formula":"tmux","bins":["tmux"],"label":"Install tmux (brew)"}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["bw","tmux"]},"install":[{"id":"brew-bw","kind":"brew","formula":"bitwarden-cli","bins":["bw"],"label":"Install Bitwarden CLI (brew)"},{"id":"brew-tmux","kind":"brew","formula":"tmux","bins":["tmux"],"label":"Install tmux (brew)"}]}}
 ---
 
 # Bitwarden CLI

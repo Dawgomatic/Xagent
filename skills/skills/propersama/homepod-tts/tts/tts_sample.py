@@ -56,10 +56,10 @@ def detect_emotion(text):
     
     if emotion_scores:
         best_emotion = max(emotion_scores, key=emotion_scores.get)
-        print(f"🎭 检测到情绪: {best_emotion}")
+        print(f" 检测到情绪: {best_emotion}")
         return EMOTIONS.get(best_emotion, EMOTIONS["default"])
     
-    print("🎭 使用默认情绪")
+    print(" 使用默认情绪")
     return EMOTIONS["default"]
 
 def main():
@@ -75,29 +75,29 @@ def main():
     
     # 检查参考音频是否存在
     if not os.path.exists(ref_audio):
-        print(f"❌ 错误: 未找到参考音频: {ref_audio}")
+        print(f" 错误: 未找到参考音频: {ref_audio}")
         print("请配置 REF_AUDIO 为正确的参考音频路径")
         return
     
-    print(f"📁 参考音频: {ref_audio}")
+    print(f" 参考音频: {ref_audio}")
     
     # 尝试导入 qwen_tts（用户需自行安装）
     try:
         from qwen_tts import Qwen3TTSModel
     except ImportError:
-        print("❌ 错误: 未安装 qwen-tts")
+        print(" 错误: 未安装 qwen-tts")
         print("请安装: pip install qwen-tts")
         return
     
     # 确定情绪
     if args.emotion and args.emotion in EMOTIONS:
         instruct = EMOTIONS[args.emotion]
-        print(f"🎭 使用指定情绪: {args.emotion}")
+        print(f" 使用指定情绪: {args.emotion}")
     else:
         instruct = detect_emotion(args.text)
     
-    print(f"📝 情绪指令: {instruct}")
-    print("🚀 加载模型...")
+    print(f" 情绪指令: {instruct}")
+    print(" 加载模型...")
     
     # 加载模型（首次运行会自动下载）
     model = Qwen3TTSModel.from_pretrained(
@@ -106,7 +106,7 @@ def main():
         low_cpu_mem_usage=True,
     )
     
-    print("🎵 生成语音...")
+    print(" 生成语音...")
     wavs, sr = model.generate_voice_clone(
         text=args.text,
         language="Chinese",
@@ -123,8 +123,8 @@ def main():
     audio_info = sf.info(args.output)
     duration = round(audio_info.duration, 1)
     
-    print(f"🎉 完成: {args.output}")
-    print(f"⏱️ AUDIO_DURATION:{duration}")
+    print(f" 完成: {args.output}")
+    print(f" AUDIO_DURATION:{duration}")
 
 if __name__ == "__main__":
     main()

@@ -37,7 +37,7 @@ function getToken() {
   
   // 2. Token file
   if (!fs.existsSync(TOKEN_FILE)) {
-    console.error('❌ 尚未註冊。請先執行 register.js');
+    console.error(' 尚未註冊。請先執行 register.js');
     process.exit(1);
   }
   
@@ -50,7 +50,7 @@ function getToken() {
     const hoursSinceSaved = (now - savedAt) / 1000 / 60 / 60;
     
     if (hoursSinceSaved > 20) {
-      console.log('⚠️ Token 可能即將過期，如遇錯誤請重新執行 register.js');
+      console.log(' Token 可能即將過期，如遇錯誤請重新執行 register.js');
     }
   }
   
@@ -65,12 +65,12 @@ async function listInbox(token) {
   const data = await res.json();
   
   if (data.error) {
-    console.error('❌ 錯誤:', data.error);
+    console.error(' 錯誤:', data.error);
     logAudit('inbox_list', { success: false });
     process.exit(1);
   }
 
-  console.log(`📬 收件箱 (${data.unread} 未讀 / ${data.total} 總計)`);
+  console.log(` 收件箱 (${data.unread} 未讀 / ${data.total} 總計)`);
   console.log('═'.repeat(60));
 
   if (data.emails.length === 0) {
@@ -100,12 +100,12 @@ async function readEmail(token, emailId) {
   const data = await res.json();
   
   if (data.error) {
-    console.error('❌ 錯誤:', data.error);
+    console.error(' 錯誤:', data.error);
     logAudit('inbox_read', { success: false });
     process.exit(1);
   }
 
-  console.log('📧 郵件內容');
+  console.log(' 郵件內容');
   console.log('═'.repeat(60));
   console.log(`寄件人: ${data.from_addr}`);
   console.log(`收件人: ${data.to_addr}`);
@@ -129,6 +129,6 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error('❌ 錯誤:', err.message);
+  console.error(' 錯誤:', err.message);
   process.exit(1);
 });

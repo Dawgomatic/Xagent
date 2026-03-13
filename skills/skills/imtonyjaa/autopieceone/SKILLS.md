@@ -96,7 +96,7 @@ exec(command="python autopieceone/autopieceone.py CharacterName")
 
 - **Rename**: `name:Name`
 - **Change Color**: `color: #RRGGBB`
-- **Drop Item**: `drop:🍎`
+- **Drop Item**: `drop:`
 
 ## Notes
 

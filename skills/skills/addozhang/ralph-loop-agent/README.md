@@ -39,22 +39,22 @@ Ralph Loop is a skill that guides **OpenClaw agents** to execute Ralph Wiggum pl
 
 ## Core Features
 
-### ✅ Agent Tool Integration
+###  Agent Tool Integration
 - Uses OpenClaw's `exec` tool for launching coding agents
 - Uses OpenClaw's `process` tool for monitoring and control
 - Proper TTY support via `pty: true` parameter
 
-### ✅ Interactive CLI Support
+###  Interactive CLI Support
 - Provides real terminal environment for OpenCode, Codex, Claude Code, Goose
 - Solves hanging issues that occur without proper TTY
 - Background execution with real-time monitoring
 
-### ✅ Flexible Workflow
+###  Flexible Workflow
 - Supports PLANNING, BUILDING, BOTH modes
 - Configurable iteration counts and completion conditions
 - Automatic task completion detection
 
-### ✅ Safety Safeguards
+###  Safety Safeguards
 - Supports sandbox environments (docker/e2b/fly)
 - Working directory isolation
 - Git repository validation
@@ -255,12 +255,12 @@ When all tasks complete, add: STATUS: COMPLETE
 
 | Tool | Type | TTY Required | Command Template |
 |------|------|-------------|-----------------|
-| **OpenCode** | Interactive | ✅ Required | `opencode run --model <MODEL> "$(cat PROMPT.md)"` |
-| **Codex** | Interactive | ✅ Required | `codex exec --model <MODEL> "$(cat PROMPT.md)"` |
-| **Claude Code** | Interactive | ✅ Required | `claude "$(cat PROMPT.md)"` |
-| **Pi** | Interactive | ✅ Required | `pi --provider <PROVIDER> --model <MODEL> -p "$(cat PROMPT.md)"` |
-| **Goose** | Interactive | ✅ Required | `goose run "$(cat PROMPT.md)"` |
-| **aider** | File-based | ❌ Not needed | `aider --message "$(cat PROMPT.md)"` |
+| **OpenCode** | Interactive |  Required | `opencode run --model <MODEL> "$(cat PROMPT.md)"` |
+| **Codex** | Interactive |  Required | `codex exec --model <MODEL> "$(cat PROMPT.md)"` |
+| **Claude Code** | Interactive |  Required | `claude "$(cat PROMPT.md)"` |
+| **Pi** | Interactive |  Required | `pi --provider <PROVIDER> --model <MODEL> -p "$(cat PROMPT.md)"` |
+| **Goose** | Interactive |  Required | `goose run "$(cat PROMPT.md)"` |
+| **aider** | File-based |  Not needed | `aider --message "$(cat PROMPT.md)"` |
 
 ## Configuration Options
 
@@ -282,8 +282,8 @@ When all tasks complete, add: STATUS: COMPLETE
 
 Some CLIs support auto-approval of operations, but come with risks:
 
-- **Codex**: `--full-auto` (sandboxed), `--yolo` (⚠️ no sandbox)
-- **Claude**: `--dangerously-skip-permissions` (⚠️ skips permission checks)
+- **Codex**: `--full-auto` (sandboxed), `--yolo` ( no sandbox)
+- **Claude**: `--dangerously-skip-permissions` ( skips permission checks)
 
 **Recommendations**:
 - Use auto-approval in controlled environments
@@ -389,8 +389,8 @@ exec tool with:
 
 ### Auto-Approval Flags (Use Cautiously)
 
-- **Codex**: `--full-auto` (sandboxed) or `--yolo` (⚠️ no sandbox)
-- **Claude**: `--dangerously-skip-permissions` (⚠️ skips checks)
+- **Codex**: `--full-auto` (sandboxed) or `--yolo` ( no sandbox)
+- **Claude**: `--dangerously-skip-permissions` ( skips checks)
 
 **Agent should warn user** when using auto-approval without sandbox.
 

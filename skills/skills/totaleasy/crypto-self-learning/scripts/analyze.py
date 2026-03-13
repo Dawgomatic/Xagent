@@ -86,7 +86,7 @@ def generate_insights(trades, min_trades=3):
     for stat in direction_stats:
         diff = stat["win_rate"] - overall_win_rate
         if abs(diff) > 10:  # Significant difference
-            emoji = "✅" if diff > 0 else "⚠️"
+            emoji = "" if diff > 0 else ""
             action = "PREFER" if diff > 0 else "CAUTION"
             insights.append({
                 "type": "direction",
@@ -101,7 +101,7 @@ def generate_insights(trades, min_trades=3):
     for stat in day_stats:
         diff = stat["win_rate"] - overall_win_rate
         if abs(diff) > 15:  # Significant difference
-            emoji = "✅" if diff > 0 else "🚫"
+            emoji = "" if diff > 0 else ""
             action = "PREFER" if diff > 0 else "AVOID"
             insights.append({
                 "type": "day",
@@ -118,7 +118,7 @@ def generate_insights(trades, min_trades=3):
             if stat["win_rate"] < 50:
                 insights.append({
                     "type": "leverage",
-                    "emoji": "⚠️",
+                    "emoji": "",
                     "action": "CAUTION",
                     "message": f"High leverage ({stat['value']}x) trades (win rate: {stat['win_rate']:.0f}%, n={stat['n']})",
                     "impact": stat["win_rate"] - overall_win_rate
@@ -138,7 +138,7 @@ def generate_insights(trades, min_trades=3):
             for stat in rsi_stats:
                 diff = stat["win_rate"] - overall_win_rate
                 if abs(diff) > 15:
-                    emoji = "✅" if diff > 0 else "🚫"
+                    emoji = "" if diff > 0 else ""
                     action = "PREFER" if diff > 0 else "AVOID"
                     insights.append({
                         "type": "rsi",
@@ -166,7 +166,7 @@ def main():
     trades = load_trades()
     
     if not trades:
-        print("❌ No trades logged yet. Use log_trade.py to log your first trade!")
+        print(" No trades logged yet. Use log_trade.py to log your first trade!")
         return
     
     # Apply filters
@@ -176,7 +176,7 @@ def main():
         trades = [t for t in trades if t["direction"] == args.direction.upper()]
     
     if len(trades) < args.min_trades:
-        print(f"⚠️  Not enough trades ({len(trades)}) for meaningful analysis. Need at least {args.min_trades}.")
+        print(f"  Not enough trades ({len(trades)}) for meaningful analysis. Need at least {args.min_trades}.")
         return
     
     # Overall stats
@@ -184,42 +184,42 @@ def main():
     total_pnl = sum(t["pnl_percent"] for t in trades)
     
     print(f"""
-🧠 TRADE PATTERN ANALYSIS
+ TRADE PATTERN ANALYSIS
 {'='*50}
 
-📊 Overall Performance:
+ Overall Performance:
    Total Trades: {total}
    Win Rate: {overall_win_rate:.1f}%
    Total PnL: {total_pnl:+.2f}%
 """)
     
     # By direction
-    print("📈 By Direction:")
+    print(" By Direction:")
     for stat in analyze_by_field(trades, "direction", args.min_trades):
-        emoji = "✅" if stat["win_rate"] >= 50 else "❌"
+        emoji = "" if stat["win_rate"] >= 50 else ""
         print(f"   {emoji} {stat['value']}: {stat['win_rate']:.0f}% win rate (n={stat['n']}, avg PnL: {stat['avg_pnl']:+.2f}%)")
     
     # By day
     day_stats = analyze_by_field(trades, "day_of_week", args.min_trades)
     if day_stats:
-        print("\n📅 By Day of Week:")
+        print("\n By Day of Week:")
         for stat in day_stats:
-            emoji = "✅" if stat["win_rate"] >= 50 else "❌"
+            emoji = "" if stat["win_rate"] >= 50 else ""
             print(f"   {emoji} {stat['value'].title()}: {stat['win_rate']:.0f}% (n={stat['n']})")
     
     # By symbol
     symbol_stats = analyze_by_field(trades, "symbol", args.min_trades)
     if len(symbol_stats) > 1:
-        print("\n💰 By Symbol:")
+        print("\n By Symbol:")
         for stat in symbol_stats:
-            emoji = "✅" if stat["win_rate"] >= 50 else "❌"
+            emoji = "" if stat["win_rate"] >= 50 else ""
             print(f"   {emoji} {stat['value']}: {stat['win_rate']:.0f}% (n={stat['n']})")
     
     # Insights
     insights = generate_insights(trades, args.min_trades)
     if insights:
         print(f"\n{'='*50}")
-        print("🎯 KEY INSIGHTS:")
+        print(" KEY INSIGHTS:")
         print(f"{'='*50}\n")
         for i in insights[:5]:  # Top 5 insights
             print(f"{i['emoji']} {i['action']}: {i['message']}")
@@ -232,7 +232,7 @@ def main():
             "by_day": day_stats,
             "insights": insights
         }
-        print("\n📄 JSON Output:")
+        print("\n JSON Output:")
         print(json.dumps(output, indent=2))
 
 

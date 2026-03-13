@@ -468,7 +468,7 @@ def generate_executive_summary(
     risk_level = risk_summary["overall_risk"]
     if risk_level == "high":
         summary_parts.append(
-            f"⚠️ Risk assessment: HIGH. Key concerns include: {', '.join(risk_summary['high_risk'][:3])}."
+            f" Risk assessment: HIGH. Key concerns include: {', '.join(risk_summary['high_risk'][:3])}."
         )
     elif risk_level == "medium":
         summary_parts.append(
@@ -532,10 +532,10 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
         return json.dumps(summary.to_dict(), indent=2)
     
     # Markdown format
-    risk_emoji = {"high": "🔴", "medium": "🟡", "low": "🟢"}
+    risk_emoji = {"high": "", "medium": "", "low": ""}
     
     lines = [
-        f"# 📄 Document Summary",
+        f"#  Document Summary",
         f"",
         f"**Document:** {summary.document_name}",
         f"**Type:** {summary.document_type.replace('_', ' ').title()}",
@@ -544,7 +544,7 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
         f"",
         "---",
         "",
-        "## 📋 Executive Summary",
+        "##  Executive Summary",
         "",
         summary.executive_summary,
         "",
@@ -553,7 +553,7 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
     # Parties
     if summary.parties:
         lines.extend([
-            "## 👥 Parties",
+            "##  Parties",
             ""
         ])
         for party in summary.parties:
@@ -563,7 +563,7 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
     # Key Terms
     if summary.key_terms:
         lines.extend([
-            "## 💰 Key Terms",
+            "##  Key Terms",
             ""
         ])
         for term in summary.key_terms[:8]:
@@ -573,7 +573,7 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
     # Important Dates
     if summary.key_dates:
         lines.extend([
-            "## 📅 Key Dates",
+            "##  Key Dates",
             ""
         ])
         for date in summary.key_dates[:6]:
@@ -582,9 +582,9 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
     
     # Risk Assessment
     risk = summary.risk_summary
-    risk_em = risk_emoji.get(risk['overall_risk'], "⚪")
+    risk_em = risk_emoji.get(risk['overall_risk'], "")
     lines.extend([
-        "## ⚠️ Risk Assessment",
+        "##  Risk Assessment",
         "",
         f"**Overall Risk:** {risk_em} {risk['overall_risk'].upper()} (Score: {risk['score']}/100)",
         ""
@@ -593,24 +593,24 @@ def format_summary(summary: DocumentSummary, output_format: str = "markdown") ->
     if risk['high_risk']:
         lines.append("**High Risk Factors:**")
         for factor in risk['high_risk']:
-            lines.append(f"  - 🔴 {factor}")
+            lines.append(f"  -  {factor}")
     
     if risk['medium_risk']:
         lines.append("**Medium Risk Factors:**")
         for factor in risk['medium_risk']:
-            lines.append(f"  - 🟡 {factor}")
+            lines.append(f"  -  {factor}")
     
     if risk['low_risk']:
         lines.append("**Favorable Terms:**")
         for factor in risk['low_risk']:
-            lines.append(f"  - 🟢 {factor}")
+            lines.append(f"  -  {factor}")
     
     lines.append("")
     
     # Key Obligations
     if summary.obligations:
         lines.extend([
-            "## 📝 Key Obligations",
+            "##  Key Obligations",
             ""
         ])
         for i, ob in enumerate(summary.obligations[:8], 1):

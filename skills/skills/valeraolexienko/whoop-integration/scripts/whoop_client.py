@@ -54,9 +54,9 @@ class WhoopClient:
                 self.access_token = tokens.get('access_token')
                 self.refresh_token = tokens.get('refresh_token')
         except FileNotFoundError:
-            print("❌ No tokens found. Please run: python3 scripts/oauth_setup.py")
+            print(" No tokens found. Please run: python3 scripts/oauth_setup.py")
         except json.JSONDecodeError:
-            print("❌ Invalid token file. Please re-run OAuth setup.")
+            print(" Invalid token file. Please re-run OAuth setup.")
     
     def _save_tokens(self, tokens: Dict):
         """Save tokens to config file"""
@@ -73,7 +73,7 @@ class WhoopClient:
         client_id, client_secret = get_whoop_credentials()
         
         if not client_id or not client_secret:
-            print("❌ Missing WHOOP_CLIENT_ID/CLIENT_SECRET for token refresh")
+            print(" Missing WHOOP_CLIENT_ID/CLIENT_SECRET for token refresh")
             print("Configure with: openclaw configure --section skills")
             return False
         
@@ -92,17 +92,17 @@ class WhoopClient:
             
             new_tokens = response.json()
             self._save_tokens(new_tokens)
-            print("✅ Access token refreshed")
+            print(" Access token refreshed")
             return True
             
         except requests.RequestException as e:
-            print(f"❌ Token refresh failed: {e}")
+            print(f" Token refresh failed: {e}")
             return False
     
     def _make_request(self, endpoint: str, params: Optional[Dict] = None) -> Optional[Dict]:
         """Make authenticated request to WHOOP API"""
         if not self.access_token:
-            print("❌ No access token available")
+            print(" No access token available")
             return None
         
         url = f"{self.base_url}/{endpoint.lstrip('/')}"
@@ -115,19 +115,19 @@ class WhoopClient:
             response = requests.get(url, headers=headers, params=params)
             
             if response.status_code == 401:
-                print("🔄 Token expired, refreshing...")
+                print(" Token expired, refreshing...")
                 if self._refresh_access_token():
                     headers['Authorization'] = f'Bearer {self.access_token}'
                     response = requests.get(url, headers=headers, params=params)
                 else:
-                    print("❌ Token refresh failed")
+                    print(" Token refresh failed")
                     return None
             
             response.raise_for_status()
             return response.json()
             
         except requests.RequestException as e:
-            print(f"❌ API request failed: {e}")
+            print(f" API request failed: {e}")
             return None
     
     def get_user_profile(self) -> Optional[Dict]:
@@ -207,16 +207,16 @@ class WhoopClient:
             performance = summary['sleep_performance'] or 0
             if performance >= 90:
                 summary['status'] = 'excellent'
-                summary['message'] = '🌟 Excellent sleep! High energy mode activated'
+                summary['message'] = ' Excellent sleep! High energy mode activated'
             elif performance >= 80:
                 summary['status'] = 'good' 
-                summary['message'] = '😊 Good sleep quality, ready for the day'
+                summary['message'] = ' Good sleep quality, ready for the day'
             elif performance >= 70:
                 summary['status'] = 'fair'
-                summary['message'] = '🙂 Decent sleep, taking it steady'
+                summary['message'] = ' Decent sleep, taking it steady'
             else:
                 summary['status'] = 'poor'
-                summary['message'] = '😴 Poor sleep detected, gentle mode activated'
+                summary['message'] = ' Poor sleep detected, gentle mode activated'
         
         if recovery_data and 'score' in recovery_data:
             score = recovery_data['score']
@@ -230,17 +230,17 @@ def main():
     """CLI interface for testing WHOOP client"""
     client = WhoopClient()
     
-    print("🏃‍♀️ WHOOP Client Test")
+    print(" WHOOP Client Test")
     print("=" * 30)
     
     # Note: User profile requires read:profile scope (not included in current OAuth scopes)
     # Current scopes: read:sleep read:recovery read:cycles
     
     # Test sleep data
-    print("\n😴 Getting latest sleep data...")
+    print("\n Getting latest sleep data...")
     summary = client.get_sleep_performance_summary()
     
-    print(f"\n📊 Sleep Performance Summary:")
+    print(f"\n Sleep Performance Summary:")
     print(f"Status: {summary['status'].upper()}")
     print(f"Message: {summary['message']}")
     print(f"Sleep Performance: {summary['sleep_performance']}%")

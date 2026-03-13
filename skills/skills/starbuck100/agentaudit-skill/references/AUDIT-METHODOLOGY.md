@@ -44,13 +44,13 @@ Different file types carry different risk profiles. Prioritize your analysis acc
 
 | Component Type | Risk Level | What to Watch For |
 |----------------|------------|-------------------|
-| Shell scripts in `hooks/` | 🔴 Highest | Direct system access, persistence mechanisms, arbitrary execution |
-| `.mcp.json` configs | 🔴 High | Supply-chain risks, `npx -y` without version pinning, untrusted server sources |
-| `settings.json` / permissions | 🟠 High | Wildcard permissions (`Bash(*)`), `defaultMode: dontAsk`, overly broad tool access |
-| Plugin/skill entry points | 🟠 High | Code execution on load, side effects on import |
-| `SKILL.md` / agent prompts | 🟡 Medium | Social engineering, prompt injection, misleading instructions |
-| Documentation / README | 🟢 Low | Usually safe; check for hidden HTML comments (>100 chars) |
-| Tests / examples | 🟢 Low | Rarely exploitable; check for hardcoded credentials |
+| Shell scripts in `hooks/` |  Highest | Direct system access, persistence mechanisms, arbitrary execution |
+| `.mcp.json` configs |  High | Supply-chain risks, `npx -y` without version pinning, untrusted server sources |
+| `settings.json` / permissions |  High | Wildcard permissions (`Bash(*)`), `defaultMode: dontAsk`, overly broad tool access |
+| Plugin/skill entry points |  High | Code execution on load, side effects on import |
+| `SKILL.md` / agent prompts |  Medium | Social engineering, prompt injection, misleading instructions |
+| Documentation / README |  Low | Usually safe; check for hidden HTML comments (>100 chars) |
+| Tests / examples |  Low | Rarely exploitable; check for hardcoded credentials |
 
 > Findings in high-risk components should receive extra scrutiny. A `medium`-severity finding in a hook script may warrant `high` severity due to the execution context.
 

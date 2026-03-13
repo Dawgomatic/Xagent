@@ -49,13 +49,13 @@ Your thumbnail appears at roughly **120px wide** on mobile — that's how most v
 ```
 ┌─────────────────────────────────────────────┐
 │                                             │
-│   ✅ SAFE FOR TEXT AND KEY ELEMENTS         │
+│    SAFE FOR TEXT AND KEY ELEMENTS         │
 │                                             │
 │                                             │
 │                                             │
 │                                             │
 │                                       ┌───┐ │
-│                                       │ ⏱ │ │ ← Timestamp overlay
+│                                       │  │ │ ← Timestamp overlay
 │                              ┌────────┴───┘ │    (bottom-right)
 │   ┌────┐                     │  DURATION    │
 │   │ CH │ Chapter marker      └──────────────│

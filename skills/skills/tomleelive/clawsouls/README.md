@@ -1,4 +1,4 @@
-# 🧠 ClawSouls Skill for OpenClaw
+#  ClawSouls Skill for OpenClaw
 
 An [OpenClaw](https://github.com/openclaw/openclaw) skill that lets your AI agent manage personas (Souls) — install, switch, create, publish, and validate AI personalities.
 
@@ -82,16 +82,16 @@ Validation also runs automatically on `publish` — invalid packages are rejecte
 
 | Soul | Description |
 |------|-------------|
-| 🅱️ clawsouls/surgical-coder | Formal, project-focused development partner |
-| 🔧 clawsouls/devops-veteran | Battle-scarred infrastructure engineer |
-| 🎮 clawsouls/gamedev-mentor | Experienced game developer and mentor |
-| ⚡ clawsouls/minimalist | Extremely concise responses |
-| 🔍 clawsouls/code-reviewer | Thorough, constructive code reviewer |
-| 📚 clawsouls/coding-tutor | Patient programming teacher |
-| 📋 clawsouls/personal-assistant | Proactive daily life assistant |
-| 📝 clawsouls/tech-writer | Clear technical documentation writer |
-| 📊 clawsouls/data-analyst | Insight-driven data analyst |
-| ✍️ clawsouls/storyteller | Narrative crafter and worldbuilder |
+|  clawsouls/surgical-coder | Formal, project-focused development partner |
+|  clawsouls/devops-veteran | Battle-scarred infrastructure engineer |
+|  clawsouls/gamedev-mentor | Experienced game developer and mentor |
+|  clawsouls/minimalist | Extremely concise responses |
+|  clawsouls/code-reviewer | Thorough, constructive code reviewer |
+|  clawsouls/coding-tutor | Patient programming teacher |
+|  clawsouls/personal-assistant | Proactive daily life assistant |
+|  clawsouls/tech-writer | Clear technical documentation writer |
+|  clawsouls/data-analyst | Insight-driven data analyst |
+|  clawsouls/storyteller | Narrative crafter and worldbuilder |
 
 Browse all at [clawsouls.ai](https://clawsouls.ai).
 
@@ -109,10 +109,10 @@ clawsouls-skill/
 
 ## Links
 
-- 🌐 [clawsouls.ai](https://clawsouls.ai) — Browse & publish souls
-- 📦 [clawsouls CLI](https://www.npmjs.com/package/clawsouls) — npm package
-- 🐙 [GitHub](https://github.com/clawsouls) — Source code
-- 📊 [Dashboard](https://clawsouls.ai/dashboard) — Manage your published souls
+-  [clawsouls.ai](https://clawsouls.ai) — Browse & publish souls
+-  [clawsouls CLI](https://www.npmjs.com/package/clawsouls) — npm package
+-  [GitHub](https://github.com/clawsouls) — Source code
+-  [Dashboard](https://clawsouls.ai/dashboard) — Manage your published souls
 
 ## License
 

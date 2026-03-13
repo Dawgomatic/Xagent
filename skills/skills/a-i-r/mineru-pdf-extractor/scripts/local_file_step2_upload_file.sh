@@ -8,7 +8,7 @@ UPLOAD_URL="${1:-}"
 PDF_PATH="${2:-}"
 
 if [ -z "$UPLOAD_URL" ] || [ -z "$PDF_PATH" ]; then
-    echo "❌ Error: Insufficient parameters"
+    echo " Error: Insufficient parameters"
     echo "Usage: $0 <upload_url> <pdf_file_path>"
     echo ""
     echo "Example:"
@@ -17,7 +17,7 @@ if [ -z "$UPLOAD_URL" ] || [ -z "$PDF_PATH" ]; then
 fi
 
 if [ ! -f "$PDF_PATH" ]; then
-    echo "❌ Error: PDF file does not exist: $PDF_PATH"
+    echo " Error: PDF file does not exist: $PDF_PATH"
     exit 1
 fi
 
@@ -31,12 +31,12 @@ curl -X PUT "$UPLOAD_URL" --upload-file "$PDF_PATH"
 
 if [ $? -eq 0 ]; then
     echo ""
-    echo "✅ File uploaded successfully"
+    echo " File uploaded successfully"
     echo ""
-    echo "💡 Next Step: Execute Step 3 to poll results"
+    echo " Next Step: Execute Step 3 to poll results"
     echo "   Use the BATCH_ID from Step 1"
 else
     echo ""
-    echo "❌ File upload failed"
+    echo " File upload failed"
     exit 1
 fi

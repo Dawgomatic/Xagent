@@ -187,7 +187,7 @@ For Ghost Admin API integration, this documentation provides everything needed t
   "type": "callout",
   "version": 1,
   "calloutText": "<p><span style=\"white-space: pre-wrap;\">Your callout text here.</span><br><br><span style=\"white-space: pre-wrap;\">Multiple paragraphs supported.</span></p>",
-  "calloutEmoji": "💡",
+  "calloutEmoji": "",
   "backgroundColor": "blue"
 }
 ```
@@ -204,12 +204,12 @@ For Ghost Admin API integration, this documentation provides everything needed t
 - `"accent"` (uses theme accent color)
 
 **Common emoji:**
-- 💡 (info)
-- ⚠️ (warning)
-- ❌ (error)
-- ✅ (success)
-- 🧠 (knowledge)
-- ❣️ (love/support)
+-  (info)
+-  (warning)
+-  (error)
+-  (success)
+-  (knowledge)
+-  (love/support)
 
 ### Horizontal Rule (Divider)
 ```json
@@ -279,7 +279,7 @@ Supports inline markdown syntax for technical content.
         "type": "callout",
         "version": 1,
         "calloutText": "<p><span style=\"white-space: pre-wrap;\">Introduction callout</span></p>",
-        "calloutEmoji": "💡",
+        "calloutEmoji": "",
         "backgroundColor": "blue"
       },
       {
@@ -354,10 +354,10 @@ Supports inline markdown syntax for technical content.
 **What Are Ghost Snippets?**
 
 Ghost's native snippet feature allows authors to save and reuse content blocks:
-- 📝 Create frequently-used content once (signatures, CTAs, disclosures, etc.)
-- 🎨 Save any content type (bookmarks, callouts, paragraphs, images, buttons, etc.)
-- 📋 Give snippets descriptive names ("Signature", "Newsletter Footer", "Disclosure")
-- 🖱️ Insert via Ghost editor (type `/` and select snippet name)
+-  Create frequently-used content once (signatures, CTAs, disclosures, etc.)
+-  Save any content type (bookmarks, callouts, paragraphs, images, buttons, etc.)
+-  Give snippets descriptive names ("Signature", "Newsletter Footer", "Disclosure")
+-  Insert via Ghost editor (type `/` and select snippet name)
 
 **How Snippets Work:**
 
@@ -385,7 +385,7 @@ When inserted into a post, it's just a bookmark card - no snippet ID or referenc
 
 **Admin API Limitation:**
 
-❌ **Cannot access snippets via Admin API with integration tokens (403 Forbidden)**
+ **Cannot access snippets via Admin API with integration tokens (403 Forbidden)**
 
 This means programmatically you **cannot**:
 - List available snippets (`GET /snippets/` → 403)
@@ -411,11 +411,11 @@ This means programmatically you **cannot**:
 **Local Snippet Library:**
 
 The skill includes a local snippet system (`snippets/` directory) that provides:
-- ✅ Programmatic access to reusable content
-- ✅ Same Lexical card format as Ghost
-- ✅ CLI management tools
-- ✅ Git version control
-- ⚠️ Must manually sync with Ghost snippets (no automatic sync)
+-  Programmatic access to reusable content
+-  Same Lexical card format as Ghost
+-  CLI management tools
+-  Git version control
+-  Must manually sync with Ghost snippets (no automatic sync)
 
 See `snippets/README.md` for complete documentation on using local snippets as a workaround.
 
@@ -865,30 +865,30 @@ See `snippets/README.md` for complete documentation on using local snippets as a
 - Image
 - Gallery
 - Bookmark
-- Video ✨ NEW
-- Audio ✨ NEW
-- File ✨ NEW
+- Video  NEW
+- Audio  NEW
+- File  NEW
 
 **Layout:**
 - Callout
 - Horizontal Rule
-- Header ✨ NEW
+- Header  NEW
 
 **Interactive:**
-- Button ✨ NEW
-- Toggle ✨ NEW
+- Button  NEW
+- Toggle  NEW
 - Signup
 
 **Marketing:**
-- Call-to-Action ✨ NEW
-- Product ✨ NEW
+- Call-to-Action  NEW
+- Product  NEW
 
 **Member Content:**
-- Paywall ✨ NEW
+- Paywall  NEW
 - HTML (with visibility)
 
 **Embeds:**
-- Embed (YouTube, Spotify, Twitter, and many more) ✨ NEW
+- Embed (YouTube, Spotify, Twitter, and many more)  NEW
 
 **Total:** 23 documented card types (10 newly added!)
 

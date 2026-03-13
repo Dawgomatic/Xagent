@@ -3,7 +3,7 @@ name: NodeJS
 slug: nodejs
 version: 1.0.1
 description: Write reliable Node.js avoiding event loop blocking, async pitfalls, ESM gotchas, and memory leaks.
-metadata: {"clawdbot":{"emoji":"💚","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Quick Reference

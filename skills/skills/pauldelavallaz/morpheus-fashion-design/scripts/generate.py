@@ -201,7 +201,7 @@ def main():
     
     if auto_packs:
         print("\n" + "="*60, file=sys.stderr)
-        print("⚠️  WARNING: AUTO VALUES DETECTED!", file=sys.stderr)
+        print("  WARNING: AUTO VALUES DETECTED!", file=sys.stderr)
         print("="*60, file=sys.stderr)
         print(f"The following packs are set to 'auto': {', '.join(auto_packs)}", file=sys.stderr)
         print("AUTO = empty values = neutral, boring images!", file=sys.stderr)

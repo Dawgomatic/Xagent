@@ -50,7 +50,7 @@ function getPrivateKeyOrExit() {
   const privateKey = loadPrivateKey();
   
   if (!privateKey) {
-    console.error('❌ Error: No private key found');
+    console.error(' Error: No private key found');
     console.error('');
     console.error('Set your private key using one of these methods:');
     console.error('');
@@ -99,7 +99,7 @@ function sleep(ms) {
  */
 function validateNetwork(network, availableNetworks) {
   if (!availableNetworks[network]) {
-    console.error(`❌ Invalid network: ${network}`);
+    console.error(` Invalid network: ${network}`);
     console.error(`Available networks: ${Object.keys(availableNetworks).join(', ')}`);
     process.exit(1);
   }
@@ -110,10 +110,10 @@ function validateNetwork(network, availableNetworks) {
  */
 function displayTxResult(tx, networkConfig, action = 'Transaction') {
   console.log('');
-  console.log(`✅ ${action} successful!`);
+  console.log(` ${action} successful!`);
   console.log('');
-  console.log(`📋 Transaction: ${tx}`);
-  console.log(`🔍 View on explorer: ${networkConfig.explorer}/#/transaction/${tx}`);
+  console.log(` Transaction: ${tx}`);
+  console.log(` View on explorer: ${networkConfig.explorer}/#/transaction/${tx}`);
   console.log('');
 }
 
@@ -122,7 +122,7 @@ function displayTxResult(tx, networkConfig, action = 'Transaction') {
  */
 function displayError(error, context = 'Operation') {
   console.error('');
-  console.error(`❌ ${context} failed:`, error.message);
+  console.error(` ${context} failed:`, error.message);
   if (error.error) {
     console.error('   Details:', error.error);
   }

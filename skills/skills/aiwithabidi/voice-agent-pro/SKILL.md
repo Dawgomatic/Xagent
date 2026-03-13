@@ -36,12 +36,12 @@ python3 {baseDir}/scripts/vapi_agent.py list-calls
 | **Best For** | Custom agents, dev-friendly | Simple outbound campaigns | Enterprise, low latency |
 | **Latency** | ~800ms | ~500ms | ~500ms |
 | **Languages** | 100+ | 30+ | 30+ |
-| **Custom LLM** | ✅ Any OpenAI-compatible | ✅ Limited | ✅ Via API |
+| **Custom LLM** |  Any OpenAI-compatible |  Limited |  Via API |
 | **Phone Numbers** | Buy/import | Buy/import | Buy/import |
 | **Pricing** | $0.05/min + provider costs | $0.09/min all-in | $0.07-0.15/min |
-| **WebSocket** | ✅ | ❌ | ✅ |
-| **Knowledge Base** | ✅ Built-in | ✅ | ✅ |
-| **Transfers** | ✅ | ✅ | ✅ |
+| **WebSocket** |  |  |  |
+| **Knowledge Base** |  Built-in |  |  |
+| **Transfers** |  |  |  |
 
 **Recommendation:** Start with **Vapi** — most flexible, best docs, largest community. Use **Bland** for simple high-volume outbound. Use **Retell** for enterprise low-latency needs.
 
@@ -150,4 +150,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

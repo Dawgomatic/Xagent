@@ -4,13 +4,13 @@
 Skills: korean-gov-programs v1.0.0
 
 수집 소스:
-  1. 기업마당(BizInfo) - 소상공인 지원사업  [✅ 동작]
-  2. 기업마당(BizInfo) - 기술창업/R&D 필터  [✅ 동작]
-  3. NIA 한국지능정보사회진흥원             [✅ 동작]
-  4. 소상공인시장진흥공단(SEMAS)            [⚠️ JS 필요, 스킵]
-  5. 중소벤처기업부(MSS)                    [⚠️ JS 필요, 스킵]
-  6. K-Startup                              [⚠️ JS 필요, 스킵]
-  7. Innopolis 연구개발특구진흥재단          [⚠️ JS 필요, 스킵]
+  1. 기업마당(BizInfo) - 소상공인 지원사업  [ 동작]
+  2. 기업마당(BizInfo) - 기술창업/R&D 필터  [ 동작]
+  3. NIA 한국지능정보사회진흥원             [ 동작]
+  4. 소상공인시장진흥공단(SEMAS)            [ JS 필요, 스킵]
+  5. 중소벤처기업부(MSS)                    [ JS 필요, 스킵]
+  6. K-Startup                              [ JS 필요, 스킵]
+  7. Innopolis 연구개발특구진흥재단          [ JS 필요, 스킵]
 
 출력 (APPEND 전용):
   {output}/soho_programs.jsonl   - 소상공인 지원사업
@@ -96,7 +96,7 @@ def fetch_url(url: str, timeout: int = 15) -> str | None:
             charset = resp.headers.get_content_charset() or "utf-8"
             return resp.read().decode(charset, errors="replace")
     except Exception as e:
-        log(f"  ⚠️  fetch 실패 {url[:80]}: {e}")
+        log(f"    fetch 실패 {url[:80]}: {e}")
         return None
 
 
@@ -326,7 +326,7 @@ def crawl_nia(
 # ══════════════════════════════════════════════════════════════
 
 def skip_js_required(name: str, url: str, checkpoint: dict):
-    log(f"[{name}] ⚠️  JS 렌더링 필요 — 스킵")
+    log(f"[{name}]   JS 렌더링 필요 — 스킵")
     log(f"  Selenium/Playwright 환경에서 별도 수집 필요: {url}")
     checkpoint[name.lower().replace(" ", "_")] = "skipped_js_required"
 
@@ -357,7 +357,7 @@ def main():
     checkpoint_file = os.path.join(output_dir, ".checkpoint.json")
 
     log("=" * 60)
-    log("🔍 한국 정부지원사업 통합 수집 시작")
+    log(" 한국 정부지원사업 통합 수집 시작")
     log(f"   출력 디렉토리: {output_dir}")
     log("=" * 60)
 
@@ -382,9 +382,9 @@ def main():
     try:
         n = crawl_bizinfo_soho(soho_file, soho_titles, checkpoint, args.max_pages)
         total_soho += n
-        log(f"✅ BizInfo-소상공인: {n}건 추가")
+        log(f" BizInfo-소상공인: {n}건 추가")
     except Exception as e:
-        log(f"❌ BizInfo-소상공인 오류: {e}")
+        log(f" BizInfo-소상공인 오류: {e}")
         import traceback; traceback.print_exc()
 
     save_checkpoint(checkpoint_file, checkpoint)
@@ -406,9 +406,9 @@ def main():
     try:
         n = crawl_bizinfo_gov(gov_file, gov_titles, checkpoint, args.max_pages // 2)
         total_gov += n
-        log(f"✅ BizInfo-기술창업: {n}건 추가")
+        log(f" BizInfo-기술창업: {n}건 추가")
     except Exception as e:
-        log(f"❌ BizInfo-기술창업 오류: {e}")
+        log(f" BizInfo-기술창업 오류: {e}")
         import traceback; traceback.print_exc()
 
     save_checkpoint(checkpoint_file, checkpoint)
@@ -418,9 +418,9 @@ def main():
     try:
         n = crawl_nia(gov_file, gov_titles, checkpoint, args.max_pages // 2)
         total_gov += n
-        log(f"✅ NIA: {n}건 추가")
+        log(f" NIA: {n}건 추가")
     except Exception as e:
-        log(f"❌ NIA 오류: {e}")
+        log(f" NIA 오류: {e}")
         import traceback; traceback.print_exc()
 
     save_checkpoint(checkpoint_file, checkpoint)
@@ -436,13 +436,13 @@ def main():
 
     log("")
     log("=" * 60)
-    log(f"🏁 수집 완료")
+    log(f" 수집 완료")
     log(f"   소상공인 신규: {total_soho}건  (총 {len(soho_titles)}건)")
     log(f"   R&D/기술창업 신규: {total_gov}건  (총 {len(gov_titles)}건)")
     log(f"   출력: {output_dir}")
     log("=" * 60)
     log("")
-    log("📝 JS 렌더링 필요 사이트 (Selenium/Playwright 필요):")
+    log(" JS 렌더링 필요 사이트 (Selenium/Playwright 필요):")
     log("   - SEMAS: https://www.semas.or.kr/web/board/boardList.do")
     log("   - MSS:   https://www.mss.go.kr/")
     log("   - K-Startup: https://www.k-startup.go.kr/")

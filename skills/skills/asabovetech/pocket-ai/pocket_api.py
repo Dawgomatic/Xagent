@@ -267,10 +267,10 @@ if __name__ == "__main__":
             memories = results["data"]["relevantMemories"]
             print(f"=== {len(memories)} Relevant Memories ===")
             for m in memories[:5]:
-                print(f"\n📅 {m.get('recordingDate', 'Unknown date')}")
-                print(f"👥 {m.get('speakers', 'Unknown')}")
+                print(f"\n {m.get('recordingDate', 'Unknown date')}")
+                print(f" {m.get('speakers', 'Unknown')}")
                 content = m.get("content", "")[:300]
-                print(f"📝 {content}...")
+                print(f" {content}...")
     else:
         # Demo: show action items
         print("=== Today's Action Items ===")

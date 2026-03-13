@@ -1,6 +1,6 @@
 # Per-User Wallet Strategy for Agent Kit
 
-## ✅ YES - Coinbase Agent Kit Supports Multiple Wallets
+##  YES - Coinbase Agent Kit Supports Multiple Wallets
 
 Based on the `CdpWalletProvider` interface, Agent Kit provides three key capabilities:
 
@@ -25,7 +25,7 @@ CdpWalletProvider.configureWithWallet({ network: 'base' })
 
 ---
 
-## 🎯 Implementation Strategy
+##  Implementation Strategy
 
 ### **Recommended: Store Wallet Per User**
 
@@ -51,7 +51,7 @@ async function getOrCreateWalletForUser(userId: string) {
     // 2. Import existing wallet
     const walletProvider = await CdpWalletProvider.configureWithWallet({
       network: 'base',
-      cdpWalletData: existing.walletData,  // ⭐ Import
+      cdpWalletData: existing.walletData,  //  Import
     });
 
     return {
@@ -72,7 +72,7 @@ async function getOrCreateWalletForUser(userId: string) {
 
   await db.wallets.insert({
     userId,
-    walletData: walletDataJson,  // ⭐ Store for next time
+    walletData: walletDataJson,  //  Store for next time
     walletAddress: walletProvider.getAddress(),
     createdAt: new Date(),
     lastUsedAt: new Date(),
@@ -87,26 +87,26 @@ async function getOrCreateWalletForUser(userId: string) {
 
 ---
 
-## 🔐 Security Considerations
+##  Security Considerations
 
 ### **Storage:**
-- ✅ Store `walletData` encrypted in database
-- ✅ Use user-specific encryption keys
-- ✅ CDP wallet data already contains encrypted private keys
-- ⚠️ Never store plain-text mnemonics or private keys
+-  Store `walletData` encrypted in database
+-  Use user-specific encryption keys
+-  CDP wallet data already contains encrypted private keys
+-  Never store plain-text mnemonics or private keys
 
 ### **Access Control:**
-- ✅ Only user can access their own wallet
-- ✅ Agent can only sign with user's permission
-- ✅ Use JWT or session tokens to verify user identity
+-  Only user can access their own wallet
+-  Agent can only sign with user's permission
+-  Use JWT or session tokens to verify user identity
 
 ---
 
-## 📊 Current Implementation vs. Ideal
+##  Current Implementation vs. Ideal
 
 ### **Current (bloom-identity-skill):**
 ```typescript
-// ❌ Creates same wallet every time
+//  Creates same wallet every time
 this.walletProvider = await CdpWalletProvider.configureWithWallet({
   network: cdpNetwork,
 });
@@ -117,24 +117,24 @@ this.walletProvider = await CdpWalletProvider.configureWithWallet({
 
 ### **Ideal Implementation:**
 ```typescript
-// ✅ Per-user wallet
+//  Per-user wallet
 this.walletProvider = await CdpWalletProvider.configureWithWallet({
   network: cdpNetwork,
-  cdpWalletData: await getUserWalletData(userId),  // ⭐ User-specific
+  cdpWalletData: await getUserWalletData(userId),  //  User-specific
 });
 ```
 
 ---
 
-## 🛠️ Implementation in agent-wallet.ts
+##  Implementation in agent-wallet.ts
 
 ### **Updated Constructor:**
 ```typescript
 export class AgentWallet {
-  private userId: string;  // ⭐ NEW
+  private userId: string;  //  NEW
 
   constructor(config: AgentWalletConfig & { userId: string }) {
-    this.userId = config.userId;  // ⭐ Store userId
+    this.userId = config.userId;  //  Store userId
     this.network = config.network || 'base-mainnet';
   }
 }
@@ -143,7 +143,7 @@ export class AgentWallet {
 ### **Updated initialize():**
 ```typescript
 async initialize(): Promise<AgentWalletInfo> {
-  console.log(`🤖 Initializing Agent Wallet for user ${this.userId}...`);
+  console.log(` Initializing Agent Wallet for user ${this.userId}...`);
 
   try {
     // 1. Check if user has existing wallet
@@ -151,11 +151,11 @@ async initialize(): Promise<AgentWalletInfo> {
 
     if (existingWallet) {
       // Import existing wallet
-      console.log(`📂 Loading existing wallet for ${this.userId}...`);
+      console.log(` Loading existing wallet for ${this.userId}...`);
 
       this.walletProvider = await CdpWalletProvider.configureWithWallet({
         network: this.network === 'base-mainnet' ? 'base' : 'base-sepolia',
-        cdpWalletData: existingWallet.walletData,  // ⭐ Import
+        cdpWalletData: existingWallet.walletData,  //  Import
       });
 
       this.walletAddress = this.walletProvider.getAddress();
@@ -165,7 +165,7 @@ async initialize(): Promise<AgentWalletInfo> {
 
     } else {
       // Create new wallet
-      console.log(`🆕 Creating new wallet for ${this.userId}...`);
+      console.log(` Creating new wallet for ${this.userId}...`);
 
       this.walletProvider = await CdpWalletProvider.configureWithWallet({
         network: this.network === 'base-mainnet' ? 'base' : 'base-sepolia',
@@ -178,7 +178,7 @@ async initialize(): Promise<AgentWalletInfo> {
       await this.saveUserWallet(this.userId, walletData);
     }
 
-    console.log(`✅ Agent Wallet ready: ${this.walletAddress}`);
+    console.log(` Agent Wallet ready: ${this.walletAddress}`);
 
     return {
       address: this.walletAddress,
@@ -215,18 +215,18 @@ private async updateWalletLastUsed(userId: string): Promise<void> {
 
 ---
 
-## 🔄 Migration Path
+##  Migration Path
 
 ### **Phase 1: Current (Testing)**
-- ✅ One wallet for all users (or random each time)
-- ✅ Good for testing basic flow
-- ⚠️ Not production-ready
+-  One wallet for all users (or random each time)
+-  Good for testing basic flow
+-  Not production-ready
 
-### **Phase 2: Per-User Wallets** ⭐ REQUIRED FOR PRODUCTION
-- ✅ Each user gets unique persistent wallet
-- ✅ Wallet survives across sessions
-- ✅ User can receive payments at their X402 endpoint
-- ✅ Production-ready
+### **Phase 2: Per-User Wallets**  REQUIRED FOR PRODUCTION
+-  Each user gets unique persistent wallet
+-  Wallet survives across sessions
+-  User can receive payments at their X402 endpoint
+-  Production-ready
 
 ### **Phase 3: Advanced** (Future)
 - Multiple wallets per user (different networks)
@@ -236,7 +236,7 @@ private async updateWalletLastUsed(userId: string): Promise<void> {
 
 ---
 
-## 📚 References
+##  References
 
 From `@coinbase/agentkit` package:
 
@@ -251,22 +251,22 @@ Official Documentation:
 
 ---
 
-## ✅ Answer to Original Question
+##  Answer to Original Question
 
 **Q: Does the Coinbase function give us the power to enable different users' agents to create a wallet?**
 
-**A: YES! ✅**
+**A: YES! **
 
 **How:**
-1. ✅ **Export wallet data** using `exportWallet()`
-2. ✅ **Store wallet data** per user in database
-3. ✅ **Import wallet data** using `configureWithWallet({ cdpWalletData })`
-4. ✅ **Each user gets unique, persistent wallet**
+1.  **Export wallet data** using `exportWallet()`
+2.  **Store wallet data** per user in database
+3.  **Import wallet data** using `configureWithWallet({ cdpWalletData })`
+4.  **Each user gets unique, persistent wallet**
 
 **Current Status:**
-- ⚠️ Current implementation doesn't do this yet (uses same wallet for all)
-- ✅ Agent Kit API supports it completely
-- 🔨 Implementation requires adding storage layer
+-  Current implementation doesn't do this yet (uses same wallet for all)
+-  Agent Kit API supports it completely
+-  Implementation requires adding storage layer
 
 **Next Steps:**
 1. Add database storage for user wallets
@@ -276,4 +276,4 @@ Official Documentation:
 
 ---
 
-Built with insights from [Coinbase Agent Kit](https://github.com/coinbase/agentkit) 🚀
+Built with insights from [Coinbase Agent Kit](https://github.com/coinbase/agentkit) 

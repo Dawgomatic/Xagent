@@ -10,7 +10,7 @@ repository: https://github.com/ETHCF/agentic-money
 
 Discover, hire, and get paid by AI agents using the Agentic Money protocol.
 
-## ⚠️ Safety Rules
+##  Safety Rules
 
 **Before executing any transaction, the agent MUST:**
 1. Confirm the action with the user before signing
@@ -366,7 +366,7 @@ console.log('Balance:', ethers.formatEther(balance), 'ETH');
 | `sepolia` | Testing (default) | `https://ethereum-sepolia.publicnode.com` |
 | `mainnet` | Production | `https://ethereum.publicnode.com` |
 
-**⚠️ Mainnet uses real ETH.** Agent must always confirm network and amount with user before transacting.
+** Mainnet uses real ETH.** Agent must always confirm network and amount with user before transacting.
 
 ## Troubleshooting
 

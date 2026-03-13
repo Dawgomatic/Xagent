@@ -4,7 +4,7 @@ slug: schedule
 version: 1.0.2
 description: Program recurring or one-time tasks. User defines what to do, skill handles when.
 changelog: Clarified user-driven execution model, removed assumed access patterns
-metadata: {"clawdbot":{"emoji":"📅","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -22,9 +22,9 @@ Create on first use: `mkdir -p ~/schedule/history`
 ## Scope
 
 This skill:
-- ✅ Stores scheduled job definitions in ~/schedule/
-- ✅ Triggers jobs at specified times
-- ✅ Learns timezone and time preferences from user
+-  Stores scheduled job definitions in ~/schedule/
+-  Triggers jobs at specified times
+-  Learns timezone and time preferences from user
 
 **Execution model:**
 - User explicitly defines WHAT the job does
@@ -32,9 +32,9 @@ This skill:
 - Skill only handles WHEN, not WHAT
 
 This skill does NOT:
-- ❌ Assume access to any external service
-- ❌ Modify system crontab or launchd
-- ❌ Execute jobs without user-defined instructions
+-  Assume access to any external service
+-  Modify system crontab or launchd
+-  Execute jobs without user-defined instructions
 
 ## Quick Reference
 
@@ -70,10 +70,10 @@ User: "Yes"
 
 ### 3. Confirmation Format
 ```
-✅ [what user requested]
-📅 [when] ([timezone])
-🔧 [permissions/skills needed, if any]
-🆔 [id]
+ [what user requested]
+ [when] ([timezone])
+ [permissions/skills needed, if any]
+ [id]
 ```
 
 ### 4. Job Persistence

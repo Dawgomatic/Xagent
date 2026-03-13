@@ -10,7 +10,7 @@ author: Continuum
 license: MIT
 metadata:
   openclaw:
-    emoji: "🚀"
+    emoji: ""
     category: ai-tools
     instruction-only: true
 ---

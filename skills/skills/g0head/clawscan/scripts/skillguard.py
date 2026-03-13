@@ -489,7 +489,7 @@ def print_report_text(result: ScanResult, config: dict):
     
     print()
     print(colored("╔" + "═" * 62 + "╗", Colors.CYAN, c))
-    print(colored("║", Colors.CYAN, c) + colored("              🛡️  SKILLGUARD SECURITY REPORT                  ", Colors.BOLD, c) + colored("║", Colors.CYAN, c))
+    print(colored("║", Colors.CYAN, c) + colored("                SKILLGUARD SECURITY REPORT                  ", Colors.BOLD, c) + colored("║", Colors.CYAN, c))
     print(colored("╠" + "═" * 62 + "╣", Colors.CYAN, c))
     print(colored("║", Colors.CYAN, c) + f"  Skill:       {result.skill_name:<46}" + colored("║", Colors.CYAN, c))
     print(colored("║", Colors.CYAN, c) + f"  Files:       {result.files_scanned:<46}" + colored("║", Colors.CYAN, c))
@@ -498,7 +498,7 @@ def print_report_text(result: ScanResult, config: dict):
     print(colored("╚" + "═" * 62 + "╝", Colors.CYAN, c))
     
     # Files scanned
-    print(colored("\n📁 FILES SCANNED", Colors.BOLD, c))
+    print(colored("\n FILES SCANNED", Colors.BOLD, c))
     print("─" * 64)
     for f in result.file_list[:10]:
         print(f"  ✓ {f}")
@@ -508,7 +508,7 @@ def print_report_text(result: ScanResult, config: dict):
     # Critical findings
     critical = [f for f in result.findings if f.severity == Severity.CRITICAL]
     if critical:
-        print(colored(f"\n🔴 CRITICAL ISSUES ({len(critical)})", Colors.RED, c))
+        print(colored(f"\n CRITICAL ISSUES ({len(critical)})", Colors.RED, c))
         print("─" * 64)
         for f in critical:
             print(colored(f"  [{f.id}] {f.file}:{f.line}", Colors.RED, c))
@@ -524,7 +524,7 @@ def print_report_text(result: ScanResult, config: dict):
     # Warnings
     warnings = [f for f in result.findings if f.severity == Severity.WARNING]
     if warnings:
-        print(colored(f"\n🟡 WARNINGS ({len(warnings)})", Colors.YELLOW, c))
+        print(colored(f"\n WARNINGS ({len(warnings)})", Colors.YELLOW, c))
         print("─" * 64)
         for f in warnings[:10]:
             print(colored(f"  [{f.id}] {f.file}:{f.line} — {f.description}", Colors.YELLOW, c))
@@ -534,7 +534,7 @@ def print_report_text(result: ScanResult, config: dict):
     # Info (only if no critical/warnings)
     info = [f for f in result.findings if f.severity == Severity.INFO]
     if info and not critical and not warnings:
-        print(colored(f"\n🟢 INFO ({len(info)})", Colors.GREEN, c))
+        print(colored(f"\n INFO ({len(info)})", Colors.GREEN, c))
         print("─" * 64)
         for f in info[:5]:
             print(f"  [{f.id}] {f.file}:{f.line} — {f.description}")
@@ -543,10 +543,10 @@ def print_report_text(result: ScanResult, config: dict):
     
     # Dependencies
     if result.dependency_issues:
-        print(colored(f"\n📦 DEPENDENCY ISSUES ({len(result.dependency_issues)})", Colors.YELLOW, c))
+        print(colored(f"\n DEPENDENCY ISSUES ({len(result.dependency_issues)})", Colors.YELLOW, c))
         print("─" * 64)
         for d in result.dependency_issues:
-            print(f"  ⚠️  {d.package}@{d.version} — {d.vulnerability}")
+            print(f"    {d.package}@{d.version} — {d.vulnerability}")
             if d.fix_version:
                 print(f"      Fix: upgrade to {d.fix_version}")
     
@@ -562,28 +562,28 @@ def print_report_text(result: ScanResult, config: dict):
     }
     
     verdict_emoji = {
-        Verdict.CLEAN: "✅",
-        Verdict.REVIEW: "⚠️",
-        Verdict.SUSPICIOUS: "🟠",
-        Verdict.DANGEROUS: "🔴",
-        Verdict.MALICIOUS: "⛔",
+        Verdict.CLEAN: "",
+        Verdict.REVIEW: "",
+        Verdict.SUSPICIOUS: "",
+        Verdict.DANGEROUS: "",
+        Verdict.MALICIOUS: "",
     }
     
     v_color = verdict_colors.get(result.verdict, Colors.RESET)
-    v_emoji = verdict_emoji.get(result.verdict, "❓")
+    v_emoji = verdict_emoji.get(result.verdict, "")
     
     print(colored(f"                    VERDICT: {v_emoji} {result.verdict.value.upper()}", v_color, c))
     print("═" * 64)
     
     if result.verdict in [Verdict.DANGEROUS, Verdict.MALICIOUS]:
-        print(colored("\n  ⛔ DO NOT INSTALL THIS SKILL", Colors.RED, c))
+        print(colored("\n   DO NOT INSTALL THIS SKILL", Colors.RED, c))
         print(f"  {len(critical)} critical security issues found.")
         print("  Manual code review required before any use.")
     elif result.verdict in [Verdict.SUSPICIOUS, Verdict.REVIEW]:
-        print(colored("\n  ⚠️  REVIEW BEFORE INSTALLING", Colors.YELLOW, c))
+        print(colored("\n    REVIEW BEFORE INSTALLING", Colors.YELLOW, c))
         print(f"  {len(warnings)} warnings found — verify they're expected.")
     else:
-        print(colored("\n  ✅ LIKELY SAFE TO INSTALL", Colors.GREEN, c))
+        print(colored("\n   LIKELY SAFE TO INSTALL", Colors.GREEN, c))
         print("  No critical issues or concerning warnings found.")
     
     print("═" * 64)
@@ -630,7 +630,7 @@ def print_report_json(result: ScanResult):
 
 def print_report_markdown(result: ScanResult):
     """Print Markdown report."""
-    print(f"# 🛡️ SkillGuard Security Report\n")
+    print(f"#  SkillGuard Security Report\n")
     print(f"**Skill:** {result.skill_name}")
     print(f"**Scan Time:** {result.scan_time}")
     print(f"**Files Scanned:** {result.files_scanned}")
@@ -641,7 +641,7 @@ def print_report_markdown(result: ScanResult):
     warnings = [f for f in result.findings if f.severity == Severity.WARNING]
     
     if critical:
-        print("## 🔴 Critical Issues\n")
+        print("##  Critical Issues\n")
         print("| ID | File | Line | Description |")
         print("|---|---|---|---|")
         for f in critical:
@@ -649,7 +649,7 @@ def print_report_markdown(result: ScanResult):
         print()
     
     if warnings:
-        print("## 🟡 Warnings\n")
+        print("##  Warnings\n")
         print("| ID | File | Line | Description |")
         print("|---|---|---|---|")
         for f in warnings:
@@ -657,7 +657,7 @@ def print_report_markdown(result: ScanResult):
         print()
     
     if result.dependency_issues:
-        print("## 📦 Dependency Issues\n")
+        print("##  Dependency Issues\n")
         print("| Package | Version | Issue | Fix |")
         print("|---|---|---|---|")
         for d in result.dependency_issues:
@@ -696,11 +696,11 @@ def cmd_scan(args):
     config = load_config()
     skill_name = args.skill
     
-    print(f"📥 Fetching {skill_name} from ClawHub...")
+    print(f" Fetching {skill_name} from ClawHub...")
     skill_path = fetch_skill_from_clawhub(skill_name)
     
     if not skill_path:
-        print(f"❌ Could not fetch skill: {skill_name}")
+        print(f" Could not fetch skill: {skill_name}")
         sys.exit(1)
     
     findings, dep_issues, file_count, file_list = scan_folder(skill_path)
@@ -738,7 +738,7 @@ def cmd_scan_local(args):
     folder = Path(args.path).resolve()
     
     if not folder.exists():
-        print(f"❌ Path not found: {folder}")
+        print(f" Path not found: {folder}")
         sys.exit(1)
     
     findings, dep_issues, file_count, file_list = scan_folder(folder)
@@ -771,10 +771,10 @@ def cmd_audit_installed(args):
     workspace_skills = Path.home() / ".openclaw" / "workspace" / "skills"
     
     if not workspace_skills.exists():
-        print("❌ No skills directory found")
+        print(" No skills directory found")
         sys.exit(1)
     
-    print(colored("\n🔍 Auditing installed skills...\n", Colors.BOLD, config))
+    print(colored("\n Auditing installed skills...\n", Colors.BOLD, config))
     
     results = []
     for skill_dir in sorted(workspace_skills.iterdir()):
@@ -788,18 +788,18 @@ def cmd_audit_installed(args):
             results.append((skill_dir.name, verdict, score, critical, warnings))
     
     # Print summary table
-    print(colored("📊 Installed Skills Audit", Colors.BOLD, config))
+    print(colored(" Installed Skills Audit", Colors.BOLD, config))
     print("━" * 60)
     print(f"  {'Status':<8} {'Skill':<25} {'Score':<8} {'Issues'}")
     print("─" * 60)
     
     for name, verdict, score, crit, warn in results:
         if verdict in [Verdict.DANGEROUS, Verdict.MALICIOUS]:
-            status = colored("🔴", Colors.RED, config)
+            status = colored("", Colors.RED, config)
         elif verdict in [Verdict.SUSPICIOUS, Verdict.REVIEW]:
-            status = colored("🟡", Colors.YELLOW, config)
+            status = colored("", Colors.YELLOW, config)
         else:
-            status = colored("🟢", Colors.GREEN, config)
+            status = colored("", Colors.GREEN, config)
         
         issues = []
         if crit:
@@ -814,7 +814,7 @@ def cmd_audit_installed(args):
     
     dangerous_count = sum(1 for r in results if r[1] in [Verdict.DANGEROUS, Verdict.MALICIOUS])
     if dangerous_count:
-        print(colored(f"\n⚠️  {dangerous_count} skills have critical security issues!", Colors.RED, config))
+        print(colored(f"\n  {dangerous_count} skills have critical security issues!", Colors.RED, config))
         print("Run 'skillguard scan-local <path>' for details.")
 
 def cmd_allowlist(args):
@@ -825,7 +825,7 @@ def cmd_allowlist(args):
         if trusted:
             print("Trusted skills:")
             for s in trusted:
-                print(f"  ✅ {s}")
+                print(f"   {s}")
         else:
             print("No trusted skills configured.")
         return
@@ -834,18 +834,18 @@ def cmd_allowlist(args):
         if args.skill in trusted:
             trusted.remove(args.skill)
             save_trusted(trusted)
-            print(f"✅ Removed {args.skill} from trusted list")
+            print(f" Removed {args.skill} from trusted list")
         else:
-            print(f"ℹ️  {args.skill} was not in trusted list")
+            print(f"  {args.skill} was not in trusted list")
         return
     
     if args.skill:
         if args.skill not in trusted:
             trusted.append(args.skill)
             save_trusted(trusted)
-            print(f"✅ Added {args.skill} to trusted skills")
+            print(f" Added {args.skill} to trusted skills")
         else:
-            print(f"ℹ️  {args.skill} already trusted")
+            print(f"  {args.skill} already trusted")
 
 def cmd_version(args):
     """Show version."""
@@ -858,7 +858,7 @@ def cmd_version(args):
 def main():
     parser = argparse.ArgumentParser(
         prog="skillguard",
-        description="🛡️ SkillGuard — Security Scanner for ClawHub Skills",
+        description=" SkillGuard — Security Scanner for ClawHub Skills",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

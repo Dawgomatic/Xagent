@@ -1,7 +1,7 @@
 ---
 name: Startup
 description: Orchestrate startup work by spawning specialized agents and applying stage-appropriate priorities.
-metadata: {"clawdbot":{"emoji":"🦄","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Startup Orchestration

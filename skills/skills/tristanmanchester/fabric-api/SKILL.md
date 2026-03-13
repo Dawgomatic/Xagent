@@ -2,7 +2,7 @@
 name: fabric-api
 description: Create/search Fabric resources via HTTP API (notepads, folders, bookmarks, files).
 homepage: https://fabric.so
-metadata: {"clawdbot":{"emoji":"🧵","requires":{"env":["FABRIC_API_KEY"],"bins":["curl"]},"primaryEnv":"FABRIC_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["FABRIC_API_KEY"],"bins":["curl"]},"primaryEnv":"FABRIC_API_KEY"}}
 ---
 
 # Fabric API (HTTP via curl)

@@ -4,7 +4,7 @@ description: Manage Apple Notes via deterministic local scripts (create, append,
 metadata:
   {
     "openclaw": {
-      "emoji": "📝",
+      "emoji": "",
       "os": ["darwin"],
       "requires": { "bins": ["memo", "python3", "osascript"] }
     }

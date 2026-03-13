@@ -65,7 +65,7 @@ async function main() {
   
   const contract = new ethers.Contract(address, abi, signer);
   
-  console.log(`\n📝 Contract Call on Abstract`);
+  console.log(`\n Contract Call on Abstract`);
   console.log(`Contract: ${address}`);
   console.log(`Function: ${functionName}`);
   console.log(`Args: ${functionArgs.length > 0 ? functionArgs.join(", ") : "none"}`);
@@ -78,7 +78,7 @@ async function main() {
       });
       console.log(`TX: ${tx.hash}`);
       const receipt = await tx.wait();
-      console.log(`✅ Transaction confirmed! Block: ${receipt.blockNumber}`);
+      console.log(` Transaction confirmed! Block: ${receipt.blockNumber}`);
       console.log(`Explorer: https://abscan.org/tx/${tx.hash}`);
     } else {
       const result = await contract[functionName](...functionArgs);

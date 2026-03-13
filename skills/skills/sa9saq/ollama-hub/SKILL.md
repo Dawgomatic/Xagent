@@ -39,15 +39,15 @@ Manage and benchmark local Ollama models.
 
 4. **Compare models** — run same prompt across multiple models:
    ```
-   ## 📊 Ollama Model Benchmark
+   ##  Ollama Model Benchmark
    **Prompt:** "Explain quantum computing in 3 sentences"
    **Hardware:** [CPU/GPU specs]
 
    | Model | Size | Tokens/sec | Response Time | Quality |
    |-------|------|-----------|--------------|---------|
-   | llama3.3:8b | 4.7GB | 42 t/s | 2.1s | ⭐⭐⭐⭐ |
-   | mistral:7b | 4.1GB | 48 t/s | 1.8s | ⭐⭐⭐ |
-   | phi3:mini | 2.3GB | 65 t/s | 1.2s | ⭐⭐⭐ |
+   | llama3.3:8b | 4.7GB | 42 t/s | 2.1s |  |
+   | mistral:7b | 4.1GB | 48 t/s | 1.8s |  |
+   | phi3:mini | 2.3GB | 65 t/s | 1.2s |  |
    ```
 
 5. **Check Ollama status**:

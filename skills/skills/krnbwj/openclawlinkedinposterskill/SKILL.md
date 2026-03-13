@@ -66,7 +66,7 @@ The first time you use the skill, it will:
 
 Send a message to OpenClaw:
 ```
-post to linkedin: Just shipped a new feature! 🚀
+post to linkedin: Just shipped a new feature! 
 ```
 
 Or:

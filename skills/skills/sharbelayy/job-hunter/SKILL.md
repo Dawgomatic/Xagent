@@ -53,7 +53,7 @@ Or evaluate manually using this framework:
 - **Domain match** (10%): Preferred industry/domain?
 - **Red flags** (10%): Excluded companies? Dealbreakers?
 
-Score: 🟢 75+ great | 🟡 55-74 good | 🟠 40-54 stretch | 🔴 <40 skip
+Score:  75+ great |  55-74 good |  40-54 stretch |  <40 skip
 
 ### 4. Present results
 

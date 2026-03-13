@@ -4,7 +4,7 @@
 
 ---
 
-## ⚠️ IMPORTANT LEGAL DISCLOSURES
+##  IMPORTANT LEGAL DISCLOSURES
 
 **FOR EDUCATIONAL PURPOSES ONLY.** This content is provided for informational and educational purposes only and does NOT constitute investment advice, financial advice, trading advice, or any other type of advice. The publisher is not a registered investment adviser, broker-dealer, commodity trading advisor, or licensed financial professional.
 

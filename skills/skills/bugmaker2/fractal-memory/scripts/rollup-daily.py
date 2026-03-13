@@ -112,11 +112,11 @@ def extract_summary_llm(content, date):
             if summary and len(summary) > 50:
                 return summary
         
-        print(f"⚠️  LLM extraction failed, falling back to heuristic")
+        print(f"  LLM extraction failed, falling back to heuristic")
         return None
         
     except Exception as e:
-        print(f"⚠️  LLM error: {e}, falling back to heuristic")
+        print(f"  LLM error: {e}, falling back to heuristic")
         return None
 
 def extract_summary_heuristic(content):
@@ -187,7 +187,7 @@ def append_to_weekly(date, summary):
 
 def main():
     """Main rollup logic"""
-    print("🧠 Daily Rollup - Fractal Memory System (LLM-Enhanced)")
+    print(" Daily Rollup - Fractal Memory System (LLM-Enhanced)")
     print("=" * 50)
     
     # Load state
@@ -205,25 +205,25 @@ def main():
             print(f"✓ Already processed {target_date}")
             return
     
-    print(f"📅 Processing: {target_date}")
-    print(f"🤖 LLM Mode: {'Enabled' if USE_LLM else 'Disabled'} (Model: {LLM_MODEL})")
+    print(f" Processing: {target_date}")
+    print(f" LLM Mode: {'Enabled' if USE_LLM else 'Disabled'} (Model: {LLM_MODEL})")
     
     # Read daily file
     content = read_daily_file(target_date)
     if not content:
-        print(f"⚠️  No diary file found for {target_date}")
+        print(f"  No diary file found for {target_date}")
         print(f"   Expected: memory/diary/{target_date.year}/daily/{target_date}.md")
         return
     
-    print(f"📖 Read {len(content)} characters from daily file")
+    print(f" Read {len(content)} characters from daily file")
     
     # Extract summary
     summary = extract_summary(content, target_date)
     if not summary:
-        print("⚠️  No significant content to summarize")
+        print("  No significant content to summarize")
         return
     
-    print(f"✨ Extracted summary ({len(summary)} characters)")
+    print(f" Extracted summary ({len(summary)} characters)")
     
     # Append to weekly
     append_to_weekly(target_date, summary)

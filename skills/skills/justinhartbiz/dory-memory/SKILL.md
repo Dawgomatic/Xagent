@@ -57,7 +57,7 @@ workspace/
 
 Output status line after boot:
 ```
-📋 Boot: ACTIVE=[task] | HOLD=[n] items | STAGING=[n] drafts
+ Boot: ACTIVE=[task] | HOLD=[n] items | STAGING=[n] drafts
 ```
 
 ## State File Formats

@@ -55,19 +55,19 @@ async function main() {
     const p11 = {x: 2100, y: 150};
 
     // Nodes
-    nodes.push(createNode("n1", "📦 用户: 撕开激活码\n下载 App", p1.x, p1.y, C_USER));
-    nodes.push(createNode("n2", "📱 App: 输入激活码\n认证成功", p2.x, p2.y, C_APP));
-    nodes.push(createNode("n3", "🎨 User: 创建角色\n(捏脸/设定)", p3.x, p3.y, C_USER));
-    nodes.push(createNode("n4", "☁️ Cloud: 工作流生成\n(图/视/音)", p4.x, p4.y, C_CLOUD));
+    nodes.push(createNode("n1", " 用户: 撕开激活码\n下载 App", p1.x, p1.y, C_USER));
+    nodes.push(createNode("n2", " App: 输入激活码\n认证成功", p2.x, p2.y, C_APP));
+    nodes.push(createNode("n3", " User: 创建角色\n(捏脸/设定)", p3.x, p3.y, C_USER));
+    nodes.push(createNode("n4", " Cloud: 工作流生成\n(图/视/音)", p4.x, p4.y, C_CLOUD));
     
-    nodes.push(createNode("n5", "📛 Badge: 开机 & 配网\n(连接WiFi)", p5.x, p5.y, C_BADGE));
-    nodes.push(createNode("n6", "📛 Badge: 生成信任码\n(Trust Code)", p6.x, p6.y, C_BADGE));
-    nodes.push(createNode("n7", "📱 App: 输入信任码\n(需同WiFi)", p7.x, p7.y, C_APP));
+    nodes.push(createNode("n5", " Badge: 开机 & 配网\n(连接WiFi)", p5.x, p5.y, C_BADGE));
+    nodes.push(createNode("n6", " Badge: 生成信任码\n(Trust Code)", p6.x, p6.y, C_BADGE));
+    nodes.push(createNode("n7", " App: 输入信任码\n(需同WiFi)", p7.x, p7.y, C_APP));
     
-    nodes.push(createNode("n8", "📤 App: 上传“灵魂包”\n(Inject Soul)", p8.x, p8.y, C_APP));
-    nodes.push(createNode("n9", "🔄 Badge: 转圈圈\n(接收/加载)", p9.x, p9.y, C_BADGE));
-    nodes.push(createNode("n10", "✨ Badge: 待机展示\n(周期性动作)", p10.x, p10.y, C_BADGE));
-    nodes.push(createNode("n11", "👆 User: 触屏互动\n(激活反馈)", p11.x, p11.y, C_USER));
+    nodes.push(createNode("n8", " App: 上传“灵魂包”\n(Inject Soul)", p8.x, p8.y, C_APP));
+    nodes.push(createNode("n9", " Badge: 转圈圈\n(接收/加载)", p9.x, p9.y, C_BADGE));
+    nodes.push(createNode("n10", " Badge: 待机展示\n(周期性动作)", p10.x, p10.y, C_BADGE));
+    nodes.push(createNode("n11", " User: 触屏互动\n(激活反馈)", p11.x, p11.y, C_USER));
 
     // Connectors (Center-to-Center approximation or Edge-to-Edge)
     // Left-Right: (x + 180, y + 45) -> (next_x, next_y + 45)

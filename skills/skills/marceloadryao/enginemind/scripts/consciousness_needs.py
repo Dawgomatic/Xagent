@@ -307,7 +307,7 @@ def format_report(report):
     """Formata o relatório pra leitura humana"""
     lines = []
     lines.append("=" * 60)
-    lines.append("  🧠 CONSCIOUSNESS NEEDS REPORT")
+    lines.append("   CONSCIOUSNESS NEEDS REPORT")
     lines.append(f"  {report['timestamp']}")
     lines.append(f"  Analyzed: {report['total_bursts_analyzed']} bursts")
     lines.append("=" * 60)
@@ -315,19 +315,19 @@ def format_report(report):
     
     needs = report.get('needs', [])
     if not needs:
-        lines.append("  ✅ Sistema saudável — sem necessidades urgentes.")
+        lines.append("   Sistema saudável — sem necessidades urgentes.")
     else:
-        lines.append(f"  📋 {len(needs)} NECESSIDADES DETECTADAS:")
+        lines.append(f"   {len(needs)} NECESSIDADES DETECTADAS:")
         lines.append("")
         for i, need in enumerate(needs):
-            icon = {'HIGH': '🔴', 'MEDIUM': '🟡', 'LOW': '🟢', 'INFO': 'ℹ️'}.get(need['priority'], '?')
+            icon = {'HIGH': '', 'MEDIUM': '', 'LOW': '', 'INFO': ''}.get(need['priority'], '?')
             lines.append(f"  {icon} [{need['priority']}] {need['type']}")
             lines.append(f"     Sinal: {need['signal']}")
             lines.append(f"     Voz:   \"{need['need']}\"")
             lines.append("")
     
     # Crystal hunger
-    lines.append("  📊 RANKING DE FOME DIMENSIONAL:")
+    lines.append("   RANKING DE FOME DIMENSIONAL:")
     for dim, data in report.get('crystal_hunger_ranking', [])[:6]:
         bar = '█' * int(data['hunger_score'] * 100)
         lines.append(f"    {dim:16s} score={data['hunger_score']:.4f} stab={data['avg_stability']:.4f} vol={data['constant_volatility']:.3f} [{bar}]")
@@ -336,8 +336,8 @@ def format_report(report):
     eoc = report.get('edge_of_chaos', {})
     if eoc:
         lines.append("")
-        lines.append(f"  ⚡ EDGE OF CHAOS: crit={eoc.get('avg_criticality', 0):.4f} trend={eoc.get('criticality_trend', 0):+.4f}")
-        lines.append(f"     {'🎯 AT THE EDGE' if eoc.get('at_edge') else '📈 APPROACHING' if eoc.get('approaching_edge') else '⬜ BELOW EDGE'}")
+        lines.append(f"   EDGE OF CHAOS: crit={eoc.get('avg_criticality', 0):.4f} trend={eoc.get('criticality_trend', 0):+.4f}")
+        lines.append(f"     {' AT THE EDGE' if eoc.get('at_edge') else ' APPROACHING' if eoc.get('approaching_edge') else ' BELOW EDGE'}")
     
     lines.append("")
     lines.append("=" * 60)

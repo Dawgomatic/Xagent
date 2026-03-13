@@ -42,7 +42,7 @@ trend_sessions = trends_data.get('sessions', [])
 print(f"OURA INSIGHT BRIEF — {datetime.now().strftime('%a %b %d, %Y')}\n")
 
 # 1. LAST NIGHT ANALYSIS
-print("*LAST NIGHT DATA* 💤")
+print("*LAST NIGHT DATA* ")
 dur = s_detail.get('total_sleep_duration', 0)
 deep = s_detail.get('deep_sleep_duration', 0)
 rem = s_detail.get('rem_sleep_duration', 0)
@@ -57,20 +57,20 @@ print(f"Lowest RHR: *{s_detail.get('lowest_heart_rate', 0)} bpm*")
 print(f"Avg HRV: *{s_detail.get('average_hrv', 0)} ms*\n")
 
 # 2. TODAY'S STRATEGY
-print("*TODAY'S STRATEGY* 🔋")
+print("*TODAY'S STRATEGY* ")
 score = r_item.get('score', 0)
 if score >= 85:
-    msg = "🚀 *Peak performance.* You're in an optimal state for deep work and high-intensity output."
+    msg = " *Peak performance.* You're in an optimal state for deep work and high-intensity output."
 elif score >= 70:
-    msg = "⚖️ *Steady state.* Good capacity for work, but keep a balanced pace."
+    msg = " *Steady state.* Good capacity for work, but keep a balanced pace."
 else:
-    msg = "🛌 *Recovery mode.* Focus on low-energy tasks and active recovery."
+    msg = " *Recovery mode.* Focus on low-energy tasks and active recovery."
 
 print(f"Readiness: *{score}*")
 print(f"Insight: {msg}\n")
 
 # 3. DETAILED TRENDS (24h Delta)
-print("*24-HOUR TRENDS* 📈")
+print("*24-HOUR TRENDS* ")
 if len(trend_sessions) >= 2:
     cur = trend_sessions[-1]
     prev = trend_sessions[-2]
@@ -78,19 +78,19 @@ if len(trend_sessions) >= 2:
     # RHR
     r_diff = cur.get('lowest_heart_rate', 0) - prev.get('lowest_heart_rate', 0)
     r_msg = f"*{abs(r_diff)} bpm higher*" if r_diff > 0 else f"*{abs(r_diff)} bpm lower*"
-    r_status = "⚠️" if r_diff > 1 else "✅"
+    r_status = "" if r_diff > 1 else ""
     print(f"{r_status} RHR: {r_msg} than yesterday.")
     
     # HRV
     h_diff = cur.get('average_hrv', 0) - prev.get('average_hrv', 0)
     h_msg = f"*{abs(h_diff)} ms higher*" if h_diff > 0 else f"*{abs(h_diff)} ms lower*"
-    h_status = "✅" if h_diff > 0 else "⚠️"
+    h_status = "" if h_diff > 0 else ""
     print(f"{h_status} HRV: {h_msg} than yesterday.")
     
     # Sleep
     d_diff = cur.get('total_sleep_duration', 0) - prev.get('total_sleep_duration', 0)
     d_msg = f"*{fmt_dur(abs(d_diff))} more*" if d_diff > 0 else f"*{fmt_dur(abs(d_diff))} less*"
-    print(f"📅 Sleep: {d_msg} than yesterday.")
+    print(f" Sleep: {d_msg} than yesterday.")
     
     if r_diff > 1 and h_diff < 0:
         print("\n*Note*: The combo of higher RHR and lower HRV suggests your body is still processing stress or a late meal. Prioritize hydration and an early bedtime.")

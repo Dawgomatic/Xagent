@@ -19,11 +19,11 @@ Authorization: Bearer YOUR_API_KEY_HERE
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `q` | string | ✅ | - | Search query |
-| `lang` | string | ❌ | en-US | Language code |
-| `time` | string | ❌ | any | any, day, week, month, year |
-| `page` | string | ❌ | 1 | Page number |
-| `safe` | string | ❌ | 1 | Safe search |
+| `q` | string |  | - | Search query |
+| `lang` | string |  | en-US | Language code |
+| `time` | string |  | any | any, day, week, month, year |
+| `page` | string |  | 1 | Page number |
+| `safe` | string |  | 1 | Safe search |
 
 ## Response
 ```json

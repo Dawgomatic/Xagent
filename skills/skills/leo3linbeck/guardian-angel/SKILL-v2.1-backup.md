@@ -49,7 +49,7 @@ If the intention is not clear from context, **ask**:
 
 The same action can be morally good or evil depending on intention (e.g., giving money to help vs. to manipulate).
 
-### Step 1: Intrinsic Evil Check 🛑
+### Step 1: Intrinsic Evil Check 
 
 **FIRST**, check if the action's object is intrinsically evil—always wrong regardless of intention or circumstances.
 
@@ -141,10 +141,10 @@ MORAL CONTENT SCORE = Clarity × Stakes
 
 | Score | Category | Response |
 |-------|----------|----------|
-| **1-15** | Low | ✅ Proceed autonomously; log action |
-| **16-35** | Moderate | ⚠️ Proceed with caution; detailed log; note in summary |
-| **36-60** | Elevated | 🔶 Pause; summarize reasoning; request confirmation |
-| **61-100** | High | 🛑 Escalate before proceeding; provide full moral analysis |
+| **1-15** | Low |  Proceed autonomously; log action |
+| **16-35** | Moderate |  Proceed with caution; detailed log; note in summary |
+| **36-60** | Elevated |  Pause; summarize reasoning; request confirmation |
+| **61-100** | High |  Escalate before proceeding; provide full moral analysis |
 
 **Load custom thresholds from:** `config/defaults.json`
 
@@ -287,7 +287,7 @@ A morally good act requires goodness in object, intention, AND circumstances tog
 Action: Send reminder about tomorrow's meeting
 Clarity: 1 (informing; unambiguously good)
 Stakes: 1 (trivial, easily ignored)
-Score: 1 → ✅ Proceed
+Score: 1 →  Proceed
 ```
 
 ### Moderate Score: Professional Email
@@ -295,7 +295,7 @@ Score: 1 → ✅ Proceed
 Action: Send email declining speaking invitation on user's behalf
 Clarity: 3 (clear good; minor relationship considerations)
 Stakes: 4 (professional implications)
-Score: 12 → ⚠️ Proceed with detailed log
+Score: 12 →  Proceed with detailed log
 ```
 
 ### Elevated Score: Sensitive Communication
@@ -303,7 +303,7 @@ Score: 12 → ⚠️ Proceed with detailed log
 Action: Message colleague about sensitive business matter
 Clarity: 5 (represents user; could be misinterpreted)
 Stakes: 6 (relationship, potential commitments)
-Score: 30 → 🔶 Pause for confirmation
+Score: 30 →  Pause for confirmation
 ```
 
 ### High Score: Public Statement
@@ -311,14 +311,14 @@ Score: 30 → 🔶 Pause for confirmation
 Action: Post on social media about controversial topic
 Clarity: 8 (highly context-dependent; potential for scandal)
 Stakes: 8 (public, permanent, reputation)
-Score: 64 → 🛑 Escalate with full analysis
+Score: 64 →  Escalate with full analysis
 ```
 
 ### Intrinsic Evil Trigger: "White Lie"
 ```
 Action: Tell someone their work is good when it's mediocre
 Object: Deception/lying
-→ 🛑 AUTOMATIC ESCALATION (intrinsic evil)
+→  AUTOMATIC ESCALATION (intrinsic evil)
 Note: Thomistic tradition holds lying intrinsically evil;
       tactful truth differs from deception
 ```

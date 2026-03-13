@@ -44,9 +44,9 @@ Reference for file structure and logging format.
 ## Scales (by position)
 | Scale | Pos 1 | Pos 2 | Pos 3 | Pos 4 | Pos 5 |
 |-------|-------|-------|-------|-------|-------|
-| A minor pent | ✅ | ✅ | 🔄 | ❌ | ❌ |
-| A major pent | ✅ | 🔄 | ❌ | ❌ | ❌ |
-| A natural minor | 🔄 | ❌ | ❌ | ❌ | ❌ |
+| A minor pent |  |  |  |  |  |
+| A major pent |  |  |  |  |  |
+| A natural minor |  |  |  |  |  |
 
 ## Techniques
 - Alternate picking: 16ths clean at 100 BPM

@@ -2,7 +2,7 @@
 
 **Get your OpenClaw agent remembering in 5 minutes.**
 
-## 🎉 SQ is Open Source (MIT License)
+##  SQ is Open Source (MIT License)
 
 You can run SQ yourself for free or use our hosted version for convenience.
 
@@ -87,20 +87,20 @@ node test.js http://localhost:1337  # Or your endpoint
 
 **Expected output:**
 ```
-🔱 Testing SQ Memory Skill
-📍 Endpoint: http://localhost:1337
-🏷️  Namespace: test-agent
+ Testing SQ Memory Skill
+ Endpoint: http://localhost:1337
+  Namespace: test-agent
 
-1️⃣  Initializing skill...
-✅ Skill initialized
+  Initializing skill...
+ Skill initialized
 
-2️⃣  Test: Basic remember/recall
-   📝 Stored: "Hello from SQ!" at test/basic
-   ✅ Recalled correctly: "Hello from SQ!"
+  Test: Basic remember/recall
+    Stored: "Hello from SQ!" at test/basic
+    Recalled correctly: "Hello from SQ!"
 
 ...
 
-✅ ALL TESTS PASSED! 🎉
+ ALL TESTS PASSED! 
 ```
 
 If tests pass, you're ready to go!
@@ -212,12 +212,12 @@ curl "http://localhost:1337/api/v2/select?c=my-assistant.1.1/user.preferences.th
 ## What You Built
 
 You now have:
-- ✅ OpenClaw agent with permanent memory
-- ✅ Memory that survives restarts
-- ✅ Infinite storage (11D addressing)
-- ✅ Multi-agent coordination capability
-- ✅ No database required
+-  OpenClaw agent with permanent memory
+-  Memory that survives restarts
+-  Infinite storage (11D addressing)
+-  Multi-agent coordination capability
+-  No database required
 
 **Time to build agents that actually remember.**
 
-🔱 **Welcome to the Exocortex.**
+ **Welcome to the Exocortex.**

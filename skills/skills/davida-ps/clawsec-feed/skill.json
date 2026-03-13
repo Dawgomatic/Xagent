@@ -29,7 +29,7 @@
     ]
   },
   "openclaw": {
-    "emoji": "📡",
+    "emoji": "",
     "category": "security",
     "feed_url": "https://api.github.com/repos/prompt-security/ClawSec/releases?skill=clawsec-feed",
     "requires": {

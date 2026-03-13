@@ -28,7 +28,7 @@ For each competitor, monitor:
 ## Competitor Intelligence Report
 
 ### [Competitor Name]
-**Status:** 🟢 Stable | 🟡 Active | 🔴 Aggressive Move
+**Status:**  Stable |  Active |  Aggressive Move
 
 #### Recent Changes
 - [Date]: [Change description]

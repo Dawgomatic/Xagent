@@ -10,7 +10,7 @@ try {
     // --reverse: Oldest to Newest (Time Sequence)
     // --grep: Filter by keyword
     // --format: Hash, Date (ISO), Author, Subject, Body
-    const cmd = `git log --reverse --grep="🧬 Evolution" --format="%H${SEP}%ai${SEP}%an${SEP}%s${SEP}%b"`;
+    const cmd = `git log --reverse --grep=" Evolution" --format="%H${SEP}%ai${SEP}%an${SEP}%s${SEP}%b"`;
     
     console.log('Executing git log...');
     const output = execSync(cmd, { 
@@ -21,8 +21,8 @@ try {
 
     const entries = output.split('\n').filter(line => line.trim().length > 0);
     
-    let markdown = '# 🧬 Evolution History (Time Sequence)\n\n';
-    markdown += '> **Filter**: "🧬 Evolution"\n';
+    let markdown = '#  Evolution History (Time Sequence)\n\n';
+    markdown += '> **Filter**: " Evolution"\n';
     markdown += '> **Timezone**: CST (UTC+8)\n\n';
     
     let count = 0;

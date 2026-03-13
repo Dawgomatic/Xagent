@@ -71,7 +71,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
     <span className="corner-br" aria-hidden="true"></span>
     <div className="relative z-10">
       <div className="docs-quickstart-icon" aria-hidden="true">
-        🎨
+        
       </div>
       <div className="docs-quickstart-title">Visual Builder</div>
       <div className="docs-quickstart-desc">
@@ -93,7 +93,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
     <span className="corner-br" aria-hidden="true"></span>
     <div className="relative z-10">
       <div className="docs-quickstart-icon" aria-hidden="true">
-        ⚡
+        
       </div>
       <div className="docs-quickstart-title">REST API</div>
       <div className="docs-quickstart-desc">OpenAI-compatible endpoints</div>
@@ -113,7 +113,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
     <span className="corner-br" aria-hidden="true"></span>
     <div className="relative z-10">
       <div className="docs-quickstart-icon" aria-hidden="true">
-        💻
+        
       </div>
       <div className="docs-quickstart-title">CLI Deployment</div>
       <div className="docs-quickstart-desc">Deploy from your local project</div>
@@ -133,7 +133,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
     <span className="corner-br" aria-hidden="true"></span>
     <div className="relative z-10">
       <div className="docs-quickstart-icon" aria-hidden="true">
-        🔌
+        
       </div>
       <div className="docs-quickstart-title">MCP Protocol</div>
       <div className="docs-quickstart-desc">Connect with external tools</div>
@@ -154,7 +154,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   <div className="docs-feature-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 flex items-center justify-center bg-[#ff5800]/10 border border-[#ff5800]/20">
-        <span className="text-[#ff5800] text-lg">🤖</span>
+        <span className="text-[#ff5800] text-lg"></span>
       </div>
       <div className="font-bold text-white">Agent Runtime</div>
     </div>
@@ -166,7 +166,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   <div className="docs-feature-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 flex items-center justify-center bg-[#0b35f1]/10 border border-[#0b35f1]/20">
-        <span className="text-[#0b35f1] text-lg">💬</span>
+        <span className="text-[#0b35f1] text-lg"></span>
       </div>
       <div className="font-bold text-white">Chat Completions</div>
     </div>
@@ -178,7 +178,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   <div className="docs-feature-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 flex items-center justify-center bg-[#22c55e]/10 border border-[#22c55e]/20">
-        <span className="text-[#22c55e] text-lg">🧠</span>
+        <span className="text-[#22c55e] text-lg"></span>
       </div>
       <div className="font-bold text-white">Model Gateway</div>
     </div>
@@ -190,7 +190,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   <div className="docs-feature-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 flex items-center justify-center bg-[#a855f7]/10 border border-[#a855f7]/20">
-        <span className="text-[#a855f7] text-lg">📚</span>
+        <span className="text-[#a855f7] text-lg"></span>
       </div>
       <div className="font-bold text-white">Knowledge Base</div>
     </div>
@@ -202,7 +202,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   <div className="docs-feature-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 flex items-center justify-center bg-[#f97316]/10 border border-[#f97316]/20">
-        <span className="text-[#f97316] text-lg">🔗</span>
+        <span className="text-[#f97316] text-lg"></span>
       </div>
       <div className="font-bold text-white">MCP Integration</div>
     </div>
@@ -213,7 +213,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   <div className="docs-feature-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 flex items-center justify-center bg-[#06b6d4]/10 border border-[#06b6d4]/20">
-        <span className="text-[#06b6d4] text-lg">📦</span>
+        <span className="text-[#06b6d4] text-lg"></span>
       </div>
       <div className="font-bold text-white">Containers</div>
     </div>
@@ -241,7 +241,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   >
     <div className="relative z-10">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[#ff5800] text-2xl">🖼️</span>
+        <span className="text-[#ff5800] text-2xl"></span>
         <span className="text-[10px] font-bold uppercase tracking-wider text-[#ff5800]/60 px-2 py-1 bg-[#ff5800]/10 border border-[#ff5800]/20">
           FLUX • SD
         </span>
@@ -259,7 +259,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   >
     <div className="relative z-10">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[#0b35f1] text-2xl">🎬</span>
+        <span className="text-[#0b35f1] text-2xl"></span>
         <span className="text-[10px] font-bold uppercase tracking-wider text-[#0b35f1]/60 px-2 py-1 bg-[#0b35f1]/10 border border-[#0b35f1]/20">
           MiniMax • Runway
         </span>
@@ -277,7 +277,7 @@ Summary: Build, deploy, and scale intelligent AI agents with elizaOS Cloud.
   >
     <div className="relative z-10">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[#22c55e] text-2xl">🎙️</span>
+        <span className="text-[#22c55e] text-2xl"></span>
         <span className="text-[10px] font-bold uppercase tracking-wider text-[#22c55e]/60 px-2 py-1 bg-[#22c55e]/10 border border-[#22c55e]/20">
           ElevenLabs
         </span>

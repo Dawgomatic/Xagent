@@ -11,11 +11,11 @@ CONFIG_FILE="$SKILL_DIR/config.json"
 GOTCHI_ID="${1:-$(jq -r ".gotchiIds[0]" "$CONFIG_FILE")}"
 
 if [ -z "$GOTCHI_ID" ] || [ "$GOTCHI_ID" = "null" ]; then
-  echo "❌ Error: No gotchi ID provided"
+  echo " Error: No gotchi ID provided"
   exit 1
 fi
 
-echo "👻 Checking gotchi #${GOTCHI_ID}..."
+echo " Checking gotchi #${GOTCHI_ID}..."
 echo ""
 
 # Check cooldown status (check-cooldown.sh already outputs error:0:0 on failure)
@@ -31,7 +31,7 @@ TIME_LEFT=$(echo "$STATUS" | cut -d: -f2)
 LAST_PET=$(echo "$STATUS" | cut -d: -f3)
 
 if [ "$STATE" = "error" ]; then
-  echo "❌ Error: Failed to check gotchi status"
+  echo " Error: Failed to check gotchi status"
   exit 1
 fi
 
@@ -43,7 +43,7 @@ else
 fi
 
 if [ "$STATE" = "ready" ]; then
-  echo "✅ Cooldown ready! Petting gotchi #${GOTCHI_ID}..."
+  echo " Cooldown ready! Petting gotchi #${GOTCHI_ID}..."
   echo ""
   
   # Execute pet via Bankr
@@ -63,11 +63,11 @@ elif [ "$STATE" = "waiting" ]; then
     NEXT_PET_STR=$(date -d "@$NEXT_PET" "+%Y-%m-%d %H:%M UTC" 2>/dev/null || echo "Unknown")
   fi
   
-  echo "⏰ Not ready yet!"
+  echo " Not ready yet!"
   echo ""
   echo "Wait: ${HOURS_LEFT}h ${MINS_LEFT}m ${SECS_LEFT}s"
   echo "Last pet: $LAST_PET_STR"
   echo "Next pet: $NEXT_PET_STR"
   echo ""
-  echo "Check back in a few hours! 👻💜"
+  echo "Check back in a few hours! "
 fi

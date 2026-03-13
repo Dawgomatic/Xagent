@@ -3,7 +3,7 @@ name: clawvault
 description: "Context death resilience - auto-checkpoint and recovery detection"
 metadata:
   openclaw:
-    emoji: "🐘"
+    emoji: ""
     events: ["gateway:startup", "command:new"]
     requires:
       bins: ["clawvault"]

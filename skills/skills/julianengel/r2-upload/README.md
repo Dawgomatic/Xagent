@@ -75,24 +75,24 @@ This allows you to generate clean public URLs instead of presigned ones.
 
 ## Security Considerations
 
-⚠️ **Important Security Notes:**
+ **Important Security Notes:**
 
 ### API Token Scope
 When creating your R2 API token:
-- ✅ **Apply to specific bucket only** (not account-wide)
-- ✅ **Use minimum permissions:** Object Read & Write only
-- ❌ **Avoid:** Admin permissions or account-wide access
+-  **Apply to specific bucket only** (not account-wide)
+-  **Use minimum permissions:** Object Read & Write only
+-  **Avoid:** Admin permissions or account-wide access
 
 ### Current Protections
-- ✅ Config file secured with 600 permissions (owner-only)
-- ✅ Presigned URLs expire (default: 5 minutes)
-- ✅ UUID prefixes prevent predictable file paths
-- ✅ Credentials isolated in external config
+-  Config file secured with 600 permissions (owner-only)
+-  Presigned URLs expire (default: 5 minutes)
+-  UUID prefixes prevent predictable file paths
+-  Credentials isolated in external config
 
 ### Known Limitations
-- ⚠️ No file size limits (be careful with large files)
-- ⚠️ No file type restrictions
-- ⚠️ No rate limiting
+-  No file size limits (be careful with large files)
+-  No file type restrictions
+-  No rate limiting
 
 ### Best Practices
 1. **Keep expiration short** - Default 5m is recommended

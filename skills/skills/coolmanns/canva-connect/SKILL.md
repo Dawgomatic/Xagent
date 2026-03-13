@@ -23,7 +23,7 @@ author: clawdbot
 license: MIT
 metadata:
   clawdbot:
-    emoji: "🎨"
+    emoji: ""
     triggers: ["/canva"]
     requires:
       env:
@@ -39,7 +39,7 @@ Manage Canva designs, assets, and folders via the Connect API.
 
 ## What This Skill Does (and Doesn't Do)
 
-| ✅ CAN DO | ❌ CANNOT DO |
+|  CAN DO |  CANNOT DO |
 |-----------|--------------|
 | List/search designs | Add content to designs |
 | Create blank designs | Edit existing design content |
@@ -51,22 +51,22 @@ Manage Canva designs, assets, and folders via the Connect API.
 
 ## Realistic Use Cases
 
-**1. Asset Pipeline** 🖼️
+**1. Asset Pipeline** 
 ```
 Generate diagram → upload to Canva → organize in project folder
 ```
 
-**2. Export Automation** 📤
+**2. Export Automation** 
 ```
 Design finished in Canva → export via CLI → use in docs/website
 ```
 
-**3. Design Organization** 📁
+**3. Design Organization** 
 ```
 Create project folders → move related designs → keep Canva tidy
 ```
 
-**4. Brand Template Autofill** 📋
+**4. Brand Template Autofill** 
 ```
 Set up template in Canva → pass data via API → get personalized output
 ```

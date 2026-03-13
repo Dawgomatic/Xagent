@@ -1,6 +1,6 @@
 # PMP-Agentclaw — ClawHub Submission Guide
 
-## 📦 Package Ready
+##  Package Ready
 
 **Location:** `~/Desktop/PMP-Agentclaw/`
 **Size:** ~68KB (excluding node_modules)
@@ -8,7 +8,7 @@
 
 ---
 
-## ✅ Pre-Submission Checklist
+##  Pre-Submission Checklist
 
 - [x] SKILL.md with valid YAML frontmatter
 - [x] skill.json with metadata
@@ -22,7 +22,7 @@
 
 ---
 
-## 🚀 Submission Steps
+##  Submission Steps
 
 ### Method 1: ClawHub CLI (Recommended)
 
@@ -75,7 +75,7 @@ git push -u origin main
 
 ---
 
-## 📋 Required Metadata
+##  Required Metadata
 
 **From package.json:**
 ```json
@@ -109,19 +109,19 @@ git push -u origin main
 
 ---
 
-## 🔒 Legal Compliance
+##  Legal Compliance
 
 **DISCLAIMER.md includes:**
-- ✅ NOT affiliated with PMI
-- ✅ Independent implementation
-- ✅ Trademark notices for PMP®, PMBOK®, PMI®
-- ✅ MIT License
+-  NOT affiliated with PMI
+-  Independent implementation
+-  Trademark notices for PMP, PMBOK, PMI
+-  MIT License
 
 **Safe to publish** — no copyrighted material
 
 ---
 
-## 📊 Skill Statistics
+##  Skill Statistics
 
 | Metric | Value |
 |--------|-------|
@@ -134,7 +134,7 @@ git push -u origin main
 
 ---
 
-## 🎯 Post-Submission
+##  Post-Submission
 
 After successful submission:
 
@@ -155,7 +155,7 @@ After successful submission:
 
 ---
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -166,7 +166,7 @@ After successful submission:
 
 ---
 
-## 📞 Support
+##  Support
 
 - **ClawHub Docs:** https://docs.clawhub.com
 - **Skill Location:** `~/Desktop/PMP-Agentclaw/`
@@ -174,4 +174,4 @@ After successful submission:
 
 ---
 
-**Ready to submit!** 🚀
+**Ready to submit!** 

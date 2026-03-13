@@ -37,7 +37,7 @@ class FeedbackLoop {
             delta: 0
         });
         this._saveDb();
-        console.log(`📈 [FEEDBACK]: Registered post ${postId} (Type: ${type})`);
+        console.log(` [FEEDBACK]: Registered post ${postId} (Type: ${type})`);
     }
 
     /**
@@ -68,7 +68,7 @@ class FeedbackLoop {
         this._saveDb();
         
         if (delta !== 0) {
-            console.log(`📊 [FEEDBACK]: Post ${postId} karma changed by ${delta}. Total Delta: ${post.delta}`);
+            console.log(` [FEEDBACK]: Post ${postId} karma changed by ${delta}. Total Delta: ${post.delta}`);
         }
 
         return { delta, totalDelta: post.delta, type: post.type };
@@ -99,7 +99,7 @@ class FeedbackLoop {
             }
         }
 
-        console.log(`🧠 [STRATEGY]: Best performing type is currently '${bestType}' (Avg Karma: ${maxAvg.toFixed(1)})`);
+        console.log(` [STRATEGY]: Best performing type is currently '${bestType}' (Avg Karma: ${maxAvg.toFixed(1)})`);
 
         // adjust soul modifiers
         let adjustment = { excitement: 0, contempt: 0, type: bestType };

@@ -59,7 +59,7 @@ def get_cost_summary():
         pass
     
     if not lines:
-        return "   💸 Cost tracking unavailable (codexbar not configured)"
+        return "    Cost tracking unavailable (codexbar not configured)"
     
     return "\n".join(lines)
 

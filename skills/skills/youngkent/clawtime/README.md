@@ -33,19 +33,19 @@ ClawTime solves all three:
 
 ## Key Features
 
-### 🏠 Private by Design
+###  Private by Design
 - Direct WebSocket connection to your OpenClaw gateway
 - All data stored locally (`~/.clawtime/`)
 - No analytics, no tracking, no data collection
 - E2E encryption (ECDH P-256 + AES-256-GCM)
 
-### 🎤 Voice Conversations
+###  Voice Conversations
 - Tap the avatar to start talking
 - Browser-based speech recognition
 - Server-side TTS via `edge-tts` (no API keys needed)
 - Barge-in support — interrupt anytime
 
-### 🦞 Animated 3D Avatar
+###  Animated 3D Avatar
 A voxel-style 3D character that reflects your agent's state:
 - **Idle** — gentle breathing, occasional blinks
 - **Thinking** — looking around, processing
@@ -56,12 +56,12 @@ A voxel-style 3D character that reflects your agent's state:
 
 Fully customizable — create avatars that match your agent's personality.
 
-### 🔐 Passwordless Authentication
+###  Passwordless Authentication
 - WebAuthn passkeys (Face ID, fingerprint, security key)
 - No passwords to remember or leak
 - One-time setup token for first registration
 
-### 🛠️ Agent-Modifiable
+###  Agent-Modifiable
 Your AI agent has full access to the codebase and can:
 - Customize the UI in real-time
 - Add new features
@@ -104,8 +104,8 @@ The agent will handle the complete setup — install, configure, and deploy.
 
 **Polyform Noncommercial 1.0.0** — see [LICENSE](LICENSE)
 
-- ✅ Free for personal use, hobby projects, research, education
-- 💼 Commercial use requires a paid license — tongkeyun@gmail.com
+-  Free for personal use, hobby projects, research, education
+-  Commercial use requires a paid license — tongkeyun@gmail.com
 
 ## Author
 

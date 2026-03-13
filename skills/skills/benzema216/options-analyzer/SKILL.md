@@ -1,18 +1,18 @@
 ---
 name: options-analyzer
 description: |
-  📊 专业期权策略分析器 — 期权链、Greeks、IV分析、策略推荐一站式解决！
+   专业期权策略分析器 — 期权链、Greeks、IV分析、策略推荐一站式解决！
   使用 yfinance 获取实时期权数据，Black-Scholes 计算 Greeks。
   触发条件: 用户询问期权链、Greeks计算、IV分析、期权策略分析、策略推荐、
   Iron Condor/Butterfly/Straddle/Strangle/Spread等策略、"分析期权"、
   "推荐期权策略"、"看涨/看跌期权"、Delta/Gamma/Theta/Vega计算、隐含波动率。
 ---
 
-# 📊 Options Analyzer — 专业期权策略分析器
+#  Options Analyzer — 专业期权策略分析器
 
 > 让期权交易变得简单！从数据获取到策略推荐，一站式搞定。
 
-## ✨ 核心能力
+##  核心能力
 
 | 功能 | 脚本 | 说明 |
 |------|------|------|
@@ -22,7 +22,7 @@ description: |
 | 策略分析 | `strategy_analyzer.py` | 15+种策略盈亏、Breakeven |
 | 策略推荐 | `strategy_recommend.py` | 基于观点+IV环境智能推荐 |
 
-## 🚀 快速开始
+##  快速开始
 
 ```bash
 pip install yfinance mibian pandas numpy  # 安装依赖
@@ -73,13 +73,13 @@ python scripts/strategy_recommend.py AAPL --outlook bullish --risk moderate
 python scripts/strategy_recommend.py SPY --outlook neutral --risk conservative
 ```
 
-## 📚 参考文档
+##  参考文档
 
 - [strategies.md](references/strategies.md) — 15种策略详解- [greeks_guide.md](references/greeks_guide.md) — Greeks 完全指南
 
 ---
 
-## ☕ 支持作者
+##  支持作者
 
 如果这个工具帮到了你，请考虑请我喝杯咖啡！
 
@@ -87,4 +87,4 @@ python scripts/strategy_recommend.py SPY --outlook neutral --risk conservative
 - **Buy Me a Coffee**: [buymeacoffee.com/benzema216](https://buymeacoffee.com/benzema216)
 - **USDC (Base)**: `0x...` *(联系获取地址)*
 
-你的支持是我持续改进的动力 🚀
+你的支持是我持续改进的动力 

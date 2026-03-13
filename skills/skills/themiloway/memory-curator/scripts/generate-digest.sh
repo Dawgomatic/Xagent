@@ -121,7 +121,7 @@ $SECTIONS
 \`\`\`
 EOF
 
-echo "✅ Generated digest skeleton: $DIGEST_FILE"
+echo " Generated digest skeleton: $DIGEST_FILE"
 echo "   Source: $LOG_FILE ($TOTAL_LINES lines)"
 echo "   Sections found: $SECTION_COUNT"
 echo ""

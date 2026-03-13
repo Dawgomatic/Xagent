@@ -26,15 +26,15 @@ def step(n, title):
 
 
 def ok(msg):
-    print(f"  {GREEN}✅ {msg}{RESET}")
+    print(f"  {GREEN} {msg}{RESET}")
 
 
 def warn(msg):
-    print(f"  {YELLOW}⚠️  {msg}{RESET}")
+    print(f"  {YELLOW}  {msg}{RESET}")
 
 
 def err(msg):
-    print(f"  {RED}❌ {msg}{RESET}")
+    print(f"  {RED} {msg}{RESET}")
 
 
 def ask(prompt, default=None):
@@ -128,7 +128,7 @@ This wizard will guide you through:
   Fill in:
   • Certificate title: {BOLD}openclaw{RESET} (or any name)
   • OAuth redirect URI: (see Step 3 below first!)
-  • X509 public key: Paste this 👇
+  • X509 public key: Paste this 
 
 {YELLOW}{'─' * 60}
 {cert_content.strip()}
@@ -151,8 +151,8 @@ This wizard will guide you through:
     b) n8n webhook
     c) Any HTTPS endpoint that shows the ?code= parameter
 
-  {RED}❌ localhost will NOT work{RESET}
-  {RED}❌ revolut.com will NOT work{RESET}
+  {RED} localhost will NOT work{RESET}
+  {RED} revolut.com will NOT work{RESET}
 """)
 
     redirect_uri = ask("Your OAuth redirect URI (full URL)", "https://revolut.yourdomain.com/callback")
@@ -313,7 +313,7 @@ This wizard will guide you through:
     python3 scripts/revolut.py tx -n 10     # Recent transactions
     python3 scripts/revolut.py balance      # EUR balance
 
-  Tokens auto-refresh — no manual intervention needed. 🎉
+  Tokens auto-refresh — no manual intervention needed. 
 """)
 
 

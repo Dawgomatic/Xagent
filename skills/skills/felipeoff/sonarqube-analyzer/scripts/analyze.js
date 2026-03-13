@@ -96,7 +96,7 @@ async function main() {
   const params = parseArgs(args);
 
   if (!params.project) {
-    console.error('❌ Error: --project is required');
+    console.error(' Error: --project is required');
     console.log('\nRun with --help for usage information\n');
     process.exit(1);
   }
@@ -104,7 +104,7 @@ async function main() {
   try {
     switch (params.action) {
       case 'analyze': {
-        console.log(`🔍 Analyzing ${params.project}${params.pr ? ` (PR #${params.pr})` : ''}...\n`);
+        console.log(` Analyzing ${params.project}${params.pr ? ` (PR #${params.pr})` : ''}...\n`);
         
         const analysis = await analyzeProject(params.project, params.pr, {
           severities: params.severities,
@@ -135,27 +135,27 @@ async function main() {
       }
 
       case 'quality-gate': {
-        console.log(`🚪 Checking Quality Gate for ${params.project}${params.pr ? ` (PR #${params.pr})` : ''}...\n`);
+        console.log(` Checking Quality Gate for ${params.project}${params.pr ? ` (PR #${params.pr})` : ''}...\n`);
         
         const qg = await getQualityGate(params.project, params.pr);
         
         console.log(JSON.stringify(qg, null, 2));
         
         if (qg.status === 'ERROR' || qg.status === 'FAILED') {
-          console.log('\n❌ Quality Gate failed');
+          console.log('\n Quality Gate failed');
           process.exit(1);
         } else if (qg.status === 'OK' || qg.status === 'PASSED') {
-          console.log('\n✅ Quality Gate passed');
+          console.log('\n Quality Gate passed');
         }
         break;
       }
 
       default:
-        console.error(`❌ Unknown action: ${params.action}`);
+        console.error(` Unknown action: ${params.action}`);
         process.exit(1);
     }
   } catch (error) {
-    console.error(`\n❌ Error: ${error.message}`);
+    console.error(`\n Error: ${error.message}`);
     process.exit(1);
   }
 }

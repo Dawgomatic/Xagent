@@ -60,21 +60,21 @@ send_notification() {
   # Build message
   local message=""
   if [[ "$status" == "success" ]]; then
-    message="✅ *Clawdbot Update Complete*"
-    message+="\n\n📦 Updates applied successfully."
+    message=" *Clawdbot Update Complete*"
+    message+="\n\n Updates applied successfully."
   elif [[ "$status" == "info" ]]; then
-    message="ℹ️ *Clawdbot Update Check*"
-    message+="\n\n📋 Everything is already up to date."
+    message=" *Clawdbot Update Check*"
+    message+="\n\n Everything is already up to date."
   else
-    message="❌ *Clawdbot Update Failed*"
-    message+="\n\n⚠️ An error occurred during the update."
+    message=" *Clawdbot Update Failed*"
+    message+="\n\n An error occurred during the update."
   fi
 
   if [[ -n "$details" ]]; then
     message+="\n\n$details"
   fi
 
-  message+="\n\n🕐 $(date '+%Y-%m-%d %H:%M:%S')"
+  message+="\n\n $(date '+%Y-%m-%d %H:%M:%S')"
 
   # Send via clawdbot message
   if clawdbot message send --channel "$channel" --target "$NOTIFY_TARGET" --message "$message" 2>/dev/null; then

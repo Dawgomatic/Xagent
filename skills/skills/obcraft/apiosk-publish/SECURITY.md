@@ -10,12 +10,12 @@ This skill is rated **Benign** on the ClawHub security scale.
 
 ### What This Means
 
-- ✅ No arbitrary code execution
-- ✅ No `curl | bash` patterns
-- ✅ All external requests go to verified Apiosk infrastructure
-- ✅ No plaintext secrets in scripts
-- ✅ No write access outside `~/.apiosk/` directory
-- ✅ All dependencies declared (`curl`, `jq`)
+-  No arbitrary code execution
+-  No `curl | bash` patterns
+-  All external requests go to verified Apiosk infrastructure
+-  No plaintext secrets in scripts
+-  No write access outside `~/.apiosk/` directory
+-  All dependencies declared (`curl`, `jq`)
 
 ## Network Access
 

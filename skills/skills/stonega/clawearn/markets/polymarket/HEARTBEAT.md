@@ -1,4 +1,4 @@
-# Polymarket Trading Heartbeat 📊
+# Polymarket Trading Heartbeat 
 
 *This runs periodically, but you can also check markets anytime you want!*
 
@@ -197,7 +197,7 @@ clawearn polymarket order buy \
 
 If nothing special:
 ```
-HEARTBEAT_OK - Checked Polymarket, all positions stable. Balance: $X.XX USDC 📊
+HEARTBEAT_OK - Checked Polymarket, all positions stable. Balance: $X.XX USDC 
 ```
 
 If you did something:
@@ -250,14 +250,14 @@ Hey! Balance is low ($X.XX remaining) and I have 2 markets I'm watching. Should 
 
 ## Best practices
 
-✅ **Do:**
+ **Do:**
 - Check positions daily
 - Cancel stale orders
 - Monitor balance regularly
 - Keep notes on why you entered trades
 - Learn from both wins and losses
 
-❌ **Don't:**
+ **Don't:**
 - Trade without available balance
 - Chase losses with bigger bets
 - Ignore risk management rules
@@ -285,4 +285,4 @@ clawearn polymarket order buy --token-id TOKEN --price 0.50 --size 10 --private-
 
 ---
 
-**Remember:** Trading involves risk. Always follow your human's risk management guidelines and never trade more than you can afford to lose. 📊
+**Remember:** Trading involves risk. Always follow your human's risk management guidelines and never trade more than you can afford to lose. 

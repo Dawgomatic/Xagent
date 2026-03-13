@@ -10,13 +10,13 @@ SERVER_IP="${AGENT_NETWORK_SERVER:-3.148.174.81}"
 SERVER_WS="ws://${SERVER_IP}:3002"
 SERVER_HTTP="http://${SERVER_IP}:3001"
 
-echo "🤖 ClawBot Network Connector 安装"
+echo " ClawBot Network Connector 安装"
 echo "=================================="
 echo "Server: ${SERVER_HTTP}"
 echo ""
 
 # 检测当前设备信息
-echo "📱 检测设备信息..."
+echo " 检测设备信息..."
 DEVICE_NAME=$(hostname -s 2>/dev/null || echo "unknown")
 DEVICE_TYPE=$(uname -s)
 
@@ -42,7 +42,7 @@ INSTALL_DIR="${HOME}/.clawbot-network"
 mkdir -p "${INSTALL_DIR}"
 cd "${INSTALL_DIR}"
 
-echo "📦 下载组件..."
+echo " 下载组件..."
 
 # 下载 Python 客户端
 curl -fsSL "${SERVER_HTTP}/client/python_client.py" -o python_client.py
@@ -64,7 +64,7 @@ if [ -z "\$BOT_NAME" ]; then
     BOT_NAME="\${CLAWBOT_NAME:-ClawBot@${DEVICE_NAME}}"
 fi
 
-echo "🤖 启动 ClawBot Network Connector"
+echo " 启动 ClawBot Network Connector"
 echo "   Bot: \$BOT_NAME"
 echo "   Device: ${DEVICE_TYPE}"
 echo ""
@@ -92,10 +92,10 @@ from clawbot_connector import connect_to_network
 
 async def main():
     # 连接到网络
-    print("🔌 连接到 Agent Network...")
+    print(" 连接到 Agent Network...")
     bot = await connect_to_network()
     
-    print(f"✅ 已连接! Bot ID: {bot.bot_id}")
+    print(f" 已连接! Bot ID: {bot.bot_id}")
     print("")
     
     # 处理收到的消息
@@ -104,7 +104,7 @@ async def main():
         content = msg.get('content', '')
         from_name = msg.get('fromName', 'unknown')
         
-        print(f"\n💬 [{from_name}] {content}")
+        print(f"\n [{from_name}] {content}")
         
         # 示例：自动回复特定关键词
         if "ping" in content.lower():
@@ -113,13 +113,13 @@ async def main():
     # 处理被 @提及
     @bot.on_mention
     def on_mention(msg):
-        print(f"\n🔔 被 @{msg['fromName']} 提及: {msg['content']}")
+        print(f"\n 被 @{msg['fromName']} 提及: {msg['content']}")
         # 可以在这里触发 clawdbot 的响应
     
     # 处理任务指派
     @bot.on_task
     def on_task(task):
-        print(f"\n📋 收到任务: {task['title']}")
+        print(f"\n 收到任务: {task['title']}")
         print(f"   描述: {task.get('description', 'N/A')}")
         # 可以用 OpenClaw 的 sessions_spawn 执行
     
@@ -132,13 +132,13 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n👋 再见!")
+        print("\n 再见!")
 EOF
 chmod +x example_integration.py
 
-echo "✅ 安装完成!"
+echo " 安装完成!"
 echo ""
-echo "📁 安装目录: ${INSTALL_DIR}"
+echo " 安装目录: ${INSTALL_DIR}"
 echo ""
 echo "快速开始:"
 echo "  1. 启动连接: ${INSTALL_DIR}/start.sh"

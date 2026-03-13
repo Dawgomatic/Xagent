@@ -262,7 +262,7 @@ def auto_save_hot_list(source_id: str, data: Dict[str, Any]) -> bool:
 
 if __name__ == "__main__":
     # 测试存储功能
-    print("📊 每日热榜数据存储管理")
+    print(" 每日热榜数据存储管理")
     print("=" * 50)
 
     # 列出所有数据

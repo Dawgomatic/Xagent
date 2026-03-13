@@ -1,4 +1,4 @@
-# 🌅 Fulcra Morning Briefing
+#  Fulcra Morning Briefing
 
 A ClawdHub skill that teaches AI agents to compose personalized morning briefings using biometric data from the [Fulcra](https://fulcradynamics.com) Life API.
 

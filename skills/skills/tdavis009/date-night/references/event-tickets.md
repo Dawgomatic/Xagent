@@ -9,7 +9,7 @@ All commands assume PATH is set: `export PATH="$HOME/.npm-global/bin:$PATH"`
 
 ---
 
-## ⚠️ Payment Warning
+##  Payment Warning
 
 Event tickets are typically non-refundable. Always:
 1. Show the **all-in price** (face value + service fees + facility charges + order processing) before any action
@@ -22,9 +22,9 @@ Event tickets are typically non-refundable. Always:
 
 | Platform | Type | Best For | Bot Protection | Guest Checkout |
 |----------|------|----------|----------------|----------------|
-| SeatGeek | Aggregator + resale | Price discovery, Deal Scores | 🟢 Low | ✅ Yes |
-| Ticketmaster | Primary ticketer | Official tickets, major venues | 🔴 Very High | ✅ Limited |
-| StubHub | Resale only | Sold-out events, last-minute | 🟡 Medium | ✅ Yes |
+| SeatGeek | Aggregator + resale | Price discovery, Deal Scores |  Low |  Yes |
+| Ticketmaster | Primary ticketer | Official tickets, major venues |  Very High |  Limited |
+| StubHub | Resale only | Sold-out events, last-minute |  Medium |  Yes |
 
 **Recommended flow:** Start SeatGeek → compare Ticketmaster + StubHub → purchase best option.
 
@@ -64,7 +64,7 @@ playwright-cli -s=sg snapshot
 
 playwright-cli -s=sg click {ticket-listing-ref}
 playwright-cli -s=sg snapshot
-# ⚠️ STOP — show all-in total (SeatGeek shows fees upfront)
+#  STOP — show all-in total (SeatGeek shows fees upfront)
 ```
 
 After approval:
@@ -86,7 +86,7 @@ playwright-cli -s=sg click {continue-as-guest-ref}
 
 **Website:** ticketmaster.com | **Type:** Primary ticketer
 
-### ⚠️ Honest Limitations
+###  Honest Limitations
 
 Ticketmaster actively fights automation:
 - **Queue system:** Major events place users in a virtual waiting room; automation gets blocked or deprioritized
@@ -96,9 +96,9 @@ Ticketmaster actively fights automation:
 - **Session timeouts:** Ticket holds expire in ~8–10 minutes
 
 **Realistic expectations:**
-- ✅ Works: browsing events, checking prices, event discovery
-- ⚠️ Difficult: seat selection for popular events (queue/CAPTCHA)
-- ❌ Not reliable: high-demand presales, Verified Fan sales
+-  Works: browsing events, checking prices, event discovery
+-  Difficult: seat selection for popular events (queue/CAPTCHA)
+-  Not reliable: high-demand presales, Verified Fan sales
 
 **When TM automation stalls:** Offer to do the work in headed mode while user monitors, or give user the direct event URL to complete manually.
 
@@ -128,7 +128,7 @@ playwright-cli -s=tm snapshot
 playwright-cli -s=tm click {add-to-cart-ref}
 playwright-cli -s=tm snapshot
 
-# ⚠️ STOP — show price (TM fees typically +25-35% of face value)
+#  STOP — show price (TM fees typically +25-35% of face value)
 # Report: face value + service fee + facility charge + order processing = total
 ```
 
@@ -165,7 +165,7 @@ playwright-cli -s=sh snapshot
 playwright-cli -s=sh click {listing-ref}
 playwright-cli -s=sh snapshot
 
-# ⚠️ STOP — show full price (StubHub adds ~10-15% buyer premium at checkout)
+#  STOP — show full price (StubHub adds ~10-15% buyer premium at checkout)
 # Enable "all-in pricing" toggle if available to see true total upfront
 ```
 
@@ -196,20 +196,20 @@ playwright-cli -s=sh snapshot
 
 **Comparison output:**
 ```
-💰 **{Event} — Ticket Price Comparison**
-📅 {Date} @ {Venue}
+ **{Event} — Ticket Price Comparison**
+ {Date} @ {Venue}
 
-🟢 SeatGeek (aggregator)
+ SeatGeek (aggregator)
    Best: ${price}/ticket all-in | Deal Score: {N}/100
 
-🔵 Ticketmaster (official)
+ Ticketmaster (official)
    Face: ${price} + ${fees} in fees = ${total}/ticket
    {Note any queue or availability issues}
 
-🟠 StubHub (resale)
+ StubHub (resale)
    Lowest: ${price} + ~15% premium = ${total}/ticket
 
-📊 Recommendation: {platform} because {reason}
+ Recommendation: {platform} because {reason}
 ```
 
 ---

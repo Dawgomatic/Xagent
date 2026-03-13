@@ -2,7 +2,7 @@
 
 ## 基於莊子(Qin州牧)反饋的改進
 
-### ✅ 已完成 (高優先級)
+###  已完成 (高優先級)
 
 #### 1. 附錄索引處理腳本
 - **文件**: `scripts/index_appendix.py`
@@ -20,31 +20,31 @@ python scripts/index_appendix.py QST_CSS.md --category QST_Physics
 - **之前**: `Path: QST`
 - **現在**: 
   ```
-  📁 完整路徑: QST → Physics → E8
+   完整路徑: QST → Physics → E8
      層次: L3 分層
   
-     📂 L1 (根): QST
-     ├ 📂 L2 (次): Physics
-     └ 📂 L3 (葉): E8
+      L1 (根): QST
+     ├  L2 (次): Physics
+     └  L3 (葉): E8
   ```
 
 **測試結果**:
 ```bash
 $ python scripts/tree_search.py "E8 物理"
-📁 完整路徑: QST → Physics → E8
+ 完整路徑: QST → Physics → E8
    層次: L3 分層
 
-   📂 L1 (根): QST
- ├ 📂 L2 (次): Physics
- └ 📂 L3 (葉): E8
+    L1 (根): QST
+ ├  L2 (次): Physics
+ └  L3 (葉): E8
 
-🔑 關鍵詞: QST, E8, 標準模型, torsion, Standard Model, dark matter...
-📊 找到 10 條記憶
+ 關鍵詞: QST, E8, 標準模型, torsion, Standard Model, dark matter...
+ 找到 10 條記憶
 ```
 
 ---
 
-### 📝 計劃實現 (優先級2-3)
+###  計劃實現 (優先級2-3)
 
 #### 3. Hybrid 搜索文檔補充
 - 添加使用範例到 SKILL.md

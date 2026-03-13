@@ -73,7 +73,7 @@ async function withToken() {
 
 // 错误处理函数
 function handleError(error, message) {
-  console.error(`❌ ${message}:`, error.message);
+  console.error(` ${message}:`, error.message);
   if (process.env.DEBUG) {
     console.error(error);
   }
@@ -85,7 +85,7 @@ function validateEnv() {
   const required = ['FEISHU_APP_ID', 'FEISHU_APP_SECRET'];
   const missing = required.filter(key => !process.env[key]);
   if (missing.length > 0) {
-    console.error('❌ 缺少必要的环境变量:', missing.join(', '));
+    console.error(' 缺少必要的环境变量:', missing.join(', '));
     console.log('\n请创建 .env 文件并配置以下变量:');
     console.log('FEISHU_APP_ID=你的应用ID');
     console.log('FEISHU_APP_SECRET=你的应用密钥');
@@ -108,7 +108,7 @@ program
   .action(async (options) => {
     validateEnv();
     try {
-      console.log(`📖 正在读取文档: ${options.docToken}`);
+      console.log(` 正在读取文档: ${options.docToken}`);
 
       const client = createApiClient();
       const tokenOption = await withToken();
@@ -145,7 +145,7 @@ program
 
       if (options.output) {
         fs.writeFileSync(options.output, output);
-        console.log(`✅ 文档已保存到: ${options.output}`);
+        console.log(` 文档已保存到: ${options.output}`);
       } else {
         console.log('\n--- 文档内容 ---');
         console.log(output);
@@ -164,7 +164,7 @@ program
   .action(async (options) => {
     validateEnv();
     try {
-      console.log(`📖 正在获取文档块: ${options.docToken}`);
+      console.log(` 正在获取文档块: ${options.docToken}`);
 
       const client = createApiClient();
       const tokenOption = await withToken();
@@ -177,7 +177,7 @@ program
 
       if (options.output) {
         fs.writeFileSync(options.output, output);
-        console.log(`✅ 文档块已保存到: ${options.output}`);
+        console.log(` 文档块已保存到: ${options.output}`);
       } else {
         console.log('\n--- 文档块内容 ---');
         console.log(output);
@@ -198,18 +198,18 @@ program
   .action(async (options) => {
     validateEnv();
     try {
-      console.log(`📝 正在创建文档: ${options.title}`);
+      console.log(` 正在创建文档: ${options.title}`);
 
       let content = options.content || '';
 
       // 从文件读取内容
       if (options.file) {
         if (!fs.existsSync(options.file)) {
-          console.error(`❌ 文件不存在: ${options.file}`);
+          console.error(` 文件不存在: ${options.file}`);
           process.exit(1);
         }
         content = fs.readFileSync(options.file, 'utf-8');
-        console.log(`📄 已读取文件: ${options.file}`);
+        console.log(` 已读取文件: ${options.file}`);
       }
 
       const client = createApiClient();
@@ -224,14 +224,14 @@ program
       }, tokenOption);
 
       const documentId = createResponse.data?.document?.document_id;
-      console.log(`✅ 文档创建成功!`);
+      console.log(` 文档创建成功!`);
       console.log(`   文档 ID: ${documentId}`);
       console.log(`   标题: ${createResponse.data?.document?.title}`);
       console.log(`   URL: ${createResponse.data?.document?.url}`);
 
       // 如果有内容，添加到文档
       if (content) {
-        console.log('📝 正在转换并添加内容...');
+        console.log(' 正在转换并添加内容...');
 
         // 1. 将 Markdown 内容转换为 docx 块
         const isMarkdown = options.file?.endsWith('.md') || content.includes('#') || content.includes('- ');
@@ -244,9 +244,9 @@ program
 
         const blocks = convertResponse.data?.blocks || [];
         if (blocks.length === 0) {
-          console.log('⚠️  没有可添加的内容块');
+          console.log('  没有可添加的内容块');
         } else {
-          console.log(`🔄 内容已转换为 ${blocks.length} 个块`);
+          console.log(` 内容已转换为 ${blocks.length} 个块`);
 
           // 2. 使用 documentBlockDescendant.create 创建块
           const batchSize = 100;
@@ -263,17 +263,17 @@ program
                 descendants: batch,
               },
             }, tokenOption);
-            console.log(`📝 已添加块 ${i + 1} - ${Math.min(i + batchSize, blocks.length)} / ${blocks.length}`);
+            console.log(` 已添加块 ${i + 1} - ${Math.min(i + batchSize, blocks.length)} / ${blocks.length}`);
           }
 
-          console.log('✅ 内容添加完成');
+          console.log(' 内容添加完成');
         }
       }
 
       // 输出文档信息到文件
       const infoFile = `doc-${documentId}.json`;
       fs.writeFileSync(infoFile, JSON.stringify(createResponse.data, null, 2));
-      console.log(`📄 文档信息已保存到: ${infoFile}`);
+      console.log(` 文档信息已保存到: ${infoFile}`);
     } catch (error) {
       handleError(error, '创建文档失败');
     }
@@ -282,7 +282,7 @@ program
 async function upload(client, tokenOption,options) {
   try {
     if (!fs.existsSync(options.file)) {
-      console.error(`❌ 文件不存在: ${options.file}`);
+      console.error(` 文件不存在: ${options.file}`);
       process.exit(1);
     }
 
@@ -290,7 +290,7 @@ async function upload(client, tokenOption,options) {
     const fileContent = fs.readFileSync(options.file);
     const fileSize = fileContent.length;
 
-    console.log(`📤 正在上传文件: ${fileName}`);
+    console.log(` 正在上传文件: ${fileName}`);
     console.log(`   大小: ${(fileSize / 1024).toFixed(2)} KB`);
     console.log(`   目标文件夹: ${options.folderToken}`);
 
@@ -313,7 +313,7 @@ async function upload(client, tokenOption,options) {
     const resFileName = response.data?.name || response.name || fileName;
 
 
-    console.log(`✅ 文件上传成功!`);
+    console.log(` 文件上传成功!`);
     console.log(`   文件 Token: ${resFileToken}`);
     console.log(`   名称: ${resFileName}`);
 
@@ -326,7 +326,7 @@ async function upload(client, tokenOption,options) {
 
 async function importDoc(client, tokenOption, fileToken, options) {
   try {
-    console.log(`📥 正在创建导入任务...`);
+    console.log(` 正在创建导入任务...`);
     console.log(`   源文件 Token: ${fileToken}`);
     console.log(`   目标类型: ${options.type}`);
     console.log(`   文件扩展名: ${options.ext}`);
@@ -343,7 +343,7 @@ async function importDoc(client, tokenOption, fileToken, options) {
       },
     }, tokenOption);
 
-    console.log(`✅ 导入任务创建成功!`);
+    console.log(` 导入任务创建成功!`);
     console.log(`   任务 ID: ${response.data?.ticket}`);
 
     return response.data?.ticket;
@@ -384,7 +384,7 @@ program
       await new Promise(resolve => setTimeout(resolve, 1000));
     } while (code === 1 || code === 2);
 
-    console.log(`✅ 查询任务状态成功!`);
+    console.log(` 查询任务状态成功!`);
     console.log(`   任务状态码: ${response.data?.result?.job_status}`);
     console.log(`   任务描述: ${response.data?.result?.job_error_msg}`);
     console.log(`   云文档地址: ${response.data?.result?.url}`);
@@ -398,7 +398,7 @@ program
   .action(async (options) => {
     validateEnv();
     try {
-      console.log(`📂 正在列出文件夹内容...`);
+      console.log(` 正在列出文件夹内容...`);
 
       const client = createApiClient();
       const tokenOption = await withToken();
@@ -413,17 +413,17 @@ program
       const items = response.data?.files || [];
 
       if (items.length === 0) {
-        console.log('📭 文件夹为空');
+        console.log(' 文件夹为空');
         return;
       }
 
-      console.log(`\n📂 文件夹内容 (${items.length} 项):\n`);
+      console.log(`\n 文件夹内容 (${items.length} 项):\n`);
       console.log('类型\t\t名称\t\t\tToken');
       console.log('-'.repeat(80));
 
       for (const item of items) {
-        const type = item.type === 'docx' ? '📄 文档' :
-                     item.type === 'folder' ? '📁 文件夹' : `📦 ${item.type}`;
+        const type = item.type === 'docx' ? ' 文档' :
+                     item.type === 'folder' ? ' 文件夹' : ` ${item.type}`;
         const name = (item.name || '').padEnd(20, ' ');
         console.log(`${type}\t${name}\t${item.token}`);
       }
@@ -442,12 +442,12 @@ program
     validateEnv();
     try {
       if (!options.force) {
-        console.log(`⚠️  即将删除文档: ${options.docToken}`);
+        console.log(`  即将删除文档: ${options.docToken}`);
         console.log('请使用 --force 参数确认删除');
         process.exit(1);
       }
 
-      console.log(`🗑️  正在删除文档: ${options.docToken}`);
+      console.log(`  正在删除文档: ${options.docToken}`);
 
       const client = createApiClient();
       const tokenOption = await withToken();
@@ -456,7 +456,7 @@ program
         path: { file_token: options.docToken },
       }, tokenOption);
 
-      console.log('✅ 文档删除成功');
+      console.log(' 文档删除成功');
     } catch (error) {
       handleError(error, '删除文档失败');
     }
@@ -473,21 +473,21 @@ program
   .action(async (options) => {
     validateEnv();
     try {
-      console.log(`📝 正在更新文档: ${options.docToken}`);
+      console.log(` 正在更新文档: ${options.docToken}`);
 
       let content = options.content || '';
 
       if (options.file) {
         if (!fs.existsSync(options.file)) {
-          console.error(`❌ 文件不存在: ${options.file}`);
+          console.error(` 文件不存在: ${options.file}`);
           process.exit(1);
         }
         content = fs.readFileSync(options.file, 'utf-8');
-        console.log(`📄 已读取文件: ${options.file}`);
+        console.log(` 已读取文件: ${options.file}`);
       }
 
       if (!content) {
-        console.error('❌ 请提供内容或使用 --file 指定文件');
+        console.error(' 请提供内容或使用 --file 指定文件');
         process.exit(1);
       }
 
@@ -545,7 +545,7 @@ program
         },
       }, tokenOption);
 
-      console.log('✅ 文档更新成功');
+      console.log(' 文档更新成功');
     } catch (error) {
       handleError(error, '更新文档失败');
     }

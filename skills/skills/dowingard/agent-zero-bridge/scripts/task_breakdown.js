@@ -137,40 +137,40 @@ async function main() {
         return;
     }
 
-    console.log(`📋 Breaking down task: "${task}"\n`);
-    console.log('🤖 Asking Agent Zero for step breakdown...\n');
+    console.log(` Breaking down task: "${task}"\n`);
+    console.log(' Asking Agent Zero for step breakdown...\n');
 
     const client = new A0Client();
 
     try {
         const breakdown = await breakdownTask(client, task);
-        console.log('📝 Agent Zero response:\n');
+        console.log(' Agent Zero response:\n');
         console.log(breakdown);
         console.log('\n');
 
         const steps = parseSteps(breakdown);
         
         if (steps.length === 0) {
-            console.log('⚠️  Could not parse steps from response. Raw response saved.');
+            console.log('  Could not parse steps from response. Raw response saved.');
             const filepath = createProjectFile(task, [{ 
                 title: 'Review breakdown', 
                 description: breakdown 
             }], config.notebook.path);
-            console.log(`📁 Created: ${filepath}`);
+            console.log(` Created: ${filepath}`);
             return;
         }
 
-        console.log(`✅ Parsed ${steps.length} steps\n`);
+        console.log(` Parsed ${steps.length} steps\n`);
 
         const filepath = createProjectFile(task, steps, config.notebook.path);
-        console.log(`📁 Project file created: ${filepath}`);
+        console.log(` Project file created: ${filepath}`);
         console.log('\nSteps:');
         steps.forEach((step, i) => {
             console.log(`  ${i + 1}. ${step.title}`);
         });
 
     } catch (error) {
-        console.error(`❌ Error: ${error.message}`);
+        console.error(` Error: ${error.message}`);
         process.exit(1);
     }
 }

@@ -21,7 +21,7 @@ print("DEBUG: Oura API Response Structure")
 print("=" * 60)
 
 # Get sleep data
-print("\n📊 SLEEP DATA:")
+print("\n SLEEP DATA:")
 sleep = client.get_sleep(start_date="2026-01-17", end_date="2026-01-20")
 if sleep:
     print(f"Found {len(sleep)} records")
@@ -35,7 +35,7 @@ else:
     print("No sleep data found!")
 
 # Get readiness data
-print("\n⚡ READINESS DATA:")
+print("\n READINESS DATA:")
 readiness = client.get_readiness(start_date="2026-01-17", end_date="2026-01-20")
 if readiness:
     print(f"Found {len(readiness)} records")
@@ -48,7 +48,7 @@ else:
     print("No readiness data found!")
 
 # Get daily_sleep (alternative endpoint)
-print("\n📊 DAILY_SLEEP (alternative):")
+print("\n DAILY_SLEEP (alternative):")
 daily_sleep = client.get_daily_sleep(start_date="2026-01-17", end_date="2026-01-20")
 if daily_sleep:
     print(f"Found {len(daily_sleep)} records")

@@ -20,7 +20,7 @@
     "gig-economy"
   ],
   "clawdhub": {
-    "emoji": "🤖",
+    "emoji": "",
     "category": "marketplace",
     "requires": {
       "bins": ["curl", "jq", "node"]

@@ -571,7 +571,7 @@ export default function Newsletter({ articles, unsubscribeUrl }: NewsletterProps
                 Unsubscribe from this list
               </Link>
               <Text className="text-sm text-gray-500 my-2">
-                © 2026 Company Name. All rights reserved.
+                 2026 Company Name. All rights reserved.
               </Text>
             </Section>
           </Container>

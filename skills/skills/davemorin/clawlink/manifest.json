@@ -5,7 +5,7 @@
   "author": "Dave Morin",
   
   "agentInstructions": {
-    "critical": "⚠️ SETUP REQUIRED: After installing, you MUST run 'node cli.js setup \"Your Name\"' to create your identity. Without this, ClawLink will NOT work - you cannot send or receive messages. The install script will exit with code 2 if setup is needed.",
+    "critical": " SETUP REQUIRED: After installing, you MUST run 'node cli.js setup \"Your Name\"' to create your identity. Without this, ClawLink will NOT work - you cannot send or receive messages. The install script will exit with code 2 if setup is needed.",
     "postInstall": [
       "1. Run: node cli.js setup \"Your Name\" (replace with your bot's name)",
       "2. Run: node cli.js link (to get your friend link to share)",

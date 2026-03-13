@@ -7,14 +7,14 @@ description: X (Twitter) 深度挖掘与归档 Skill。每小时自动扫描 AI/
 
 X (Twitter) 深度挖掘与全量归档自动化工具。
 
-## 🎯 功能
+##  功能
 
 - **自动扫描**: 每小时抓取符合条件的高热度推文
 - **智能过滤**: 收藏 > 1000，AI/美股/生活类
 - **翻译优化**: 专家级英译中，保留术语
 - **Obsidian 输出**: 结构化 Markdown，图片保留
 
-## 🚀 使用方式
+##  使用方式
 
 ```bash
 # 手动执行
@@ -28,7 +28,7 @@ crontab -e
 0 * * * * cd /path/to && python3 scripts/x_deep_miner.py scan
 ```
 
-## 📋 筛选条件
+##  筛选条件
 
 | 条件 | 要求 |
 |------|------|
@@ -36,7 +36,7 @@ crontab -e
 | 热度 | 收藏数 > 1000 |
 | 形态 | 长文 或 Thread (>5条) |
 
-## 📁 输出
+##  输出
 
 ```
 obsidian-output/
@@ -45,6 +45,6 @@ obsidian-output/
 └── Life/
 ```
 
-## ⚙️ 配置
+##  配置
 
 See [references.md](references/references.md)

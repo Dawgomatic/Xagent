@@ -1,7 +1,7 @@
 ---
 name: Animations
 description: Create performant web animations with proper accessibility and timing.
-metadata: {"clawdbot":{"emoji":"✨","requires":{},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{},"os":["linux","darwin","win32"]}}
 ---
 
 ## GPU-Accelerated Properties
@@ -19,10 +19,10 @@ Everything else triggers layout or paint. Avoid animating:
 - `border-width`, `font-size` (expensive reflows)
 
 ```css
-/* ❌ Triggers layout every frame */
+/*  Triggers layout every frame */
 .slide { left: 100px; transition: left 0.3s; }
 
-/* ✅ GPU accelerated */
+/*  GPU accelerated */
 .slide { transform: translateX(100px); transition: transform 0.3s; }
 ```
 
@@ -100,21 +100,21 @@ Use transitions for hover/focus states. Use animations for on-load effects and s
 Only use as optimization when you have specific performance problems:
 
 ```css
-/* ✅ Apply before animation starts, remove after */
+/*  Apply before animation starts, remove after */
 .card:hover { will-change: transform; }
 .card { will-change: auto; }
 
-/* ❌ Never apply globally */
+/*  Never apply globally */
 * { will-change: transform, opacity; }  /* Wastes GPU memory */
 ```
 
 ## Transition Property Specificity
 
 ```css
-/* ❌ Animates everything including unintended properties */
+/*  Animates everything including unintended properties */
 .card { transition: all 0.3s; }
 
-/* ✅ Only animates what you need */
+/*  Only animates what you need */
 .card { transition: transform 0.3s, box-shadow 0.3s; }
 ```
 
@@ -124,10 +124,10 @@ Only use as optimization when you have specific performance problems:
 
 **Exit animations require AnimatePresence:**
 ```jsx
-/* ❌ Exit animation never plays */
+/*  Exit animation never plays */
 {isVisible && <motion.div exit={{ opacity: 0 }} />}
 
-/* ✅ Wrap conditional rendering */
+/*  Wrap conditional rendering */
 <AnimatePresence>
   {isVisible && <motion.div exit={{ opacity: 0 }} />}
 </AnimatePresence>
@@ -135,19 +135,19 @@ Only use as optimization when you have specific performance problems:
 
 **Stable keys for list animations:**
 ```jsx
-/* ❌ Index keys cause erratic animations */
+/*  Index keys cause erratic animations */
 {items.map((item, i) => <li key={i}>{item}</li>)}
 
-/* ✅ Stable IDs */
+/*  Stable IDs */
 {items.map(item => <li key={item.id}>{item.text}</li>)}
 ```
 
 **AutoAnimate parent must be unconditional:**
 ```jsx
-/* ❌ Ref can't attach to conditional element */
+/*  Ref can't attach to conditional element */
 {showList && <ul ref={parent}>...</ul>}
 
-/* ✅ Parent always renders, children are conditional */
+/*  Parent always renders, children are conditional */
 <ul ref={parent}>{showList && items.map(...)}</ul>
 ```
 

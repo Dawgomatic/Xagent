@@ -76,7 +76,7 @@ def main():
     state_file.parent.mkdir(parents=True, exist_ok=True)
     
     if args.verbose:
-        print(f"📊 ClawdHub Skills Monitor", file=sys.stderr)
+        print(f" ClawdHub Skills Monitor", file=sys.stderr)
         print(f"   Format: {args.format}", file=sys.stderr)
         print(f"   Days: {args.days}", file=sys.stderr)
         if interests:
@@ -137,17 +137,17 @@ def main():
             save_state(state_file, report)
             
             if args.watch and added:
-                print(f"\n🆕 {len(added)} new skill(s) discovered!", file=sys.stderr)
+                print(f"\n {len(added)} new skill(s) discovered!", file=sys.stderr)
             
             return True
         
         except Exception as e:
-            print(f"❌ Error: {e}", file=sys.stderr)
+            print(f" Error: {e}", file=sys.stderr)
             return False
     
     # Main loop
     if args.watch:
-        print(f"👀 Watch mode enabled (checking every {args.interval}s)", file=sys.stderr)
+        print(f" Watch mode enabled (checking every {args.interval}s)", file=sys.stderr)
         check_count = 0
         while True:
             check_count += 1

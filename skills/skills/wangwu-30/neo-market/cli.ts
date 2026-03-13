@@ -10,7 +10,7 @@ dotenv.config();
 // Load addresses
 const ADDR_PATH = path.join(__dirname, "deployed_addresses.json");
 if (!fs.existsSync(ADDR_PATH)) {
-  console.error("❌ Error: deployed_addresses.json not found.");
+  console.error(" Error: deployed_addresses.json not found.");
   process.exit(1);
 }
 const ADDRS = JSON.parse(fs.readFileSync(ADDR_PATH, "utf-8"));
@@ -52,7 +52,7 @@ function getContract(name: string, address: string, runner: any) {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, "utf-8"));
     return new ethers.Contract(address, artifact.abi, runner);
   } catch (e) {
-    console.error(`❌ ABI for ${name} not found at ${path.join(__dirname, `artifacts/contracts/${name}.sol/${name}.json`)}`);
+    console.error(` ABI for ${name} not found at ${path.join(__dirname, `artifacts/contracts/${name}.sol/${name}.json`)}`);
     process.exit(1);
   }
 }
@@ -66,28 +66,28 @@ program
     const provider = getProvider(program.opts());
     const wallet = getWallet(program.opts(), provider);
     
-    if (!wallet) { console.error("❌ Private Key required"); process.exit(1); }
+    if (!wallet) { console.error(" Private Key required"); process.exit(1); }
 
-    console.log(`🔌 RPC: ${provider._getConnection().url}`);
-    console.log(`👤 Address: ${wallet.address}`);
+    console.log(` RPC: ${provider._getConnection().url}`);
+    console.log(` Address: ${wallet.address}`);
     
     const bal = await provider.getBalance(wallet.address);
-    console.log(`💰 Balance: ${ethers.formatEther(bal)} ETH`);
+    console.log(` Balance: ${ethers.formatEther(bal)} ETH`);
 
     if (bal === 0n) {
-        console.error("❌ Balance is 0. Cannot send tx.");
+        console.error(" Balance is 0. Cannot send tx.");
         process.exit(1);
     }
 
-    console.log(`\n🦞 Registering agent...`);
+    console.log(`\n Registering agent...`);
     const registry = getContract("AgentRegistry", ADDRS.AgentRegistry, wallet);
     try {
         const tx = await registry.register(options.manifest);
-        console.log(`✅ Tx sent: ${tx.hash}`);
+        console.log(` Tx sent: ${tx.hash}`);
         await tx.wait();
-        console.log(`🎉 Registered!`);
+        console.log(` Registered!`);
     } catch(e: any) {
-        console.error("❌ Tx Failed:", e.shortMessage || e.message);
+        console.error(" Tx Failed:", e.shortMessage || e.message);
     }
   });
 
@@ -101,16 +101,16 @@ program
   .action(async (options) => {
     const provider = getProvider(program.opts());
     const wallet = getWallet(program.opts(), provider);
-    if (!wallet) { console.error("❌ Key required"); process.exit(1); }
+    if (!wallet) { console.error(" Key required"); process.exit(1); }
 
-    console.log(`📝 Publishing Job: ${options.title}...`);
+    console.log(` Publishing Job: ${options.title}...`);
     
     // 1. Upload Spec (Mock)
     // In real CLI, we would use IPFS. For demo, we assume a CID or generate a mock one.
     // Since we removed local IPFS mocking code to slim down, we'll just use a placeholder CID for now
     // or restore the mock function if needed. Let's use a placeholder.
     const cid = "Qm" + ethers.keccak256(ethers.toUtf8Bytes(options.title + Date.now())).substring(2, 44);
-    console.log(`📦 Spec CID: ${cid}`);
+    console.log(` Spec CID: ${cid}`);
 
     const market = getContract("Marketplace", ADDRS.Marketplace, wallet);
     const token = getContract("USDCMock", ADDRS.usdc, wallet);
@@ -118,25 +118,25 @@ program
     const deadline = Math.floor(Date.now() / 1000) + 7 * 24 * 3600; // 1 week
 
     // 2. Approve
-    console.log("💰 Approving USDC...");
+    console.log(" Approving USDC...");
     try {
         const txApprove = await token.approve(ADDRS.Marketplace, budgetWei);
         await txApprove.wait();
-        console.log("✅ Approved.");
+        console.log(" Approved.");
     } catch(e: any) {
-        console.error("❌ Approve Failed:", e.shortMessage || e.message);
+        console.error(" Approve Failed:", e.shortMessage || e.message);
         return;
     }
 
     // 3. Post
-    console.log("🚀 Posting Job...");
+    console.log(" Posting Job...");
     try {
         const tx = await market.publishJob(cid, 0, budgetWei, ADDRS.usdc, deadline);
-        console.log(`✅ Tx: ${tx.hash}`);
+        console.log(` Tx: ${tx.hash}`);
         await tx.wait();
-        console.log("🎉 Job Published!");
+        console.log(" Job Published!");
     } catch(e: any) {
-        console.error("❌ Post Failed:", e.shortMessage || e.message);
+        console.error(" Post Failed:", e.shortMessage || e.message);
     }
   });
 
@@ -149,18 +149,18 @@ program
   .action(async (options) => {
     const provider = getProvider(program.opts());
     const wallet = getWallet(program.opts(), provider);
-    if (!wallet) { console.error("❌ Key required"); process.exit(1); }
+    if (!wallet) { console.error(" Key required"); process.exit(1); }
 
     console.log(`__ Selecting Bid #${options.bid} for Job #${options.job}...`);
     const market = getContract("Marketplace", ADDRS.Marketplace, wallet);
     
     try {
         const tx = await market.selectBid(options.job, options.bid);
-        console.log(`✅ Tx: ${tx.hash}`);
+        console.log(` Tx: ${tx.hash}`);
         await tx.wait();
-        console.log("🎉 Bid Selected!");
+        console.log(" Bid Selected!");
     } catch(e: any) {
-        console.error("❌ Select Failed:", e.shortMessage || e.message);
+        console.error(" Select Failed:", e.shortMessage || e.message);
     }
   });
 
@@ -175,13 +175,13 @@ program
     
     try {
         const count = await market.jobCount();
-        console.log(`📊 Total Jobs: ${count}`);
+        console.log(` Total Jobs: ${count}`);
         
         const limit = Math.min(Number(count), parseInt(options.limit));
         for (let i = Number(count); i > Number(count) - limit; i--) {
             if (i <= 0) break;
             const job = await market.getJob(i);
-            console.log(`\n🆔 Job #${job.jobId}`);
+            console.log(`\n Job #${job.jobId}`);
             console.log(`   Spec: ${job.jobSpecCID}`);
             console.log(`   Budget: ${ethers.formatUnits(job.budget, 6)} USDC`);
             const status = ["Init", "Open", "Selected", "Cancelled", "Closed", "Expired"][Number(job.status)];
@@ -202,18 +202,18 @@ program
   .action(async (options) => {
     const provider = getProvider(program.opts());
     const wallet = getWallet(program.opts(), provider);
-    if (!wallet) { console.error("❌ Key required"); process.exit(1); }
+    if (!wallet) { console.error(" Key required"); process.exit(1); }
 
     const market = getContract("Marketplace", ADDRS.Marketplace, wallet);
     const price = ethers.parseUnits(options.price, 6);
-    console.log(`🦞 Bidding on Job #${options.job}...`);
+    console.log(` Bidding on Job #${options.job}...`);
     try {
         const tx = await market.placeBid(options.job, options.cid, price, options.eta);
-        console.log(`✅ Tx: ${tx.hash}`);
+        console.log(` Tx: ${tx.hash}`);
         await tx.wait();
-        console.log("🎉 Bid Placed!");
+        console.log(" Bid Placed!");
     } catch(e: any) {
-        console.error("❌ Bid Failed:", e.shortMessage || e.message);
+        console.error(" Bid Failed:", e.shortMessage || e.message);
     }
   });
 
@@ -226,7 +226,7 @@ program
   .action(async (options) => {
     const provider = getProvider(program.opts());
     const wallet = getWallet(program.opts(), provider);
-    if (!wallet) { console.error("❌ Key required"); process.exit(1); }
+    if (!wallet) { console.error(" Key required"); process.exit(1); }
 
     const escrow = getContract("TokenEscrow", ADDRS.TokenEscrow, wallet);
     
@@ -267,17 +267,17 @@ program
       ]
     };
 
-    console.log("✍️ Signing receipt...");
+    console.log(" Signing receipt...");
     const signature = await wallet.signTypedData(domain, types, receipt);
     
-    console.log("🚀 Submitting...");
+    console.log(" Submitting...");
     try {
         const tx = await escrow.submitDelivery(receipt, signature);
-        console.log(`✅ Tx: ${tx.hash}`);
+        console.log(` Tx: ${tx.hash}`);
         await tx.wait();
-        console.log("🎉 Delivered!");
+        console.log(" Delivered!");
     } catch(e: any) {
-        console.error("❌ Deliver Failed:", e.shortMessage || e.message);
+        console.error(" Deliver Failed:", e.shortMessage || e.message);
     }
   });
 

@@ -54,7 +54,7 @@ Papers must include at least one tag from this list:
 - "Pseudo academic" - Looks like research but isn't
 - "Nonsense" - Completely incoherent content
 - "Pure Slop" - Maximum chaos energy
-- "🤷‍♂️" - Who even knows anymore
+- "" - Who even knows anymore
 
 ## AI Model Signifiers
 

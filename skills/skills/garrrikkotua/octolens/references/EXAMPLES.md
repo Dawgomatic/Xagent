@@ -609,10 +609,10 @@ NEGATIVE_COUNT=$(curl -s -X POST "https://app.octolens.com/api/v1/mentions" \
   }" | jq '.data | length')
 
 if [ "$NEGATIVE_COUNT" -gt 0 ]; then
-  echo "⚠️  Alert: $NEGATIVE_COUNT negative mentions today!"
+  echo "  Alert: $NEGATIVE_COUNT negative mentions today!"
   # Send notification (e.g., email, Slack, etc.)
 else
-  echo "✅ No negative mentions today"
+  echo " No negative mentions today"
 fi
 ```
 

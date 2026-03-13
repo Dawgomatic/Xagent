@@ -228,7 +228,7 @@ def format_diff(result, summary_only=False):
         print("NEW CAPABILITIES:")
         for category, descriptions in caps["new"].items():
             label = category.replace("_", " ").title()
-            icon = "🚨" if category in {"code_execution", "data_exfiltration"} else "⚠️"
+            icon = "" if category in {"code_execution", "data_exfiltration"} else ""
             for desc in descriptions:
                 print(f"  {icon} [{label}] {desc}")
         print()
@@ -236,7 +236,7 @@ def format_diff(result, summary_only=False):
     if caps["removed"]:
         print("REMOVED CAPABILITIES:")
         for cat in caps["removed"]:
-            print(f"  ✅ {cat.replace('_', ' ').title()} removed")
+            print(f"   {cat.replace('_', ' ').title()} removed")
         print()
 
     if not caps["new"] and not caps["removed"]:
@@ -244,7 +244,7 @@ def format_diff(result, summary_only=False):
         print()
 
     # Recommendation
-    icons = {"SAFE": "✅", "REVIEW": "⚠️", "BLOCK": "🚨"}
+    icons = {"SAFE": "", "REVIEW": "", "BLOCK": ""}
     messages = {
         "SAFE": "No new security capabilities. Safe to update.",
         "REVIEW": "New capabilities detected. Review changes before updating.",

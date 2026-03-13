@@ -4,13 +4,13 @@ Agent Skill for [Alby CLI](https://github.com/getAlby/cli)
 
 ## Getting Started
 
-### 🚀 Install with single command
+###  Install with single command
 
 ```bash
 npx skills add getAlby/alby-cli-skill
 ```
 
-### 🦞 OpenClaw
+###  OpenClaw
 
 1. Tell your agent to install the skill:
 

@@ -6,7 +6,7 @@ homepage: https://relayfortelegram.com
 user-invocable: true
 disable-model-invocation: false
 requires: {"env":["RELAY_API_KEY"]}
-metadata: {"relay":{"emoji":"⚡","category":"productivity","api_base":"https://relayfortelegram.com/api/v1"},"openclaw":{"emoji":"⚡","skillKey":"relay","requires":{"env":["RELAY_API_KEY"]},"primaryEnv":"RELAY_API_KEY"}}
+metadata: {"relay":{"emoji":"","category":"productivity","api_base":"https://relayfortelegram.com/api/v1"},"openclaw":{"emoji":"","skillKey":"relay","requires":{"env":["RELAY_API_KEY"]},"primaryEnv":"RELAY_API_KEY"}}
 ---
 
 # Relay for Telegram

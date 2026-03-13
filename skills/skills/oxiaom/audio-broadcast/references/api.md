@@ -176,7 +176,7 @@ POST /user/list_task
 
 ### 添加任务
 
-> ⚠️ **注意**：任务创建或修改后默认是禁用状态，需要调用 `enabletask` 启用。
+>  **注意**：任务创建或修改后默认是禁用状态，需要调用 `enabletask` 启用。
 
 ```
 POST /user/add_task

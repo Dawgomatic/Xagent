@@ -20,10 +20,10 @@ def main():
     parsed_task = parse_human_request(human_request)
     
     if 'error' in parsed_task:
-        print(f"❌ Could not parse request: {parsed_task['error']}")
+        print(f" Could not parse request: {parsed_task['error']}")
         sys.exit(1)
         
-    print(f"✅ Request parsed into task: {parsed_task['task_name']}")
+    print(f" Request parsed into task: {parsed_task['task_name']}")
     
     # 2. Run Workflow (Handles state and cooldowns internally)
     final_results = run_workflow(parsed_task)

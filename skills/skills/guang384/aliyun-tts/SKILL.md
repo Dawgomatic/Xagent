@@ -1,7 +1,7 @@
 ---
 name: aliyun-tts
 description: Alibaba Cloud Text-to-Speech synthesis service.
-metadata: {"clawdbot":{"emoji":"🔊"}}
+metadata: {"clawdbot":{"emoji":""}}
 ---
 
 # aliyun-tts

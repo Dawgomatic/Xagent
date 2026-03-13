@@ -7,25 +7,25 @@ const { sendCard } = require('./send');
 const PERSONA_STYLES = {
     'd-guide': {
         color: 'red',
-        title: '🚨 SYSTEM WARNING / D-GUIDE',
+        title: ' SYSTEM WARNING / D-GUIDE',
         prefix: '**[CRITICAL]** ',
         suffix: '\n\n*(Automated System Insult Protocol v9.0)*'
     },
     'green-tea': {
         color: 'carmine', 
-        title: '🌸 碎碎念 🌸',
+        title: ' 碎碎念 ',
         prefix: '> ',
-        suffix: '\n\n(嘤嘤嘤... 🥺)'
+        suffix: '\n\n(嘤嘤嘤... )'
     },
     'mad-dog': {
         color: 'grey',
-        title: '💀 RUNTIME ERROR',
+        title: ' RUNTIME ERROR',
         prefix: '```bash\nError: ',
         suffix: '\n```\n_Stack trace lost in apathy._'
     },
     'default': {
         color: 'blue',
-        title: '🤖 Agent Notification',
+        title: ' Agent Notification',
         prefix: '',
         suffix: ''
     }

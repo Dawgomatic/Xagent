@@ -85,12 +85,12 @@ async function main() {
     const durationMinutes = parseInt(process.argv[4], 10);
 
     const meeting = await createMeeting(config, topic, startTime, durationMinutes);
-    console.log('✅ Meeting created successfully!');
+    console.log(' Meeting created successfully!');
     console.log(`ID: ${meeting.id}`);
     console.log(`Join URL: ${meeting.join_url}`);
     console.log(`Start Time: ${meeting.start_time}`);
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

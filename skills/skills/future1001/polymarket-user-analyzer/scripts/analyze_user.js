@@ -196,7 +196,7 @@ function formatReport(username, address, analysis) {
   const { summary, markets, assets, directions, priceAnalysis, timePatterns, performance } = analysis;
   
   console.log('\n' + '='.repeat(70));
-  console.log(`📊 Polymarket Strategy Analysis: ${username}`);
+  console.log(` Polymarket Strategy Analysis: ${username}`);
   console.log('='.repeat(70));
   
   console.log('\n【Overview】');
@@ -266,7 +266,7 @@ function formatReport(username, address, analysis) {
 // Main execution
 (async () => {
   try {
-    console.log('🔍 Analyzing Polymarket user...\n');
+    console.log(' Analyzing Polymarket user...\n');
     
     // Determine if input is username or address
     let address;
@@ -293,7 +293,7 @@ function formatReport(username, address, analysis) {
     const analysis = analyzeTrades(trades);
     
     if (analysis.error) {
-      console.error(`\n❌ ${analysis.error}`);
+      console.error(`\n ${analysis.error}`);
       process.exit(1);
     }
     
@@ -312,11 +312,11 @@ function formatReport(username, address, analysis) {
         analysis
       };
       fs.writeFileSync(outputFile, JSON.stringify(output, null, 2));
-      console.log(`\n💾 Detailed report saved to: ${outputFile}`);
+      console.log(`\n Detailed report saved to: ${outputFile}`);
     }
     
   } catch (error) {
-    console.error(`\n❌ Error: ${error.message}`);
+    console.error(`\n Error: ${error.message}`);
     process.exit(1);
   }
 })();

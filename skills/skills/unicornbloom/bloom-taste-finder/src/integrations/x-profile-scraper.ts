@@ -54,7 +54,7 @@ export class XProfileScraper {
    * Scrape a user's public profile
    */
   async scrapeProfile(handle: string): Promise<XProfileData> {
-    console.log(`🔍 Scraping X profile: @${handle}`);
+    console.log(` Scraping X profile: @${handle}`);
 
     // TODO: Implement actual scraping
     // For now, return realistic mock data for testing
@@ -67,11 +67,11 @@ export class XProfileScraper {
 
       const profileData = await this.mockScrape(handle);
 
-      console.log(`✅ Scraped @${handle}: ${profileData.followerCount} followers`);
+      console.log(` Scraped @${handle}: ${profileData.followerCount} followers`);
 
       return profileData;
     } catch (error) {
-      console.error(`❌ Failed to scrape @${handle}:`, error);
+      console.error(` Failed to scrape @${handle}:`, error);
       throw error;
     }
   }
@@ -80,7 +80,7 @@ export class XProfileScraper {
    * Scrape multiple profiles in batch
    */
   async scrapeProfiles(handles: string[]): Promise<XProfileData[]> {
-    console.log(`🔍 Scraping ${handles.length} profiles...`);
+    console.log(` Scraping ${handles.length} profiles...`);
 
     const results: XProfileData[] = [];
 
@@ -92,7 +92,7 @@ export class XProfileScraper {
         // Rate limiting: wait 2-5 seconds between requests
         await this.sleep(2000 + Math.random() * 3000);
       } catch (error) {
-        console.warn(`⚠️  Skipping @${handle}:`, error);
+        console.warn(`  Skipping @${handle}:`, error);
       }
     }
 
@@ -103,7 +103,7 @@ export class XProfileScraper {
    * Extract recent tweets from profile
    */
   async scrapeRecentTweets(handle: string, limit: number = 20): Promise<XTweet[]> {
-    console.log(`📝 Scraping recent tweets from @${handle}...`);
+    console.log(` Scraping recent tweets from @${handle}...`);
 
     // TODO: Implement actual tweet scraping
     const tweets = await this.mockScrapeTweets(handle, limit);
@@ -115,7 +115,7 @@ export class XProfileScraper {
    * Scrape user's following list (sample)
    */
   async scrapeFollowing(handle: string, limit: number = 100): Promise<string[]> {
-    console.log(`👥 Scraping following list for @${handle}...`);
+    console.log(` Scraping following list for @${handle}...`);
 
     // TODO: Implement actual following scraping
     const following = await this.mockScrapeFollowing(handle, limit);
@@ -166,7 +166,7 @@ export class XProfileScraper {
     const profiles: Record<string, Partial<XProfileData>> = {
       'levelsio': {
         displayName: 'Pieter Levels',
-        bio: '🏝 Nomad • Indie maker of @nomadlist @remoteok @PhotoAI etc • Building 12 startups in 12 months',
+        bio: ' Nomad • Indie maker of @nomadlist @remoteok @PhotoAI etc • Building 12 startups in 12 months',
         followerCount: 500000,
         followingCount: 2000,
         verified: true,
@@ -231,7 +231,7 @@ export class XProfileScraper {
       'Just shipped a new feature for my SaaS! ',
       'Building in public: here\'s what I learned this week...',
       'Indie hacker tip: ',
-      'Working on something new 👀',
+      'Working on something new ',
       'Revenue update: ',
       'Just crossed $10k MRR! ',
       'Bootstrapping is hard but worth it',

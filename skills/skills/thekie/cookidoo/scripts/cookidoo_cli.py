@@ -63,7 +63,7 @@ async def main():
             if args.json:
                 print(json.dumps(recipes[:args.limit], indent=2, default=str))
             else:
-                print(f"📖 Saved Recipes ({len(recipes)} total):\n")
+                print(f" Saved Recipes ({len(recipes)} total):\n")
                 for r in recipes[:args.limit]:
                     name = r.get("name", r.get("title", "Unknown"))
                     rid = r.get("id", "?")
@@ -75,7 +75,7 @@ async def main():
             if args.json:
                 print(json.dumps(plan, indent=2, default=str))
             else:
-                print("📅 Weekly Plan:")
+                print(" Weekly Plan:")
                 print(json.dumps(plan, indent=2, default=str))
         
         elif args.command == "shopping":
@@ -83,7 +83,7 @@ async def main():
             if args.json:
                 print(json.dumps(shopping, indent=2, default=str))
             else:
-                print("🛒 Cookidoo Shopping List:\n")
+                print(" Cookidoo Shopping List:\n")
                 for item in shopping:
                     name = item.get("name", item.get("ingredient", "?"))
                     amount = item.get("amount", "")
@@ -97,7 +97,7 @@ async def main():
             if args.json:
                 print(json.dumps(results[:args.limit], indent=2, default=str))
             else:
-                print(f"🔍 Search results for '{args.query}':\n")
+                print(f" Search results for '{args.query}':\n")
                 for r in results[:args.limit]:
                     name = r.get("name", r.get("title", "Unknown"))
                     rid = r.get("id", "?")
@@ -111,7 +111,7 @@ async def main():
             if args.json:
                 print(json.dumps(recipe, indent=2, default=str))
             else:
-                print(f"📖 {recipe.get('name', recipe.get('title', 'Recipe'))}\n")
+                print(f" {recipe.get('name', recipe.get('title', 'Recipe'))}\n")
                 print("Ingredients:")
                 for ing in recipe.get("ingredients", []):
                     print(f"  • {ing}")

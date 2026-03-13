@@ -52,7 +52,7 @@ grep -iE '(error|exception|fatal)' logfile | tail -50
 
 3. **Structured output format**:
 ```
-📊 Log Analysis — <filename> (<line_count> lines)
+ Log Analysis — <filename> (<line_count> lines)
 
 ## Summary
 - Total lines: X
@@ -69,7 +69,7 @@ grep -iE '(error|exception|fatal)' logfile | tail -50
 | Hour | Errors | Notes |
 |------|--------|-------|
 | 14:00 | 3 | Normal |
-| 15:00 | 47 | ⚠️ Spike |
+| 15:00 | 47 |  Spike |
 
 ## Recommendations
 - [ ] Check database connectivity (42 connection refused errors)

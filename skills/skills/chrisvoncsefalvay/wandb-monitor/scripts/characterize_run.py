@@ -92,16 +92,16 @@ def analyze_gradients(history: list[dict]) -> dict:
     # Health check
     if max(grads) > 10:
         result["health"] = "exploding"
-        result["health_msg"] = f"⚠️ EXPLODING - max grad norm {max(grads):.2f} > 10"
+        result["health_msg"] = f" EXPLODING - max grad norm {max(grads):.2f} > 10"
     elif max(grads) > 5:
         result["health"] = "spiky"
-        result["health_msg"] = f"⚠️ SPIKY - max grad norm {max(grads):.2f}, possible instability"
+        result["health_msg"] = f" SPIKY - max grad norm {max(grads):.2f}, possible instability"
     elif result["mean"] < 0.0001:
         result["health"] = "vanishing"
-        result["health_msg"] = f"⚠️ VANISHING - mean grad norm {result['mean']:.6f}"
+        result["health_msg"] = f" VANISHING - mean grad norm {result['mean']:.6f}"
     else:
         result["health"] = "healthy"
-        result["health_msg"] = f"✅ Healthy (range {min(grads):.4f} - {max(grads):.4f})"
+        result["health_msg"] = f" Healthy (range {min(grads):.4f} - {max(grads):.4f})"
     
     return result
 
@@ -160,12 +160,12 @@ def check_stall(run) -> dict:
     
     if mins_since > 30:
         result["status"] = "stalled"
-        result["msg"] = f"🚨 STALLED - no heartbeat in {mins_since:.0f} minutes"
+        result["msg"] = f" STALLED - no heartbeat in {mins_since:.0f} minutes"
     elif mins_since > 10:
         result["status"] = "warning"
-        result["msg"] = f"⚠️ Slow heartbeat - {mins_since:.1f} minutes ago"
+        result["msg"] = f" Slow heartbeat - {mins_since:.1f} minutes ago"
     else:
-        result["msg"] = f"✅ Active (heartbeat {mins_since:.1f}m ago)"
+        result["msg"] = f" Active (heartbeat {mins_since:.1f}m ago)"
     
     return result
 
@@ -211,21 +211,21 @@ def get_progress(run, history: list[dict]) -> dict:
 
 def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progress: dict):
     """Print the full characterization report."""
-    state_emoji = {"running": "🟢", "finished": "✅", "failed": "🔴", "crashed": "💀", "canceled": "⏹️"}
+    state_emoji = {"running": "", "finished": "", "failed": "", "crashed": "", "canceled": ""}
     
     print(f"\n{'='*70}")
-    print(f"{state_emoji.get(run.state, '❓')} {run.project}/{run.name}")
+    print(f"{state_emoji.get(run.state, '')} {run.project}/{run.name}")
     print(f"{'='*70}")
     print(f"   State: {run.state.upper()}")
     print(f"   ID: {run.id}")
     print(f"   Started: {run.created_at}")
     
     # Stall check
-    print(f"\n🔄 HEARTBEAT")
+    print(f"\n HEARTBEAT")
     print(f"   {stall['msg']}")
     
     # Progress
-    print(f"\n⏱️ PROGRESS")
+    print(f"\n PROGRESS")
     print(f"   Runtime: {progress.get('runtime_hours', 0):.2f}h")
     if "epoch" in progress:
         epoch_str = f"Epoch: {progress['epoch']:.2f}"
@@ -241,7 +241,7 @@ def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progres
         print(f"   Est. remaining: {progress['est_remaining_hours']:.1f}h")
     
     # Loss
-    print(f"\n📉 LOSS CURVE")
+    print(f"\n LOSS CURVE")
     if loss["status"] == "no_data":
         print("   No loss data logged")
     else:
@@ -249,15 +249,15 @@ def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progres
         print(f"   Start: {loss['start']:.4f} → Current: {loss['current']:.4f}")
         print(f"   Min: {loss['min']:.4f} | Max: {loss['max']:.4f}")
         if "pct_change" in loss:
-            direction = "📉" if loss.get("decreasing") else "📈"
-            status = "✅" if loss.get("decreasing") else "⚠️"
+            direction = "" if loss.get("decreasing") else ""
+            status = "" if loss.get("decreasing") else ""
             print(f"   {status} Change: {loss['pct_change']:+.1f}% {direction}")
         if "recent" in loss:
             recent_str = " → ".join([f"{l:.4f}" for l in loss["recent"][-5:]])
             print(f"   Recent: {recent_str}")
     
     # Gradients
-    print(f"\n📊 GRADIENT NORM")
+    print(f"\n GRADIENT NORM")
     if grads["status"] == "no_data":
         print("   No gradient data logged")
     else:
@@ -266,7 +266,7 @@ def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progres
         print(f"   Range: {grads['min']:.4f} - {grads['max']:.4f}")
     
     # Evals
-    print(f"\n🎯 EVAL METRICS")
+    print(f"\n EVAL METRICS")
     if evals["status"] == "no_data":
         print("   No eval metrics logged (yet)")
     else:
@@ -278,7 +278,7 @@ def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progres
             print(f"   Eval Acc: {ea['current']:.4f} (best: {ea['best']:.4f}, n={ea['count']})")
     
     # Config highlights
-    print(f"\n⚙️ CONFIG")
+    print(f"\n CONFIG")
     config = run.config
     config_keys = [
         "model_name", "model_name_or_path", "base_model",
@@ -297,7 +297,7 @@ def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progres
     
     # Overall assessment
     print(f"\n{'='*70}")
-    print("📋 SUMMARY")
+    print(" SUMMARY")
     
     issues = []
     if stall["status"] == "stalled":
@@ -308,10 +308,10 @@ def print_report(run, loss: dict, grads: dict, evals: dict, stall: dict, progres
         issues.append("Loss not decreasing")
     
     if not issues:
-        print("   ✅ Run looks healthy")
+        print("    Run looks healthy")
     else:
         for issue in issues:
-            print(f"   ⚠️ {issue}")
+            print(f"    {issue}")
     
     print(f"{'='*70}\n")
 

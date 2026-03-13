@@ -56,7 +56,7 @@ function generateDashboard(sessions) {
 
   // Main session
   if (byType.main.length > 0) {
-    md += `### 🏠 Sesión Principal\n\n`;
+    md += `###  Sesión Principal\n\n`;
     byType.main.forEach(s => {
       md += `- **${s.displayName || s.key}**\n`;
       md += `  - Modelo: \`${s.model || 'N/A'}\`\n`;
@@ -67,7 +67,7 @@ function generateDashboard(sessions) {
 
   // Discord sessions
   if (byType.discord.length > 0) {
-    md += `### 💬 Sesiones Discord\n\n`;
+    md += `###  Sesiones Discord\n\n`;
     byType.discord.forEach(s => {
       md += `- **${s.displayName || s.key}**\n`;
       md += `  - Tokens: ${s.totalTokens || 0}\n`;
@@ -77,7 +77,7 @@ function generateDashboard(sessions) {
 
   // Cron jobs
   if (byType.cron.length > 0) {
-    md += `### ⏱️ Tareas Programadas (Cron)\n\n`;
+    md += `###  Tareas Programadas (Cron)\n\n`;
     byType.cron.forEach(s => {
       const jobId = s.key.split(':').pop();
       md += `- **Cron Job:** \`${jobId.substring(0, 8)}...\`\n`;
@@ -89,7 +89,7 @@ function generateDashboard(sessions) {
 
   // Subagents
   if (byType.subagent.length > 0) {
-    md += `### 🤖 Sub-agentes\n\n`;
+    md += `###  Sub-agentes\n\n`;
     byType.subagent.forEach(s => {
       md += `- **${s.displayName || s.key}**\n`;
       md += `  - Tokens: ${s.totalTokens || 0}\n`;
@@ -99,7 +99,7 @@ function generateDashboard(sessions) {
 
   // Other
   if (byType.other.length > 0) {
-    md += `### 📋 Otras Sesiones\n\n`;
+    md += `###  Otras Sesiones\n\n`;
     byType.other.forEach(s => {
       md += `- **${s.displayName || s.key}**\n`;
       md += `  - Tokens: ${s.totalTokens || 0}\n`;
@@ -132,7 +132,7 @@ async function main() {
   const dashboardContent = generateDashboard(sessions);
   fs.writeFileSync(DASHBOARD_PATH, dashboardContent, 'utf8');
   
-  console.log(`✅ DASHBOARD.md actualizado: ${sessions.count} sesiones`);
+  console.log(` DASHBOARD.md actualizado: ${sessions.count} sesiones`);
 }
 
 main().catch(err => {

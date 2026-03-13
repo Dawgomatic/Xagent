@@ -65,7 +65,7 @@ function keychainStore(key) {
     }
     return true;
   } catch (e) {
-    console.error("❌ Failed to store key in Keychain:", e.message);
+    console.error(" Failed to store key in Keychain:", e.message);
     return false;
   }
 }
@@ -113,18 +113,18 @@ async function cmdSetup() {
   if (keychainExists()) {
     const existing = keychainRetrieve();
     const account = getAccount(existing);
-    console.log("⚠️  Wallet already exists in Keychain.");
+    console.log("  Wallet already exists in Keychain.");
     console.log(`   Address: ${account.address}`);
     console.log("   Use 'import-key' to replace it, or 'address' to view it.");
     return;
   }
 
-  console.log("🔐 Generating new Ethereum wallet...");
+  console.log(" Generating new Ethereum wallet...");
   const privateKey = generatePrivateKey();
   const account = getAccount(privateKey);
 
   if (!keychainStore(privateKey)) {
-    console.error("❌ Failed to store in Keychain. Wallet NOT saved.");
+    console.error(" Failed to store in Keychain. Wallet NOT saved.");
     console.error("   You would need to save this key manually (NEVER share it):");
     console.error(`   ${privateKey}`);
     process.exit(1);
@@ -132,7 +132,7 @@ async function cmdSetup() {
 
   console.log("");
   console.log("╔══════════════════════════════════════════════════════════════╗");
-  console.log("║  ♾️  Everclaw Wallet Created                                ║");
+  console.log("║    Everclaw Wallet Created                                ║");
   console.log("╠══════════════════════════════════════════════════════════════╣");
   console.log(`║  Address: ${account.address}  ║`);
   console.log("║                                                              ║");
@@ -150,7 +150,7 @@ async function cmdSetup() {
 async function cmdAddress() {
   const key = keychainRetrieve();
   if (!key) {
-    console.error("❌ No wallet found. Run 'setup' first.");
+    console.error(" No wallet found. Run 'setup' first.");
     process.exit(1);
   }
   const account = getAccount(key);
@@ -160,13 +160,13 @@ async function cmdAddress() {
 async function cmdBalance() {
   const key = keychainRetrieve();
   if (!key) {
-    console.error("❌ No wallet found. Run 'setup' first.");
+    console.error(" No wallet found. Run 'setup' first.");
     process.exit(1);
   }
   const account = getAccount(key);
   const client = getPublicClient();
 
-  console.log(`\n💰 Balances for ${account.address}\n`);
+  console.log(`\n Balances for ${account.address}\n`);
 
   // ETH balance
   const ethBalance = await client.getBalance({ address: account.address });
@@ -209,7 +209,7 @@ async function cmdSwap(tokenIn, amountStr) {
 
   const key = keychainRetrieve();
   if (!key) {
-    console.error("❌ No wallet found. Run 'setup' first.");
+    console.error(" No wallet found. Run 'setup' first.");
     process.exit(1);
   }
 
@@ -221,7 +221,7 @@ async function cmdSwap(tokenIn, amountStr) {
   const isUSDC = tokenIn.toLowerCase() === "usdc";
 
   if (!isETH && !isUSDC) {
-    console.error("❌ Supported tokens: eth, usdc");
+    console.error(" Supported tokens: eth, usdc");
     process.exit(1);
   }
 
@@ -230,7 +230,7 @@ async function cmdSwap(tokenIn, amountStr) {
   const amountIn = isETH ? parseEther(amountStr) : parseUnits(amountStr, 6);
   const fee = 10000; // 1% fee tier (most common for MOR pairs)
 
-  console.log(`\n🔄 Swapping ${amountStr} ${tokenIn.toUpperCase()} → MOR on Uniswap V3...\n`);
+  console.log(`\n Swapping ${amountStr} ${tokenIn.toUpperCase()} → MOR on Uniswap V3...\n`);
 
   // For USDC, approve the router first
   if (isUSDC) {
@@ -279,13 +279,13 @@ async function cmdSwap(tokenIn, amountStr) {
         functionName: "balanceOf",
         args: [account.address],
       });
-      console.log(`\n   ✅ Swap successful!`);
+      console.log(`\n    Swap successful!`);
       console.log(`   MOR balance: ${formatEther(morBalance)}`);
     } else {
-      console.error("\n   ❌ Swap transaction reverted.");
+      console.error("\n    Swap transaction reverted.");
     }
   } catch (e) {
-    console.error(`\n   ❌ Swap failed: ${e.shortMessage || e.message}`);
+    console.error(`\n    Swap failed: ${e.shortMessage || e.message}`);
     process.exit(1);
   }
   console.log("");
@@ -294,7 +294,7 @@ async function cmdSwap(tokenIn, amountStr) {
 async function cmdApprove(amountStr) {
   const key = keychainRetrieve();
   if (!key) {
-    console.error("❌ No wallet found. Run 'setup' first.");
+    console.error(" No wallet found. Run 'setup' first.");
     process.exit(1);
   }
 
@@ -305,7 +305,7 @@ async function cmdApprove(amountStr) {
   const amount = amountStr ? parseEther(amountStr) : maxUint256;
   const displayAmount = amountStr || "unlimited";
 
-  console.log(`\n🔓 Approving MOR for Morpheus Diamond contract...`);
+  console.log(`\n Approving MOR for Morpheus Diamond contract...`);
   console.log(`   Amount: ${displayAmount}`);
   console.log(`   Spender: ${DIAMOND_CONTRACT}\n`);
 
@@ -319,9 +319,9 @@ async function cmdApprove(amountStr) {
 
     console.log(`   Tx: ${tx}`);
     await publicClient.waitForTransactionReceipt({ hash: tx });
-    console.log("   ✅ MOR approved for staking.\n");
+    console.log("    MOR approved for staking.\n");
   } catch (e) {
-    console.error(`   ❌ Approve failed: ${e.shortMessage || e.message}`);
+    console.error(`    Approve failed: ${e.shortMessage || e.message}`);
     process.exit(1);
   }
 }
@@ -329,11 +329,11 @@ async function cmdApprove(amountStr) {
 async function cmdExportKey() {
   const key = keychainRetrieve();
   if (!key) {
-    console.error("❌ No wallet found. Run 'setup' first.");
+    console.error(" No wallet found. Run 'setup' first.");
     process.exit(1);
   }
   const account = getAccount(key);
-  console.log(`\n⚠️  PRIVATE KEY — DO NOT SHARE THIS WITH ANYONE\n`);
+  console.log(`\n  PRIVATE KEY — DO NOT SHARE THIS WITH ANYONE\n`);
   console.log(`   Address: ${account.address}`);
   console.log(`   Key:     ${key}\n`);
 }
@@ -351,21 +351,21 @@ async function cmdImportKey(privateKey) {
   try {
     const account = getAccount(privateKey);
     if (!keychainStore(privateKey)) {
-      console.error("❌ Failed to store key in Keychain.");
+      console.error(" Failed to store key in Keychain.");
       process.exit(1);
     }
-    console.log(`\n✅ Key imported successfully.`);
+    console.log(`\n Key imported successfully.`);
     console.log(`   Address: ${account.address}`);
     console.log(`   Stored in macOS Keychain.\n`);
   } catch (e) {
-    console.error(`❌ Invalid private key: ${e.message}`);
+    console.error(` Invalid private key: ${e.message}`);
     process.exit(1);
   }
 }
 
 function showHelp() {
   console.log(`
-♾️  Everclaw Wallet — Self-sovereign key management
+  Everclaw Wallet — Self-sovereign key management
 
 Commands:
   setup                    Generate wallet, store in macOS Keychain

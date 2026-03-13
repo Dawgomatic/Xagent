@@ -1,4 +1,4 @@
-# 🏥 kube-medic
+#  kube-medic
 
 **Kubernetes Cluster Triage & Diagnostics for OpenClaw**
 
@@ -50,9 +50,9 @@ You: Something is wrong with production. Pods keep restarting.
 Agent: Let me run a full cluster sweep.
        [runs: kube_medic(subcommand="sweep", context="production")]
 
-       🏥 Cluster Triage Report
+        Cluster Triage Report
 
-       **Nodes:** 3/3 Ready ✅
+       **Nodes:** 3/3 Ready 
        **Problem Pods:** 4 found
 
        | Pod | Namespace | Status | Restarts |
@@ -62,13 +62,13 @@ Agent: Let me run a full cluster sweep.
        | payments-worker-5c9a2-j8k3 | prod | OOMKilled | 12 |
        | cache-redis-0 | prod | Pending | 0 |
 
-       ⚠️ 23 warning events in the last 15 minutes — mostly OOMKilled
+        23 warning events in the last 15 minutes — mostly OOMKilled
        and BackOff events for the payments pods.
 
        Let me dig into the payments-api pod to find the root cause.
        [runs: kube_medic(subcommand="pod", target="payments-api-7f8d4-x2k9p")]
 
-       ## 🏥 Pod Autopsy: payments-api-7f8d4-x2k9p
+       ##  Pod Autopsy: payments-api-7f8d4-x2k9p
 
        **Diagnosis:** The container is being OOMKilled with a 256Mi memory
        limit. Logs show the JVM heap is configured at 512m, exceeding the
@@ -96,15 +96,15 @@ Agent: Let me run a full cluster sweep.
 
 ## Features
 
-- **🏥 Full Cluster Sweep:** One command gives you nodes, problem pods, CrashLoopBackOff/ImagePullBackOff detection, warning events, and component health.
-- **🔬 Pod Autopsy:** Deep dive into a failing pod with logs, previous container logs, events, and image version mismatch detection.
-- **🚀 Deployment Analysis:** Rollout status, revision history, ReplicaSet tracking — see exactly which deployment broke things.
-- **📊 Resource Pressure:** Node CPU/memory usage, top consumers, pods missing resource limits.
-- **📋 Event Timeline:** Recent events sorted and summarized with top reasons.
-- **🔀 Multi-Cluster:** Specify `--context` to switch between clusters seamlessly.
-- **🔒 Read-Only by Default:** All diagnostic commands are read-only. Write operations (rollback, scale, delete pod) require explicit user confirmation.
-- **🛡️ Write Allowlist:** Only safe write commands are permitted: `rollout undo`, `rollout restart`, `scale`, `delete pod`, `cordon`, `uncordon`. No `kubectl exec`. Ever.
-- **📦 Structured JSON Output:** All responses are structured JSON that the LLM can parse and present as clean Markdown tables and timelines.
+- ** Full Cluster Sweep:** One command gives you nodes, problem pods, CrashLoopBackOff/ImagePullBackOff detection, warning events, and component health.
+- ** Pod Autopsy:** Deep dive into a failing pod with logs, previous container logs, events, and image version mismatch detection.
+- ** Deployment Analysis:** Rollout status, revision history, ReplicaSet tracking — see exactly which deployment broke things.
+- ** Resource Pressure:** Node CPU/memory usage, top consumers, pods missing resource limits.
+- ** Event Timeline:** Recent events sorted and summarized with top reasons.
+- ** Multi-Cluster:** Specify `--context` to switch between clusters seamlessly.
+- ** Read-Only by Default:** All diagnostic commands are read-only. Write operations (rollback, scale, delete pod) require explicit user confirmation.
+- ** Write Allowlist:** Only safe write commands are permitted: `rollout undo`, `rollout restart`, `scale`, `delete pod`, `cordon`, `uncordon`. No `kubectl exec`. Ever.
+- ** Structured JSON Output:** All responses are structured JSON that the LLM can parse and present as clean Markdown tables and timelines.
 
 ## OpenClaw Discord v2 Ready
 
@@ -134,7 +134,7 @@ MIT — use it however you want.
 
 ---
 
-*Powered by CacheForge 🏥*
+*Powered by CacheForge *
 
 ## More from CacheForge
 

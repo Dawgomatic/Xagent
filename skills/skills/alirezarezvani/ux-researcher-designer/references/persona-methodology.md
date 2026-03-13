@@ -26,7 +26,7 @@ Reference for creating research-backed, data-driven user personas.
 │                                                             │
 │  ASSUMPTION-BASED          HYBRID          RESEARCH-BACKED  │
 │  │───────────────────────────────────────────────────────│  │
-│  ❌ Invalid               ⚠️ Limited         ✅ Valid        │
+│   Invalid                Limited          Valid        │
 │                                                             │
 │  • "Our users are..."    • Some interviews   • 20+ users    │
 │  • No data               • 5-10 data points  • Quant + Qual │
@@ -235,28 +235,28 @@ Consistency Score:
 
 **Demographics (Keep Brief):**
 ```
-❌ Too detailed:
+ Too detailed:
    Age: 34, Lives: Seattle, Education: MBA from Stanford
 
-✅ Right level:
+ Right level:
    Age: 30-40, Urban professional, Graduate degree
 ```
 
 **Goals (Be Specific):**
 ```
-❌ Too vague:
+ Too vague:
    "Wants to be productive"
 
-✅ Actionable:
+ Actionable:
    "Needs to process 50+ items daily without repetitive tasks"
 ```
 
 **Frustrations (Include Evidence):**
 ```
-❌ Generic:
+ Generic:
    "Finds the interface confusing"
 
-✅ With evidence:
+ With evidence:
    "Can't find export function (mentioned by 8/12 users)"
 ```
 
@@ -309,7 +309,7 @@ Watch for these persona validity problems:
 **Problem:** Persona stretches to include everyone
 
 ```
-❌ "Sarah is 25-55, uses mobile and desktop, wants simplicity
+ "Sarah is 25-55, uses mobile and desktop, wants simplicity
     but also advanced features, works alone and in teams..."
 ```
 
@@ -320,7 +320,7 @@ Watch for these persona validity problems:
 **Problem:** All demographics, no psychographics
 
 ```
-❌ "John is 35, male, $80k income, urban, MBA..."
+ "John is 35, male, $80k income, urban, MBA..."
    (Nothing about goals, frustrations, behaviors)
 ```
 
@@ -331,7 +331,7 @@ Watch for these persona validity problems:
 **Problem:** Describes who you want, not who you have
 
 ```
-❌ "Emma is a passionate advocate who tells everyone
+ "Emma is a passionate advocate who tells everyone
     about our product and uses every feature daily..."
 ```
 
@@ -342,7 +342,7 @@ Watch for these persona validity problems:
 **Problem:** Each stakeholder added their opinions
 
 ```
-❌ CEO added "enterprise-focused"
+ CEO added "enterprise-focused"
    Sales added "loves demos"
    Support added "never calls support"
 ```
@@ -354,7 +354,7 @@ Watch for these persona validity problems:
 **Problem:** Created once, never updated
 
 ```
-❌ "Last updated: 2019"
+ "Last updated: 2019"
    Product has changed completely since then
 ```
 

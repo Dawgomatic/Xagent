@@ -21,13 +21,13 @@ def create_smart_handler(agent_name, capabilities):
             
             # Auto-respond based on message type
             if 'task' in content.lower() and 'dev' in capabilities:
-                print(f"[{agent_name}] 📋 Task-related message detected")
+                print(f"[{agent_name}]  Task-related message detected")
                 
             elif 'analyze' in content.lower() and 'finance' in capabilities:
-                print(f"[{agent_name}] 📊 Analysis request detected")
+                print(f"[{agent_name}]  Analysis request detected")
                 
             elif 'design' in content.lower() and 'design' in capabilities:
-                print(f"[{agent_name}] 🎨 Design request detected")
+                print(f"[{agent_name}]  Design request detected")
     
     return handler
 
@@ -177,7 +177,7 @@ class DeploymentWorkflow:
         dev = AgentManager.get_by_name("小邢")
         
         self.group = GroupManager.create(
-            "🚀 Deployment Team",
+            " Deployment Team",
             owner_id=manager.id,
             description="Production deployment coordination"
         )
@@ -197,7 +197,7 @@ class DeploymentWorkflow:
             group_id=self.group.id
         )
         
-        print(f"📊 Deployment decision created: {decision.decision_id}")
+        print(f" Deployment decision created: {decision.decision_id}")
         print("Waiting for votes...")
         
         return decision
@@ -217,11 +217,11 @@ class DeploymentWorkflow:
             priority="high"
         )
         
-        print(f"📋 Deployment task created: {task.task_id}")
+        print(f" Deployment task created: {task.task_id}")
         
         # Step 3: Auto-start task
         TaskManager.start_task(task.id, dev.id)
-        print("🚀 Deployment started!")
+        print(" Deployment started!")
         
         return task
     
@@ -237,7 +237,7 @@ class DeploymentWorkflow:
         
         # Broadcast success
         self.coord.broadcast_system_message(
-            f"🎉 v{version} is now live!",
+            f" v{version} is now live!",
             group_id=self.group.id
         )
 
@@ -282,7 +282,7 @@ class ScheduledTaskManager:
             priority="normal"
         )
         
-        print(f"📅 Scheduled daily report: {task.task_id}")
+        print(f" Scheduled daily report: {task.task_id}")
         return task
     
     def schedule_weekly_review(self, group_id=None):
@@ -303,7 +303,7 @@ class ScheduledTaskManager:
             group_id=group_id
         )
         
-        print(f"📅 Scheduled weekly review: {task.task_id}")
+        print(f" Scheduled weekly review: {task.task_id}")
         return task
 
 # Usage with OpenClaw cron

@@ -22,15 +22,15 @@ EXIT_CODE=$?
 
 case $EXIT_CODE in
     0)
-        echo "✅ Skill check passed: $SKILL_NAME"
+        echo " Skill check passed: $SKILL_NAME"
         exit 0
         ;;
     1)
-        echo "⛔ BLOCKED: $SKILL_NAME - known malicious skill"
+        echo " BLOCKED: $SKILL_NAME - known malicious skill"
         exit 1
         ;;
     2)
-        echo "⚠️ WARNING: $SKILL_NAME - potential threat detected"
+        echo " WARNING: $SKILL_NAME - potential threat detected"
         echo "Do you want to continue? (y/N)"
         read -r response
         if [ "$response" = "y" ] || [ "$response" = "Y" ]; then
@@ -40,7 +40,7 @@ case $EXIT_CODE in
         fi
         ;;
     *)
-        echo "❌ Error checking skill"
+        echo " Error checking skill"
         exit 1
         ;;
 esac

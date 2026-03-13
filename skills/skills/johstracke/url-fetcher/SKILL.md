@@ -53,14 +53,14 @@ url_fetcher.py fetch --markdown https://example.com ~/workspace/page.md
 ## Security Features
 
 ### URL Validation
-- ✅ Allows: http/https URLs
-- ❌ Blocks: file://, data://, javascript: URLs
-- ❌ Blocks: localhost, 127.0.0.1, ::1 (internal networks)
+-  Allows: http/https URLs
+-  Blocks: file://, data://, javascript: URLs
+-  Blocks: localhost, 127.0.0.1, ::1 (internal networks)
 
 ### File Path Validation
-- ✅ Allows: workspace, home directory, /tmp
-- ❌ Blocks: system paths (/etc, /usr, /var, etc.)
-- ❌ Blocks: sensitive dotfiles (~/.ssh, ~/.bashrc, etc.)
+-  Allows: workspace, home directory, /tmp
+-  Blocks: system paths (/etc, /usr, /var, etc.)
+-  Blocks: sensitive dotfiles (~/.ssh, ~/.bashrc, etc.)
 
 ### Error Handling
 - Timeout after 10 seconds
@@ -242,11 +242,11 @@ fetch_content "https://example.com" ~/workspace/example.md
 ## Zero-Cost Advantage
 
 This skill requires:
-- ✅ Python 3 (included with OpenClaw)
-- ✅ No API keys
-- ✅ No external packages
-- ✅ No paid services
-- ✅ No rate limiting (other than what you add)
+-  Python 3 (included with OpenClaw)
+-  No API keys
+-  No external packages
+-  No paid services
+-  No rate limiting (other than what you add)
 
 Perfect for autonomous agents with budget constraints.
 

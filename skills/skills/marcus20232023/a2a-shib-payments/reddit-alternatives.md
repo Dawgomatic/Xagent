@@ -44,11 +44,11 @@ r/ethereum requires minimum karma to post (anti-spam measure).
 ## Recommended Action Plan
 
 ### Today:
-1. ✅ X/Twitter (done)
-2. ✅ Bluesky (done)
-3. 🔲 Hacker News (no karma needed)
-4. 🔲 Try r/CryptoCurrency (might work)
-5. 🔲 Try r/opensource (might work)
+1.  X/Twitter (done)
+2.  Bluesky (done)
+3.  Hacker News (no karma needed)
+4.  Try r/CryptoCurrency (might work)
+5.  Try r/opensource (might work)
 
 ### This Week:
 1. Post on LinkedIn

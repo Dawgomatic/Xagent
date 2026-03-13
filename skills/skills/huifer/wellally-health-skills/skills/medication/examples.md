@@ -84,7 +84,7 @@ Output make-up recommendation: If less than 2 hours from scheduled time, take im
 User: View medication list
 
 Output:
-💊 My Medication List
+ My Medication List
 
 1. Aspirin - 100 mg
    Once daily, take after breakfast
@@ -100,9 +100,9 @@ Output:
 User: This week's medication statistics
 
 Output:
-📊 Medication Adherence Statistics
-Overall Adherence: 85.7% ✅
+ Medication Adherence Statistics
+Overall Adherence: 85.7% 
 
-Aspirin: 100% ✅
-Amlodipine: 78.6% ⚠️
+Aspirin: 100% 
+Amlodipine: 78.6% 
 ```

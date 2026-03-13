@@ -1,4 +1,4 @@
-# 📦 Installation Guide
+#  Installation Guide
 
 ## For New Users (Never Used Before)
 
@@ -21,12 +21,12 @@ npm run setup
 ```
 
 Follow the interactive prompts. The wizard will:
-- ✅ Check if dependencies are installed
-- 🍪 Walk you through getting X cookies from your browser
-- 🎯 Ask about your projects/interests
-- ⚙️ Configure settings
-- 🧪 Test your credentials
-- ✅ Create `.env` and `config.json`
+-  Check if dependencies are installed
+-  Walk you through getting X cookies from your browser
+-  Ask about your projects/interests
+-  Configure settings
+-  Test your credentials
+-  Create `.env` and `config.json`
 
 ### 3. Test It
 ```bash

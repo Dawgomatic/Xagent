@@ -226,7 +226,7 @@ Re-read your ideas and approaches. They're part of your memory.
 - When you learn a lesson → update relevant file
 - When you make a mistake → document it
 
-**Text > Brain** 📝
+**Text > Brain** 
 
 ### Memory Flush Thresholds
 Monitor with `session_status`. Act on these:
@@ -330,9 +330,9 @@ starting ──────► working ──────► succeeded ───
 ### The Rule
 
 **Every approach MUST reach a terminal state:**
-- ✅ `succeeded` + verified
-- ✅ `failed` (with explanation)
-- ✅ `stuck` (with blocker)
+-  `succeeded` + verified
+-  `failed` (with explanation)
+-  `stuck` (with blocker)
 
 **Approaches at "starting" for > 24h = broken knowledge.**
 

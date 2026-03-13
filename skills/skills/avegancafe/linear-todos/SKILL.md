@@ -17,9 +17,9 @@ metadata:
 
 # Linear Todos
 
-> **⚠️  This is a SOURCE-EXECUTION skill.** The agent runs Python code from `src/linear_todos/` when you invoke CLI commands. This is **not** instruction-only. Review `src/linear_todos/api.py` before first use.
+> **  This is a SOURCE-EXECUTION skill.** The agent runs Python code from `src/linear_todos/` when you invoke CLI commands. This is **not** instruction-only. Review `src/linear_todos/api.py` before first use.
 >
-> **🔐 Security Note:** This skill stores your Linear API key in plaintext JSON at `~/.config/linear-todos/config.json` **only if you run the `setup` command**. Use a dedicated API key with minimal scope. The key is only used for Linear API calls and is never transmitted elsewhere. Prefer environment variables (`LINEAR_API_KEY`) to avoid persisted state.
+> ** Security Note:** This skill stores your Linear API key in plaintext JSON at `~/.config/linear-todos/config.json` **only if you run the `setup` command**. Use a dedicated API key with minimal scope. The key is only used for Linear API calls and is never transmitted elsewhere. Prefer environment variables (`LINEAR_API_KEY`) to avoid persisted state.
 >
 > **Audit Info:** This skill makes HTTPS requests **only** to `api.linear.app` (Linear's official GraphQL API). No data is sent elsewhere. See `src/linear_todos/api.py` for the API client implementation.
 
@@ -236,12 +236,12 @@ uv run python main.py review
 ```
 
 Output sections:
-- 🚨 **OVERDUE** - Past due date
-- 📅 **Due Today** - Due today
-- ⚡ **High Priority** - Urgent/high priority items
-- 📊 **This Week** - Due within 7 days
-- 📅 **This Month** - Due within 28 days
-- 📝 **No Due Date** - Items without dates
+-  **OVERDUE** - Past due date
+-  **Due Today** - Due today
+-  **High Priority** - Urgent/high priority items
+-  **This Week** - Due within 7 days
+-  **This Month** - Due within 28 days
+-  **No Due Date** - Items without dates
 
 ### setup
 
@@ -279,10 +279,10 @@ uv run python main.py create "Meeting" --date "next Monday"
 ### 2. Determine Priority
 
 Ask if not specified:
-- **Urgent** (🔥) - Critical, do immediately
-- **High** (⚡) - Important, do soon
-- **Normal** (📌) - Standard priority (default)
-- **Low** (💤) - Can wait
+- **Urgent** () - Critical, do immediately
+- **High** () - Important, do soon
+- **Normal** () - Standard priority (default)
+- **Low** () - Can wait
 
 ### 3. Daily Briefing
 
@@ -319,11 +319,11 @@ uv run python main.py done ISSUE-123
 
 | Level | Number | Icon | Use For |
 |-------|--------|------|---------|
-| Urgent | 1 | 🔥 | Critical, blocking issues |
-| High | 2 | ⚡ | Important, time-sensitive |
-| Normal | 3 | 📌 | Standard tasks (default) |
-| Low | 4 | 💤 | Nice-to-have, can wait |
-| None | 0 | 📋 | No priority set |
+| Urgent | 1 |  | Critical, blocking issues |
+| High | 2 |  | Important, time-sensitive |
+| Normal | 3 |  | Standard tasks (default) |
+| Low | 4 |  | Nice-to-have, can wait |
+| None | 0 |  | No priority set |
 
 ## Timezone Support
 

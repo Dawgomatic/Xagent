@@ -4,12 +4,12 @@ Manage your Google Tasks directly from OpenClaw using lightweight bash scripts w
 
 ## Features
 
-- ✅ **View all tasks** across all your Google Task lists
-- ✅ **Create new tasks** with optional due dates and notes
-- ✅ **Delete tasks** by number or title
-- ✅ **Automatic token refresh** - no re-authentication needed
-- ✅ **Lightweight** - Pure bash with curl and jq
-- ✅ **Configurable** - Set your default task list
+-  **View all tasks** across all your Google Task lists
+-  **Create new tasks** with optional due dates and notes
+-  **Delete tasks** by number or title
+-  **Automatic token refresh** - no re-authentication needed
+-  **Lightweight** - Pure bash with curl and jq
+-  **Configurable** - Set your default task list
 
 ## Quick Start
 
@@ -88,18 +88,18 @@ google-tasks/
 ## Output Format
 
 ```
-📋 Your Google Tasks:
+ Your Google Tasks:
 
-📌 Work
+ Work
 ──────────────────────────────────────────────────
-  1. ⬜ Finish quarterly report (due: 2026-02-10)
-  2. ⬜ Team meeting preparation
+  1.  Finish quarterly report (due: 2026-02-10)
+  2.  Team meeting preparation
 
-📌 Personal
+ Personal
 ──────────────────────────────────────────────────
-  1. ⬜ Buy groceries
+  1.  Buy groceries
      Note: Milk, bread, eggs
-  2. ⬜ Call mom (due: 2026-02-05)
+  2.  Call mom (due: 2026-02-05)
 ```
 
 ## Troubleshooting

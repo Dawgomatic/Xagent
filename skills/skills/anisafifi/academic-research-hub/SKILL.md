@@ -8,7 +8,7 @@ license: Proprietary
 
 Search and retrieve academic papers from multiple sources including arXiv, PubMed, Semantic Scholar, and more. Download PDFs, extract citations, generate bibliographies, and build literature reviews.
 
-⚠️ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS)
+ **Prerequisite:** Install [OpenClawCLI](https://clawhub.ai/) (Windows, MacOS)
 
 **Installation Best Practices:**
 ```bash

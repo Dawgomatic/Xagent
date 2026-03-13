@@ -9,7 +9,7 @@ import sys
 
 def demo_solar_to_lunar():
     """演示公历转农历"""
-    print("🌙 农历生日提醒系统演示 - 夏暮辞青")
+    print(" 农历生日提醒系统演示 - 夏暮辞青")
     print("=" * 50)
     
     # 测试数据
@@ -21,7 +21,7 @@ def demo_solar_to_lunar():
         ("2025-10-06", "2025年中秋节"),
     ]
     
-    print("📅 公历转农历演示:")
+    print(" 公历转农历演示:")
     print("-" * 30)
     
     for solar_date, description in test_dates:
@@ -48,7 +48,7 @@ def demo_solar_to_lunar():
 
 def demo_lunar_to_solar():
     """演示农历转公历"""
-    print("📅 农历转公历演示:")
+    print(" 农历转公历演示:")
     print("-" * 30)
     
     # 测试数据
@@ -65,7 +65,7 @@ def demo_lunar_to_solar():
 
 def demo_validation_summary():
     """演示验证结果"""
-    print("📊 验证结果摘要:")
+    print(" 验证结果摘要:")
     print("-" * 30)
     
     validation_data = {
@@ -96,17 +96,17 @@ def main():
     demo_validation_summary()
     
     print("=" * 50)
-    print("🎉 演示完成！")
+    print(" 演示完成！")
     print()
-    print("✅ 系统特性:")
+    print(" 系统特性:")
     print("  - 35次严格验证，100%通过率")
-    print("  - 支持公历↔农历双向转换")
+    print("  - 支持公历农历双向转换")
     print("  - 包含黄历宜忌查询")
     print("  - 遵循专业设计规范")
     print()
-    print("👤 作者: 夏暮辞青")
-    print("🏷️  系统: 农历生日提醒系统 - 精准农历计算系统")
-    print("📅 日期: 2026-02-13")
+    print(" 作者: 夏暮辞青")
+    print("  系统: 农历生日提醒系统 - 精准农历计算系统")
+    print(" 日期: 2026-02-13")
 
 if __name__ == "__main__":
     main()

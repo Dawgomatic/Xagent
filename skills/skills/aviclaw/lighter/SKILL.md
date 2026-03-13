@@ -37,7 +37,7 @@ Your Ethereum wallet private key (with `0x` prefix).
 3. Enter password
 4. Copy the key (starts with `0x...`)
 
-**⚠️ Never share this!** Store in environment variables, never in code.
+** Never share this!** Store in environment variables, never in code.
 
 ### LIGHTER_API_KEY
 

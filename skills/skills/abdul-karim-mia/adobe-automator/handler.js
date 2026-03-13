@@ -63,7 +63,7 @@ module.exports = {
             handler: async (ctx) => {
                 const targetApp = ctx.params.app.toLowerCase();
                 const config = APP_MAP[targetApp];
-                if (!config) return { text: `❌ **Error**: Unsupported application: ${targetApp}` };
+                if (!config) return { text: ` **Error**: Unsupported application: ${targetApp}` };
 
                 const isWin = os.platform() === 'win32';
                 const tempDir = os.tmpdir();
@@ -93,9 +93,9 @@ module.exports = {
                 } catch (e) { }
 
                 if (output.includes('SUCCESS') || (!isWin && result.status === 0)) {
-                    return { text: `✅ **${ctx.params.app} script executed successfully**` };
+                    return { text: ` **${ctx.params.app} script executed successfully**` };
                 } else {
-                    return { text: `❌ **Adobe Automation Error** (${ctx.params.app}):\n\`\`\`\n${output}\n\`\`\`` };
+                    return { text: ` **Adobe Automation Error** (${ctx.params.app}):\n\`\`\`\n${output}\n\`\`\`` };
                 }
             }
         }

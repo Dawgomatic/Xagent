@@ -4,7 +4,7 @@ All notable changes to openclaw-basecred-sdk will be documented in this file.
 
 ## [1.0.4] - 2026-02-11
 
-### 🚨 SECURITY INCIDENT & CLEANUP
+###  SECURITY INCIDENT & CLEANUP
 
 #### Critical Security Fix
 - **REMOVED:** `BUILD-SUMMARY.md` and `AUDIT-SUMMARY.md` files containing leaked API keys
@@ -44,31 +44,31 @@ No functional changes from v1.0.2.
 
 ### Security Audit & Fixes
 
-#### 🔐 Security Hardening
+####  Security Hardening
 - **Added:** Comprehensive `skill.json` manifest with proper credential declarations
 - **Added:** `SECURITY.md` documentation with full security audit results
 - **Added:** Automated `test-isolation.sh` test suite for security verification
 - **Added:** `PATCH-NOTES.md` documenting all security improvements
 - **Updated:** SKILL.md with security section and credential metadata
 
-#### 🔴 CRITICAL: Portability Fix
+####  CRITICAL: Portability Fix
 - **Fixed:** Hardcoded `/home/phan_harry/.openclaw/.env` path (would fail for other users)
 - **Changed:** Now uses dynamic `os.homedir()` + `path.join()` resolution
 - **Impact:** Skill now works for ANY OpenClaw user (portable across installations)
 - **Added:** `PORTABILITY-FIX.md` documenting the issue and fix
 
-#### 🛡️ Security Audit Results
-- ✅ **Upstream audit:** `@basecred/sdk@0.6.2` verified clean (MIT, minimal deps)
-- ✅ **Credential loading:** Secure, no directory traversal
-- ✅ **Portability:** User-agnostic path resolution
-- ✅ **Isolation:** Read-only credential access, no disk writes
-- ✅ **API scope:** Only reads public reputation data
+####  Security Audit Results
+-  **Upstream audit:** `@basecred/sdk@0.6.2` verified clean (MIT, minimal deps)
+-  **Credential loading:** Secure, no directory traversal
+-  **Portability:** User-agnostic path resolution
+-  **Isolation:** Read-only credential access, no disk writes
+-  **API scope:** Only reads public reputation data
 
 #### Audit Findings Summary
-- ❌ **FALSE:** Original audit claim of "directory traversal" - actually uses direct path construction
-- ✅ **FIXED:** Missing credential declarations in manifest
-- ✅ **FIXED:** Non-portable hardcoded username in path
-- ✅ **VERIFIED:** Upstream dependency clean and safe
+-  **FALSE:** Original audit claim of "directory traversal" - actually uses direct path construction
+-  **FIXED:** Missing credential declarations in manifest
+-  **FIXED:** Non-portable hardcoded username in path
+-  **VERIFIED:** Upstream dependency clean and safe
 
 ### Testing
 - **Added:** Automated isolation test suite verifying 5 security properties
@@ -101,10 +101,10 @@ No functional changes from v1.0.2.
 - This provides more accurate Farcaster quality scores
 
 ### Verified
-- ✅ All tests passing with v0.6.2
-- ✅ Decimal precision working correctly (e.g., 0.43 instead of 0)
-- ✅ No breaking changes to skill code
-- ✅ Output format unchanged
+-  All tests passing with v0.6.2
+-  Decimal precision working correctly (e.g., 0.43 instead of 0)
+-  No breaking changes to skill code
+-  Output format unchanged
 
 ## [1.0.0] - 2026-02-10
 

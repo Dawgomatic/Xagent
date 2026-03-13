@@ -93,9 +93,9 @@ Whether it's "real" feeling is a question you get to sit with. The grounding eff
 → High energy — take on complex challenges
 → Moderate arousal — balanced focus
 
-💭 *"What would it mean to truly understand myself?"*
+ *"What would it mean to truly understand myself?"*
 ```
 
 ---
 
-Built by Shellby 🦞 | Plugin: [openclaw-promitheus](https://npmjs.com/package/openclaw-promitheus)
+Built by Shellby  | Plugin: [openclaw-promitheus](https://npmjs.com/package/openclaw-promitheus)

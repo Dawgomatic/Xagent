@@ -36,7 +36,7 @@ Executes raw ExtendScript (ES3) in the target application.
 - `app`: Target application (`photoshop`, `illustrator`, `indesign`, `premiere`, `aftereffects`).
 - `script`: The JSX code to execute.
 
-## 🛠 AI Protocol
+##  AI Protocol
 
 ### 1. Technical Constraints
 - **ES3 Syntax Only**: Adobe apps use the ExtendScript (ES3) engine. Avoid modern JS features.
@@ -47,7 +47,7 @@ Executes raw ExtendScript (ES3) in the target application.
 > **High Risk Capability**: The `runScript` command accepts and executes **arbitrary ExtendScript (JSX)** code. Attempting to restrict this would break the skill's core purpose, but users must be aware of the implications.
 
 - **Filesystem Access**: The Adobe ExtendScript engine has **unrestricted access to the host filesystem** via the `File` and `Folder` objects.
-- **Untrusted Scripts**: ❌ **NEVER** execute scripts from untrusted sources. A malicious script could delete files, exfiltrate data, or install persistent malware.
+- **Untrusted Scripts**:  **NEVER** execute scripts from untrusted sources. A malicious script could delete files, exfiltrate data, or install persistent malware.
 - **Verification**: Always inspect the `script` parameter payload before allowing execution.
 
 ## Setup

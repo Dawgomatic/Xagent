@@ -63,7 +63,7 @@ def extract_topics(text: str, n: int = 6):
             if any(k in t for k in ['TOP 3', '한줄 요약']):
                 continue
             t = re.sub(r'^[0-9]+[.)]?\s*', '', t)
-            t = re.sub(r'^[0-9️⃣]+\s*', '', t)
+            t = re.sub(r'^[0-]+\s*', '', t)
             topics.append(t)
     seen, out = set(), []
     for t in topics:
@@ -100,10 +100,10 @@ def make_youtube_copy(week_label: str, topics: list[str]):
     desc.append(f"이번 에피소드는 {week_label} AI 이슈를 '바쁜 직장인 실무' 관점으로 재해석합니다.")
     desc.append("캘리 박사(심리/정신과) x 닉 교수(정보통신/AI) 듀엣 토론으로, 1번 듣고 바로 적용 가능한 액션을 제시합니다.")
     desc.append('')
-    desc.append('⏱️ 타임라인')
+    desc.append(' 타임라인')
     desc.extend(stamps or ['00:00 이번 주 핵심 브리핑'])
     desc.append('')
-    desc.append('✅ 오늘의 실전 체크리스트')
+    desc.append(' 오늘의 실전 체크리스트')
     desc.append('- 업무를 아이디어/정리/검수 3단계로 분리')
     desc.append('- 3-2-1 검증 루틴으로 오답 리스크 차단')
     desc.append('- 하루 20분(5분x4칸) 실행 루틴 도입')
@@ -160,7 +160,7 @@ def compose_thumbnail(bg: Path, out_path: Path, week_label: str, topics: list[st
     d.text((56, 360), '바쁜 직장인, 오늘 바로 적용', font=f1, fill=(255, 255, 255, 255))
     d.text((56, 455), f'{week_label} · 캘리 박사 × 닉 교수', font=f3, fill=(180, 255, 220, 255))
 
-    key_caps = [t.strip('🎬🚨🗽💥🚀📊💼🌍🤖🐰💰📉🏢 ').strip() for t in topics[:2]]
+    key_caps = [t.strip(' ').strip() for t in topics[:2]]
     y = 530
     for cap in key_caps:
         cap = cap[:42]
@@ -187,7 +187,7 @@ def compose_telegram_card(bg: Path, out_path: Path, week_label: str, title: str,
 
     y = 258
     for t in topics[:4]:
-        txt = t.strip('🎬🚨🗽💥🚀📊💼🌍🤖🐰💰📉🏢 ').strip()[:54]
+        txt = t.strip(' ').strip()[:54]
         d.rounded_rectangle((72, y, 1190, y + 74), radius=14, fill=(0, 0, 0, 130))
         d.text((94, y + 19), f'• {txt}', font=f4, fill=(255, 255, 255, 245))
         y += 88

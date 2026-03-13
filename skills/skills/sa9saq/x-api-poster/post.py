@@ -32,7 +32,7 @@ def create_oauth_signature(method, url, params, consumer_secret, token_secret):
 def create_oauth_header(method, url, body_params=None):
     """OAuth 1.0a ヘッダーを生成"""
     if not all([CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET]):
-        print("❌ X API credentials not set. Set X_CONSUMER_KEY, X_CONSUMER_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET")
+        print(" X API credentials not set. Set X_CONSUMER_KEY, X_CONSUMER_SECRET, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET")
         sys.exit(1)
     
     oauth_params = {
@@ -79,10 +79,10 @@ def post_tweet(text, reply_to=None):
     if response.status_code in (200, 201):
         data = response.json()
         tweet_id = data["data"]["id"]
-        print(f"✅ Posted! https://x.com/i/status/{tweet_id}")
+        print(f" Posted! https://x.com/i/status/{tweet_id}")
         return data
     else:
-        print(f"❌ Error: {response.status_code}")
+        print(f" Error: {response.status_code}")
         print(response.text)
         return None
 
@@ -102,10 +102,10 @@ def upload_media(image_path):
     if response.status_code in (200, 201, 202):
         data = response.json()
         media_id = data["media_id_string"]
-        print(f"📷 Media uploaded: {media_id}")
+        print(f" Media uploaded: {media_id}")
         return media_id
     else:
-        print(f"❌ Media upload error: {response.status_code}")
+        print(f" Media upload error: {response.status_code}")
         print(response.text)
         return None
 
@@ -136,10 +136,10 @@ def post_tweet_with_media(text, image_path):
     if response.status_code in (200, 201):
         data = response.json()
         tweet_id = data["data"]["id"]
-        print(f"✅ Posted with image! https://x.com/i/status/{tweet_id}")
+        print(f" Posted with image! https://x.com/i/status/{tweet_id}")
         return data
     else:
-        print(f"❌ Error: {response.status_code}")
+        print(f" Error: {response.status_code}")
         print(response.text)
         return None
 

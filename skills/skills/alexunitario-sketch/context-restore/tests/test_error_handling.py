@@ -125,9 +125,9 @@ class TestEdgeCases(unittest.TestCase):
     def test_unicode_emojis(self):
         """Unicode Emoji"""
         from restore_context import extract_recent_operations
-        content = '🎉 🎊 🚀 💡 ✅'
+        content = '    '
         result = extract_recent_operations(content)
-        self.assertEqual(result, ['🎉', '🎊', '🚀', '💡', '✅'])
+        self.assertEqual(result, ['', '', '', '', ''])
 
     def test_mixed_languages(self):
         """混合语言"""
@@ -329,8 +329,8 @@ class TestJsonFormatHandling(unittest.TestCase):
         """含特殊字符的 JSON"""
         from restore_context import load_compressed_context
         data = {
-            "content": "Test\t\n\r\x00中文🎉",
-            "emoji": "✅"
+            "content": "Test\t\n\r\x00中文",
+            "emoji": ""
         }
         filepath = create_temp_file(json.dumps(data, ensure_ascii=False))
         try:
@@ -387,7 +387,7 @@ class TestPerformance(unittest.TestCase):
     def test_operations_extraction_performance(self):
         """操作提取性能"""
         from restore_context import extract_recent_operations
-        content = '✅ 完成数据清洗模块\n✅ 修复登录漏洞\n✅ 添加新功能' * 100
+        content = ' 完成数据清洗模块\n 修复登录漏洞\n 添加新功能' * 100
         
         start = time.time()
         for _ in range(100):
@@ -427,10 +427,10 @@ class TestReportFormatting(unittest.TestCase):
     def test_report_with_unicode(self):
         """含 Unicode 的报告"""
         from restore_context import format_normal_report
-        content = '🎉 测试\n✅ 完成'
+        content = ' 测试\n 完成'
         report = format_normal_report(content)
-        self.assertIn("🎉", report)
-        self.assertIn("✅", report)
+        self.assertIn("", report)
+        self.assertIn("", report)
 
 
 # =============================================================================
@@ -459,14 +459,14 @@ class TestErrorRecovery(unittest.TestCase):
     def test_very_long_line(self):
         """非常长的行"""
         from restore_context import extract_recent_operations
-        long_line = '✅ ' + 'x' * 100000
+        long_line = ' ' + 'x' * 100000
         result = extract_recent_operations(long_line)
         self.assertEqual(len(result), 1)
 
     def test_many_matches(self):
         """大量匹配"""
         from restore_context import extract_recent_operations
-        content = '✅ 操作1\n✅ 操作2\n✅ 操作3\n✅ 操作4\n✅ 操作5\n✅ 操作6'
+        content = ' 操作1\n 操作2\n 操作3\n 操作4\n 操作5\n 操作6'
         result = extract_recent_operations(content)
         self.assertLessEqual(len(result), 5)  # 限制为 5
 

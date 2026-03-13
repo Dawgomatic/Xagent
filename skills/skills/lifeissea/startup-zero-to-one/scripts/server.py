@@ -4,7 +4,7 @@ Raon OS — HTTP API Server
 로컬 REST API로 사업계획서 평가 기능 제공.
 웹챗/k-startup.ai 임베드용.
 
-# ⚠️  보안 정책: 관리자 API는 로컬호스트(127.0.0.1)에서만 접근 가능
+#   보안 정책: 관리자 API는 로컬호스트(127.0.0.1)에서만 접근 가능
 #   /api/keys (POST/DELETE) 엔드포인트는 localhost 이외의 요청을 거부합니다.
 
 Usage:
@@ -554,7 +554,7 @@ class RaonHandler(BaseHTTPRequestHandler):
             _increment_usage(api_key, cat, tokens_in, tokens_out)
 
     def _handle_feedback(self):
-        """POST /v1/feedback — 사용자 피드백 수집 (👍/👎)
+        """POST /v1/feedback — 사용자 피드백 수집 (/)
 
         Body: {"evaluation_id": "uuid", "rating": 1 또는 -1, "comment": "선택"}
         Response: {"ok": true}
@@ -583,7 +583,7 @@ class RaonHandler(BaseHTTPRequestHandler):
             self._send_error(400, "missing evaluation_id")
             return
         if rating not in (1, -1):
-            self._send_error(400, "rating must be 1(👍) or -1(👎)")
+            self._send_error(400, "rating must be 1() or -1()")
             return
 
         # 비동기 저장 — 응답 지연 없음
@@ -720,7 +720,7 @@ class RaonHandler(BaseHTTPRequestHandler):
         global _kakao_handler
 
         # 카카오는 반드시 200 응답 필요 — 에러도 정상 응답으로
-        def kakao_error_response(msg="잠시 후 다시 시도해주세요 😊"):
+        def kakao_error_response(msg="잠시 후 다시 시도해주세요 "):
             return {
                 "version": "2.0",
                 "template": {
@@ -1030,7 +1030,7 @@ class RaonHandler(BaseHTTPRequestHandler):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="🌅 Raon OS API Server")
+    parser = argparse.ArgumentParser(description=" Raon OS API Server")
     parser.add_argument("--port", "-p", type=int, default=DEFAULT_PORT)
     parser.add_argument("--model", "-m", default=DEFAULT_MODEL)
     parser.add_argument("--host", default="0.0.0.0")
@@ -1039,7 +1039,7 @@ def main():
     RaonHandler.model = args.model
 
     server = HTTPServer((args.host, args.port), RaonHandler)
-    print(f"🌅 Raon OS API Server running on http://{args.host}:{args.port}")
+    print(f" Raon OS API Server running on http://{args.host}:{args.port}")
     print(f"   Model: {args.model}")
     print(f"   Endpoints: GET /health, /v1/modes | POST /v1/{{evaluate,improve,match,draft,checklist}}")
     print(f"   Press Ctrl+C to stop")
@@ -1047,7 +1047,7 @@ def main():
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\n👋 Server stopped")
+        print("\n Server stopped")
         server.server_close()
 
 

@@ -56,8 +56,8 @@ def init_project(name: str, base_dir: str):
         if not os.listdir(os.path.join(project_dir, d)):
             open(gitkeep, "w").close()
     
-    print(f"✅ Project '{name}' initialized at {project_dir}")
-    print(f"   📁 {project_dir}/")
+    print(f" Project '{name}' initialized at {project_dir}")
+    print(f"    {project_dir}/")
     for d in dirs:
         print(f"   ├── {d}/")
     print(f"\nNext: Edit lyrics/ and video/scene_list.yaml")

@@ -85,7 +85,7 @@ try? VNImageRequestHandler(cgImage: cg, options: [:]).perform([req])
                     capture_output=True, text=True, timeout=120
                 )
                 if result.returncode != 0 or not result.stdout.strip():
-                    print(f"  ⚠️ curl 失败，重试 {attempt+1}/3...", file=sys.stderr)
+                    print(f"   curl 失败，重试 {attempt+1}/3...", file=sys.stderr)
                     time.sleep(3)
                     continue
                 resp_data = json.loads(result.stdout)
@@ -93,19 +93,19 @@ try? VNImageRequestHandler(cgImage: cg, options: [:]).perform([req])
                 if data:
                     break
                 elif "失败" in resp_data.get("message", ""):
-                    print(f"  ⚠️ {resp_data.get('message')}，重试 {attempt+1}/3...", file=sys.stderr)
+                    print(f"   {resp_data.get('message')}，重试 {attempt+1}/3...", file=sys.stderr)
                     time.sleep(3)
                     continue
             except Exception as e:
                 if attempt < 2:
-                    print(f"  ⚠️ 请求失败，重试 {attempt+1}/3: {e}", file=sys.stderr)
+                    print(f"   请求失败，重试 {attempt+1}/3: {e}", file=sys.stderr)
                     time.sleep(3)
                     continue
-                print(f"❌ 获取失败: {e}", file=sys.stderr)
+                print(f" 获取失败: {e}", file=sys.stderr)
                 return {'error': str(e)}
         
         if not data:
-            print("❌ 未获取到数据", file=sys.stderr)
+            print(" 未获取到数据", file=sys.stderr)
             return {'error': '未获取到数据'}
         
         # 标准化
@@ -125,7 +125,7 @@ try? VNImageRequestHandler(cgImage: cg, options: [:]).perform([req])
         }
         
         title, author = note['title'], note['author']['nickname']
-        print(f"📝 {title} | 👤 {author}", file=sys.stderr)
+        print(f" {title} |  {author}", file=sys.stderr)
         
         # 创建目录（用标题命名）
         folder = clean_filename(title)
@@ -158,7 +158,7 @@ try? VNImageRequestHandler(cgImage: cg, options: [:]).perform([req])
                         ocr_file = note_dir / 'ocr' / f"{f.stem}.md"
                         ocr_file.write_text(f"# OCR: {f.stem}\n\n{text}\n")
                         ocr_results.append({'image': f.name, 'text': text})
-                        print(f"  📝 {f.name}: {len(text)} 字符", file=sys.stderr)
+                        print(f"   {f.name}: {len(text)} 字符", file=sys.stderr)
         
         note['ocr_results'] = ocr_results
         
@@ -167,16 +167,16 @@ try? VNImageRequestHandler(cgImage: cg, options: [:]).perform([req])
         
         # 生成 Markdown
         md = f"# {title}\n\n**作者**: {author} | **发布**: {note['publish_time']} | **类型**: {note['type']}\n"
-        md += f"**互动**: ❤️{note['interact']['liked']} ⭐{note['interact']['collected']} 💬{note['interact']['comment']}\n"
+        md += f"**互动**: {note['interact']['liked']} {note['interact']['collected']} {note['interact']['comment']}\n"
         md += f"**标签**: {' '.join(f'#{t}' for t in tags)}\n**链接**: {note['url']}\n\n---\n\n## 正文\n\n{note['desc']}\n\n---\n\n## 图片\n\n"
         for f in note['local_files']:
             md += f"![{Path(f).name}]({f})\n\n"
             for ocr in ocr_results:
                 if ocr['image'] == Path(f).name:
-                    md += f"<details><summary>📝 OCR</summary>\n\n```\n{ocr['text']}\n```\n</details>\n\n"
+                    md += f"<details><summary> OCR</summary>\n\n```\n{ocr['text']}\n```\n</details>\n\n"
         (note_dir / 'note.md').write_text(md)
         
-        print(f"✅ 保存到: {note_dir}", file=sys.stderr)
+        print(f" 保存到: {note_dir}", file=sys.stderr)
         return note
 
 def main():

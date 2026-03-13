@@ -21,7 +21,7 @@ function run(cmd) {
     try {
         execSync(cmd, { stdio: 'inherit' });
     } catch (e) {
-        console.error(`❌ Command failed: ${cmd}`);
+        console.error(` Command failed: ${cmd}`);
         process.exit(1);
     }
 }
@@ -64,10 +64,10 @@ if (scriptContent) {
         process.exit(1);
     }
 } else {
-    console.log("⚠️ No script provided. Running demo mode.");
+    console.log(" No script provided. Running demo mode.");
 }
 
-console.log(`🎬 [Anima] Starting production...`);
+console.log(` [Anima] Starting production...`);
 if (scriptContent) console.log(`   Script: ${tempScriptPath}`);
 console.log(`   Target: ${targetId || "None (Generation Only)"}`);
 
@@ -78,27 +78,27 @@ const scriptArg = scriptContent ? `"${tempScriptPath}"` : "";
 try {
     execSync(`node "${DIRECTOR_SCRIPT}" ${scriptArg}`, { stdio: 'inherit' });
 } catch (e) {
-    console.error("❌ Director failed.");
+    console.error(" Director failed.");
     process.exit(1);
 }
 
 if (!fs.existsSync(FINAL_VIDEO)) {
-    console.error("❌ Output video not found.");
+    console.error(" Output video not found.");
     process.exit(1);
 }
 
 // 2. Upload & Send (if target provided)
 if (targetId && !isPreview) {
-    console.log(`🚀 [Anima] Uploading and sending to ${targetId}...`);
+    console.log(` [Anima] Uploading and sending to ${targetId}...`);
     try {
         // Pass targetId and video path to send_video_pro.js
         execSync(`node "${SEND_SCRIPT}" "${targetId}" "${FINAL_VIDEO}"`, { stdio: 'inherit' });
     } catch (e) {
-        console.error("❌ Delivery failed.");
+        console.error(" Delivery failed.");
         process.exit(1);
     }
 } else {
-    console.log(`✅ [Anima] Video generated at: ${FINAL_VIDEO}`);
+    console.log(` [Anima] Video generated at: ${FINAL_VIDEO}`);
 }
 
 // Cleanup

@@ -4,10 +4,10 @@ Sales intelligence and lead discovery via [Apollo.io](https://apollo.io)'s REST 
 
 ## Features
 
-- 🔍 **People Search** — Find prospects by job title, company, keywords
-- 👤 **Person Enrichment** — Get contact details from email or LinkedIn URL
-- 🏢 **Company Search** — Discover companies by industry, size, location
-- 📊 **Company Enrichment** — Get company intel from domain or name
+-  **People Search** — Find prospects by job title, company, keywords
+-  **Person Enrichment** — Get contact details from email or LinkedIn URL
+-  **Company Search** — Discover companies by industry, size, location
+-  **Company Enrichment** — Get company intel from domain or name
 
 ## Installation
 

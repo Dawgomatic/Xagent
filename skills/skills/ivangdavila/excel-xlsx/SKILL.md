@@ -1,7 +1,7 @@
 ---
 name: XLSX
 description: Read and generate Excel files with correct types, dates, and cross-platform compatibility.
-metadata: {"clawdbot":{"emoji":"📗","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Dates

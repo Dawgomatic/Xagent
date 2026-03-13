@@ -32,12 +32,12 @@ async function run() {
     ws.on('error', reject);
   });
   
-  console.log('✅ CDP 연결');
+  console.log(' CDP 연결');
   
   // 1. upload 페이지로 이동
   await sendCDP(ws, 'Page.navigate', { url: 'https://clawhub.ai/upload' });
   await new Promise(r => setTimeout(r, 3000));
-  console.log('📄 upload 페이지 로드');
+  console.log(' upload 페이지 로드');
   
   // 2. 폼 채우기
   const fillScript = `
@@ -90,7 +90,7 @@ async function run() {
     expression: fillScript, 
     awaitPromise: true 
   });
-  console.log('📝 폼 채움:', result.result?.value);
+  console.log(' 폼 채움:', result.result?.value);
   
   // 3. 파일 업로드는 File API로 직접 해야 함
   // 스킬 폴더의 파일들을 읽어서 DataTransfer로 주입
@@ -115,7 +115,7 @@ async function run() {
   }
   
   const files = getFiles(skillDir);
-  console.log(`📦 파일 ${files.length}개 준비`);
+  console.log(` 파일 ${files.length}개 준비`);
   
   // 파일을 브라우저에 주입
   const injectScript = `
@@ -159,7 +159,7 @@ async function run() {
     expression: injectScript,
     awaitPromise: true
   });
-  console.log('📂 파일 업로드:', injectResult.result?.value);
+  console.log(' 파일 업로드:', injectResult.result?.value);
   
   await new Promise(r => setTimeout(r, 2000));
   
@@ -170,10 +170,10 @@ async function run() {
     'no validation info'
   `;
   const checkResult = await sendCDP(ws, 'Runtime.evaluate', { expression: checkScript });
-  console.log('🔍 상태:', checkResult.result?.value);
+  console.log(' 상태:', checkResult.result?.value);
   
   ws.close();
   console.log('\n완료! 브라우저에서 확인 후 Publish skill 버튼을 눌러주세요.');
 }
 
-run().catch(e => console.error('❌', e.message));
+run().catch(e => console.error('', e.message));

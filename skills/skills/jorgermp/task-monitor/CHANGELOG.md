@@ -7,13 +7,13 @@ All notable changes to Task Monitor will be documented in this file.
 ### Initial Release
 
 #### Features
-- 🌐 **Web Dashboard** - Beautiful, responsive UI accessible from any device
-- 📱 **Mobile-First Design** - Optimized for phones and tablets
-- 🔄 **Auto-Refresh** - Updates every 60 seconds automatically
-- 🎨 **Modern UI** - Gradient design with dark theme
-- 📊 **Real-Time Data** - Monitor main session, Discord, sub-agents, and cron jobs
-- 🚀 **Fast API** - JSON endpoint with intelligent caching
-- ⚡ **High Performance** - <100ms response time with caching, ~15s cold cache
+-  **Web Dashboard** - Beautiful, responsive UI accessible from any device
+-  **Mobile-First Design** - Optimized for phones and tablets
+-  **Auto-Refresh** - Updates every 60 seconds automatically
+-  **Modern UI** - Gradient design with dark theme
+-  **Real-Time Data** - Monitor main session, Discord, sub-agents, and cron jobs
+-  **Fast API** - JSON endpoint with intelligent caching
+-  **High Performance** - <100ms response time with caching, ~15s cold cache
 
 #### Components
 - **Web Server** (`server.js`) - Express-based HTTP server on port 3030

@@ -1,4 +1,4 @@
-# 🃏 flashcard-maker
+#  flashcard-maker
 
 Auto-generate study flashcards from any text, notes, or documents.
 

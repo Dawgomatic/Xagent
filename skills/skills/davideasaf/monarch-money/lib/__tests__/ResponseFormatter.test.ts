@@ -69,7 +69,7 @@ describe('ResponseFormatter', () => {
     test('ultra-light format is very compact', () => {
       const result = ResponseFormatter.formatAccounts(mockAccounts, 'ultra-light');
 
-      expect(result).toContain('💰');
+      expect(result).toContain('');
       expect(result).toContain('3 accounts');
       expect(result).toContain('$21,913'); // Total balance
       expect(result.length).toBeLessThan(100); // Very compact
@@ -129,7 +129,7 @@ describe('ResponseFormatter', () => {
     test('ultra-light format is very compact', () => {
       const result = ResponseFormatter.formatTransactions(mockTransactions, 'ultra-light');
 
-      expect(result).toContain('💳');
+      expect(result).toContain('');
       expect(result).toContain('3 transactions');
       expect(result).toContain('Volume: $1,058'); // Total absolute amounts
       expect(result.length).toBeLessThan(100);
@@ -161,7 +161,7 @@ describe('ResponseFormatter', () => {
       const query = 'last 3 Amazon charges';
       const result = ResponseFormatter.formatTransactions(mockTransactions, 'light', query);
 
-      expect(result).toContain('🧠 **Smart Query**');
+      expect(result).toContain(' **Smart Query**');
       expect(result).toContain(query);
     });
 
@@ -197,9 +197,9 @@ describe('ResponseFormatter', () => {
 
       const result = ResponseFormatter.formatQuickStats(accountsForStats, recentTransactions);
 
-      expect(result).toContain('💰 $1,500'); // Only accounts included in net worth
+      expect(result).toContain(' $1,500'); // Only accounts included in net worth
       expect(result).toContain('3 accounts'); // Total accounts shown
-      expect(result).toMatch(/⬆️|⬇️/); // Should have trend indicator
+      expect(result).toMatch(/|/); // Should have trend indicator
       expect(result.length).toBeLessThan(150); // Ultra-compact
     });
 
@@ -211,7 +211,7 @@ describe('ResponseFormatter', () => {
 
       const result = ResponseFormatter.formatQuickStats(accountsForStats);
 
-      expect(result).toContain('💰 $1,500');
+      expect(result).toContain(' $1,500');
       expect(result).toContain('2 accounts');
     });
   });
@@ -228,9 +228,9 @@ describe('ResponseFormatter', () => {
     test('aggregates spending by category correctly', () => {
       const result = ResponseFormatter.formatSpendingSummary(transactionsForSpending, 3);
 
-      expect(result).toContain('🍽️ $250'); // Dining total
-      expect(result).toContain('⛽ $80'); // Gas
-      expect(result).toContain('🛍️ $70'); // Shopping
+      expect(result).toContain(' $250'); // Dining total
+      expect(result).toContain(' $80'); // Gas
+      expect(result).toContain(' $70'); // Shopping
       expect(result).toContain('(top 3 this month)');
       expect(result.length).toBeLessThan(100);
     });
@@ -241,7 +241,7 @@ describe('ResponseFormatter', () => {
       ];
 
       const result = ResponseFormatter.formatSpendingSummary(incomeOnly, 5);
-      expect(result).toBe('💸 No expenses found');
+      expect(result).toBe(' No expenses found');
     });
 
     test('handles uncategorized transactions', () => {
@@ -251,19 +251,19 @@ describe('ResponseFormatter', () => {
       ];
 
       const result = ResponseFormatter.formatSpendingSummary(uncategorized, 5);
-      expect(result).toContain('💸 $80'); // Should sum uncategorized
-      expect(result).toMatch(/💸 \$80.*\(top \d+ this month\)/);
+      expect(result).toContain(' $80'); // Should sum uncategorized
+      expect(result).toMatch(/ \$80.*\(top \d+ this month\)/);
     });
   });
 
   describe('Category Icon Mapping', () => {
     test('maps common categories to appropriate icons', () => {
       const testCategories = [
-        { category: 'Dining', expected: '🍽️' },
-        { category: 'Gas', expected: '⛽' },
-        { category: 'Shopping', expected: '🛍️' },
-        { category: 'Travel', expected: '✈️' },
-        { category: 'Unknown Category', expected: '💸' }
+        { category: 'Dining', expected: '' },
+        { category: 'Gas', expected: '' },
+        { category: 'Shopping', expected: '' },
+        { category: 'Travel', expected: '' },
+        { category: 'Unknown Category', expected: '' }
       ];
 
       testCategories.forEach(({ category, expected }) => {

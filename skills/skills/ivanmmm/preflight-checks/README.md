@@ -27,7 +27,7 @@ vim PRE-FLIGHT-ANSWERS.md
 **Problem:** Agent knows rules but doesn't follow them.
 
 ```
-Memory loaded ✅ → Rules understood ✅ → Behavior wrong ❌
+Memory loaded  → Rules understood  → Behavior wrong 
 ```
 
 **Solution:** Behavioral unit tests.
@@ -37,7 +37,7 @@ Memory loaded ✅ → Rules understood ✅ → Behavior wrong ❌
 2. Agent reads PRE-FLIGHT-CHECKS.md
 3. Agent answers scenarios
 4. Agent compares with PRE-FLIGHT-ANSWERS.md
-5. Agent reports score: N/N ✅ or failures ❌
+5. Agent reports score: N/N  or failures 
 ```
 
 ## Files
@@ -90,10 +90,10 @@ See `examples/` directory for real working pre-flight system:
 
 ## When to Use
 
-- ✅ Building agent with persistent memory
-- ✅ Want behavioral consistency across sessions
-- ✅ Testing agent after updates
-- ✅ Catching drift/degradation early
+-  Building agent with persistent memory
+-  Want behavioral consistency across sessions
+-  Testing agent after updates
+-  Catching drift/degradation early
 
 ## Integration
 

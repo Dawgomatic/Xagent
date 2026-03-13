@@ -6,9 +6,9 @@ The claude-oauth-refresher skill has been updated with production-ready improvem
 
 ---
 
-## ✅ Completed Changes
+##  Completed Changes
 
-### 1. Config File Rename ✅
+### 1. Config File Rename 
 
 **Old:** `config.json`  
 **New:** `claude-oauth-refresh-config.json`
@@ -27,7 +27,7 @@ The claude-oauth-refresher skill has been updated with production-ready improvem
 
 ---
 
-### 2. Installer = One-Time Only ✅
+### 2. Installer = One-Time Only 
 
 **Changes:**
 - [x] Updated install.sh header message explaining one-time setup
@@ -49,7 +49,7 @@ To change settings later:
 
 ---
 
-### 3. Three Notification Types ✅
+### 3. Three Notification Types 
 
 **Old Structure:**
 ```json
@@ -63,9 +63,9 @@ To change settings later:
 ```json
 {
   "notifications": {
-    "on_start": true,      // "🔄 Refreshing Claude token..."
-    "on_success": true,    // "✅ Claude token refreshed!"
-    "on_failure": true     // "❌ Claude token refresh failed: [details]"
+    "on_start": true,      // " Refreshing Claude token..."
+    "on_success": true,    // " Claude token refreshed!"
+    "on_failure": true     // " Claude token refresh failed: [details]"
   }
 }
 ```
@@ -79,19 +79,19 @@ To change settings later:
 
 ---
 
-### 4. Interactive Installation Config ✅
+### 4. Interactive Installation Config 
 
 **Added to install.sh:**
 ```
 Configure Notifications:
-💡 Recommendation: Keep all enabled for the first run to verify it works.
+ Recommendation: Keep all enabled for the first run to verify it works.
    You can disable them later by:
    1. Editing ~/clawd/claude-oauth-refresh-config.json
    2. Asking Clawdbot: "disable Claude refresh notifications"
 
-Enable "🔄 Refreshing token..." notification? [Y/n]: 
-Enable "✅ Token refreshed!" notification? [Y/n]: 
-Enable "❌ Refresh failed" notification? [Y/n]: 
+Enable " Refreshing token..." notification? [Y/n]: 
+Enable " Token refreshed!" notification? [Y/n]: 
+Enable " Refresh failed" notification? [Y/n]: 
 ```
 
 **Features:**
@@ -104,7 +104,7 @@ Enable "❌ Refresh failed" notification? [Y/n]:
 
 ---
 
-### 5. Detailed Failure Messages ✅
+### 5. Detailed Failure Messages 
 
 **Enhanced refresh-token.sh with:**
 
@@ -151,7 +151,7 @@ Enable "❌ Refresh failed" notification? [Y/n]:
 
 **Example Full Failure Notification:**
 ```
-❌ Claude token refresh failed
+ Claude token refresh failed
 
 Error: Network timeout connecting to auth.anthropic.com
 Details: Connection timed out after 30s
@@ -167,7 +167,7 @@ Need help? Message Clawdbot or check logs:
 
 ---
 
-### 6. Clawdbot Control for Notifications ✅
+### 6. Clawdbot Control for Notifications 
 
 **Added comprehensive section to SKILL.md:**
 
@@ -195,7 +195,7 @@ Need help? Message Clawdbot or check logs:
 
 ---
 
-### 7. Updated All Scripts ✅
+### 7. Updated All Scripts 
 
 **refresh-token.sh:**
 - [x] New config filename
@@ -304,21 +304,21 @@ Need help? Message Clawdbot or check logs:
 
 ## Production Readiness
 
-### Security ✅
+### Security 
 - [x] No secrets in logs
 - [x] No secrets in config file
 - [x] Keychain for refresh tokens
 - [x] Secure OAuth endpoints
 - [x] Proper file permissions
 
-### Reliability ✅
+### Reliability 
 - [x] Error handling for all failure modes
 - [x] Automatic migration
 - [x] Backward compatible defaults
 - [x] Comprehensive logging
 - [x] User-friendly error messages
 
-### Usability ✅
+### Usability 
 - [x] Interactive setup
 - [x] Smart defaults
 - [x] Auto-detection
@@ -326,7 +326,7 @@ Need help? Message Clawdbot or check logs:
 - [x] Easy troubleshooting
 - [x] Clawdbot integration
 
-### Maintainability ✅
+### Maintainability 
 - [x] Clear code structure
 - [x] Comprehensive comments
 - [x] Migration path documented
@@ -352,17 +352,17 @@ Need help? Message Clawdbot or check logs:
 ## Documentation Quality
 
 ### For Users
-- ✅ SKILL.md - Complete reference
-- ✅ QUICKSTART.md - Fast onboarding
-- ✅ README.md - Overview
-- ✅ UPGRADE.md - Migration guide
-- ✅ Inline help in scripts
+-  SKILL.md - Complete reference
+-  QUICKSTART.md - Fast onboarding
+-  README.md - Overview
+-  UPGRADE.md - Migration guide
+-  Inline help in scripts
 
 ### For Maintainers
-- ✅ CHANGES.md - This file
-- ✅ Code comments
-- ✅ Clear error messages
-- ✅ Testing checklist
+-  CHANGES.md - This file
+-  Code comments
+-  Clear error messages
+-  Testing checklist
 
 ---
 
@@ -390,11 +390,11 @@ Need help? Message Clawdbot or check logs:
 
 ## Conclusion
 
-✅ **All 7 requirements implemented**
-✅ **Production-ready quality**
-✅ **Comprehensive documentation**
-✅ **Automatic migration path**
-✅ **Enhanced user experience**
+ **All 7 requirements implemented**
+ **Production-ready quality**
+ **Comprehensive documentation**
+ **Automatic migration path**
+ **Enhanced user experience**
 
 **Status:** Ready for production use.
 

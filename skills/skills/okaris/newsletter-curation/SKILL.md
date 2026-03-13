@@ -90,17 +90,17 @@ Numbers, charts, and analysis of trends in your space.
 ```markdown
 # [Newsletter Name] — Issue #[N]
 
-## 👋 Hello
+##  Hello
 
 [2-3 sentences of personal intro — what's on your mind,
 what this issue covers, why it matters right now]
 
-## 🔥 The Big Story
+##  The Big Story
 
 [Featured content — your deepest analysis or most
 important curated piece with commentary]
 
-## 📚 Worth Reading
+##  Worth Reading
 
 ### [Title 1](url)
 [2-3 sentence commentary with your take]
@@ -111,17 +111,17 @@ important curated piece with commentary]
 ### [Title 3](url)
 [2-3 sentence commentary]
 
-## 💡 Quick Hits
+##  Quick Hits
 
 - [One-liner + link](url)
 - [One-liner + link](url)
 - [One-liner + link](url)
 
-## 📊 Stat of the Week
+##  Stat of the Week
 
 [One compelling data point with context]
 
-## 💬 From the Community
+##  From the Community
 
 [Reader reply, question, or discussion point]
 
@@ -187,17 +187,17 @@ For each piece of content, ask:
 ### What Makes Good Commentary
 
 ```
-❌ Just describing: "This article talks about React Server Components."
-❌ Restating the headline: "React Server Components are here."
+ Just describing: "This article talks about React Server Components."
+ Restating the headline: "React Server Components are here."
 
-✅ Adding context: "React Server Components shipped last week, and this
+ Adding context: "React Server Components shipped last week, and this
    is the first production teardown I've seen. Key insight: they reduced
    initial JS bundle by 60%, but added complexity to the build pipeline."
 
-✅ Giving your take: "I'm skeptical about the migration path here.
+ Giving your take: "I'm skeptical about the migration path here.
    Most teams I've talked to are waiting for better tooling."
 
-✅ Connecting dots: "This pairs well with Vercel's announcement last
+ Connecting dots: "This pairs well with Vercel's announcement last
    month — the ecosystem is clearly converging on this pattern."
 ```
 

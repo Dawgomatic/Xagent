@@ -163,7 +163,7 @@ class SessionDataManager:
         
         # Warn if comparing same server
         if q1.server == q2.server:
-            print(f"⚠️  Warning: Both queries from {q1.server}")
+            print(f"  Warning: Both queries from {q1.server}")
             print(f"   Comparing [{ref1}] vs [{ref2}] from same server")
         
         result = ComparisonResult(

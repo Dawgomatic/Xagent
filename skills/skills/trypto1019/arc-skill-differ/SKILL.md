@@ -2,7 +2,7 @@
 name: skill-differ
 description: Compare two versions of an OpenClaw skill to detect security-relevant changes. Use before updating any skill from ClawHub. Highlights new capabilities, changed patterns, and recommends whether an update is safe.
 user-invocable: true
-metadata: {"openclaw": {"emoji": "🔄", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux"], "requires": {"bins": ["python3"]}}}
 ---
 
 # Skill Differ

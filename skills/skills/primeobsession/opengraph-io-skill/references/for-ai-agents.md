@@ -217,7 +217,7 @@ Complete marketing asset with QR embedded in professional design.
 
 ## Gotchas & Edge Cases
 
-### ❌ Don't mix diagram syntax with description in prompt
+###  Don't mix diagram syntax with description in prompt
 ```json
 // WRONG - will fail
 {
@@ -232,16 +232,16 @@ Complete marketing asset with QR embedded in professional design.
 }
 ```
 
-### ❌ Don't use premium for structure-critical diagrams
+###  Don't use premium for structure-critical diagrams
 Premium output uses AI polish which may alter layout. Use `"outputStyle": "standard"` for diagrams where structure matters.
 
-### ✅ Save sessionId and assetId
+###  Save sessionId and assetId
 You'll need these for iteration and downloading.
 
-### ✅ Use diagramCode for programmatic diagrams
+###  Use diagramCode for programmatic diagrams
 If you're building Mermaid/D2 syntax programmatically, use `diagramCode` + `diagramFormat` to bypass AI generation.
 
-### ⚠️ Free tier limits
+###  Free tier limits
 - 100/month: Site, Screenshot, Scrape, Extract
 - 4/month: Image Generation
 - Query: Paid only

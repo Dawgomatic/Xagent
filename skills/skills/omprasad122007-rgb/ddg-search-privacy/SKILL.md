@@ -183,10 +183,10 @@ search_duckduckgo("artificial intelligence !news")
 ### Privacy Considerations
 
 DuckDuckGo advantages:
-- ✅ No personal tracking
-- ✅ No search history stored
-- ✅ No user profiling
-- ✅ No forced personalized results
+-  No personal tracking
+-  No search history stored
+-  No user profiling
+-  No forced personalized results
 
 ### Performance Tips
 

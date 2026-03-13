@@ -68,7 +68,7 @@ def show_pm_trader(wallet: str):
             pnl_pct = ((cur - avg) / avg * 100) if avg > 0 else 0
             if direction == "NO":
                 pnl_pct = -pnl_pct
-            icon = "🟢" if pnl_pct > 0 else "🔴"
+            icon = "" if pnl_pct > 0 else ""
             print(f"    {icon} {direction:3s} ${size:,.0f} @ {avg:.2f} → {cur:.2f} "
                   f"({pnl_pct:+.1f}%) | {p.get('title', '')[:45]}")
 
@@ -110,7 +110,7 @@ def show_perp_trader(address: str):
             value = abs(float(pos.get("positionValue", 0) or 0))
             entry = float(pos.get("entryPx", 0) or 0)
             upnl = float(pos.get("unrealizedPnl", 0) or 0)
-            icon = "🟢" if upnl > 0 else "🔴"
+            icon = "" if upnl > 0 else ""
             lev = pos.get("leverage", {}).get("value", 1)
             print(f"    {icon} {direction:5s} ${coin:5s} ${value:,.0f} @ ${entry:,.2f} "
                   f"| uPnL: ${upnl:,.2f} | {lev}x")

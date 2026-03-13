@@ -26,7 +26,7 @@
 ```bash
 curl -s "https://api.telegram.org/bot<TOKEN>/sendMessage" \
   -d "chat_id=<CHAT_ID>" \
-  -d "text=Test signal 🚀" \
+  -d "text=Test signal " \
   -d "parse_mode=HTML"
 ```
 

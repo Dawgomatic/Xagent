@@ -330,7 +330,7 @@ function readAffectState(conversationId, identityName) {
  * Strip injected context blocks from input text.
  * Removes:
  *   - [NIMA RECALL - ...] blocks (injected by recall hooks)
- *   - 🎭 AFFECT STATE blocks (injected by affect plugin)
+ *   -  AFFECT STATE blocks (injected by affect plugin)
  *   - [message_id: ...] trailers
  *   - Heartbeat instruction text (system mechanics, not user message)
  *
@@ -351,8 +351,8 @@ function cleanInputText(text) {
   // Remove NIMA RECALL blocks (multiline, non-greedy)
   cleaned = cleaned.replace(/\[NIMA RECALL[^\]]*\][\s\S]*?\[End recall[^\]]*\]\s*/gi, "");
 
-  // Remove 🎭 AFFECT STATE blocks (usually single-line or short multi-line)
-  cleaned = cleaned.replace(/🎭\s*AFFECT STATE[^\n]*(\n[^\n]*){0,3}\n*/g, "");
+  // Remove  AFFECT STATE blocks (usually single-line or short multi-line)
+  cleaned = cleaned.replace(/\s*AFFECT STATE[^\n]*(\n[^\n]*){0,3}\n*/g, "");
 
   // Remove [Dynamic affect... line
   cleaned = cleaned.replace(/\[Dynamic affect[^\]]*\]\s*/gi, "");
@@ -992,11 +992,11 @@ except Exception as e:
             encoding: "utf-8",
             breakerId: "store-ladybug"
           });
-          log.debug?.(`[nima-memory] ✅ Dual-write to LadybugDB successful`);
+          log.debug?.(`[nima-memory]  Dual-write to LadybugDB successful`);
         }
       } catch (lbErr) {
         // Non-critical: LadybugDB write failed but SQLite succeeded
-        log.warn?.(`[nima-memory] ⚠️ LadybugDB dual-write failed (non-critical): ${lbErr.message}`);
+        log.warn?.(`[nima-memory]  LadybugDB dual-write failed (non-critical): ${lbErr.message}`);
       }
     }
     
@@ -1004,7 +1004,7 @@ except Exception as e:
 
   } catch (err) {
     // AUDIT FIX: Always log full error context (Issue #1)
-    log.error?.(`[nima-memory] ❌ Primary storage failed: ${err.message}`);
+    log.error?.(`[nima-memory]  Primary storage failed: ${err.message}`);
     if (err.stderr) {
       log.error?.(`[nima-memory] Python stderr: ${err.stderr}`);
     }
@@ -1016,8 +1016,8 @@ except Exception as e:
     try {
       const backupFile = join(EMERGENCY_DIR, `backup_${Date.now()}_${randomBytes(4).toString("hex")}.json`);
       writeFileSync(backupFile, JSON.stringify(data, null, 2), { encoding: "utf-8", mode: 0o600 });
-      log.warn?.(`[nima-memory] ⚠️  EMERGENCY BACKUP saved: ${backupFile}`);
-      log.warn?.(`[nima-memory] ⚠️  To recover, run: python3 scripts/recover_backups.py`);
+      log.warn?.(`[nima-memory]   EMERGENCY BACKUP saved: ${backupFile}`);
+      log.warn?.(`[nima-memory]   To recover, run: python3 scripts/recover_backups.py`);
       
       // AUDIT FIX: Propagate error instead of returning false (Issue #1)
       // This allows the caller to decide how to handle the failure
@@ -1032,8 +1032,8 @@ except Exception as e:
         throw backupErr;
       }
       
-      log.error?.(`[nima-memory] ❌ CRITICAL: Emergency backup ALSO failed!`);
-      log.error?.(`[nima-memory] ❌ Lost memory: ${data.input?.summary || 'unknown'}`);
+      log.error?.(`[nima-memory]  CRITICAL: Emergency backup ALSO failed!`);
+      log.error?.(`[nima-memory]  Lost memory: ${data.input?.summary || 'unknown'}`);
       log.error?.(`[nima-memory] Backup error: ${backupErr.message}`);
       
       // AUDIT FIX: Propagate error with full context (Issue #1)
@@ -1166,13 +1166,13 @@ export default function nimaMemoryPlugin(api, config) {
     setTimeout(async () => {
       const health = await healthCheck();
       if (health.ok) {
-        log.info?.(`[nima-memory] ✅ Health check passed`);
+        log.info?.(`[nima-memory]  Health check passed`);
         log.info?.(`[nima-memory] Database: ${health.stats.nodes} nodes, ${health.stats.turns} turns, ${health.stats.db_size_mb}MB`);
         if (health.stats.recent_24h > 0) {
           log.info?.(`[nima-memory] Recent activity: ${health.stats.recent_24h} memories in last 24h`);
         }
       } else {
-        log.warn?.(`[nima-memory] ⚠️ Health check failed: ${health.error}`);
+        log.warn?.(`[nima-memory]  Health check failed: ${health.error}`);
         if (health.path) {
           log.warn?.(`[nima-memory] Database path: ${health.path}`);
         }
@@ -1199,10 +1199,10 @@ export default function nimaMemoryPlugin(api, config) {
           breakerId: "migration"
         });
         
-        log.info?.(`[nima-memory] ✅ Migration completed`);
+        log.info?.(`[nima-memory]  Migration completed`);
         log.info?.(`[nima-memory] Check ${MEMORY_DIR}/migration.log for details`);
       } catch (err) {
-        log.error?.(`[nima-memory] ❌ Migration failed: ${err.message}`);
+        log.error?.(`[nima-memory]  Migration failed: ${err.message}`);
         log.error?.(`[nima-memory] See ${MEMORY_DIR}/migration.log for details`);
         log.warn?.(`[nima-memory] Falling back to SQLite...`);
       }
@@ -1283,15 +1283,15 @@ export default function nimaMemoryPlugin(api, config) {
       try {
         await storeMemory(record);
         const topAffect = affect ? Object.entries(affect).sort((a,b) => b[1]-a[1])[0]?.[0] : 'none';
-        log.info?.(`[nima-memory] ✅ Stored turn: ${layers.input?.who || 'user'} → thinking → response (affect: ${topAffect})`);
+        log.info?.(`[nima-memory]  Stored turn: ${layers.input?.who || 'user'} → thinking → response (affect: ${topAffect})`);
       } catch (storeErr) {
         // AUDIT FIX: Log but don't crash the hook (Issue #1)
         // Error is already logged and backed up by storeMemory
-        log.error?.(`[nima-memory] ❌ Failed to store memory turn: ${storeErr.message}`);
+        log.error?.(`[nima-memory]  Failed to store memory turn: ${storeErr.message}`);
         
         // If there's a backup file, mention it
         if (storeErr.backupFile) {
-          log.info?.(`[nima-memory] 📁 Data preserved in: ${storeErr.backupFile}`);
+          log.info?.(`[nima-memory]  Data preserved in: ${storeErr.backupFile}`);
         }
         
         // Don't re-throw - this is a background task, failing shouldn't crash the agent

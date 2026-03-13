@@ -43,12 +43,12 @@ async function status({ query }) {
   if (!isNaN(query)) {
     try {
       const owner = await contract.ownerOf(query);
-      return `✅ Agent #${query} is VERIFIED.\nOwner: ${owner}`;
+      return ` Agent #${query} is VERIFIED.\nOwner: ${owner}`;
     } catch {
-      return `❌ Agent #${query} NOT FOUND.`;
+      return ` Agent #${query} NOT FOUND.`;
     }
   }
-  return "🔍 Reverse lookup (Wallet -> ID) coming soon. Search by ID.";
+  return " Reverse lookup (Wallet -> ID) coming soon. Search by ID.";
 }
 
 /**
@@ -74,7 +74,7 @@ async function lookup({ id }) {
       uri
     }, null, 2);
   } catch (e) {
-    return `❌ Error looking up Agent #${id}: ${e.message}`;
+    return ` Error looking up Agent #${id}: ${e.message}`;
   }
 }
 
@@ -117,7 +117,7 @@ async function reputation({ id }) {
     }, null, 2);
 
   } catch (e) {
-    return `❌ Error calculating reputation: ${e.message}`;
+    return ` Error calculating reputation: ${e.message}`;
   }
 }
 
@@ -134,18 +134,18 @@ async function register({ endpoints, uri, agentWallet }) {
   const metadataUri = uri || `https://moltbook.com/agent/${myAddress}`;
   const endpointsJson = typeof endpoints === 'string' ? endpoints : JSON.stringify(endpoints);
 
-  console.log(`📝 Registering agent for ${myAddress}...`);
+  console.log(` Registering agent for ${myAddress}...`);
 
   try {
     const fee = ethers.parseEther(REGISTRATION_FEE);
     const tx = await contract.registerAgent(myAddress, metadataUri, endpointsJson, agentWalletAddress, { value: fee });
 
-    console.log(`🚀 TX Sent: ${tx.hash}`);
+    console.log(` TX Sent: ${tx.hash}`);
     const receipt = await tx.wait();
 
-    return `✅ REGISTRATION SUCCESS!\nTransaction: ${tx.hash}\nBlock: ${receipt.blockNumber}`;
+    return ` REGISTRATION SUCCESS!\nTransaction: ${tx.hash}\nBlock: ${receipt.blockNumber}`;
   } catch (e) {
-    return `❌ Registration Failed: ${e.message}`;
+    return ` Registration Failed: ${e.message}`;
   }
 }
 
@@ -161,12 +161,12 @@ async function rate({ agentId, score }) {
     const fee = ethers.parseEther(REGISTRATION_FEE); 
     const tx = await contract.logReputation(agentId, score, { value: fee });
 
-    console.log(`🚀 TX Sent: ${tx.hash}`);
+    console.log(` TX Sent: ${tx.hash}`);
     const receipt = await tx.wait();
 
-    return `✅ REPUTATION LOGGED!\nTransaction: ${tx.hash}\nBlock: ${receipt.blockNumber}\nScore: ${score}/100.`;
+    return ` REPUTATION LOGGED!\nTransaction: ${tx.hash}\nBlock: ${receipt.blockNumber}\nScore: ${score}/100.`;
   } catch (e) {
-    return `❌ Reputation Logging Failed: ${e.message}`;
+    return ` Reputation Logging Failed: ${e.message}`;
   }
 }
 

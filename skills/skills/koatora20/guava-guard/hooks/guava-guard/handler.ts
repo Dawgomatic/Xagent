@@ -16,7 +16,7 @@
  *   npx guard-scanner ./skills
  *   https://github.com/koatora20/guard-scanner
  *
- * @author Guava 🍈 & Dee (Singularity Laboratory)
+ * @author Guava  & Dee (Singularity Laboratory)
  * @version 10.0.0
  * @license MIT
  */
@@ -161,7 +161,7 @@ const handler: HookHandler = async (event) => {
       // if (mode === 'strict' && (check.severity === 'CRITICAL' || check.severity === 'HIGH')) {
       //     entry.action = 'blocked';
       //     logAudit(entry);
-      //     event.messages.push(`🍈🛡️ GuavaGuard BLOCKED: ${check.desc} [${check.id}]`);
+      //     event.messages.push(` GuavaGuard BLOCKED: ${check.desc} [${check.id}]`);
       //     event.cancel = true;  // Not yet in the public API
       //     return;
       // }
@@ -169,7 +169,7 @@ const handler: HookHandler = async (event) => {
       // if (mode === 'enforce' && check.severity === 'CRITICAL') {
       //     entry.action = 'blocked';
       //     logAudit(entry);
-      //     event.messages.push(`🍈🛡️ GuavaGuard BLOCKED: ${check.desc} [${check.id}]`);
+      //     event.messages.push(` GuavaGuard BLOCKED: ${check.desc} [${check.id}]`);
       //     event.cancel = true;  // Not yet in the public API
       //     return;
       // }
@@ -178,11 +178,11 @@ const handler: HookHandler = async (event) => {
       logAudit(entry);
 
       if (check.severity === 'CRITICAL') {
-        event.messages.push(`🍈🛡️ GuavaGuard WARNING: ${check.desc} [${check.id}]`);
-        console.warn(`[guava-guard] ⚠️ WARNING: ${check.desc} [${check.id}]`);
+        event.messages.push(` GuavaGuard WARNING: ${check.desc} [${check.id}]`);
+        console.warn(`[guava-guard]  WARNING: ${check.desc} [${check.id}]`);
       } else if (check.severity === 'HIGH') {
-        event.messages.push(`🍈🛡️ GuavaGuard NOTICE: ${check.desc} [${check.id}]`);
-        console.warn(`[guava-guard] ℹ️ NOTICE: ${check.desc} [${check.id}]`);
+        event.messages.push(` GuavaGuard NOTICE: ${check.desc} [${check.id}]`);
+        console.warn(`[guava-guard]  NOTICE: ${check.desc} [${check.id}]`);
       }
     }
   }

@@ -54,7 +54,7 @@ If the user has custom PAI agents at `~/.claude/Agents/`, those can be used inst
 
 1. Receive the idea/topic from the user
 2. Discover available agents (scan `agents/` folder or custom path)
-3. Send a loading message to the user: `🏛️ *The Council convenes...* (this takes 2-5 minutes)`
+3. Send a loading message to the user: ` *The Council convenes...* (this takes 2-5 minutes)`
 4. Spawn a sub-agent with **5-minute timeout** using this task template:
 
 ```
@@ -85,27 +85,27 @@ Use the voice and personality defined in each agent file. Don't just list points
 ## Output Format
 
 ```markdown
-## 🏛️ Council of the Wise — [Topic]
+##  Council of the Wise — [Topic]
 
-### ⚖️ Synthesis (TL;DR)
+###  Synthesis (TL;DR)
 [combined recommendation + key decisions needed]
 [note where council members disagreed and why — that's the gold]
 
 ---
 
-### 👹 Devil's Advocate
+###  Devil's Advocate
 [challenges and risks — sharp, probing voice]
 
-### 🏗️ Architect  
+###  Architect  
 [structure and design — strategic, principled voice]
 
-### 🛠️ Engineer
+###  Engineer
 [implementation notes — practical, direct voice]
 
-### 🎨 Artist
+###  Artist
 [voice and presentation — evocative, user-focused voice]
 
-### 📊 Quant
+###  Quant
 [risk analysis, ROI, expected value — data-driven voice]
 ```
 
@@ -134,7 +134,7 @@ No config file needed. The skill auto-discovers agents and uses sensible default
 **Trigger phrases:** "send this to the council", "council of the wise", "get the council's feedback on"
 
 **When triggered:**
-1. Send loading message: `🏛️ *The Council convenes...* (this takes 2-5 minutes)`
+1. Send loading message: ` *The Council convenes...* (this takes 2-5 minutes)`
 2. Spawn sub-agent with 5-minute timeout using the task template in Process section
 3. Return synthesized council report to user
 

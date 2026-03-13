@@ -59,7 +59,7 @@ Then load it:
 set -a; source .env; set +a
 ```
 
-**⚠️ Important:** Never commit `.env` with real credentials. Add to `.gitignore`:
+** Important:** Never commit `.env` with real credentials. Add to `.gitignore`:
 ```
 .env
 .env.local
@@ -140,11 +140,11 @@ python webhook_server.py
 ```
 
 This server:
-- ✅ Listens for POST requests from Twilio (port 5000 by default)
-- ✅ Stores conversation history in JSON
-- ✅ Forwards messages to Clawdbot gateway
-- ✅ Validates Twilio signatures for security
-- ✅ Maintains conversation state per phone number
+-  Listens for POST requests from Twilio (port 5000 by default)
+-  Stores conversation history in JSON
+-  Forwards messages to Clawdbot gateway
+-  Validates Twilio signatures for security
+-  Maintains conversation state per phone number
 
 **Server Options:**
 - `--host`: Bind address (default: 127.0.0.1)
@@ -423,7 +423,7 @@ grep "SMS sent" ~/.clawd/twilio_webhook.log
 
 ## Security & Best Practices
 
-### ✅ Implemented
+###  Implemented
 
 - ✓ Twilio signature validation on webhook
 - ✓ Environment variable credentials (no hardcoded secrets)
@@ -431,7 +431,7 @@ grep "SMS sent" ~/.clawd/twilio_webhook.log
 - ✓ Error logging (sensitive data scrubbed)
 - ✓ Phone number format validation (E.164)
 
-### ⚠️ Additional Recommendations
+###  Additional Recommendations
 
 1. **Keep credentials secret:**
    - Never share account SID or auth token

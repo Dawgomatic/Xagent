@@ -92,7 +92,7 @@
 ## v3.1.0
 
 - **Executive Summary**: 2-4 sentence overview of top stories at the beginning of each digest
-- **Community Buzz Section**: Merged Twitter/X Trending and Reddit Hot Discussions into unified 🔥 社区热议
+- **Community Buzz Section**: Merged Twitter/X Trending and Reddit Hot Discussions into unified  社区热议
 - **Reddit in Topic Sections**: Reddit posts now selected by quality_score alongside other sources
 - **Digest Footer Branding**: Shows skill version and OpenClaw link
 - **Prompt Fix**: Agent explicitly instructed to read Reddit data from merged JSON
@@ -102,7 +102,7 @@
 - **Reddit Data Source**: New `fetch-reddit.py` script — 5th data layer using Reddit's public JSON API (no auth required). 13 subreddits: r/MachineLearning, r/LocalLLaMA, r/CryptoCurrency, r/artificial, r/ethereum, r/ChatGPT, r/singularity, r/OpenAI, r/Bitcoin, r/programming, r/Anthropic, r/defi, r/ExperiencedDevs
 - **Reddit Score Bonus**: Posts with score > 500 get +5, > 200 get +3, > 100 get +1 in quality scoring
 - **10 New Non-Reddit Sources**: Ben's Bites, The Decoder, a16z Crypto, Bankless (RSS); @ClementDelangue, @GregBrockman, @zuck (Twitter); MCP Servers, DeepSeek-V3, Meta Llama (GitHub)
-- **Tweet Engagement Metrics**: KOL entries display `👁|💬|🔁|❤️` stats in inline code blocks across all templates
+- **Tweet Engagement Metrics**: KOL entries display `|||` stats in inline code blocks across all templates
 - **Date Timezone Fix**: Report date explicitly provided via `<DATE>` placeholder, preventing UTC/local mismatch
 - **Mandatory Links**: KOL Updates and Twitter/X Trending sections require source URLs for every entry
 - **Graceful Twitter Degradation**: Missing `X_BEARER_TOKEN` outputs empty JSON instead of failing
@@ -117,13 +117,13 @@
 
 ## v2.8.0
 
-- **Tweet Metrics Display**: KOL entries show `👁|💬|🔁|❤️` engagement stats wrapped in inline code to prevent emoji enlargement on Discord
+- **Tweet Metrics Display**: KOL entries show `|||` engagement stats wrapped in inline code to prevent emoji enlargement on Discord
 - **Standardized Metrics Format**: Fixed 4-metric order, show 0 for missing values, one tweet per bullet with own URL
 - **10 New Sources (119 total)**: Ben's Bites, The Decoder, a16z Crypto, Bankless (RSS); @ClementDelangue, @GregBrockman, @zuck (Twitter); MCP Servers, DeepSeek-V3, Meta Llama (GitHub)
 
 ## v2.7.0
 
-- **Tweet Engagement Metrics**: KOL Updates now display 👁 views, 💬 replies, 🔁 retweets, ❤️ likes from Twitter public_metrics across all templates (Discord, Email, Telegram)
+- **Tweet Engagement Metrics**: KOL Updates now display  views,  replies,  retweets,  likes from Twitter public_metrics across all templates (Discord, Email, Telegram)
 
 ## v2.6.1
 

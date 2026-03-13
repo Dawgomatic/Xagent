@@ -95,9 +95,9 @@ def analyze_projects(projects_data, memory_hits):
         if "paused" in status:
             is_paused = True
             reason = "Explicitly marked 'Paused'"
-        elif "⏸️" in status:
+        elif "" in status:
             is_paused = True
-            reason = "Status icon ⏸️ found"
+            reason = "Status icon  found"
         elif p.get("raw", "").find("[~]") != -1:
              is_paused = True
              reason = "Marked with [~] (Incomplete/Backlog)"

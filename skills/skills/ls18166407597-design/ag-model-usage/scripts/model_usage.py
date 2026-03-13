@@ -63,7 +63,7 @@ def get_quota():
                     if quota:
                         pct = int(quota.get('remainingFraction', 0) * 100)
                         reset = format_time(quota.get('resetTime'))
-                        status = "🟢" if pct > 30 else ("🟡" if pct > 0 else "🔴")
+                        status = "" if pct > 30 else ("" if pct > 0 else "")
                         output.append(f"{status} {short_name}")
                         output.append(f"  剩余: {pct}%")
                         output.append(f"  刷新时间: {reset}")

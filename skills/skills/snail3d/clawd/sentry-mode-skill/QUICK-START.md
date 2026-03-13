@@ -24,7 +24,7 @@ node scripts/sentry-watch-v2.js report-match
 
 ## BOLO Examples
 
-### ✅ These trigger:
+###  These trigger:
 ```
 "blonde girl with glasses"
 ↓ Detects: blonde girl wearing glasses ✓
@@ -34,7 +34,7 @@ node scripts/sentry-watch-v2.js report-match
 ↓ Detects: blue sedan, plate ABC123 ✓
 ```
 
-### ❌ These DON'T trigger:
+###  These DON'T trigger:
 ```
 "blonde girl with glasses"
 ↓ Detects: blonde girl (no glasses) ✗
@@ -151,4 +151,4 @@ cat SKILL.md
 
 ---
 
-**Status:** ✅ Ready for production use
+**Status:**  Ready for production use

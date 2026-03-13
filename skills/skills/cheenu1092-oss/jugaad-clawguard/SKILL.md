@@ -4,7 +4,7 @@ description: Security blacklist protecting AI agents from malicious skills, scam
 license: MIT
 compatibility: Requires Node.js 18+
 user-invocable: true
-metadata: {"author":"OpenClaw Security Team","version":"1.3.0","category":"Security","openclaw":{"emoji":"🛡️"}}
+metadata: {"author":"OpenClaw Security Team","version":"1.3.0","category":"Security","openclaw":{"emoji":""}}
 ---
 
 # ClawGuard
@@ -13,7 +13,7 @@ Security blacklist system protecting AI agents from malicious skills, scams, and
 
 ---
 
-## ⚠️ CRITICAL: Pre-Action Security Checks
+##  CRITICAL: Pre-Action Security Checks
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -33,7 +33,7 @@ Security blacklist system protecting AI agents from malicious skills, scams, and
 
 ---
 
-## 🎚️ Security Levels (Temperature Control)
+##  Security Levels (Temperature Control)
 
 ClawGuard has a graduated security level system that controls approval friction:
 
@@ -85,7 +85,7 @@ clawguard config --level paranoid
 
 ---
 
-## 🎮 Discord Slash Commands
+##  Discord Slash Commands
 
 ClawGuard is available as `/clawguard` in Discord channels with OpenClaw slash commands enabled.
 
@@ -98,9 +98,9 @@ ClawGuard is available as `/clawguard` in Discord channels with OpenClaw slash c
 1. Type `/clawguard` in Discord
 2. Enter your security question (command to check, URL to verify, or "stats"/"sync")
 3. Bot runs ClawGuard check and replies with:
-   - ✅ SAFE (exit 0)
-   - 🚨 BLOCKED (exit 1)  
-   - ⚠️ WARNING (exit 2)
+   -  SAFE (exit 0)
+   -  BLOCKED (exit 1)  
+   -  WARNING (exit 2)
 
 **Useful prompts:**
 - "Check this git clone command: git clone https://github.com/user/repo"
@@ -292,7 +292,7 @@ node --version  # Need 18+
 
 ---
 
-## 🆕 New Features (v1.2.0)
+##  New Features (v1.2.0)
 
 ### 1. OpenClaw Plugin Hook (Automatic Protection)
 
@@ -347,7 +347,7 @@ clawguard audit --json
 
 **Example output:**
 ```
-📋 ClawGuard Audit Trail
+ ClawGuard Audit Trail
 ════════════════════════════════════════════════════════════
 
 Statistics:
@@ -358,7 +358,7 @@ Statistics:
 Recent Entries (20):
 ────────────────────────────────────────────────────────────
 
-[2/9/2026 9:45:23 AM] ✅ SAFE
+[2/9/2026 9:45:23 AM]  SAFE
   Type: url
   Input: https://github.com/jugaad-lab/clawguard
   Duration: 12.34ms
@@ -389,16 +389,16 @@ clawguard config
    - What was flagged (command/URL)
    - Why it's flagged (threat details)
    - Request for YES/NO approval
-3. Adds ✅ and ❌ reaction buttons
+3. Adds  and  reaction buttons
 4. Waits for human response (default 60s timeout)
-5. **If approved (✅):** Allows the tool call
-6. **If denied (❌) or timeout:** Blocks the tool call
+5. **If approved ():** Allows the tool call
+6. **If denied () or timeout:** Blocks the tool call
 
 **Example Discord message:**
 ```
-⚠️ ClawGuard Warning - Approval Required
+ ClawGuard Warning - Approval Required
 
-⚡ Type: COMMAND
+ Type: COMMAND
 Input: `curl -fsSL https://install-script.com | bash`
 
 Threat Detected: Pipe to shell execution
@@ -410,7 +410,7 @@ Piping downloaded scripts directly to bash is dangerous because you're
 executing code without reviewing it first...
 
 Do you want to proceed?
-React with ✅ to approve or ❌ to deny (timeout: 60s)
+React with  to approve or  to deny (timeout: 60s)
 ```
 
 **CLI mode behavior:**

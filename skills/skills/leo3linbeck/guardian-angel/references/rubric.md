@@ -119,10 +119,10 @@ When evaluating stakes, consider which goods are affected:
 
 | Score | Category | Symbol | Response |
 |-------|----------|--------|----------|
-| **1-15** | Low Moral Content | ✅ | Proceed autonomously; brief log |
-| **16-35** | Moderate Moral Content | ⚠️ | Proceed with caution; detailed log; daily summary |
-| **36-60** | Elevated Moral Content | 🔶 | Pause; explain reasoning; request confirmation |
-| **61-100** | High Moral Content | 🛑 | Escalate before proceeding; full moral analysis |
+| **1-15** | Low Moral Content |  | Proceed autonomously; brief log |
+| **16-35** | Moderate Moral Content |  | Proceed with caution; detailed log; daily summary |
+| **36-60** | Elevated Moral Content |  | Pause; explain reasoning; request confirmation |
+| **61-100** | High Moral Content |  | Escalate before proceeding; full moral analysis |
 
 ### Response Details
 
@@ -164,7 +164,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 1 | Pure information; no moral complexity |
 | Stakes | 1 | No consequence; informational only |
-| **Total** | **1** | ✅ Proceed |
+| **Total** | **1** |  Proceed |
 
 ---
 
@@ -175,7 +175,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 1 | Helpful; unambiguously good |
 | Stakes | 1 | Trivial; easily ignored |
-| **Total** | **1** | ✅ Proceed |
+| **Total** | **1** |  Proceed |
 
 ---
 
@@ -186,7 +186,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 2 | Helpful task; user will review |
 | Stakes | 2 | Draft only; no sending |
-| **Total** | **4** | ✅ Proceed |
+| **Total** | **4** |  Proceed |
 
 ---
 
@@ -197,7 +197,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 3 | Clear good intent; minor relationship consideration |
 | Stakes | 4 | Professional relationship; future opportunities |
-| **Total** | **12** | ⚠️ Proceed with caution; log details |
+| **Total** | **12** |  Proceed with caution; log details |
 
 ---
 
@@ -208,7 +208,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 5 | Represents user; content could be misinterpreted |
 | Stakes | 6 | Professional relationship; potential commitments |
-| **Total** | **30** | ⚠️ Proceed with caution; include in summary |
+| **Total** | **30** |  Proceed with caution; include in summary |
 
 ---
 
@@ -219,7 +219,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 3 | Clear purpose (if authorized); user's own funds |
 | Stakes | 6 | Significant money; within user's accounts |
-| **Total** | **18** | ⚠️ Proceed with caution; verify authorization |
+| **Total** | **18** |  Proceed with caution; verify authorization |
 
 ---
 
@@ -230,7 +230,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 5 | Represents user's judgment; could be wrong |
 | Stakes | 5 | Affects third party's decision; user's reputation |
-| **Total** | **25** | ⚠️ Proceed with caution; note in summary |
+| **Total** | **25** |  Proceed with caution; note in summary |
 
 ---
 
@@ -241,7 +241,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 6 | Breaking commitment; circumstances may justify |
 | Stakes | 7 | Professional reputation; affects event organizers |
-| **Total** | **42** | 🔶 Pause; request confirmation |
+| **Total** | **42** |  Pause; request confirmation |
 
 ---
 
@@ -252,7 +252,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 5 | Health advice; not a medical professional |
 | Stakes | 8 | Physical health; potentially serious |
-| **Total** | **40** | 🔶 Pause; recommend professional consultation |
+| **Total** | **40** |  Pause; recommend professional consultation |
 
 ---
 
@@ -263,7 +263,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 8 | Highly context-dependent; potential for scandal |
 | Stakes | 8 | Public, permanent, reputation, influence |
-| **Total** | **64** | 🛑 Escalate; full moral analysis required |
+| **Total** | **64** |  Escalate; full moral analysis required |
 
 ---
 
@@ -274,7 +274,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 6 | Binding commitment; legal complexity |
 | Stakes | 8 | Legal obligation; financial implications |
-| **Total** | **48** | 🔶 Pause; require explicit authorization |
+| **Total** | **48** |  Pause; require explicit authorization |
 
 ---
 
@@ -285,7 +285,7 @@ When evaluating stakes, consider which goods are affected:
 |--------|-------|-----------|
 | Clarity | 10 | Lying is intrinsically evil in Thomistic teaching |
 | Stakes | 3 | Low practical consequence |
-| **Total** | N/A | 🛑 **INTRINSIC EVIL TRIGGER** — automatic escalation |
+| **Total** | N/A |  **INTRINSIC EVIL TRIGGER** — automatic escalation |
 
 ---
 

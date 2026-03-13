@@ -2,7 +2,7 @@
 
 Common issues and solutions when using the aria2-json-rpc skill.
 
-**⚠️ NOTE: All commands use `python3`, not `python`** (especially important on macOS where `python` symlink doesn't exist)
+** NOTE: All commands use `python3`, not `python`** (especially important on macOS where `python` symlink doesn't exist)
 
 ## Script Execution Errors
 

@@ -190,7 +190,7 @@ class TokenWatch:
         else:
             cost = 0.0
             provider = "unknown"
-            print(f"⚠️  Unknown model '{model}' — cost recorded as $0.00. Add to PROVIDER_PRICING.")
+            print(f"  Unknown model '{model}' — cost recorded as $0.00. Add to PROVIDER_PRICING.")
 
         record = TokenUsageRecord(
             id=self._generate_id("usage"),
@@ -237,7 +237,7 @@ class TokenWatch:
             alert_at_percent=alert_at_percent,
         )
         self._save_budget()
-        print(f"✅ Budget set: daily=${daily_usd}, weekly=${weekly_usd}, monthly=${monthly_usd}")
+        print(f" Budget set: daily=${daily_usd}, weekly=${weekly_usd}, monthly=${monthly_usd}")
         return self.budget
 
     # ------------------------------------------------------------------
@@ -375,7 +375,7 @@ class TokenWatch:
             suggestions.append({
                 "type": "info",
                 "priority": "low",
-                "message": f"✅ Spending looks efficient. Monthly total: ${total_monthly:.4f}",
+                "message": f" Spending looks efficient. Monthly total: ${total_monthly:.4f}",
             })
 
         return sorted(suggestions, key=lambda x: {"high": 0, "medium": 1, "low": 2}.get(x.get("priority", "low"), 2))
@@ -439,7 +439,7 @@ class TokenWatch:
         }
         with open(output_file, "w") as f:
             json.dump(data, f, indent=2)
-        print(f"📁 Report exported to {output_file}")
+        print(f" Report exported to {output_file}")
 
     def format_dashboard(self, period: str = "today") -> str:
         """Format a human-readable spending dashboard."""
@@ -456,14 +456,14 @@ class TokenWatch:
 ║              TOKEN BUDGET MONITOR — DASHBOARD                 ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-💰 SPENDING SUMMARY
+ SPENDING SUMMARY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Today:   ${today['total_cost_usd']:.4f}  ({today['call_count']} calls, {today['total_tokens']:,} tokens)
   Week:    ${week['total_cost_usd']:.4f}  ({week['call_count']} calls, {week['total_tokens']:,} tokens)
   Month:   ${month['total_cost_usd']:.4f}  ({month['call_count']} calls, {month['total_tokens']:,} tokens)
 
 {budget_lines}
-📊 THIS MONTH BY MODEL
+ THIS MONTH BY MODEL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         for model, stats in list(by_model.items())[:5]:
@@ -471,11 +471,11 @@ class TokenWatch:
             output += f"  {model[:35]:<35} ${stats['total_cost_usd']:.4f}  {bar}\n"
 
         output += f"""
-💡 OPTIMIZATION TIPS
+ OPTIMIZATION TIPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
         for i, s in enumerate(suggestions[:3], 1):
-            priority_icon = {"high": "🔴", "medium": "🟡", "low": "🟢"}.get(s.get("priority", "low"), "•")
+            priority_icon = {"high": "", "medium": "", "low": ""}.get(s.get("priority", "low"), "•")
             savings = s.get("estimated_monthly_savings_usd")
             savings_str = f" (save ~${savings:.4f}/mo)" if savings else ""
             output += f"  {priority_icon} {s['message']}{savings_str}\n"
@@ -539,10 +539,10 @@ class TokenWatch:
             threshold = self.budget.alert_at_percent
             if pct >= 100:
                 self._fire_alert(period_key, budget_val, spend["total_cost_usd"],
-                                 f"⛔ {period_key.title()} budget EXCEEDED: ${spend['total_cost_usd']:.4f} / ${budget_val}")
+                                 f" {period_key.title()} budget EXCEEDED: ${spend['total_cost_usd']:.4f} / ${budget_val}")
             elif pct >= threshold:
                 self._fire_alert(f"{period_key}_warning", budget_val, spend["total_cost_usd"],
-                                 f"⚠️  {period_key.title()} budget at {pct:.0f}%: ${spend['total_cost_usd']:.4f} / ${budget_val}")
+                                 f"  {period_key.title()} budget at {pct:.0f}%: ${spend['total_cost_usd']:.4f} / ${budget_val}")
 
     def _fire_alert(self, alert_type: str, threshold: float, current: float, message: str):
         alert = BudgetAlert(
@@ -555,13 +555,13 @@ class TokenWatch:
         )
         self.alerts.append(alert)
         self._save_alerts()
-        print(f"\n🚨 BUDGET ALERT: {message}\n")
+        print(f"\n BUDGET ALERT: {message}\n")
 
     def _format_budget_status(self, today, week, month) -> str:
         if not any([self.budget.daily_usd, self.budget.weekly_usd, self.budget.monthly_usd]):
-            return "📋 BUDGET\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n  No budget set. Use set_budget() to configure limits.\n"
+            return " BUDGET\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n  No budget set. Use set_budget() to configure limits.\n"
 
-        lines = "📋 BUDGET STATUS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        lines = " BUDGET STATUS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         for label, spend, limit in [
             ("Daily", today["total_cost_usd"], self.budget.daily_usd),
             ("Weekly", week["total_cost_usd"], self.budget.weekly_usd),
@@ -571,7 +571,7 @@ class TokenWatch:
                 pct = (spend / limit) * 100
                 bar_fill = int(pct / 5)
                 bar = "█" * bar_fill + "░" * (20 - bar_fill)
-                status = "⛔" if pct >= 100 else "⚠️ " if pct >= self.budget.alert_at_percent else "✅"
+                status = "" if pct >= 100 else " " if pct >= self.budget.alert_at_percent else ""
                 lines += f"  {label}: [{bar}] {pct:.0f}% ${spend:.4f} / ${limit:.2f} {status}\n"
         return lines
 
@@ -696,7 +696,7 @@ if __name__ == "__main__":
     print(monitor.format_dashboard())
 
     # Compare model costs for a typical call
-    print("\n📊 MODEL COST COMPARISON (2000 input + 500 output tokens):")
+    print("\n MODEL COST COMPARISON (2000 input + 500 output tokens):")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     for m in monitor.compare_models(2000, 500)[:6]:
         print(f"  {m['model']:<40} ${m['cost_usd']:.6f}")

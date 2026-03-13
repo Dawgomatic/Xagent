@@ -48,7 +48,7 @@ def add_birthday(name, date_str, year_born=None):
     birthdays = load_birthdays()
     date = parse_date(date_str)
     if not date:
-        print(f"❌ Ungültiges Datum: {date_str}. Verwende DD.MM. oder DD.MM.YYYY")
+        print(f" Ungültiges Datum: {date_str}. Verwende DD.MM. oder DD.MM.YYYY")
         return False
     
     birthdays[name] = {
@@ -57,7 +57,7 @@ def add_birthday(name, date_str, year_born=None):
         "year": year_born
     }
     save_birthdays(birthdays)
-    print(f"✅ Geburtstag gespeichert: {name} - {date.day:02d}.{date.month:02d}." + (f"{year_born}" if year_born else ""))
+    print(f" Geburtstag gespeichert: {name} - {date.day:02d}.{date.month:02d}." + (f"{year_born}" if year_born else ""))
     return True
 
 def calculate_age(year_born, target_date=None, birthday_month=None, birthday_day=None):
@@ -86,7 +86,7 @@ def list_birthdays(upcoming_only=False, days=30):
     """List all birthdays, optionally only upcoming ones."""
     birthdays = load_birthdays()
     if not birthdays:
-        print("📭 Keine Geburtstage gespeichert.")
+        print(" Keine Geburtstage gespeichert.")
         return
     
     today = datetime.now()
@@ -122,21 +122,21 @@ def list_birthdays(upcoming_only=False, days=30):
     # Sort by days left
     items.sort(key=lambda x: x["days_left"])
     
-    print("🎂 **Geburtstage:**\n")
+    print(" **Geburtstage:**\n")
     for item in items:
         age_str = f" (wird {item['turning']})" if item["turning"] else ""
         if item["days_left"] == 0:
-            print(f"🎉 **{item['name']}** - {item['date']}{age_str} - **HEUTE!**")
+            print(f" **{item['name']}** - {item['date']}{age_str} - **HEUTE!**")
         elif item["days_left"] == 1:
-            print(f"🎈 {item['name']} - {item['date']}{age_str} - morgen")
+            print(f" {item['name']} - {item['date']}{age_str} - morgen")
         else:
-            print(f"📅 {item['name']} - {item['date']}{age_str} - in {item['days_left']} Tagen")
+            print(f" {item['name']} - {item['date']}{age_str} - in {item['days_left']} Tagen")
 
 def next_birthday():
     """Show the next upcoming birthday."""
     birthdays = load_birthdays()
     if not birthdays:
-        print("📭 Keine Geburtstage gespeichert.")
+        print(" Keine Geburtstage gespeichert.")
         return
     
     today = datetime.now()
@@ -165,11 +165,11 @@ def next_birthday():
         age_str = f" (wird {turning})" if turning else ""
         
         if days_left == 0:
-            print(f"🎉 **{name}** hat HEUTE Geburtstag{age_str}! 🎂")
+            print(f" **{name}** hat HEUTE Geburtstag{age_str}! ")
         elif days_left == 1:
-            print(f"🎈 **{name}** hat morgen Geburtstag{age_str}!")
+            print(f" **{name}** hat morgen Geburtstag{age_str}!")
         else:
-            print(f"📅 **{name}** hat in {days_left} Tagen Geburtstag{age_str} ({data['day']:02d}.{data['month']:02d}.)!")
+            print(f" **{name}** hat in {days_left} Tagen Geburtstag{age_str} ({data['day']:02d}.{data['month']:02d}.)!")
 
 def check_reminders(days_ahead=7):
     """Check for upcoming birthdays (for cron jobs)."""
@@ -197,10 +197,10 @@ def remove_birthday(name):
     if name in birthdays:
         del birthdays[name]
         save_birthdays(birthdays)
-        print(f"✅ Geburtstag für {name} entfernt.")
+        print(f" Geburtstag für {name} entfernt.")
         return True
     else:
-        print(f"❌ Kein Geburtstag für {name} gefunden.")
+        print(f" Kein Geburtstag für {name} gefunden.")
         return False
 
 def main():
@@ -244,11 +244,11 @@ def main():
         for r in reminders:
             age_str = f" (wird {r['turning']})" if r['turning'] else ""
             if r["days_left"] == 0:
-                print(f"🎉 {r['name']} hat HEUTE Geburtstag{age_str}!")
+                print(f" {r['name']} hat HEUTE Geburtstag{age_str}!")
             elif r["days_left"] == 1:
-                print(f"🎈 {r['name']} hat morgen Geburtstag{age_str}!")
+                print(f" {r['name']} hat morgen Geburtstag{age_str}!")
             else:
-                print(f"📅 {r['name']} hat in {r['days_left']} Tagen Geburtstag{age_str}!")
+                print(f" {r['name']} hat in {r['days_left']} Tagen Geburtstag{age_str}!")
     else:
         parser.print_help()
 

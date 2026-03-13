@@ -11,7 +11,7 @@
  * For comprehensive static scanning, use guard-scanner:
  *   npx guard-scanner ./skills
  *
- * @author Guava 🍈 & Dee (Singularity Laboratory)
+ * @author Guava  & Dee (Singularity Laboratory)
  * @version 10.0.0
  * @license MIT
  */
@@ -122,11 +122,11 @@ const handler = async (event) => {
       logAudit(entry);
 
       if (check.severity === 'CRITICAL') {
-        event.messages.push(`🍈🛡️ GuavaGuard WARNING: ${check.desc} [${check.id}]`);
-        console.warn(`[guava-guard] ⚠️ WARNING: ${check.desc} [${check.id}]`);
+        event.messages.push(` GuavaGuard WARNING: ${check.desc} [${check.id}]`);
+        console.warn(`[guava-guard]  WARNING: ${check.desc} [${check.id}]`);
       } else if (check.severity === 'HIGH') {
-        event.messages.push(`🍈🛡️ GuavaGuard NOTICE: ${check.desc} [${check.id}]`);
-        console.warn(`[guava-guard] ℹ️ NOTICE: ${check.desc} [${check.id}]`);
+        event.messages.push(` GuavaGuard NOTICE: ${check.desc} [${check.id}]`);
+        console.warn(`[guava-guard]  NOTICE: ${check.desc} [${check.id}]`);
       }
     }
   }

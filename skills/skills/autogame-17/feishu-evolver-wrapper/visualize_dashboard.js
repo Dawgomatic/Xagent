@@ -77,43 +77,43 @@ async function main() {
             // Run check (autoHeal=false to just report)
             const issues = monitor.run({ autoHeal: false });
             if (issues.length === 0) {
-                skillsHealth = ["✅ All skills healthy"];
+                skillsHealth = [" All skills healthy"];
             } else {
-                skillsHealth = issues.map(i => `❌ **${i.name}**: ${i.issues.join(', ')}`);
+                skillsHealth = issues.map(i => ` **${i.name}**: ${i.issues.join(', ')}`);
             }
         }
     } catch (e) {
-        skillsHealth = [`⚠️ Skills check failed: ${e.message}`];
+        skillsHealth = [` Skills check failed: ${e.message}`];
     }
 
     // --- Markdown Generation ---
     const now = new Date().toISOString().replace('T', ' ').substring(0, 16);
-    let md = `# 🧬 Evolution Dashboard\n\n`;
+    let md = `#  Evolution Dashboard\n\n`;
     md += `> Updated: ${now} (UTC)\n\n`;
     
-    md += `## 📊 Key Metrics\n\n`;
+    md += `##  Key Metrics\n\n`;
     md += `| Metric | Value | Status |\n`;
     md += `|---|---|---|\n`;
-    md += `| **Total Cycles** | **${total}** | 🔄 |\n`;
-    md += `| **Success Rate** | **${successRate}%** | ${successRate > 80 ? '✅' : '⚠️'} |\n`;
-    md += `| **Innovation** | ${intents.innovate} | ✨ |\n`;
-    md += `| **Repair** | ${intents.repair} | 🔧 |\n`;
-    md += `| **Optimize** | ${intents.optimize} | ⚡ |\n\n`;
+    md += `| **Total Cycles** | **${total}** |  |\n`;
+    md += `| **Success Rate** | **${successRate}%** | ${successRate > 80 ? '' : ''} |\n`;
+    md += `| **Innovation** | ${intents.innovate} |  |\n`;
+    md += `| **Repair** | ${intents.repair} |  |\n`;
+    md += `| **Optimize** | ${intents.optimize} |  |\n\n`;
 
-    md += `## 🛠️ Skills Health\n\n`;
+    md += `##  Skills Health\n\n`;
     for (const line of skillsHealth) {
         md += `- ${line}\n`;
     }
     md += `\n`;
 
-    md += `## 🕒 Recent Activity\n\n`;
+    md += `##  Recent Activity\n\n`;
     md += `| Cycle ID | Intent | Signals | Outcome | Time |\n`;
     md += `|---|---|---|---|---|\n`;
 
     for (const e of recentEvents) {
         const id = e.id.replace('evt_', '').substring(0, 8);
-        const intentIcon = e.intent === 'innovate' ? '✨' : (e.intent === 'repair' ? '🔧' : '⚡');
-        const outcomeIcon = e.outcome.status === 'success' ? '✅' : '❌';
+        const intentIcon = e.intent === 'innovate' ? '' : (e.intent === 'repair' ? '' : '');
+        const outcomeIcon = e.outcome.status === 'success' ? '' : '';
         const time = e.meta && e.meta.at ? e.meta.at.substring(11, 16) : '??:??';
         const signals = e.signals ? e.signals.slice(0, 2).join(', ') + (e.signals.length > 2 ? '...' : '') : '-';
         

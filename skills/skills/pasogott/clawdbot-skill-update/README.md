@@ -36,14 +36,14 @@ cat ~/.skills/clawdbot-skill-update/UPDATE_CHECKLIST.md
 
 ## What Gets Backed Up
 
-- ✅ Configuration (`~/.clawdbot/clawdbot.json`)
-- ✅ Sessions state
-- ✅ Agent states (multi-agent)
-- ✅ Credentials & auth tokens
-- ✅ Cron jobs
-- ✅ Sandbox states
-- ✅ **All agent workspaces (dynamically detected from config!)**
-- ✅ Git repository state (commit, branch, remotes)
+-  Configuration (`~/.clawdbot/clawdbot.json`)
+-  Sessions state
+-  Agent states (multi-agent)
+-  Credentials & auth tokens
+-  Cron jobs
+-  Sandbox states
+-  **All agent workspaces (dynamically detected from config!)**
+-  Git repository state (commit, branch, remotes)
 
 ## Dynamic Workspace Detection
 
@@ -61,10 +61,10 @@ No hardcoded paths! Works with any agent configuration.
 
 ## Critical Changes in v2026.1.8
 
-⚠️ **DM Lockdown**: DMs default to `pairing` (was open)  
-⚠️ **Groups**: Now allowlists (add `"*"` for allow-all)  
-⚠️ **Sandbox**: Default scope is `"agent"` (was `"session"`)  
-⚠️ **Timestamps**: UTC format in envelopes  
+ **DM Lockdown**: DMs default to `pairing` (was open)  
+ **Groups**: Now allowlists (add `"*"` for allow-all)  
+ **Sandbox**: Default scope is `"agent"` (was `"session"`)  
+ **Timestamps**: UTC format in envelopes  
 
 ## Backup Location
 

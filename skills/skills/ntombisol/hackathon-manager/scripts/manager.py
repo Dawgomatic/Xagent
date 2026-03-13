@@ -55,7 +55,7 @@ def add_hackathon(name, deadline, prize="", requirements=None):
     data["hackathons"].append(hackathon)
     save_data(data)
     
-    print(f"✅ Added: {name}")
+    print(f" Added: {name}")
     print(f"   Deadline: {deadline}")
     if prize:
         print(f"   Prize: {prize}")
@@ -86,19 +86,19 @@ def show_status(name):
     hackathon = next((h for h in data["hackathons"] if h["name"].lower() == name.lower()), None)
     
     if not hackathon:
-        print(f"❌ Hackathon not found: {name}")
+        print(f" Hackathon not found: {name}")
         return
     
-    print(f"\n🎯 {hackathon['name']}")
+    print(f"\n {hackathon['name']}")
     print(f"   Deadline: {hackathon['deadline']}")
     print(f"   Status: {hackathon['status']}")
     if hackathon.get('prize'):
         print(f"   Prize: {hackathon['prize']}")
     
-    print(f"\n📋 Checklist ({len(hackathon['completed'])}/{len(hackathon['checklist'])} complete):")
+    print(f"\n Checklist ({len(hackathon['completed'])}/{len(hackathon['checklist'])} complete):")
     
     for i, item in enumerate(hackathon['checklist'], 1):
-        status = "✅" if item in hackathon['completed'] else "⬜"
+        status = "" if item in hackathon['completed'] else ""
         print(f"   {status} {i}. {item}")
 
 def check_item(name, item_text):
@@ -108,7 +108,7 @@ def check_item(name, item_text):
     hackathon = next((h for h in data["hackathons"] if h["name"].lower() == name.lower()), None)
     
     if not hackathon:
-        print(f"❌ Hackathon not found: {name}")
+        print(f" Hackathon not found: {name}")
         return
     
     # Try exact match first
@@ -116,7 +116,7 @@ def check_item(name, item_text):
         if item_text not in hackathon['completed']:
             hackathon['completed'].append(item_text)
             save_data(data)
-            print(f"✅ Checked: {item_text}")
+            print(f" Checked: {item_text}")
         else:
             print(f"Already completed: {item_text}")
         return
@@ -129,14 +129,14 @@ def check_item(name, item_text):
             if item not in hackathon['completed']:
                 hackathon['completed'].append(item)
                 save_data(data)
-                print(f"✅ Checked: {item}")
+                print(f" Checked: {item}")
             else:
                 print(f"Already completed: {item}")
             return
     except ValueError:
         pass
     
-    print(f"❌ Item not found: {item_text}")
+    print(f" Item not found: {item_text}")
 
 def upcoming_hackathons(days=7):
     """Show hackathons due in the next N days"""
@@ -161,13 +161,13 @@ def upcoming_hackathons(days=7):
     
     upcoming.sort(key=lambda x: x[1])
     
-    print(f"\n⏰ Upcoming Deadlines (next {days} days):\n")
+    print(f"\n Upcoming Deadlines (next {days} days):\n")
     for h, days_left in upcoming:
         total = len(h["checklist"])
         done = len(h["completed"])
         progress = f"{done}/{total}" if total > 0 else "—"
         
-        urgency = "🚨" if days_left <= 2 else "⚠️" if days_left <= 5 else "📅"
+        urgency = "" if days_left <= 2 else "" if days_left <= 5 else ""
         print(f"{urgency} {h['name']}")
         print(f"   Deadline: {h['deadline']} ({days_left} days left)")
         print(f"   Progress: {progress}\n")
@@ -248,13 +248,13 @@ def show_calendar(month=None, year=None):
         print(week_str)
     
     # Legend
-    print("\n📅 Legend:")
+    print("\n Legend:")
     print("   R = Registration opens/closes")
     print("   W = Work period starts")
     print("   D = Submission deadline")
     
     if dates_map:
-        print("\n📆 This month:")
+        print("\n This month:")
         for day in sorted(dates_map.keys()):
             for marker_type in ['R', 'W', 'D']:
                 for marker, h_name in dates_map[day][marker_type]:
@@ -295,17 +295,17 @@ def run_gog(args):
     gog = find_gog()
     
     if not gog:
-        print("❌ gog CLI not found. Install from: https://github.com/rubiojr/gog")
+        print(" gog CLI not found. Install from: https://github.com/rubiojr/gog")
         return None
     
     try:
         result = subprocess.run([gog] + args, capture_output=True, text=True)
         if result.returncode != 0:
-            print(f"❌ gog error: {result.stderr}")
+            print(f" gog error: {result.stderr}")
             return None
         return result.stdout
     except Exception as e:
-        print(f"❌ Error running gog: {e}")
+        print(f" Error running gog: {e}")
         return None
 
 def gcal_list():
@@ -315,7 +315,7 @@ def gcal_list():
     if not output:
         return
     
-    print("\n📅 Hackathon Events in Google Calendar:\n")
+    print("\n Hackathon Events in Google Calendar:\n")
     print(f"{'ID':<28} {'Date':<24} {'Event'}")
     print("-" * 80)
     
@@ -342,7 +342,7 @@ def gcal_sync():
         print("No hackathons to sync.")
         return
     
-    print(f"📅 Syncing {len(data['hackathons'])} hackathons to Google Calendar...\n")
+    print(f" Syncing {len(data['hackathons'])} hackathons to Google Calendar...\n")
     
     events_created = 0
     
@@ -379,7 +379,7 @@ def gcal_sync():
                 print(f"  ✓ [DEADLINE] Submission")
                 events_created += 1
     
-    print(f"\n✅ Created {events_created} calendar events")
+    print(f"\n Created {events_created} calendar events")
 
 def gcal_remove(name):
     """Remove a hackathon's events from Google Calendar"""
@@ -403,10 +403,10 @@ def gcal_remove(name):
                 events_to_delete.append((event_id, summary))
     
     if not events_to_delete:
-        print(f"❌ No calendar events found for: {name}")
+        print(f" No calendar events found for: {name}")
         return
     
-    print(f"🗑️ Removing {len(events_to_delete)} events for '{name}':\n")
+    print(f" Removing {len(events_to_delete)} events for '{name}':\n")
     
     deleted = 0
     for event_id, summary in events_to_delete:
@@ -420,7 +420,7 @@ def gcal_remove(name):
             print(f"  ✓ Deleted: {summary}")
             deleted += 1
     
-    print(f"\n✅ Removed {deleted} events")
+    print(f"\n Removed {deleted} events")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

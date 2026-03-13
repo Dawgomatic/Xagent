@@ -28,7 +28,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 echo ""
-echo -e "${BLUE}📝 Generating changelog${NC}"
+echo -e "${BLUE} Generating changelog${NC}"
 echo ""
 
 # Get version info

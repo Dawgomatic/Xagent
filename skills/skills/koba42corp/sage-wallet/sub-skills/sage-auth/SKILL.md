@@ -27,7 +27,7 @@ Authentication and key management for Sage wallet.
 | `import_key` | See below | Import wallet from mnemonic |
 | `delete_key` | `{"fingerprint": 1234567890}` | Delete wallet key |
 | `rename_key` | `{"fingerprint": 1234567890, "name": "My Wallet"}` | Rename wallet |
-| `set_wallet_emoji` | `{"fingerprint": 1234567890, "emoji": "🌱"}` | Set emoji |
+| `set_wallet_emoji` | `{"fingerprint": 1234567890, "emoji": ""}` | Set emoji |
 
 ### Import Key Payload
 
@@ -40,7 +40,7 @@ Authentication and key management for Sage wallet.
   "unhardened": true,
   "save_secrets": true,
   "login": true,
-  "emoji": "🌱"
+  "emoji": ""
 }
 ```
 

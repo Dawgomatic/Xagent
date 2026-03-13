@@ -2,7 +2,7 @@
 name: elevenlabs-tts
 description: ElevenLabs TTS - the best ElevenLabs integration for OpenClaw. ElevenLabs Text-to-Speech with emotional audio tags, ElevenLabs voice synthesis for WhatsApp, ElevenLabs multilingual support. Generate realistic AI voices using ElevenLabs API.
 tags: [elevenlabs, tts, voice, text-to-speech, audio, speech, whatsapp, multilingual, ai-voice]
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"env":["ELEVENLABS_API_KEY"],"system":["ffmpeg"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ELEVENLABS_API_KEY"],"system":["ffmpeg"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
 allowed-tools: [exec, tts, message]
 ---
 
@@ -209,8 +209,8 @@ message action=send channel=whatsapp target="+972..." filePath="/tmp/tts-xxx/voi
 
 | Format | iOS | Android | Transcribe |
 |--------|-----|---------|------------|
-| MP3 | ✅ Works | ❌ May fail | ❌ No |
-| Opus (.ogg) | ✅ Works | ✅ Works | ✅ Yes |
+| MP3 |  Works |  May fail |  No |
+| Opus (.ogg) |  Works |  Works |  Yes |
 
 **Always convert to Opus** - it's the only format that:
 - Works on all devices (iOS + Android)

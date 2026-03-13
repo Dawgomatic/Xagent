@@ -284,7 +284,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>✨ Social Scheduler Dashboard</h1>
+      <h1> Social Scheduler Dashboard</h1>
       <p class="subtitle">Manage your scheduled posts across 7 platforms</p>
     </header>
     
@@ -306,14 +306,14 @@
     <div class="section">
       <div class="section-header">
         <div>
-          <span class="section-title">⏰ Pending Posts</span>
+          <span class="section-title"> Pending Posts</span>
           <span class="refresh-indicator"></span>
         </div>
         <button class="btn btn-primary" onclick="openAddModal()">+ Schedule Post</button>
       </div>
       <div id="pending-list" class="post-list">
         <div class="empty-state">
-          <div class="empty-state-icon">📭</div>
+          <div class="empty-state-icon"></div>
           <p>No pending posts</p>
         </div>
       </div>
@@ -321,11 +321,11 @@
     
     <div class="section">
       <div class="section-header">
-        <span class="section-title">✅ Recently Completed</span>
+        <span class="section-title"> Recently Completed</span>
       </div>
       <div id="completed-list" class="post-list">
         <div class="empty-state">
-          <div class="empty-state-icon">📬</div>
+          <div class="empty-state-icon"></div>
           <p>No completed posts yet</p>
         </div>
       </div>
@@ -333,11 +333,11 @@
     
     <div class="section">
       <div class="section-header">
-        <span class="section-title">❌ Failed Posts</span>
+        <span class="section-title"> Failed Posts</span>
       </div>
       <div id="failed-list" class="post-list">
         <div class="empty-state">
-          <div class="empty-state-icon">🚫</div>
+          <div class="empty-state-icon"></div>
           <p>No failed posts</p>
         </div>
       </div>
@@ -415,7 +415,7 @@
       if (posts.length === 0) {
         container.innerHTML = `
           <div class="empty-state">
-            <div class="empty-state-icon">${status === 'pending' ? '📭' : status === 'completed' ? '📬' : '🚫'}</div>
+            <div class="empty-state-icon">${status === 'pending' ? '' : status === 'completed' ? '' : ''}</div>
             <p>No ${status} posts</p>
           </div>
         `;

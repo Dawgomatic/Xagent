@@ -1,5 +1,5 @@
 /**
- * 🛡️ OpenClaw Security Guard - Dashboard Server
+ *  OpenClaw Security Guard - Dashboard Server
  * 
  * Password-protected real-time security dashboard
  * 
@@ -141,7 +141,7 @@ class SecurityMonitor {
     try {
       const ws = new WebSocket(gatewayUrl);
       ws.on('open', () => {
-        console.log('✅ Connected to OpenClaw Gateway');
+        console.log(' Connected to OpenClaw Gateway');
         this.state.status = 'connected';
         this.broadcast({ type: 'update', data: this.state });
       });
@@ -231,11 +231,11 @@ class SecurityMonitor {
 
 const getSetupPage = () => `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🛡️ Setup</title><script src="https://cdn.tailwindcss.com"></script>
+<title> Setup</title><script src="https://cdn.tailwindcss.com"></script>
 <style>body{background:linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}</style></head>
 <body class="flex items-center justify-center p-4">
 <div class="bg-slate-800 rounded-2xl p-8 w-full max-w-md border border-slate-700">
-<div class="text-center mb-8"><div class="text-5xl mb-4">🛡️</div>
+<div class="text-center mb-8"><div class="text-5xl mb-4"></div>
 <h1 class="text-2xl font-bold text-white">Welcome!</h1>
 <p class="text-slate-400 text-sm mt-2">Create a password to secure your dashboard</p></div>
 <form id="f" class="space-y-4">
@@ -250,11 +250,11 @@ const getSetupPage = () => `<!DOCTYPE html>
 
 const getLoginPage = () => `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🛡️ Login</title><script src="https://cdn.tailwindcss.com"></script>
+<title> Login</title><script src="https://cdn.tailwindcss.com"></script>
 <style>body{background:linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}</style></head>
 <body class="flex items-center justify-center p-4">
 <div class="bg-slate-800 rounded-2xl p-8 w-full max-w-md border border-slate-700">
-<div class="text-center mb-8"><div class="text-5xl mb-4">🛡️</div>
+<div class="text-center mb-8"><div class="text-5xl mb-4"></div>
 <h1 class="text-2xl font-bold text-white">OpenClaw Security Guard</h1>
 <p class="text-slate-400 text-sm mt-2">Enter your password</p></div>
 <form id="f" class="space-y-4">
@@ -266,7 +266,7 @@ const getLoginPage = () => `<!DOCTYPE html>
 
 const getDashboardPage = () => `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🛡️ Dashboard</title>
+<title> Dashboard</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -277,17 +277,17 @@ const getDashboardPage = () => `<!DOCTYPE html>
 const{useState,useEffect}=React;
 
 const Score=({v})=>{const c=v>=80?'#22c55e':v>=60?'#eab308':'#ef4444',g=v>=80?'glow-g':v>=60?'glow-y':'glow-r',r=45,circ=2*Math.PI*r,off=circ-(v/100)*circ;
-return<div className={\`card p-6 text-center \${g}\`}><h3 className="text-gray-400 text-sm mb-4">Security Score</h3><div className="relative inline-block"><svg width="140" height="140" className="-rotate-90"><circle cx="70" cy="70" r={r} fill="none" stroke="#334155" strokeWidth="12"/><circle cx="70" cy="70" r={r} fill="none" stroke={c} strokeWidth="12" strokeDasharray={circ} strokeDashoffset={off} strokeLinecap="round"/></svg><div className="absolute inset-0 flex items-center justify-center"><span className="text-4xl font-bold" style={{color:c}}>{v}</span></div></div><div className="mt-3 text-sm" style={{color:c}}>{v>=80?'✅ Healthy':v>=60?'⚠️ Attention':'🔴 Critical'}</div></div>};
+return<div className={\`card p-6 text-center \${g}\`}><h3 className="text-gray-400 text-sm mb-4">Security Score</h3><div className="relative inline-block"><svg width="140" height="140" className="-rotate-90"><circle cx="70" cy="70" r={r} fill="none" stroke="#334155" strokeWidth="12"/><circle cx="70" cy="70" r={r} fill="none" stroke={c} strokeWidth="12" strokeDasharray={circ} strokeDashoffset={off} strokeLinecap="round"/></svg><div className="absolute inset-0 flex items-center justify-center"><span className="text-4xl font-bold" style={{color:c}}>{v}</span></div></div><div className="mt-3 text-sm" style={{color:c}}>{v>=80?' Healthy':v>=60?' Attention':' Critical'}</div></div>};
 
 const Metric=({t,v,i})=><div className="card p-4"><div className="flex justify-between"><span className="text-gray-400 text-sm">{t}</span><span className="text-2xl">{i}</span></div><div className="text-3xl font-bold mt-2">{v}</div></div>;
 
 const Config=({c})=>{const items=[['sandboxMode','Sandbox','always'],['dmPolicy','DM Policy','pairing'],['gatewayBind','Gateway','loopback'],['rateLimiting','Rate Limit','enabled']];return<div className="card p-4"><h3 className="text-gray-400 text-sm mb-3">Config</h3><div className="space-y-2">{items.map(([k,l,g])=>{const v=c[k]||'?',ok=v===g;return<div key={k} className="flex justify-between"><span className="text-sm">{l}</span><span className={\`text-xs px-2 py-1 rounded \${ok?'bg-green-500/20 text-green-400':'bg-red-500/20 text-red-400'}\`}>{ok?'✓':'✗'} {v}</span></div>})}</div></div>};
 
-const Alerts=({a})=><div className="card p-4"><h3 className="text-gray-400 text-sm mb-3">Alerts ({a.length})</h3><div className="space-y-2 max-h-80 overflow-y-auto">{a.length===0?<div className="text-center py-8 text-gray-500">✅ No alerts</div>:a.map((x,i)=><div key={i} className="p-2 rounded border-l-4 border-red-500 bg-red-500/10"><span className="text-sm">{x.message}</span><div className="text-xs text-gray-500">{new Date(x.timestamp).toLocaleTimeString()}</div></div>)}</div></div>;
+const Alerts=({a})=><div className="card p-4"><h3 className="text-gray-400 text-sm mb-3">Alerts ({a.length})</h3><div className="space-y-2 max-h-80 overflow-y-auto">{a.length===0?<div className="text-center py-8 text-gray-500"> No alerts</div>:a.map((x,i)=><div key={i} className="p-2 rounded border-l-4 border-red-500 bg-red-500/10"><span className="text-sm">{x.message}</span><div className="text-xs text-gray-500">{new Date(x.timestamp).toLocaleTimeString()}</div></div>)}</div></div>;
 
-const Threats=({t})=><div className="card p-4"><h3 className="text-gray-400 text-sm mb-3">Threats</h3><div className="grid grid-cols-3 gap-4 text-center">{[['💉',t.injectionAttempts,'Injections','red'],['⏱️',t.rateLimitHits,'Rate Limits','yellow'],['🛑',t.blocked,'Blocked','green']].map(([icon,val,label,col])=><div key={label} className="p-3 bg-slate-800/50 rounded-lg"><div className="text-2xl">{icon}</div><div className={\`text-2xl font-bold text-\${col}-400\`}>{val||0}</div><div className="text-xs text-gray-400">{label}</div></div>)}</div></div>;
+const Threats=({t})=><div className="card p-4"><h3 className="text-gray-400 text-sm mb-3">Threats</h3><div className="grid grid-cols-3 gap-4 text-center">{[['',t.injectionAttempts,'Injections','red'],['',t.rateLimitHits,'Rate Limits','yellow'],['',t.blocked,'Blocked','green']].map(([icon,val,label,col])=><div key={label} className="p-3 bg-slate-800/50 rounded-lg"><div className="text-2xl">{icon}</div><div className={\`text-2xl font-bold text-\${col}-400\`}>{val||0}</div><div className="text-xs text-gray-400">{label}</div></div>)}</div></div>;
 
-const Badge=({s})=>{const m={connected:['🟢','Connected'],disconnected:['🟡','Disconnected'],error:['🔴','Error'],initializing:['🔵','Starting']};const[i,t]=m[s]||m.initializing;return<div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-700"><span className="pulse">{i}</span><span className="text-sm">{t}</span></div>};
+const Badge=({s})=>{const m={connected:['','Connected'],disconnected:['','Disconnected'],error:['','Error'],initializing:['','Starting']};const[i,t]=m[s]||m.initializing;return<div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-700"><span className="pulse">{i}</span><span className="text-sm">{t}</span></div>};
 
 const App=()=>{
   const[state,setState]=useState({status:'initializing',securityScore:0,metrics:{requestsPerMinute:0,costToday:0},findings:{critical:0,high:0,medium:0,low:0},threats:{blocked:0,injectionAttempts:0,rateLimitHits:0},configStatus:{},recentAlerts:[]});
@@ -303,13 +303,13 @@ const App=()=>{
   },[]);
   return<div className="min-h-screen p-6">
     <header className="flex justify-between items-center mb-6">
-      <div className="flex items-center gap-3"><span className="text-4xl">🛡️</span><div><h1 className="text-2xl font-bold">OpenClaw Security Guard</h1><p className="text-gray-400 text-sm">By <a href="${WEBSITE}" className="text-cyan-400">${AUTHOR}</a></p></div></div>
+      <div className="flex items-center gap-3"><span className="text-4xl"></span><div><h1 className="text-2xl font-bold">OpenClaw Security Guard</h1><p className="text-gray-400 text-sm">By <a href="${WEBSITE}" className="text-cyan-400">${AUTHOR}</a></p></div></div>
       <div className="flex items-center gap-4"><Badge s={state.status}/><button onClick={logout} className="px-4 py-2 bg-slate-700 rounded-lg text-sm">Logout</button></div>
     </header>
     <div className="grid grid-cols-12 gap-4">
       <div className="col-span-3 space-y-4"><Score v={state.securityScore}/><Config c={state.configStatus}/></div>
       <div className="col-span-6 space-y-4">
-        <div className="grid grid-cols-4 gap-4"><Metric t="Requests/min" v={state.metrics.requestsPerMinute} i="📊"/><Metric t="Cost Today" v={'$'+(state.metrics.costToday||0).toFixed(2)} i="💰"/><Metric t="Critical" v={state.findings.critical} i="🔴"/><Metric t="High" v={state.findings.high} i="🟡"/></div>
+        <div className="grid grid-cols-4 gap-4"><Metric t="Requests/min" v={state.metrics.requestsPerMinute} i=""/><Metric t="Cost Today" v={'$'+(state.metrics.costToday||0).toFixed(2)} i=""/><Metric t="Critical" v={state.findings.critical} i=""/><Metric t="High" v={state.findings.high} i=""/></div>
         <Threats t={state.threats}/>
         <div className="card p-4"><h3 className="text-gray-400 text-sm mb-3">Findings</h3><div className="grid grid-cols-4 gap-4 text-center">{[['critical','Critical','red'],['high','High','orange'],['medium','Medium','yellow'],['low','Low','gray']].map(([k,l,c])=><div key={k}><div className={\`text-2xl font-bold text-\${c}-400\`}>{state.findings[k]}</div><div className="text-xs text-gray-400">{l}</div></div>)}</div></div>
       </div>
@@ -423,15 +423,15 @@ export async function startDashboard(options = {}) {
   server.listen(port, '127.0.0.1', () => {
     console.log(`
 ╔═══════════════════════════════════════════════════════════════╗
-║  🛡️  OpenClaw Security Guard - Dashboard                      ║
+║    OpenClaw Security Guard - Dashboard                      ║
 ║                                                               ║
 ║  URL:     http://localhost:${port}                              ║
-║  Status:  ${auth.isSetupComplete() ? '🔐 Password protected' : '⚠️  Setup required'}                              ║
+║  Status:  ${auth.isSetupComplete() ? ' Password protected' : '  Setup required'}                              ║
 ║                                                               ║
 ║  Author:  ${AUTHOR}                               ║
 ║  Website: ${WEBSITE}                            ║
 ║                                                               ║
-║  ✅ No telemetry • 100% private                               ║
+║   No telemetry • 100% private                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 `);
   });

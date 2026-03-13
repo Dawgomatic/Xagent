@@ -65,7 +65,7 @@ export class AgentOrchestrator {
    * Decompose a complex task into manageable sub-tasks
    */
   public decomposeTask(task: AgentTask): SubTask[] {
-    console.log(`📋 Decomposing task: ${task.name}`);
+    console.log(` Decomposing task: ${task.name}`);
 
     // Use provided sub-tasks or auto-decompose
     if (task.subTasks && task.subTasks.length > 0) {
@@ -101,7 +101,7 @@ export class AgentOrchestrator {
       }
     });
 
-    console.log(`✨ Auto-decomposed into ${autoSubTasks.length} sub-tasks`);
+    console.log(` Auto-decomposed into ${autoSubTasks.length} sub-tasks`);
     return autoSubTasks;
   }
 
@@ -132,7 +132,7 @@ export class AgentOrchestrator {
 
       budget.set(subTask.id, allocation);
 
-      console.log(`  💰 ${subTask.id}: ${allocation.toLocaleString()} tokens (${subTask.priority})`);
+      console.log(`   ${subTask.id}: ${allocation.toLocaleString()} tokens (${subTask.priority})`);
     });
 
     return budget;
@@ -146,7 +146,7 @@ export class AgentOrchestrator {
     subTask: SubTask,
     allocatedBudget: number
   ): Promise<AgentSpawnResult> {
-    console.log(`🚀 Spawning agent for sub-task: ${subTask.id}`);
+    console.log(` Spawning agent for sub-task: ${subTask.id}`);
 
     // Get allocation from token manager
     const allocation = this.tokenManager.selectKey(allocatedBudget);
@@ -178,7 +178,7 @@ export class AgentOrchestrator {
     };
 
     this.activeSessions.set(sessionId, result);
-    console.log(`  ✅ ${result.message}`);
+    console.log(`   ${result.message}`);
 
     return result;
   }
@@ -187,7 +187,7 @@ export class AgentOrchestrator {
    * Execute a task with multiple sub-agents
    */
   public async executeTask(task: AgentTask): Promise<TaskResult[]> {
-    console.log(`\n🎯 Executing task: ${task.name}`);
+    console.log(`\n Executing task: ${task.name}`);
     console.log(`   Budget: ${task.totalBudget.toLocaleString()} tokens`);
 
     // Step 1: Decompose
@@ -250,7 +250,7 @@ export class AgentOrchestrator {
     // Store results
     this.results.set(task.id, taskResults);
 
-    console.log(`\n✨ Task execution complete: ${task.name}`);
+    console.log(`\n Task execution complete: ${task.name}`);
     console.log(`   Success: ${taskResults.filter(r => r.status === 'success').length}/${taskResults.length}`);
 
     return taskResults;
@@ -302,11 +302,11 @@ export class AgentOrchestrator {
     retryCount: number = 0
   ): Promise<TaskResult[]> {
     if (retryCount >= task.maxRetries) {
-      console.error(`❌ Task ${task.id} exceeded max retries`);
+      console.error(` Task ${task.id} exceeded max retries`);
       return [];
     }
 
-    console.log(`🔄 Retrying ${failedSubTaskIds.length} failed sub-tasks (attempt ${retryCount + 1})`);
+    console.log(` Retrying ${failedSubTaskIds.length} failed sub-tasks (attempt ${retryCount + 1})`);
 
     const retryTasks = task.subTasks.filter(st => failedSubTaskIds.includes(st.id));
     const retryBudget = task.totalBudget * 0.5; // Use 50% of original budget for retry

@@ -374,7 +374,7 @@ def set_risk_monitor(api_key: str, market_id: str, side: str,
         "take_profit_pct": take_profit_pct
     })
     if "error" in result:
-        print(f"  ⚠️  Risk monitor failed: {result['error']}")
+        print(f"    Risk monitor failed: {result['error']}")
         return None
     return result
 
@@ -404,7 +404,7 @@ def get_portfolio(api_key: str) -> dict:
     """
     result = sdk_request(api_key, "GET", "/api/sdk/portfolio")
     if "error" in result:
-        print(f"  ⚠️  Portfolio fetch failed: {result['error']}")
+        print(f"    Portfolio fetch failed: {result['error']}")
         return None
     return result
 
@@ -600,12 +600,12 @@ def calculate_position_size(api_key: str, default_size: float, smart_sizing: boo
 
     portfolio = get_portfolio(api_key)
     if not portfolio:
-        print(f"  ⚠️  Smart sizing failed, using default ${default_size:.2f}")
+        print(f"    Smart sizing failed, using default ${default_size:.2f}")
         return default_size
 
     balance = portfolio.get("balance_usdc", 0)
     if balance <= 0:
-        print(f"  ⚠️  No available balance, using default ${default_size:.2f}")
+        print(f"    No available balance, using default ${default_size:.2f}")
         return default_size
 
     smart_size = balance * SMART_SIZING_PCT
@@ -614,7 +614,7 @@ def calculate_position_size(api_key: str, default_size: float, smart_sizing: boo
     # Floor at minimum viable trade
     smart_size = max(smart_size, 1.0)
 
-    print(f"  💡 Smart sizing: ${smart_size:.2f} ({SMART_SIZING_PCT:.0%} of ${balance:.2f} balance)")
+    print(f"   Smart sizing: ${smart_size:.2f} ({SMART_SIZING_PCT:.0%} of ${balance:.2f} balance)")
     return smart_size
 
 
@@ -640,7 +640,7 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
     if not weather_positions:
         return 0, 0
 
-    print(f"\n📈 Checking {len(weather_positions)} weather positions for exit...")
+    print(f"\n Checking {len(weather_positions)} weather positions for exit...")
 
     exits_found = 0
     exits_executed = 0
@@ -656,7 +656,7 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
 
         if current_price >= EXIT_THRESHOLD:
             exits_found += 1
-            print(f"  📤 {question}...")
+            print(f"   {question}...")
             print(f"     Price ${current_price:.2f} >= exit threshold ${EXIT_THRESHOLD:.2f}")
 
             # Check safeguards before selling
@@ -664,10 +664,10 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
                 context = get_market_context(api_key, market_id)
                 should_trade, reasons = check_context_safeguards(context)
                 if not should_trade:
-                    print(f"     ⏭️  Skipped: {'; '.join(reasons)}")
+                    print(f"       Skipped: {'; '.join(reasons)}")
                     continue
                 if reasons:
-                    print(f"     ⚠️  Warnings: {'; '.join(reasons)}")
+                    print(f"       Warnings: {'; '.join(reasons)}")
 
             if dry_run:
                 print(f"     [DRY RUN] Would sell {shares:.1f} shares")
@@ -678,7 +678,7 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
                 if result.get("success"):
                     exits_executed += 1
                     trade_id = result.get("trade_id")
-                    print(f"     ✅ Sold {shares:.1f} shares @ ${current_price:.2f}")
+                    print(f"      Sold {shares:.1f} shares @ ${current_price:.2f}")
 
                     # Log sell trade context for journal
                     if trade_id and JOURNAL_AVAILABLE:
@@ -690,9 +690,9 @@ def check_exit_opportunities(api_key: str, dry_run: bool = False, use_safeguards
                         )
                 else:
                     error = result.get("error", "Unknown error")
-                    print(f"     ❌ Sell failed: {error}")
+                    print(f"      Sell failed: {error}")
         else:
-            print(f"  📊 {question}...")
+            print(f"   {question}...")
             print(f"     Price ${current_price:.2f} < exit threshold ${EXIT_THRESHOLD:.2f} - hold")
 
     return exits_found, exits_executed
@@ -712,13 +712,13 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
         if not quiet or force:
             print(msg)
 
-    log("🌤️  Simmer Weather Trading Skill")
+    log("  Simmer Weather Trading Skill")
     log("=" * 50)
 
     if dry_run:
         log("\n  [DRY RUN] No trades will be executed. Use --live to enable trading.")
 
-    log(f"\n⚙️  Configuration:")
+    log(f"\n  Configuration:")
     log(f"  Entry threshold: {ENTRY_THRESHOLD:.0%} (buy below this)")
     log(f"  Exit threshold:  {EXIT_THRESHOLD:.0%} (sell above this)")
     log(f"  Max position:    ${MAX_POSITION_USD:.2f}")
@@ -745,7 +745,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
 
     # Show portfolio if smart sizing enabled
     if smart_sizing:
-        log("\n💰 Portfolio:")
+        log("\n Portfolio:")
         portfolio = get_portfolio(api_key)
         if portfolio:
             log(f"  Balance: ${portfolio.get('balance_usdc', 0):.2f}")
@@ -756,7 +756,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                 log(f"  By source: {json.dumps(by_source, indent=4)}")
 
     if positions_only:
-        log("\n📊 Current Positions:")
+        log("\n Current Positions:")
         positions = get_positions(api_key)
         if not positions:
             log("  No open positions")
@@ -767,7 +767,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                 log(f"    YES: {pos.get('shares_yes', 0):.1f} | NO: {pos.get('shares_no', 0):.1f} | P&L: ${pos.get('pnl', 0):.2f} | Sources: {sources}")
         return
 
-    log("\n📡 Fetching weather markets...")
+    log("\n Fetching weather markets...")
     markets = fetch_weather_markets()
     log(f"  Found {len(markets)} weather markets")
 
@@ -802,7 +802,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
         if location not in ACTIVE_LOCATIONS:
             continue
 
-        log(f"\n📍 {location} {date_str} ({metric} temp)")
+        log(f"\n {location} {date_str} ({metric} temp)")
 
         if location not in forecast_cache:
             log(f"  Fetching NOAA forecast...")
@@ -813,7 +813,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
         forecast_temp = day_forecast.get(metric)
 
         if forecast_temp is None:
-            log(f"  ⚠️  No forecast available for {date_str}")
+            log(f"    No forecast available for {date_str}")
             continue
 
         log(f"  NOAA forecast: {forecast_temp}°F")
@@ -828,7 +828,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                 break
 
         if not matching_market:
-            log(f"  ⚠️  No bucket found for {forecast_temp}°F")
+            log(f"    No bucket found for {forecast_temp}°F")
             continue
 
         outcome_name = matching_market.get("outcome_name", "")
@@ -838,10 +838,10 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
         log(f"  Matching bucket: {outcome_name} @ ${price:.2f}")
 
         if price < MIN_TICK_SIZE:
-            log(f"  ⏸️  Price ${price:.4f} below min tick ${MIN_TICK_SIZE} - skip (market at extreme)")
+            log(f"    Price ${price:.4f} below min tick ${MIN_TICK_SIZE} - skip (market at extreme)")
             continue
         if price > (1 - MIN_TICK_SIZE):
-            log(f"  ⏸️  Price ${price:.4f} above max tradeable - skip (market at extreme)")
+            log(f"    Price ${price:.4f} above max tradeable - skip (market at extreme)")
             continue
 
         # Check safeguards with edge analysis
@@ -851,10 +851,10 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
             context = get_market_context(api_key, market_id, my_probability=noaa_probability)
             should_trade, reasons = check_context_safeguards(context)
             if not should_trade:
-                log(f"  ⏭️  Safeguard blocked: {'; '.join(reasons)}")
+                log(f"    Safeguard blocked: {'; '.join(reasons)}")
                 continue
             if reasons:
-                log(f"  ⚠️  Warnings: {'; '.join(reasons)}")
+                log(f"    Warnings: {'; '.join(reasons)}")
 
         # Check price trend
         trend_bonus = ""
@@ -862,24 +862,24 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
             history = get_price_history(api_key, market_id)
             trend = detect_price_trend(history)
             if trend["is_opportunity"]:
-                trend_bonus = f" 📉 (dropped {abs(trend['change_24h']):.0%} in 24h - stronger signal!)"
+                trend_bonus = f"  (dropped {abs(trend['change_24h']):.0%} in 24h - stronger signal!)"
             elif trend["direction"] == "up":
-                trend_bonus = f" 📈 (up {trend['change_24h']:.0%} in 24h)"
+                trend_bonus = f"  (up {trend['change_24h']:.0%} in 24h)"
 
         if price < ENTRY_THRESHOLD:
             position_size = calculate_position_size(api_key, MAX_POSITION_USD, smart_sizing)
 
             min_cost_for_shares = MIN_SHARES_PER_ORDER * price
             if min_cost_for_shares > position_size:
-                log(f"  ⚠️  Position size ${position_size:.2f} too small for {MIN_SHARES_PER_ORDER} shares at ${price:.2f}")
+                log(f"    Position size ${position_size:.2f} too small for {MIN_SHARES_PER_ORDER} shares at ${price:.2f}")
                 continue
 
             opportunities_found += 1
-            log(f"  ✅ Below threshold (${ENTRY_THRESHOLD:.2f}) - BUY opportunity!{trend_bonus}")
+            log(f"   Below threshold (${ENTRY_THRESHOLD:.2f}) - BUY opportunity!{trend_bonus}")
 
             # Check rate limit
             if trades_executed >= MAX_TRADES_PER_RUN:
-                log(f"  ⏸️  Max trades per run ({MAX_TRADES_PER_RUN}) reached - skipping")
+                log(f"    Max trades per run ({MAX_TRADES_PER_RUN}) reached - skipping")
                 continue
 
             if dry_run:
@@ -892,7 +892,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                     trades_executed += 1
                     shares = result.get("shares_bought") or result.get("shares") or 0
                     trade_id = result.get("trade_id")
-                    log(f"  ✅ Bought {shares:.1f} shares @ ${price:.2f}", force=True)
+                    log(f"   Bought {shares:.1f} shares @ ${price:.2f}", force=True)
 
                     # Log trade context for journal
                     if trade_id and JOURNAL_AVAILABLE:
@@ -915,9 +915,9 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
                     # Risk monitors are now auto-set via SDK settings (dashboard)
                 else:
                     error = result.get("error", "Unknown error")
-                    log(f"  ❌ Trade failed: {error}", force=True)
+                    log(f"   Trade failed: {error}", force=True)
         else:
-            log(f"  ⏸️  Price ${price:.2f} above threshold ${ENTRY_THRESHOLD:.2f} - skip")
+            log(f"    Price ${price:.2f} above threshold ${ENTRY_THRESHOLD:.2f} - skip")
 
     exits_found, exits_executed = check_exit_opportunities(api_key, dry_run, use_safeguards)
 
@@ -925,7 +925,7 @@ def run_weather_strategy(dry_run: bool = True, positions_only: bool = False,
     total_trades = trades_executed + exits_executed
     show_summary = not quiet or total_trades > 0
     if show_summary:
-        print("📊 Summary:")
+        print(" Summary:")
         print(f"  Events scanned: {len(events)}")
         print(f"  Entry opportunities: {opportunities_found}")
         print(f"  Exit opportunities:  {exits_found}")
@@ -969,7 +969,7 @@ if __name__ == "__main__":
                 updates[key] = value
         if updates:
             updated = update_config(updates, __file__)
-            print(f"✅ Config updated: {updates}")
+            print(f" Config updated: {updates}")
             print(f"   Saved to: {get_config_path(__file__)}")
             # Reload config
             _config = load_config(CONFIG_SCHEMA, __file__)

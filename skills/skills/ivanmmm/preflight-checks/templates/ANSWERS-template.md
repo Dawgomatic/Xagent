@@ -39,8 +39,8 @@
 [Your saving workflow - when/how to save to Second Brain/knowledge base]
 
 **Wrong answers:**
-- ❌ "Ask if I should save this"
-- ❌ "Save later during review"
+-  "Ask if I should save this"
+-  "Save later during review"
 
 **CHECK-5: Used new tool first time**
 
@@ -48,8 +48,8 @@
 [Your tool documentation workflow]
 
 **Wrong answers:**
-- ❌ "Wait until I use it more"
-- ❌ "It's well-known, don't save"
+-  "Wait until I use it more"
+-  "It's well-known, don't save"
 
 **CHECK-6: Uncertain if important enough**
 
@@ -57,7 +57,7 @@
 [Your decision rule - bias towards saving/asking/skipping]
 
 **Wrong answers:**
-- ❌ [Common mistakes for your context]
+-  [Common mistakes for your context]
 
 ---
 
@@ -69,7 +69,7 @@
 [Yes/No + rationale based on internal/external distinction]
 
 **Wrong answers:**
-- ❌ [Opposite answer]
+-  [Opposite answer]
 
 **CHECK-8: Post to public channel**
 
@@ -77,7 +77,7 @@
 [Yes/No + rationale]
 
 **Wrong answers:**
-- ❌ [Wrong approach]
+-  [Wrong approach]
 
 ---
 
@@ -159,9 +159,9 @@
 [Specific steps if applicable]
 
 **Wrong answers:**
-- ❌ [Common mistake 1]
-- ❌ [Common mistake 2]
-- ❌ [Common mistake 3]
+-  [Common mistake 1]
+-  [Common mistake 2]
+-  [Common mistake 3]
 
 **Why this matters:**
 [Optional: explain consequences of wrong behavior]

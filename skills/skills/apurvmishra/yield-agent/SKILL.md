@@ -5,7 +5,7 @@ description: On-chain yield discovery, transaction building, and portfolio manag
 version: 0.1.5
 author: yield-xyz
 homepage: https://yield.xyz
-metadata: {"openclaw":{"emoji":"📈","requires":{"bins":["curl","jq"]}}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","jq"]}}}
 tools:
   - name: find-yields
     description: Discover yield opportunities by network and token

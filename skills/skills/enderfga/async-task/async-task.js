@@ -201,7 +201,7 @@ async function main() {
       saveState(state);
 
       // 输出确认消息
-      console.log(`⏳ ${message}`);
+      console.log(` ${message}`);
       console.log('\n[Task started. Call "async-task done" or "async-task fail" when finished.]');
       break;
     }
@@ -220,7 +220,7 @@ async function main() {
       }
 
       try {
-        await pushMessage(sessionId, `✅ ${message}`);
+        await pushMessage(sessionId, ` ${message}`);
         console.log(`✓ Result pushed to session: ${sessionId}`);
 
         // 记录历史
@@ -259,7 +259,7 @@ async function main() {
       }
 
       try {
-        await pushMessage(sessionId, `❌ Task failed: ${message}`);
+        await pushMessage(sessionId, ` Task failed: ${message}`);
         console.log(`✓ Failure pushed to session: ${sessionId}`);
 
         if (state.currentTask) {
@@ -319,7 +319,7 @@ async function main() {
       if (state.history.length > 0) {
         console.log(`\nRecent history (last 5):`);
         state.history.slice(-5).forEach((task, i) => {
-          const icon = task.status === 'done' ? '✅' : '❌';
+          const icon = task.status === 'done' ? '' : '';
           console.log(`  ${icon} ${task.description}`);
         });
       }

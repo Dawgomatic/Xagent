@@ -71,7 +71,7 @@ node scripts/audit-installed.js --verbose            # Show top findings per ski
 ```
 
 **Output:**
-- Color-coded risk levels (🚨 CRITICAL, ⚠️ HIGH, 📋 MEDIUM, ✅ CLEAN)
+- Color-coded risk levels ( CRITICAL,  HIGH,  MEDIUM,  CLEAN)
 - Summary stats (total scanned, by risk level)
 - Detailed list of high-risk skills with capabilities
 
@@ -349,15 +349,15 @@ skill-auditor/
 
 **v1.x commands work unchanged:**
 ```bash
-node scan-skill.js <skill-dir>                    # ✅ Works
-node scan-skill.js <skill-dir> --json out.json    # ✅ Works  
-node format-report.js out.json                    # ✅ Works
+node scan-skill.js <skill-dir>                    #  Works
+node scan-skill.js <skill-dir> --json out.json    #  Works  
+node format-report.js out.json                    #  Works
 ```
 
 **New v2.0 features are opt-in:**
 ```bash
-node scan-skill.js <skill-dir> --use-llm          # ⚡ Enhanced
-node scan-skill.js <skill-dir> --use-virustotal   # ⚡ Enhanced
+node scan-skill.js <skill-dir> --use-llm          #  Enhanced
+node scan-skill.js <skill-dir> --use-virustotal   #  Enhanced
 ```
 
 ## Limitations

@@ -18,10 +18,10 @@ In comparison output, show confidence per criterion:
 |-----------|--------|--------|------------|
 | Price     | 8      | 6      | High       |
 | Quality   | 7      | 8      | Medium     |
-| Support   | 5      | 7      | Low ⚠️     |
+| Support   | 5      | 7      | Low      |
 ```
 
 When confidence is Low or Caveat:
-- Explicitly note in the ⚠️ CAVEATS section
+- Explicitly note in the  CAVEATS section
 - Suggest what additional research would increase confidence
 - Offer to investigate further before user decides

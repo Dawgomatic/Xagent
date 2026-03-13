@@ -4,7 +4,7 @@
 
 ---
 
-## 📰 HackerNews — Show HN Post
+##  HackerNews — Show HN Post
 
 **Title:**
 ```
@@ -57,7 +57,7 @@ https://github.com/Ramsbaby/self-evolving-agent
 
 ---
 
-## 🐦 Twitter/X Thread
+##  Twitter/X Thread
 
 ---
 
@@ -70,7 +70,7 @@ Including one command that retried 119 times in a row.
 
 I didn't notice. It did.
 
-🧵 What I built to make this happen (and why the feedback loop matters):
+ What I built to make this happen (and why the feedback loop matters):
 ```
 
 ---
@@ -125,9 +125,9 @@ Mine measures whether the last proposal worked:
 
 → Pattern frequency before the rule change
 → Pattern frequency after
-→ 30%+ drop?   ✅ Effective
-→ ±30%?        😐 Neutral (more data needed)
-→ Frequency up? 🔴 Regressed — reflagged for removal
+→ 30%+ drop?    Effective
+→ ±30%?         Neutral (more data needed)
+→ Frequency up?  Regressed — reflagged for removal
 
 It's not causal inference. But it's better than flying blind.
 ```
@@ -146,7 +146,7 @@ Honest limitations:
 • Effect measurement is correlation, not causation
 • Works best with OpenClaw / AGENTS.md but adapts to CLAUDE.md
 
-If you want zero false positives: read your own logs 😅
+If you want zero false positives: read your own logs 
 ```
 
 ---
@@ -154,7 +154,7 @@ If you want zero false positives: read your own logs 😅
 ### Tweet 6 — Link + CTA
 
 ```
-Open source, MIT, runs in OpenClaw (part of the 145k+ ⭐ ecosystem).
+Open source, MIT, runs in OpenClaw (part of the 145k+  ecosystem).
 
 GitHub: https://github.com/Ramsbaby/self-evolving-agent
 
@@ -166,7 +166,7 @@ Show HN thread → [link when live]
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - HN post aims for ~400 words — long enough to pre-answer common
   questions, short enough not to feel like marketing copy.

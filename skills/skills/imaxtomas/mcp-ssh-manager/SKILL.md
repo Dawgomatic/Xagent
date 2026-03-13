@@ -4,7 +4,7 @@ description: This skill should be used when the user asks to "run ssh command", 
 version: 0.1.0
 metadata:
   clawdbot:
-    emoji: "🖥️"
+    emoji: ""
     requires:
       mcp_servers: ["ssh-manager"]
 ---

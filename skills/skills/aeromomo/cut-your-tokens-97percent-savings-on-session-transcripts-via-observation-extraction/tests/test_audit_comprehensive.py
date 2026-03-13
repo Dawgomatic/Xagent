@@ -30,7 +30,7 @@ class TestHelpers:
         assert not _has_tables("a | b\nc | d")
 
     def test_has_emoji_true(self):
-        assert _has_emoji("hello 🎉 world")
+        assert _has_emoji("hello  world")
 
     def test_has_emoji_false(self):
         assert not _has_emoji("plain text")
@@ -69,7 +69,7 @@ class TestAuditFile:
 
     def test_with_emoji(self, tmp_path):
         f = tmp_path / "test.md"
-        f.write_text("🎉 Party time! 🎊 Fun! 🎈 Balloons!")
+        f.write_text(" Party time!  Fun!  Balloons!")
         result = audit_file(f)
         # May suggest emoji stripping or just note it
         assert isinstance(result, dict)

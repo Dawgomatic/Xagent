@@ -27,16 +27,16 @@ PLEX_TOKEN="${PLEX_TOKEN:-}"
 OUTPUT_FILE="${1:-clawarr-dashboard.html}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
-echo "📊 Generating ClawARR Premium Dashboard (1440p optimized)..."
+echo " Generating ClawARR Premium Dashboard (1440p optimized)..."
 echo "   Host: $HOST"
 echo "   Output: $OUTPUT_FILE"
 echo ""
@@ -86,7 +86,7 @@ measure_response_time() {
 }
 
 # Collect data
-echo "📡 Collecting data from services..."
+echo " Collecting data from services..."
 
 # Initialize all variables with defaults
 RADARR_TOTAL=0 RADARR_MONITORED=0 RADARR_DOWNLOADED=0 RADARR_MISSING=0 RADARR_SIZE=0 RADARR_SIZE_GB=0 RADARR_DOWNLOADING=0
@@ -231,7 +231,7 @@ fi
 TOTAL_MISSING=$((RADARR_MISSING + (SONARR_EPISODES - SONARR_EPISODE_FILES)))
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M")
 
-echo "✅ Data collected. Generating premium HTML..."
+echo " Data collected. Generating premium HTML..."
 
 # Start building HTML
 cat > "$OUTPUT_FILE" << 'HTML_START'
@@ -684,28 +684,28 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
     <div class="row-5">
       
       <div class="card">
-        <div class="card-icon">🎬</div>
+        <div class="card-icon"></div>
         <div class="card-title">Total Movies</div>
         <div class="card-value">RADARR_TOTAL_PH</div>
         <div class="card-subtitle">RADARR_MONITORED_PH monitored</div>
       </div>
       
       <div class="card accent-purple">
-        <div class="card-icon">📺</div>
+        <div class="card-icon"></div>
         <div class="card-title">Total TV Shows</div>
         <div class="card-value">SONARR_TOTAL_PH</div>
         <div class="card-subtitle">SONARR_MONITORED_PH monitored</div>
       </div>
       
       <div class="card accent-green">
-        <div class="card-icon">📼</div>
+        <div class="card-icon"></div>
         <div class="card-title">Total Episodes</div>
         <div class="card-value" style="font-size: 36px;">SONARR_EPISODE_FILES_PH / SONARR_EPISODES_PH</div>
         <div class="card-subtitle">SONARR_PERCENT_PH% complete</div>
       </div>
       
       <div class="card accent-amber">
-        <div class="card-icon">💾</div>
+        <div class="card-icon"></div>
         <div class="card-title">Storage</div>
         <div class="progress-ring-container">
           <svg width="140" height="140">
@@ -720,7 +720,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
       </div>
       
       <div class="card accent-green">
-        <div class="card-icon">▶️</div>
+        <div class="card-icon"></div>
         <div class="card-title">Active Streams</div>
         <div class="card-value">TAUTULLI_STREAMS_PH</div>
         <div class="card-subtitle">Currently watching</div>
@@ -859,7 +859,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
         <div class="service-grid">
           
           <div class="service-card">
-            <div class="service-icon">📺</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Sonarr</div>
               <div class="service-rt">SONARR_RT_PH ms</div>
@@ -868,7 +868,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">🎬</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Radarr</div>
               <div class="service-rt">RADARR_RT_PH ms</div>
@@ -877,7 +877,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">▶️</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Plex</div>
               <div class="service-rt">PLEX_RT_PH ms</div>
@@ -886,7 +886,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">📊</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Tautulli</div>
               <div class="service-rt">TAUTULLI_RT_PH ms</div>
@@ -895,7 +895,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">⬇️</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">SABnzbd</div>
               <div class="service-rt">SABNZBD_RT_PH ms</div>
@@ -904,7 +904,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">📝</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Overseerr</div>
               <div class="service-rt">OVERSEERR_RT_PH ms</div>
@@ -913,7 +913,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">📡</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Prowlarr</div>
               <div class="service-rt">PROWLARR_RT_PH ms</div>
@@ -922,7 +922,7 @@ cat > "$OUTPUT_FILE" << 'HTML_START'
           </div>
           
           <div class="service-card">
-            <div class="service-icon">💬</div>
+            <div class="service-icon"></div>
             <div class="service-info">
               <div class="service-name">Bazarr</div>
               <div class="service-rt">BAZARR_RT_PH ms</div>
@@ -983,7 +983,7 @@ if [[ $TAUTULLI_STREAMS -gt 0 ]]; then
   WATCHING_HTML=$(echo "$TAUTULLI_ACTIVITY" | jq -r '
     .response.data.sessions[]? |
     "<div class=\"activity-item\">
-      <div class=\"activity-thumb\">▶️</div>
+      <div class=\"activity-thumb\"></div>
       <div class=\"activity-info\">
         <div class=\"activity-title\">\(.title // "Unknown")</div>
         <div class=\"activity-meta\">\(.user // "Unknown User") • \(.progress_percent // 0)% complete</div>
@@ -995,12 +995,12 @@ if [[ $TAUTULLI_STREAMS -gt 0 ]]; then
   ' | head -5)
   
   if [[ -z "$WATCHING_HTML" || "$WATCHING_HTML" == "null" ]]; then
-    CURRENTLY_WATCHING_CONTENT="<div class=\"empty-state\"><div class=\"empty-state-icon\">📺</div>No active streams</div>"
+    CURRENTLY_WATCHING_CONTENT="<div class=\"empty-state\"><div class=\"empty-state-icon\"></div>No active streams</div>"
   else
     CURRENTLY_WATCHING_CONTENT="$WATCHING_HTML"
   fi
 else
-  CURRENTLY_WATCHING_CONTENT="<div class=\"empty-state\"><div class=\"empty-state-icon\">📺</div>No active streams</div>"
+  CURRENTLY_WATCHING_CONTENT="<div class=\"empty-state\"><div class=\"empty-state-icon\"></div>No active streams</div>"
 fi
 
 # Queue items content
@@ -1028,7 +1028,7 @@ if [[ "$RADARR_RECENT" != "[]" ]]; then
   RECENT_ADDITIONS_HTML=$(echo "$RADARR_RECENT" | jq -r '
     .[] |
     "<div class=\"activity-item\">
-      <div class=\"activity-thumb\">🎬</div>
+      <div class=\"activity-thumb\"></div>
       <div class=\"activity-info\">
         <div class=\"activity-title\">\(.title // "Unknown")</div>
         <div class=\"activity-meta\">\(.added[0:10] // "Unknown") • Movie</div>
@@ -1058,7 +1058,7 @@ fi
 RECENT_WATCHED_HTML=$(echo "$TAUTULLI_HISTORY" | jq -r '
   .response.data.data[]? |
   "<div class=\"activity-item\">
-    <div class=\"activity-thumb\">\(if .media_type == "movie" then "🎬" else "📺" end)</div>
+    <div class=\"activity-thumb\">\(if .media_type == "movie" then "" else "" end)</div>
     <div class=\"activity-info\">
       <div class=\"activity-title\">\(.full_title // .title // "Unknown")</div>
       <div class=\"activity-meta\">\(.date // "Unknown") • \((.duration // 0) / 60 | floor) min</div>
@@ -1284,7 +1284,7 @@ awk '
 rm -f "${OUTPUT_FILE}.bak" /tmp/watching.html /tmp/queue.html /tmp/recent.html /tmp/watched.html /tmp/sparkline.svg /tmp/donut.svg /tmp/genres.html
 
 echo ""
-echo "✅ Premium dashboard generated: $OUTPUT_FILE"
+echo " Premium dashboard generated: $OUTPUT_FILE"
 echo "   Optimized for 2560x1440 (1440p)"
 echo "   Open in browser: file://$(pwd)/$OUTPUT_FILE"
 echo ""

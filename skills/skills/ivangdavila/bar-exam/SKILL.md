@@ -3,7 +3,7 @@ name: Bar Exam
 slug: bar-exam
 version: 1.0.0
 description: Prepare for the US Bar Exam with MBE practice, essay drilling, weak area targeting, and jurisdiction planning.
-metadata: {"clawdbot":{"emoji":"⚖️","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

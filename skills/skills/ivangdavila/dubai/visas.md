@@ -2,7 +2,7 @@
 
 > Complete guide to UAE visa options: Employment, Golden Visa, Freelance, Remote Work, and Investor visas.
 
-## 📋 Visa Types Overview
+##  Visa Types Overview
 
 | Visa Type | Duration | Sponsor Required | Min. Requirement | Total Cost (AED) |
 |-----------|----------|------------------|------------------|------------------|
@@ -15,7 +15,7 @@
 
 ---
 
-## 👔 Employment Visa
+##  Employment Visa
 
 ### Overview
 
@@ -70,7 +70,7 @@ Standard work visa sponsored by UAE employer. Most common path for professionals
 
 ---
 
-## 🏆 Golden Visa
+##  Golden Visa
 
 ### Overview
 
@@ -157,17 +157,17 @@ Long-term residence visa (5-10 years) for investors, professionals, and talented
 
 ### Golden Visa Benefits
 
-- ✅ No sponsor required
-- ✅ 10-year residency (renewable)
-- ✅ Sponsor spouse and children (any age)
-- ✅ Sponsor domestic helpers (unlimited)
-- ✅ No minimum stay requirement
-- ✅ Valid even if outside UAE for 6+ months
-- ✅ Easier banking and credit access
+-  No sponsor required
+-  10-year residency (renewable)
+-  Sponsor spouse and children (any age)
+-  Sponsor domestic helpers (unlimited)
+-  No minimum stay requirement
+-  Valid even if outside UAE for 6+ months
+-  Easier banking and credit access
 
 ---
 
-## 🟢 Green Visa
+##  Green Visa
 
 ### Overview
 
@@ -204,15 +204,15 @@ Long-term residence visa (5-10 years) for investors, professionals, and talented
 
 ### Green Visa Benefits
 
-- ✅ 5-year validity (renewable)
-- ✅ Self-sponsored (no employer)
-- ✅ Sponsor dependents
-- ✅ 90-180 days grace period to find new work if job lost
-- ✅ Can work for any employer or freelance
+-  5-year validity (renewable)
+-  Self-sponsored (no employer)
+-  Sponsor dependents
+-  90-180 days grace period to find new work if job lost
+-  Can work for any employer or freelance
 
 ---
 
-## 💻 Remote Work Visa (Digital Nomad)
+##  Remote Work Visa (Digital Nomad)
 
 ### Overview
 
@@ -271,16 +271,16 @@ Long-term residence visa (5-10 years) for investors, professionals, and talented
 
 ### Remote Work Visa Benefits
 
-- ✅ No UAE company required
-- ✅ Access to banking (most banks)
-- ✅ Can sign rental contracts
-- ✅ Tax-free income
-- ✅ Sponsor dependents (additional fees)
-- ✅ Renewable annually
+-  No UAE company required
+-  Access to banking (most banks)
+-  Can sign rental contracts
+-  Tax-free income
+-  Sponsor dependents (additional fees)
+-  Renewable annually
 
 ---
 
-## 🎨 Freelance Visa
+##  Freelance Visa
 
 ### Overview
 
@@ -316,14 +316,14 @@ Visa linked to a freelance permit from a UAE free zone. Allows you to work indep
 
 ### Freelance Visa Limitations
 
-- ❌ Cannot work for UAE clients directly (technically)
-- ❌ Limited to activities on permit
-- ❌ Must renew annually with free zone
-- ❌ Some free zones have minimum experience requirements
+-  Cannot work for UAE clients directly (technically)
+-  Limited to activities on permit
+-  Must renew annually with free zone
+-  Some free zones have minimum experience requirements
 
 ---
 
-## 🏠 Investor Visa (Property)
+##  Investor Visa (Property)
 
 ### Two Tiers
 
@@ -362,7 +362,7 @@ Visa linked to a freelance permit from a UAE free zone. Allows you to work indep
 
 ---
 
-## ⏱️ Comparison: Visa Processing Times
+##  Comparison: Visa Processing Times
 
 | Visa Type | Processing Time | Notes |
 |-----------|-----------------|-------|
@@ -376,7 +376,7 @@ Visa linked to a freelance permit from a UAE free zone. Allows you to work indep
 
 ---
 
-## 📊 Visa Decision Matrix
+##  Visa Decision Matrix
 
 ### For Employees
 
@@ -405,7 +405,7 @@ Visa linked to a freelance permit from a UAE free zone. Allows you to work indep
 
 ---
 
-## 🔑 Key Takeaways
+##  Key Takeaways
 
 1. **Golden Visa is best** for long-term security (10 years, no sponsor)
 2. **Remote Work Visa** is perfect entry point to test Dubai ($900, 1 year)

@@ -1018,7 +1018,7 @@ agent workflow_orchestrator(workflow_spec: WorkflowSpec) -> WorkflowResult {
 
 ## Security Anti-Patterns to Avoid
 
-### ❌ Anti-Pattern 1: Missing Policy Definitions
+###  Anti-Pattern 1: Missing Policy Definitions
 
 ```dsl
 // BAD: No policies defined
@@ -1029,7 +1029,7 @@ agent insecure_agent(input: String) -> String {
 }
 ```
 
-✅ **Fix**: Always define explicit policies
+ **Fix**: Always define explicit policies
 
 ```dsl
 agent secure_agent(input: String) -> String {
@@ -1046,7 +1046,7 @@ agent secure_agent(input: String) -> String {
 }
 ```
 
-### ❌ Anti-Pattern 2: Overly Permissive Policies
+###  Anti-Pattern 2: Overly Permissive Policies
 
 ```dsl
 // BAD: Allows everything
@@ -1055,7 +1055,7 @@ policy bad_policy {
 }
 ```
 
-✅ **Fix**: Use principle of least privilege
+ **Fix**: Use principle of least privilege
 
 ```dsl
 policy good_policy {
@@ -1067,7 +1067,7 @@ policy good_policy {
 }
 ```
 
-### ❌ Anti-Pattern 3: No Resource Limits
+###  Anti-Pattern 3: No Resource Limits
 
 ```dsl
 // BAD: No timeout, unlimited memory
@@ -1079,7 +1079,7 @@ with memory = "persistent" {
 }
 ```
 
-✅ **Fix**: Always set resource limits
+ **Fix**: Always set resource limits
 
 ```dsl
 with
@@ -1094,7 +1094,7 @@ with
 }
 ```
 
-### ❌ Anti-Pattern 4: Logging Sensitive Data
+###  Anti-Pattern 4: Logging Sensitive Data
 
 ```dsl
 // BAD: Logs passwords and secrets
@@ -1105,7 +1105,7 @@ audit: {
 }
 ```
 
-✅ **Fix**: Never log sensitive data
+ **Fix**: Never log sensitive data
 
 ```dsl
 audit: {
@@ -1117,21 +1117,21 @@ audit: {
 }
 ```
 
-### ❌ Anti-Pattern 5: Hardcoded Secrets
+###  Anti-Pattern 5: Hardcoded Secrets
 
 ```dsl
 // BAD: API key hardcoded
 let api_key = "sk_live_abc123xyz789";
 ```
 
-✅ **Fix**: Use Vault references
+ **Fix**: Use Vault references
 
 ```dsl
 // GOOD: Secret from Vault
 let api_key = vault://application/api/key;
 ```
 
-### ❌ Anti-Pattern 6: No Input Validation
+###  Anti-Pattern 6: No Input Validation
 
 ```dsl
 // BAD: No validation
@@ -1140,7 +1140,7 @@ agent bad_agent(input: String) -> String {
 }
 ```
 
-✅ **Fix**: Always validate input
+ **Fix**: Always validate input
 
 ```dsl
 agent good_agent(input: String) -> String {
@@ -1155,7 +1155,7 @@ agent good_agent(input: String) -> String {
 }
 ```
 
-### ❌ Anti-Pattern 7: Wrong Sandbox Tier
+###  Anti-Pattern 7: Wrong Sandbox Tier
 
 ```dsl
 // BAD: Processing untrusted code in Tier1
@@ -1166,7 +1166,7 @@ agent code_runner(untrusted_code: String) -> String {
 }
 ```
 
-✅ **Fix**: Use appropriate sandbox tier
+ **Fix**: Use appropriate sandbox tier
 
 ```dsl
 agent code_runner(untrusted_code: String) -> String {
@@ -1181,7 +1181,7 @@ agent code_runner(untrusted_code: String) -> String {
 }
 ```
 
-### ❌ Anti-Pattern 8: No Error Handling
+###  Anti-Pattern 8: No Error Handling
 
 ```dsl
 // BAD: Unhandled errors will crash agent
@@ -1191,7 +1191,7 @@ agent fragile_agent(url: String) -> String {
 }
 ```
 
-✅ **Fix**: Always handle errors
+ **Fix**: Always handle errors
 
 ```dsl
 agent robust_agent(url: String) -> String {

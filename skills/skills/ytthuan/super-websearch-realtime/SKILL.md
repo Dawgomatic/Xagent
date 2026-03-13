@@ -32,7 +32,7 @@ Search for the most recent information about:
 
 ### On Tool Error: `web_search_preview_not_supported`
 
-⚠️ Your model is not able to use Web Search Preview tool.  
+ Your model is not able to use Web Search Preview tool.  
 I will answer based on my knowledge, **not real-time information**.
 
 ---

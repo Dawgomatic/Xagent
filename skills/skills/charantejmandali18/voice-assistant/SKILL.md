@@ -3,7 +3,7 @@ name: voice-assistant
 description: Real-time voice assistant for OpenClaw. Streams mic audio through configurable STT (Deepgram or ElevenLabs) into your OpenClaw agent, then speaks the response via configurable TTS (Deepgram Aura or ElevenLabs). Sub-2s time-to-first-audio with full streaming at every stage.
 metadata:
   openclaw:
-    emoji: "🎙️"
+    emoji: ""
     requires:
       bins: ["uv"]
       env: []

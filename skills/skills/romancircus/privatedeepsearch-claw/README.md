@@ -1,7 +1,7 @@
 # privatedeepsearch-claw
 
 > [!IMPORTANT]  
-> **🚨 VPN REQUIRED** - This tool MUST be used with VPN to be hidden. Without VPN, you're exposing your real IP to search engines.
+> ** VPN REQUIRED** - This tool MUST be used with VPN to be hidden. Without VPN, you're exposing your real IP to search engines.
 
 **Don't let Big Tech know what you and your open claw are up to.**
 Multi-iteration deep research that helps keep your claws private. Multi-iteration deep research that helps keep your claws private.
@@ -12,19 +12,19 @@ Powered by [SearXNG](https://github.com/searxng/searxng). **VPN REQUIRED for pri
 
 ## What private deep claw Does
 
-### 🔍 It Searches (Privately)
+###  It Searches (Privately)
 ```bash
 searx "best password managers 2026" 5
 ```
 Don't let Big Tech know what you and your open claw are up to. Multi-iteration deep research that helps keep your claws private.
 
-### 🔬 It Researches (Deeply)
+###  It Researches (Deeply)
 ```bash
 deep-research "zero knowledge proofs practical applications"
 ```
 Don't let Big Tech know what you and your open claw are up to. Multi-iteration deep research that helps keep your claws private.
 
-### 🧿 Don't Let Big Tech Know What You and Your Open Claw Are Up To
+###  Don't Let Big Tech Know What You and Your Open Claw Are Up To
 
 | What Big Tech Does | What Open Claw Does |
 |--------------------|---------------------|
@@ -37,11 +37,11 @@ Don't let Big Tech know what you and your open claw are up to. Multi-iteration d
 
 ---
 
-## 🎯 WHAT YOU GET vs WHAT YOU DON'T
+##  WHAT YOU GET vs WHAT YOU DON'T
 
-**⚠️ VPN REQUIREMENT:** This tool REQUIRES VPN to be hidden. Without VPN, you're still exposing your IP to search engines.
+** VPN REQUIREMENT:** This tool REQUIRES VPN to be hidden. Without VPN, you're still exposing your IP to search engines.
 
-**✅ CAPABILITIES (What You're Getting):**
+** CAPABILITIES (What You're Getting):**
 • Local SearXNG → Zero latency, no external calls  
 • VPN-routed → REQUIRED for privacy (Mullvad/Tailscale support)
 • No rate limits → Unlimited vs Google APIs
@@ -51,20 +51,20 @@ Don't let Big Tech know what you and your open claw are up to. Multi-iteration d
 • 40+ privacy engines → DuckDuckGo, Brave, Startpage
 • Zero tracking → No history/profile building
 
-**❌ WITHOUT VPN (What You're Exposing):**
+** WITHOUT VPN (What You're Exposing):**
 • Real IP address → Search engines see you
 • ISP tracking → Your provider knows what you search  
 • Location data → Geographic profiling
 • Search patterns → Behavioral analysis
 
-**❌ LIMITATIONS (What You're NOT Getting):**
+** LIMITATIONS (What You're NOT Getting):**
 • Real-time news → 15-30min delay on breaking stories
 • Personalized results → No search history optimization  
 • Image-heavy search → Limited visual content discovery
 • Maps/local results → No location-based queries
 • Breaking news alerts → Delayed by design (avoids noise)
 
-## ⚖️ PRIVACY vs PERFORMANCE TRADE-OFFS
+##  PRIVACY vs PERFORMANCE TRADE-OFFS
 
 **Your Setup:**
 • Speed: 95% of Google (250-350ms vs 200ms)
@@ -80,7 +80,7 @@ Don't let Big Tech know what you and your open claw are up to. Multi-iteration d
 
 ---
 
-## 🔒 VPN REQUIREMENT - MUST BE HIDDEN
+##  VPN REQUIREMENT - MUST BE HIDDEN
 
 **NATIVE SUPPORT:** Deep Private Search automatically routes through any VPN running on your host machine. Docker containers inherit host network routing.
 
@@ -244,13 +244,13 @@ Closed-source "privacy" tools ask you to trust them. private deep claw asks you 
 
 ## Engines private deep claw Trusts
 
-✅ Enabled:
+ Enabled:
 - DuckDuckGo, Brave Search, Startpage
 - Qwant, Mojeek
 - Wikipedia, GitHub, StackOverflow, Reddit, arXiv
 - Piped, Invidious (YouTube without YouTube)
 
-❌ Blocked:
+ Blocked:
 - Google (all of it)
 - Bing (all of it)
 - Anything that tracks you
@@ -290,4 +290,4 @@ MIT — Do whatever you want. Just don't be evil.
 "The best search history is no search history."
 — private deep claw
 
-[SearXNG](https://searxng.org) 🧿
+[SearXNG](https://searxng.org) 

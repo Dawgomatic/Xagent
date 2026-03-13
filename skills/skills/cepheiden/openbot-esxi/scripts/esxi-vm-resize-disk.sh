@@ -28,7 +28,7 @@ VM_IP=$(govc vm.ip "$VM_NAME")
 DISK_NAME=$(govc device.ls -vm "$VM_NAME" | grep VirtualDisk | awk '{print $1}')
 
 if [ -z "$VM_IP" ] || [ -z "$DISK_NAME" ]; then
-    echo "❌ Could not get VM IP or disk name"
+    echo " Could not get VM IP or disk name"
     exit 1
 fi
 
@@ -80,7 +80,7 @@ FS_TYPE=$(findmnt -no FSTYPE /)
 case "$FS_TYPE" in
     ext4|ext3|ext2) resize2fs "$ROOT_PART" ;;
     xfs) xfs_growfs / ;;
-    *) echo "  ⚠️  Unknown filesystem: $FS_TYPE" ;;
+    *) echo "    Unknown filesystem: $FS_TYPE" ;;
 esac
 REMOTE
 
@@ -89,5 +89,5 @@ echo "[3/3] Verifying..."
 SSHPASS="$VM_PASS" sshpass -e ssh -o StrictHostKeyChecking=no "root@$VM_IP" "df -h / | tail -1"
 
 echo "============================================"
-echo "  ✅ Resize complete!"
+echo "   Resize complete!"
 echo "============================================"

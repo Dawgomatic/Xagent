@@ -107,4 +107,4 @@ pbpaste | humanize suggest
 
 **Built by [LXGIC Studios](https://lxgicstudios.com)**
 
-🔗 [GitHub](https://github.com/lxgicstudios/humanize-cli) · [Twitter](https://x.com/lxgicstudios)
+ [GitHub](https://github.com/lxgicstudios/humanize-cli) · [Twitter](https://x.com/lxgicstudios)

@@ -116,7 +116,7 @@ When a user requests to create orders or draft orders, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Creates order with excessive optional fields
+   #  HIGH COST - Creates order with excessive optional fields
    mutation orderCreate($input: OrderInput!) {
      orderCreate(input: $input) {
        order { id name customer { ... } lineItems { ... } shippingAddress { ... } billingAddress { ... } }
@@ -124,7 +124,7 @@ When a user requests to create orders or draft orders, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Creates order with essential fields only
+   #  LOW COST - Creates order with essential fields only
    mutation orderCreate($input: OrderInput!) {
      orderCreate(input: $input) {
        order { id name totalPriceSet { shopMoney { amount } } }

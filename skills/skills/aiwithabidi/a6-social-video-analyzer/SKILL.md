@@ -4,10 +4,10 @@ description: "Download and analyze any social media video from Instagram, YouTub
 homepage: https://www.agxntsix.ai
 license: MIT
 compatibility: Python 3.10+
-metadata: {"openclaw": {"emoji": "🎬", "requires": {"env": ["GOOGLE_AI_API_KEY"]}, "primaryEnv": "GOOGLE_AI_API_KEY", "homepage": "https://www.agxntsix.ai"}}
+metadata: {"openclaw": {"emoji": "", "requires": {"env": ["GOOGLE_AI_API_KEY"]}, "primaryEnv": "GOOGLE_AI_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# 🎬 Social Video Analyzer
+#  Social Video Analyzer
 
 Download and analyze any social media video — Instagram, YouTube, TikTok, X, Reddit, and 1000+ more platforms.
 
@@ -28,7 +28,7 @@ Download and analyze any social media video — Instagram, YouTube, TikTok, X, R
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `GOOGLE_AI_API_KEY` | ✅ | Get from [Google AI Studio](https://aistudio.google.com/apikey) |
+| `GOOGLE_AI_API_KEY` |  | Get from [Google AI Studio](https://aistudio.google.com/apikey) |
 
 ## Quick Start
 

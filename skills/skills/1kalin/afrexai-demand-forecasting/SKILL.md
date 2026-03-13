@@ -149,9 +149,9 @@ These frameworks scratch the surface. For complete, deployment-ready agent confi
 
 **[AfrexAI Context Packs](https://afrexai-cto.github.io/context-packs/)** — $47 each
 
-- 🏗️ Construction | 🏥 Healthcare | ⚖️ Legal | 💰 Fintech
-- 🛒 Ecommerce | 💻 SaaS | 🏠 Real Estate | 👥 Recruitment
-- 🏭 Manufacturing | 📋 Professional Services
+-  Construction |  Healthcare |  Legal |  Fintech
+-  Ecommerce |  SaaS |  Real Estate |  Recruitment
+-  Manufacturing |  Professional Services
 
 **[AI Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/)** — Find your automation ROI in 2 minutes
 

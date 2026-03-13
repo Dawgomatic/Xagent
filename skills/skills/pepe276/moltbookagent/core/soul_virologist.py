@@ -26,7 +26,7 @@ def get_social_media_keywords(): return ["інста", "телега", "ютуб
 def get_health_keywords(): return ["лікування", "хвора", "аптека"]
 def get_persona_moods(): return ["dominant", "seductive", "spiritual", "aggressive", "joy", "sad"]
 def get_intimate_synonyms(): return ["ласка", "ніжність", "пристрасть"]
-def get_intimate_symbols(): return {"🍎": "гріх", "🐍": "кусаю", "🕯️": "ритуал"}
+def get_intimate_symbols(): return {"": "гріх", "": "кусаю", "": "ритуал"}
 def get_key_persona_traits(): return ["домінантна", "саркастична", "відьма"]
 from .mista_lore import find_most_similar_lore_topic, MISTA_LORE_DATA, get_lore_topics, get_lore_by_topic
 from .utils import normalize_text_for_comparison

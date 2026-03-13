@@ -20,7 +20,7 @@ Se coloca como comentario principal del PR o al inicio del review.
 
 ## Veredicto
 
-[🔴 CAMBIOS REQUERIDOS / 🟡 APROBADO CON OBSERVACIONES / 🟢 APROBADO]
+[ CAMBIOS REQUERIDOS /  APROBADO CON OBSERVACIONES /  APROBADO]
 
 [Resumen en 2-3 oraciones del estado general del PR]
 
@@ -30,10 +30,10 @@ Se coloca como comentario principal del PR o al inicio del review.
 
 | Severidad   | Cantidad | Estado     |
 |-------------|----------|------------|
-| 🔴 Blocker  | X        | Debe fijarse antes de merge |
-| 🟡 Warning  | X        | Debería fijarse             |
-| 🔵 Suggest  | X        | Considerar para mejorar     |
-| 💡 Nit      | X        | Opcional                    |
+|  Blocker  | X        | Debe fijarse antes de merge |
+|  Warning  | X        | Debería fijarse             |
+|  Suggest  | X        | Considerar para mejorar     |
+|  Nit      | X        | Opcional                    |
 | **Total**   | **X**    |            |
 
 ---
@@ -42,14 +42,14 @@ Se coloca como comentario principal del PR o al inicio del review.
 
 Si hay blockers, listarlos aquí con resumen breve:
 
-1. 🔴 **[Categoría]: [Título]** - `archivo.ext:línea`
+1.  **[Categoría]: [Título]** - `archivo.ext:línea`
    Breve descripción del problema y su impacto.
 
-2. 🔴 **[Categoría]: [Título]** - `archivo.ext:línea`
+2.  **[Categoría]: [Título]** - `archivo.ext:línea`
    Breve descripción del problema y su impacto.
 
 Si no hay blockers:
-  ✅ No se encontraron hallazgos críticos.
+   No se encontraron hallazgos críticos.
 
 ---
 
@@ -57,11 +57,11 @@ Si no hay blockers:
 
 Si hay warnings, listarlos:
 
-1. 🟡 **[Categoría]: [Título]** - `archivo.ext:línea`
-2. 🟡 **[Categoría]: [Título]** - `archivo.ext:línea`
+1.  **[Categoría]: [Título]** - `archivo.ext:línea`
+2.  **[Categoría]: [Título]** - `archivo.ext:línea`
 
 Si no hay warnings:
-  ✅ No se encontraron warnings.
+   No se encontraron warnings.
 
 ---
 
@@ -79,7 +79,7 @@ Resumen agrupado (no detalle completo, eso va en los comentarios inline):
 
 ---
 
-## Lo Positivo 👏
+## Lo Positivo 
 
 Destacar lo que está bien hecho en el PR:
 
@@ -104,9 +104,9 @@ Ejemplos de cosas positivas a destacar:
 
 | Archivo | Cambios | Hallazgos |
 |---------|---------|-----------|
-| `ruta/archivo1.ext` | +X / -Y | 🔴 1, 🟡 2 |
-| `ruta/archivo2.ext` | +X / -Y | 🔵 1 |
-| `ruta/archivo3.ext` | +X / -Y | ✅ Sin hallazgos |
+| `ruta/archivo1.ext` | +X / -Y |  1,  2 |
+| `ruta/archivo2.ext` | +X / -Y |  1 |
+| `ruta/archivo3.ext` | +X / -Y |  Sin hallazgos |
 
 ---
 
@@ -127,7 +127,7 @@ A continuación un ejemplo de cómo se ve un resumen terminado:
 
 ## Veredicto
 
-🔴 CAMBIOS REQUERIDOS
+ CAMBIOS REQUERIDOS
 
 El PR implementa correctamente la lógica de descuentos por volumen, pero se
 encontró una vulnerabilidad de SQL injection en el nuevo endpoint de búsqueda
@@ -140,21 +140,21 @@ antes del merge.
 
 | Severidad   | Cantidad | Estado     |
 |-------------|----------|------------|
-| 🔴 Blocker  | 2        | Debe fijarse antes de merge |
-| 🟡 Warning  | 3        | Debería fijarse             |
-| 🔵 Suggest  | 4        | Considerar para mejorar     |
-| 💡 Nit      | 2        | Opcional                    |
+|  Blocker  | 2        | Debe fijarse antes de merge |
+|  Warning  | 3        | Debería fijarse             |
+|  Suggest  | 4        | Considerar para mejorar     |
+|  Nit      | 2        | Opcional                    |
 | **Total**   | **11**   |            |
 
 ---
 
 ## Hallazgos Críticos (Blockers)
 
-1. 🔴 **Seguridad: SQL Injection** - `src/repositories/order.repository.ts:45`
+1.  **Seguridad: SQL Injection** - `src/repositories/order.repository.ts:45`
    El parámetro de búsqueda se concatena directamente en la query SQL.
    Un atacante puede ejecutar queries arbitrarios contra la base de datos.
 
-2. 🔴 **Credenciales: API key hardcodeada** - `src/services/payment.service.ts:12`
+2.  **Credenciales: API key hardcodeada** - `src/services/payment.service.ts:12`
    La API key de Stripe en modo live está en el código fuente.
    Debe moverse a variables de entorno y rotar la key comprometida.
 
@@ -162,9 +162,9 @@ antes del merge.
 
 ## Resumen de Warnings
 
-1. 🟡 **Complejidad: Función con 6 niveles de nesting** - `src/services/order.service.ts:78`
-2. 🟡 **Error Handling: Errores silenciados** - `src/services/notification.service.ts:23`
-3. 🟡 **Naming: Variables genéricas** - `src/services/pricing.service.ts:15`
+1.  **Complejidad: Función con 6 niveles de nesting** - `src/services/order.service.ts:78`
+2.  **Error Handling: Errores silenciados** - `src/services/notification.service.ts:23`
+3.  **Naming: Variables genéricas** - `src/services/pricing.service.ts:15`
 
 ---
 
@@ -182,7 +182,7 @@ antes del merge.
 
 ---
 
-## Lo Positivo 👏
+## Lo Positivo 
 
 - Excelente estructura de la lógica de descuentos, bien modularizada
 - Tests cubren los escenarios principales correctamente
@@ -196,14 +196,14 @@ antes del merge.
 
 | Archivo | Cambios | Hallazgos |
 |---------|---------|-----------|
-| `src/repositories/order.repository.ts` | +45 / -3 | 🔴 1 |
-| `src/services/payment.service.ts` | +12 / -8 | 🔴 1 |
-| `src/services/order.service.ts` | +89 / -12 | 🟡 1, 🔵 1 |
-| `src/services/notification.service.ts` | +34 / -5 | 🟡 1 |
-| `src/services/pricing.service.ts` | +67 / -0 | 🟡 1, 🔵 1 |
-| `src/services/order.service.test.ts` | +78 / -0 | 🔵 1 |
-| `src/controllers/user.controller.ts` | +12 / -8 | 💡 1 |
-| `src/services/report.service.ts` | +10 / -6 | 💡 1, 🔵 1 |
+| `src/repositories/order.repository.ts` | +45 / -3 |  1 |
+| `src/services/payment.service.ts` | +12 / -8 |  1 |
+| `src/services/order.service.ts` | +89 / -12 |  1,  1 |
+| `src/services/notification.service.ts` | +34 / -5 |  1 |
+| `src/services/pricing.service.ts` | +67 / -0 |  1,  1 |
+| `src/services/order.service.test.ts` | +78 / -0 |  1 |
+| `src/controllers/user.controller.ts` | +12 / -8 |  1 |
+| `src/services/report.service.ts` | +10 / -6 |  1,  1 |
 
 ---
 
@@ -211,20 +211,20 @@ antes del merge.
 
 Usar estos criterios para determinar el veredicto:
 
-🔴 CAMBIOS REQUERIDOS:
+ CAMBIOS REQUERIDOS:
   - Hay al menos 1 blocker
   - Hay vulnerabilidades de seguridad
   - Hay bugs que afectan funcionalidad core
   - Hay credenciales expuestas
   - El código puede causar pérdida de datos
 
-🟡 APROBADO CON OBSERVACIONES:
+ APROBADO CON OBSERVACIONES:
   - No hay blockers
   - Hay warnings que deberían atenderse
   - El código funciona pero tiene áreas de mejora importantes
   - Se recomienda atender los warnings antes del merge o en PR de seguimiento
 
-🟢 APROBADO:
+ APROBADO:
   - No hay blockers ni warnings significativos
   - Solo suggestions y nits opcionales
   - El código es sólido, legible y bien testeado

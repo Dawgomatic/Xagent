@@ -3,7 +3,7 @@ name: meme-cog
 description: "Deep reasoning makes better comedy. #1 on DeepResearch Bench (Feb 2026). AI meme generation with audience targeting, trend research, and multi-angle humor. Create memes, viral content, reaction images, and internet humor that actually land."
 metadata:
   openclaw:
-    emoji: "😂"
+    emoji: ""
 author: CellCog
 dependencies: [cellcog]
 ---

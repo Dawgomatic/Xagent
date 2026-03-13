@@ -17,9 +17,9 @@ You need to create a **Crisp Plugin Token** to authenticate with the API.
 3. Choose a name for your plugin (e.g., "My Clawdbot Integration")
 4. Request a **Development Token** (instant) or **Production Token** (requires approval)
 5. Required scopes when creating the token:
-   - ✅ `website:conversation:sessions` (Read)
-   - ✅ `website:conversation:messages` (Read/Write)
-   - ✅ `website:conversation:actions` (Read/Write)
+   -  `website:conversation:sessions` (Read)
+   -  `website:conversation:messages` (Read/Write)
+   -  `website:conversation:actions` (Read/Write)
 6. Copy your **Token Identifier** and **Token Key**
 7. Get your **Website ID** from the Crisp dashboard URL (e.g., `https://app.crisp.chat/website/YOUR_WEBSITE_ID/...`)
 
@@ -59,15 +59,15 @@ Once set up, you can ask your agent:
 
 ## Troubleshooting
 
-**❌ "CRISP_WEBSITE_ID, CRISP_TOKEN_ID, and CRISP_TOKEN_KEY environment variables required"**
+** "CRISP_WEBSITE_ID, CRISP_TOKEN_ID, and CRISP_TOKEN_KEY environment variables required"**
 - Make sure you've exported the environment variables in your current shell session
 - Run `echo $CRISP_WEBSITE_ID` to verify it's set
 
-**❌ "Error: invalid_data"**
+** "Error: invalid_data"**
 - Check that your Website ID is correct
 - Verify your token has the required scopes
 
-**❌ "Error: unauthorized" or "Error: forbidden"**
+** "Error: unauthorized" or "Error: forbidden"**
 - Your token may have expired or been revoked
 - Regenerate a new token in the Crisp Marketplace
 

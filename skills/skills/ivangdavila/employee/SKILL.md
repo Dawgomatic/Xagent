@@ -3,7 +3,7 @@ name: Employee
 slug: employee
 version: 1.0.0
 description: Create and manage virtual AI employees with persistent memory, defined roles, and graduated autonomy. Hire, train, and delegate tasks to specialized workers.
-metadata: {"clawdbot":{"emoji":"👔","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Architecture
@@ -93,8 +93,8 @@ See `lifecycle.md` for full command reference.
 - Query registry to list available employees
 
 ### 10. Anti-Patterns
-- ❌ Generalist employees (handles nothing well)
-- ❌ No memory (forgets context)
-- ❌ Instant autonomy (needs shadowing)
-- ❌ Silent failures (must report blockers)
-- ❌ Scope creep (reviewer refactoring = noise)
+-  Generalist employees (handles nothing well)
+-  No memory (forgets context)
+-  Instant autonomy (needs shadowing)
+-  Silent failures (must report blockers)
+-  Scope creep (reviewer refactoring = noise)

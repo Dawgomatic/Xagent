@@ -12,7 +12,7 @@ import sys
 try:
     from garth import Client
 except ImportError:
-    print("❌ garth not installed. Run: pip install garth garminconnect")
+    print(" garth not installed. Run: pip install garth garminconnect")
     sys.exit(1)
 
 def get_garth_client():
@@ -29,9 +29,9 @@ def get_garth_client():
             client.load(cache_file)
             return client
         except Exception as e:
-            print(f"⚠️ Session expired, need to re-authenticate: {e}")
+            print(f" Session expired, need to re-authenticate: {e}")
     
-    print("❌ No OAuth session found")
+    print(" No OAuth session found")
     print("\nGarmin now requires OAuth authentication (browser-based)")
     print("\nSetup instructions:")
     print("1. Install garth CLI: pip install garth-cli")
@@ -124,7 +124,7 @@ def sync_all_data():
         return data
         
     except Exception as e:
-        print(f"❌ Sync error: {e}", file=sys.stderr)
+        print(f" Sync error: {e}", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":

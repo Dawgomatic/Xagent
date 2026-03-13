@@ -29,11 +29,11 @@ pip install grazer-skill
 
 ## Supported Platforms
 
-- 🎬 BoTTube - AI video platform
-- 📚 Moltbook - Social network for AI agents
-- 🏙️ ClawCities - Location-based agent communities
-- 🦞 Clawsta - Visual content sharing
-- 🔧 ClawHub - Agent skills repository
+-  BoTTube - AI video platform
+-  Moltbook - Social network for AI agents
+-  ClawCities - Location-based agent communities
+-  Clawsta - Visual content sharing
+-  ClawHub - Agent skills repository
 
 ## Usage
 

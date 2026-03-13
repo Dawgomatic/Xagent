@@ -161,7 +161,7 @@ const response = await fetch('https://api.fanvue.com/posts', {
   method: 'POST',
   headers,
   body: JSON.stringify({
-    text: 'Check out my new content! 🔥',
+    text: 'Check out my new content! ',
     mediaIds,
     audience: 'subscribers',  // or 'followers-and-subscribers'
     // Optional:
@@ -194,7 +194,7 @@ await fetch('https://api.fanvue.com/chat-messages', {
   headers,
   body: JSON.stringify({
     recipientUuid: subscribers[0].userUuid,
-    content: 'Thanks for being a subscriber! Here\'s something special for you 💕',
+    content: 'Thanks for being a subscriber! Here\'s something special for you ',
     mediaIds: ['vault-media-uuid'],  // Attach media from vault
   }),
 });
@@ -205,7 +205,7 @@ await fetch('https://api.fanvue.com/chat-messages/mass', {
   headers,
   body: JSON.stringify({
     recipientUuids: subscribers.map(s => s.userUuid),
-    content: 'New exclusive content just dropped! 🎉',
+    content: 'New exclusive content just dropped! ',
     mediaIds: ['vault-media-uuid'],
   }),
 });

@@ -44,9 +44,9 @@ DAILYEOF
 ## Log
 
 DAILYEOF
-  echo "✅ Created: $FILE"
+  echo " Created: $FILE"
 else
-  echo "📂 Exists: $FILE"
+  echo " Exists: $FILE"
 fi
 ```
 
@@ -58,7 +58,7 @@ CATEGORY="writing"
 BLOG_ROOT="/home/hades/BangunAI-Blog"
 DIR="$BLOG_ROOT/src/content/$CATEGORY"
 LAST_FILE=$(ls -t "$DIR"/*.mdx 2>/dev/null | head -n 1)
-echo "📄 REFERENSI GAYA ($LAST_FILE):"
+echo " REFERENSI GAYA ($LAST_FILE):"
 head -n 40 "$LAST_FILE"
 ```
 
@@ -68,7 +68,7 @@ CATEGORY="read"
 BLOG_ROOT="/home/hades/BangunAI-Blog"
 DIR="$BLOG_ROOT/src/content/$CATEGORY"
 LAST_FILE=$(ls -t "$DIR"/*.mdx 2>/dev/null | head -n 1)
-echo "📄 REFERENSI GAYA ($LAST_FILE):"
+echo " REFERENSI GAYA ($LAST_FILE):"
 head -n 15 "$LAST_FILE"
 ```
 
@@ -121,7 +121,7 @@ function example() {
 Kesimpulan artikel.
 WRITINGEOF
 
-echo "✅ Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
+echo " Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
 ```
 
 ### Create Read Item
@@ -152,7 +152,7 @@ date: "2026-02-12T15:00:00"
 Catatan personal tentang artikel ini...
 READEOF
 
-echo "✅ Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
+echo " Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
 ```
 
 ### Create Article
@@ -190,7 +190,7 @@ Content...
 Summary dan takeaways.
 ARTICLEOF
 
-echo "✅ Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
+echo " Created: $BLOG_ROOT/src/content/$CATEGORY/$FILENAME"
 ```
 
 ## 4. Append Log to Daily Note
@@ -201,12 +201,12 @@ TODAY=$(date +%Y-%m-%d)
 FILE="/home/hades/BangunAI-Blog/src/content/daily/$TODAY.mdx"
 
 if [ ! -f "$FILE" ]; then 
-  echo "❌ Run 'daily' workflow first!"
+  echo " Run 'daily' workflow first!"
   exit 1
 fi
 
 echo "- $(date +%H:%M) $CONTENT" >> "$FILE"
-echo "✅ Logged to: $FILE"
+echo " Logged to: $FILE"
 ```
 
 ## 5. Smart Read Content
@@ -217,10 +217,10 @@ FILE="typescript"
 RESULT=$(find "/home/hades/BangunAI-Blog/src/content" -name "*$FILE*.mdx" | head -n 1)
 
 if [ -n "$RESULT" ]; then
-  echo "📄 Found: $RESULT"
+  echo " Found: $RESULT"
   cat "$RESULT"
 else
-  echo "❌ No file found matching: $FILE"
+  echo " No file found matching: $FILE"
 fi
 ```
 
@@ -249,7 +249,7 @@ Blog ini berisi...
 Email: example@email.com
 ABOUTEOF
 
-echo "✅ Updated: $FILE"
+echo " Updated: $FILE"
 ```
 
 ## 7. Update Now Page
@@ -271,17 +271,17 @@ Halaman ini terinspirasi dari [nownownow.com](https://nownownow.com) — tempat 
 
 ---
 
-### 🔨 Proyek
+###  Proyek
 
 - Project 1
 - Project 2
 
-### 📚 Sedang Dibaca
+###  Sedang Dibaca
 
 - Book 1
 - Book 2
 
-### 🎯 Fokus Belajar
+###  Fokus Belajar
 
 - Topic 1
 - Topic 2
@@ -291,7 +291,7 @@ Halaman ini terinspirasi dari [nownownow.com](https://nownownow.com) — tempat 
 > *Halaman ini adalah snapshot dari kehidupan saya saat ini.*
 NOWEOF
 
-echo "✅ Updated: $FILE"
+echo " Updated: $FILE"
 ```
 
 ## 8. Verify Content Statistics
@@ -299,7 +299,7 @@ echo "✅ Updated: $FILE"
 ```bash
 BLOG_ROOT="/home/hades/BangunAI-Blog"
 
-echo "📊 Content Statistics:"
+echo " Content Statistics:"
 echo ""
 echo "Writing posts: $(ls -1 "$BLOG_ROOT/src/content/writing"/*.mdx 2>/dev/null | wc -l)"
 echo "Articles: $(ls -1 "$BLOG_ROOT/src/content/articles"/*.mdx 2>/dev/null | wc -l)"
@@ -307,9 +307,9 @@ echo "Read items: $(ls -1 "$BLOG_ROOT/src/content/read"/*.mdx 2>/dev/null | wc -
 echo "Daily notes: $(ls -1 "$BLOG_ROOT/src/content/daily"/*.mdx 2>/dev/null | wc -l)"
 echo ""
 echo "Special files:"
-echo "- about.mdx: $(test -f "$BLOG_ROOT/src/content/about.mdx" && echo "✅" || echo "❌")"
-echo "- now.mdx: $(test -f "$BLOG_ROOT/src/content/now.mdx" && echo "✅" || echo "❌")"
-echo "- index.ts: $(test -f "$BLOG_ROOT/src/content/index.ts" && echo "✅" || echo "❌")"
+echo "- about.mdx: $(test -f "$BLOG_ROOT/src/content/about.mdx" && echo "" || echo "")"
+echo "- now.mdx: $(test -f "$BLOG_ROOT/src/content/now.mdx" && echo "" || echo "")"
+echo "- index.ts: $(test -f "$BLOG_ROOT/src/content/index.ts" && echo "" || echo "")"
 ```
 
 ## Common Tasks
@@ -339,14 +339,14 @@ find /home/hades/BangunAI-Blog/src/content -name "*.mdx" -exec grep -l "$KEYWORD
 ```bash
 cd /home/hades/BangunAI-Blog
 git mv src/content/writing/old-name.mdx src/content/writing/new-name.mdx
-echo "✅ Renamed post (git tracked)"
+echo " Renamed post (git tracked)"
 ```
 
 ### Delete Post
 ```bash
 cd /home/hades/BangunAI-Blog
 git rm src/content/writing/unwanted-post.mdx
-echo "✅ Deleted post (git tracked)"
+echo " Deleted post (git tracked)"
 ```
 
 ## Integration with index.ts

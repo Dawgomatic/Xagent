@@ -346,6 +346,12 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 			}
 			return NewGitHubCopilotProvider(apiBase, cfg.Providers.GitHubCopilot.ConnectMode, model)
 
+		case "bitnet", "1.58b":
+			if cfg.Providers.BitNet.Enabled {
+				return NewBitNetProvider(&cfg.Providers.BitNet), nil
+			}
+			return nil, fmt.Errorf("BitNet provider is configured but not enabled")
+
 		case "rl", "rl-server", "openclaw-rl":
 			if cfg.Providers.RL.Enabled && cfg.Providers.RL.ServerURL != "" {
 				rlModel := cfg.Providers.RL.Model
@@ -417,6 +423,9 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 			if apiBase == "" {
 				apiBase = "https://integrate.api.nvidia.com/v1"
 			}
+
+		case strings.HasPrefix(lowerModel, "bitnet") && cfg.Providers.BitNet.Enabled:
+			return NewBitNetProvider(&cfg.Providers.BitNet), nil
 
 		case cfg.Providers.VLLM.APIBase != "":
 			apiKey = cfg.Providers.VLLM.APIKey

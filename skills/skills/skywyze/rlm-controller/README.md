@@ -12,11 +12,11 @@ A safe, policy-driven framework for processing extremely long inputs using Retri
 
 ## Features
 
-- 🧠 **Smart Slicing**: Keyword-based planning with fallback chunking
-- 🔒 **Security-First**: Prompt injection mitigation, no code execution, strict limits
-- ⚡ **Parallel Execution**: Async batch processing for speed
-- 📊 **Full Traceability**: JSONL logging for every operation
-- 🎯 **OpenClaw Native**: Designed for OpenClaw agent framework
+-  **Smart Slicing**: Keyword-based planning with fallback chunking
+-  **Security-First**: Prompt injection mitigation, no code execution, strict limits
+-  **Parallel Execution**: Async batch processing for speed
+-  **Full Traceability**: JSONL logging for every operation
+-  **OpenClaw Native**: Designed for OpenClaw agent framework
 
 ## Quick Start
 
@@ -78,20 +78,20 @@ rlm-controller/
 
 RLM Controller is designed with **security-first principles**:
 
-- ✅ **No code execution** - Only safelisted helper scripts
-- ✅ **Prompt injection mitigation** - Input treated as data, not commands
-- ✅ **Strict limits** - Max recursion: 1, max subcalls: 32, max slice: 16k chars
-- ✅ **Bounded work** - Hard caps on batches and total slices
-- ✅ **Least privilege** - Subcalls read-only by design
+-  **No code execution** - Only safelisted helper scripts
+-  **Prompt injection mitigation** - Input treated as data, not commands
+-  **Strict limits** - Max recursion: 1, max subcalls: 32, max slice: 16k chars
+-  **Bounded work** - Hard caps on batches and total slices
+-  **Least privilege** - Subcalls read-only by design
 
 See [docs/security.md](docs/security.md) for detailed safeguards.
 
 ## Use Cases
 
-- 📚 **Large Documentation**: Process entire codebases or API docs
-- 📝 **Dense Logs**: Analyze thousands of log lines for patterns
-- 🔍 **Repository Analysis**: Multi-file security audits
-- 📊 **Dataset Processing**: Extract structured data from large files
+-  **Large Documentation**: Process entire codebases or API docs
+-  **Dense Logs**: Analyze thousands of log lines for patterns
+-  **Repository Analysis**: Multi-file security audits
+-  **Dataset Processing**: Extract structured data from large files
 
 ## Requirements
 

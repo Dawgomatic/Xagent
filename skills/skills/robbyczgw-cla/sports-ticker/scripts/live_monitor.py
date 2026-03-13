@@ -3,10 +3,10 @@
 Live Match Monitor - Checks for live matches and outputs alerts.
 
 Uses ESPN API for real-time events including:
-- ⚽ Goals with scorer names
-- 🟥 Red cards
-- ⏸️ Halftime
-- 🏁 Full-time results
+-  Goals with scorer names
+-  Red cards
+-  Halftime
+-  Full-time results
 
 Run via cron during match windows. Only outputs when there are new events.
 """
@@ -33,7 +33,7 @@ def check_team(team: dict, state: dict, alerts_config: dict) -> tuple[list, dict
     """Check a single team for updates. Returns (alerts, updated_state)."""
     alerts = []
     team_name = team.get("name", "Unknown")
-    team_emoji = team.get("emoji", "⚽")
+    team_emoji = team.get("emoji", "")
     espn_id = team.get("espn_id")
     sport = team.get("sport", "soccer")  # Default to soccer for backward compatibility
     
@@ -94,7 +94,7 @@ def check_team(team: dict, state: dict, alerts_config: dict) -> tuple[list, dict
             from espn import LEAGUES
             sport_leagues = LEAGUES.get(sport, {})
             opponent = away_team if is_home else home_team
-            start_emoji = "🏟️" if sport == "soccer" else "🎮"
+            start_emoji = "" if sport == "soccer" else ""
             start_text = "KICK OFF!" if sport == "soccer" else "GAME ON!"
             alerts.append(f"{start_emoji} **{start_text}** {team_emoji}\n{home_team} vs {away_team}\n{sport_leagues.get(league, league)}")
     
@@ -126,57 +126,57 @@ def check_team(team: dict, state: dict, alerts_config: dict) -> tuple[list, dict
         if alerts_config.get("goals", True):
             scored = False
             score_line = f"{home_team} {home_score}-{away_score} {away_team}"
-            emoji = "🎉" if is_our_team else "😬"
+            emoji = "" if is_our_team else ""
             
             if sport == "soccer":
                 if "Goal" in event_type:
                     scored = True
                     if "Own Goal" in event_type:
-                        alerts.append(f"{emoji} **OWN GOAL!** {clock}\n⚽ {player} ({e_team})\n**{score_line}**")
+                        alerts.append(f"{emoji} **OWN GOAL!** {clock}\n {player} ({e_team})\n**{score_line}**")
                     elif "Penalty" in event_type:
-                        alerts.append(f"{emoji} **PENALTY!** {clock}\n⚽ {player} ({e_team})\n**{score_line}**")
+                        alerts.append(f"{emoji} **PENALTY!** {clock}\n {player} ({e_team})\n**{score_line}**")
                     else:
-                        alerts.append(f"{emoji} **GOAL!** {clock}\n⚽ {player} ({e_team})\n**{score_line}**")
+                        alerts.append(f"{emoji} **GOAL!** {clock}\n {player} ({e_team})\n**{score_line}**")
             
             elif sport == "football":
                 if "Touchdown" in event_type:
                     scored = True
-                    alerts.append(f"{emoji} **TOUCHDOWN!** {clock}\n🏈 {player} ({e_team})\n**{score_line}**")
+                    alerts.append(f"{emoji} **TOUCHDOWN!** {clock}\n {player} ({e_team})\n**{score_line}**")
                 elif "Field Goal" in event_type:
                     scored = True
-                    alerts.append(f"{emoji} **FIELD GOAL!** {clock}\n🎯 {player} ({e_team})\n**{score_line}**")
+                    alerts.append(f"{emoji} **FIELD GOAL!** {clock}\n {player} ({e_team})\n**{score_line}**")
             
             elif sport == "basketball":
                 if "Three Point" in event_type or "3PT" in event_type:
                     scored = True
-                    alerts.append(f"{emoji} **3-POINTER!** {clock}\n🎯 {player} ({e_team})\n**{score_line}**")
+                    alerts.append(f"{emoji} **3-POINTER!** {clock}\n {player} ({e_team})\n**{score_line}**")
             
             elif sport == "hockey":
                 if "Goal" in event_type:
                     scored = True
-                    alerts.append(f"{emoji} **GOAL!** {clock}\n🏒 {player} ({e_team})\n**{score_line}**")
+                    alerts.append(f"{emoji} **GOAL!** {clock}\n {player} ({e_team})\n**{score_line}**")
             
             elif sport == "baseball":
                 if "Home Run" in event_type or "HR" in event_type:
                     scored = True
-                    alerts.append(f"{emoji} **HOME RUN!** {clock}\n⚾ {player} ({e_team})\n**{score_line}**")
+                    alerts.append(f"{emoji} **HOME RUN!** {clock}\n {player} ({e_team})\n**{score_line}**")
         
         # Red cards / Ejections (mainly for soccer and hockey)
         if alerts_config.get("red_cards", True):
             if sport == "soccer" and "Red" in event_type:
-                emoji = "😱" if is_our_team else "😈"
-                alerts.append(f"{emoji} 🟥 **RED CARD!** {clock}\n{player} ({e_team})")
+                emoji = "" if is_our_team else ""
+                alerts.append(f"{emoji}  **RED CARD!** {clock}\n{player} ({e_team})")
             elif sport == "hockey" and "Major Penalty" in event_type:
-                emoji = "😱" if is_our_team else "😈"
+                emoji = "" if is_our_team else ""
                 alerts.append(f"{emoji} **MAJOR PENALTY!** {clock}\n{player} ({e_team})")
     
     # Halftime / Period breaks
     if alerts_config.get("halftime", True):
         if status == "Halftime" and prev_status != "Halftime":
-            alerts.append(f"⏸️ **HALFTIME** {team_emoji}\n{home_team} {home_score}-{away_score} {away_team}")
+            alerts.append(f" **HALFTIME** {team_emoji}\n{home_team} {home_score}-{away_score} {away_team}")
         elif "End of" in status and "End of" not in prev_status:
             # Basketball/Hockey period breaks
-            alerts.append(f"⏸️ **{status.upper()}** {team_emoji}\n{home_team} {home_score}-{away_score} {away_team}")
+            alerts.append(f" **{status.upper()}** {team_emoji}\n{home_team} {home_score}-{away_score} {away_team}")
     
     # Full time / Final
     if alerts_config.get("fulltime", True):
@@ -185,17 +185,17 @@ def check_team(team: dict, state: dict, alerts_config: dict) -> tuple[list, dict
             their_goals = away_score if is_home else home_score
             
             if our_goals > their_goals:
-                result_emoji = "🎉✅"
+                result_emoji = ""
                 result = "WIN!"
             elif our_goals < their_goals:
-                result_emoji = "😢❌"
+                result_emoji = ""
                 result = "LOSS"
             else:
-                result_emoji = "🤝"
+                result_emoji = ""
                 result = "DRAW"
             
             final_text = "FULL TIME" if sport == "soccer" else "FINAL"
-            alerts.append(f"🏁 **{final_text} - {result}** {result_emoji} {team_emoji}\n{home_team} {home_score}-{away_score} {away_team}")
+            alerts.append(f" **{final_text} - {result}** {result_emoji} {team_emoji}\n{home_team} {home_score}-{away_score} {away_team}")
     
     # Update state
     state[event_id] = {

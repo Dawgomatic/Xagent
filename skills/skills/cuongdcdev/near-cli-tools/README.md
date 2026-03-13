@@ -2,18 +2,18 @@
 
 > **Install and use the NEAR Protocol CLI (`near-cli-rs`) with OpenClaw AI agents**
 
-## 🎯 What It Does
+##  What It Does
 
 Helps AI agents install, configure, and use the NEAR CLI to interact with the NEAR Protocol blockchain:
 
-- ✅ Multi-platform installation (Linux, macOS, Windows, WSL)
-- ✅ Account management (view, create, import/export)
-- ✅ Token operations (NEAR, FT, NFT)
-- ✅ Staking management
-- ✅ Smart contract deployment and interaction
-- ✅ Transaction operations
+-  Multi-platform installation (Linux, macOS, Windows, WSL)
+-  Account management (view, create, import/export)
+-  Token operations (NEAR, FT, NFT)
+-  Staking management
+-  Smart contract deployment and interaction
+-  Transaction operations
 
-## 📦 Installation
+##  Installation
 
 ### For Users
 
@@ -33,7 +33,7 @@ whereis near
 /root/.cargo/bin/near account view-account-summary cuongdcdev.near network-config mainnet now
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Install NEAR CLI
 
@@ -70,7 +70,7 @@ near account view-account-summary <account-id> network-config mainnet now
 near account view-account-summary cuongdcdev.near network-config mainnet now
 ```
 
-## 📖 Common Commands
+##  Common Commands
 
 ### Account Operations
 ```bash
@@ -114,7 +114,7 @@ near contract deploy <account-id> use-file <wasm-file> network-config mainnet si
 near contract call-function as-transaction <contract-id> <method-name> json-args '<args>' prepaid-gas '100.0 Tgas' attached-deposit '0 NEAR' network-config mainnet sign-with-keychain send
 ```
 
-## 🛠️ Configuration
+##  Configuration
 
 ### Config Location
 - **Linux/macOS**: `~/.config/near-cli/config.toml`
@@ -135,7 +135,7 @@ echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
 export PATH="$(npm config get prefix)/bin:$PATH"
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "near: command not found"
 
@@ -168,7 +168,7 @@ curl --proto '=https' --tlsv1.2 -LsSf --connect-timeout 30 --max-time 300 \
   https://github.com/near/near-cli-rs/releases/latest/download/near-cli-rs-installer.sh | sh
 ```
 
-## 📚 Resources
+##  Resources
 
 - **Official Docs**: https://docs.near.org/
 - **GitHub**: https://github.com/near/near-cli-rs
@@ -176,16 +176,16 @@ curl --proto '=https' --tlsv1.2 -LsSf --connect-timeout 30 --max-time 300 \
 - **Discord**: https://discord.gg/near
 - **Stack Overflow**: https://stackoverflow.com/questions/tagged/nearprotocol
 
-## 🔗 Related Skills
+##  Related Skills
 
 - **near-intents**: Universal cross-chain swap & bridge
 - **near-getpay**: Accept crypto payments via beautiful payment pages
 
-## 📝 License
+##  License
 
 MIT — This skill is documentation-only and references the official NEAR CLI project.
 
-## 🤝 Contributing
+##  Contributing
 
 Found an issue or want to improve this skill?
 

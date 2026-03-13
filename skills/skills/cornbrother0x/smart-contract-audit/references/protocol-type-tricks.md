@@ -29,7 +29,7 @@ Condensed from Forefy and community sources. After detecting protocol type, load
 - **Depeg scenarios:** What happens when collateral drops below backing? Graceful degradation or cliff?
 - **CAP pricing:** Is the price capped at $1.00 or can it exceed? What's the formula?
 - **Reserve composition:** Single-asset or multi-asset? How are different assets valued?
-- **Decimal normalization:** All reserve assets normalized to same precision? Watch for 6↔18 decimal mismatches.
+- **Decimal normalization:** All reserve assets normalized to same precision? Watch for 618 decimal mismatches.
 - **Fee-on-transfer interactions:** Does the stablecoin itself have transfer fees? How do other protocols handle this?
 - **Denylist/freeze:** USDC-style address freezing — does it propagate to DeFi positions?
 - **Cash-in-flight:** During asset conversion (USDC→T-bills), is the gap properly accounted for?

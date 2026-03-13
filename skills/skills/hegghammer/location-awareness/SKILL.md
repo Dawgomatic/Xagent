@@ -2,14 +2,14 @@
 name: location-awareness
 version: 1.2.0
 description: Location awareness via privacy-friendly GPS tracking (Home Assistant, OwnTracks, GPS Logger). Set location-based reminders and ask about movement history, travel time, and nearby POIs. 
-metadata: {"clawdbot":{"emoji":"📍","requires":{"bins":["python3"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3"]}}}
 ---
 
 # Location Awareness
 
 **This skill provides commands to execute. When the user asks about location, RUN the appropriate command below.**
 
-## ⚠️ IMPORTANT: All commands use `scripts/location.sh`
+##  IMPORTANT: All commands use `scripts/location.sh`
 
 Every command must be run via `scripts/location.sh`. Example:
 

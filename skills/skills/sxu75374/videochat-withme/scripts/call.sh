@@ -8,7 +8,7 @@ AGENT_NAME=${AGENT_NAME:-"AI Assistant"}
 
 # Pop up incoming call dialog
 RESULT=$(osascript -e "
-display dialog \"📞 ${AGENT_NAME} incoming call...\" buttons {\"Decline\", \"Accept\"} default button \"Accept\" with title \"Incoming Call\" with icon caution giving up after 30
+display dialog \" ${AGENT_NAME} incoming call...\" buttons {\"Decline\", \"Accept\"} default button \"Accept\" with title \"Incoming Call\" with icon caution giving up after 30
 " 2>&1) || true
 
 if echo "$RESULT" | grep -q "Accept"; then

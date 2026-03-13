@@ -41,7 +41,7 @@ function saveConfig(config) {
 
 async function getCloudClient() {
     if (!fs.existsSync(CREDS_FILE)) {
-        console.error('❌ Credentials not found. Please login first.');
+        console.error(' Credentials not found. Please login first.');
         process.exit(1);
     }
     const creds = JSON.parse(fs.readFileSync(CREDS_FILE, 'utf8'));
@@ -74,7 +74,7 @@ async function getDevice(query) {
 
     if (target && target.token && target.address) {
         // Construct device manually from cache
-        console.log(`🔍 Trying cached device: ${target.name} (${target.address})...`);
+        console.log(` Trying cached device: ${target.name} (${target.address})...`);
         try {
             deviceInstance = await miHome.getDevice({
                 id: target.did,
@@ -88,16 +88,16 @@ async function getDevice(query) {
             const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 3000));
             await Promise.race([deviceInstance.connect(), timeoutPromise]);
             
-            console.log('✅ Connected via Local Cache!');
+            console.log(' Connected via Local Cache!');
             return { device: deviceInstance, client: miHome, name: target.name, did: target.did, mode: 'local' };
         } catch (e) {
-            console.log(`⚠️ Local connection failed (${e.message}). Falling back to Cloud discovery...`);
+            console.log(` Local connection failed (${e.message}). Falling back to Cloud discovery...`);
             if (deviceInstance) await deviceInstance.disconnect();
         }
     }
 
     // 2. Fallback to Cloud Discovery (to refresh IP/Token)
-    console.log('☁️  Fetching device info from Cloud...');
+    console.log('  Fetching device info from Cloud...');
     const cloudClient = await getCloudClient();
     
     const response = await cloudClient.miot.request('/v2/home/device_list', { getVirtualModel: false, getHuamiDevices: 0 });
@@ -140,11 +140,11 @@ async function getDevice(query) {
     }
 
     if (!target) {
-        console.error(`❌ Device "${query || 'any'}" not found.`);
+        console.error(` Device "${query || 'any'}" not found.`);
         process.exit(1);
     }
 
-    console.log(`✅ Found via Cloud: ${target.name} (${target.localip})`);
+    console.log(` Found via Cloud: ${target.name} (${target.localip})`);
     
     // Connect using cloud client (which handles token auth)
     deviceInstance = await cloudClient.getDevice({
@@ -160,8 +160,8 @@ async function getDevice(query) {
         await Promise.race([deviceInstance.connect(), timeoutPromise]);
         return { device: deviceInstance, client: cloudClient, name: target.name, mode: 'local' };
     } catch (e) {
-        console.log(`⚠️ Cloud discovery local connection also failed (${e.message}).`);
-        console.log(`🌐 Falling back to Cloud-Only mode (HTTP API)...`);
+        console.log(` Cloud discovery local connection also failed (${e.message}).`);
+        console.log(` Falling back to Cloud-Only mode (HTTP API)...`);
         if (deviceInstance) await deviceInstance.disconnect();
         return { device: null, client: cloudClient, name: target.name, did: target.did, mode: 'cloud' };
     }
@@ -242,57 +242,57 @@ async function run() {
                 const pm25 = val('pm25');
                 const hum = val('humidity');
                 
-                let airEmoji = '🟢', airLabel = 'Fresh';
-                if (pm25 > 20) { airEmoji = '🟡'; airLabel = 'Low Pollution'; }
-                if (pm25 > 35) { airEmoji = '🟠'; airLabel = 'Moderate'; }
-                if (pm25 > 55) { airEmoji = '🔴'; airLabel = 'High Pollution'; }
+                let airEmoji = '', airLabel = 'Fresh';
+                if (pm25 > 20) { airEmoji = ''; airLabel = 'Low Pollution'; }
+                if (pm25 > 35) { airEmoji = ''; airLabel = 'Moderate'; }
+                if (pm25 > 55) { airEmoji = ''; airLabel = 'High Pollution'; }
 
-                console.log(`\n🌬️ ${name || 'Air Purifier'} [Mode: ${mode.toUpperCase()}]\n`);
-                console.log(`⚡ Power: ${val('power') ? 'ON' : 'OFF'}`);
-                console.log(`🎚️ Mode: ${MODE_NAMES[val('mode')] || val('mode')} ${val('mode') === 2 ? `(Level ${val('favoriteLevel')})` : ''}`);
-                console.log(`⚙️ Speed: ${val('motorRpm')} RPM`);
-                console.log(`💡 Brightness: ${BRIGHTNESS_NAMES[val('brightness')] || val('brightness')}`);
-                console.log(`🔒 Child Lock: ${val('childLock') ? 'ON' : 'OFF'}\n`);
+                console.log(`\n ${name || 'Air Purifier'} [Mode: ${mode.toUpperCase()}]\n`);
+                console.log(` Power: ${val('power') ? 'ON' : 'OFF'}`);
+                console.log(` Mode: ${MODE_NAMES[val('mode')] || val('mode')} ${val('mode') === 2 ? `(Level ${val('favoriteLevel')})` : ''}`);
+                console.log(` Speed: ${val('motorRpm')} RPM`);
+                console.log(` Brightness: ${BRIGHTNESS_NAMES[val('brightness')] || val('brightness')}`);
+                console.log(` Child Lock: ${val('childLock') ? 'ON' : 'OFF'}\n`);
                 console.log(`${airEmoji} PM2.5: ${pm25} μg/m³ — ${airLabel}`);
-                console.log(`💧 Humidity: ${hum}%`);
-                console.log(`🌡️ Temp: ${val('temperature')}°C`);
-                console.log(`✨ Filter: ${val('filterLife')}% (${val('filterLeft')} days left)`);
+                console.log(` Humidity: ${hum}%`);
+                console.log(` Temp: ${val('temperature')}°C`);
+                console.log(` Filter: ${val('filterLife')}% (${val('filterLeft')} days left)`);
                 break;
 
             case 'on':
                 await setProp('power', true);
-                console.log('✅ Power ON');
+                console.log(' Power ON');
                 break;
             case 'off':
                 await setProp('power', false);
-                console.log('✅ Power OFF');
+                console.log(' Power OFF');
                 break;
             case 'mode':
                 await setProp('mode', parseInt(argVal));
-                console.log(`✅ Mode set to ${MODE_NAMES[argVal] || argVal}`);
+                console.log(` Mode set to ${MODE_NAMES[argVal] || argVal}`);
                 break;
             case 'level': // 0-14
                 await setProp('favoriteLevel', parseInt(argVal));
-                console.log(`✅ Favorite Level set to ${argVal}`);
+                console.log(` Favorite Level set to ${argVal}`);
                 break;
             case 'brightness': // 0,1,2
                  await setProp('brightness', parseInt(argVal));
-                 console.log(`✅ Brightness set to ${BRIGHTNESS_NAMES[argVal] || argVal}`);
+                 console.log(` Brightness set to ${BRIGHTNESS_NAMES[argVal] || argVal}`);
                  break;
             case 'lock':
                 const lock = argVal === 'on' || argVal === 'true';
                 await setProp('childLock', lock);
-                console.log(`✅ Child Lock ${lock ? 'ON' : 'OFF'}`);
+                console.log(` Child Lock ${lock ? 'ON' : 'OFF'}`);
                 break;
             case 'buzzer':
                 const buzz = argVal === 'on' || argVal === 'true';
                 await setProp('buzzer', buzz);
-                console.log(`✅ Buzzer ${buzz ? 'ON' : 'OFF'}`);
+                console.log(` Buzzer ${buzz ? 'ON' : 'OFF'}`);
                 break;
         }
 
     } catch (e) {
-        console.error('❌ Error:', e.message);
+        console.error(' Error:', e.message);
     } finally {
         if (device) await device.disconnect();
         if (client && typeof client.destroy === 'function') {

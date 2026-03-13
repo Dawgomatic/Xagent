@@ -4,18 +4,18 @@
 
 ---
 
-## 📋 背景
+##  背景
 
 即梦AI (jimeng.jianying.com) 是字节跳动旗下的 AI 视频生成平台。官方提供了 Web 界面，但没有开放 API。当我们需要批量生成视频或集成到工作流时，就需要通过浏览器自动化来实现。
 
-## 🎯 核心挑战
+##  核心挑战
 
 1. **登录状态保持**: 需要正确处理 Cookies 和 LocalStorage
 2. **文件上传**: 需要压缩图片到合适大小（WebP 格式最佳）
 3. **动态表单**: 需要等待元素加载、处理弹窗
 4. **提交检测**: 需要检测页面跳转和生成状态
 
-## 🛠️ 技术栈
+##  技术栈
 
 - **Playwright**: 浏览器自动化框架
 - **ImageMagick**: 图片压缩（convert 命令）
@@ -23,7 +23,7 @@
 
 ---
 
-## 📁 目录结构
+##  目录结构
 
 ```
 workspace/
@@ -40,7 +40,7 @@ workspace/
 
 ---
 
-## 🚀 完整实现步骤
+##  完整实现步骤
 
 ### 1. 准备阶段：图片压缩
 
@@ -57,7 +57,7 @@ ls -lh *.webp
 # -rw-r--r-- 1 node node 54K Feb 15 14:59 end.webp
 ```
 
-**⚠️ 重要**: PNG 原图可能 4MB+，直接上传会失败。WebP 格式可压缩 99% 且画质损失极小。
+** 重要**: PNG 原图可能 4MB+，直接上传会失败。WebP 格式可压缩 99% 且画质损失极小。
 
 ---
 
@@ -222,7 +222,7 @@ async function generateVideo(sessionFile, startImage, endImage, prompt, screensh
   const currentUrl = page.url();
   
   if (currentUrl.includes('/generate')) {
-    console.log('✅ 成功跳转到生成页面');
+    console.log(' 成功跳转到生成页面');
   }
   
   // 等待 5 秒查看生成状态
@@ -235,7 +235,7 @@ async function generateVideo(sessionFile, startImage, endImage, prompt, screensh
 
 ---
 
-## ⚠️ 踩坑记录
+##  踩坑记录
 
 ### 1. Cookie sameSite 问题
 **错误**: `browserContext.addCookies: cookies[3].sameSite: expected one of (Strict|Lax|None)`

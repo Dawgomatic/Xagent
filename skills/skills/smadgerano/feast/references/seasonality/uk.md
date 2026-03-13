@@ -67,30 +67,30 @@ These items are available year-round (often imported when not UK season):
 ## Seasonal Highlights
 
 ### Spring (Mar-May)
-⭐ Asparagus (British asparagus season: late April to late June)
-⭐ Jersey Royals (May-July)
-⭐ Purple sprouting broccoli
-⭐ Forced rhubarb → outdoor rhubarb
+ Asparagus (British asparagus season: late April to late June)
+ Jersey Royals (May-July)
+ Purple sprouting broccoli
+ Forced rhubarb → outdoor rhubarb
 
 ### Summer (Jun-Aug)
-⭐ British strawberries (peak June-July)
-⭐ Peas and broad beans
-⭐ British tomatoes
-⭐ Courgettes (glut in August)
-⭐ Soft fruits: raspberries, cherries, currants
+ British strawberries (peak June-July)
+ Peas and broad beans
+ British tomatoes
+ Courgettes (glut in August)
+ Soft fruits: raspberries, cherries, currants
 
 ### Autumn (Sep-Nov)
-⭐ British apples and pears
-⭐ Squash and pumpkins
-⭐ Wild mushrooms
-⭐ Blackberries (free foraging!)
-⭐ Game season begins (grouse Aug 12, pheasant Oct 1)
+ British apples and pears
+ Squash and pumpkins
+ Wild mushrooms
+ Blackberries (free foraging!)
+ Game season begins (grouse Aug 12, pheasant Oct 1)
 
 ### Winter (Dec-Feb)
-⭐ Brussels sprouts (best after first frost)
-⭐ Root vegetables: parsnips, swede, celeriac
-⭐ Kale and winter cabbage
-⭐ Forced rhubarb (Yorkshire triangle, Jan-Mar)
+ Brussels sprouts (best after first frost)
+ Root vegetables: parsnips, swede, celeriac
+ Kale and winter cabbage
+ Forced rhubarb (Yorkshire triangle, Jan-Mar)
 
 ## Sourcing Tips
 

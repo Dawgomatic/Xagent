@@ -155,7 +155,7 @@ def main():
                         
                         if 'ProcessList' in resp:
                             procs = resp['ProcessList']
-                            print(f"\n🔥 PROCESS LIST - {len(procs)} processes!")
+                            print(f"\n PROCESS LIST - {len(procs)} processes!")
                             
                             for p in procs[:30]:
                                 name = p.get('ProcessName', p.get('Name', '?'))

@@ -24,8 +24,16 @@ import (
 // tools, channels, models, topics, and daily notes — forming a rich graph.
 type VaultWriter struct {
 	root   string // e.g. ~/.xagent/vault
-	mu     sync.Mutex
 	topics *TopicRegistry
+	fileMu sync.Map // map[string]*sync.Mutex
+}
+
+// lockFile returns an unlock function for fine-grained per-file locking
+func (v *VaultWriter) lockFile(path string) func() {
+	m, _ := v.fileMu.LoadOrStore(path, &sync.Mutex{})
+	mu := m.(*sync.Mutex)
+	mu.Lock()
+	return mu.Unlock
 }
 
 // SessionData contains the data needed to write a session note after a turn.
@@ -71,8 +79,8 @@ func NewVaultWriter(root string) *VaultWriter {
 
 // Init creates the vault directory structure and README.
 func (v *VaultWriter) Init() error {
-	v.mu.Lock()
-	defer v.mu.Unlock()
+	unlock := v.lockFile(v.root)
+	defer unlock()
 
 	dirs := []string{
 		"Sessions",
@@ -83,6 +91,9 @@ func (v *VaultWriter) Init() error {
 		"Personality",
 		"Channels",
 		"Models",
+		"World",
+		"Experiences",
+		"MentalModels",
 	}
 
 	for _, d := range dirs {
@@ -103,11 +114,7 @@ func (v *VaultWriter) Init() error {
 	return nil
 }
 
-// WriteSessionNote creates a session note with wikilinks to related entities.
 func (v *VaultWriter) WriteSessionNote(data SessionData) error {
-	v.mu.Lock()
-	defer v.mu.Unlock()
-
 	if data.Timestamp.IsZero() {
 		data.Timestamp = time.Now()
 	}
@@ -123,9 +130,14 @@ func (v *VaultWriter) WriteSessionNote(data SessionData) error {
 		data.Timestamp.Format("2006-01-02 15-04"),
 		truncStr(data.SessionKey, 30)))
 	sessionPath := filepath.Join(v.root, "Sessions", filename+".md")
-	if err := os.WriteFile(sessionPath, []byte(note), 0644); err != nil {
-		return err
-	}
+
+	func() {
+		unlock := v.lockFile(sessionPath)
+		defer unlock()
+		if err := os.WriteFile(sessionPath, []byte(note), 0644); err != nil {
+			logger.WarnCF("vault", "Failed to write session file", map[string]interface{}{"error": err.Error()})
+		}
+	}()
 
 	// Update daily note
 	dateStr := data.Timestamp.Format("2006-01-02")
@@ -154,11 +166,7 @@ func (v *VaultWriter) WriteSessionNote(data SessionData) error {
 	return nil
 }
 
-// WriteDreamNote creates a dream session note in the vault.
 func (v *VaultWriter) WriteDreamNote(data DreamData) error {
-	v.mu.Lock()
-	defer v.mu.Unlock()
-
 	if data.Timestamp.IsZero() {
 		data.Timestamp = time.Now()
 	}
@@ -166,25 +174,32 @@ func (v *VaultWriter) WriteDreamNote(data DreamData) error {
 	note := renderDreamNote(data)
 	filename := sanitizeName(fmt.Sprintf("Dream %s", data.Timestamp.Format("2006-01-02 15-04")))
 	dreamPath := filepath.Join(v.root, "Dreams", filename+".md")
-	if err := os.WriteFile(dreamPath, []byte(note), 0644); err != nil {
-		return err
-	}
+
+	func() {
+		unlock := v.lockFile(dreamPath)
+		defer unlock()
+		if err := os.WriteFile(dreamPath, []byte(note), 0644); err != nil {
+			logger.WarnCF("vault", "Failed to write dream note", map[string]interface{}{"error": err.Error()})
+		}
+	}()
 
 	// Link dream from daily note
 	dateStr := data.Timestamp.Format("2006-01-02")
 	dailyPath := filepath.Join(v.root, "Daily", dateStr+".md")
-	appendToFile(dailyPath, fmt.Sprintf("\n- 💭 [[%s]] — %d insights, %d patterns\n",
+
+	unlock := v.lockFile(dailyPath)
+	appendToFile(dailyPath, fmt.Sprintf("\n-  [[%s]] — %d insights, %d patterns\n",
 		filename, len(data.Insights), len(data.Patterns)))
+	unlock()
 
 	return nil
 }
 
-// WritePersonalityChange logs a personality evolution event.
 func (v *VaultWriter) WritePersonalityChange(data PersonalityData) error {
-	v.mu.Lock()
-	defer v.mu.Unlock()
-
 	evolutionPath := filepath.Join(v.root, "Personality", "Personality Evolution.md")
+
+	unlock := v.lockFile(evolutionPath)
+	defer unlock()
 
 	// Create file with frontmatter if new
 	if _, err := os.Stat(evolutionPath); os.IsNotExist(err) {
@@ -202,9 +217,76 @@ func (v *VaultWriter) WritePersonalityChange(data PersonalityData) error {
 	return appendToFile(evolutionPath, entry)
 }
 
-// appendDailyEntry adds a session entry to the daily note.
+func (v *VaultWriter) WriteWorldFact(fact string, source string) error {
+	ts := time.Now()
+	filename := sanitizeName(fmt.Sprintf("Fact %s", ts.Format("2006-01-02 15-04-05")))
+	factPath := filepath.Join(v.root, "World", filename+".md")
+
+	unlock := v.lockFile(factPath)
+	defer unlock()
+
+	content := fmt.Sprintf("---\ntags: [world, fact]\ndate: %s\nsource: %s\n---\n# %s\n\n%s\n",
+		ts.Format(time.RFC3339),
+		source,
+		filename,
+		fact,
+	)
+
+	return os.WriteFile(factPath, []byte(content), 0644)
+}
+
+func (v *VaultWriter) WriteExperience(memory string, context string) error {
+	ts := time.Now()
+	filename := sanitizeName(fmt.Sprintf("Experience %s", ts.Format("2006-01-02 15-04-05")))
+	expPath := filepath.Join(v.root, "Experiences", filename+".md")
+
+	unlock := v.lockFile(expPath)
+	defer unlock()
+
+	content := fmt.Sprintf("---\ntags: [experience, memory]\ndate: %s\ncontext: %s\n---\n# %s\n\n%s\n",
+		ts.Format(time.RFC3339),
+		context,
+		filename,
+		memory,
+	)
+
+	return os.WriteFile(expPath, []byte(content), 0644)
+}
+
+func (v *VaultWriter) WriteMentalModel(topic string, understanding string) error {
+	ts := time.Now()
+	modelName := sanitizeName(topic)
+	modelPath := filepath.Join(v.root, "MentalModels", modelName+".md")
+
+	unlock := v.lockFile(modelPath)
+	defer unlock()
+
+	header := fmt.Sprintf("---\ntags: [mental-model, %s]\nupdated: %s\n---\n# Mental Model: %s\n\n",
+		sanitizeName(topic),
+		ts.Format(time.RFC3339),
+		topic,
+	)
+
+	// If it doesn't exist, create it. Otherwise, we might append or replace.
+	// For now, let's just create/overwrite to keep it simple, or append like logs.
+	// A mental model should reflect current understanding. Overwriting with the latest synthesis is usually better,
+	// but we'll prepend a date block to keep history.
+
+	if _, err := os.Stat(modelPath); os.IsNotExist(err) {
+		if err := os.WriteFile(modelPath, []byte(header), 0644); err != nil {
+			return err
+		}
+	}
+
+	entry := fmt.Sprintf("## Synthesis (%s)\n%s\n\n", ts.Format("2006-01-02 15:04"), understanding)
+	return appendToFile(modelPath, entry)
+}
+
 func (v *VaultWriter) appendDailyEntry(dateStr string, data SessionData, topics []string) {
 	dailyPath := filepath.Join(v.root, "Daily", dateStr+".md")
+
+	unlock := v.lockFile(dailyPath)
+	defer unlock()
 
 	// Create daily note if it doesn't exist
 	if _, err := os.Stat(dailyPath); os.IsNotExist(err) {
@@ -242,9 +324,11 @@ func (v *VaultWriter) appendDailyEntry(dateStr string, data SessionData, topics 
 	appendToFile(dailyPath, entry)
 }
 
-// updateToolNote creates or updates a tool's note with session references.
 func (v *VaultWriter) updateToolNote(tool, sessionKey string, ts time.Time) {
 	toolPath := filepath.Join(v.root, "Tools", sanitizeName(tool)+".md")
+
+	unlock := v.lockFile(toolPath)
+	defer unlock()
 
 	if _, err := os.Stat(toolPath); os.IsNotExist(err) {
 		header := renderToolHeader(tool)
@@ -259,9 +343,11 @@ func (v *VaultWriter) updateToolNote(tool, sessionKey string, ts time.Time) {
 	appendToFile(toolPath, entry)
 }
 
-// updateTopicNote creates or updates a topic note.
 func (v *VaultWriter) updateTopicNote(topic, sessionKey string, ts time.Time, context string) {
 	topicPath := filepath.Join(v.root, "Topics", sanitizeName(topic)+".md")
+
+	unlock := v.lockFile(topicPath)
+	defer unlock()
 
 	if _, err := os.Stat(topicPath); os.IsNotExist(err) {
 		header := renderTopicHeader(topic)
@@ -277,9 +363,11 @@ func (v *VaultWriter) updateTopicNote(topic, sessionKey string, ts time.Time, co
 	appendToFile(topicPath, entry)
 }
 
-// updateChannelNote creates or updates a channel note.
 func (v *VaultWriter) updateChannelNote(channel, sessionKey string, ts time.Time) {
 	channelPath := filepath.Join(v.root, "Channels", sanitizeName(channel)+".md")
+
+	unlock := v.lockFile(channelPath)
+	defer unlock()
 
 	if _, err := os.Stat(channelPath); os.IsNotExist(err) {
 		header := fmt.Sprintf("---\ntags: [channel]\n---\n# Channel: %s\n\n## Sessions\n\n", channel)
@@ -294,9 +382,11 @@ func (v *VaultWriter) updateChannelNote(channel, sessionKey string, ts time.Time
 	appendToFile(channelPath, entry)
 }
 
-// updateModelNote creates or updates a model note.
 func (v *VaultWriter) updateModelNote(model, sessionKey string, ts time.Time) {
 	modelPath := filepath.Join(v.root, "Models", sanitizeName(model)+".md")
+
+	unlock := v.lockFile(modelPath)
+	defer unlock()
 
 	if _, err := os.Stat(modelPath); os.IsNotExist(err) {
 		header := fmt.Sprintf("---\ntags: [model]\n---\n# Model: %s\n\n## Sessions\n\n", model)
@@ -364,6 +454,9 @@ This vault is automatically maintained by **xagent**. Open it in [Obsidian](http
 | Personality/ | Personality evolution timeline |
 | Channels/ | Communication channels (telegram, discord, etc.) |
 | Models/ | LLM models used |
+| World/ | Objective facts and world knowledge |
+| Experiences/ | Agent's subjective interactions |
+| MentalModels/ | Learned understanding and synthesis of experiences |
 
 ## Graph Tips
 

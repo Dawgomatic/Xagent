@@ -519,7 +519,7 @@ def sync_as_issue(idea_id: str, labels: List[str] = None) -> Dict:
             return {"success": False, "error": result.get("stderr") or "Failed to update issue"}
     else:
         # Create new issue
-        type_emoji = {"idea": "💡", "problem": "🔧", "challenge": "🎯"}.get(idea["type"], "📝")
+        type_emoji = {"idea": "", "problem": "", "challenge": ""}.get(idea["type"], "")
         title = f"{type_emoji} {idea['title']}"
         
         args = ["issue", "create", "-R", repo, "--title", title, "--body", body]

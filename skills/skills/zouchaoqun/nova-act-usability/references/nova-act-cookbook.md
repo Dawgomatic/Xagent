@@ -14,7 +14,7 @@ Best practices for using Amazon Nova Act effectively in usability testing.
 
 **The Claude agent does the reasoning.** Nova Act just clicks, types, and reports what it sees.
 
-❌ **WRONG:** Asking Nova Act to reason
+ **WRONG:** Asking Nova Act to reason
 ```python
 # Don't ask Nova Act to think about personas or UX
 nova.act("As a beginner user, can you easily find the documentation?")
@@ -22,7 +22,7 @@ nova.act("Would a business professional find the pricing clear?")
 nova.act("Is this task accomplishable for someone with low technical skills?")
 ```
 
-✅ **RIGHT:** Give Nova Act direct browser tasks
+ **RIGHT:** Give Nova Act direct browser tasks
 ```python
 # Simple, direct browser commands
 nova.act("Click the Documentation link in the navigation")
@@ -51,13 +51,13 @@ nova.act_get("List the navigation menu items visible on this page")
 - More flexible, fuzzy matching
 - Use for broader searches
 
-❌ **WRONG:** Using quotes when you want flexible matching
+ **WRONG:** Using quotes when you want flexible matching
 ```python
 # This is too strict - will miss "API Docs", "Developer Docs", etc.
 nova.act_get('Is there a link labeled "Documentation"?')
 ```
 
-✅ **RIGHT:** Use quotes strategically
+ **RIGHT:** Use quotes strategically
 ```python
 # Loose matching - finds variations
 nova.act_get('Is there a link with Documentation in it?')
@@ -76,12 +76,12 @@ nova.act_get('Click the link that says "Sign Up"')
 
 Nova Act works most reliably when tasks can be accomplished in **fewer than 30 steps**.
 
-❌ DON'T: Single large act() call
+ DON'T: Single large act() call
 ```python
 nova.act("book me a hotel that costs less than $100 with highest rating then find car rental and book lunch")
 ```
 
-✅ DO: Multiple small act() calls
+ DO: Multiple small act() calls
 ```python
 hotel = nova.act_get("book a hotel for $100 or less, return the address")
 nova.act(f"book restaurant near {hotel.response} at 12:30pm")
@@ -92,12 +92,12 @@ nova.act(f"rent a car near {hotel.response}")
 
 Make prompts clear about exactly what should happen.
 
-❌ DON'T: Vague instructions
+ DON'T: Vague instructions
 ```python
 nova.act("Let's see what routes are available")
 ```
 
-✅ DO: Direct instructions  
+ DO: Direct instructions  
 ```python
 nova.act("Navigate to the routes tab")
 ```
@@ -325,15 +325,15 @@ with NovaAct(
 - Verify validation works
 - **STOP before final submit button** (unless explicitly testing)
 
-### Safety Guardrails - STOP Before Material Impact ⚠️
+### Safety Guardrails - STOP Before Material Impact 
 
 **ALWAYS stop testing before actions that cause:**
-- 💳 **Monetary impact**: Charges, purchases, subscriptions, donations
-- 📧 **External communication**: Sending emails, posting publicly, messaging real users
-- 🔐 **Account creation**: Creating real accounts (use "test" flows if available)
-- 🗑️ **Data modification**: Deleting, editing, or corrupting existing data
-- 📝 **Legal commitment**: Agreeing to terms, signing contracts, submitting official forms
-- 📬 **Spam/annoyance**: Newsletter signups, notification opt-ins
+-  **Monetary impact**: Charges, purchases, subscriptions, donations
+-  **External communication**: Sending emails, posting publicly, messaging real users
+-  **Account creation**: Creating real accounts (use "test" flows if available)
+-  **Data modification**: Deleting, editing, or corrupting existing data
+-  **Legal commitment**: Agreeing to terms, signing contracts, submitting official forms
+-  **Spam/annoyance**: Newsletter signups, notification opt-ins
 
 **How to Test Safely:**
 
@@ -354,7 +354,7 @@ with NovaAct(
        "step": "verify_checkout_accessible",
        "action": "Confirmed payment button is reachable",
        "success": checkout_ready.parsed_response,
-       "notes": "✅ Workflow complete up to payment. STOPPED per safety guidelines - no actual purchase made."
+       "notes": " Workflow complete up to payment. STOPPED per safety guidelines - no actual purchase made."
    })
    ```
 
@@ -432,7 +432,7 @@ def test_flight_booking_workflow(nova, persona):
         "step": "verify_payment_reachable",
         "action": "Verified checkout button exists",
         "success": checkout_accessible.parsed_response,
-        "notes": "⚠️ SAFETY STOP: Checkout accessible but NOT clicked. Booking workflow verified up to payment step. No actual booking made."
+        "notes": " SAFETY STOP: Checkout accessible but NOT clicked. Booking workflow verified up to payment step. No actual booking made."
     })
     
     # Overall success: Could we reach checkout?
@@ -478,7 +478,7 @@ def test_ecommerce_purchase(nova, persona):
     # STOP HERE - do not enter payment info or submit
     return {
         "success": payment_page.parsed_response,
-        "notes": "⚠️ SAFETY STOP: Reached payment page. Cart and checkout flow functional. NO PURCHASE MADE."
+        "notes": " SAFETY STOP: Reached payment page. Cart and checkout flow functional. NO PURCHASE MADE."
     }
 ```
 

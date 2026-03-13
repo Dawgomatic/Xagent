@@ -91,9 +91,9 @@ For example:
 
 | Task | Use Integration | Use Browser |
 |------|----------------|-------------|
-| Send Gmail | ✅ Direct API | ❌ Slow |
-| GitHub PR | ✅ Direct API | ❌ Overkill |
-| Custom form | ❌ Not supported | ✅ `browser-use` |
+| Send Gmail |  Direct API |  Slow |
+| GitHub PR |  Direct API |  Overkill |
+| Custom form |  Not supported |  `browser-use` |
 
 **Rule:** If Composio/MCP supports the app, use integration.
 

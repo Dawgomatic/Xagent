@@ -29,28 +29,28 @@ def run_command(cmd, description, ignore_errors=False):
         )
         
         if result.returncode != 0 and not ignore_errors:
-            print(f"  ⚠️  Warning: {description} had issues")
+            print(f"    Warning: {description} had issues")
             if result.stderr:
                 print(f"     {result.stderr[:200]}")
             return False
         else:
-            print(f"  ✅ {description} complete")
+            print(f"   {description} complete")
             return True
     except subprocess.TimeoutExpired:
-        print(f"  ⚠️  Warning: {description} timed out")
+        print(f"    Warning: {description} timed out")
         return False
     except Exception as e:
-        print(f"  ⚠️  Warning: {description} failed - {str(e)}")
+        print(f"    Warning: {description} failed - {str(e)}")
         return False
 
 def check_python_version():
     """Check if Python version is compatible."""
     version = sys.version_info
     if version.major < 3 or (version.major == 3 and version.minor < 8):
-        print(f"❌ Python {version.major}.{version.minor} is too old")
+        print(f" Python {version.major}.{version.minor} is too old")
         print(f"   This skill requires Python 3.8 or newer")
         return False
-    print(f"✅ Python {version.major}.{version.minor}.{version.micro}")
+    print(f" Python {version.major}.{version.minor}.{version.micro}")
     return True
 
 def install_python_packages():
@@ -84,7 +84,7 @@ def install_python_packages():
         success = run_command(install_cmd, "Install Python packages (retry without flag)")
     
     if not success:
-        print("\n⚠️  Automatic installation had issues. You may need to install manually:")
+        print("\n  Automatic installation had issues. You may need to install manually:")
         print(f"   pip3 install {' '.join(packages)}")
         return False
     
@@ -105,10 +105,10 @@ def install_playwright_browsers():
     
     for cmd, desc in commands:
         if run_command(cmd, desc, ignore_errors=True):
-            print("\n✅ Playwright browser installed successfully")
+            print("\n Playwright browser installed successfully")
             return True
     
-    print("\n⚠️  Browser installation had issues. You may need to install manually:")
+    print("\n  Browser installation had issues. You may need to install manually:")
     print("   playwright install chromium")
     return False
 
@@ -125,10 +125,10 @@ def install_system_dependencies():
         print("  Playwright may need system libraries (libgobject, libx11, etc.)")
         print("  You can install these with:")
         print("     sudo playwright install-deps chromium")
-        print("\n  ℹ️  Skipping automatic installation (requires sudo)")
+        print("\n    Skipping automatic installation (requires sudo)")
         print("     If tests fail with library errors, run the command above")
     else:
-        print("  ℹ️  Non-Linux system detected, skipping")
+        print("    Non-Linux system detected, skipping")
     
     return True
 
@@ -141,18 +141,18 @@ def setup_config_file():
     
     # Create config directory
     config_dir.mkdir(parents=True, exist_ok=True)
-    print(f"  ✅ Config directory: {config_dir}")
+    print(f"   Config directory: {config_dir}")
     
     if config_file.exists():
-        print(f"  ✅ Config file already exists: {config_file}")
+        print(f"   Config file already exists: {config_file}")
         try:
             with open(config_file, 'r') as f:
                 config = json.load(f)
                 if 'apiKey' in config and config['apiKey']:
-                    print(f"  ✅ API key configured")
+                    print(f"   API key configured")
                     return True
                 else:
-                    print(f"  ⚠️  Config file exists but API key not set")
+                    print(f"    Config file exists but API key not set")
         except:
             pass
     else:
@@ -164,9 +164,9 @@ def setup_config_file():
         with open(config_file, 'w') as f:
             json.dump(template, f, indent=2)
         
-        print(f"  ✅ Created config template: {config_file}")
+        print(f"   Created config template: {config_file}")
     
-    print("\n  📝 Next Steps:")
+    print("\n   Next Steps:")
     print(f"     1. Get your Nova Act API key from AWS Console")
     print(f"     2. Edit: {config_file}")
     print(f"     3. Replace 'your-nova-act-api-key-here' with your actual key")
@@ -205,14 +205,14 @@ def verify_installation():
         )
         
         if result.returncode == 0:
-            print(f"  ✅ {pkg_name}")
+            print(f"   {pkg_name}")
         else:
             # Fallback: try importing
             try:
                 __import__(import_name)
-                print(f"  ✅ {pkg_name} (via import)")
+                print(f"   {pkg_name} (via import)")
             except ImportError:
-                print(f"  ❌ {pkg_name} - Not installed")
+                print(f"   {pkg_name} - Not installed")
                 all_good = False
     
     # Check Playwright browsers
@@ -222,12 +222,12 @@ def verify_installation():
     if playwright_cache.exists():
         browsers = list(playwright_cache.glob("chromium-*"))
         if browsers:
-            print(f"  ✅ Chromium browser installed")
+            print(f"   Chromium browser installed")
         else:
-            print(f"  ⚠️  No Chromium browser found")
+            print(f"    No Chromium browser found")
             all_good = False
     else:
-        print(f"  ⚠️  Playwright cache directory not found")
+        print(f"    Playwright cache directory not found")
         all_good = False
     
     # Check config
@@ -239,22 +239,22 @@ def verify_installation():
             with open(config_file, 'r') as f:
                 config = json.load(f)
                 if 'apiKey' in config and config['apiKey'] != 'your-nova-act-api-key-here':
-                    print(f"  ✅ API key configured")
+                    print(f"   API key configured")
                 else:
-                    print(f"  ⚠️  API key not set in config")
+                    print(f"    API key not set in config")
                     all_good = False
         except:
-            print(f"  ⚠️  Config file exists but is invalid")
+            print(f"    Config file exists but is invalid")
             all_good = False
     else:
-        print(f"  ⚠️  Config file not found")
+        print(f"    Config file not found")
         all_good = False
     
     return all_good
 
 def main():
     """Main setup routine."""
-    print("\n🦅 Nova Act Usability Testing Skill - Setup")
+    print("\n Nova Act Usability Testing Skill - Setup")
     print("="*60)
     
     # Check Python version
@@ -280,17 +280,17 @@ def main():
     # Summary
     print("\n" + "="*60)
     if all_good:
-        print("✅ SETUP COMPLETE")
+        print(" SETUP COMPLETE")
         print("="*60)
-        print("\n🎉 The skill is ready to use!")
+        print("\n The skill is ready to use!")
         print("\nYou can now run usability tests:")
         print("  'Test the usability of https://example.com'")
     else:
-        print("⚠️  SETUP INCOMPLETE")
+        print("  SETUP INCOMPLETE")
         print("="*60)
-        print("\n⚠️  Some components need manual setup.")
+        print("\n  Some components need manual setup.")
         print("   Review the messages above and follow the instructions.")
-        print("\n📚 For help, see:")
+        print("\n For help, see:")
         print("   ~/.openclaw/skills/nova-act-usability/README.md")
     
     print("\n" + "="*60 + "\n")

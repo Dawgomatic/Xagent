@@ -7,7 +7,7 @@ compatibility: Python 3.10+, Docker (Qdrant + Neo4j), OpenRouter API key
 metadata: {"openclaw": {"emoji": "\ud83e\udde0", "requires": {"env": ["OPENROUTER_API_KEY"]}, "primaryEnv": "OPENROUTER_API_KEY", "homepage": "https://www.agxntsix.ai"}}
 ---
 
-# Agent Memory 🧠
+# Agent Memory 
 
 Full intelligence layer: vector memory + knowledge graph + structured database.
 
@@ -69,4 +69,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

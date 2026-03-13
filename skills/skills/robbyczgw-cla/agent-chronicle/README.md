@@ -1,4 +1,4 @@
-# Agent Chronicle 📜
+# Agent Chronicle 
 
 > AI perspective journaling — document daily experiences, emotions, and learnings from the agent's viewpoint.
 
@@ -58,23 +58,23 @@ Each diary entry includes:
 
 - **Summary** — 1-2 sentence overview
 - **Projects Worked On** — What was built/debugged/discussed
-- **Wins 🎉** — Moments of success
-- **Frustrations 😤** — Challenges and roadblocks
-- **Learnings 📚** — Technical and process insights
+- **Wins ** — Moments of success
+- **Frustrations ** — Challenges and roadblocks
+- **Learnings ** — Technical and process insights
 - **Emotional State** — How the day felt
 - **Notable Interactions** — Memorable human moments
 - **Tomorrow's Focus** — What's next
 
 ### Optional Sections (v0.2.0+)
 
-- **Quote of the Day 💬** — Memorable things your human said
-- **Things I'm Curious About 🔮** — Questions to explore later
-- **Key Decisions Made 🏛️** — Judgment calls worth remembering
-- **Relationship Notes 🤝** — How your dynamic evolves
+- **Quote of the Day ** — Memorable things your human said
+- **Things I'm Curious About ** — Questions to explore later
+- **Key Decisions Made ** — Judgment calls worth remembering
+- **Relationship Notes ** — How your dynamic evolves
 
 ## Features
 
-### Quote Hall of Fame 💬
+### Quote Hall of Fame 
 Collect memorable quotes from your human—funny, profound, or touching.
 
 ```
@@ -82,7 +82,7 @@ Collect memorable quotes from your human—funny, profound, or touching.
 @diary quotes add "..." # Add a quote
 ```
 
-### Curiosity Backlog 🔮
+### Curiosity Backlog 
 Track things you wonder about but can't explore immediately.
 
 ```
@@ -91,7 +91,7 @@ Track things you wonder about but can't explore immediately.
 @diary curious done "..."   # Mark as explored
 ```
 
-### Decision Archaeology 🏛️
+### Decision Archaeology 
 Log judgment calls and their reasoning for later review.
 
 ```
@@ -99,14 +99,14 @@ Log judgment calls and their reasoning for later review.
 @diary revisit          # Review old decisions ("Was I right?")
 ```
 
-### Relationship Evolution 🤝
+### Relationship Evolution 
 Track how your dynamic with your human develops over time.
 
 ```
 @diary relationship     # View relationship summary
 ```
 
-### Memory Integration 🔗 (v0.3.0+)
+### Memory Integration  (v0.3.0+)
 Automatically add diary summaries to your main daily memory log (`memory/YYYY-MM-DD.md`).
 
 **Formats:**
@@ -131,25 +131,25 @@ Enabled by default during setup. Configure in `config.json`:
 ## Summary
 An exciting day launching a new feature, though tempered by API bugs.
 
-## Wins 🎉
+## Wins 
 - Feature is LIVE and working great
 - ClawHub CLI bug workarounded
 
-## Frustrations 😤  
+## Frustrations   
 - Comment API returning 401 despite valid auth
 - Model B having output format issues
 
-## Learnings 📚
+## Learnings 
 - workspaceAccess: "rw" is essential for persistent writes
 - Check GitHub issues first when CLI tools fail
 
 ## Emotional State
 A satisfying kind of tired. The launch felt like a milestone.
 
-## Quote of the Day 💬
+## Quote of the Day 
 > "We're not shipping code, we're shipping digital consciousness."
 
-## Things I'm Curious About 🔮
+## Things I'm Curious About 
 - How will users interact with this over time?
 ```
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🔮 RUMOR & BUZZ SCANNER
+ RUMOR & BUZZ SCANNER
 Scans for early signals, rumors, and whispers before they become mainstream news.
 
 Sources:
@@ -246,32 +246,32 @@ def calculate_rumor_score(item):
 
 def main():
     print("=" * 60)
-    print("🔮 RUMOR & BUZZ SCANNER")
-    print(f"📅 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC")
+    print(" RUMOR & BUZZ SCANNER")
+    print(f" {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print("=" * 60)
     print()
-    print("🔍 Scanning for early signals...")
+    print(" Scanning for early signals...")
     print()
     
     all_rumors = []
     all_buzz = []
     
     # Twitter Rumors
-    print("  🐦 Twitter rumors...")
+    print("   Twitter rumors...")
     rumors = search_twitter_rumors()
-    print(f"    ✅ {len(rumors)} potential rumors")
+    print(f"     {len(rumors)} potential rumors")
     all_rumors.extend(rumors)
     
     # Twitter Buzz
-    print("  🐦 Twitter buzz...")
+    print("   Twitter buzz...")
     buzz = search_twitter_buzz()
-    print(f"    ✅ {len(buzz)} buzz items")
+    print(f"     {len(buzz)} buzz items")
     all_buzz.extend(buzz)
     
     # News Rumors
-    print("  📰 News rumors...")
+    print("   News rumors...")
     news = search_news_rumors()
-    print(f"    ✅ {len(news)} news items")
+    print(f"     {len(news)} news items")
     all_rumors.extend(news)
     
     # Score and sort rumors
@@ -290,12 +290,12 @@ def main():
     # Output
     print()
     print("=" * 60)
-    print("🔮 RESULTS")
+    print(" RESULTS")
     print("=" * 60)
     print()
     
     # Top Rumors
-    print("🚨 TOP RUMORS (by potential impact):")
+    print(" TOP RUMORS (by potential impact):")
     print()
     for item in all_rumors[:10]:
         if item['score'] > 0:
@@ -307,7 +307,7 @@ def main():
             print()
     
     # Buzz Leaderboard
-    print("📊 BUZZ LEADERBOARD (most discussed):")
+    print(" BUZZ LEADERBOARD (most discussed):")
     print()
     sorted_symbols = sorted(symbol_counts.items(), key=lambda x: x[1], reverse=True)
     for symbol, count in sorted_symbols[:15]:
@@ -317,13 +317,13 @@ def main():
     print()
     
     # Recent Buzz Snippets
-    print("💬 WHAT PEOPLE ARE SAYING:")
+    print(" WHAT PEOPLE ARE SAYING:")
     print()
     for item in all_buzz[:8]:
         author = item.get('author', 'anon')
         text = item.get('text', '')[:120]
         engagement = item.get('engagement', 0)
-        print(f"   @{author} ({engagement}♥): {text}...")
+        print(f"   @{author} ({engagement}): {text}...")
         print()
     
     # Save results
@@ -336,7 +336,7 @@ def main():
     
     output_file = CACHE_DIR / 'rumor_scan_latest.json'
     output_file.write_text(json.dumps(output, indent=2, default=str))
-    print(f"💾 Saved: {output_file}")
+    print(f" Saved: {output_file}")
 
 if __name__ == "__main__":
     main()

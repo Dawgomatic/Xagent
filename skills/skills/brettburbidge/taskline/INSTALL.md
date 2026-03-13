@@ -1,14 +1,14 @@
-# 🚀 Taskline AI - Installation Guide
+#  Taskline AI - Installation Guide
 
 **Complete setup guide for AI-powered task management through [MyTaskline.com](https://mytaskline.com)**
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - **Python 3.7+** with `requests` module  
 - **Internet connection** for MyTaskline.com API access
 - **5 minutes** for complete setup
 
-## 🌟 Step 1: Get Your MyTaskline.com Account
+##  Step 1: Get Your MyTaskline.com Account
 
 ### **Create Account**
 1. Visit [**mytaskline.com**](https://mytaskline.com)
@@ -21,9 +21,9 @@
 3. Click **"Generate New API Key"**
 4. Copy the generated key (keep it secure!)
 
-> **🔒 Security Note**: Your API key provides full access to your tasks. Keep it private and never share it.
+> ** Security Note**: Your API key provides full access to your tasks. Keep it private and never share it.
 
-## ⚙️ Step 2: Configure the Skill
+##  Step 2: Configure the Skill
 
 ### **Edit Configuration**
 1. Open `references/config.json` in the skill directory
@@ -45,14 +45,14 @@ Change the timezone to match your location:
 - **US Pacific**: `"America/Los_Angeles"`
 - **UTC**: `"UTC"`
 
-## 🧪 Step 3: Test Your Installation
+##  Step 3: Test Your Installation
 
 ### **Basic Functionality Test**
 ```bash
 # Test 1: Simple task creation
 python taskline.py "Add task: test my AI system"
 
-# Expected output: ✅ Task created with full details
+# Expected output:  Task created with full details
 ```
 
 ### **AI Intelligence Test**
@@ -75,7 +75,7 @@ python taskline.py "What tasks do I have?"
 # Expected output: List of your tasks with formatting
 ```
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 ### **Configuration Check**
 - [ ] API key correctly set in `references/config.json`
@@ -94,7 +94,7 @@ python taskline.py "What tasks do I have?"
 - [ ] Projects are auto-created when referenced  
 - [ ] Task details match what you specified
 
-## 🚀 Advanced Examples
+##  Advanced Examples
 
 Once basic installation works, try these advanced AI features:
 
@@ -122,7 +122,7 @@ python taskline.py "Show my task summary"
 python taskline.py "What's in the Mobile project?"
 ```
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### **"API Error 401: Unauthorized"**
 - **Issue**: Invalid or missing API key
@@ -155,40 +155,40 @@ python taskline.py "What's in the Mobile project?"
   1. Update timezone in `config.json`
   2. Use clearer date references ("next Friday" vs "Friday")
 
-## 📁 Required File Structure
+##  Required File Structure
 
 Verify all files are present:
 
 ```
 taskline-ai-skill/
-├── taskline.py                    # Main entry point ✅
-├── SKILL.md                       # Skill definition ✅  
-├── README.md                      # Documentation ✅
-├── INSTALL.md                     # This file ✅
+├── taskline.py                    # Main entry point 
+├── SKILL.md                       # Skill definition   
+├── README.md                      # Documentation 
+├── INSTALL.md                     # This file 
 ├── scripts/
-│   ├── taskline_ai.py            # AI dispatcher ✅
-│   ├── create_task_enhanced.py   # Enhanced creation ✅
-│   ├── create_task_smart.py      # Smart creation ✅
-│   ├── create_task.py            # Basic creation ✅
-│   ├── list_tasks.py             # Task queries ✅
-│   ├── update_task.py            # Status updates ✅
-│   └── reports.py                # Analytics ✅
+│   ├── taskline_ai.py            # AI dispatcher 
+│   ├── create_task_enhanced.py   # Enhanced creation 
+│   ├── create_task_smart.py      # Smart creation 
+│   ├── create_task.py            # Basic creation 
+│   ├── list_tasks.py             # Task queries 
+│   ├── update_task.py            # Status updates 
+│   └── reports.py                # Analytics 
 └── references/
-    ├── config.json               # Configuration ✅
-    └── api_examples.md           # API docs ✅
+    ├── config.json               # Configuration 
+    └── api_examples.md           # API docs 
 ```
 
-## 🎯 Success Indicators
+##  Success Indicators
 
 **You're ready to go when:**
 
-1. ✅ **Task creation works**: AI parses complex requests
-2. ✅ **Projects auto-create**: Referenced projects appear in MyTaskline.com  
-3. ✅ **Dates parse correctly**: "tomorrow", "Friday" become proper dates
-4. ✅ **Priorities detected**: "high priority" sets priority field
-5. ✅ **Dashboard syncs**: Tasks appear on [mytaskline.com](https://mytaskline.com)
+1.  **Task creation works**: AI parses complex requests
+2.  **Projects auto-create**: Referenced projects appear in MyTaskline.com  
+3.  **Dates parse correctly**: "tomorrow", "Friday" become proper dates
+4.  **Priorities detected**: "high priority" sets priority field
+5.  **Dashboard syncs**: Tasks appear on [mytaskline.com](https://mytaskline.com)
 
-## 🌟 Next Steps
+##  Next Steps
 
 ### **Explore AI Features**
 - Try complex multi-entity requests
@@ -208,6 +208,6 @@ taskline-ai-skill/
 
 ---
 
-**🎉 You're all set!** Start managing tasks with AI intelligence through [MyTaskline.com](https://mytaskline.com)!
+** You're all set!** Start managing tasks with AI intelligence through [MyTaskline.com](https://mytaskline.com)!
 
 **Need help?** Visit [mytaskline.com](https://mytaskline.com) for platform support.

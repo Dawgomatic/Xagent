@@ -7,7 +7,7 @@ REPURPOSE_DIR="${REPURPOSE_DIR:-$HOME/.config/content-repurposer}"
 OUTPUT_DIR="${OUTPUT_DIR:-$HOME/content-repurposer-output}"
 SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "♻️  Content Repurposer Setup"
+echo "  Content Repurposer Setup"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # Create config directory
@@ -80,4 +80,4 @@ echo "  3. Check output in: $OUTPUT_DIR/"
 echo ""
 echo "Pro tip: Set your voice.tone, personality, and user.primary_cta first."
 echo ""
-echo "♻️  Ready to repurpose content!"
+echo "  Ready to repurpose content!"

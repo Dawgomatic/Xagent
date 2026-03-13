@@ -3,7 +3,7 @@ name: govee-api-assist
 description: DEPRECATED. This skill is retained only for migration. Use @Cole-Z/govee-control for current Govee OpenAPI setup and control guidance.
 metadata:
   clawdbot:
-    emoji: ⚠️
+    emoji: 
 ---
 
 # DEPRECATED — Use `@Cole-Z/govee-control`

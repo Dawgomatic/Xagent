@@ -2,7 +2,7 @@
 name: Translate
 description: "Translate text accurately — preserve formatting, handle plurals, and adapt tone per locale."
 metadata:
-  emoji: "🌐"
+  emoji: ""
   category: "text"
   difficulty: "intermediate"
   os: "all"
@@ -33,7 +33,7 @@ Master accurate translation that preserves meaning, formatting, and cultural con
 
 ## Cultural Adaptation
 - Adapt idioms and expressions rather than literal translation
-- Convert units when culturally appropriate (miles↔km, Fahrenheit↔Celsius)
+- Convert units when culturally appropriate (mileskm, FahrenheitCelsius)
 - Adjust date formats to locale standards (MM/DD vs DD/MM vs DD.MM)
 - Use local currency symbols and number formatting (, vs . for decimals)
 

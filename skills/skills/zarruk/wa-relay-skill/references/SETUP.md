@@ -9,7 +9,7 @@
 
 ```
 Third party → [Relay Agent] --sessions_send--> [Main Agent] --WhatsApp--> Owner
-                 (NO_REPLY)                      (📩 + suggested response)
+                 (NO_REPLY)                      ( + suggested response)
 ```
 
 The relay agent **never** responds to senders. It forwards messages to the main agent via `sessions_send`. The main agent notifies the owner with a suggested response.
@@ -82,7 +82,7 @@ openclaw gateway restart
 ## How It Works (v0.2.0)
 
 1. Third party sends a message → relay agent receives it
-2. Relay uses `sessions_send` to forward: `📩 RELAY de [number]: [message]`
+2. Relay uses `sessions_send` to forward: ` RELAY de [number]: [message]`
 3. Main agent receives the inter-session message
 4. Main agent notifies owner on WhatsApp with the message + a suggested response
 5. Owner decides what to reply

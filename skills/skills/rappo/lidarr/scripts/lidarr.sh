@@ -36,7 +36,7 @@ case "$cmd" in
       " [ID: \(.value.foreignArtistId)]"
     '
     echo ""
-    echo "💡 Use 'list-artist-albums <artistId>' to see albums after adding"
+    echo " Use 'list-artist-albums <artistId>' to see albums after adding"
     ;;
     
   search-json)
@@ -69,7 +69,7 @@ case "$cmd" in
       # It's a MusicBrainz ID, find internal ID
       artist=$(curl -s -H "$AUTH" "$API/artist" | jq --arg fid "$artistId" '.[] | select(.foreignArtistId == $fid)')
       if [ -z "$artist" ]; then
-        echo "❌ Artist not found in library"
+        echo " Artist not found in library"
         exit 1
       fi
       internalId=$(echo "$artist" | jq -r '.id')
@@ -103,7 +103,7 @@ case "$cmd" in
     album=$(curl -s -H "$AUTH" "$API/album/$albumId")
     
     if [ -z "$album" ] || [ "$album" = "null" ] || [ "$album" = "[]" ]; then
-      echo "❌ Album not found"
+      echo " Album not found"
       exit 1
     fi
     
@@ -122,12 +122,12 @@ case "$cmd" in
     if echo "$result" | jq -e '.id' > /dev/null 2>&1; then
       title=$(echo "$result" | jq -r '.title')
       releaseDate=$(echo "$result" | jq -r '.releaseDate | split("T")[0]')
-      echo "✅ Monitoring: $title ($releaseDate)"
+      echo " Monitoring: $title ($releaseDate)"
       if [ "$searchFlag" = "true" ]; then
-        echo "🔍 Search started"
+        echo " Search started"
       fi
     else
-      echo "❌ Failed to update album"
+      echo " Failed to update album"
       echo "$result" | jq -r '.message // .'
     fi
     ;;
@@ -179,7 +179,7 @@ case "$cmd" in
       artistId=$(echo "$existingArtist" | jq -r '.id')
       artistName=$(echo "$existingArtist" | jq -r '.artistName')
       
-      echo "⚠️  Artist already exists: $artistName"
+      echo "  Artist already exists: $artistName"
       echo ""
       
       # Check if monitored
@@ -188,14 +188,14 @@ case "$cmd" in
         # Update to monitored
         updatedArtist=$(echo "$existingArtist" | jq '.monitored = true')
         curl -s -X PUT -H "$AUTH" -H "Content-Type: application/json" -d "$updatedArtist" "$API/artist/$artistId" > /dev/null
-        echo "✅ Now monitoring: $artistName"
+        echo " Now monitoring: $artistName"
       else
         echo "✓ Already monitored: $artistName"
       fi
       
       echo ""
-      echo "💡 Use 'list-artist-albums $artistId' to see albums"
-      echo "💡 Use 'monitor-album <albumId>' to monitor specific albums"
+      echo " Use 'list-artist-albums $artistId' to see albums"
+      echo " Use 'monitor-album <albumId>' to monitor specific albums"
       exit 0
     fi
     
@@ -203,7 +203,7 @@ case "$cmd" in
     artist=$(curl -s -H "$AUTH" "$API/artist/lookup?term=$(echo "$foreignArtistId" | jq -sRr @uri)" | jq --arg fid "$foreignArtistId" '[.[] | select(.foreignArtistId == $fid)] | .[0]')
     
     if [ -z "$artist" ] || [ "$artist" = "null" ]; then
-      echo "❌ Artist not found"
+      echo " Artist not found"
       exit 1
     fi
     
@@ -261,15 +261,15 @@ case "$cmd" in
       albumCount=$(echo "$result" | jq -r '.albums | length')
       qualityName=$(curl -s -H "$AUTH" "$API/qualityprofile" | jq --argjson qid "$qualityProfileId" -r '.[] | select(.id == $qid) | .name')
       newId=$(echo "$result" | jq -r '.id')
-      echo "✅ Added: $artistName"
+      echo " Added: $artistName"
       echo "   Albums: $albumCount | Quality: $qualityName"
       if [ "$searchFlag" = "true" ]; then
-        echo "🔍 Search started"
+        echo " Search started"
       fi
       echo ""
-      echo "💡 Use 'list-artist-albums $newId' to see albums"
+      echo " Use 'list-artist-albums $newId' to see albums"
     else
-      echo "❌ Failed to add artist"
+      echo " Failed to add artist"
       echo "$result" | jq -r '.message // .'
     fi
     ;;
@@ -295,7 +295,7 @@ case "$cmd" in
     artist=$(curl -s -H "$AUTH" "$API/artist/$artistId")
     
     if [ -z "$artist" ] || [ "$artist" = "null" ]; then
-      echo "❌ Artist not found"
+      echo " Artist not found"
       exit 1
     fi
     
@@ -304,9 +304,9 @@ case "$cmd" in
     curl -s -X DELETE -H "$AUTH" "$API/artist/$artistId?deleteFiles=$deleteFiles" > /dev/null
     
     if [ "$deleteFiles" = "true" ]; then
-      echo "🗑️ Removed: $artistName + deleted files"
+      echo " Removed: $artistName + deleted files"
     else
-      echo "🗑️ Removed: $artistName (files kept)"
+      echo " Removed: $artistName (files kept)"
     fi
     ;;
     
@@ -318,7 +318,7 @@ case "$cmd" in
     fi
     
     curl -s -X POST -H "$AUTH" "$API/command" -d "{\"name\": \"RefreshArtist\", \"artistId\": $artistId}" > /dev/null
-    echo "🔄 Refresh triggered for artist $artistId"
+    echo " Refresh triggered for artist $artistId"
     ;;
     
   *)

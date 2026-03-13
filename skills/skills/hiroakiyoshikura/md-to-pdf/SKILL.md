@@ -3,7 +3,7 @@ name: md-to-pdf
 description: MarkdownからPDFを生成する。md-to-pdf（Puppeteer）を使用。GitHub風スタイル、日本語・カラー絵文字対応。
 metadata:
   openclaw:
-    emoji: "📄"
+    emoji: ""
     requires:
       bins: ["md-to-pdf"]
 ---
@@ -54,9 +54,9 @@ pdf_options:
 
 ## リスト
 
-- ✅ 完了した項目
-- 🔧 作業中の項目
-- ⚠ 注意事項
+-  完了した項目
+-  作業中の項目
+-  注意事項
 
 MDEOF
 

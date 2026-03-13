@@ -5,12 +5,12 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "🔍 正在查询 API 余额..."
+echo " 正在查询 API 余额..."
 
 # DeepSeek 余额查询
 if [ -n "$DEEPSEEK_API_KEY" ]; then
     echo ""
-    echo "💰 DeepSeek 余额"
+    echo " DeepSeek 余额"
     DEEPSEEK_RESULT=$(curl -s "https://api.deepseek.com/user/balance" \
         -H "Authorization: Bearer $DEEPSEEK_API_KEY" \
         -H "Content-Type: application/json" 2>/dev/null)
@@ -26,22 +26,22 @@ if [ -n "$DEEPSEEK_API_KEY" ]; then
         echo "- 赠金余额: $GRANTED_BALANCE $CURRENCY"
         echo "- 充值余额: $TOPPED_UP_BALANCE $CURRENCY"
         if [ "$IS_AVAILABLE" = "true" ]; then
-            echo "- 状态: 可用 ✅"
+            echo "- 状态: 可用 "
         else
-            echo "- 状态: 不可用 ❌"
+            echo "- 状态: 不可用 "
         fi
     else
         echo "- 查询失败: $DEEPSEEK_RESULT"
     fi
 else
     echo ""
-    echo "⚠️  DeepSeek: API Key 未设置"
+    echo "  DeepSeek: API Key 未设置"
 fi
 
 # Moonshot/Kimi 余额查询
 if [ -n "$MOONSHOT_API_KEY" ]; then
     echo ""
-    echo "🌙 Moonshot/Kimi 余额"
+    echo " Moonshot/Kimi 余额"
     MOONSHOT_RESULT=$(curl -s "https://api.moonshot.cn/v1/users/me/balance" \
         -H "Authorization: Bearer $MOONSHOT_API_KEY" 2>/dev/null)
     
@@ -58,13 +58,13 @@ if [ -n "$MOONSHOT_API_KEY" ]; then
     fi
 else
     echo ""
-    echo "⚠️  Moonshot: API Key 未设置"
+    echo "  Moonshot: API Key 未设置"
 fi
 
 # 火山引擎余额查询
 if [ -n "$VOLCENGINE_ACCESS_KEY" ] && [ -n "$VOLCENGINE_SECRET_KEY" ]; then
     echo ""
-    echo "🌋 火山引擎余额"
+    echo " 火山引擎余额"
     
     # 检查 venv 是否存在
     if [ -d "$SCRIPT_DIR/venv" ]; then
@@ -76,8 +76,8 @@ if [ -n "$VOLCENGINE_ACCESS_KEY" ] && [ -n "$VOLCENGINE_SECRET_KEY" ]; then
     fi
 else
     echo ""
-    echo "⚠️  火山引擎: AK/SK 未设置"
+    echo "  火山引擎: AK/SK 未设置"
 fi
 
 echo ""
-echo "✅ 余额查询完成"
+echo " 余额查询完成"

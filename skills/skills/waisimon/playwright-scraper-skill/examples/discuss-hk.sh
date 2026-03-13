@@ -4,7 +4,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 
-echo "🕷️  Discuss.com.hk 爬蟲範例"
+echo "  Discuss.com.hk 爬蟲範例"
 echo ""
 echo "使用 Playwright Stealth（已驗證成功）"
 echo ""

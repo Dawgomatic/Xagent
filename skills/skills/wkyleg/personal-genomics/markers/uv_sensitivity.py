@@ -685,36 +685,36 @@ def generate_uv_report_text(genotypes: Dict[str, str]) -> str:
     report = generate_uv_sensitivity_report(genotypes)
     
     lines = []
-    lines.append("☀️ UV SENSITIVITY PROFILE")
+    lines.append(" UV SENSITIVITY PROFILE")
     lines.append("=" * 50)
     lines.append("")
     
     summary = report["summary"]
     
     # Skin type
-    lines.append(f"🧬 Estimated Skin Type: {summary['estimated_skin_type'].upper()}")
+    lines.append(f" Estimated Skin Type: {summary['estimated_skin_type'].upper()}")
     lines.append(f"   {summary['skin_description']}")
     lines.append(f"   Unprotected burn time: ~{summary['burn_risk']} minutes")
     lines.append("")
     
     # SPF
     spf = report["spf_recommendation"]
-    lines.append(f"🧴 SPF RECOMMENDATION: {summary['recommended_spf']}")
+    lines.append(f" SPF RECOMMENDATION: {summary['recommended_spf']}")
     for tip in spf["tips"][:3]:
         lines.append(f"   • {tip}")
     lines.append("")
     
     # Vitamin D
     vitd = report["vitamin_d"]
-    lines.append(f"☀️ VITAMIN D SYNTHESIS: {summary['vitamin_d_synthesis'].upper()}")
+    lines.append(f" VITAMIN D SYNTHESIS: {summary['vitamin_d_synthesis'].upper()}")
     lines.append(f"   {vitd['sun_exposure_needed']}")
     if vitd["supplement_recommended"]:
-        lines.append("   💊 Supplementation may be beneficial")
+        lines.append("    Supplementation may be beneficial")
     lines.append("")
     
     # Melanoma
     melanoma = report["melanoma_risk"]
-    lines.append(f"⚠️ MELANOMA RISK: {summary['melanoma_risk'].upper()}")
+    lines.append(f" MELANOMA RISK: {summary['melanoma_risk'].upper()}")
     lines.append(f"   {melanoma['description']}")
     lines.append(f"   Screening: {melanoma['screening_recommendation']}")
     

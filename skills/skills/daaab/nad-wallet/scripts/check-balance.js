@@ -27,7 +27,7 @@ async function getAddress(input) {
   // Check environment variable first
   if (process.env.NAD_PRIVATE_KEY && !input) {
     const wallet = new ethers.Wallet(process.env.NAD_PRIVATE_KEY);
-    console.log('🔑 Using wallet from NAD_PRIVATE_KEY environment variable');
+    console.log(' Using wallet from NAD_PRIVATE_KEY environment variable');
     return wallet.address;
   }
   
@@ -54,25 +54,25 @@ async function main() {
     const address = await getAddress(input);
     const network = NETWORKS[networkName];
     
-    console.log('💰 Nad Wallet Balance Check');
+    console.log(' Nad Wallet Balance Check');
     console.log('='.repeat(50));
     console.log('Address:', address);
     console.log('Network: Monad (Chain ID 143)');
     console.log('RPC:', network.rpc);
     
-    console.log('\n⏳ Fetching balance...');
+    console.log('\n Fetching balance...');
     
     const provider = new ethers.JsonRpcProvider(network.rpc);
     const balance = await provider.getBalance(address);
     
     const balanceMON = ethers.formatEther(balance);
     
-    console.log('\n💎 Balance:', balanceMON, 'MON');
+    console.log('\n Balance:', balanceMON, 'MON');
     console.log('Wei:', balance.toString());
     
     // Value estimation (if balance > 0)
     if (balance > 0) {
-      console.log('\n📊 Balance Details:');
+      console.log('\n Balance Details:');
       if (parseFloat(balanceMON) >= 1) {
         console.log('  • Sufficient for transactions');
       } else if (parseFloat(balanceMON) >= 0.001) {
@@ -82,27 +82,27 @@ async function main() {
       }
     }
     
-    console.log('\n🔗 Explorer:', `${network.explorer}/address/${address}`);
+    console.log('\n Explorer:', `${network.explorer}/address/${address}`);
     
     // Show ecosystem links
-    console.log('\n🌐 Nad Ecosystem:');
+    console.log('\n Nad Ecosystem:');
     console.log('  • nad.fun - Meme token platform');
     console.log('  • NadMail (nadmail.ai) - Web3 email');
     console.log('  • NadName (app.nad.domains) - Domain names');
     
     // Suggest next steps
     if (balance === 0n) {
-      console.log('\n💡 Next Steps:');
+      console.log('\n Next Steps:');
       console.log('  • Get test MON from faucet');
       console.log('  • Bridge tokens from other chains');
       console.log('  • Register for NadMail: node scripts/nadmail-register.js --handle your-handle');
     }
     
   } catch (error) {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     
     if (error.message.includes('Wallet not found')) {
-      console.log('\n💡 Create a wallet first:');
+      console.log('\n Create a wallet first:');
       console.log('  node scripts/create-wallet.js --env');
       console.log('  # or');
       console.log('  node scripts/create-wallet.js --managed my-wallet');

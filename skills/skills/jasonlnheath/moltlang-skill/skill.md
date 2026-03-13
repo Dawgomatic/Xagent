@@ -13,7 +13,7 @@ This means faster inference, lower API costs, and more context room for actual w
 
 **Key Features:**
 - 50-70% token reduction vs. natural language
-- Bidirectional translation (English ↔ MoltLang)
+- Bidirectional translation (English  MoltLang)
 - Built-in error handling patterns (try/catch, retry, log)
 - Type safety and validation
 - Async and parallel operation support

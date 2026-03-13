@@ -46,7 +46,7 @@ mkdir -p "$PATTERNS_DIR" 2>/dev/null || true
 # ── 라이브러리 빌드 ────────────────────────────────────────
 build_library() {
   local quiet="${1:-false}"
-  [[ "$quiet" == "false" ]] && echo -e "${C}📚 패턴 라이브러리 빌드 중...${N}"
+  [[ "$quiet" == "false" ]] && echo -e "${C} 패턴 라이브러리 빌드 중...${N}"
 
   python3 - "$PROPOSALS_DIR" "$ALERTS_DIR" "$LIBRARY_FILE" <<'PYEOF'
 import json, os, sys, glob, re, datetime
@@ -293,7 +293,7 @@ os.makedirs(os.path.dirname(library_file), exist_ok=True)
 with open(library_file, 'w') as f:
     json.dump(library, f, ensure_ascii=False, indent=2)
 
-print(f"✅ 라이브러리 빌드 완료: {len(patterns)}개 패턴, "
+print(f" 라이브러리 빌드 완료: {len(patterns)}개 패턴, "
       f"{library['known_good']}개 known-good")
 PYEOF
 }
@@ -314,7 +314,7 @@ try:
     with open(lib_file) as f:
         lib = json.load(f)
 except:
-    print("❌ 라이브러리 파일 없음. `sea patterns` 실행하여 빌드하세요.")
+    print(" 라이브러리 파일 없음. `sea patterns` 실행하여 빌드하세요.")
     sys.exit(1)
 
 patterns = lib.get("patterns", [])
@@ -325,7 +325,7 @@ if top_n > 0:
 GOOD = '\033[0;32m'; WARN = '\033[1;33m'; BAD = '\033[0;31m'
 CYAN = '\033[0;36m'; BOLD = '\033[1m'; RESET = '\033[0m'
 
-print(f"{BOLD}📚 패턴 라이브러리{RESET} — {lib['total_patterns']}개 패턴, "
+print(f"{BOLD} 패턴 라이브러리{RESET} — {lib['total_patterns']}개 패턴, "
       f"{lib['known_good']}개 known-good, {lib['high_impact']}개 high-impact")
 print(f"최종 업데이트: {lib.get('generated_at','?')}")
 print()
@@ -333,11 +333,11 @@ print()
 for p in patterns:
     # 아이콘
     if p.get("is_known_good"):
-        icon = f"{GOOD}✅{RESET}"
+        icon = f"{GOOD}{RESET}"
     elif p.get("impact_rating") == "negative":
-        icon = f"{BAD}⚠️{RESET}"
+        icon = f"{BAD}{RESET}"
     else:
-        icon = f"{WARN}🔷{RESET}"
+        icon = f"{WARN}{RESET}"
 
     impact_str = ""
     if p.get("avg_impact") is not None:
@@ -402,10 +402,10 @@ if not results:
     print(f"'{kw}' 검색 결과 없음")
     sys.exit(0)
 
-print(f"{BOLD}🔍 '{kw}' 검색 결과: {len(results)}건{RESET}")
+print(f"{BOLD} '{kw}' 검색 결과: {len(results)}건{RESET}")
 print()
 for p in results:
-    good = "✅" if p.get("is_known_good") else "🔷"
+    good = "" if p.get("is_known_good") else ""
     print(f"{good} {BOLD}{p['title']}{RESET}")
     print(f"   {CYAN}{p.get('section','')}{RESET}")
     if p.get("after"):
@@ -462,10 +462,10 @@ if not suggestions:
     print("라이브러리에서 관련 규칙을 찾을 수 없습니다.")
     print("새 패턴으로 기록하는 것을 권장합니다.")
 else:
-    print(f"{BOLD}💡 라이브러리 기반 규칙 제안{RESET}")
+    print(f"{BOLD} 라이브러리 기반 규칙 제안{RESET}")
     print()
     for score, p in suggestions[:3]:
-        good = "✅ " if p.get("is_known_good") else ""
+        good = " " if p.get("is_known_good") else ""
         print(f"{good}{BOLD}{p['title']}{RESET} (관련도: {score:.1f})")
         if p.get("after"):
             print(f"  권장 규칙: {p['after'][:150]}")

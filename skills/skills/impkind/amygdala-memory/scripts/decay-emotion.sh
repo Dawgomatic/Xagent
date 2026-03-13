@@ -10,7 +10,7 @@ WORKSPACE="${WORKSPACE:-$HOME/.openclaw/workspace}"
 STATE_FILE="$WORKSPACE/memory/emotional-state.json"
 
 if [ ! -f "$STATE_FILE" ]; then
-  echo "❌ No emotional state found"
+  echo " No emotional state found"
   exit 1
 fi
 
@@ -22,7 +22,7 @@ DEFAULT_DECAY_RATE=0.1
 
 NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-echo "🎭 Emotional Decay"
+echo " Emotional Decay"
 echo "─────────────────────"
 echo ""
 
@@ -56,7 +56,7 @@ if [ "$DRY_RUN" = false ]; then
   jq ".lastUpdated = \"$NOW\"" "$STATE_FILE" > "$STATE_FILE.tmp"
   mv "$STATE_FILE.tmp" "$STATE_FILE"
   echo ""
-  echo "✅ State decayed toward baseline"
+  echo " State decayed toward baseline"
 else
   echo ""
   echo "(dry run - no changes made)"

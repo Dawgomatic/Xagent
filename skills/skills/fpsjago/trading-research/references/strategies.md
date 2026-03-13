@@ -368,7 +368,7 @@ Leverage: 3x
 
 Position: $10,000 × 3 = $30,000 exposure
 Stop: 1.67% = $500 loss
-⚠ High risk of liquidation in volatile moves
+ High risk of liquidation in volatile moves
 ```
 
 **Recommendation**: Avoid leverage until very experienced
@@ -379,46 +379,46 @@ Stop: 1.67% = $500 loss
 
 ### 1. No Risk Management
 ```
-❌ Buy without stop loss
-❌ Risk entire account on one trade
-❌ Use high leverage
+ Buy without stop loss
+ Risk entire account on one trade
+ Use high leverage
 
-✅ Always set stop loss
-✅ Risk 1-2% per trade
-✅ Avoid leverage (or use <2x)
+ Always set stop loss
+ Risk 1-2% per trade
+ Avoid leverage (or use <2x)
 ```
 
 ### 2. Emotional DCA
 ```
-❌ Skip buys during fear
-❌ Double down during FOMO
-❌ Sell DCA accumulation early
+ Skip buys during fear
+ Double down during FOMO
+ Sell DCA accumulation early
 
-✅ Stick to schedule
-✅ Increase buys when oversold (planned)
-✅ Hold DCA positions long-term
+ Stick to schedule
+ Increase buys when oversold (planned)
+ Hold DCA positions long-term
 ```
 
 ### 3. Overtrading
 ```
-❌ Take every setup
-❌ Trade with conflicting signals
-❌ Revenge trading after loss
+ Take every setup
+ Trade with conflicting signals
+ Revenge trading after loss
 
-✅ Wait for quality setups
-✅ Need 3+ confirmations
-✅ Take break after 2 consecutive losses
+ Wait for quality setups
+ Need 3+ confirmations
+ Take break after 2 consecutive losses
 ```
 
 ### 4. No Plan
 ```
-❌ Enter without knowing exit
-❌ No stop loss level
-❌ No profit target
+ Enter without knowing exit
+ No stop loss level
+ No profit target
 
-✅ Plan entry, stop, target before trade
-✅ Write down your plan
-✅ Follow the plan
+ Plan entry, stop, target before trade
+ Write down your plan
+ Follow the plan
 ```
 
 ---

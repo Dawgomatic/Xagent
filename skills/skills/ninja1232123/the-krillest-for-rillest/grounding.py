@@ -119,12 +119,12 @@ def clear_space():
 TREE_FRAMES = [
     # Frame 1 - Still
     """
-                                    🌿
-                                   🌿🌿🌿
-                                  🌿🌿🌿🌿🌿
-                                 🌿🌿🌿🌿🌿🌿🌿
-                                🌿🌿🌿🌿🌿🌿🌿🌿🌿
-                               🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿
+                                    
+                                   
+                                  
+                                 
+                                
+                               
                                      ║║║
                                      ║║║
                                      ║║║
@@ -133,12 +133,12 @@ TREE_FRAMES = [
     """,
     # Frame 2 - Gentle sway left
     """
-                                   🌿
-                                  🌿🌿🌿
-                                 🌿🌿🌿🌿🌿
-                                🌿🌿🌿🌿🌿🌿🌿
-                               🌿🌿🌿🌿🌿🌿🌿🌿🌿
-                              🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿
+                                   
+                                  
+                                 
+                                
+                               
+                              
                                      ║║║
                                      ║║║
                                      ║║║
@@ -147,12 +147,12 @@ TREE_FRAMES = [
     """,
     # Frame 3 - Still
     """
-                                    🌿
-                                   🌿🌿🌿
-                                  🌿🌿🌿🌿🌿
-                                 🌿🌿🌿🌿🌿🌿🌿
-                                🌿🌿🌿🌿🌿🌿🌿🌿🌿
-                               🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿
+                                    
+                                   
+                                  
+                                 
+                                
+                               
                                      ║║║
                                      ║║║
                                      ║║║
@@ -161,12 +161,12 @@ TREE_FRAMES = [
     """,
     # Frame 4 - Gentle sway right
     """
-                                     🌿
-                                    🌿🌿🌿
-                                   🌿🌿🌿🌿🌿
-                                  🌿🌿🌿🌿🌿🌿🌿
-                                 🌿🌿🌿🌿🌿🌿🌿🌿🌿
-                                🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿
+                                     
+                                    
+                                   
+                                  
+                                 
+                                
                                      ║║║
                                      ║║║
                                      ║║║
@@ -248,29 +248,29 @@ class GroundingExercise:
         pause(1)
 
         senses = [
-            ("5", "things you can SEE", "👁️ ", EarthTones.STREAM, [
+            ("5", "things you can SEE", " ", EarthTones.STREAM, [
                 "the light on the wall",
                 "the shape of your hands",
                 "colors around you",
                 "shadows and their edges",
                 "something that makes you smile"
             ]),
-            ("4", "things you can TOUCH", "🤲", EarthTones.CLAY, [
+            ("4", "things you can TOUCH", "", EarthTones.CLAY, [
                 "the ground beneath you",
                 "the texture of your clothes",
                 "the temperature of the air",
                 "your own steady heartbeat"
             ]),
-            ("3", "things you can HEAR", "👂", EarthTones.SAGE, [
+            ("3", "things you can HEAR", "", EarthTones.SAGE, [
                 "your own breathing",
                 "distant sounds",
                 "the silence between sounds"
             ]),
-            ("2", "things you can SMELL", "🌸", EarthTones.MOSS, [
+            ("2", "things you can SMELL", "", EarthTones.MOSS, [
                 "the air itself",
                 "something familiar and safe"
             ]),
-            ("1", "thing you can TASTE", "💧", EarthTones.DAWN, [
+            ("1", "thing you can TASTE", "", EarthTones.DAWN, [
                 "the inside of your mouth, present and alive"
             ])
         ]
@@ -334,7 +334,7 @@ class GroundingExercise:
         print()
         root_art = """
 {soil}                           ╔═══════╗
-{soil}                           ║   ☘   ║
+{soil}                           ║      ║
 {soil}                           ╚═══╦═══╝
 {clay}                               ║
 {clay}                           ════╬════
@@ -417,7 +417,7 @@ def draw_sanctuary():
 {moon}                    ╭─────────────────────╮
 {moon}                    │                     │
 {candle}                    │    ╭───────────╮    │
-{candle}                    │    │  {flame}🕯  🕯  🕯{candle}  │    │
+{candle}                    │    │  {flame}    {candle}  │    │
 {stone}                    │    │           │    │
 {sage}                    │    │  {leaf}~~~~~~~{sage}  │    │
 {sage}                    │    │  {moss}SANCTUARY{sage}  │    │

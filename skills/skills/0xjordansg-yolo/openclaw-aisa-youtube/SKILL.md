@@ -7,7 +7,7 @@ metadata:
   author: aisa-one
   version: "1.0.1"
   openclaw:
-    emoji: 🎬
+    emoji: 
     requires:
       env:
         - AISA_API_KEY
@@ -397,9 +397,9 @@ try:
         params={'engine': 'youtube', 'q': 'test'}
     ).json()
     videos = result.get('videos', [])
-    print(f"✅ API key is valid. Results: {len(videos)} videos found")
+    print(f" API key is valid. Results: {len(videos)} videos found")
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f" Error: {e}")
 EOF
 ```
 

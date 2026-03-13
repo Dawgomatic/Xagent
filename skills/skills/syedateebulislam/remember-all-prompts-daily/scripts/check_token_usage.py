@@ -53,28 +53,28 @@ def check_and_export(threshold=95, threshold_low=5):
     usage = get_token_usage()
     
     if usage is None:
-        print("⚠️  Could not determine token usage")
+        print("  Could not determine token usage")
         return False
     
-    print(f"📊 Token Usage: {usage}%")
+    print(f" Token Usage: {usage}%")
     
     if usage >= threshold:
-        print(f"⚠️  Token usage at {usage}% (threshold: {threshold}%)")
-        print("🚀 Triggering prompt export...")
+        print(f"  Token usage at {usage}% (threshold: {threshold}%)")
+        print(" Triggering prompt export...")
         success = trigger_export()
         if success:
-            print("✅ Export successful")
+            print(" Export successful")
         else:
-            print("❌ Export failed")
+            print(" Export failed")
         return success
     
     elif usage <= threshold_low:
-        print(f"✅ Fresh session detected ({usage}%)")
-        print("📖 Previous context available for ingestion")
+        print(f" Fresh session detected ({usage}%)")
+        print(" Previous context available for ingestion")
         return True
     
     else:
-        print(f"✅ Token usage normal ({usage}%)")
+        print(f" Token usage normal ({usage}%)")
         return False
 
 if __name__ == "__main__":

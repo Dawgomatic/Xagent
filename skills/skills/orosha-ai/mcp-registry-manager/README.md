@@ -1,4 +1,4 @@
-# MCP Registry Manager 🌐
+# MCP Registry Manager 
 
 Centralized discovery and quality scoring for the MCP (Model Context Protocol) ecosystem.
 
@@ -23,11 +23,11 @@ python3 scripts/mcp-registry.py --list --installed
 
 ## Features
 
-✅ **Multi-source discovery** — GitHub, awesome-mcp-servers, AllInOneMCP  
-✅ **Quality scoring** — Test coverage, documentation, maintenance  
-✅ **Semantic search** — Find by what it does, not just names  
-✅ **Install management** — Install/uninstall with tracking  
-✅ **Categorization** — Files, databases, APIs, dev tools, etc.  
+ **Multi-source discovery** — GitHub, awesome-mcp-servers, AllInOneMCP  
+ **Quality scoring** — Test coverage, documentation, maintenance  
+ **Semantic search** — Find by what it does, not just names  
+ **Install management** — Install/uninstall with tracking  
+ **Categorization** — Files, databases, APIs, dev tools, etc.  
 
 ## Problem
 

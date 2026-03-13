@@ -43,7 +43,7 @@
       ]
     },
     "primaryEnv": "GCP_PROJECT_ID",
-    "emoji": "☁️",
+    "emoji": "",
     "os": ["darwin", "linux", "win32"]
   }
 }

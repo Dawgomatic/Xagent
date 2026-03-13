@@ -54,7 +54,7 @@ class SwarmDaemon {
    * Pre-warm workers so they're ready instantly
    */
   async warmUp() {
-    console.log(`🔥 Warming up ${this.warmWorkers} workers...`);
+    console.log(` Warming up ${this.warmWorkers} workers...`);
     
     // Create dispatcher with silent mode (no console spam)
     this.dispatcher = new Dispatcher({ 
@@ -88,7 +88,7 @@ class SwarmDaemon {
       await client.complete('Say "ready"', { maxTokens: 5 });
       console.log('✓ API connection warm');
     } catch (e) {
-      console.log('⚠ API warmup skipped:', e.message);
+      console.log(' API warmup skipped:', e.message);
     }
   }
 
@@ -361,7 +361,7 @@ class SwarmDaemon {
     res.write(JSON.stringify({ 
       event: 'start', 
       timestamp: Date.now(),
-      message: '🐝 Swarm processing...'
+      message: ' Swarm processing...'
     }) + '\n');
 
     try {
@@ -432,7 +432,7 @@ class SwarmDaemon {
     res.write(JSON.stringify({ 
       event: 'start', 
       timestamp: Date.now(),
-      message: '🐝 Swarm research starting...'
+      message: ' Swarm research starting...'
     }) + '\n');
 
     try {
@@ -520,7 +520,7 @@ class SwarmDaemon {
       res.write(JSON.stringify({
         event: 'start',
         timestamp: Date.now(),
-        message: '🏁 Benchmark starting: single vs parallel vs chain',
+        message: ' Benchmark starting: single vs parallel vs chain',
         modes: ['single', 'parallel (3 workers)', `chain (${opts.depth || 'standard'})`],
         scoringDimensions: Object.keys(SCORING_DIMENSIONS),
       }) + '\n');
@@ -594,7 +594,7 @@ class SwarmDaemon {
       res.write(JSON.stringify({
         event: 'start',
         timestamp: Date.now(),
-        message: `🦴 Skeleton-of-Thought: ${opts.task.substring(0, 80)}`,
+        message: ` Skeleton-of-Thought: ${opts.task.substring(0, 80)}`,
       }) + '\n');
 
       // Stream events
@@ -719,7 +719,7 @@ class SwarmDaemon {
       res.write(JSON.stringify({
         event: 'start',
         timestamp: Date.now(),
-        message: `📋 Structured output: ${opts.prompt.substring(0, 80)}`,
+        message: ` Structured output: ${opts.prompt.substring(0, 80)}`,
         schema: typeof opts.schema === 'string' ? opts.schema : 'custom',
       }) + '\n');
 
@@ -809,7 +809,7 @@ class SwarmDaemon {
       res.write(JSON.stringify({
         event: 'start',
         timestamp: Date.now(),
-        message: `🗳️ Voting: ${n} candidates, strategy=${strategy}`,
+        message: ` Voting: ${n} candidates, strategy=${strategy}`,
         prompt: opts.prompt.substring(0, 80),
       }) + '\n');
 
@@ -886,7 +886,7 @@ class SwarmDaemon {
       res.write(JSON.stringify({
         event: 'plan',
         timestamp: Date.now(),
-        message: `🐝 Auto-chain: ${chainDef.name}`,
+        message: ` Auto-chain: ${chainDef.name}`,
         meta: chainDef._meta,
         stages: chainDef.stages.map(s => ({
           name: s.name,
@@ -1019,7 +1019,7 @@ class SwarmDaemon {
     res.write(JSON.stringify({
       event: 'start',
       timestamp: Date.now(),
-      message: '🐝 Swarm chain starting...',
+      message: ' Swarm chain starting...',
     }) + '\n');
 
     try {
@@ -1328,14 +1328,14 @@ class SwarmDaemon {
   async start() {
     this.startTime = Date.now();
     
-    console.log('🐝 Swarm Daemon starting...');
+    console.log(' Swarm Daemon starting...');
     console.log(`   Port: ${this.port}`);
     console.log(`   Provider: ${config.provider.name}`);
     console.log(`   Max workers: ${config.scaling.maxNodes}`);
     const wsEnabled = config.webSearch?.enabled && config.provider?.name === 'gemini';
-    console.log(`   Web search: ${wsEnabled ? '✅ enabled (Google Search grounding)' : '❌ disabled'}`);
+    console.log(`   Web search: ${wsEnabled ? ' enabled (Google Search grounding)' : ' disabled'}`);
     if (config.webSearch?.enabled && config.provider?.name !== 'gemini') {
-      console.log(`   ⚠️  Web search requires Gemini provider (current: ${config.provider.name})`);
+      console.log(`     Web search requires Gemini provider (current: ${config.provider.name})`);
     }
     console.log('');
 
@@ -1347,7 +1347,7 @@ class SwarmDaemon {
     this.server = http.createServer((req, res) => this.handleRequest(req, res));
     
     this.server.listen(this.port, () => {
-      console.log(`🚀 Swarm Daemon ready on http://localhost:${this.port}`);
+      console.log(` Swarm Daemon ready on http://localhost:${this.port}`);
       console.log('');
       console.log('Endpoints:');
       console.log(`   GET  /health         - Health check`);
@@ -1372,7 +1372,7 @@ class SwarmDaemon {
     // Periodic cache maintenance (every 5 min)
     this._cacheInterval = setInterval(() => {
       const pruned = promptCache.prune();
-      if (pruned > 0) console.log(`📦 Cache: pruned ${pruned} expired entries`);
+      if (pruned > 0) console.log(` Cache: pruned ${pruned} expired entries`);
       promptCache.persist();
     }, 5 * 60 * 1000);
   }
@@ -1385,7 +1385,7 @@ class SwarmDaemon {
     promptCache.persist();
     if (this.server) {
       this.server.close();
-      console.log('\n🛑 Swarm Daemon stopped');
+      console.log('\n Swarm Daemon stopped');
     }
     if (this.dispatcher) {
       this.dispatcher.shutdown();

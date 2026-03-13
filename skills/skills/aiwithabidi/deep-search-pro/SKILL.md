@@ -17,7 +17,7 @@ metadata:
       env: ["PERPLEXITY_API_KEY"]
 ---
 
-# Deep Search 🔍
+# Deep Search 
 
 Multi-tier Perplexity-powered search with automatic Langfuse observability tracing.
 
@@ -66,4 +66,4 @@ Built by [M. Abidi](https://www.linkedin.com/in/mohammad-ali-abidi) | [agxntsix.
 [YouTube](https://youtube.com/@aiwithabidi) | [GitHub](https://github.com/aiwithabidi)
 Part of the **AgxntSix Skill Suite** for OpenClaw agents.
 
-📅 **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)
+ **Need help setting up OpenClaw for your business?** [Book a free consultation](https://cal.com/agxntsix/abidi-openclaw)

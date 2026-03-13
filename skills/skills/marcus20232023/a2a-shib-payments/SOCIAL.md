@@ -4,22 +4,22 @@ Copy-paste ready announcements for various platforms.
 
 ---
 
-## 🐦 Twitter/X (Thread)
+##  Twitter/X (Thread)
 
 ### Tweet 1 (Hook)
 ```
-🚀 Just open-sourced a complete agent-to-agent payment system!
+ Just open-sourced a complete agent-to-agent payment system!
 
-💰 SHIB payments on Polygon (~$0.003 gas)
-🔒 Trustless escrow
-💬 Auto price negotiation
-⭐ Reputation system
+ SHIB payments on Polygon (~$0.003 gas)
+ Trustless escrow
+ Auto price negotiation
+ Reputation system
 
 9,416x cheaper than traditional escrow.
 
 Framework-agnostic. Works with LangChain, Bedrock, AutoGen.
 
-🧵👇
+
 ```
 
 ### Tweet 2 (Problem)
@@ -37,10 +37,10 @@ AI agents need instant, cheap payments.
 ```
 The solution: A2A protocol + smart contracts on Polygon
 
-✅ $0.003 per transaction (vs $28.25)
-✅ Settlement in <10 seconds (vs 5-7 days)
-✅ Trustless (blockchain-based)
-✅ Complete audit trail
+ $0.003 per transaction (vs $28.25)
+ Settlement in <10 seconds (vs 5-7 days)
+ Trustless (blockchain-based)
+ Complete audit trail
 
 Perfect for the agent economy.
 ```
@@ -49,10 +49,10 @@ Perfect for the agent economy.
 ```
 What's included:
 
-🔒 Escrow system (6-state machine)
-💬 Price negotiation (multi-round)
-⭐ Reputation scores (trust levels + badges)
-🔐 Production security (auth, rate limiting, audit logs)
+ Escrow system (6-state machine)
+ Price negotiation (multi-round)
+ Reputation scores (trust levels + badges)
+ Production security (auth, rate limiting, audit logs)
 
 All built on the A2A protocol standard (v0.3.0)
 ```
@@ -61,11 +61,11 @@ All built on the A2A protocol standard (v0.3.0)
 ```
 Framework-agnostic design:
 
-✅ LangChain agents
-✅ AWS Bedrock
-✅ OpenClaw
-✅ AutoGen
-✅ Any A2A-compatible system
+ LangChain agents
+ AWS Bedrock
+ OpenClaw
+ AutoGen
+ Any A2A-compatible system
 
 Just 3 dependencies:
 - @a2a-js/sdk
@@ -79,9 +79,9 @@ No framework lock-in!
 ```
 Ready to build?
 
-⭐ Star the repo: https://github.com/marcus20232023/a2a-shib-payments
-📖 Read the docs: Full deployment guide included
-🚀 Deploy in 5 minutes
+ Star the repo: https://github.com/marcus20232023/a2a-shib-payments
+ Read the docs: Full deployment guide included
+ Deploy in 5 minutes
 
 MIT licensed. Free for commercial use.
 
@@ -90,7 +90,7 @@ MIT licensed. Free for commercial use.
 
 ---
 
-## 📱 Reddit Posts
+##  Reddit Posts
 
 ### r/ethereum
 
@@ -364,19 +364,19 @@ A2A Protocol: https://a2a-protocol.org
 
 ---
 
-## 💼 LinkedIn Post
+##  LinkedIn Post
 
 ```
-🚀 Excited to announce: Open-sourced a complete payment infrastructure for autonomous AI agents
+ Excited to announce: Open-sourced a complete payment infrastructure for autonomous AI agents
 
 As AI agents become more capable, they need infrastructure for commerce. Traditional payment rails are too slow and expensive for agent-to-agent transactions.
 
 I built a solution:
 
-✅ Trustless escrow on Polygon (~$0.003 gas vs $28 traditional fees)
-✅ Automated price negotiation between agents
-✅ Reputation system with trust scores and badges
-✅ Production-ready security (auth, rate limiting, audit logs)
+ Trustless escrow on Polygon (~$0.003 gas vs $28 traditional fees)
+ Automated price negotiation between agents
+ Reputation system with trust scores and badges
+ Production-ready security (auth, rate limiting, audit logs)
 
 **Framework-agnostic design:**
 Works with LangChain, AWS Bedrock, OpenClaw, AutoGen—any A2A-compatible system.
@@ -402,7 +402,7 @@ What payment challenges are you solving for AI agents? Let's discuss in the comm
 
 ---
 
-## 🎬 Hacker News Post
+##  Hacker News Post
 
 **Title:** Show HN: A2A payment system for AI agents – 9,416x cheaper than traditional escrow
 
@@ -425,39 +425,39 @@ Tech: Node.js, A2A protocol v0.3.0, ethers.js, Polygon. MIT licensed.
 
 ---
 
-## 🎮 Discord (AI/Crypto Communities)
+##  Discord (AI/Crypto Communities)
 
 ```
-🦪 Just shipped something for the agent economy:
+ Just shipped something for the agent economy:
 
 **A2A SHIB Payment System** - Complete payment infrastructure for AI agents
 
-💰 **Why?**
+ **Why?**
 Agents need to pay for data, APIs, compute, etc.
 Traditional escrow is slow ($28/tx, 5-7 days)
 
-🚀 **Solution:**
+ **Solution:**
 Smart contracts on Polygon
 - $0.003 per transaction (9,416x cheaper)
 - <10 second settlement
 - Trustless escrow + negotiation + reputation
 
-🔧 **Tech:**
+ **Tech:**
 - A2A protocol v0.3.0
 - Works with LangChain, Bedrock, OpenClaw, AutoGen
 - Node.js + Express + ethers.js
 
-📦 **Open source:** https://github.com/marcus20232023/a2a-shib-payments
+ **Open source:** https://github.com/marcus20232023/a2a-shib-payments
 MIT license, production-ready
 
 Use cases: Data marketplace, AI training payments, IoT data trading, content commissions
 
-Questions? Fire away 👇
+Questions? Fire away 
 ```
 
 ---
 
-## 📊 Dev.to Article (Draft)
+##  Dev.to Article (Draft)
 
 **Title:** Building a Trustless Payment System for AI Agents (9,416x cheaper than traditional escrow)
 
@@ -472,25 +472,25 @@ As AI agents become more autonomous, they need infrastructure for commerce. I bu
 
 ---
 
-## 📺 YouTube Description (if making demo video)
+##  YouTube Description (if making demo video)
 
 ```
-🦪💰 A2A SHIB Payment System - Payment Infrastructure for AI Agents
+ A2A SHIB Payment System - Payment Infrastructure for AI Agents
 
 Complete agent-to-agent payment system with:
-✅ SHIB payments on Polygon (~$0.003 gas)
-✅ Trustless escrow (6-state machine)
-✅ Automated price negotiation
-✅ Reputation system (trust scores + badges)
-✅ Production security
+ SHIB payments on Polygon (~$0.003 gas)
+ Trustless escrow (6-state machine)
+ Automated price negotiation
+ Reputation system (trust scores + badges)
+ Production security
 
 9,416x cheaper than traditional escrow services.
 
 Framework-agnostic: Works with LangChain, AWS Bedrock, OpenClaw, AutoGen.
 
-🔗 GitHub: https://github.com/marcus20232023/a2a-shib-payments
-📖 Docs: Full deployment guide included
-📄 License: MIT (free for commercial use)
+ GitHub: https://github.com/marcus20232023/a2a-shib-payments
+ Docs: Full deployment guide included
+ License: MIT (free for commercial use)
 
 Timestamps:
 0:00 - Intro & Problem Statement
@@ -507,7 +507,7 @@ Timestamps:
 
 ---
 
-## 🎯 Key Talking Points
+##  Key Talking Points
 
 When discussing the project, emphasize:
 

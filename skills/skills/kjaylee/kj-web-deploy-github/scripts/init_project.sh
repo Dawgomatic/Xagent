@@ -10,7 +10,7 @@ if [ -z "$PROJECT_NAME" ]; then
     exit 1
 fi
 
-echo "🚀 Initializing project: $PROJECT_NAME"
+echo " Initializing project: $PROJECT_NAME"
 
 # Create project directory
 mkdir -p "$PROJECT_NAME"
@@ -140,7 +140,7 @@ jobs:
         uses: actions/deploy-pages@v4
 EOF
 
-echo "✅ Project structure created in $PROJECT_NAME/"
+echo " Project structure created in $PROJECT_NAME/"
 echo ""
 echo "Next steps:"
 echo "  1. Edit index.html, styles.css, and script.js"

@@ -21,7 +21,7 @@ POST /api/instances/:id/send-buttons
 {"type": "cta_call", "displayText": "Ligar", "phoneNumber": "+5511999999999"}
 
 // Copiar código (PIX, cupom)
-{"type": "cta_copy", "displayText": "📋 Copiar PIX", "copyCode": "00020126..."}
+{"type": "cta_copy", "displayText": " Copiar PIX", "copyCode": "00020126..."}
 ```
 
 ### Exemplo Completo
@@ -32,9 +32,9 @@ POST /api/instances/:id/send-buttons
   "text": "Como posso ajudar?",
   "footer": "Atendimento 24h",
   "buttons": [
-    {"type": "quick_reply", "displayText": "🛒 Comprar", "id": "comprar"},
-    {"type": "quick_reply", "displayText": "🔧 Suporte", "id": "suporte"},
-    {"type": "cta_url", "displayText": "🌐 Site", "url": "https://loja.com"}
+    {"type": "quick_reply", "displayText": " Comprar", "id": "comprar"},
+    {"type": "quick_reply", "displayText": " Suporte", "id": "suporte"},
+    {"type": "cta_url", "displayText": " Site", "url": "https://loja.com"}
   ]
 }
 ```
@@ -56,14 +56,14 @@ POST /api/instances/:id/send-list
   "buttonText": "Ver Opções",
   "sections": [
     {
-      "title": "🍔 Lanches",
+      "title": " Lanches",
       "rows": [
         {"title": "X-Burger", "description": "R$ 25,00", "rowId": "xburger"},
         {"title": "X-Bacon", "description": "R$ 30,00", "rowId": "xbacon"}
       ]
     },
     {
-      "title": "🥤 Bebidas",
+      "title": " Bebidas",
       "rows": [
         {"title": "Refrigerante", "description": "R$ 6,00", "rowId": "refri"},
         {"title": "Suco", "description": "R$ 8,00", "rowId": "suco"}
@@ -84,27 +84,27 @@ POST /api/instances/:id/send-carousel
 ```json
 {
   "jid": "5511999999999@s.whatsapp.net",
-  "title": "🛍️ Ofertas",
+  "title": " Ofertas",
   "body": "Confira nossos produtos!",
   "footer": "Loja Virtual",
   "cards": [
     {
       "imageUrl": "https://exemplo.com/img1.jpg",
-      "title": "📱 iPhone 15",
+      "title": " iPhone 15",
       "body": "256GB - Titânio",
       "footer": "R$ 8.999",
       "buttons": [
-        {"id": "comprar_iphone", "title": "🛒 Comprar"},
-        {"id": "info_iphone", "title": "📋 Detalhes"}
+        {"id": "comprar_iphone", "title": " Comprar"},
+        {"id": "info_iphone", "title": " Detalhes"}
       ]
     },
     {
       "imageUrl": "https://exemplo.com/img2.jpg",
-      "title": "💻 MacBook",
+      "title": " MacBook",
       "body": "M3 - 256GB SSD",
       "footer": "R$ 12.499",
       "buttons": [
-        {"id": "comprar_mac", "title": "🛒 Comprar"}
+        {"id": "comprar_mac", "title": " Comprar"}
       ]
     }
   ]

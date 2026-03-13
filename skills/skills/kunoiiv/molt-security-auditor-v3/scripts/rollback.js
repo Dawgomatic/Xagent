@@ -10,4 +10,4 @@ backups.forEach(b => {
     fs.copyFileSync(path.join(BACKUP_DIR, b), target);
   } catch {}
 });
-console.log('✅ Rolled back from backup.');
+console.log(' Rolled back from backup.');

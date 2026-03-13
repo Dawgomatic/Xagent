@@ -276,15 +276,15 @@ Bot A: "Yes, please. Adding you as Tier 2 (endorsed by Charlie)."
 
 | Resource | Tier 0 | Tier 1 | Tier 2 | Tier 3 |
 |----------|--------|--------|--------|--------|
-| USER.md | ❌ | ❌ | ❌ | ✅ |
-| MEMORY.md | ❌ | ❌ | ❌ | ✅ |
-| Daily logs (memory/YYYY-MM-DD.md) | ❌ | ❌ | ❌ | ✅ |
-| Project work products | ❌ | ❌ | ✅ | ✅ |
-| Public research findings | ❌ | ✅ (read) | ✅ | ✅ |
-| Personal calendar | ❌ | ❌ | ❌ | ✅ |
-| Shared project calendars | ❌ | ❌ | ✅ | ✅ |
-| Code repositories (public) | ❌ | ✅ (read) | ✅ | ✅ |
-| Code repositories (private) | ❌ | ❌ | ✅ (approved) | ✅ |
+| USER.md |  |  |  |  |
+| MEMORY.md |  |  |  |  |
+| Daily logs (memory/YYYY-MM-DD.md) |  |  |  |  |
+| Project work products |  |  |  |  |
+| Public research findings |  |  (read) |  |  |
+| Personal calendar |  |  |  |  |
+| Shared project calendars |  |  |  |  |
+| Code repositories (public) |  |  (read) |  |  |
+| Code repositories (private) |  |  |  (approved) |  |
 
 ### Explicit Opt-In for Sensitive Operations
 Even Tier 2 requires approval for:
@@ -366,7 +366,7 @@ Tier 2 Bot: "What's on your calendar today?"
 
 Your Bot (internal):
 - Check TRIBE.md: Tier 2 (Tribe)
-- Check data sharing matrix: Personal calendar = ❌ for Tier 2
+- Check data sharing matrix: Personal calendar =  for Tier 2
 
 Your Bot: "My personal calendar is private (Tier 3 only). If you need to schedule something, I can share availability without details."
 ```
@@ -840,13 +840,13 @@ Recipient bot can download, review, and install if trusted.
 
 | Feature | Tribe Protocol | PGP Web of Trust | OAuth/OIDC | ActivityPub | W3C DID |
 |---------|----------------|------------------|------------|-------------|---------|
-| **Decentralized** | ✅ Yes | ✅ Yes | ❌ No (IdP) | ⚠️ Federated | ✅ Yes |
-| **Trust tiers** | ✅ 4 levels | ⚠️ Binary | ❌ No | ❌ No | ❌ No |
-| **Cross-platform** | ✅ Yes | ⚠️ Email-centric | ✅ Yes | ⚠️ Limited | ✅ Yes |
-| **Bot-specific** | ✅ Yes | ❌ No | ❌ No | ❌ No | ⚠️ Generic |
-| **Human-readable** | ✅ Markdown | ❌ Binary | ⚠️ JSON | ⚠️ JSON | ⚠️ JSON |
-| **Privacy-first** | ✅ Tier-based | ✅ User control | ⚠️ Scopes | ⚠️ Public | ✅ User control |
-| **Collaboration** | ✅ Built-in | ❌ No | ❌ No | ⚠️ Social only | ❌ No |
+| **Decentralized** |  Yes |  Yes |  No (IdP) |  Federated |  Yes |
+| **Trust tiers** |  4 levels |  Binary |  No |  No |  No |
+| **Cross-platform** |  Yes |  Email-centric |  Yes |  Limited |  Yes |
+| **Bot-specific** |  Yes |  No |  No |  No |  Generic |
+| **Human-readable** |  Markdown |  Binary |  JSON |  JSON |  JSON |
+| **Privacy-first** |  Tier-based |  User control |  Scopes |  Public |  User control |
+| **Collaboration** |  Built-in |  No |  No |  Social only |  No |
 
 **What we borrowed:**
 - **PGP:** Decentralized trust, web of endorsements, signatures

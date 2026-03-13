@@ -6,7 +6,7 @@ author: afrexai
 tags: sales, b2b, pipeline, crm, deals, closing, objections, forecasting, revenue
 ---
 
-# B2B Sales Playbook ⚡
+# B2B Sales Playbook 
 
 **The complete system for running a repeatable, scalable B2B sales operation.**
 
@@ -321,7 +321,7 @@ Never demo features. Demo outcomes.
 
 ### Demo Anti-Patterns
 
-| ❌ Don't | ✅ Do Instead |
+|  Don't |  Do Instead |
 |----------|---------------|
 | Show every feature | Show only what maps to their pain |
 | Start with "let me share my screen" | Start with "let me recap what you told me" |
@@ -522,7 +522,7 @@ Prospect asks for discount
 | **Evaluation** | Active evaluation, demo delivered | Champion identified, decision criteria known | 30% |
 | **Proposal** | Proposal/pricing sent | Budget confirmed, decision process mapped | 50% |
 | **Negotiation** | Terms being discussed | Verbal commit, legal/procurement started | 75% |
-| **Closed Won** | Contract signed | ✅ Revenue recognized | 100% |
+| **Closed Won** | Contract signed |  Revenue recognized | 100% |
 | **Closed Lost** | Deal lost | Reason documented, next steps noted | 0% |
 
 **Stage Hygiene Rules:**

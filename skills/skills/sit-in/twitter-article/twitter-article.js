@@ -298,21 +298,21 @@ async function cmdCreateDraft(title, contentFile) {
 
   const result = res.data?.data?.articleentity_create_draft?.article_entity_results?.result;
   if (result) {
-    console.log(`✅ Draft created!`);
+    console.log(` Draft created!`);
     console.log(`   Article ID: ${result.rest_id}`);
     console.log(`   Title: ${result.title}`);
     console.log(`   Preview: ${result.preview_text?.substring(0, 80)}...`);
     return result;
   } else {
-    console.error('❌ Failed:', JSON.stringify(res.data, null, 2));
+    console.error(' Failed:', JSON.stringify(res.data, null, 2));
     process.exit(1);
   }
 }
 
 async function cmdUpdateTitle(articleId, title) {
   const res = await graphql('ArticleEntityUpdateTitle', { articleEntityId: articleId, title });
-  if (res.data?.errors) { console.error('❌', JSON.stringify(res.data.errors)); } 
-  else { console.log(`✅ Title updated: ${title}`); }
+  if (res.data?.errors) { console.error('', JSON.stringify(res.data.errors)); } 
+  else { console.log(` Title updated: ${title}`); }
 }
 
 async function cmdUpdateContent(articleId, contentFile) {
@@ -330,8 +330,8 @@ async function cmdUpdateContent(articleId, contentFile) {
     plaintext,
     word_count: plaintext.split(/\s+/).filter(Boolean).length,
   });
-  if (res.data?.errors) { console.error('❌', JSON.stringify(res.data.errors)); }
-  else { console.log('✅ Content updated!'); }
+  if (res.data?.errors) { console.error('', JSON.stringify(res.data.errors)); }
+  else { console.log(' Content updated!'); }
 }
 
 async function cmdUpdateCover(articleId, mediaId) {
@@ -339,20 +339,20 @@ async function cmdUpdateCover(articleId, mediaId) {
     articleEntityId: articleId,
     coverMedia: { media_id: mediaId, media_category: 'DraftTweetImage' },
   });
-  if (res.data?.errors) { console.error('❌', JSON.stringify(res.data.errors)); }
-  else { console.log('✅ Cover updated!'); }
+  if (res.data?.errors) { console.error('', JSON.stringify(res.data.errors)); }
+  else { console.log(' Cover updated!'); }
 }
 
 async function cmdPublish(articleId) {
   const res = await graphql('ArticleEntityPublish', { articleEntityId: articleId });
-  if (res.data?.errors) { console.error('❌', JSON.stringify(res.data.errors)); }
-  else { console.log('✅ Published!'); console.log(JSON.stringify(res.data, null, 2)); }
+  if (res.data?.errors) { console.error('', JSON.stringify(res.data.errors)); }
+  else { console.log(' Published!'); console.log(JSON.stringify(res.data, null, 2)); }
 }
 
 async function cmdDelete(articleId) {
   const res = await graphql('ArticleEntityDelete', { articleEntityId: articleId });
-  if (res.data?.errors) { console.error('❌', JSON.stringify(res.data.errors)); }
-  else { console.log('✅ Deleted!'); }
+  if (res.data?.errors) { console.error('', JSON.stringify(res.data.errors)); }
+  else { console.log(' Deleted!'); }
 }
 
 async function cmdGet(articleId) {
@@ -367,7 +367,7 @@ async function cmdList() {
 
 async function cmdUploadMedia(filePath) {
   const result = await uploadMedia(filePath);
-  console.log(`✅ Media uploaded! ID: ${result.media_id}`);
+  console.log(` Media uploaded! ID: ${result.media_id}`);
   return result;
 }
 
@@ -427,7 +427,7 @@ async function cmdNotionToArticle(notionKey, pageId, opts = {}) {
   }
 
   // 1. Fetch page title
-  console.log('📖 Fetching Notion page...');
+  console.log(' Fetching Notion page...');
   const pageRes = await fetch(`https://api.notion.com/v1/pages/${pageId}`, {
     headers: { 'Authorization': `Bearer ${notionKey}`, 'Notion-Version': '2022-06-28' },
   });
@@ -453,13 +453,13 @@ async function cmdNotionToArticle(notionKey, pageId, opts = {}) {
     const imgUrl = images[i];
     const ext = imgUrl.match(/\.(png|jpg|jpeg|gif|webp)/i)?.[1] || 'jpg';
     const localPath = `${tmpDir}/img${i}.${ext}`;
-    console.log(`   📤 [${i + 1}/${images.length}] Downloading & uploading...`);
+    console.log(`    [${i + 1}/${images.length}] Downloading & uploading...`);
     try {
       await downloadImage(imgUrl, localPath);
       const upload = await uploadMedia(localPath);
       mediaIds.push(upload.media_id);
     } catch (e) {
-      console.error(`   ⚠️ Image ${i + 1} failed: ${e.message}`);
+      console.error(`    Image ${i + 1} failed: ${e.message}`);
     }
   }
   console.log(`   Uploaded: ${mediaIds.length}/${images.length}`);
@@ -471,17 +471,17 @@ async function cmdNotionToArticle(notionKey, pageId, opts = {}) {
   console.log(`   Content: ${content.blocks.length} blocks, ${content.entity_map.length} entities`);
 
   // 6. Create draft
-  console.log('📝 Creating draft...');
+  console.log(' Creating draft...');
   const result = await cmdCreateDraft(title, contentFile);
-  if (!result) { console.error('❌ Failed to create draft'); process.exit(1); }
+  if (!result) { console.error(' Failed to create draft'); process.exit(1); }
 
   // 7. Set cover (first image)
   if (mediaIds.length > 0) {
-    console.log('🖼️  Setting cover image...');
+    console.log('  Setting cover image...');
     await cmdUpdateCover(result.rest_id, mediaIds[0]);
   }
 
-  console.log(`\n🎉 Done!`);
+  console.log(`\n Done!`);
   console.log(`   Article ID: ${result.rest_id}`);
   console.log(`   Title: ${title}`);
   console.log(`   Images: ${mediaIds.length} inline + cover`);
@@ -489,7 +489,7 @@ async function cmdNotionToArticle(notionKey, pageId, opts = {}) {
 
   // 8. Optionally publish
   if (opts.publish) {
-    console.log('🚀 Publishing...');
+    console.log(' Publishing...');
     await cmdPublish(result.rest_id);
   }
 

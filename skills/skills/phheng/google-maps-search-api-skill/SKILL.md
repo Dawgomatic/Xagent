@@ -5,22 +5,22 @@ description: This skill is designed to help users automatically extract business
 
 # Google Maps Search Automation Skill
 
-## 📖 Introduction
+##  Introduction
 This skill utilizes the BrowserAct Google Maps Search API template to provide a one-stop business data collection service. It extracts structured business results directly from Google Maps search lists. Simply provide search keywords, language, and country filters to get clean, usable business data.
 
-## ✨ Features
+##  Features
 1. **No Hallucinations, Ensuring Stable and Accurate Data Extraction**: Preset workflows avoid AI generative hallucinations.
 2. **No Human-Machine Verification Issues**: Built-in bypass mechanisms eliminate the need to handle reCAPTCHA or other verification challenges.
 3. **No IP Access Restrictions or Geofencing**: Breaks through regional IP limits to ensure stable global access.
 4. **Agile Execution Speed**: Task execution is faster compared to pure AI-driven browser automation solutions.
 5. **High Cost-Effectiveness**: Significantly reduces data acquisition costs compared to token-intensive AI solutions.
 
-## 🔑 API Key Guidance Process
+##  API Key Guidance Process
 Before running, check the `BROWSERACT_API_KEY` environment variable. If not set, do not take further action; instead, ask and wait for user cooperation to provide it.
 **The Agent must inform the user**:
 > "Since you haven't configured your BrowserAct API Key, please go to the [BrowserAct Console](https://www.browseract.com/reception/integrations) to get your Key and provide it to me in this chat."
 
-## 🛠️ Input Parameters Detail
+##  Input Parameters Detail
 When calling the script, the Agent should flexibly configure the following parameters based on user needs:
 
 1. **KeyWords**
@@ -45,7 +45,7 @@ When calling the script, the Agent should flexibly configure the following param
    - **Description**: The maximum number of places to extract from the search results list.
    - **Default**: `100`
 
-## 🚀 Invocation Method (Recommended)
+##  Invocation Method (Recommended)
 The Agent should execute the following independent script to achieve "one line command for results":
 
 ```bash
@@ -53,14 +53,14 @@ The Agent should execute the following independent script to achieve "one line c
 python -u ./.cursor/skills/google-maps-search-api-skill/scripts/google_maps_search_api.py "search keywords" "language" "country" count
 ```
 
-### ⏳ Execution Status Monitoring
+###  Execution Status Monitoring
 Since this task involves automated browser operations, it may take a long time (several minutes). The script outputs timestamped status logs during execution (e.g., `[14:30:05] Task Status: running`).
 **Agent Notes**:
 - Keep an eye on the terminal output while waiting for results.
 - As long as the terminal is printing new status logs, the task is running normally; do not misjudge it as a deadlock or unresponsiveness.
 - If the status remains unchanged for a long time or the script stops outputting without returning results, consider triggering a retry mechanism.
 
-## 📊 Output Data Description
+##  Output Data Description
 After successful execution, the script parses and prints results directly from the API response. Fields include:
 - `name`: Business name
 - `full address`: Full address
@@ -72,7 +72,7 @@ After successful execution, the script parses and prints results directly from t
 - `review snippet`: Short review text
 - `service options`: Service indicators (e.g., "Order online")
 
-## ⚠️ Error Handling & Retry Mechanism
+##  Error Handling & Retry Mechanism
 If an error occurs during execution, the Agent should follow this logic:
 
 1. **Check Output Content**:
@@ -82,7 +82,7 @@ If an error occurs during execution, the Agent should follow this logic:
 2. **Retry Limit**:
    - Automatic retry is limited to **one** time. If the second attempt still fails, stop retrying and report the specific error message to the user.
 
-## 🌟 Typical Use Cases
+##  Typical Use Cases
 1. **Local Business Discovery**: Find all "Italian restaurants" in Manhattan.
 2. **Sales Lead Generation**: Extract a list of "real estate agencies" in London for prospecting.
 3. **Competitor Mapping**: Locate all "Starbucks" branches in a specific city to map competition.

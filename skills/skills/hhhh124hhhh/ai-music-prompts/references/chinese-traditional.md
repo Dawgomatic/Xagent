@@ -371,7 +371,7 @@ Gufeng Zen 60 BPM guzheng wooden fish calm vocals - Meditation and enlightenment
 
 ## Mureka V8 古风优化技巧 / Mureka V8 Gufeng Optimization Tips
 
-### ✅ 推荐做法 / Recommended
+###  推荐做法 / Recommended
 
 1. **明确风格**：古风、国风、仙侠、武侠
 2. **指定乐器**：古筝、笛子、二胡等中国传统乐器
@@ -379,13 +379,13 @@ Gufeng Zen 60 BPM guzheng wooden fish calm vocals - Meditation and enlightenment
 4. **提及主题**：修仙、江湖、宫廷、山水
 5. **速度适中**：70-120 BPM 最为常见
 
-### ❌ 避免错误 / Avoid
+###  避免错误 / Avoid
 
-1. ❌ 乐器冲突：古风电吉他重金属（除非明确融合）
-2. ❌ 速度过快：古风 180 BPM（除非特殊需求）
-3. ❌ 情绪不符：古风欢快蹦迪（除非创意需求）
-4. ❌ 元素过多：超过 1024 字符限制
-5. ❌ 描述模糊：古风好听（太简单）
+1.  乐器冲突：古风电吉他重金属（除非明确融合）
+2.  速度过快：古风 180 BPM（除非特殊需求）
+3.  情绪不符：古风欢快蹦迪（除非创意需求）
+4.  元素过多：超过 1024 字符限制
+5.  描述模糊：古风好听（太简单）
 
 ---
 

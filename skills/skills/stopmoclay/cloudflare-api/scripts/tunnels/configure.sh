@@ -36,13 +36,13 @@ fi
 
 TOKEN=$(get_token)
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token. Run ./scripts/setup.sh first." >&2
+    echo " No API token. Run ./scripts/setup.sh first." >&2
     exit 1
 fi
 
 ACCOUNT_ID=$(get_account_id)
 if [ -z "$ACCOUNT_ID" ]; then
-    echo "❌ Could not get account ID"
+    echo " Could not get account ID"
     exit 1
 fi
 
@@ -51,7 +51,7 @@ TUNNELS=$(cf_get "/accounts/$ACCOUNT_ID/cfd_tunnel?name=$TUNNEL_NAME")
 TUNNEL_ID=$(echo "$TUNNELS" | jq -r '.result[0].id // empty')
 
 if [ -z "$TUNNEL_ID" ]; then
-    echo "❌ Tunnel '$TUNNEL_NAME' not found"
+    echo " Tunnel '$TUNNEL_NAME' not found"
     exit 1
 fi
 
@@ -67,7 +67,7 @@ DATA=$(jq -n \
 RESPONSE=$(cf_put "/accounts/$ACCOUNT_ID/cfd_tunnel/$TUNNEL_ID/configurations" "$DATA")
 
 if check_error "$RESPONSE"; then
-    echo "✅ Tunnel configured!"
+    echo " Tunnel configured!"
     echo ""
     echo "Don't forget to add DNS record:"
     echo "  Type: CNAME"

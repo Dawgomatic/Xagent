@@ -89,7 +89,7 @@ def format_change(change):
     if change is None:
         return "N/A"
     sign = "+" if change >= 0 else ""
-    emoji = "🟢" if change >= 0 else "🔴"
+    emoji = "" if change >= 0 else ""
     return f"{emoji} {sign}{change:.2f}%"
 
 
@@ -112,15 +112,15 @@ def vol_level(vol):
 def vol_emoji(vol):
     """Get emoji for vol level"""
     if vol is None:
-        return "⚪"
+        return ""
     if vol < 20:
-        return "🟢"
+        return ""
     elif vol < 40:
-        return "🟡"
+        return ""
     elif vol < 60:
-        return "🟠"
+        return ""
     else:
-        return "🔴"
+        return ""
 
 
 def extract_metrics(data):
@@ -319,10 +319,10 @@ def main():
             # Cap hours at 24 (forecast window)
             hours = min(args.hours, 24)
             if args.hours > 24:
-                print(f"⚠️  Capped to 24h (Synthdata forecast window)")
+                print(f"  Capped to 24h (Synthdata forecast window)")
             
             if price and vol:
-                print(f"\n🎲 Monte Carlo Simulation: {ticker}")
+                print(f"\n Monte Carlo Simulation: {ticker}")
                 print(f"   Starting Price: {format_price(price)}")
                 print(f"   Volatility: {vol:.1f}%")
                 print(f"   Hours: {hours}, Paths: {args.paths}")

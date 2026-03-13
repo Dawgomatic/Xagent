@@ -82,7 +82,7 @@
 - **Ritual Studies → Technology Transition**: Ceremony as institutional innovation mechanism
 
 ### **Abstraction Layer Translation**
-- Can move between: Mathematical topology ↔ Protocol design ↔ Human factors ↔ Public communication
+- Can move between: Mathematical topology  Protocol design  Human factors  Public communication
 - Maintain conceptual coherence across 8+ orders of magnitude: from silicon gate operations to century-scale civilization impacts
 
 ### **Precedent-Setting Innovation**

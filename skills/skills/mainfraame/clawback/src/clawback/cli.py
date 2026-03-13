@@ -27,7 +27,7 @@ def ensure_config_exists():
     config_path = get_config_path()
 
     if not config_path.exists():
-        print(f"⚠️  Config file not found: {config_path}")
+        print(f"  Config file not found: {config_path}")
         print("   Creating default configuration...")
 
         default_config = {
@@ -62,8 +62,8 @@ def ensure_config_exists():
         with open(config_path, 'w') as f:
             json.dump(default_config, f, indent=2)
 
-        print(f"✅ Created default config at {config_path}")
-        print("\n📝 Next steps:")
+        print(f" Created default config at {config_path}")
+        print("\n Next steps:")
         print("1. Edit the config file with your broker credentials")
         print("2. Run 'clawback setup' to complete setup")
         print("3. Run 'clawback status' to check system status")
@@ -80,7 +80,7 @@ def load_config():
             config = json.load(f)
         return config
     except Exception as e:
-        print(f"❌ Error loading config: {e}")
+        print(f" Error loading config: {e}")
         return None
 
 
@@ -101,13 +101,13 @@ def setup_wizard():
     except (OSError, FileNotFoundError, json.JSONDecodeError):
         config = {}
 
-    print("\n📋 Current Configuration:")
+    print("\n Current Configuration:")
     print(f"   Config file: {config_path}")
     print(f"   Broker: {config.get('broker', {}).get('adapter', 'Not set')}")
     print(f"   Environment: {config.get('broker', {}).get('environment', 'Not set')}")
     print(f"   Account ID: {config.get('trading', {}).get('accountId', 'Not set')}")
 
-    print("\n🔧 Setup Options:")
+    print("\n Setup Options:")
     print("1. Configure broker credentials")
     print("2. Test Telegram notifications")
     print("3. Check system status")
@@ -117,7 +117,7 @@ def setup_wizard():
         choice = input("\nSelect option (1-4): ").strip()
 
         if choice == '1':
-            print("\n📝 Broker Configuration")
+            print("\n Broker Configuration")
             print("-" * 40)
 
             # Get broker type
@@ -159,10 +159,10 @@ def setup_wizard():
             with open(config_path, 'w') as f:
                 json.dump(config, f, indent=2)
 
-            print(f"\n✅ Configuration saved to {config_path}")
+            print(f"\n Configuration saved to {config_path}")
 
         elif choice == '2':
-            print("\n📱 Testing Telegram Notifications...")
+            print("\n Testing Telegram Notifications...")
 
             # Check if OpenClaw Telegram is configured
             openclaw_config_path = Path.home() / ".openclaw" / "openclaw.json"
@@ -173,7 +173,7 @@ def setup_wizard():
 
                     telegram_config = openclaw_config.get('channels', {}).get('telegram', {})
                     if telegram_config.get('botToken'):
-                        print("✅ OpenClaw Telegram channel is configured")
+                        print(" OpenClaw Telegram channel is configured")
                         print(f"   Bot token: {telegram_config.get('botToken')[:10]}...")
 
                         # Update config to use OpenClaw Telegram
@@ -185,29 +185,29 @@ def setup_wizard():
                         with open(config_path, 'w') as f:
                             json.dump(config, f, indent=2)
 
-                        print("✅ Configured to use OpenClaw Telegram channel")
+                        print(" Configured to use OpenClaw Telegram channel")
                     else:
-                        print("⚠️  OpenClaw Telegram not fully configured")
+                        print("  OpenClaw Telegram not fully configured")
                         print("   Run: openclaw config set channels.telegram.botToken YOUR_TOKEN")
                 except Exception as e:
-                    print(f"⚠️  Error checking OpenClaw config: {e}")
+                    print(f"  Error checking OpenClaw config: {e}")
             else:
-                print("⚠️  OpenClaw config not found")
+                print("  OpenClaw config not found")
                 print("   Configure Telegram in ~/.openclaw/openclaw.json")
 
         elif choice == '3':
-            print("\n📊 System Status Check")
+            print("\n System Status Check")
             check_status()
 
         elif choice == '4':
-            print("\n👋 Setup complete!")
+            print("\n Setup complete!")
             return
 
         else:
-            print("❌ Invalid choice")
+            print(" Invalid choice")
 
     except KeyboardInterrupt:
-        print("\n\n👋 Setup cancelled")
+        print("\n\n Setup cancelled")
         return
 
     print("\n" + "="*60)
@@ -221,21 +221,21 @@ def setup_wizard():
 
 def check_status():
     """Check system status."""
-    print("\n📊 CLAWBACK STATUS")
+    print("\n CLAWBACK STATUS")
     print("="*60)
 
     config_path = get_config_path()
     print(f"Config file: {config_path}")
 
     if not config_path.exists():
-        print("❌ Config file not found")
+        print(" Config file not found")
         return
 
     try:
         with open(config_path) as f:
             config = json.load(f)
 
-        print("\n🔧 Configuration:")
+        print("\n Configuration:")
         print(f"   Broker: {config.get('broker', {}).get('adapter', 'Not set')}")
         print(f"   Environment: {config.get('broker', {}).get('environment', 'Not set')}")
         print(f"   Account ID: {config.get('trading', {}).get('accountId', 'Not set')}")
@@ -249,21 +249,21 @@ def check_status():
         else:
             print("   Telegram: DISABLED")
 
-        print("\n📁 Directories:")
+        print("\n Directories:")
         config_dir = Path.home() / ".clawback"
         print(f"   Config: {config_dir}")
         print(f"   Data: {config_dir / 'data'}")
 
-        print("\n✅ System appears to be configured correctly")
-        print("\n💡 Run 'clawback run' to start trading")
+        print("\n System appears to be configured correctly")
+        print("\n Run 'clawback run' to start trading")
 
     except Exception as e:
-        print(f"❌ Error checking status: {e}")
+        print(f" Error checking status: {e}")
 
 
 def run_trading():
     """Run the trading bot."""
-    print("\n🚀 STARTING TRADING BOT")
+    print("\n STARTING TRADING BOT")
     print("="*60)
 
     config = load_config()
@@ -274,7 +274,7 @@ def run_trading():
     print(f"Account: {config.get('trading', {}).get('accountId', 'Unknown')}")
     print(f"Environment: {config.get('broker', {}).get('environment', 'Unknown')}")
 
-    print("\n📈 Trading bot starting...")
+    print("\n Trading bot starting...")
     print("Press Ctrl+C to stop")
 
     # Import and run the actual trading bot
@@ -288,17 +288,17 @@ def run_trading():
         bot.interactive_mode()
 
     except ImportError as e:
-        print(f"❌ Error importing trading bot: {e}")
-        print("\n💡 Try running: pip install -e .")
+        print(f" Error importing trading bot: {e}")
+        print("\n Try running: pip install -e .")
     except Exception as e:
-        print(f"❌ Error running trading bot: {e}")
+        print(f" Error running trading bot: {e}")
         import traceback
         traceback.print_exc()
 
 
 def run_daemon():
     """Run as daemon."""
-    print("\n👻 STARTING DAEMON MODE")
+    print("\n STARTING DAEMON MODE")
     print("="*60)
     print("Daemon mode not yet implemented")
     print("Use 'clawback run' for interactive mode")

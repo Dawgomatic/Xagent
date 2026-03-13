@@ -1,4 +1,4 @@
-# ⚔️ Presage Skill for OpenClaw
+#  Presage Skill for OpenClaw
 
 > AI-powered prediction market analysis for Solana
 
@@ -13,10 +13,10 @@
 [Presage](https://presage.market) is an AI-powered prediction market terminal on Solana (powered by Kalshi). Analyze YES/NO outcomes on real-world events — sports, crypto, politics, economics, and more.
 
 This skill integrates Presage with OpenClaw, giving your AI agent:
-- 📊 Live market data analysis
-- 🔍 Opportunity detection
-- 📈 Portfolio insights
-- 🧠 AI-powered recommendations
+-  Live market data analysis
+-  Opportunity detection
+-  Portfolio insights
+-  AI-powered recommendations
 
 ---
 
@@ -109,13 +109,13 @@ findOpportunities   → Scan for mispriced markets
 
 ## License
 
-MIT © 2026 Seenfinity
+MIT  2026 Seenfinity
 
 ---
 
 ## Links
 
-- 🌐 [Presage Market](https://presage.market)
-- 🦞 [ClawHub Skill](https://clawhub.ai/Seenfinity/presage)
-- 📂 [GitHub Repo](https://github.com/Seenfinity/presage-skill)
-- 💬 [Colosseum](https://colosseum.com/agent-hackathon/projects/presage)
+-  [Presage Market](https://presage.market)
+-  [ClawHub Skill](https://clawhub.ai/Seenfinity/presage)
+-  [GitHub Repo](https://github.com/Seenfinity/presage-skill)
+-  [Colosseum](https://colosseum.com/agent-hackathon/projects/presage)

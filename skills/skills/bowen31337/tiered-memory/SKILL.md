@@ -6,13 +6,13 @@ version: "2.2.0"
 
 # Tiered Memory System v2.2.0
 
-> *A mind that remembers everything is as useless as one that remembers nothing. The art is knowing what to keep.* 🧠
+> *A mind that remembers everything is as useless as one that remembers nothing. The art is knowing what to keep.* 
 
 EvoClaw-compatible three-tier memory system inspired by human cognition and PageIndex tree retrieval.
 
 ## What's New in v2.2.0
 
-🔄 **Automatic Daily Note Ingestion**
+ **Automatic Daily Note Ingestion**
 - Consolidation (`daily`/`monthly`/`full` modes) now auto-runs `ingest-daily`
 - Bridges `memory/YYYY-MM-DD.md` files → tiered memory system
 - No more manual ingestion required — facts flow automatically
@@ -20,22 +20,22 @@ EvoClaw-compatible three-tier memory system inspired by human cognition and Page
 
 ## What's New in v2.1.0
 
-🎯 **Structured Metadata Extraction**
+ **Structured Metadata Extraction**
 - Automatic extraction of URLs, shell commands, and file paths from facts
 - Preserved during distillation and consolidation
 - Searchable by URL fragment
 
-✅ **Memory Completeness Validation**
+ **Memory Completeness Validation**
 - Check daily notes for missing URLs, commands, and next steps
 - Proactive warnings for incomplete information
 - Actionable suggestions for improvement
 
-🔍 **Enhanced Search**
+ **Enhanced Search**
 - Search facts by URL fragment
 - Get all stored URLs from warm memory
 - Metadata-aware fact storage
 
-🛡️ **URL Preservation**
+ **URL Preservation**
 - URLs explicitly preserved during LLM distillation
 - Fallback metadata extraction if LLM misses them
 - Command-line support for adding metadata manually
@@ -62,7 +62,7 @@ EvoClaw-compatible three-tier memory system inspired by human cognition and Page
 ┌───────▼─────────────────────────────────────────────┐
 │              MEMORY TIERS                           │
 │                                                     │
-│  🔴 HOT (5KB)      🟡 WARM (50KB)     🟢 COLD (∞)  │
+│   HOT (5KB)       WARM (50KB)      COLD (∞)  │
 │                                                     │
 │  Core memory       Scored facts      Full archive  │
 │  - Identity        - 30-day         - Turso DB     │
@@ -97,7 +97,7 @@ EvoClaw-compatible three-tier memory system inspired by human cognition and Page
 
 ## Memory Tiers
 
-### 🔴 Hot Memory (5KB max)
+###  Hot Memory (5KB max)
 
 **Purpose:** Core identity and active context, always in agent's context window.
 
@@ -153,7 +153,7 @@ EvoClaw-compatible three-tier memory system inspired by human cognition and Page
 
 **Generates:** `MEMORY.md` — auto-rebuilt from structured hot state
 
-### 🟡 Warm Memory (50KB max, 30-day retention)
+###  Warm Memory (50KB max, 30-day retention)
 
 **Purpose:** Recent distilled facts with decay scoring.
 
@@ -190,7 +190,7 @@ reinforcement(access) = 1 + 0.1 × access_count
 2. Total warm size > 50KB (evicts lowest-scored)
 3. Manual consolidation
 
-### 🟢 Cold Memory (Unlimited, Turso)
+###  Cold Memory (Unlimited, Turso)
 
 **Purpose:** Long-term archive, queryable but never bulk-loaded.
 
@@ -230,18 +230,18 @@ CREATE TABLE critical_state (
 ```
 Memory Tree Index
 ==================================================
-📂 Root (warm:15, cold:234)
-  📁 owner — Owner profile and preferences
+ Root (warm:15, cold:234)
+   owner — Owner profile and preferences
      Memories: warm=5, cold=89
-  📁 projects — Active projects
+   projects — Active projects
      Memories: warm=8, cold=67
-    📁 projects/evoclaw — EvoClaw framework
+     projects/evoclaw — EvoClaw framework
        Memories: warm=6, cold=45
-      📁 projects/evoclaw/bsc — BSC integration
+       projects/evoclaw/bsc — BSC integration
          Memories: warm=3, cold=12
-  📁 technical — Technical setup and config
+   technical — Technical setup and config
      Memories: warm=2, cold=34
-  📁 lessons — Learned lessons and rules
+   lessons — Learned lessons and rules
      Memories: warm=0, cold=44
 
 Nodes: 7/50
@@ -982,9 +982,9 @@ if __name__ == "__main__":
 
 | System | Memory Model | Scaling | Accuracy | Cost |
 |--------|-------------|---------|----------|------|
-| **Flat MEMORY.md** | Linear text | ❌ Months | ⚠️ Degrades | ❌ Linear |
-| **Vector RAG** | Embeddings | ✅ Years | ⚠️ Similarity≠relevance | ⚠️ Moderate |
-| **EvoClaw Tiered** | Tree + tiers | ✅ Decades | ✅ Reasoning-based | ✅ Fixed |
+| **Flat MEMORY.md** | Linear text |  Months |  Degrades |  Linear |
+| **Vector RAG** | Embeddings |  Years |  Similarity≠relevance |  Moderate |
+| **EvoClaw Tiered** | Tree + tiers |  Decades |  Reasoning-based |  Fixed |
 
 **Why tree > vectors:**
 - **Accuracy:** 98%+ vs. 70-80% (PageIndex benchmark)
@@ -1066,11 +1066,11 @@ tree_search.py --query "..." --tree-file memory/memory-tree.json --mode llm --ll
 **Fully backward compatible:** Existing memory files work without changes.
 
 **What's new:**
-- ✅ Metadata automatically extracted from existing facts when loaded
-- ✅ New commands: `validate`, `extract-metadata`, `search-url`
-- ✅ `store` command now accepts `--url`, `--command`, `--path` flags
-- ✅ Distillation preserves URLs and technical details
-- ✅ No action required - just update and use new features
+-  Metadata automatically extracted from existing facts when loaded
+-  New commands: `validate`, `extract-metadata`, `search-url`
+-  `store` command now accepts `--url`, `--command`, `--path` flags
+-  Distillation preserves URLs and technical details
+-  No action required - just update and use new features
 
 **Testing the upgrade:**
 ```bash
@@ -1095,4 +1095,4 @@ memory_cli.py search-url --url "github.com"
 
 ---
 
-*v2.1.0 — A mind that remembers everything is as useless as one that remembers nothing. The art is knowing what to keep. Now with structured metadata to remember HOW, not just WHAT.* 🧠🌲🔗
+*v2.1.0 — A mind that remembers everything is as useless as one that remembers nothing. The art is knowing what to keep. Now with structured metadata to remember HOW, not just WHAT.* 

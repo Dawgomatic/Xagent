@@ -7,7 +7,7 @@ description: "Send notes and memos to flomo (浮墨笔记) via URL Scheme with a
 
 Send notes to flomo using URL Scheme, with automatic webhook fallback for reliability.
 
-> ⚠️ **首次使用提示**: 安装后请先运行 `./scripts/configure.sh` 进行配置
+>  **首次使用提示**: 安装后请先运行 `./scripts/configure.sh` 进行配置
 
 ## Quick Start
 
@@ -166,7 +166,7 @@ export FLOMO_WEBHOOK_TOKEN="your-token"
 
 ## Requirements
 
-⚠️ **API 和 URL Scheme 功能需要 [flomo PRO 会员](https://flomoapp.com/mine?source=incoming_webhook) 才能使用。**
+ **API 和 URL Scheme 功能需要 [flomo PRO 会员](https://flomoapp.com/mine?source=incoming_webhook) 才能使用。**
 
 ### URL Scheme (Primary)
 - macOS with flomo app installed

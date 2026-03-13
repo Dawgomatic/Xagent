@@ -61,7 +61,7 @@ Common types: Tech stack, Timeline, Budget, Dependencies, Compatibility, Perform
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| [Choice] | [Why] | [✓ Good / ⚠️ Revisit / — Pending] |
+| [Choice] | [Why] | [✓ Good /  Revisit / — Pending] |
 
 ---
 *Last updated: [date] after [trigger]*
@@ -114,7 +114,7 @@ Common types: Tech stack, Timeline, Budget, Dependencies, Compatibility, Perform
 - Add decisions as they're made throughout the project
 - Track outcome when known:
   - ✓ Good — decision proved correct
-  - ⚠️ Revisit — decision may need reconsideration
+  -  Revisit — decision may need reconsideration
   - — Pending — too early to evaluate
 
 **Last Updated:**

@@ -146,9 +146,9 @@ async function fetchUserPosition(walletAddress, chain = 'ethereum', retries = 3)
 
 function calculateHealthFactorRisk(healthFactor) {
   const hf = parseFloat(healthFactor);
-  if (hf <= 1.05) return { level: 'CRITICAL', emoji: '🚨', color: 'red' };
-  if (hf <= 1.2) return { level: 'WARNING', emoji: '⚠️', color: 'yellow' };
-  return { level: 'STABLE', emoji: '✅', color: 'green' };
+  if (hf <= 1.05) return { level: 'CRITICAL', emoji: '', color: 'red' };
+  if (hf <= 1.2) return { level: 'WARNING', emoji: '', color: 'yellow' };
+  return { level: 'STABLE', emoji: '', color: 'green' };
 }
 
 function formatAlertMessage(userPosition, chain = 'ethereum', thresholds = { critical: 1.05, warning: 1.2 }) {
@@ -161,7 +161,7 @@ function formatAlertMessage(userPosition, chain = 'ethereum', thresholds = { cri
   let message = `${risk.emoji} AAVE ${risk.level}\n`;
   message += `Chain: ${CHAIN_CONFIG[chain]?.name || chain}\n`;
   message += `Health Factor: ${hf.toFixed(4)}\n`;
-  message += `\n📊 Position:\n`;
+  message += `\n Position:\n`;
   message += `Total Collateral: $${totalCollateral.toFixed(2)}\n`;
   message += `Total Debt: $${totalDebt.toFixed(2)}\n`;
 
@@ -171,7 +171,7 @@ function formatAlertMessage(userPosition, chain = 'ethereum', thresholds = { cri
   }
 
   if (userPosition.borrows.length > 0) {
-    message += `\n💳 Borrowed Assets:\n`;
+    message += `\n Borrowed Assets:\n`;
     userPosition.borrows.forEach(b => {
       const amount = parseFloat(b.debt.amount.value);
       message += `  ${b.currency.symbol}: ${amount.toFixed(4)}\n`;
@@ -179,7 +179,7 @@ function formatAlertMessage(userPosition, chain = 'ethereum', thresholds = { cri
   }
 
   if (userPosition.supplies.length > 0) {
-    message += `\n🏦 Supplied (Collateral):\n`;
+    message += `\n Supplied (Collateral):\n`;
     userPosition.supplies.forEach(s => {
       const amount = parseFloat(s.balance.amount.value);
       const collateralBadge = s.isCollateral ? ' (collateral enabled)' : ' (supplied but not collateral)';
@@ -188,16 +188,16 @@ function formatAlertMessage(userPosition, chain = 'ethereum', thresholds = { cri
   }
 
   if (risk.level === 'CRITICAL') {
-    message += `\n⚡ URGENT: Liquidation at HF ≤ 1.0!\n`;
+    message += `\n URGENT: Liquidation at HF ≤ 1.0!\n`;
     message += `Actions:\n`;
     message += `  1. Repay debt immediately\n`;
     message += `  2. Add more collateral\n`;
     message += `  3. Consider eMode for correlated assets\n`;
   } else if (risk.level === 'WARNING') {
-    message += `\n⚠️ ACTION SOON: Health factor approaching danger zone\n`;
+    message += `\n ACTION SOON: Health factor approaching danger zone\n`;
   }
 
-  message += `\n⏰ Checked: ${new Date().toISOString()}\n`;
+  message += `\n Checked: ${new Date().toISOString()}\n`;
 
   return { risk: risk.level, hfValue: hf, message };
 }

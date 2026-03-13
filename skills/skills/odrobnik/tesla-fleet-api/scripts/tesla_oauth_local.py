@@ -244,7 +244,7 @@ def main() -> int:
         auth["refresh_token"] = payload.get("refresh_token")
     save_auth(args.dir, {k: v for k, v in auth.items() if v is not None})
 
-    print("✅ Tokens saved (auth.json)")
+    print(" Tokens saved (auth.json)")
     return 0
 
 

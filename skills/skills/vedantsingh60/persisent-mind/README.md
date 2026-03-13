@@ -98,10 +98,10 @@ prompt = f"{context}\n\nUser request: {user_input}"
 ```
 # Relevant Memory Context
 
-⚠️ [CORRECTION] Never use wildcard imports — the linter will fail CI (tags: linting, ci)
-⚙️ [PREFERENCE] User prefers concise responses under 200 words (tags: response-style)
-📋 [PROCEDURE] To run migrations: poetry run alembic upgrade head (tags: alembic, migrations)
-📌 [FACT] Database uses PostgreSQL 16. Connection string in .env as DATABASE_URL
+ [CORRECTION] Never use wildcard imports — the linter will fail CI (tags: linting, ci)
+ [PREFERENCE] User prefers concise responses under 200 words (tags: response-style)
+ [PROCEDURE] To run migrations: poetry run alembic upgrade head (tags: alembic, migrations)
+ [FACT] Database uses PostgreSQL 16. Connection string in .env as DATABASE_URL
 ```
 
 ---
@@ -143,4 +143,4 @@ Install directly via [ClawhHub](https://clawhub.ai/unisai/persistentmind) for in
 
 MIT License — see [LICENSE.md](LICENSE.md) for details.
 
-© 2026 UnisAI Community
+ 2026 UnisAI Community

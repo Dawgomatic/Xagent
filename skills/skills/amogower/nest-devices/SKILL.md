@@ -3,7 +3,7 @@ name: nest-devices
 description: Control Nest smart home devices (thermostat, cameras, doorbell) via the Device Access API. Use when asked to check or adjust home temperature, view camera feeds, check who's at the door, monitor rooms, or set up temperature schedules.
 metadata:
   clawdbot:
-    emoji: "🏠"
+    emoji: ""
 ---
 
 # Nest Device Access
@@ -283,11 +283,11 @@ curl -X POST http://localhost:8420/nest/events \
 
 | Event | Behaviour |
 |-------|-----------|
-| `DoorbellChime.Chime` | 🔔 **Alerts** — sends photo to Telegram |
-| `CameraPerson.Person` | 🚶 **Alerts** — sends photo to Telegram |
-| `CameraMotion.Motion` | 📹 Logged only (no alert) |
-| `CameraSound.Sound` | 🔊 Logged only (no alert) |
-| `CameraClipPreview.ClipPreview` | 🎬 Logged only (no alert) |
+| `DoorbellChime.Chime` |  **Alerts** — sends photo to Telegram |
+| `CameraPerson.Person` |  **Alerts** — sends photo to Telegram |
+| `CameraMotion.Motion` |  Logged only (no alert) |
+| `CameraSound.Sound` |  Logged only (no alert) |
+| `CameraClipPreview.ClipPreview` |  Logged only (no alert) |
 
 > **Staleness filter:** Events older than 5 minutes are logged but never alerted. This prevents notification floods if queued Pub/Sub messages are delivered late.
 

@@ -38,7 +38,7 @@ Avoid notification spam:
 
 Use `message` tool. Format:
 ```
-🚨 **[Monitor Name]**
+ **[Monitor Name]**
 Condition: [what happened]
 Current: [value]  
 Previous: [value]

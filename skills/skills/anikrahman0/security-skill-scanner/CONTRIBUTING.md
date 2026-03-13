@@ -1,6 +1,6 @@
 # Contributing to Security Skill Scanner
 
-Thank you for your interest in making the OpenClaw ecosystem safer! 🛡️
+Thank you for your interest in making the OpenClaw ecosystem safer! 
 
 ## How You Can Help
 
@@ -307,4 +307,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-**Thank you for helping keep the OpenClaw community safe!** 🙏
+**Thank you for helping keep the OpenClaw community safe!** 

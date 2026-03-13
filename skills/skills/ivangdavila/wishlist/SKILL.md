@@ -1,7 +1,7 @@
 ---
 name: Wishlist
 description: Build a personal wishlist system for capturing wants, tracking prices, and smart purchasing decisions.
-metadata: {"clawdbot":{"emoji":"⭐","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

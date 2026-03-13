@@ -2,21 +2,21 @@
 
 A comprehensive upgrade to Clawdbot's agentic capabilities with persistent state, automatic planning, approval gates, retry logic, context management, and checkpointing.
 
-## Status: ✅ Active
+## Status:  Active
 
 All components are integrated and working.
 
 | Component | Status |
 |-----------|--------|
-| Mode Dashboard UI | ✅ Working |
-| Configuration System | ✅ Working |
-| Hook/Wrapper Integration | ✅ Working |
-| State Machine | ✅ Working |
-| Planning Layer | ✅ Working |
-| Parallel Execution | ✅ Working |
-| Confidence Gates | ✅ Working |
-| Error Recovery | ✅ Working |
-| Checkpointing | ✅ Working |
+| Mode Dashboard UI |  Working |
+| Configuration System |  Working |
+| Hook/Wrapper Integration |  Working |
+| State Machine |  Working |
+| Planning Layer |  Working |
+| Parallel Execution |  Working |
+| Confidence Gates |  Working |
+| Error Recovery |  Working |
+| Checkpointing |  Working |
 
 ## Features
 
@@ -61,7 +61,7 @@ const gate = getApprovalGate({
   timeoutMs: 15000, // 15 seconds to respond
   requireApprovalFor: ["high", "critical"],
   onApprovalNeeded: (request) => {
-    // Notify user: "⚠️ Approve rm -rf? Auto-proceeding in 15s..."
+    // Notify user: " Approve rm -rf? Auto-proceeding in 15s..."
   },
 });
 
@@ -166,7 +166,7 @@ const orchestrator = createOrchestrator({
   onPlanCreated: (plan) => console.log("Plan:", plan.goal),
   onStepCompleted: (id, result) => console.log("✓", result),
   onApprovalNeeded: (req) => notifyUser(req),
-  onCheckpointCreated: (id) => console.log("📍 Checkpoint:", id),
+  onCheckpointCreated: (id) => console.log(" Checkpoint:", id),
 });
 
 // Initialize (checks for incomplete work)

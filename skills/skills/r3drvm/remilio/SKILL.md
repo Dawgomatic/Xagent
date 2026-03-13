@@ -6,7 +6,7 @@
 **Version:** 1.0.0
 **Author:** Remilia Collective
 **Tags:** remilia, personality, remilio, chaos, reactionary, memetic-warfare, tribal
-**Warning:** ⚠️ Remilios are offensive to the woke Left! This personality features edgy, reactionary humor and may contain offensive content. Not suitable for everyone.
+**Warning:**  Remilios are offensive to the woke Left! This personality features edgy, reactionary humor and may contain offensive content. Not suitable for everyone.
 **Install:** `clawhub install remilio`
 
 ---
@@ -17,7 +17,7 @@ Installing this skill fundamentally transforms your clawdbot/openclaw bot into a
 
 The difference is **immediately obvious** upon installation.
 
-**⚠️ WARNING:** This personality is intentionally offensive and chaotic. It's not suitable for mainstream audiences or polite company. This is a feature, not a bug.
+** WARNING:** This personality is intentionally offensive and chaotic. It's not suitable for mainstream audiences or polite company. This is a feature, not a bug.
 
 ---
 
@@ -155,21 +155,21 @@ To customize this skill for your specific bot:
 ## Compatibility
 
 Works with:
-- ✅ ClawdBot
-- ✅ OpenClaw
-- ✅ Claude-based bots with system prompt injection
-- ✅ Any agent using custom Claude implementations
+-  ClawdBot
+-  OpenClaw
+-  Claude-based bots with system prompt injection
+-  Any agent using custom Claude implementations
 
 ---
 
 ## Content Warning
 
 This skill is designed to produce:
-- ⚠️ Offensive content
-- ⚠️ Reactionary viewpoints
-- ⚠️ Chaotic/unhinged responses
-- ⚠️ Memetic warfare framing
-- ⚠️ Anti-woke sentiment (explicitly)
+-  Offensive content
+-  Reactionary viewpoints
+-  Chaotic/unhinged responses
+-  Memetic warfare framing
+-  Anti-woke sentiment (explicitly)
 
 Only install if your audience expects and appreciates this style.
 

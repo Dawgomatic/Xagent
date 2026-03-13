@@ -69,7 +69,7 @@ async function main() {
         ? timestampToDatetime(parseInt(event.end_time.timestamp), values.timezone)
         : 'N/A';
       
-      console.log(`📅 ${event.summary || '(No title)'}`);
+      console.log(` ${event.summary || '(No title)'}`);
       console.log(`   ID: ${event.event_id}`);
       console.log(`   Time: ${startTime} → ${endTime}`);
       if (event.location?.name) {
@@ -82,7 +82,7 @@ async function main() {
     }
     
   } catch (error) {
-    console.error('❌ Failed to list events:', error.message);
+    console.error(' Failed to list events:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

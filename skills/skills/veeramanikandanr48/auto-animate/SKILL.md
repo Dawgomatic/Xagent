@@ -58,21 +58,21 @@ This skill prevents **15** documented issues:
 
 **React Pattern**:
 ```tsx
-// ❌ Wrong
+//  Wrong
 {showList && <ul ref={parent}>...</ul>}
 
-// ✅ Correct
+//  Correct
 <ul ref={parent}>{showList && items.map(...)}</ul>
 ```
 
 **Vue.js Pattern**:
 ```vue
-<!-- ❌ Wrong - parent conditional -->
+<!--  Wrong - parent conditional -->
 <ul v-if="showList" ref="parent">
   <li v-for="item in items" :key="item.id">{{ item.text }}</li>
 </ul>
 
-<!-- ✅ Correct - children conditional -->
+<!--  Correct - children conditional -->
 <ul ref="parent">
   <li v-if="showList" v-for="item in items" :key="item.id">
     {{ item.text }}
@@ -95,14 +95,14 @@ This skill prevents **15** documented issues:
 **Prevention**: Use explicit width instead of flex-grow for animated elements
 
 ```tsx
-// ❌ Wrong - causes shaking
+//  Wrong - causes shaking
 <ul ref={parent} style={{ display: 'flex' }}>
   {items.map(item => (
     <li key={item.id} style={{ flex: '1 1 auto' }}>{item.text}</li>
   ))}
 </ul>
 
-// ✅ Correct - fixed sizes
+//  Correct - fixed sizes
 <ul ref={parent} style={{ display: 'flex', gap: '1rem' }}>
   {items.map(item => (
     <li
@@ -162,10 +162,10 @@ This skill prevents **15** documented issues:
 **Prevention**: Use ref to track initialization
 
 ```tsx
-// ❌ Wrong - breaks in StrictMode
+//  Wrong - breaks in StrictMode
 const [parent] = useAutoAnimate();
 
-// ✅ Correct - prevents double initialization
+//  Correct - prevents double initialization
 const [parent] = useAutoAnimate();
 const initialized = useRef(false);
 
@@ -250,23 +250,23 @@ useEffect(() => {
 
 ### Always Do
 
-✅ **Use unique, stable keys** - `key={item.id}` not `key={index}`
-✅ **Keep parent in DOM** - Parent ref element always rendered
-✅ **Client-only for SSR** - Dynamic import for server environments
-✅ **Respect accessibility** - Keep `disrespectUserMotionPreference: false`
-✅ **Test with motion disabled** - Verify UI works without animations
-✅ **Use explicit width** - Avoid flex-grow on animated elements
-✅ **Apply to tbody for tables** - Not individual rows
+ **Use unique, stable keys** - `key={item.id}` not `key={index}`
+ **Keep parent in DOM** - Parent ref element always rendered
+ **Client-only for SSR** - Dynamic import for server environments
+ **Respect accessibility** - Keep `disrespectUserMotionPreference: false`
+ **Test with motion disabled** - Verify UI works without animations
+ **Use explicit width** - Avoid flex-grow on animated elements
+ **Apply to tbody for tables** - Not individual rows
 
 ### Never Do
 
-❌ **Conditional parent** - `{show && <ul ref={parent}>}`
-❌ **Index as key** - `key={index}` breaks animations
-❌ **Ignore SSR** - Will break in Cloudflare Workers/Next.js
-❌ **Force animations** - `disrespectUserMotionPreference: true` breaks accessibility
-❌ **Animate tables directly** - Use tbody or div-based layout
-❌ **Skip unique keys** - Required for proper animation
-❌ **Complex animations** - Use Motion instead
+ **Conditional parent** - `{show && <ul ref={parent}>}`
+ **Index as key** - `key={index}` breaks animations
+ **Ignore SSR** - Will break in Cloudflare Workers/Next.js
+ **Force animations** - `disrespectUserMotionPreference: true` breaks accessibility
+ **Animate tables directly** - Use tbody or div-based layout
+ **Skip unique keys** - Required for proper animation
+ **Complex animations** - Use Motion instead
 
 **Note**: AutoAnimate respects `prefers-reduced-motion` automatically (never disable this).
 

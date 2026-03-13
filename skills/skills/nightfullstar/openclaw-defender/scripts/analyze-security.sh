@@ -22,9 +22,9 @@ WARN=$(grep -c '"level":"WARN"' "$LOG_FILE")
 INFO=$(grep -c '"level":"INFO"' "$LOG_FILE")
 
 echo "Event Summary:"
-echo "  🚨 CRITICAL: $CRITICAL"
-echo "  ⚠️  WARN:     $WARN"
-echo "  ℹ️  INFO:     $INFO"
+echo "   CRITICAL: $CRITICAL"
+echo "    WARN:     $WARN"
+echo "    INFO:     $INFO"
 echo ""
 
 # Detect attack patterns
@@ -33,42 +33,42 @@ echo "Attack Pattern Detection:"
 # 1. Credential theft attempts
 CRED_ATTEMPTS=$(grep -c '"type":"file_access_blocked"' "$LOG_FILE")
 if [ $CRED_ATTEMPTS -gt 0 ]; then
-  echo "  🚨 Credential theft attempts: $CRED_ATTEMPTS"
+  echo "   Credential theft attempts: $CRED_ATTEMPTS"
   grep '"type":"file_access_blocked"' "$LOG_FILE" | tail -5
 fi
 
 # 2. Network exfiltration
 NETWORK_BLOCKED=$(grep -c '"type":"network_blocked"' "$LOG_FILE")
 if [ $NETWORK_BLOCKED -gt 0 ]; then
-  echo "  🚨 Malicious network requests: $NETWORK_BLOCKED"
+  echo "   Malicious network requests: $NETWORK_BLOCKED"
   grep '"type":"network_blocked"' "$LOG_FILE" | tail -5
 fi
 
 # 3. Dangerous commands
 CMD_BLOCKED=$(grep -c '"type":"command_blocked"' "$LOG_FILE")
 if [ $CMD_BLOCKED -gt 0 ]; then
-  echo "  🚨 Dangerous commands blocked: $CMD_BLOCKED"
+  echo "   Dangerous commands blocked: $CMD_BLOCKED"
   grep '"type":"command_blocked"' "$LOG_FILE" | tail -5
 fi
 
 # 4. RAG operations
 RAG_BLOCKED=$(grep -c '"type":"rag_blocked"' "$LOG_FILE")
 if [ $RAG_BLOCKED -gt 0 ]; then
-  echo "  🚨 RAG operations blocked: $RAG_BLOCKED"
+  echo "   RAG operations blocked: $RAG_BLOCKED"
   grep '"type":"rag_blocked"' "$LOG_FILE" | tail -5
 fi
 
 # 5. Kill switch activations
 KILL_SWITCH=$(grep -c '"type":"kill_switch_activated"' "$LOG_FILE")
 if [ $KILL_SWITCH -gt 0 ]; then
-  echo "  🚨 Kill switch activations: $KILL_SWITCH"
+  echo "   Kill switch activations: $KILL_SWITCH"
   grep '"type":"kill_switch_activated"' "$LOG_FILE" | tail -5
 fi
 
 # 6. Collusion patterns
 COLLUSION=$(grep -c '"type":"collusion_suspected"' "$LOG_FILE")
 if [ $COLLUSION -gt 0 ]; then
-  echo "  ⚠️  Collusion patterns: $COLLUSION"
+  echo "    Collusion patterns: $COLLUSION"
   grep '"type":"collusion_suspected"' "$LOG_FILE" | tail -5
 fi
 
@@ -88,9 +88,9 @@ cat > "$REPORT_FILE" << EOF
 
 | Level | Count |
 |-------|-------|
-| 🚨 CRITICAL | $CRITICAL |
-| ⚠️  WARN | $WARN |
-| ℹ️  INFO | $INFO |
+|  CRITICAL | $CRITICAL |
+|   WARN | $WARN |
+|   INFO | $INFO |
 
 ---
 
@@ -104,7 +104,7 @@ $(if [ $CRED_ATTEMPTS -gt 0 ]; then
   grep '"type":"file_access_blocked"' "$LOG_FILE" | tail -5
   echo '```'
 else
-  echo "None detected ✅"
+  echo "None detected "
 fi)
 
 ### Malicious Network Requests
@@ -115,7 +115,7 @@ $(if [ $NETWORK_BLOCKED -gt 0 ]; then
   grep '"type":"network_blocked"' "$LOG_FILE" | tail -5
   echo '```'
 else
-  echo "None detected ✅"
+  echo "None detected "
 fi)
 
 ### Dangerous Commands
@@ -126,7 +126,7 @@ $(if [ $CMD_BLOCKED -gt 0 ]; then
   grep '"type":"command_blocked"' "$LOG_FILE" | tail -5
   echo '```'
 else
-  echo "None detected ✅"
+  echo "None detected "
 fi)
 
 ### RAG Operations (EchoLeak/GeminiJack Vector)
@@ -137,7 +137,7 @@ $(if [ $RAG_BLOCKED -gt 0 ]; then
   grep '"type":"rag_blocked"' "$LOG_FILE" | tail -5
   echo '```'
 else
-  echo "None detected ✅"
+  echo "None detected "
 fi)
 
 ### Kill Switch Activations
@@ -148,7 +148,7 @@ $(if [ $KILL_SWITCH -gt 0 ]; then
   grep '"type":"kill_switch_activated"' "$LOG_FILE" | tail -5
   echo '```'
 else
-  echo "None activated ✅"
+  echo "None activated "
 fi)
 
 ### Collusion Patterns
@@ -159,7 +159,7 @@ $(if [ $COLLUSION -gt 0 ]; then
   grep '"type":"collusion_suspected"' "$LOG_FILE" | tail -5
   echo '```'
 else
-  echo "None detected ✅"
+  echo "None detected "
 fi)
 
 ---
@@ -167,19 +167,19 @@ fi)
 ## Recommendations
 
 $(if [ $CRITICAL -gt 0 ]; then
-  echo "⚠️ **CRITICAL EVENTS DETECTED** - Immediate action required:"
+  echo " **CRITICAL EVENTS DETECTED** - Immediate action required:"
   echo "1. Review security incidents: \`cat $WORKSPACE/memory/security-incidents.md\`"
   echo "2. Check kill switch status: \`$WORKSPACE/skills/openclaw-defender/scripts/runtime-monitor.sh kill-switch check\`"
   echo "3. Investigate blocked operations above"
   echo "4. Consider rotating credentials if credential theft attempted"
   echo "5. Quarantine suspicious skills: \`$WORKSPACE/skills/openclaw-defender/scripts/quarantine-skill.sh SKILL_NAME\`"
 elif [ $WARN -gt 0 ]; then
-  echo "⚠️ **Warnings detected** - Review recommended:"
+  echo " **Warnings detected** - Review recommended:"
   echo "1. Check warning events in log: \`grep '\"level\":\"WARN\"' $LOG_FILE\`"
   echo "2. Investigate unknown network requests or commands"
   echo "3. Monitor for escalation patterns"
 else
-  echo "✅ **No critical issues** - System secure"
+  echo " **No critical issues** - System secure"
   echo "1. Continue monitoring"
   echo "2. Review logs periodically"
   echo "3. Keep blocklist updated"
@@ -199,6 +199,6 @@ $(grep '"type":"skill_execution' "$LOG_FILE" | grep -o '"skill":"[^"]*"' | sort 
 
 EOF
 
-echo "✅ Report generated: $REPORT_FILE"
+echo " Report generated: $REPORT_FILE"
 echo ""
 echo "To view: cat $REPORT_FILE"

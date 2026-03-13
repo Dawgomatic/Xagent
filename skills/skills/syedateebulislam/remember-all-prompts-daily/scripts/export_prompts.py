@@ -81,9 +81,9 @@ def export_to_archive(history, session_label=""):
     # Write back
     archive_path.write_text(new_content)
     
-    print(f"✅ Exported {len(history)} messages to {archive_path}")
-    print(f"📅 Archive: {archive_path}")
-    print(f"⏰ Timestamp: {current_time}")
+    print(f" Exported {len(history)} messages to {archive_path}")
+    print(f" Archive: {archive_path}")
+    print(f" Timestamp: {current_time}")
     
     return True
 
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     if history:
         export_to_archive(history, session_label)
     else:
-        print("⚠️  Session history API not available yet.")
+        print("  Session history API not available yet.")
         print("This script will be integrated with Clawdbot's session management.")
         print("For now, you can manually trigger this via:")
         print("  sessions_spawn --task 'export current session'")

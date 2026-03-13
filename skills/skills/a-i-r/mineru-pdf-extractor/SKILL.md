@@ -35,7 +35,7 @@ Extract PDF documents to structured Markdown using the MinerU API. Supports form
 
 ---
 
-## 📁 Skill Structure
+##  Skill Structure
 
 ```
 mineru-pdf-extractor/
@@ -57,7 +57,7 @@ mineru-pdf-extractor/
 
 ---
 
-## 🔧 Requirements
+##  Requirements
 
 ### Required Environment Variables
 
@@ -89,11 +89,11 @@ export MINERU_API_KEY="your_api_token_here"
 export MINERU_BASE_URL="https://mineru.net/api/v4"
 ```
 
-> 💡 **Get Token**: Visit https://mineru.net/apiManage/docs to register and obtain an API Key
+>  **Get Token**: Visit https://mineru.net/apiManage/docs to register and obtain an API Key
 
 ---
 
-## 📄 Feature 1: Parse Local PDF Documents
+##  Feature 1: Parse Local PDF Documents
 
 For locally stored PDF files. Requires 4 steps.
 
@@ -179,19 +179,19 @@ Download result ZIP and extract.
 **Output Structure:**
 ```
 extracted/
-├── full.md              # 📄 Markdown document (main result)
-├── images/              # 🖼️ Extracted images
+├── full.md              #  Markdown document (main result)
+├── images/              #  Extracted images
 ├── content_list.json    # Structured content
 └── layout.json          # Layout analysis data
 ```
 
 ### Detailed Documentation
 
-📚 **Complete Guide**: See `docs/Local_File_Parsing_Guide.md`
+ **Complete Guide**: See `docs/Local_File_Parsing_Guide.md`
 
 ---
 
-## 🌐 Feature 2: Parse Online PDF Documents (URL Method)
+##  Feature 2: Parse Online PDF Documents (URL Method)
 
 For PDF files already available online (e.g., arXiv, websites). Only 2 steps, more concise and efficient.
 
@@ -243,31 +243,31 @@ Poll extraction results, automatically download and extract when complete.
 **Output Structure:**
 ```
 extracted/
-├── full.md              # 📄 Markdown document (main result)
-├── images/              # 🖼️ Extracted images
+├── full.md              #  Markdown document (main result)
+├── images/              #  Extracted images
 ├── content_list.json    # Structured content
 └── layout.json          # Layout analysis data
 ```
 
 ### Detailed Documentation
 
-📚 **Complete Guide**: See `docs/Online_URL_Parsing_Guide.md`
+ **Complete Guide**: See `docs/Online_URL_Parsing_Guide.md`
 
 ---
 
-## 📊 Comparison of Two Parsing Methods
+##  Comparison of Two Parsing Methods
 
 | Feature | **Local PDF Parsing** | **Online PDF Parsing** |
 |---------|----------------------|------------------------|
 | **Steps** | 4 steps | 2 steps |
-| **Upload Required** | ✅ Yes | ❌ No |
+| **Upload Required** |  Yes |  No |
 | **Average Time** | 30-60 seconds | 10-20 seconds |
 | **Use Case** | Local files | Files already online (arXiv, websites, etc.) |
 | **File Size Limit** | 200MB | Limited by source server |
 
 ---
 
-## ⚙️ Advanced Usage
+##  Advanced Usage
 
 ### Batch Process Local Files
 
@@ -312,7 +312,7 @@ done
 
 ---
 
-## ⚠️ Notes
+##  Notes
 
 1. **Token Configuration**: Scripts prioritize `MINERU_TOKEN`, fall back to `MINERU_API_KEY` if not found
 2. **Token Security**: Do not hard-code tokens in scripts; use environment variables
@@ -324,7 +324,7 @@ done
 
 ---
 
-## 📚 Reference Documentation
+##  Reference Documentation
 
 | Document | Description |
 |----------|-------------|
@@ -332,9 +332,9 @@ done
 | `docs/Online_URL_Parsing_Guide.md` | Detailed curl commands and parameters for online PDF parsing |
 
 External Resources:
-- 🏠 **MinerU Official**: https://mineru.net/
-- 📖 **API Documentation**: https://mineru.net/apiManage/docs
-- 💻 **GitHub Repository**: https://github.com/opendatalab/MinerU
+-  **MinerU Official**: https://mineru.net/
+-  **API Documentation**: https://mineru.net/apiManage/docs
+-  **GitHub Repository**: https://github.com/opendatalab/MinerU
 
 ---
 

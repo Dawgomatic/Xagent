@@ -11,7 +11,7 @@ role="${2:-}"
 skills="${3:-}"
 
 if [ -z "$location" ]; then
-  echo "🔍 GitHunt - Find GitHub Developers"
+  echo " GitHunt - Find GitHub Developers"
   echo ""
   echo "Usage: githunt-search.sh <location> [role] [skills]"
   echo ""
@@ -41,7 +41,7 @@ fi
 
 payload="$payload}"
 
-echo "🔍 Searching for developers in '$location'..."
+echo " Searching for developers in '$location'..."
 [ -n "$role" ] && echo "   Role: $role"
 [ -n "$skills" ] && echo "   Skills: $skills"
 echo ""
@@ -64,26 +64,26 @@ curl -s -N -X POST "$API_URL/rank/users/stream" \
         echo "$json" | jq -r '
           .data | 
           "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-          "👤 \(.name // .login) (@\(.login))",
-          "   📍 \(.location // "Unknown") | 🏢 \(.company // "—")",
-          "   💼 Hireable: \(if .isHireable then "Yes ✓" else "No" end) | 👥 \(.followers // 0) followers",
+          " \(.name // .login) (@\(.login))",
+          "    \(.location // "Unknown") |  \(.company // "—")",
+          "    Hireable: \(if .isHireable then "Yes ✓" else "No" end) |  \(.followers // 0) followers",
           "",
-          "   ⭐ SCORE: \(.score // 0)/100",
+          "    SCORE: \(.score // 0)/100",
           "      Profile: \(.profile_score // 0) | Tech: \(.tech_stack_score // 0) | Activity: \(.activity_score // 0)",
           "      Matched: \(.matching_keywords // "—")",
           "",
-          "   📊 COMMIT STATS:",
+          "    COMMIT STATS:",
           "      Commits: \(.total_commits // 0) | PRs: \(.total_prs // 0) | Issues: \(.total_issues // 0)",
           "      Frequency: \(.commit_frequency_label // "Unknown") (\(.commits_per_month // 0)/month)",
           "      Message Quality: \(.commit_message_quality_label // "Unknown") (\(.semantic_commit_percentage // 0)% semantic)",
           "",
-          "   📦 TOP REPOS:",
+          "    TOP REPOS:",
           ((.topRepositories // [])[:3] | to_entries | .[] |
-            "      \(.value.name) ⭐\(.value.stars // 0) 🍴\(.value.forks // 0) [\(.value.language // "—")]"
+            "      \(.value.name) \(.value.stars // 0) \(.value.forks // 0) [\(.value.language // "—")]"
           ),
           "",
-          "   🔗 https://github.com/\(.login)",
-          "   📧 \(.email // "—") | 🐦 \(if .twitter_username and .twitter_username != "" then "@" + .twitter_username else "—" end)",
+          "    https://github.com/\(.login)",
+          "    \(.email // "—") |  \(if .twitter_username and .twitter_username != "" then "@" + .twitter_username else "—" end)",
           ""
         ' 2>/dev/null
         ;;
@@ -92,15 +92,15 @@ curl -s -N -X POST "$API_URL/rank/users/stream" \
         preview=$(echo "$json" | jq -r '.data.previewLimit // 10' 2>/dev/null)
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo ""
-        echo "📊 Found ~$total total matches (showing top $preview)"
+        echo " Found ~$total total matches (showing top $preview)"
         echo ""
-        echo "💰 Want ALL candidates with full contact info?"
+        echo " Want ALL candidates with full contact info?"
         echo "   Get the full report for \$19: https://githunt.ai"
         echo ""
         ;;
       "error")
         msg=$(echo "$json" | jq -r '.data.message // "Unknown error"' 2>/dev/null)
-        echo "❌ Error: $msg"
+        echo " Error: $msg"
         ;;
     esac
   fi

@@ -15,7 +15,7 @@ if [[ -f "$HOME/.cargo/env" ]]; then
 fi
 
 if ! command -v cargo &>/dev/null; then
-  echo "❌ Rust toolchain not found. Install via: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+  echo " Rust toolchain not found. Install via: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
   exit 1
 fi
 
@@ -32,7 +32,7 @@ esac
 PLATFORM="${OS}-${ARCH_SUFFIX}"
 BINARY_NAME="workplace-server-${PLATFORM}"
 
-echo "🔨 Building workplace-server for $PLATFORM..."
+echo " Building workplace-server for $PLATFORM..."
 
 # Parse optional target
 RUST_TARGET=""
@@ -54,7 +54,7 @@ else
 fi
 
 if [[ ! -f "$RELEASE_BIN" ]]; then
-  echo "❌ Build failed — binary not found at $RELEASE_BIN"
+  echo " Build failed — binary not found at $RELEASE_BIN"
   exit 1
 fi
 
@@ -62,5 +62,5 @@ mkdir -p "$BIN_DIR"
 cp "$RELEASE_BIN" "$BIN_DIR/$BINARY_NAME"
 chmod +x "$BIN_DIR/$BINARY_NAME"
 
-echo "✅ Built: $BIN_DIR/$BINARY_NAME"
+echo " Built: $BIN_DIR/$BINARY_NAME"
 echo "   Size: $(du -h "$BIN_DIR/$BINARY_NAME" | cut -f1)"

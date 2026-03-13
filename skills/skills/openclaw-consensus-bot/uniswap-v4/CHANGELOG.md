@@ -40,7 +40,7 @@
 
 ## [2.0.0] — 2026-02-08
 
-### 🔄 Complete TypeScript Rewrite
+###  Complete TypeScript Rewrite
 
 **Breaking Changes:**
 - All scripts rewritten from bash/Python to TypeScript (run with `npx tsx`)

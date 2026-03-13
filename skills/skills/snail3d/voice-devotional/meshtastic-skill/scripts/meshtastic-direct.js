@@ -37,9 +37,9 @@ class MeshtasticDirect {
   getNodes() {
     const result = this.exec('--nodes');
     if (result.success) {
-      return `📡 Mesh Nodes:\n${result.output}`;
+      return ` Mesh Nodes:\n${result.output}`;
     } else {
-      return `❌ Failed to fetch nodes: ${result.error}`;
+      return ` Failed to fetch nodes: ${result.error}`;
     }
   }
 
@@ -49,9 +49,9 @@ class MeshtasticDirect {
   getInfo() {
     const result = this.exec('--info');
     if (result.success) {
-      return `ℹ️ Device Info:\n${result.output}`;
+      return ` Device Info:\n${result.output}`;
     } else {
-      return `❌ Failed: ${result.error}`;
+      return ` Failed: ${result.error}`;
     }
   }
 
@@ -78,9 +78,9 @@ class MeshtasticDirect {
 
     const result = this.exec(cmd);
     if (result.success) {
-      return `✅ Message sent to ${destination}`;
+      return ` Message sent to ${destination}`;
     } else {
-      return `❌ Failed: ${result.error}`;
+      return ` Failed: ${result.error}`;
     }
   }
 
@@ -90,15 +90,15 @@ class MeshtasticDirect {
   getConfig() {
     const result = this.exec('--get lora');
     if (result.success) {
-      return `📻 LoRa Config:\n${result.output}`;
+      return ` LoRa Config:\n${result.output}`;
     }
     
     const result2 = this.exec('--get device');
     if (result2.success) {
-      return `📻 Device Config:\n${result2.output}`;
+      return ` Device Config:\n${result2.output}`;
     }
 
-    return '❌ Failed to get config';
+    return ' Failed to get config';
   }
 
   /**
@@ -107,9 +107,9 @@ class MeshtasticDirect {
   setSetting(path, value) {
     const result = this.exec(`--set ${path} ${value}`);
     if (result.success) {
-      return `✅ Set ${path} = ${value}\n${result.output}`;
+      return ` Set ${path} = ${value}\n${result.output}`;
     } else {
-      return `❌ Failed: ${result.error}`;
+      return ` Failed: ${result.error}`;
     }
   }
 
@@ -174,7 +174,7 @@ class MeshtasticDirect {
 async function interactive() {
   const cli = new MeshtasticDirect();
 
-  console.log('🤖 Meshtastic Direct CLI\n');
+  console.log(' Meshtastic Direct CLI\n');
   console.log(`Port: ${cli.port}\n`);
 
   const rl = readline.createInterface({

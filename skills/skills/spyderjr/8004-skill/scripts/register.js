@@ -78,7 +78,7 @@ async function register() {
 
   // Validate chain
   if (!contractsConfig.chains[options.chain]) {
-    console.error(`❌ Invalid chain: ${options.chain}`);
+    console.error(` Invalid chain: ${options.chain}`);
     console.error(`Available chains: ${Object.keys(contractsConfig.chains).join(', ')}`);
     process.exit(1);
   }
@@ -87,7 +87,7 @@ async function register() {
   
   // Validate network
   if (!chainConfig.networks[options.network]) {
-    console.error(`❌ Invalid network: ${options.network}`);
+    console.error(` Invalid network: ${options.network}`);
     console.error(`Available networks for ${options.chain}: ${Object.keys(chainConfig.networks).join(', ')}`);
     process.exit(1);
   }
@@ -97,14 +97,14 @@ async function register() {
 
   // Check if contracts are deployed
   if (contractAddress === '0x0000000000000000000000000000000000000000') {
-    console.error(`❌ TRC-8004 contracts not yet deployed on ${chainConfig.name} ${networkConfig.name}`);
+    console.error(` TRC-8004 contracts not yet deployed on ${chainConfig.name} ${networkConfig.name}`);
     console.error('   Please check back later or deploy your own contracts');
     process.exit(1);
   }
 
-  console.log(`🔗 Chain: ${chainConfig.name}`);
-  console.log(`🌐 Network: ${networkConfig.name}`);
-  console.log(`📝 Contract: ${contractAddress}`);
+  console.log(` Chain: ${chainConfig.name}`);
+  console.log(` Network: ${networkConfig.name}`);
+  console.log(` Contract: ${contractAddress}`);
   console.log('');
 
   try {
@@ -115,7 +115,7 @@ async function register() {
     const client = await createClient({ ...networkConfig, type: chainConfig.type }, privateKey);
     const walletAddress = client.getAddress();
     
-    console.log(`👛 Wallet: ${walletAddress}`);
+    console.log(` Wallet: ${walletAddress}`);
     console.log('');
 
     // Get ABI
@@ -125,7 +125,7 @@ async function register() {
     const contract = await client.getContract(abi, contractAddress);
 
     // Register agent
-    console.log('📤 Registering agent...');
+    console.log(' Registering agent...');
     
     if (options.uri) {
       console.log(`   URI: ${options.uri}`);
@@ -150,14 +150,14 @@ async function register() {
     }
 
     console.log('');
-    console.log('✅ Registration successful!');
+    console.log(' Registration successful!');
     console.log('');
-    console.log(`📋 Transaction: ${tx}`);
-    console.log(`🔍 View on explorer: ${networkConfig.explorer}/#/transaction/${tx}`);
+    console.log(` Transaction: ${tx}`);
+    console.log(` View on explorer: ${networkConfig.explorer}/#/transaction/${tx}`);
     console.log('');
 
     // Wait for confirmation
-    console.log('⏳ Waiting for confirmation...');
+    console.log(' Waiting for confirmation...');
     await sleep(3000);
 
     console.log('');

@@ -27,7 +27,7 @@ if [ -n "$APPOINTMENTS" ]; then
       # Try to extract time/day info from appointment text
       TIME_INFO=$(echo "$appt" | grep -oE "([0-9]{1,2}:[0-9]{2}|[0-9]{1,2}(am|pm|AM|PM)|tomorrow|today|monday|tuesday|wednesday|thursday|friday|saturday|sunday)" | head -1 || echo "")
       
-      MESSAGE="🗓️ Appointment detected: $appt"
+      MESSAGE=" Appointment detected: $appt"
       
       # Send via telegram
       openclaw cron run -m "Send Telegram alert: $MESSAGE" 2>/dev/null || true

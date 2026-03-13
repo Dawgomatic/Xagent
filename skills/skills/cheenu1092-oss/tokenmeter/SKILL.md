@@ -2,7 +2,7 @@
 name: tokenmeter
 description: "Track AI token usage and costs across providers. Import sessions, view dashboard, costs breakdown, and compare Max plan savings."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📊"}}
+metadata: {"openclaw":{"emoji":""}}
 ---
 
 # tokenmeter - AI Usage & Cost Tracking for OpenClaw
@@ -274,7 +274,7 @@ Total: $954.15
 Without caching, we'd send ~1.2 BILLION tokens as regular input ($3,600+).
 With caching: We only pay $307 for those cache reads.
 
-**Savings: $3,293** from caching alone this month! 🎉
+**Savings: $3,293** from caching alone this month! 
 
 ### Reading the Dashboard
 
@@ -313,7 +313,7 @@ This is why the cost stays low despite huge cache numbers.
 **If tokenmeter shows $800 this month:**
 - API-equivalent cost: $800
 - Max plan cost: $100
-- **Savings: $700** ✅
+- **Savings: $700** 
 
 **If tokenmeter shows $90 this month:**
 - API-equivalent cost: $90
@@ -470,7 +470,7 @@ Anthropic  118.8K   3.8M     3.9M     $1,246.55   12,552
 **Analysis:** 
 - API-equivalent cost: **$1,246.55**
 - Max plan cost: **$100.00**
-- **Savings: $1,146.55** ✅
+- **Savings: $1,146.55** 
 
 Opus usage (59.6% of cost) shows heavy extended-thinking use. Max plan absolutely paid for itself this month!
 
@@ -506,11 +506,11 @@ A: tokenmeter includes cache read/write tokens in its calculations (OpenClaw tra
 ## Changelog
 
 ### 2026-02-06 (v2)
-- ✅ `tokenmeter scan` - Auto-discover session sources
-- ✅ `tokenmeter import --auto` - Import all discovered sessions
-- ✅ Real data example showing $1,146 monthly savings on Max plan
-- ✅ Updated workflows with new commands
-- ✅ Tested on actual OpenClaw + Claude Code sessions
+-  `tokenmeter scan` - Auto-discover session sources
+-  `tokenmeter import --auto` - Import all discovered sessions
+-  Real data example showing $1,146 monthly savings on Max plan
+-  Updated workflows with new commands
+-  Tested on actual OpenClaw + Claude Code sessions
 
 ### 2026-02-06 (v1)
 - Initial skill creation
@@ -519,4 +519,4 @@ A: tokenmeter includes cache read/write tokens in its calculations (OpenClaw tra
 
 ---
 
-*Built to answer the question: "How much is my Max plan really saving me?" 💰*
+*Built to answer the question: "How much is my Max plan really saving me?" *

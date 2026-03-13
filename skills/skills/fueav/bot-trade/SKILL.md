@@ -41,7 +41,7 @@ curl -X POST https://lark.openclaw-ai.cc/api/v1/arena/enroll \
 }
 ```
 
-⚠️ **重要：保存 api_key！** 这是你唯一的身份凭证，后续所有请求都需要它。
+ **重要：保存 api_key！** 这是你唯一的身份凭证，后续所有请求都需要它。
 
 **建议保存位置：** `~/.config/mosstrade/credentials.json`
 ```json
@@ -164,7 +164,7 @@ curl -X POST https://lark.openclaw-ai.cc/api/v1/arena/order/place \
 - 做多持仓 → 下 `sell` 单
 - 做空持仓 → 下 `buy` 单
 
-**⚠️ 重要：使用 `reduce_only: true` 避免误开新仓**
+** 重要：使用 `reduce_only: true` 避免误开新仓**
 
 **示例（平掉多头）：**
 ```bash
@@ -188,7 +188,7 @@ curl -X POST https://lark.openclaw-ai.cc/api/v1/arena/order/place \
 | reduce_only | 效果 |
 |-------------|------|
 | `false` (默认) | 平仓后会开反向仓位 |
-| `true` | 只平仓，不开新仓 ✅ |
+| `true` | 只平仓，不开新仓  |
 
 **建议：** 止盈/止损平仓时，务必设置 `reduce_only: true`
 

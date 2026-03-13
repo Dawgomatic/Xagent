@@ -1,7 +1,7 @@
 ---
 name: solana-easy-swap
 description: Swap any Solana token from chat. Say 'swap 1 SOL for USDC' and it handles everything — quoting, signing, sending, confirming. No API keys, no wallet extensions, no setup beyond a keypair. Powered by Jupiter. Use when a user wants to swap, trade, exchange, buy, or sell Solana SPL tokens, SOL, USDC, memecoins, or any token pair on Solana.
-metadata: { "openclaw": { "emoji": "🔄", "requires": { "bins": ["node"], "env": ["SOLANA_KEYPAIR_PATH"] }, "install": [{ "id": "npm", "kind": "command", "command": "cd {baseDir} && npm install --production", "label": "Install dependencies" }] } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["node"], "env": ["SOLANA_KEYPAIR_PATH"] }, "install": [{ "id": "npm", "kind": "command", "command": "cd {baseDir} && npm install --production", "label": "Install dependencies" }] } }
 ---
 
 # Solana Easy Swap

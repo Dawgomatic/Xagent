@@ -2,7 +2,7 @@
 name: stock-price-checker
 description: Check stock prices using yfinance library. No API key required.
 homepage: https://finance.yahoo.com
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["python3","yfinance"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["python3","yfinance"]}}}
 ---
 
 # Stock Price Checker

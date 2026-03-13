@@ -75,7 +75,7 @@ echo ""
 # Output formatted results
 echo "$RESPONSE" | jq -r --argjson limit "$LIMIT" '
     .points[:$limit][] |
-    "ID: \(.id2)\nName: \(.name)\nType: \(.type)\nArea: \(.area // "Skåne")\nCoordinates: \(.lat), \(.lon)\n\(if .outsideOperatingArea == true then "⚠️  Outside Skåne operating area\n" else "" end)---"
+    "ID: \(.id2)\nName: \(.name)\nType: \(.type)\nArea: \(.area // "Skåne")\nCoordinates: \(.lat), \(.lon)\n\(if .outsideOperatingArea == true then "  Outside Skåne operating area\n" else "" end)---"
 '
 
 # Show if more results available

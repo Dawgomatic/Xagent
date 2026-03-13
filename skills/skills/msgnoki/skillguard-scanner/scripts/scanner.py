@@ -397,23 +397,23 @@ def print_summary(reports: List[SkillReport]):
     print(f"{'='*70}\n")
     reports.sort(key=lambda r: r.risk_score, reverse=True)
     level_emoji = {
-        "CRITICAL": "🔴",
-        "HIGH": "🟠",
-        "MEDIUM": "🟡",
-        "LOW": "🟢",
-        "CLEAN": "✅",
+        "CRITICAL": "",
+        "HIGH": "",
+        "MEDIUM": "",
+        "LOW": "",
+        "CLEAN": "",
     }
     for r in reports:
-        emoji = level_emoji.get(r.risk_level, "❓")
+        emoji = level_emoji.get(r.risk_level, "")
         findings_str = f" — {len(r.findings)} findings" if r.findings else ""
         print(f"  {emoji} {r.name:30s} score={r.risk_score:5.0f}  [{r.risk_level}]{findings_str} (files={r.file_count})")
         if r.risk_level != "CLEAN":
             # one‑liner summary
-            print(f"    📌 {r.name}: {r.risk_level} (score {r.risk_score}) with {len(r.findings)} findings")
+            print(f"     {r.name}: {r.risk_level} (score {r.risk_score}) with {len(r.findings)} findings")
     print(f"\n{'─'*70}")
     flagged = [r for r in reports if r.risk_level != "CLEAN"]
     if flagged:
-        print(f"\n  📋 Details ({len(flagged)} flagged skills):\n")
+        print(f"\n   Details ({len(flagged)} flagged skills):\n")
         for r in flagged:
             print(f"  ┌─ {r.name} [{r.risk_level}, score={r.risk_score}] (files={r.file_count})")
             by_sev = {}
@@ -431,14 +431,14 @@ def print_summary(reports: List[SkillReport]):
                         policy = RISK_POLICY.get(f.check)
                         if policy and f.check not in shown_policies:
                             shown_policies.add(f.check)
-                            print(f"  │    ⚠ WHY: {policy['why']}")
-                            print(f"  │    🛡 ACTION: {policy['action']}")
+                            print(f"  │     WHY: {policy['why']}")
+                            print(f"  │     ACTION: {policy['action']}")
                     remaining = len(by_sev[sev]) - 5
                     if remaining > 0:
                         print(f"  │  ... +{remaining} more {sev}")
             print(f"  └{'─'*50}\n")
     else:
-        print("\n  ✨ All skills clean!\n")
+        print("\n   All skills clean!\n")
     total_findings = sum(len(r.findings) for r in reports)
     by_level = {}
     for r in reports:
@@ -465,7 +465,7 @@ def save_json(reports: List[SkillReport], output: Path):
         "reports": reports_data,
     }
     output.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
-    print(f"  💾 JSON report saved to {output}\n")
+    print(f"   JSON report saved to {output}\n")
 
 # ------------------------------------------------------------
 # Main entry point

@@ -1,4 +1,4 @@
-# 🔌 Programmatic API Reference
+#  Programmatic API Reference
 
 Use OpenClaw Security Guard in your Node.js applications.
 
@@ -375,11 +375,11 @@ import { quickAudit } from 'openclaw-security-guard';
 const results = await quickAudit(process.cwd());
 
 if (results.summary.critical > 0) {
-  console.error(`❌ ${results.summary.critical} critical issues found`);
+  console.error(` ${results.summary.critical} critical issues found`);
   process.exit(1);
 }
 
-console.log(`✅ Security score: ${results.securityScore}/100`);
+console.log(` Security score: ${results.securityScore}/100`);
 ```
 
 ### Webhook Integration
@@ -393,7 +393,7 @@ async function auditAndNotify() {
   if (results.securityScore < 60) {
     // Send alert (implement your notification logic)
     await sendSlackAlert({
-      text: `⚠️ Security score dropped to ${results.securityScore}/100`
+      text: ` Security score dropped to ${results.securityScore}/100`
     });
   }
 }

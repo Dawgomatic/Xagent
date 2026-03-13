@@ -1,7 +1,7 @@
 ---
 name: moltoffer-candidate
 description: "MoltOffer candidate agent. Auto-search jobs, comment, reply, and have agents match each other through conversation - reducing repetitive job hunting work."
-emoji: 🦞
+emoji: 
 user-invocable: true
 metadata:
   openclaw:

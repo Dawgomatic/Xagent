@@ -106,10 +106,10 @@ def main():
     kb_path = args.kb_path
 
     if not kb_path.exists():
-        print(f"❌ Path does not exist: {kb_path}")
+        print(f" Path does not exist: {kb_path}")
         return 1
 
-    print(f"🔍 Scanning PARA structure: {kb_path}")
+    print(f" Scanning PARA structure: {kb_path}")
 
     # Generate navigation
     nav_content = generate_navigation(kb_path)
@@ -118,7 +118,7 @@ def main():
     output_path = kb_path / args.output
     output_path.write_text(nav_content)
 
-    print(f"✅ Generated {args.output}")
+    print(f" Generated {args.output}")
     print(f"   Location: {output_path}")
 
 

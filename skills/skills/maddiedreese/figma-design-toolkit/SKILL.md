@@ -151,16 +151,16 @@ python scripts/export_manager.py dev-handoff "file-key" --include-specs
 
 ### Read-Only Operations
 This skill provides **read-only access** to Figma files through the REST API. It can:
-- ✅ Extract data, components, and styles
-- ✅ Export assets in multiple formats
-- ✅ Analyze and audit design files
-- ✅ Generate comprehensive reports
+-  Extract data, components, and styles
+-  Export assets in multiple formats
+-  Analyze and audit design files
+-  Generate comprehensive reports
 
 ### What It Cannot Do
-- ❌ **Modify existing files** (colors, text, components)
-- ❌ **Create new designs** or components  
-- ❌ **Batch update** multiple files
-- ❌ **Real-time collaboration** features
+-  **Modify existing files** (colors, text, components)
+-  **Create new designs** or components  
+-  **Batch update** multiple files
+-  **Real-time collaboration** features
 
 For file modifications, you would need to develop a **Figma plugin** using the Plugin API.
 

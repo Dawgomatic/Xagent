@@ -8,7 +8,7 @@ intellectual_property:
   license: "proprietary"
   license_key: "required"
   terms_url: "https://unisai.vercel.app/license"
-  copyright: "© 2026 UniAI. All rights reserved."
+  copyright: " 2026 UniAI. All rights reserved."
   distribution: "restricted"
   source_code_access: "no"
   reverse_engineering: "prohibited"
@@ -182,18 +182,18 @@ restrictions:
 
 changelog:
   "1.1.5":
-    - "🚀 Updated to latest 2026 models"
-    - "✨ GPT-5.2 series (Instant, Thinking, Pro)"
-    - "✨ Gemini 3 Pro and 2.5 series"
-    - "✨ Claude 4.5 pricing updates ($1/$5 for Haiku)"
-    - "✨ 10 total models across 3 providers"
-    - "📊 Updated pricing for all models"
+    - " Updated to latest 2026 models"
+    - " GPT-5.2 series (Instant, Thinking, Pro)"
+    - " Gemini 3 Pro and 2.5 series"
+    - " Claude 4.5 pricing updates ($1/$5 for Haiku)"
+    - " 10 total models across 3 providers"
+    - " Updated pricing for all models"
   "1.1.0":
-    - "✨ Multi-provider support (Claude, GPT, Gemini)"
-    - "✨ Support for 9 different models"
-    - "✨ Cross-provider cost comparison"
-    - "✨ Provider-specific optimizations"
-    - "✨ Enhanced recommendations engine"
+    - " Multi-provider support (Claude, GPT, Gemini)"
+    - " Support for 9 different models"
+    - " Cross-provider cost comparison"
+    - " Provider-specific optimizations"
+    - " Enhanced recommendations engine"
   "1.0.0":
     - "Initial release with Claude-only support"
     - "Multi-model testing across Claude variants"

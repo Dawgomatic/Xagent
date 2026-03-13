@@ -155,7 +155,7 @@ and line breaks</pre>
 <!-- /wp:table -->
 ```
 
-**⚠️ COMMON MISTAKES:**
+** COMMON MISTAKES:**
 - Missing `<figure class="wp-block-table">` wrapper → Block fails to render
 - Missing `<thead>` → Table may not style correctly
 - Putting attributes on wrong element
@@ -529,12 +529,12 @@ In block content, escape these HTML special characters:
 WordPress validates blocks on save. Invalid blocks show error: "This block contains unexpected or invalid content."
 
 **Validation checklist:**
-1. ✅ Opening comment matches closing comment exactly
-2. ✅ JSON attributes are valid (no trailing commas, proper quotes)
-3. ✅ HTML structure matches block type requirements
-4. ✅ Required wrapper elements present (figure for tables/images)
-5. ✅ Classes match expected WordPress patterns
-6. ✅ Proper nesting of inner blocks
+1.  Opening comment matches closing comment exactly
+2.  JSON attributes are valid (no trailing commas, proper quotes)
+3.  HTML structure matches block type requirements
+4.  Required wrapper elements present (figure for tables/images)
+5.  Classes match expected WordPress patterns
+6.  Proper nesting of inner blocks
 
 ---
 

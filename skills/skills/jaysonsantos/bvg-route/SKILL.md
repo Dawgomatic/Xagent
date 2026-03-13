@@ -35,8 +35,8 @@ Examples (triggers)
 
 Notes for implementers
 - **IBNR format (CRITICAL):** The `/journeys` endpoint requires **base IBNR codes only** (6 digits), not the full ID with `::` suffixes.
-  - ❌ Wrong: `de:11000:900110001::3` or `de:11000:900110001`
-  - ✅ Correct: `900110001` (extract base 6-digit code from `/stops` results)
+  -  Wrong: `de:11000:900110001::3` or `de:11000:900110001`
+  -  Correct: `900110001` (extract base 6-digit code from `/stops` results)
   - Process: Call `/stops?query=...` first, extract the 6-digit `id` from results, use that for `/journeys`.
 - **URL encoding (CRITICAL):** All query string parameters must be properly URL-encoded using `urllib.parse.quote()` or equivalent. Examples:
   - Space → `%20`

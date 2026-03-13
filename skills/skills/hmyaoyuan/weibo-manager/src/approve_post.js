@@ -30,7 +30,7 @@ publishWeibo(post.content, post.images)
         // Notify user
         const msg = JSON.stringify({
             zh_cn: {
-                title: "发布成功！🚦",
+                title: "发布成功！",
                 content: [[{ tag: "text", text: `已执行审核通过的操作：${post.content}` }]]
             }
         });
@@ -42,7 +42,7 @@ publishWeibo(post.content, post.images)
         // Notify failure
         const msg = JSON.stringify({
             zh_cn: {
-                title: "发布失败 ❌",
+                title: "发布失败 ",
                 content: [[{ tag: "text", text: `审核通过但执行失败：${err.message}` }]]
             }
         });

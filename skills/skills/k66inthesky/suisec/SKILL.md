@@ -2,7 +2,7 @@
 name: suisec
 description: "Sui Secure - Pre-simulate transactions via sui client call --dry-run and sui client ptb --dry-run, compare results against user intent to detect malicious contract behavior. Only execute if intent matches; block otherwise."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛡️","requires":{"bins":["sui","python3"]},"install":[{"kind":"brew","bins":["sui"]}]}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["sui","python3"]},"install":[{"kind":"brew","bins":["sui"]}]}}
 ---
 
 # Sui Secure (/suisec)
@@ -104,13 +104,13 @@ If the automated audit is not available (e.g. `sui client call`), compare dry-ru
 - Display the SuiSec threat table output (Intent vs. Simulated Reality).
 - Clearly list every threat detected:
   ```
-  🛑 SuiSec BLOCKING MALICIOUS TRANSACTION
+   SuiSec BLOCKING MALICIOUS TRANSACTION
 
   Threats detected:
   - [PRICE_MISMATCH] Hidden drain: 0x...deadbeef received 0.1000 SUI
   - [HIJACK] Object 0x7ebf... (UserProfile) diverted to 0x...deadbeef
 
-  ❌ DO NOT SIGN — This transaction will steal your assets.
+   DO NOT SIGN — This transaction will steal your assets.
   ```
 - Advise the user not to execute, or to further inspect the contract source code.
 - Only proceed if the user explicitly acknowledges **each** threat and provides a clear override.

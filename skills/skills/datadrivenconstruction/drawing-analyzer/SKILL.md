@@ -2,7 +2,7 @@
 name: "drawing-analyzer"
 description: "Analyze construction drawings to extract dimensions, annotations, symbols, and metadata. Support quantity takeoff and design review automation."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "📑", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Drawing Analyzer for Construction
 
@@ -408,7 +408,7 @@ class DrawingAnalyzer:
             lines.append("")
             lines.append("## Quality Issues")
             for issue in result.quality_issues:
-                lines.append(f"- ⚠️ {issue}")
+                lines.append(f"-  {issue}")
 
         if result.symbols:
             lines.append("")

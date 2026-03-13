@@ -208,7 +208,7 @@ def setup_config_interactive():
             print("   Authentication failed")
             return
 
-        print("   ✅ Authentication successful!")
+        print("    Authentication successful!")
 
         # Get accounts
         print("\n4. Select Trading Account")
@@ -236,7 +236,7 @@ def setup_config_interactive():
             print("   Invalid choice, try again")
 
         secrets['BROKER_ACCOUNT_ID'] = selected_account
-        print(f"   ✅ Selected account: {selected_account}")
+        print(f"    Selected account: {selected_account}")
 
         # Save access tokens
         tokens = {
@@ -245,7 +245,7 @@ def setup_config_interactive():
         }
         with open('.access_tokens.json', 'w') as f:
             json.dump(tokens, f)
-        print("   ✅ Access tokens saved")
+        print("    Access tokens saved")
 
     except ImportError:
         print("   Broker adapter not available, skipping authentication")
@@ -267,7 +267,7 @@ def setup_config_interactive():
         json.dump(secrets, f, indent=2)
 
     print("\n" + "="*60)
-    print("  ✅ Setup Complete!")
+    print("   Setup Complete!")
     print("="*60)
     print(f"  Environment: {environment}")
     print(f"  Account ID: {secrets['BROKER_ACCOUNT_ID']}")

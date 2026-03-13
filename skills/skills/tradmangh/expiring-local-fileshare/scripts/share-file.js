@@ -26,7 +26,7 @@ if (!filePath || !fs.existsSync(filePath)) {
 
 // Max 24h
 if (validityHours > 24) {
-    console.error('⚠️  Max validity is 24h, capping at 24h');
+    console.error('  Max validity is 24h, capping at 24h');
 }
 const effectiveHours = Math.min(validityHours, 24);
 
@@ -39,7 +39,7 @@ const resolved = fs.realpathSync(filePath);
 const workspaceResolved = fs.realpathSync(WORKSPACE_DIR);
 
 if (!allowAnyPath && !resolved.startsWith(workspaceResolved + path.sep)) {
-    console.error(`❌ Refusing to share file outside workspace: ${resolved}`);
+    console.error(` Refusing to share file outside workspace: ${resolved}`);
     console.error(`   Workspace: ${workspaceResolved}`);
     console.error('   Set FILESHARE_ALLOW_ANY_PATH=1 to override (not recommended).');
     process.exit(2);
@@ -80,7 +80,7 @@ const server = http.createServer((req, res) => {
     if (!isAllowed) {
         res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('Access denied: local-network/VPN only');
-        console.log(`❌ Blocked access from ${clientIpRaw}`);
+        console.log(` Blocked access from ${clientIpRaw}`);
         return;
     }
 
@@ -90,7 +90,7 @@ const server = http.createServer((req, res) => {
     if (url.searchParams.get('token') !== token) {
         res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('Invalid or missing token');
-        console.log(`❌ Invalid token from ${clientIpRaw}`);
+        console.log(` Invalid token from ${clientIpRaw}`);
         return;
     }
 
@@ -98,7 +98,7 @@ const server = http.createServer((req, res) => {
     if (oneTime && consumed) {
         res.writeHead(410, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('Link already used (one-time access)');
-        console.log(`⛔ One-time link already used; blocked ${clientIpRaw}`);
+        console.log(` One-time link already used; blocked ${clientIpRaw}`);
         return;
     }
 
@@ -106,7 +106,7 @@ const server = http.createServer((req, res) => {
     if (Date.now() > expiresAt) {
         res.writeHead(410, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('Link expired');
-        console.log(`⏰ Expired link access from ${clientIpRaw}`);
+        console.log(` Expired link access from ${clientIpRaw}`);
         return;
     }
 
@@ -131,7 +131,7 @@ const server = http.createServer((req, res) => {
         if (oneTime) consumed = true;
     });
 
-    console.log(`✅ Served ${fileName} to ${clientIpRaw}${oneTime ? ' (one-time)' : ''}`);
+    console.log(` Served ${fileName} to ${clientIpRaw}${oneTime ? ' (one-time)' : ''}`);
 });
 
 server.listen(port, '0.0.0.0', () => {
@@ -142,7 +142,7 @@ server.listen(port, '0.0.0.0', () => {
     const shareUrl = `http://${localIp}:${port}/?token=${token}`;
     const expiresIn = Math.round((expiresAt - Date.now()) / 1000 / 60 / 60);
 
-    console.log(`\n📤 File Share Active`);
+    console.log(`\n File Share Active`);
     console.log(`   File: ${fileName} (${(fileSize / 1024).toFixed(1)} KB)`);
     console.log(`   Link: ${shareUrl}`);
     console.log(`   Expires: ${new Date(expiresAt).toISOString()} (in ${expiresIn}h)`);

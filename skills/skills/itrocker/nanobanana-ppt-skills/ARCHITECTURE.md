@@ -1,47 +1,47 @@
 # PPT Generator Pro 架构文档
 
-## 📐 系统架构图
+##  系统架构图
 
 ```mermaid
 graph TB
     %% 用户输入
-    User[👤 用户] -->|文档内容| Input[📝 输入处理]
+    User[ 用户] -->|文档内容| Input[ 输入处理]
     
     %% 输入处理
-    Input --> Plan[📋 内容规划<br/>slides_plan.json]
+    Input --> Plan[ 内容规划<br/>slides_plan.json]
     
     %% 核心模块
-    Plan --> PPTGen[🎨 PPT 图片生成模块<br/>generate_ppt.py]
-    Plan --> VideoGen[🎬 视频生成模块<br/>generate_ppt_video.py]
+    Plan --> PPTGen[ PPT 图片生成模块<br/>generate_ppt.py]
+    Plan --> VideoGen[ 视频生成模块<br/>generate_ppt_video.py]
     
     %% PPT 图片生成流程
-    PPTGen --> StyleLoader[🎨 风格加载器<br/>styles/*.md]
-    StyleLoader --> PromptEngine[✍️ 提示词引擎]
-    PromptEngine --> NanoBanana[🤖 Nano Banana Pro API<br/>Google Gemini]
-    NanoBanana --> Images[🖼️ PPT 图片<br/>slide-01.png ~ slide-N.png]
+    PPTGen --> StyleLoader[ 风格加载器<br/>styles/*.md]
+    StyleLoader --> PromptEngine[ 提示词引擎]
+    PromptEngine --> NanoBanana[ Nano Banana Pro API<br/>Google Gemini]
+    NanoBanana --> Images[ PPT 图片<br/>slide-01.png ~ slide-N.png]
     
     %% 视频生成流程
-    VideoGen --> TransPrompt[📝 转场提示词生成器<br/>transition_prompt_generator.py]
-    TransPrompt --> KlingAPI[🎬 可灵 AI API<br/>kling_api.py]
-    KlingAPI --> PreviewVideo[🔄 预览视频<br/>preview.mp4]
-    KlingAPI --> TransVideos[🎞️ 转场视频<br/>transition_01_to_02.mp4]
+    VideoGen --> TransPrompt[ 转场提示词生成器<br/>transition_prompt_generator.py]
+    TransPrompt --> KlingAPI[ 可灵 AI API<br/>kling_api.py]
+    KlingAPI --> PreviewVideo[ 预览视频<br/>preview.mp4]
+    KlingAPI --> TransVideos[ 转场视频<br/>transition_01_to_02.mp4]
     
     %% 视频合成
-    Images --> VideoMat[📦 视频素材管理<br/>video_materials.py]
+    Images --> VideoMat[ 视频素材管理<br/>video_materials.py]
     PreviewVideo --> VideoMat
     TransVideos --> VideoMat
     
-    VideoMat --> Composer[🎬 FFmpeg 视频合成器<br/>video_composer.py]
-    Composer --> FullVideo[🎥 完整视频<br/>full_ppt_video.mp4]
+    VideoMat --> Composer[ FFmpeg 视频合成器<br/>video_composer.py]
+    Composer --> FullVideo[ 完整视频<br/>full_ppt_video.mp4]
     
     %% 播放器生成
-    Images --> ImgPlayer[🎮 图片播放器<br/>templates/viewer.html]
-    VideoMat --> VidPlayer[🎮 视频播放器<br/>templates/video_viewer.html]
+    Images --> ImgPlayer[ 图片播放器<br/>templates/viewer.html]
+    VideoMat --> VidPlayer[ 视频播放器<br/>templates/video_viewer.html]
     
     %% 输出
-    ImgPlayer --> Output1[📤 输出 1: 图片版<br/>index.html + images/]
-    VidPlayer --> Output2[📤 输出 2: 视频版<br/>video_index.html + videos/]
-    FullVideo --> Output3[📤 输出 3: 完整视频<br/>full_ppt_video.mp4]
+    ImgPlayer --> Output1[ 输出 1: 图片版<br/>index.html + images/]
+    VidPlayer --> Output2[ 输出 2: 视频版<br/>video_index.html + videos/]
+    FullVideo --> Output3[ 输出 3: 完整视频<br/>full_ppt_video.mp4]
     
     Output1 --> User
     Output2 --> User
@@ -61,9 +61,9 @@ graph TB
     class Images,PreviewVideo,TransVideos,FullVideo,ImgPlayer,VidPlayer,Output1,Output2,Output3 outputNode
 ```
 
-## 🏗️ 模块架构
+##  模块架构
 
-### 1️⃣ 核心生成模块
+###  核心生成模块
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -89,12 +89,12 @@ graph TB
 │  └────────────────────┘        └──────────────────────┘    │
 │           │                              │                  │
 │           ▼                              ▼                  │
-│    🖼️ PPT 图片                    🎬 转场视频               │
+│     PPT 图片                     转场视频               │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 2️⃣ 视频合成模块
+###  视频合成模块
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -102,9 +102,9 @@ graph TB
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  输入素材:                                                   │
-│  ├── 📷 PPT 图片 (slide-01.png ~ slide-N.png)              │
-│  ├── 🔄 预览视频 (preview.mp4)                              │
-│  └── 🎞️ 转场视频 (transition_XX_to_YY.mp4)                 │
+│  ├──  PPT 图片 (slide-01.png ~ slide-N.png)              │
+│  ├──  预览视频 (preview.mp4)                              │
+│  └──  转场视频 (transition_XX_to_YY.mp4)                 │
 │                                                              │
 │  ┌────────────────────────────────────────────────┐         │
 │  │     video_materials.py - 素材管理             │         │
@@ -134,12 +134,12 @@ graph TB
 │  └────────────────────────────────────────────────┘         │
 │                       │                                      │
 │                       ▼                                      │
-│              🎥 full_ppt_video.mp4                          │
+│               full_ppt_video.mp4                          │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 3️⃣ 播放器系统
+###  播放器系统
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -160,40 +160,40 @@ graph TB
 │  └───────────────────────┘    └────────────────────────┘   │
 │           │                              │                  │
 │           ▼                              ▼                  │
-│   📁 outputs/TIMESTAMP/        📁 outputs/TIMESTAMP_video/  │
+│    outputs/TIMESTAMP/         outputs/TIMESTAMP_video/  │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 🔄 数据流图
+##  数据流图
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                         完整工作流                                │
 └──────────────────────────────────────────────────────────────────┘
 
-1️⃣ 内容输入阶段
+ 内容输入阶段
    用户文档 → Claude 分析 → slides_plan.json
    
-2️⃣ 图片生成阶段
+ 图片生成阶段
    slides_plan.json → 风格提示词 → Nano Banana Pro → PPT 图片
    
-3️⃣ 视频生成阶段 (可选)
+ 视频生成阶段 (可选)
    PPT 图片 → 转场提示词 → 可灵 AI → 转场视频
    
-4️⃣ 播放器生成阶段
+ 播放器生成阶段
    素材集合 → HTML 模板 → 交互式播放器
    
-5️⃣ 完整视频合成阶段 (可选)
+ 完整视频合成阶段 (可选)
    所有素材 → FFmpeg → 完整视频文件
 ```
 
-## 📦 文件组织结构
+##  文件组织结构
 
 ```
 ppt-generator-pro/
 │
-├── 🎯 核心脚本
+├──  核心脚本
 │   ├── generate_ppt.py              # PPT 图片生成主程序
 │   ├── generate_ppt_video.py        # 视频生成主程序
 │   ├── kling_api.py                 # 可灵 AI API 封装
@@ -201,25 +201,25 @@ ppt-generator-pro/
 │   ├── video_materials.py           # 素材管理
 │   └── transition_prompt_generator.py # 转场提示词生成
 │
-├── 🎨 风格系统
+├──  风格系统
 │   └── styles/
 │       ├── gradient-glass.md        # 渐变毛玻璃风格
 │       └── vector-illustration.md   # 矢量插画风格
 │
-├── 🎮 播放器模板
+├──  播放器模板
 │   └── templates/
 │       ├── viewer.html              # 图片播放器
 │       └── video_viewer.html        # 视频播放器
 │
-├── 📝 提示词模板
+├──  提示词模板
 │   └── prompts/
 │       └── transition_base.md       # 转场提示词基础
 │
-├── ⚙️ 配置文件
+├──  配置文件
 │   ├── .env                         # API 密钥配置
 │   └── .env.example                 # 配置模板
 │
-└── 📤 输出目录
+└──  输出目录
     └── outputs/
         ├── TIMESTAMP/               # 图片版本
         │   ├── images/             # PPT 图片
@@ -231,7 +231,7 @@ ppt-generator-pro/
             └── full_ppt_video.mp4  # 完整视频
 ```
 
-## 🔌 API 集成架构
+##  API 集成架构
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -266,7 +266,7 @@ ppt-generator-pro/
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 🎬 视频播放器交互流程
+##  视频播放器交互流程
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -275,14 +275,14 @@ ppt-generator-pro/
 │                                                              │
 │      ┌──────────────────────────────────┐                  │
 │      │      初始状态: 预览模式          │                  │
-│      │   🔄 播放 preview.mp4 (循环)    │                  │
+│      │    播放 preview.mp4 (循环)    │                  │
 │      └──────────────────────────────────┘                  │
 │                     │                                        │
 │                     │ 用户按右键 →                          │
 │                     ▼                                        │
 │      ┌──────────────────────────────────┐                  │
 │      │      转场状态 (01→02)            │                  │
-│      │   🎞️ 播放 transition_01_to_02   │                  │
+│      │    播放 transition_01_to_02   │                  │
 │      │      isTransitioning = true      │                  │
 │      └──────────────────────────────────┘                  │
 │                     │                                        │
@@ -290,7 +290,7 @@ ppt-generator-pro/
 │                     ▼                                        │
 │      ┌──────────────────────────────────┐                  │
 │      │      静态页面状态 (页面2)        │                  │
-│      │   🖼️ 显示 slide-02.png          │                  │
+│      │    显示 slide-02.png          │                  │
 │      │      currentSlide = 1            │                  │
 │      │      isPreviewMode = false       │                  │
 │      └──────────────────────────────────┘                  │
@@ -299,14 +299,14 @@ ppt-generator-pro/
 │                     ▼                                        │
 │      ┌──────────────────────────────────┐                  │
 │      │      转场状态 (02→03)            │                  │
-│      │   🎞️ 播放 transition_02_to_03   │                  │
+│      │    播放 transition_02_to_03   │                  │
 │      └──────────────────────────────────┘                  │
 │                     │                                        │
 │                     │ 视频结束 →                            │
 │                     ▼                                        │
 │      ┌──────────────────────────────────┐                  │
 │      │      静态页面状态 (页面3)        │                  │
-│      │   🖼️ 显示 slide-03.png          │                  │
+│      │    显示 slide-03.png          │                  │
 │      └──────────────────────────────────┘                  │
 │                     │                                        │
 │                     │ 循环继续...                           │
@@ -320,7 +320,7 @@ ppt-generator-pro/
 • currentSlide: 当前幻灯片索引
 ```
 
-## 🛠️ 技术栈
+##  技术栈
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -347,7 +347,7 @@ ppt-generator-pro/
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 📊 性能指标
+##  性能指标
 
 ```
 生成速度:
@@ -368,33 +368,33 @@ ppt-generator-pro/
 
 ---
 
-## 🎯 使用流程总结
+##  使用流程总结
 
 ### 基础流程（仅图片）
 ```
-用户文档 → 内容规划 → 生成图片 → 图片播放器 → ✅
+用户文档 → 内容规划 → 生成图片 → 图片播放器 → 
 ```
 
 ### 完整流程（图片 + 视频）
 ```
 用户文档 → 内容规划 → 生成图片 → 生成转场视频 
-         → 视频播放器 + 完整视频 → ✅
+         → 视频播放器 + 完整视频 → 
 ```
 
 ### 快速流程（使用完整视频）
 ```
 用户文档 → 内容规划 → 生成图片 → 生成视频 
-         → 导出 MP4 → 直接分享 → ✅
+         → 导出 MP4 → 直接分享 → 
 ```
 
 ---
 
 <div align="center">
 
-**🏗️ 架构设计原则**
+** 架构设计原则**
 
 模块化 • 可扩展 • 高内聚低耦合 • API 驱动
 
-Made with ❤️ by 歸藏
+Made with  by 歸藏
 
 </div>

@@ -202,7 +202,7 @@ class URController(BaseArmController):
                 )
             
             self.is_connected = True
-            logger.info(f"✅ Connected to UR robot ({self.config.ros_version})")
+            logger.info(f" Connected to UR robot ({self.config.ros_version})")
             return True
             
         except Exception as e:
@@ -276,7 +276,7 @@ class URController(BaseArmController):
     
     async def stop(self):
         """Emergency stop"""
-        logger.warning("🛑 UR EMERGENCY STOP")
+        logger.warning(" UR EMERGENCY STOP")
         self.state = ArmState.PROTECTIVE_STOP
     
     def _on_joint_state(self, msg):
@@ -298,7 +298,7 @@ class XArmController(BaseArmController):
     
     async def connect(self) -> bool:
         """Connect to xArm"""
-        logger.info("✅ Connected to xArm")
+        logger.info(" Connected to xArm")
         self.is_connected = True
         return True
     
@@ -327,7 +327,7 @@ class XArmController(BaseArmController):
         return True
     
     async def stop(self):
-        logger.warning("🛑 xArm EMERGENCY STOP")
+        logger.warning(" xArm EMERGENCY STOP")
 
 
 class ArmRobotPlugin:
@@ -356,7 +356,7 @@ class ArmRobotPlugin:
         """Initialize plugin"""
         success = await self.controller.connect()
         if success:
-            logger.info(f"🦾 Arm robot plugin initialized: {self.arm_type.value}")
+            logger.info(f" Arm robot plugin initialized: {self.arm_type.value}")
         return success
     
     async def shutdown(self):

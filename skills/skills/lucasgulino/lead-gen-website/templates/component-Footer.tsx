@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© {currentYear} {{SITE_NAME}}. Tous droits réservés.</p>
+          <p> {currentYear} {{SITE_NAME}}. Tous droits réservés.</p>
           <div className="flex gap-6">
             <Link href="/mentions-legales"><a className="hover:text-foreground">Mentions légales</a></Link>
             <Link href="/politique-confidentialite"><a className="hover:text-foreground">Confidentialité</a></Link>

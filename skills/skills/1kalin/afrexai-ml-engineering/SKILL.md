@@ -32,12 +32,12 @@ problem_brief:
 
 | Signal | Use Rules | Use ML |
 |--------|-----------|--------|
-| Logic is explainable in <10 rules | ✅ | ❌ |
-| Pattern is too complex for humans | ❌ | ✅ |
-| Training data >1,000 labeled examples | — | ✅ |
-| Needs to adapt to new patterns | ❌ | ✅ |
-| Must be 100% auditable/deterministic | ✅ | ❌ |
-| Pattern changes faster than you can update rules | ❌ | ✅ |
+| Logic is explainable in <10 rules |  |  |
+| Pattern is too complex for humans |  |  |
+| Training data >1,000 labeled examples | — |  |
+| Needs to adapt to new patterns |  |  |
+| Must be 100% auditable/deterministic |  |  |
+| Pattern changes faster than you can update rules |  |  |
 
 **Rule of thumb:** Start with rules/heuristics. Only add ML when rules fail to capture the pattern.
 

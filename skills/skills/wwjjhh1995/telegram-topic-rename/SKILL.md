@@ -38,7 +38,7 @@ Extract from session context:
 scripts/rename-topic.sh <chat_id> <thread_id> "新名称"
 
 # Rename + change icon (emoji shortcut) / 改名 + 换图标（emoji 快捷方式）
-scripts/rename-topic.sh <chat_id> <thread_id> "新名称" 🤖
+scripts/rename-topic.sh <chat_id> <thread_id> "新名称" 
 
 # Rename + change icon (full ID) / 改名 + 换图标（完整 ID）
 scripts/rename-topic.sh <chat_id> <thread_id> "新名称" 5309832892262654231
@@ -57,16 +57,16 @@ scripts/rename-topic.sh --icons
 
 | Theme / 主题 | Icon |
 |-------------|------|
-| AI / 机器人 | 🤖 |
-| Code / 编程 | 💻 |
-| Science / 科学 | 🔬 |
-| Work / 工作 | 💼 |
-| Notes / 笔记 | 📝 |
-| Chat / 闲聊 | 💬 |
-| Games / 游戏 | 🎮 |
-| Music / 音乐 | 🎵 |
-| Ideas / 想法 | 💡 |
-| Fire / 热门 | 🔥 |
+| AI / 机器人 |  |
+| Code / 编程 |  |
+| Science / 科学 |  |
+| Work / 工作 |  |
+| Notes / 笔记 |  |
+| Chat / 闲聊 |  |
+| Games / 游戏 |  |
+| Music / 音乐 |  |
+| Ideas / 想法 |  |
+| Fire / 热门 |  |
 
 Full list: See [references/icons.md](references/icons.md)
 

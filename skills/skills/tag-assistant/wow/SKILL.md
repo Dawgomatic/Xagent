@@ -3,7 +3,7 @@ name: wow
 description: "Look up World of Warcraft characters — M+ scores, best runs, raid progression, gear, and more. Uses Raider.io (free), with optional Blizzard API and Warcraft Logs integration for armory data and raid parses."
 metadata:
   openclaw:
-    emoji: "⚔️"
+    emoji: ""
     requires:
       bins: ["curl", "jq"]
       env_optional: ["BLIZZARD_CLIENT_ID", "BLIZZARD_CLIENT_SECRET", "WCL_CLIENT_ID", "WCL_CLIENT_SECRET"]
@@ -93,11 +93,11 @@ wow raids           # List current raids and boss counts
 ## API Sources
 
 ### Raider.io (Active — No Auth Required)
-- ✅ Character profiles, M+ scores, best/recent runs
-- ✅ Raid progression summary
-- ✅ Current affixes
-- ✅ Top M+ runs / rankings
-- ✅ Gear / item level
+-  Character profiles, M+ scores, best/recent runs
+-  Raid progression summary
+-  Current affixes
+-  Top M+ runs / rankings
+-  Gear / item level
 - Free, no rate limit issues for normal use
 
 ### Blizzard API (Optional — OAuth2 Required)

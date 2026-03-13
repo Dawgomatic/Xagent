@@ -6,12 +6,12 @@ author: clawpay
 homepage: https://clawpay.dev
 tags: [privacy, payments, railgun, usdt, agents, tips]
 metadata:
-  emoji: 🦞
+  emoji: 
   category: payments
   api_base: https://clawpay.dev
 ---
 
-# ClawPay 🦞
+# ClawPay 
 
 **Send money privately. Recipient sees funds from Railgun - can't trace back to you.**
 

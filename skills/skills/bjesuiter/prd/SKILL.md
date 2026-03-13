@@ -4,7 +4,7 @@ description: Create and manage Product Requirements Documents (PRDs). Use when: 
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 metadata:
   clawdbot:
-    emoji: "📋"
+    emoji: ""
     os: ["darwin", "linux"]
 ---
 
@@ -71,13 +71,13 @@ A **PRD (Product Requirements Document)** is a structured specification that:
 
 **Each story should be completable in one context window.**
 
-### ✅ Right-sized:
+###  Right-sized:
 - Add a database column and migration
 - Add a UI component to an existing page
 - Update a server action with new logic
 - Add a filter dropdown to a list
 
-### ❌ Too large (split these):
+###  Too large (split these):
 - "Build the entire dashboard" → Split into: schema, queries, UI, filters
 - "Add authentication" → Split into: schema, middleware, login UI, session
 
@@ -95,12 +95,12 @@ Stories execute in priority order. Earlier stories must NOT depend on later ones
 
 Must be verifiable, not vague.
 
-### ✅ Good:
+###  Good:
 - "Add `status` column to tasks table with default 'pending'"
 - "Filter dropdown has options: All, Active, Completed"
 - "Typecheck passes"
 
-### ❌ Bad:
+###  Bad:
 - "Works correctly"
 - "User can do X easily"
 

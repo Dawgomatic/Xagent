@@ -27,7 +27,7 @@ Optimize resumes to pass Applicant Tracking System (ATS) screening while remaini
 
 ## ATS-Friendly Formatting
 
-### Do This ✅
+### Do This 
 - Standard section headings: "Work Experience," "Education," "Skills"
 - Left-aligned text
 - Simple, single-column layout
@@ -38,7 +38,7 @@ Optimize resumes to pass Applicant Tracking System (ATS) screening while remaini
 - Standard margins (0.5-1 inch)
 - PDF format with selectable text
 
-### Avoid This ❌
+### Avoid This 
 - Multiple columns
 - Text boxes
 - Tables for layout
@@ -172,7 +172,7 @@ City, State | Phone | Email | LinkedIn URL
 
 **Avoid:**
 - Contact info in header/footer
-- Icons instead of text (📧, 📱)
+- Icons instead of text (, )
 - Hyperlinked text without showing URL
 
 ---
@@ -271,6 +271,6 @@ Before submitting, verify:
 Pass ATS screening while creating a resume that impresses human recruiters. Well-optimized resumes serve both audiences.
 
 **Final Check:**
-- ✅ Can ATS parse it?
-- ✅ Would a human enjoy reading it?
-- ✅ Does it showcase qualifications compellingly?
+-  Can ATS parse it?
+-  Would a human enjoy reading it?
+-  Does it showcase qualifications compellingly?

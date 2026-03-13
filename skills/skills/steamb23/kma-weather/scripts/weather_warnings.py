@@ -71,11 +71,11 @@ def format_warning_status(data: Dict) -> str:
     elif isinstance(items, list):
         item = items[0]
     else:
-        return "✅ 현재 발효 중인 기상특보가 없습니다."
+        return " 현재 발효 중인 기상특보가 없습니다."
 
     # Build output
     output = []
-    output.append("🚨 기상특보 현황")
+    output.append(" 기상특보 현황")
 
     # Issue time
     if "tmFc" in item:
@@ -93,7 +93,7 @@ def format_warning_status(data: Dict) -> str:
 
     # Current warnings (t6)
     if "t6" in item and item["t6"]:
-        output.append("📍 현재 발효 중인 특보")
+        output.append(" 현재 발효 중인 특보")
         t6_content = item["t6"].strip()
         if t6_content and t6_content != "o 없음":
             # Parse and format t6 content
@@ -103,12 +103,12 @@ def format_warning_status(data: Dict) -> str:
                 if line and line != "없음":
                     output.append(f"  • {line}")
         else:
-            output.append("  ✅ 없음")
+            output.append("   없음")
         output.append("")
 
     # Preliminary warnings (t7)
     if "t7" in item and item["t7"]:
-        output.append("⚠️  예비특보")
+        output.append("  예비특보")
         t7_content = item["t7"].strip()
         if t7_content and t7_content != "o 없음":
             # Parse and format t7 content
@@ -118,14 +118,14 @@ def format_warning_status(data: Dict) -> str:
                 if line and line != "없음":
                     output.append(f"  • {line}")
         else:
-            output.append("  ✅ 없음")
+            output.append("   없음")
         output.append("")
 
     # Other info
     if "other" in item and item["other"]:
         other_content = item["other"].strip()
         if other_content and other_content != "o 없음":
-            output.append("ℹ️  기타")
+            output.append("  기타")
             lines = other_content.split("o ")
             for line in lines:
                 line = line.strip()

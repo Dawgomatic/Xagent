@@ -2,7 +2,7 @@
 
 > Comprehensive guide to working in tech in Dubai: salaries, companies, startup ecosystem, and remote work options.
 
-## 📊 Tech Salaries in Dubai (2025)
+##  Tech Salaries in Dubai (2025)
 
 ### Software Engineering
 
@@ -61,7 +61,7 @@ From industry sources:
 
 ---
 
-## 🏢 Major Tech Companies in Dubai
+##  Major Tech Companies in Dubai
 
 ### Global Tech Giants
 
@@ -110,7 +110,7 @@ Dubai has become a global crypto hub with regulatory clarity:
 
 ---
 
-## 🚀 Dubai Startup Ecosystem
+##  Dubai Startup Ecosystem
 
 ### Key Statistics (2025-2026)
 
@@ -154,7 +154,7 @@ Dubai has become a global crypto hub with regulatory clarity:
 
 ---
 
-## 💻 Remote Work Options
+##  Remote Work Options
 
 ### Digital Nomad Visa (Virtual Working Programme)
 
@@ -205,7 +205,7 @@ For those wanting to work with UAE clients:
 
 ---
 
-## 🤝 Networking & Community
+##  Networking & Community
 
 ### Major Tech Events
 
@@ -243,7 +243,7 @@ For those wanting to work with UAE clients:
 
 ---
 
-## 📈 Comparison: Dubai vs Singapore vs London
+##  Comparison: Dubai vs Singapore vs London
 
 ### Tech Salaries (Senior Engineer)
 
@@ -269,14 +269,14 @@ For those wanting to work with UAE clients:
 
 ### When to Choose Dubai
 
-✅ **Choose Dubai if:**
+ **Choose Dubai if:**
 - Tax efficiency is priority
 - Crypto/Web3/Fintech focus
 - Middle East/Africa market access
 - Remote work for foreign company
 - Lifestyle + weather priority
 
-❌ **Consider elsewhere if:**
+ **Consider elsewhere if:**
 - Deep tech/R&D focus
 - Need strong VC ecosystem
 - Prefer mature startup community
@@ -284,7 +284,7 @@ For those wanting to work with UAE clients:
 
 ---
 
-## 🔑 Key Takeaways
+##  Key Takeaways
 
 1. **Salaries are competitive** but vary widely; negotiate based on total compensation
 2. **0% personal income tax** makes effective compensation higher than headline

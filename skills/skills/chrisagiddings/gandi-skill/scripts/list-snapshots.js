@@ -10,7 +10,7 @@ import { listSnapshots, sanitizeDomain } from './gandi-api.js';
 const [,, rawDomain] = process.argv;
 
 if (!rawDomain) {
-  console.error('❌ Usage: node list-snapshots.js <domain>');
+  console.error(' Usage: node list-snapshots.js <domain>');
   console.error('');
   console.error('Example:');
   console.error('  node list-snapshots.js example.com');
@@ -22,21 +22,21 @@ let domain;
 try {
   domain = sanitizeDomain(rawDomain);
 } catch (error) {
-  console.error(`❌ Invalid domain: ${error.message}`);
+  console.error(` Invalid domain: ${error.message}`);
   process.exit(1);
 }
 
 async function main() {
   try {
-    console.log(`📸 Fetching snapshots for ${domain}...`);
+    console.log(` Fetching snapshots for ${domain}...`);
     console.log('');
     
     const snapshots = await listSnapshots(domain);
     
     if (!snapshots || snapshots.length === 0) {
-      console.log('ℹ️  No snapshots found for this domain.');
+      console.log('  No snapshots found for this domain.');
       console.log('');
-      console.log('💡 Create a snapshot with:');
+      console.log(' Create a snapshot with:');
       console.log(`   node create-snapshot.js ${domain} "Snapshot name"`);
       return;
     }
@@ -54,11 +54,11 @@ async function main() {
       console.log('');
     });
     
-    console.log('💡 To restore a snapshot:');
+    console.log(' To restore a snapshot:');
     console.log(`   node restore-snapshot.js ${domain} <snapshot-id>`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('   Authentication failed. Check your API token.');

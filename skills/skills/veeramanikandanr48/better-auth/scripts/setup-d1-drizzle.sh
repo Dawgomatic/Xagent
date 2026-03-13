@@ -56,7 +56,7 @@ echo -e "${YELLOW}[2/8]${NC} Creating D1 database..."
 wrangler d1 create $DB_NAME
 
 echo -e "${GREEN}✓${NC} Database created!"
-echo -e "${YELLOW}⚠${NC}  Copy the database_id from the output above and update wrangler.toml"
+echo -e "${YELLOW}${NC}  Copy the database_id from the output above and update wrangler.toml"
 echo ""
 read -p "Press Enter after updating wrangler.toml..."
 
@@ -164,7 +164,7 @@ EOF
 
 echo -e "${GREEN}✓${NC} Config created"
 echo ""
-echo -e "${YELLOW}⚠${NC}  Create a .env file with:"
+echo -e "${YELLOW}${NC}  Create a .env file with:"
 echo "  CLOUDFLARE_ACCOUNT_ID=your-account-id"
 echo "  CLOUDFLARE_DATABASE_ID=your-database-id"
 echo "  CLOUDFLARE_TOKEN=your-api-token"
@@ -217,5 +217,5 @@ echo ""
 echo "3. Deploy:"
 echo "   wrangler deploy"
 echo ""
-echo -e "${YELLOW}⚠ IMPORTANT:${NC} Update your wrangler.toml with the database_id from Step 2"
+echo -e "${YELLOW} IMPORTANT:${NC} Update your wrangler.toml with the database_id from Step 2"
 echo ""

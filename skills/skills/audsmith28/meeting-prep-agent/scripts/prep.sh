@@ -115,9 +115,9 @@ log "Found ${#ATTENDEES[@]} attendees from ${#UNIQUE_COMPANIES[@]} companies."
 
 # --- GENERATE BRIEF ---
 BRIEF_CONTENT=""
-BRIEF_CONTENT+="# 🎯 Meeting Brief: $MEETING_TITLE\n"
+BRIEF_CONTENT+="#  Meeting Brief: $MEETING_TITLE\n"
 BRIEF_CONTENT+="**When:** $(date -R -d "$MEETING_TIME")\n\n"
-BRIEF_CONTENT+="## 👥 Attendees\n\n"
+BRIEF_CONTENT+="##  Attendees\n\n"
 
 for attendee_data in "${ATTENDEES[@]}"; do
   IFS='|' read -r email name <<< "$attendee_data"
@@ -125,7 +125,7 @@ for attendee_data in "${ATTENDEES[@]}"; do
   BRIEF_CONTENT+="\n\n"
 done
 
-BRIEF_CONTENT+="## 🏢 Company Context\n\n"
+BRIEF_CONTENT+="##  Company Context\n\n"
 for company_domain in "${UNIQUE_COMPANIES[@]}"; do
   BRIEF_CONTENT+=$(research_company "$company_domain")
   BRIEF_CONTENT+="\n\n"

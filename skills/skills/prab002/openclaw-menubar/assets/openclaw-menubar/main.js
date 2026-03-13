@@ -145,7 +145,7 @@ function setupWebchatView() {
     console.error('Failed to load webchat:', err);
     // Show error in main window
     mb.window.webContents.executeJavaScript(`
-      document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;color:#e0e0e0;font-family:sans-serif;text-align:center;padding:40px;"><div style="font-size:64px;margin-bottom:20px;">⚠️</div><div style="font-size:18px;font-weight:600;margin-bottom:12px;">OpenClaw Not Running</div><div style="font-size:14px;color:#888;margin-bottom:24px;">Start OpenClaw Gateway to use the menu bar app.</div><button onclick="location.reload()" style="background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:8px;padding:12px 24px;color:white;font-weight:600;cursor:pointer;">Retry</button></div>';
+      document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;color:#e0e0e0;font-family:sans-serif;text-align:center;padding:40px;"><div style="font-size:64px;margin-bottom:20px;"></div><div style="font-size:18px;font-weight:600;margin-bottom:12px;">OpenClaw Not Running</div><div style="font-size:14px;color:#888;margin-bottom:24px;">Start OpenClaw Gateway to use the menu bar app.</div><button onclick="location.reload()" style="background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:8px;padding:12px 24px;color:white;font-weight:600;cursor:pointer;">Retry</button></div>';
     `);
   });
   

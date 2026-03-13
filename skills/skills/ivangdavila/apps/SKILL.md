@@ -3,7 +3,7 @@ name: Apps
 slug: apps
 version: 1.0.0
 description: Find, compare, and organize mobile apps with personalized recommendations and preference tracking.
-metadata: {"clawdbot":{"emoji":"📱","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

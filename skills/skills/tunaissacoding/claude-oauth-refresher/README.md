@@ -8,7 +8,7 @@ Automatically refreshes your Claude tokens before they expire. No more authentic
 
 ---
 
-## ⚡ What It Does
+##  What It Does
 
 **Your tokens stay fresh automatically.**
 
@@ -22,7 +22,7 @@ Zero manual intervention needed.
 
 ---
 
-## 🛠️ Getting Ready
+##  Getting Ready
 
 Before installing this skill:
 
@@ -69,7 +69,7 @@ No manual configuration needed - it handles duplicates and incomplete entries au
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 **After completing prerequisites above:**
 
@@ -88,14 +88,14 @@ cd ~/clawd/skills/claude-oauth-refresher
 
 **Expected output:**
 ```
-✅ Token still valid (475 minutes remaining)
+ Token still valid (475 minutes remaining)
 Use --force to refresh anyway
 ```
 
 **This is good!** It means:
-- ✅ Found your tokens in Keychain
-- ✅ Your Claude account is connected
-- ✅ Automatic refresh is set up
+-  Found your tokens in Keychain
+-  Your Claude account is connected
+-  Automatic refresh is set up
 
 The script will refresh your token automatically 30 minutes before it expires. You don't need to run it again manually.
 
@@ -142,7 +142,7 @@ The installation:
 
 ---
 
-## 🔧 How It Works
+##  How It Works
 
 **Result:** Your tokens stay fresh without you thinking about it.
 
@@ -167,13 +167,13 @@ Output:
 [17:48:16] New expiry: 2026-01-24 01:48:16 (8 hours)
 [17:48:16] ✓ Auth file updated
 [17:48:16] ✓ Keychain updated
-✅ Token refreshed successfully!
+ Token refreshed successfully!
 ```
 
 ---
 ---
 
-# 📚 Additional Information
+#  Additional Information
 
 **Everything below is optional.** The skill works out-of-the-box for most users.
 

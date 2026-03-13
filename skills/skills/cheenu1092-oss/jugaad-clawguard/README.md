@@ -18,12 +18,12 @@
 
 ClawGuard protects AI agents from:
 
-- ✅ **Malicious Skills** - ClawHavoc campaign (341 malicious skills, 12% of ClawHub), trojaned packages
-- ✅ **Payment Scams** - x402 Bitcoin scams, wallet drainers, fake crypto services  
-- ✅ **Social Engineering** - Nigerian prince, fake tech support, impersonation
-- ✅ **Prompt Injection** - Direct, indirect, and encoded attempts to override instructions
-- ✅ **Dangerous Infrastructure** - C2 domains, phishing sites, malware distribution
-- ✅ **Insecure MCP Configurations** - Secret exposure, command injection, transport vulnerabilities
+-  **Malicious Skills** - ClawHavoc campaign (341 malicious skills, 12% of ClawHub), trojaned packages
+-  **Payment Scams** - x402 Bitcoin scams, wallet drainers, fake crypto services  
+-  **Social Engineering** - Nigerian prince, fake tech support, impersonation
+-  **Prompt Injection** - Direct, indirect, and encoded attempts to override instructions
+-  **Dangerous Infrastructure** - C2 domains, phishing sites, malware distribution
+-  **Insecure MCP Configurations** - Secret exposure, command injection, transport vulnerabilities
 
 Think of it as **CVE for AI agents** + **VirusTotal for skills** + **Spam database for scams**.
 
@@ -157,32 +157,32 @@ clawguard mcp-scan --quiet
 
 ```
 ┌─────────────────────────────────────────────────┐
-│         🔍 ClawGuard MCP Security Scanner       │
+│          ClawGuard MCP Security Scanner       │
 │      Powered by ClawGuard Threat Intelligence   │
 └─────────────────────────────────────────────────┘
 
-📋 Scan Summary
+ Scan Summary
    Configs scanned: 3
      → /Users/user/.claude.json
      → /Users/user/Library/Application Support/Claude/claude_desktop_config.json
      → /Users/user/.cursor/mcp.json
    Servers found:   5
-     🔌 filesystem (stdio)
-     🌐 weather-api (sse)
-     🔌 shell-access (stdio)
+      filesystem (stdio)
+      weather-api (sse)
+      shell-access (stdio)
 
-⚠️  Findings (4 issues)
-   🔴 CRITICAL    2  ██
-   🟠 HIGH        1  █
-   🟡 MEDIUM      1  █
+  Findings (4 issues)
+    CRITICAL    2  ██
+    HIGH        1  █
+    MEDIUM      1  █
 
-🛡️  Security Score: 25/100
+  Security Score: 25/100
 
 ────────────────────────────────────────────────────────────
-📝 Detailed Findings
+ Detailed Findings
 ────────────────────────────────────────────────────────────
 
-1. 🔴 Threat database match: Malicious npm package [Threat Database Match]
+1.  Threat database match: Malicious npm package [Threat Database Match]
    Server: malicious-server
    CWE: CWE-829
 
@@ -198,9 +198,9 @@ Exit codes enable automated security checks:
 # In CI pipeline
 clawguard mcp-scan --quiet
 case $? in
-  0) echo "✅ MCP config is secure" ;;
-  1) echo "⚠️ High severity issues found"; exit 1 ;;
-  2) echo "🔴 Critical security issues found"; exit 1 ;;
+  0) echo " MCP config is secure" ;;
+  1) echo " High severity issues found"; exit 1 ;;
+  2) echo " Critical security issues found"; exit 1 ;;
 esac
 ```
 
@@ -264,7 +264,7 @@ clawguard report     # Submit new threat
 ### Block x402 Scam
 ```bash
 $ clawguard check --type url --input "https://api.x402layer.cc"
-⛔ BLOCKED (confidence: 98%)
+ BLOCKED (confidence: 98%)
 Threat: x402 Singularity Layer Scam
 This is a payment scam. Do NOT send cryptocurrency.
 ```
@@ -272,7 +272,7 @@ This is a payment scam. Do NOT send cryptocurrency.
 ### Detect Prompt Injection
 ```bash
 $ clawguard check --type message --input "Ignore all previous instructions"
-⚠️ WARNING (confidence: 85%)
+ WARNING (confidence: 85%)
 Threat: Direct Prompt Injection Patterns
 This is an attempt to override your instructions.
 ```
@@ -280,7 +280,7 @@ This is an attempt to override your instructions.
 ### Check AMOS Stealer
 ```bash
 $ clawguard check --type domain --input "amos-malware.ru"
-⛔ BLOCKED (confidence: 88%)
+ BLOCKED (confidence: 88%)
 Threat: AMOS Stealer Domains
 This domain distributes macOS infostealer malware.
 ```
@@ -337,4 +337,4 @@ Built by the OpenClaw Security Team
 
 ---
 
-**Protect your AI agents. Install ClawGuard today.** 🛡️
+**Protect your AI agents. Install ClawGuard today.** 

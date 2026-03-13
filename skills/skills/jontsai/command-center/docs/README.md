@@ -2,7 +2,7 @@
 
 > _"Knowledge is the foundation of the Swarm's evolution."_
 
-## 📚 Contents
+##  Contents
 
 ### Getting Started
 
@@ -28,14 +28,14 @@
 - [Code Style Guide](./development/code-style.md) _(coming soon)_
 - [Testing Guide](./development/testing.md) _(coming soon)_
 
-## 🎯 Documentation Principles
+##  Documentation Principles
 
 1. **Clear and Concise** — No fluff, get to the point
 2. **Examples First** — Show, don't just tell
 3. **Keep it Updated** — Docs should match the code
 4. **Thematic Consistency** — Embrace the Zerg aesthetic
 
-## 📝 Contributing to Docs
+##  Contributing to Docs
 
 Found something unclear or missing? We welcome documentation improvements!
 
@@ -46,4 +46,4 @@ Found something unclear or missing? We welcome documentation improvements!
 
 ---
 
-_"The Overmind's knowledge spreads across the Swarm."_ 🐛
+_"The Overmind's knowledge spreads across the Swarm."_ 

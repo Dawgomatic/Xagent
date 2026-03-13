@@ -250,20 +250,20 @@ Examples:
     if errors:
         print("\nERRORS:")
         for error in errors:
-            print(f"  ❌ {error}")
+            print(f"   {error}")
 
     if warnings:
         print("\nWARNINGS:")
         for warning in warnings:
-            print(f"  ⚠️  {warning}")
+            print(f"    {warning}")
 
     if is_valid:
-        print(f"\n✅ Questionnaire is valid!")
+        print(f"\n Questionnaire is valid!")
         if warnings:
             print(f"   ({len(warnings)} warning(s))")
         sys.exit(0)
     else:
-        print(f"\n❌ Questionnaire is invalid ({len(errors)} error(s))")
+        print(f"\n Questionnaire is invalid ({len(errors)} error(s))")
         sys.exit(1)
 
 

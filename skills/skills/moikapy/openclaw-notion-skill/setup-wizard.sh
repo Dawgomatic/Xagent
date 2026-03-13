@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🎯 OpenClaw Notion Skill - Setup Wizard"
+echo " OpenClaw Notion Skill - Setup Wizard"
 echo "=========================================="
 echo ""
 
@@ -17,7 +17,7 @@ if [ -z "$NOTION_TOKEN" ]; then
 fi
 
 if [ -z "$NOTION_TOKEN" ]; then
-    echo "❌ NOTION_TOKEN not found!"
+    echo " NOTION_TOKEN not found!"
     echo ""
     echo "Setup steps:"
     echo "1. Go to https://www.notion.so/my-integrations"
@@ -29,22 +29,22 @@ if [ -z "$NOTION_TOKEN" ]; then
     exit 1
 fi
 
-echo "✅ NOTION_TOKEN found"
+echo " NOTION_TOKEN found"
 echo ""
 
 # Test connection
-echo "🔄 Testing Notion connection..."
+echo " Testing Notion connection..."
 if node notion-cli.js test >/dev/null 2>&1; then
-    echo "✅ Connected to Notion!"
+    echo " Connected to Notion!"
 else
-    echo "❌ Connection failed"
+    echo " Connection failed"
     echo "Make sure you've shared at least one page with your integration"
     echo "In Notion: Share → Add connections → Select your integration"
     exit 1
 fi
 
 echo ""
-echo "📦 Available Templates:"
+echo " Available Templates:"
 echo ""
 echo "1. Command Center    - Master dashboard (Content, Projects, Orders, Knowledge)"
 echo "2. Content Pipeline  - Editorial calendar for creators"
@@ -55,7 +55,7 @@ echo "6. Skip for now      - I'll set up my own"
 echo ""
 
 # Add tip about ID column
-echo "💡 TIP: Add an 'ID' property (type: unique ID) to auto-number entries."
+echo " TIP: Add an 'ID' property (type: unique ID) to auto-number entries."
 echo "   Then reference them as #1, #2, #3 instead of long UUIDs!"
 echo ""
 
@@ -64,7 +64,7 @@ read -p "Which template do you want to set up? (1-6): " choice
 case $choice in
     1)
         echo ""
-        echo "🗂️  Command Center Template (Recommended)"
+        echo "  Command Center Template (Recommended)"
         echo "=========================================="
         echo ""
         echo "A unified dashboard for everything."
@@ -98,7 +98,7 @@ case $choice in
 
     2)
         echo ""
-        echo "📝 Content Pipeline Template"
+        echo " Content Pipeline Template"
         echo "==========================="
         echo ""
         echo "Steps to create:"
@@ -116,12 +116,12 @@ case $choice in
         echo "5. Add to ~/.openclaw/.env:"
         echo "   CONTENT_DB_ID=your_database_id"
         echo ""
-        echo "💡 With ID column: Reference entries as #1, #2, #3 instead of UUIDs"
+        echo " With ID column: Reference entries as #1, #2, #3 instead of UUIDs"
         ;;
     
     3)
         echo ""
-        echo "🎯 Project Tracker Template"
+        echo " Project Tracker Template"
         echo "=========================="
         echo ""
         echo "Steps to create:"
@@ -144,7 +144,7 @@ case $choice in
     
     4)
         echo ""
-        echo "🖨️ 3D Print CRM Template"
+        echo " 3D Print CRM Template"
         echo "======================="
         echo ""
         echo "Steps to create:"
@@ -166,7 +166,7 @@ case $choice in
     
     5)
         echo ""
-        echo "📚 Knowledge Base Template"
+        echo " Knowledge Base Template"
         echo "========================="
         echo ""
         echo "Steps to create:"
@@ -187,7 +187,7 @@ case $choice in
     
     6)
         echo ""
-        echo "📝 Creating your own database:"
+        echo " Creating your own database:"
         echo ""
         echo "1. Create a database in Notion"
         echo "2. Add ID property (unique_id) for easy referencing!"
@@ -203,14 +203,14 @@ case $choice in
 esac
 
 echo ""
-echo "✨ Next Steps:"
+echo " Next Steps:"
 echo ""
 echo "1. Finish setting up your Notion database"
 echo "2. Share it with your integration (Share → Add connections)"
 echo "3. Add the database ID to ~/.openclaw/.env"
 echo "4. Start using with OpenClaw!"
 echo ""
-echo "🆔 ID Reference Guide:"
+echo " ID Reference Guide:"
 echo "   Notion ID:  Use '#3'  (human-friendly, what you see)"
 echo "   Direct UUID: Use '2fb3e4ac...'  (for automation)"
 echo ""

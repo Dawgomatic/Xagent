@@ -1,4 +1,4 @@
-# Three Minds 🧠🧠🧠
+# Three Minds 
 
 **三个臭皮匠顶个诸葛亮** - A Multi-Agent Collaboration System
 
@@ -6,11 +6,11 @@ Three AI agents with different personas working together on the same codebase. N
 
 ## Features
 
-- 🔧 **Real Execution** - Each agent can read files, write code, run tests via Claude Code CLI
-- 👥 **Multi-Perspective** - Three agents with different expertise review each other's work
-- ✅ **Consensus Voting** - All must vote YES to finish, ensuring quality
-- 📁 **Shared Workspace** - Collaborate on the same project directory
-- 📝 **Full Transcript** - Auto-saves discussion and changes history
+-  **Real Execution** - Each agent can read files, write code, run tests via Claude Code CLI
+-  **Multi-Perspective** - Three agents with different expertise review each other's work
+-  **Consensus Voting** - All must vote YES to finish, ensuring quality
+-  **Shared Workspace** - Collaborate on the same project directory
+-  **Full Transcript** - Auto-saves discussion and changes history
 
 ## Installation
 
@@ -53,24 +53,24 @@ three-minds "task description" --dir ./project --output result.json
 ## Preset Configurations
 
 ### Default - Code Collaboration Trio
-- 🏗️ **Architect** - Code structure, design patterns, scalability
-- ⚙️ **Engineer** - Code quality, error handling, performance
-- 🔍 **Reviewer** - Code standards, potential bugs, documentation
+-  **Architect** - Code structure, design patterns, scalability
+-  **Engineer** - Code quality, error handling, performance
+-  **Reviewer** - Code standards, potential bugs, documentation
 
 ### code-review - Code Review Trio
-- 🛡️ **Security Expert** - Vulnerabilities, injection risks, permissions
-- ⚡ **Performance Engineer** - Algorithm complexity, memory, query optimization
-- ✅ **Quality Reviewer** - Readability, naming conventions, test coverage
+-  **Security Expert** - Vulnerabilities, injection risks, permissions
+-  **Performance Engineer** - Algorithm complexity, memory, query optimization
+-  **Quality Reviewer** - Readability, naming conventions, test coverage
 
 ### idea-brainstorm - Research Brainstorm Trio
-- 📚 **Literature Expert** - Related work, theoretical foundation
-- 💡 **Creative Thinker** - Novel approaches, unconventional ideas
-- 🔬 **Feasibility Analyst** - Technical constraints, implementation path
+-  **Literature Expert** - Related work, theoretical foundation
+-  **Creative Thinker** - Novel approaches, unconventional ideas
+-  **Feasibility Analyst** - Technical constraints, implementation path
 
 ### paper-writing - Paper Writing Trio
-- 📝 **Content Reviewer** - Argument structure, logical flow
-- ✍️ **Language Editor** - Grammar, clarity, academic tone
-- 🎨 **Presentation Advisor** - Figures, tables, visual organization
+-  **Content Reviewer** - Argument structure, logical flow
+-  **Language Editor** - Grammar, clarity, academic tone
+-  **Presentation Advisor** - Figures, tables, visual organization
 
 ## Custom Configuration
 
@@ -82,17 +82,17 @@ Create a JSON config file:
   "agents": [
     {
       "name": "Expert A",
-      "emoji": "🎯",
+      "emoji": "",
       "persona": "You are a... focusing on..."
     },
     {
       "name": "Expert B",
-      "emoji": "🔬",
+      "emoji": "",
       "persona": "You are a... specializing in..."
     },
     {
       "name": "Expert C",
-      "emoji": "📊",
+      "emoji": "",
       "persona": "You are a... responsible for..."
     }
   ],
@@ -109,17 +109,17 @@ Then: `three-minds "task" --config ./my-config.json`
 ┌──────────────────────────────────────────┐
 │              Round N                      │
 ├──────────────────────────────────────────┤
-│  🏗️ Architect                            │
+│   Architect                            │
 │  → Read files, review structure          │
 │  → Execute necessary refactoring         │
 │  → Vote [CONSENSUS: YES/NO]              │
 ├──────────────────────────────────────────┤
-│  ⚙️ Engineer                             │
+│   Engineer                             │
 │  → Review architect's changes            │
 │  → Add implementation details, fix bugs  │
 │  → Vote [CONSENSUS: YES/NO]              │
 ├──────────────────────────────────────────┤
-│  🔍 Reviewer                             │
+│   Reviewer                             │
 │  → Review all changes                    │
 │  → Check standards, bugs, docs           │
 │  → Vote [CONSENSUS: YES/NO]              │

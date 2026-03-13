@@ -59,10 +59,10 @@ clawhub publish
 
 ## Platform Support
 
-✅ Linux (Raspberry Pi tested)  
-✅ macOS  
-✅ Windows (via WSL or native Python)  
-✅ ARM64/ARMv7 compatible
+ Linux (Raspberry Pi tested)  
+ macOS  
+ Windows (via WSL or native Python)  
+ ARM64/ARMv7 compatible
 
 ## API Details
 

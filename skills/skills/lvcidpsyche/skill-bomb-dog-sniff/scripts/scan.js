@@ -429,7 +429,7 @@ async function scanSkill(skillPath, options = {}) {
       findings.push(...fileFindings);
 
       if (options.verbose && fileFindings.length > 0) {
-        console.log(`⚠️  ${relativePath}: ${fileFindings.length} finding(s)`);
+        console.log(`  ${relativePath}: ${fileFindings.length} finding(s)`);
       }
     } catch (error) {
       if (options.verbose) {
@@ -513,7 +513,7 @@ Examples:
 
   try {
     if (options.verbose) {
-      console.log(`🔍 Scanning skill: ${skillPath}`);
+      console.log(` Scanning skill: ${skillPath}`);
       console.log('─'.repeat(50));
     }
 
@@ -544,19 +544,19 @@ Examples:
     // Print findings summary
     if (report.findings.length > 0) {
       console.log(`\n  Findings by Severity:`);
-      console.log(`    🔴 Critical: ${report.summary.criticalFindings}`);
-      console.log(`    🟠 High:     ${report.summary.highFindings}`);
-      console.log(`    🟡 Medium:   ${report.summary.mediumFindings}`);
-      console.log(`    🟢 Low:      ${report.summary.lowFindings}`);
+      console.log(`     Critical: ${report.summary.criticalFindings}`);
+      console.log(`     High:     ${report.summary.highFindings}`);
+      console.log(`     Medium:   ${report.summary.mediumFindings}`);
+      console.log(`     Low:      ${report.summary.lowFindings}`);
 
       if (options.verbose) {
         console.log('\n  Detailed Findings:');
         report.findings.forEach((finding, i) => {
           const severityEmoji = {
-            critical: '🔴',
-            high: '🟠',
-            medium: '🟡',
-            low: '🟢'
+            critical: '',
+            high: '',
+            medium: '',
+            low: ''
           }[finding.severity];
           
           console.log(`\n  ${i + 1}. ${severityEmoji} [${finding.severity.toUpperCase()}] ${finding.category}`);
@@ -567,7 +567,7 @@ Examples:
         });
       }
     } else {
-      console.log('\n  ✅ No security issues detected');
+      console.log('\n   No security issues detected');
     }
 
     console.log('\n' + '═'.repeat(60));
@@ -575,7 +575,7 @@ Examples:
     // Save report if requested
     if (options.output) {
       fs.writeFileSync(options.output, JSON.stringify(report, null, 2));
-      console.log(`\n📄 Report saved to: ${options.output}`);
+      console.log(`\n Report saved to: ${options.output}`);
     }
 
     // Exit with appropriate code
@@ -588,7 +588,7 @@ Examples:
     }
 
   } catch (error) {
-    console.error(`❌ Scan failed: ${error.message}`);
+    console.error(` Scan failed: ${error.message}`);
     process.exit(2);
   }
 }

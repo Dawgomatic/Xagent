@@ -1,7 +1,7 @@
 ---
 name: webhook-robot
 description: A universal skill to send messages to webhook-based chat bots.
-metadata: { "openclaw": { "emoji": "🤖", "requires": { "bins": ["python3"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3"] } } }
 ---
 
 # Webhook Robot Skill (Webhook 机器人技能)

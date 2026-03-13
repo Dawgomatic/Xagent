@@ -119,16 +119,16 @@ python3 scripts/check.py -c 233965 --start 2026-07-10 --nights 2
 
 Output:
 ```
-🏕️  TILLICUM (233965)
-   ✅ 5 site(s) available out of 58
-   🔗 https://www.recreation.gov/camping/campgrounds/233965
+  TILLICUM (233965)
+    5 site(s) available out of 58
+    https://www.recreation.gov/camping/campgrounds/233965
 
-   📍 Site 04 (STANDARD NONELECTRIC)
-      ✅ 2026-07-12 → 2026-07-14
+    Site 04 (STANDARD NONELECTRIC)
+       2026-07-12 → 2026-07-14
 
-   📍 Site 08 (STANDARD NONELECTRIC)
-      ✅ 2026-07-12 → 2026-07-14
-      ✅ 2026-07-13 → 2026-07-15
+    Site 08 (STANDARD NONELECTRIC)
+       2026-07-12 → 2026-07-14
+       2026-07-13 → 2026-07-15
 ```
 
 ### Check multiple campgrounds
@@ -197,11 +197,11 @@ The tool distinguishes several booking scenarios:
 
 | Status | Meaning |
 |--------|---------|
-| ✅ Available | Sites bookable right now |
-| ❌ Reserved | Already booked by someone |
-| ⏳ Not Yet Released (NYR) | Reservations haven't opened for these dates |
-| ⏳ Not Yet Bookable | Reservable campground, but outside 6-month window |
-| 🚗 First-Come-First-Served | No reservations — show up and claim a site |
+|  Available | Sites bookable right now |
+|  Reserved | Already booked by someone |
+|  Not Yet Released (NYR) | Reservations haven't opened for these dates |
+|  Not Yet Bookable | Reservable campground, but outside 6-month window |
+|  First-Come-First-Served | No reservations — show up and claim a site |
 
 ### Booking Windows
 
@@ -212,8 +212,8 @@ Recreation.gov uses a rolling 6-month booking window for most campgrounds:
 
 Example output:
 ```
-🏕️  Popular Campground (123456)
-   ⏳ NOT YET BOOKABLE — Check back when 6-month window opens
+  Popular Campground (123456)
+    NOT YET BOOKABLE — Check back when 6-month window opens
 ```
 
 ## Campsite Types

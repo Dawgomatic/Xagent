@@ -73,18 +73,18 @@ COMMAND="$*"
 # Resume mode: replay from existing stream.jsonl
 if [ -n "$RESUME_DIR" ]; then
   STREAM_FILE="$RESUME_DIR/stream.jsonl"
-  [ ! -f "$STREAM_FILE" ] && { echo "❌ Error: $STREAM_FILE not found" >&2; exit 1; }
+  [ ! -f "$STREAM_FILE" ] && { echo " Error: $STREAM_FILE not found" >&2; exit 1; }
 
   SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
   WEBHOOK_URL=$(cat "$SCRIPT_DIR/.webhook-url" 2>/dev/null | tr -d '\n')
-  [ -z "$WEBHOOK_URL" ] && { echo "❌ Error: .webhook-url not found" >&2; exit 1; }
+  [ -z "$WEBHOOK_URL" ] && { echo " Error: .webhook-url not found" >&2; exit 1; }
 
   export WEBHOOK_URL AGENT_NAME PLATFORM THREAD_MODE SKIP_READS BOT_TOKEN
   export RELAY_DIR="$RESUME_DIR"
   export REPLAY_MODE=true
   [ -n "$RATE_LIMIT" ] && export CODECAST_RATE_LIMIT="$RATE_LIMIT"
 
-  echo "🔄 Replaying session from $STREAM_FILE"
+  echo " Replaying session from $STREAM_FILE"
   PARSER="$SCRIPT_DIR/parse-stream.py"
   python3 "$PARSER" < "$STREAM_FILE"
   echo "Done."
@@ -140,18 +140,18 @@ fi
 # Webhook
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 WEBHOOK_URL=$(cat "$SCRIPT_DIR/.webhook-url" 2>/dev/null | tr -d '\n')
-[ -z "$WEBHOOK_URL" ] && { echo "❌ Error: .webhook-url not found in $SCRIPT_DIR" >&2; echo "  Create it: echo 'https://discord.com/api/webhooks/ID/TOKEN' > $SCRIPT_DIR/.webhook-url" >&2; exit 1; }
+[ -z "$WEBHOOK_URL" ] && { echo " Error: .webhook-url not found in $SCRIPT_DIR" >&2; echo "  Create it: echo 'https://discord.com/api/webhooks/ID/TOKEN' > $SCRIPT_DIR/.webhook-url" >&2; exit 1; }
 
 # Validate webhook URL (GET returns 200 for valid webhooks)
 if ! curl -s -o /dev/null -w "%{http_code}" "$WEBHOOK_URL" 2>/dev/null | grep -q "^200$"; then
-  echo "❌ Error: Webhook URL appears invalid or unreachable" >&2
+  echo " Error: Webhook URL appears invalid or unreachable" >&2
   echo "  Check: $SCRIPT_DIR/.webhook-url" >&2
   exit 1
 fi
 
 # Check unbuffer for Claude Code
 if [ "$IS_CLAUDE" = true ] && ! command -v unbuffer &>/dev/null; then
-  echo "❌ Error: 'unbuffer' not found (required for Claude Code streaming)" >&2
+  echo " Error: 'unbuffer' not found (required for Claude Code streaming)" >&2
   echo "  Install: brew install expect (macOS) or apt install expect (Linux)" >&2
   exit 1
 fi
@@ -166,7 +166,7 @@ if [ -z "$BOT_TOKEN" ]; then
   BOT_TOKEN=$(cat "$SCRIPT_DIR/.bot-token" 2>/dev/null | tr -d '\n')
 fi
 if [ "$THREAD_MODE" = true ] && [ -z "$BOT_TOKEN" ]; then
-  echo "⚠️  Warning: --thread requires a bot token for text channels" >&2
+  echo "  Warning: --thread requires a bot token for text channels" >&2
   echo "  Create: echo 'YOUR_BOT_TOKEN' > $SCRIPT_DIR/.bot-token" >&2
   echo "  Falling back to non-thread mode" >&2
   THREAD_MODE=false
@@ -180,8 +180,8 @@ RELAY_DIR=$(mktemp -d /tmp/dev-relay.XXXXXX)
 OUTPUT_FILE="$RELAY_DIR/output.log"
 touch "$OUTPUT_FILE"
 
-echo "📂 Relay: $RELAY_DIR"
-echo "🚀 $AGENT_NAME | 📁 $WORKDIR | 🎯 $PLATFORM"
+echo " Relay: $RELAY_DIR"
+echo " $AGENT_NAME |  $WORKDIR |  $PLATFORM"
 
 # --- Discord posting (used for start message from bash, before parser takes over) ---
 post() {
@@ -198,11 +198,11 @@ post() {
 PARSER="$SCRIPT_DIR/parse-stream.py"
 
 # --- Start ---
-post "🚀 **${AGENT_NAME} Session Started**
+post " **${AGENT_NAME} Session Started**
 \`\`\`
 ${COMMAND}
 \`\`\`
-📁 \`${WORKDIR}\` | ⏱️ ${TIMEOUT}s timeout"
+ \`${WORKDIR}\` |  ${TIMEOUT}s timeout"
 
 cd "$WORKDIR"
 
@@ -241,7 +241,7 @@ if [ "$IS_CLAUDE" = true ] || [ "$IS_CODEX_JSON" = true ]; then
   while kill -0 "$RELAY_PID" 2>/dev/null; do
     NOW=$(date +%s)
     if [ $((NOW - START)) -ge "$TIMEOUT" ]; then
-      post "⏰ **Timed out** after ${TIMEOUT}s"
+      post " **Timed out** after ${TIMEOUT}s"
       kill "$RELAY_PID" 2>/dev/null
       break
     fi
@@ -269,7 +269,7 @@ else
   while true; do
     NOW=$(date +%s)
     ELAPSED=$((NOW - START))
-    [ "$ELAPSED" -ge "$TIMEOUT" ] && { post "⏰ **Timed out** after ${TIMEOUT}s"; kill "$AGENT_PID" 2>/dev/null; break; }
+    [ "$ELAPSED" -ge "$TIMEOUT" ] && { post " **Timed out** after ${TIMEOUT}s"; kill "$AGENT_PID" 2>/dev/null; break; }
 
     ALIVE=true
     kill -0 "$AGENT_PID" 2>/dev/null || ALIVE=false
@@ -293,13 +293,13 @@ else
       fi
       wait "$AGENT_PID" 2>/dev/null; EC=$?
       M=$((ELAPSED / 60)); S=$((ELAPSED % 60))
-      [ "$EC" -eq 0 ] && post "✅ **Completed** (exit: ${EC}, ${M}m${S}s)" || post "❌ **Ended** (exit: ${EC}, ${M}m${S}s)"
+      [ "$EC" -eq 0 ] && post " **Completed** (exit: ${EC}, ${M}m${S}s)" || post " **Ended** (exit: ${EC}, ${M}m${S}s)"
       break
     fi
 
     SILENT=$((NOW - LAST_OUT_TIME))
     if [ "$SILENT" -ge "$HANG_THRESHOLD" ] && [ "$HANG_WARNED" = false ]; then
-      post "⚠️ **No output for ${SILENT}s** — may be stuck"; HANG_WARNED=true
+      post " **No output for ${SILENT}s** — may be stuck"; HANG_WARNED=true
     fi
     sleep "$INTERVAL"
   done
@@ -310,7 +310,7 @@ if [ -f "$SCRIPT_DIR/.webhook-url" ]; then
   WEBHOOK_URL=$(cat "$SCRIPT_DIR/.webhook-url")
   DURATION=$(($(date +%s) - $(date -j -f "%Y-%m-%dT%H:%M:%S" "${START_ISO%Z}" +%s 2>/dev/null || echo $SECONDS)))
   curl -s -H "Content-Type: application/json" \
-    -d "{\"content\":\"✅ **Codecast session completed** — ${AGENT_NAME} finished in \`${WORKDIR}\` (${DURATION}s)\"}" \
+    -d "{\"content\":\" **Codecast session completed** — ${AGENT_NAME} finished in \`${WORKDIR}\` (${DURATION}s)\"}" \
     "$WEBHOOK_URL" >/dev/null 2>&1 || true
 fi
 # Also notify OpenClaw main session (fires on next heartbeat)

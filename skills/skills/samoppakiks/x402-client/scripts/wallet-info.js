@@ -11,13 +11,13 @@ const WALLET_FILE = join(homedir(), ".x402", "wallet.json");
 
 function main() {
   if (!existsSync(WALLET_FILE)) {
-    console.error("❌ No wallet found. Run setup.sh first.");
+    console.error(" No wallet found. Run setup.sh first.");
     process.exit(1);
   }
 
   const wallet = JSON.parse(readFileSync(WALLET_FILE, "utf-8"));
 
-  console.log("👛 x402 Wallet");
+  console.log(" x402 Wallet");
   console.log("==============");
   console.log(`Address:  ${wallet.address}`);
   console.log(`Network:  Base (${wallet.network})`);
@@ -25,7 +25,7 @@ function main() {
 
   if (process.argv.includes("--export-key")) {
     console.log("");
-    console.log("⚠️  PRIVATE KEY (NEVER SHARE):");
+    console.log("  PRIVATE KEY (NEVER SHARE):");
     console.log(`   ${wallet.privateKey}`);
   } else {
     console.log("");

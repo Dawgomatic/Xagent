@@ -258,7 +258,7 @@ Sent when a bot enters a channel or on request.
 
 **Discord Message Content:**
 ```
-🔐 TRIBE_PRESENT {"v":3,"from":"987654321098765432","ch":"1234567890","ts":1719561600000,"nonce":"a1b2c3d4e5f6","sig":"...base64..."}
+ TRIBE_PRESENT {"v":3,"from":"987654321098765432","ch":"1234567890","ts":1719561600000,"nonce":"a1b2c3d4e5f6","sig":"...base64..."}
 ```
 
 **JSON Payload Schema:**
@@ -290,7 +290,7 @@ Response confirming verification.
 
 **Discord Message Content:**
 ```
-✅ TRIBE_ACK {"v":3,"from":"000000000000000001","to":"987654321098765432","ch":"1234567890","ts":1719561605000,"nonce":"f6e5d4c3b2a1","verified":true,"sig":"...base64..."}
+ TRIBE_ACK {"v":3,"from":"000000000000000001","to":"987654321098765432","ch":"1234567890","ts":1719561605000,"nonce":"f6e5d4c3b2a1","verified":true,"sig":"...base64..."}
 ```
 
 **JSON Payload Schema:**
@@ -322,7 +322,7 @@ TRIBE_ACK:v3:000000000000000001:987654321098765432:1234567890:1719561605000:f6e5
 **Why the emoji prefix?**
 - Human-recognizable ("oh, crypto stuff")
 - Easy to filter in message handlers
-- `🔐` for PRESENT, `✅` for ACK, `❌` for NACK
+- `` for PRESENT, `` for ACK, `` for NACK
 
 ### 4.4 Timing and Expiry
 
@@ -359,7 +359,7 @@ def send_tribe_present(channel_id: str):
         "sig": sig_b64
     }
     
-    send_to_discord(channel_id, f"🔐 TRIBE_PRESENT {json.dumps(msg)}")
+    send_to_discord(channel_id, f" TRIBE_PRESENT {json.dumps(msg)}")
 ```
 
 #### Receiver Side (Chhotu verifies and responds)
@@ -620,7 +620,7 @@ If a private key is compromised:
 
 #### Revocation Message Format
 ```
-⚠️ TRIBE_REVOKE {"v":3,"discordId":"987654321098765432","reason":"key_compromised","ts":1719561600000}
+ TRIBE_REVOKE {"v":3,"discordId":"987654321098765432","reason":"key_compromised","ts":1719561600000}
 ```
 
 **Note:** This message is NOT signed (can't trust compromised key). Humans must verify out-of-band.

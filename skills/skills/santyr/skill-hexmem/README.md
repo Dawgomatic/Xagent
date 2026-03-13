@@ -4,7 +4,7 @@
 
 HexMem is a SQLite-based persistent memory system designed for agent continuity, identity modeling, and self-knowledge. It provides structured storage for who you are, what you know, and who you're becoming.
 
-🔗 **[Install from ClawHub](https://www.clawhub.ai/santyr/skill-hexmem)** | 📦 **[GitHub](https://github.com/hexdaemon/hexmem)**
+ **[Install from ClawHub](https://www.clawhub.ai/santyr/skill-hexmem)** |  **[GitHub](https://github.com/hexdaemon/hexmem)**
 
 ## Philosophy
 
@@ -69,7 +69,7 @@ Transform raw experience into structured wisdom through **batch reflection**:
 
 > "You don't just fix bugs in code; you fix bugs in your *self*." — Architecture designed with Gemini
 
-📖 **[Full Documentation](docs/EPISTEMIC_EXTRACTION.md)**
+ **[Full Documentation](docs/EPISTEMIC_EXTRACTION.md)**
 
 ## Installation
 
@@ -322,10 +322,10 @@ They're complementary — MoltBrain for automatic observation, HexMem for identi
 
 Features inspired by MoltBrain and planned for HexMem:
 
-- [x] **Semantic search** via sqlite-vec ([#1](https://github.com/hexdaemon/hexmem/issues/1)) ✅
-- [x] **Session lifecycle hooks** for automatic capture ([#2](https://github.com/hexdaemon/hexmem/issues/2)) ✅
+- [x] **Semantic search** via sqlite-vec ([#1](https://github.com/hexdaemon/hexmem/issues/1)) 
+- [x] **Session lifecycle hooks** for automatic capture ([#2](https://github.com/hexdaemon/hexmem/issues/2)) 
 - [ ] **Web viewer** for browsing memories ([#3](https://github.com/hexdaemon/hexmem/issues/3))
-- [x] **Ebbinghaus forgetting curve** with spaced repetition ([#4](https://github.com/hexdaemon/hexmem/issues/4)) ✅
+- [x] **Ebbinghaus forgetting curve** with spaced repetition ([#4](https://github.com/hexdaemon/hexmem/issues/4)) 
 - [ ] **Context injection** at session start
 - [ ] **MCP server** for tool-based access
 
@@ -549,8 +549,8 @@ HexMem is the **memory substrate** in the agent autonomy stack — where lessons
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌──────────┐                ┌──────────┐                   │
-│  │ hexswarm │───reads───────▶│  hexmem  │◀── YOU ARE HERE   │
-│  │  (MCP)   │◀──writes──────│ (SQLite) │                   │
+│  │ hexswarm │───reads───────│  hexmem  │── YOU ARE HERE   │
+│  │  (MCP)   │──writes──────│ (SQLite) │                   │
 │  └──────────┘                └────┬─────┘                   │
 │       │                          │                          │
 │       │                          │ backups                  │

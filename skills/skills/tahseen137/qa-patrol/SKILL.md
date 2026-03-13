@@ -40,7 +40,7 @@ Automated QA testing skill for web applications. Catches bugs that unit tests mi
 | `PRO_PASSWORD` | No | Level 2 | Pro test account password |
 | `DATABASE_URL` | No | Level 3 | DB connection for data integrity checks |
 
-**⚠️ Use test credentials only — never supply production passwords or production DATABASE_URL.**
+** Use test credentials only — never supply production passwords or production DATABASE_URL.**
 
 ### Secrets Handling
 - **NEVER hardcode secrets** in test plans — always use environment variable interpolation: `${env.ADMIN_PASSWORD}`

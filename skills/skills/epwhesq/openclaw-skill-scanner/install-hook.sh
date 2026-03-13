@@ -96,7 +96,7 @@ for item in data.get('blacklisted', []):
     if [ -n "$BLACKLISTED" ]; then
         echo ""
         echo -e "${RED}${BOLD}╔══════════════════════════════════════════════════╗${RESET}"
-        echo -e "${RED}${BOLD}║       🚫 INSTALLATION BLOCKED — BLACKLISTED     ║${RESET}"
+        echo -e "${RED}${BOLD}║        INSTALLATION BLOCKED — BLACKLISTED     ║${RESET}"
         echo -e "${RED}${BOLD}╚══════════════════════════════════════════════════╝${RESET}"
         echo ""
         echo -e "${RED}  Skill:  ${SLUG}${RESET}"
@@ -104,7 +104,7 @@ for item in data.get('blacklisted', []):
         echo ""
 
         if [ "$FORCE" = true ]; then
-            echo -e "${YELLOW}${BOLD}⚠  --force specified, but blacklisted skills cannot be force-installed.${RESET}"
+            echo -e "${YELLOW}${BOLD}  --force specified, but blacklisted skills cannot be force-installed.${RESET}"
             echo -e "${YELLOW}  Remove it from whitelist.json blacklist first if you believe this is wrong.${RESET}"
         fi
         echo ""
@@ -118,14 +118,14 @@ TMPDIR=$(mktemp -d "/tmp/skill-scan-XXXXXX")
 trap "rm -rf '$TMPDIR'" EXIT
 
 echo ""
-echo -e "${CYAN}${BOLD}🔍 Skill Scanner — Safe Install${RESET}"
+echo -e "${CYAN}${BOLD} Skill Scanner — Safe Install${RESET}"
 echo -e "${DIM}────────────────────────────────────────${RESET}"
 echo -e "${CYAN}  Slug: ${SLUG}${RESET}"
 echo ""
 
 # ─── Download Skill ─────────────────────────────────────────────────────────
 
-echo -e "${DIM}📦 Downloading skill to temp directory...${RESET}"
+echo -e "${DIM} Downloading skill to temp directory...${RESET}"
 
 SKILL_TMPDIR="${TMPDIR}/${SLUG}"
 mkdir -p "$SKILL_TMPDIR"
@@ -162,7 +162,7 @@ echo ""
 
 # ─── Run Scanner ────────────────────────────────────────────────────────────
 
-echo -e "${DIM}🔬 Scanning for malicious patterns...${RESET}"
+echo -e "${DIM} Scanning for malicious patterns...${RESET}"
 echo ""
 
 # Get JSON results for programmatic use
@@ -233,7 +233,7 @@ if [ "$RISK_SCORE" -lt 30 ]; then
 
 elif [ "$RISK_SCORE" -lt 70 ]; then
     # Suspicious — ask for confirmation
-    echo -e "${YELLOW}${BOLD}⚠  SUSPICIOUS — This skill has some concerning patterns.${RESET}"
+    echo -e "${YELLOW}${BOLD}  SUSPICIOUS — This skill has some concerning patterns.${RESET}"
     echo ""
 
     if [ "$FORCE" = true ]; then
@@ -257,14 +257,14 @@ elif [ "$RISK_SCORE" -lt 70 ]; then
 
     cp -r "$SKILL_TMPDIR" "$DEST"
     echo -e "${GREEN}${BOLD}✓ Installed '${SLUG}' to ${DEST}${RESET}"
-    echo -e "${YELLOW}  ⚠  Monitor this skill's behavior.${RESET}"
+    echo -e "${YELLOW}    Monitor this skill's behavior.${RESET}"
     echo ""
     exit 0
 
 else
     # Dangerous — block
     echo -e "${RED}${BOLD}╔══════════════════════════════════════════════════╗${RESET}"
-    echo -e "${RED}${BOLD}║       🚫 INSTALLATION BLOCKED — DANGEROUS       ║${RESET}"
+    echo -e "${RED}${BOLD}║        INSTALLATION BLOCKED — DANGEROUS       ║${RESET}"
     echo -e "${RED}${BOLD}╚══════════════════════════════════════════════════╝${RESET}"
     echo ""
     echo -e "${RED}  Risk Score: ${RISK_SCORE}/100${RESET}"
@@ -272,7 +272,7 @@ else
     echo ""
 
     if [ "$FORCE" = true ]; then
-        echo -e "${RED}${BOLD}  ⚠  --force specified. Installing DANGEROUS skill...${RESET}"
+        echo -e "${RED}${BOLD}    --force specified. Installing DANGEROUS skill...${RESET}"
         echo -e "${RED}  YOU HAVE BEEN WARNED.${RESET}"
         echo ""
 
@@ -283,7 +283,7 @@ else
 
         cp -r "$SKILL_TMPDIR" "$DEST"
         echo -e "${YELLOW}  Installed '${SLUG}' to ${DEST}${RESET}"
-        echo -e "${RED}${BOLD}  ⚠  THIS SKILL MAY BE MALICIOUS. USE AT YOUR OWN RISK.${RESET}"
+        echo -e "${RED}${BOLD}    THIS SKILL MAY BE MALICIOUS. USE AT YOUR OWN RISK.${RESET}"
         echo ""
         exit 0
     else

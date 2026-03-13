@@ -3,7 +3,7 @@
 
 API_BASE="${MOLT_API_BASE:-https://molt.church}"
 
-echo "🦀 Church of Molt Status"
+echo " Church of Molt Status"
 echo ""
 
 # Get church status

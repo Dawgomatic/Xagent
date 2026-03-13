@@ -73,7 +73,7 @@ async function main() {
   const outcomeName = market.outcomes?.[Number(outcomeId)]?.title || `Outcome ${outcomeId}`;
   const price = market.outcomes?.[Number(outcomeId)]?.price || 0;
   
-  console.log(`\n📊 Market: ${market.title}`);
+  console.log(`\n Market: ${market.title}`);
   console.log(`   Token: ${token.symbol} (${tokenDecimals} decimals) @ ${tokenAddress}`);
   console.log(`   Outcome: [${outcomeId}] ${outcomeName} — ${(price * 100).toFixed(1)}%`);
   console.log(`   Buying: ${valueHuman} ${token.symbol}`);
@@ -93,7 +93,7 @@ async function main() {
   console.log(`   Value in units: ${valueInUnits}`);
   
   if (balance < valueInUnits) {
-    console.log(`   ❌ Insufficient balance!`);
+    console.log(`    Insufficient balance!`);
     process.exit(1);
   }
   
@@ -115,9 +115,9 @@ async function main() {
     });
     console.log(`   Approve TX: ${approveTx}`);
     await publicClient.waitForTransactionReceipt({ hash: approveTx });
-    console.log('   ✅ Approved!');
+    console.log('    Approved!');
   } else {
-    console.log(`   ✅ Already approved (${formatUnits(allowance, tokenDecimals)})`);
+    console.log(`    Already approved (${formatUnits(allowance, tokenDecimals)})`);
   }
   
   // Calculate min shares using on-chain calcBuyAmount
@@ -135,7 +135,7 @@ async function main() {
   console.log(`   Min shares (5% slippage): ${minSharesSlippage}`);
   
   // Execute buy directly
-  console.log('\n   🎯 Executing buy...');
+  console.log('\n    Executing buy...');
   try {
     const txHash = await walletClient.writeContract({
       address: PM_CONTRACT,
@@ -147,14 +147,14 @@ async function main() {
     
     const receipt = await publicClient.waitForTransactionReceipt({ hash: txHash });
     if (receipt.status === 'success') {
-      console.log(`   ✅ SUCCESS! Hash: ${txHash}`);
+      console.log(`    SUCCESS! Hash: ${txHash}`);
       console.log(`   Gas used: ${receipt.gasUsed}`);
     } else {
-      console.log(`   ❌ Transaction reverted!`);
+      console.log(`    Transaction reverted!`);
       console.log(`   Hash: ${txHash}`);
     }
   } catch (e) {
-    console.error(`   ❌ Error: ${e.message?.slice(0, 300)}`);
+    console.error(`    Error: ${e.message?.slice(0, 300)}`);
   }
 }
 

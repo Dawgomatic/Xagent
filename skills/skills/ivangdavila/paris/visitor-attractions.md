@@ -59,12 +59,12 @@
 
 | Attraction | Verdict | Notes |
 |------------|---------|-------|
-| **Versailles** | ✅ IF day trip planned | 40 min RER, book ahead |
-| **Catacombs** | ✅ Unique experience | 2-month advance booking |
-| **Pompidou Center** | ⚠️ Architecture fans only | Modern art, unusual building |
-| **Moulin Rouge** | ⚠️ Photo outside = enough | €100+ show, tourist-heavy |
-| **Disneyland Paris** | ⚠️ With kids only | 45 min from center |
-| **Palace of Versailles** | ✅ Essential day trip | Tuesday-Sunday, very crowded |
+| **Versailles** |  IF day trip planned | 40 min RER, book ahead |
+| **Catacombs** |  Unique experience | 2-month advance booking |
+| **Pompidou Center** |  Architecture fans only | Modern art, unusual building |
+| **Moulin Rouge** |  Photo outside = enough | €100+ show, tourist-heavy |
+| **Disneyland Paris** |  With kids only | 45 min from center |
+| **Palace of Versailles** |  Essential day trip | Tuesday-Sunday, very crowded |
 
 ---
 

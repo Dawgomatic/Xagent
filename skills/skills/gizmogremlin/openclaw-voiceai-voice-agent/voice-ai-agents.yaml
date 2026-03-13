@@ -18,7 +18,7 @@ skill:
     MCP integration, phone number management, and analytics.
   version: "1.0.0"
   author: "Nick Gill (https://github.com/gizmoGremlin)"
-  icon: "🤖"
+  icon: ""
   category: "voice-agents"
   tags:
     - voice-agents

@@ -130,13 +130,13 @@ function getRiskColor(risk) {
 
 function getRiskEmoji(risk) {
   switch (risk?.toUpperCase()) {
-    case 'CRITICAL': return '🚨';
-    case 'HIGH': return '⚠️';
-    case 'ELEVATED': return '⚡';
-    case 'MEDIUM': return '📋';
-    case 'LOW': return '📝';
-    case 'CLEAN': return '✅';
-    default: return '❓';
+    case 'CRITICAL': return '';
+    case 'HIGH': return '';
+    case 'ELEVATED': return '';
+    case 'MEDIUM': return '';
+    case 'LOW': return '';
+    case 'CLEAN': return '';
+    default: return '';
   }
 }
 
@@ -222,18 +222,18 @@ async function main() {
   
   // Summary
   log('\n' + '─'.repeat(60), colors.dim);
-  log('\n📊 AUDIT SUMMARY\n', colors.bright);
+  log('\n AUDIT SUMMARY\n', colors.bright);
   
   log(`Total skills scanned: ${summary.total}`);
-  log(`${colors.green}✅ Clean:    ${summary.clean}${colors.reset}`);
-  log(`${colors.cyan}📝 Low:      ${summary.low}${colors.reset}`);
-  log(`${colors.yellow}📋 Medium:   ${summary.medium}${colors.reset}`);
-  log(`${colors.yellow}⚡ Elevated: ${summary.elevated}${colors.reset}`);
-  log(`${colors.red}⚠️  High:     ${summary.high}${colors.reset}`);
-  log(`${colors.red}🚨 Critical: ${summary.critical}${colors.reset}`);
+  log(`${colors.green} Clean:    ${summary.clean}${colors.reset}`);
+  log(`${colors.cyan} Low:      ${summary.low}${colors.reset}`);
+  log(`${colors.yellow} Medium:   ${summary.medium}${colors.reset}`);
+  log(`${colors.yellow} Elevated: ${summary.elevated}${colors.reset}`);
+  log(`${colors.red}  High:     ${summary.high}${colors.reset}`);
+  log(`${colors.red} Critical: ${summary.critical}${colors.reset}`);
   
   if (summary.unknown > 0) {
-    log(`${colors.dim}❓ Unknown:  ${summary.unknown}${colors.reset}`);
+    log(`${colors.dim} Unknown:  ${summary.unknown}${colors.reset}`);
   }
   
   // High-risk skills
@@ -242,7 +242,7 @@ async function main() {
   );
   
   if (riskySkills.length > 0) {
-    log('\n⚠️  HIGH-RISK SKILLS DETECTED:', colors.red);
+    log('\n  HIGH-RISK SKILLS DETECTED:', colors.red);
     for (const skill of riskySkills) {
       log(`\n  ${skill.skillName}`, colors.bright);
       log(`  Path: ${skill.skillPath}`, colors.dim);
@@ -265,7 +265,7 @@ async function main() {
       summary,
       results
     }, null, 2));
-    log(`\n📄 Full results saved to: ${jsonPath}`, colors.cyan);
+    log(`\n Full results saved to: ${jsonPath}`, colors.cyan);
   }
   
   // Exit code based on findings

@@ -126,7 +126,7 @@ const VAULT_CONFIGS = {
 };
 
 async function deploy() {
-    console.log('🚀 YieldVault Contract Deployment');
+    console.log(' YieldVault Contract Deployment');
     console.log('================================');
     console.log(`Network: BNB Testnet (chainId: ${bnbTestnet.id})`);
     console.log(`RPC: ${RPC_URL}`);
@@ -161,10 +161,10 @@ async function deploy() {
             address: VIEM_ACCOUNT_ADDRESS,
         });
 
-        console.log(`📊 Account Balance: ${(balance / BigInt(10 ** 18)).toString()} BNB\n`);
+        console.log(` Account Balance: ${(balance / BigInt(10 ** 18)).toString()} BNB\n`);
 
         if (balance < BigInt(10 ** 16)) {
-            console.warn('⚠️  Low balance! Ensure you have BNB for gas fees.\n');
+            console.warn('  Low balance! Ensure you have BNB for gas fees.\n');
         }
 
         // Deploy contracts for each vault configuration
@@ -172,14 +172,14 @@ async function deploy() {
 
         for (const [vaultId, tokenAddress] of Object.entries(VAULT_CONFIGS)) {
             try {
-                console.log(`📝 Deploying ${vaultId}...`);
+                console.log(` Deploying ${vaultId}...`);
 
                 // Send transaction to deploy
                 // Note: For actual deployment, use a compiled contract bytecode
                 // This is a stub that shows the structure
                 console.log(`   Vault ID: ${vaultId}`);
                 console.log(`   Token: ${tokenAddress}`);
-                console.log(`   ⏳ In production, compile with: npx hardhat compile`);
+                console.log(`    In production, compile with: npx hardhat compile`);
 
                 // Simulate deployment (in real scenario, use contractBytecode)
                 const mockDeployment = {
@@ -192,10 +192,10 @@ async function deploy() {
                 };
 
                 deploymentResults.push(mockDeployment);
-                console.log(`   ✅ Configuration Ready\n`);
+                console.log(`    Configuration Ready\n`);
 
             } catch (error) {
-                console.error(`   ❌ Error deploying ${vaultId}:`, error.message);
+                console.error(`    Error deploying ${vaultId}:`, error.message);
                 console.log();
             }
         }
@@ -204,12 +204,12 @@ async function deploy() {
         const deploymentFile = path.join(__dirname, 'deployments.json');
         fs.writeFileSync(deploymentFile, JSON.stringify(deploymentResults, null, 2));
 
-        console.log('📊 Deployment Summary');
+        console.log(' Deployment Summary');
         console.log('====================');
         console.log(`Total Vaults Configured: ${deploymentResults.length}`);
         console.log(`Deployment Report saved to: ${deploymentFile}\n`);
 
-        console.log('🎯 Next Steps:');
+        console.log(' Next Steps:');
         console.log('1. Compile with Hardhat: npx hardhat compile');
         console.log('2. Deploy to testnet: npx hardhat run scripts/deploy.js --network bnbTestnet');
         console.log('3. Verify on BscScan: npx hardhat verify --network bnbTestnet <ADDRESS> <CONSTRUCTOR_ARGS>\n');
@@ -217,7 +217,7 @@ async function deploy() {
         return deploymentResults;
 
     } catch (error) {
-        console.error('❌ Deployment failed:', error.message);
+        console.error(' Deployment failed:', error.message);
         process.exit(1);
     }
 }
@@ -228,7 +228,7 @@ module.exports = { deploy, YieldVaultABI, VAULT_CONFIGS };
 // Run if called directly
 if (require.main === module) {
     deploy().then(() => {
-        console.log('✨ Done!');
+        console.log(' Done!');
         process.exit(0);
     }).catch((error) => {
         console.error(error);

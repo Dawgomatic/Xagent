@@ -92,7 +92,7 @@ notify() {
 }
 EOF
   
-  log "📝 Notification written to $NOTIFY_FILE"
+  log " Notification written to $NOTIFY_FILE"
   
   # Trigger OpenClaw via cron CLI (properly initializes scheduler state)
   if command -v openclaw &>/dev/null; then
@@ -105,28 +105,28 @@ EOF
       --wake now \
       --delete-after-run >/dev/null 2>&1; then
       sed -i 's/"status": "pending"/"status": "delivered"/' "$NOTIFY_FILE" 2>/dev/null || true
-      log "✅ OpenClaw notification scheduled"
+      log " OpenClaw notification scheduled"
     else
-      log "⚠️ OpenClaw cron failed - notification saved to file for heartbeat pickup"
+      log " OpenClaw cron failed - notification saved to file for heartbeat pickup"
     fi
   else
-    log "📋 openclaw not found - notification saved to $NOTIFY_FILE"
+    log " openclaw not found - notification saved to $NOTIFY_FILE"
   fi
 }
 
 # Preflight checks
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  echo -e "${RED}❌ Must run inside a git repository${NC}"
+  echo -e "${RED} Must run inside a git repository${NC}"
   exit 1
 fi
 
 if ! command -v "$CLI" &>/dev/null; then
-  echo -e "${RED}❌ CLI not found: $CLI${NC}"
+  echo -e "${RED} CLI not found: $CLI${NC}"
   exit 1
 fi
 
 if [[ ! -f "PROMPT.md" ]]; then
-  echo -e "${YELLOW}⚠️ PROMPT.md not found. Creating template...${NC}"
+  echo -e "${YELLOW} PROMPT.md not found. Creating template...${NC}"
   cat > PROMPT.md << 'EOF'
 # Ralph Loop
 
@@ -155,7 +155,7 @@ Prefixes:
 ## Completion
 When finished, add to IMPLEMENTATION_PLAN.md: STATUS: COMPLETE
 EOF
-  echo -e "${BLUE}📝 Created PROMPT.md template. Edit it and run again.${NC}"
+  echo -e "${BLUE} Created PROMPT.md template. Edit it and run again.${NC}"
   exit 0
 fi
 
@@ -164,7 +164,7 @@ touch AGENTS.md "$PLAN_FILE" 2>/dev/null || true
 # Clear any stale pending notification from previous run
 [[ -f "$NOTIFY_FILE" ]] && rm -f "$NOTIFY_FILE"
 
-echo -e "${BLUE}🐺 Ralph Loop starting${NC}"
+echo -e "${BLUE} Ralph Loop starting${NC}"
 echo -e "   CLI: $CLI $CLI_FLAGS"
 echo -e "   Max iterations: $MAX_ITERS"
 echo -e "   Project: $(pwd)"
@@ -201,7 +201,7 @@ for i in $(seq 1 "$MAX_ITERS"); do
   log "Running: $CMD \"...\""
   if ! $CMD "$(cat PROMPT.md)" 2>&1 | tee -a "$LOG_FILE"; then
     EXIT_CODE=$?
-    log "${YELLOW}⚠️ Agent exited with code $EXIT_CODE${NC}"
+    log "${YELLOW} Agent exited with code $EXIT_CODE${NC}"
     notify "ERROR" "Agent crashed on iteration $i/$MAX_ITERS" "Exit code: $EXIT_CODE. Check log for details."
     sleep 5
     continue
@@ -211,21 +211,21 @@ for i in $(seq 1 "$MAX_ITERS"); do
   if [[ -n "$TEST_CMD" ]]; then
     log "Running tests: $TEST_CMD"
     if bash -lc "$TEST_CMD" 2>&1 | tee -a "$LOG_FILE"; then
-      log "${GREEN}✅ Tests passed${NC}"
+      log "${GREEN} Tests passed${NC}"
     else
-      log "${YELLOW}⚠️ Tests failed${NC}"
+      log "${YELLOW} Tests failed${NC}"
     fi
   fi
   
   # Check completion markers
   if grep -Fq "$BUILDING_DONE" "$PLAN_FILE" 2>/dev/null; then
-    log "${GREEN}✅ All tasks complete!${NC}"
+    log "${GREEN} All tasks complete!${NC}"
     notify "DONE" "All tasks complete" "Ralph loop finished successfully."
     exit 0
   fi
   
   if grep -Fq "$PLANNING_DONE" "$PLAN_FILE" 2>/dev/null; then
-    log "${GREEN}📋 Planning phase complete${NC}"
+    log "${GREEN} Planning phase complete${NC}"
     notify "PLANNING_COMPLETE" "Ready for BUILDING mode" "Switch PROMPT.md to PROMPT-BUILDING.md and restart."
     exit 0
   fi
@@ -234,6 +234,6 @@ for i in $(seq 1 "$MAX_ITERS"); do
   sleep 2
 done
 
-log "${RED}❌ Max iterations ($MAX_ITERS) reached${NC}"
+log "${RED} Max iterations ($MAX_ITERS) reached${NC}"
 notify "BLOCKED" "Max iterations reached" "Completed $MAX_ITERS iterations without finishing. Manual review needed."
 exit 1

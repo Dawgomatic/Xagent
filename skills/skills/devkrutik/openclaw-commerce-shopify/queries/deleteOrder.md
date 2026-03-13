@@ -80,7 +80,7 @@ When a user requests to delete orders or draft orders, follow these steps:
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes order with excessive return fields
+   #  HIGH COST - Deletes order with excessive return fields
    mutation orderDelete($input: OrderDeleteInput!) {
      orderDelete(input: $input) {
        deletedOrderId
@@ -89,7 +89,7 @@ When a user requests to delete orders or draft orders, follow these steps:
      }
    }
    
-   # ✅ LOW COST - Deletes order with essential fields only
+   #  LOW COST - Deletes order with essential fields only
    mutation orderDelete($input: OrderDeleteInput!) {
      orderDelete(input: $input) {
        deletedOrderId
@@ -157,7 +157,7 @@ When generating a delete mutation for the user:
 ```
 I'll help you delete an order from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the order and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the order and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

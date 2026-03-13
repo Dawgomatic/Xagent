@@ -2,35 +2,35 @@
 
 ## Agents to Rebuild
 
-1. **Scout** 🔍
+1. **Scout** 
    - Role: Discovery (find opportunities)
    - Model: anthropic/claude-sonnet-4-5
 
-2. **Sage** 🦉
+2. **Sage** 
    - Role: Architecture (from opportunities → specs)
    - Model: anthropic/claude-sonnet-4-5
 
-3. **Pixel** 🎨
+3. **Pixel** 
    - Role: Design (visuals, branding)
    - Model: anthropic/claude-sonnet-4-5
 
-4. **Link** 🔗
+4. **Link** 
    - Role: Build (code, MVP construction)
    - Model: anthropic/claude-sonnet-4-5
 
-5. **Spark** ✨
+5. **Spark** 
    - Role: Distribution (content, announcements)
    - Model: anthropic/claude-sonnet-4-5
 
-6. **Echo** 📝
+6. **Echo** 
    - Role: Documentation (write docs, guides, blogs)
    - Model: anthropic/claude-sonnet-4-5
 
-7. **Rhythm** 🥁
+7. **Rhythm** 
    - Role: Backlog/Grooming (ops/triage)
    - Model: anthropic/claude-sonnet-4-5
 
-8. **Harmony** 🤝
+8. **Harmony** 
    - Role: Health/Morale (team vibes, audits)
    - Model: anthropic/claude-sonnet-4-5
 

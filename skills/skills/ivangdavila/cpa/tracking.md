@@ -127,9 +127,9 @@
 
 | Condition | Alert Level | Action |
 |-----------|-------------|--------|
-| Credit expires <3 months | 🔴 Critical | Prioritize remaining sections |
-| Credit expires <6 months | 🟡 Warning | Review timeline |
-| NTS expires <1 month | 🔴 Critical | Schedule or lose fee |
-| NTS expires <2 months | 🟡 Warning | Plan exam date |
-| 3 days no study | 🟡 Warning | Check-in message |
-| Practice score <70 | 🟡 Warning | Review weak areas |
+| Credit expires <3 months |  Critical | Prioritize remaining sections |
+| Credit expires <6 months |  Warning | Review timeline |
+| NTS expires <1 month |  Critical | Schedule or lose fee |
+| NTS expires <2 months |  Warning | Plan exam date |
+| 3 days no study |  Warning | Check-in message |
+| Practice score <70 |  Warning | Review weak areas |

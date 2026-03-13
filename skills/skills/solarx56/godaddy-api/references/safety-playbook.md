@@ -4,12 +4,12 @@
 
 These operations require explicit confirmation:
 
-### 💰 Financial (costs money)
+###  Financial (costs money)
 - Domain purchase
 - Domain renewal
 - Certificate purchase/renewal
 
-### 🔥 Destructive (irreversible or high-impact)
+###  Destructive (irreversible or high-impact)
 - DNS replace-all (wipes all records)
 - DNS delete
 - Domain cancellation
@@ -20,7 +20,7 @@ These operations require explicit confirmation:
 All high-risk scripts implement this pattern:
 
 ```bash
-echo "⚠️  WARNING: [description of action and consequences]" >&2
+echo "  WARNING: [description of action and consequences]" >&2
 echo "Details: [show payload or parameters]" >&2
 read -p "Continue? [y/N] " -n 1 -r
 echo

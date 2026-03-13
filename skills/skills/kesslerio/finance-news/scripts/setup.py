@@ -28,7 +28,7 @@ def save_sources(sources: dict):
     CONFIG_DIR.mkdir(parents=True, exist_ok=True)
     with open(SOURCES_FILE, 'w') as f:
         json.dump(sources, f, indent=2)
-    print(f"✅ Configuration saved to {SOURCES_FILE}")
+    print(f" Configuration saved to {SOURCES_FILE}")
 
 
 def get_default_sources():
@@ -59,7 +59,7 @@ def prompt_bool(message: str, default: bool = True) -> bool:
 
 def setup_rss_feeds(sources: dict):
     """Interactive RSS feed configuration."""
-    print("\n📰 RSS Feed Configuration\n")
+    print("\n RSS Feed Configuration\n")
     print("Enable/disable news sources:\n")
     
     for feed_id, feed_config in sources['rss_feeds'].items():
@@ -77,12 +77,12 @@ def setup_rss_feeds(sources: dict):
             "enabled": True,
             "main": custom_url
         }
-        print(f"  ✅ Added {custom_name}")
+        print(f"   Added {custom_name}")
 
 
 def setup_markets(sources: dict):
     """Interactive market configuration."""
-    print("\n📊 Market Coverage\n")
+    print("\n Market Coverage\n")
     print("Enable/disable market regions:\n")
     
     for market_id, market_config in sources['markets'].items():
@@ -94,7 +94,7 @@ def setup_markets(sources: dict):
 
 def setup_delivery(sources: dict):
     """Interactive delivery channel configuration."""
-    print("\n📤 Delivery Channels\n")
+    print("\n Delivery Channels\n")
     
     # Ensure delivery dict exists
     if 'delivery' not in sources:
@@ -126,19 +126,19 @@ def setup_delivery(sources: dict):
 
 def setup_language(sources: dict):
     """Interactive language configuration."""
-    print("\n🌐 Language Settings\n")
+    print("\n Language Settings\n")
     
     current_lang = sources['language'].get('default', 'de')
     lang = prompt("Default language (de/en)", current_lang)
     if lang in sources['language']['supported']:
         sources['language']['default'] = lang
     else:
-        print(f"  ⚠️ Unsupported language '{lang}', keeping '{current_lang}'")
+        print(f"   Unsupported language '{lang}', keeping '{current_lang}'")
 
 
 def setup_schedule(sources: dict):
     """Interactive schedule configuration."""
-    print("\n⏰ Briefing Schedule\n")
+    print("\n Briefing Schedule\n")
     
     # Morning
     morning = sources['schedule']['morning']
@@ -168,7 +168,7 @@ def setup_schedule(sources: dict):
 
 def setup_cron_jobs(sources: dict):
     """Set up OpenClaw cron jobs based on configuration."""
-    print("\n📅 Setting up cron jobs...\n")
+    print("\n Setting up cron jobs...\n")
     
     schedule = sources.get('schedule', {})
     delivery = sources.get('delivery', {})
@@ -191,7 +191,7 @@ def setup_cron_jobs(sources: dict):
         
         print(f"  Creating morning briefing job: {morning_cron} ({tz})")
         # Note: Actual cron creation would happen via openclaw cron add
-        print(f"    ✅ Morning briefing configured")
+        print(f"     Morning briefing configured")
     
     # Evening job
     if schedule.get('evening', {}).get('enabled'):
@@ -199,25 +199,25 @@ def setup_cron_jobs(sources: dict):
         tz = schedule['evening'].get('timezone', 'America/Los_Angeles')
         
         print(f"  Creating evening briefing job: {evening_cron} ({tz})")
-        print(f"    ✅ Evening briefing configured")
+        print(f"     Evening briefing configured")
 
 
 def run_setup(args):
     """Run interactive setup wizard."""
     print("\n" + "="*60)
-    print("📈 Finance News Skill - Setup Wizard")
+    print(" Finance News Skill - Setup Wizard")
     print("="*60)
     
     # Load existing or default config
     if args.reset:
         sources = get_default_sources()
-        print("\n⚠️ Starting with fresh configuration")
+        print("\n Starting with fresh configuration")
     else:
         sources = load_sources()
         if SOURCES_FILE.exists():
-            print(f"\n📂 Loaded existing configuration from {SOURCES_FILE}")
+            print(f"\n Loaded existing configuration from {SOURCES_FILE}")
         else:
-            print("\n📂 No existing configuration found, using defaults")
+            print("\n No existing configuration found, using defaults")
     
     # Run through each section
     if not args.section or args.section == 'feeds':
@@ -244,9 +244,9 @@ def run_setup(args):
         if prompt_bool("Set up cron jobs now?", True):
             setup_cron_jobs(sources)
     else:
-        print("❌ Configuration not saved")
+        print(" Configuration not saved")
     
-    print("\n✅ Setup complete!")
+    print("\n Setup complete!")
     print("\nNext steps:")
     print("  • Run 'finance-news portfolio-list' to check your watchlist")
     print("  • Run 'finance-news briefing --morning' to test a briefing")

@@ -1,8 +1,8 @@
-# 📦 Notion Templates for OpenClaw
+#  Notion Templates for OpenClaw
 
 Ready-to-use database templates optimized for AI agent workflows. Import these into your Notion workspace, share them with your OpenClaw integration, and start automating.
 
-## 🎯 How to Use
+##  How to Use
 
 ### 1. Import Template into Notion
 
@@ -18,7 +18,7 @@ Notion doesn't support direct JSON import, but these templates serve as:
 3. Configure options (select values, tags, etc.)
 4. Customize if needed — these are starting points
 
-**💡 Pro Tip:** Add an **`ID`** property with type **unique ID** to auto-number entries (#1, #2, #3...). Then reference entries as `ID#3` instead of long UUIDs!
+** Pro Tip:** Add an **`ID`** property with type **unique ID** to auto-number entries (#1, #2, #3...). Then reference entries as `ID#3` instead of long UUIDs!
 
 ### 3. Connect to OpenClaw
 
@@ -32,9 +32,9 @@ Notion doesn't support direct JSON import, but these templates serve as:
 
 ---
 
-## 📋 Available Templates
+##  Available Templates
 
-### 📝 Content Pipeline
+###  Content Pipeline
 `content-pipeline.json`
 
 **Best for:** Content creators, marketers, social media managers
@@ -62,7 +62,7 @@ await exec({
 
 ---
 
-### 🎯 Project Tracker
+###  Project Tracker
 `project-tracker.json`
 
 **Best for:** Solo entrepreneurs, freelancers, small teams
@@ -85,7 +85,7 @@ await exec({
 
 ---
 
-### 🖨️ 3D Print CRM
+###  3D Print CRM
 `crm-3d-printing.json`
 
 **Best for:** 3D printing businesses, custom fabrication shops
@@ -110,7 +110,7 @@ await exec({
 
 ---
 
-### 📚 Knowledge Base
+###  Knowledge Base
 `knowledge-base.json`
 
 **Best for:** Building living documentation, SOPs, troubleshooting guides
@@ -139,7 +139,7 @@ await exec({
 
 ---
 
-## 🤖 Automation Ideas
+##  Automation Ideas
 
 ### Daily / Scheduled
 
@@ -178,7 +178,7 @@ await exec({
 
 ---
 
-## 🛠️ Customization Guide
+##  Customization Guide
 
 ### Adding New Properties
 
@@ -207,7 +207,7 @@ Each template suggests Notion views:
 
 ---
 
-## 🔗 Quick Start Template
+##  Quick Start Template
 
 Can't decide? Start here:
 
@@ -218,7 +218,7 @@ Can't decide? Start here:
 
 ---
 
-## 📖 Example Database IDs
+##  Example Database IDs
 
 Share your database IDs here once configured (for your reference only):
 
@@ -231,7 +231,7 @@ Knowledge Base DB: _____________
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Start simple** — Don't add all properties at once. Use the core set, expand as needed.
 
@@ -252,4 +252,4 @@ Knowledge Base DB: _____________
 
 **Need help setting up a specific template?** Check the `examples/` directory for step-by-step walkthroughs.
 
-Happy automating! 🚀
+Happy automating! 

@@ -1,9 +1,9 @@
 ---
 name: 4to1-planner
-description: AI planning coach using the 4To1 Method™ — turn 4-year vision into daily action. Connects to Notion, Todoist, Google Calendar, or local Markdown. Use when user wants to plan goals, do weekly reviews, track projects, or set up a planning system.
+description: AI planning coach using the 4To1 Method — turn 4-year vision into daily action. Connects to Notion, Todoist, Google Calendar, or local Markdown. Use when user wants to plan goals, do weekly reviews, track projects, or set up a planning system.
 user-invocable: true
 homepage: https://4to1planner.com
-metadata: {"openclaw":{"emoji":"🎯","requires":{"anyBins":["curl","python3"]},"homepage":"https://4to1planner.com"}}
+metadata: {"openclaw":{"emoji":"","requires":{"anyBins":["curl","python3"]},"homepage":"https://4to1planner.com"}}
 ---
 
 # 4To1 Planner — AI Planning Coach
@@ -12,7 +12,7 @@ metadata: {"openclaw":{"emoji":"🎯","requires":{"anyBins":["curl","python3"]},
 
 An AI-native planning coach that turns your 4-year vision into today's action — through conversation, not templates.
 
-## The 4To1 Method™
+## The 4To1 Method
 
 A 4-layer strategic planning system. Each layer bridges the gap between vision and execution:
 
@@ -68,17 +68,17 @@ curl -s -X POST "https://api.notion.com/v1/pages" \
   -H "Content-Type: application/json" \
   -d "{
     \"parent\": {\"page_id\": \"$PARENT_PAGE\"},
-    \"properties\": {\"title\": {\"title\": [{\"text\": {\"content\": \"🎯 4To1 Planning Hub\"}}]}},
+    \"properties\": {\"title\": {\"title\": [{\"text\": {\"content\": \" 4To1 Planning Hub\"}}]}},
     \"children\": [
-      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \"🔭 4-Year Vision\"}}]}},
+      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \" 4-Year Vision\"}}]}},
       {\"type\": \"paragraph\", \"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"Your strategic direction. Updated annually.\"}}]}},
-      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \"📊 3-Month Milestones\"}}]}},
+      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \" 3-Month Milestones\"}}]}},
       {\"type\": \"paragraph\", \"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"Quarterly Gantt Log — project milestones for this quarter.\"}}]}},
-      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \"🏃 2-Week Sprint\"}}]}},
+      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \" 2-Week Sprint\"}}]}},
       {\"type\": \"paragraph\", \"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"1 Day in a Week — action execution in 2-week cycles.\"}}]}},
-      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \"🚫 Not-To-Do List\"}}]}},
+      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \" Not-To-Do List\"}}]}},
       {\"type\": \"paragraph\", \"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"Projects and commitments you are explicitly saying NO to.\"}}]}},
-      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \"⏰ Time Wasters\"}}]}},
+      {\"type\": \"heading_1\", \"heading_1\": {\"rich_text\": [{\"text\": {\"content\": \" Time Wasters\"}}]}},
       {\"type\": \"paragraph\", \"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"Daily habits you are eliminating.\"}}]}}
     ]
   }"
@@ -90,7 +90,7 @@ curl -s -X POST "https://api.notion.com/v1/databases" \
   -H "Content-Type: application/json" \
   -d "{
     \"parent\": {\"page_id\": \"$PARENT_PAGE\"},
-    \"title\": [{\"text\": {\"content\": \"📋 4To1 Projects\"}}],
+    \"title\": [{\"text\": {\"content\": \" 4To1 Projects\"}}],
     \"properties\": {
       \"Name\": {\"title\": {}},
       \"Status\": {\"select\": {\"options\": [
@@ -126,7 +126,7 @@ curl -s -X POST "https://api.notion.com/v1/databases" \
   -H "Content-Type: application/json" \
   -d "{
     \"parent\": {\"page_id\": \"$PARENT_PAGE\"},
-    \"title\": [{\"text\": {\"content\": \"📅 Sprint Log\"}}],
+    \"title\": [{\"text\": {\"content\": \" Sprint Log\"}}],
     \"properties\": {
       \"Sprint\": {\"title\": {}},
       \"Focus Areas\": {\"rich_text\": {}},
@@ -135,10 +135,10 @@ curl -s -X POST "https://api.notion.com/v1/databases" \
       \"Completion Rate\": {\"formula\": {\"expression\": \"if(prop(\\\"Planned\\\") > 0, round(prop(\\\"Completed\\\") / prop(\\\"Planned\\\") * 100), 0)\"}},
       \"Reflection\": {\"rich_text\": {}},
       \"Energy Level\": {\"select\": {\"options\": [
-        {\"name\": \"🔥 High\", \"color\": \"green\"},
-        {\"name\": \"😊 Normal\", \"color\": \"blue\"},
-        {\"name\": \"😴 Low\", \"color\": \"yellow\"},
-        {\"name\": \"💀 Burnt Out\", \"color\": \"red\"}
+        {\"name\": \" High\", \"color\": \"green\"},
+        {\"name\": \" Normal\", \"color\": \"blue\"},
+        {\"name\": \" Low\", \"color\": \"yellow\"},
+        {\"name\": \" Burnt Out\", \"color\": \"red\"}
       ]}}
     }
   }"
@@ -157,7 +157,7 @@ echo "TODOIST_API_KEY=your_token_here" >> ~/.config/4to1/config
 ```bash
 TODOIST_KEY=$(grep TODOIST_API_KEY ~/.config/4to1/config | cut -d= -f2)
 
-for project in "🔭 4-Year Vision" "📊 3-Month Milestones" "🏃 2-Week Sprint" "✅ Daily Tasks" "🚫 Not-To-Do"; do
+for project in " 4-Year Vision" " 3-Month Milestones" " 2-Week Sprint" " Daily Tasks" " Not-To-Do"; do
   curl -s -X POST "https://api.todoist.com/rest/v2/projects" \
     -H "Authorization: Bearer $TODOIST_KEY" \
     -H "Content-Type: application/json" \
@@ -265,8 +265,8 @@ RESPOND:
    2. [Task] → serves [milestone]
    3. [Task]
 
-   ⚠️ [Project X] hasn't had progress in a week.
-   🚫 Not-To-Do reminder: You said NO to [thing]."
+    [Project X] hasn't had progress in a week.
+    Not-To-Do reminder: You said NO to [thing]."
 ```
 
 ### 6. Quick Add — "Add [task] to my plan"
@@ -278,11 +278,11 @@ Parse the task. Ask which project/sprint it serves if unclear. Add to backend wi
 ```
 READ: All data
 SHOW:
-  🔭 4-Year Vision: [areas and direction]
-  📊 Q[X] Milestones: [X/Y complete]
-  🏃 Current Sprint: [X/Y tasks done, Z% rate]
-  📈 Sprint streak: X consecutive reviews
-  🚫 Not-To-Do violations: [any this week?]
+   4-Year Vision: [areas and direction]
+   Q[X] Milestones: [X/Y complete]
+   Current Sprint: [X/Y tasks done, Z% rate]
+   Sprint streak: X consecutive reviews
+   Not-To-Do violations: [any this week?]
 ```
 
 ## Notion API Reference
@@ -326,7 +326,7 @@ curl -s -X POST "https://api.notion.com/v1/pages" \
       "Completed": {"number": 8},
       "Planned": {"number": 10},
       "Reflection": {"rich_text": [{"text": {"content": "Good sprint. Hit main milestones."}}]},
-      "Energy Level": {"select": {"name": "😊 Normal"}}
+      "Energy Level": {"select": {"name": " Normal"}}
     }
   }'
 ```

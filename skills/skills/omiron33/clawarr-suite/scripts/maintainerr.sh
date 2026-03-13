@@ -26,12 +26,12 @@ api() {
 }
 
 cmd_status() {
-  echo "🧹 Maintainerr Status"
+  echo " Maintainerr Status"
   echo ""
   if curl -sf -o /dev/null "${BASE_URL}" 2>/dev/null; then
-    echo "  ✅ Running on ${BASE_URL}"
+    echo "   Running on ${BASE_URL}"
   else
-    echo "  ❌ Not reachable on ${BASE_URL}"
+    echo "   Not reachable on ${BASE_URL}"
     return
   fi
 
@@ -51,7 +51,7 @@ cmd_status() {
 }
 
 cmd_rules() {
-  echo "📋 Maintainerr Rules"
+  echo " Maintainerr Rules"
   echo ""
   local data
   data=$(api GET "/rules")
@@ -61,11 +61,11 @@ cmd_rules() {
     echo "  No rules configured. Create rules in the web UI at ${BASE_URL}"
     return
   fi
-  echo "$data" | jq -r '.[] | "  [\(.id)] \(.name) - \(if .isActive then "✅ Active" else "⏸️ Paused" end) | Media: \(.mediaCount // 0) items"'
+  echo "$data" | jq -r '.[] | "  [\(.id)] \(.name) - \(if .isActive then " Active" else " Paused" end) | Media: \(.mediaCount // 0) items"'
 }
 
 cmd_collections() {
-  echo "📚 Maintainerr Collections"
+  echo " Maintainerr Collections"
   echo ""
   local data
   data=$(api GET "/collections")
@@ -83,16 +83,16 @@ cmd_run() {
   if [[ -z "$rule_id" ]]; then
     echo "Running all active rules..."
     if api POST "/rules/run" -d '{}' >/dev/null 2>&1; then
-      echo "✅ Rule execution triggered"
+      echo " Rule execution triggered"
     else
-      echo "❌ Failed to trigger rules" >&2
+      echo " Failed to trigger rules" >&2
     fi
   else
     echo "Running rule ${rule_id}..."
     if api POST "/rules/${rule_id}/run" -d '{}' >/dev/null 2>&1; then
-      echo "✅ Rule ${rule_id} triggered"
+      echo " Rule ${rule_id} triggered"
     else
-      echo "❌ Failed to trigger rule ${rule_id}" >&2
+      echo " Failed to trigger rule ${rule_id}" >&2
     fi
   fi
 }
@@ -104,9 +104,9 @@ cmd_exclude() {
     echo "Usage: maintainerr.sh exclude <media_id> <rule_id>" >&2; exit 1
   fi
   if api POST "/rules/${rule_id}/exclusion" -d "{\"plexId\": ${media_id}}" >/dev/null 2>&1; then
-    echo "✅ Excluded media ${media_id} from rule ${rule_id}"
+    echo " Excluded media ${media_id} from rule ${rule_id}"
   else
-    echo "❌ Failed to exclude" >&2
+    echo " Failed to exclude" >&2
   fi
 }
 
@@ -115,7 +115,7 @@ cmd_media() {
   if [[ -z "$rule_id" ]]; then
     echo "Usage: maintainerr.sh media <rule_id>" >&2; exit 1
   fi
-  echo "📺 Media matched by rule ${rule_id}"
+  echo " Media matched by rule ${rule_id}"
   echo ""
   local data
   data=$(api GET "/rules/${rule_id}/media")
@@ -123,7 +123,7 @@ cmd_media() {
 }
 
 cmd_logs() {
-  echo "📋 Maintainerr Activity Log"
+  echo " Maintainerr Activity Log"
   echo ""
   local data
   data=$(api GET "/logs" 2>/dev/null || echo "[]")

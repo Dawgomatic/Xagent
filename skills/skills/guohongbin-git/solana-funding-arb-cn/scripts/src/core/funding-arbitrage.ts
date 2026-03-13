@@ -68,7 +68,7 @@ export class FundingArbitrageEngine {
 ╚═══════════════════════════════════════════════════════╝
     `);
 
-    logger.info('🚀 Funding Arbitrage Engine started');
+    logger.info(' Funding Arbitrage Engine started');
     logger.info(`Monitoring ${this.config.markets.length} markets`);
     logger.info(`Min APY: ${this.config.minFundingApy}%`);
     logger.info(`Max Position: $${this.config.maxPositionUsd}`);
@@ -119,7 +119,7 @@ export class FundingArbitrageEngine {
 
         // Check exit condition
         if (Math.abs(currentRate.fundingRateApy) < this.config.exitApyThreshold) {
-          logger.info(`📉 ${market} funding dropped to ${currentRate.fundingRateApy.toFixed(1)}% APY - exiting`);
+          logger.info(` ${market} funding dropped to ${currentRate.fundingRateApy.toFixed(1)}% APY - exiting`);
           await this.closePosition(market);
         }
       }
@@ -134,7 +134,7 @@ export class FundingArbitrageEngine {
       if (Math.abs(rate.fundingRateApy) < this.config.minFundingApy) continue;
 
       // Found opportunity!
-      logger.info(`🎯 Found opportunity: ${rate.market} at ${rate.fundingRateApy.toFixed(1)}% APY`);
+      logger.info(` Found opportunity: ${rate.market} at ${rate.fundingRateApy.toFixed(1)}% APY`);
       await this.openPosition(rate);
     }
   }
@@ -195,7 +195,7 @@ export class FundingArbitrageEngine {
         accumulatedFunding: 0
       });
 
-      logger.info(`✅ Position opened: ${market} | ${perpSide.toUpperCase()} perp + hedge`);
+      logger.info(` Position opened: ${market} | ${perpSide.toUpperCase()} perp + hedge`);
       logger.info(`   Expected APY: ${rate.fundingRateApy.toFixed(1)}%`);
 
     } catch (error: any) {
@@ -278,7 +278,7 @@ export class FundingArbitrageEngine {
    * Scan and display opportunities (without executing)
    */
   async scanOpportunities(): Promise<void> {
-    console.log('\n🔍 Scanning funding rate opportunities...\n');
+    console.log('\n Scanning funding rate opportunities...\n');
 
     const summary = await this.drift.getFundingSummary();
     console.log(summary);
@@ -290,10 +290,10 @@ export class FundingArbitrageEngine {
     );
 
     if (opportunities.length === 0) {
-      console.log('\n❌ No opportunities above threshold');
+      console.log('\n No opportunities above threshold');
       console.log(`   Min APY required: ${this.config.minFundingApy}%`);
     } else {
-      console.log(`\n✅ Found ${opportunities.length} opportunities:\n`);
+      console.log(`\n Found ${opportunities.length} opportunities:\n`);
       
       for (const opp of opportunities) {
         const direction = opp.longPayShort ? 'SHORT perp + LONG spot' : 'LONG perp + SHORT spot';

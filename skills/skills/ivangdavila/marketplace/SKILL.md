@@ -3,7 +3,7 @@ name: Marketplace
 slug: marketplace
 version: 1.0.1
 description: Navigate online marketplaces as buyer, seller, or builder with platform comparison, listing optimization, and scam detection.
-metadata: {"clawdbot":{"emoji":"🛒","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Architecture

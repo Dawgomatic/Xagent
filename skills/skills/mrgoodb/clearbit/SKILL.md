@@ -1,7 +1,7 @@
 ---
 name: clearbit
 description: Enrich leads and companies via Clearbit API. Get company and person data.
-metadata: {"clawdbot":{"emoji":"✨","requires":{"env":["CLEARBIT_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["CLEARBIT_API_KEY"]}}}
 ---
 # Clearbit
 Data enrichment.

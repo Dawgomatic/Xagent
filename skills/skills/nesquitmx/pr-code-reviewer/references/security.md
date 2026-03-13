@@ -4,7 +4,7 @@ Estas reglas aplican a TODOS los lenguajes. La seguridad nunca es opcional.
 
 ---
 
-## 🔴 BLOCKERS — SIEMPRE RECHAZAR
+##  BLOCKERS — SIEMPRE RECHAZAR
 
 ### Secrets Expuestos
 
@@ -19,13 +19,13 @@ Detectar cualquiera de estos patrones:
 
 ### Inyección SQL
 
-❌ NUNCA concatenar input del usuario en queries:
+ NUNCA concatenar input del usuario en queries:
 
   JavaScript: const query = `SELECT * FROM users WHERE id = ${req.params.id}`;
   JavaScript: const query = "SELECT * FROM users WHERE name = '" + userName + "'";
   PHP: $query = "SELECT * FROM users WHERE id = " . $_GET['id'];
 
-✅ SIEMPRE usar queries parametrizadas:
+ SIEMPRE usar queries parametrizadas:
 
   JavaScript: const query = 'SELECT * FROM users WHERE id = $1';
               const result = await db.query(query, [req.params.id]);
@@ -34,27 +34,27 @@ Detectar cualquiera de estos patrones:
 
 ### Inyección de Comandos
 
-❌ NUNCA ejecutar comandos con input del usuario sin sanitizar:
+ NUNCA ejecutar comandos con input del usuario sin sanitizar:
 
   JavaScript: exec(`rm -rf ${userInput}`);
   JavaScript: child_process.exec('ls ' + directory);
   PHP: shell_exec("cat " . $filename);
 
-✅ SIEMPRE usar funciones seguras con argumentos separados:
+ SIEMPRE usar funciones seguras con argumentos separados:
 
   JavaScript: execFile('ls', [directory]);
   PHP: escapeshellarg($filename);
 
 ### XSS (Cross-Site Scripting)
 
-❌ NUNCA insertar input del usuario como HTML sin sanitizar:
+ NUNCA insertar input del usuario como HTML sin sanitizar:
 
   JavaScript: element.innerHTML = userInput;
   JavaScript: document.write(userInput);
   React: dangerouslySetInnerHTML={{__html: userComment}}
   PHP: echo $_GET['name'];
 
-✅ SIEMPRE sanitizar:
+ SIEMPRE sanitizar:
 
   JavaScript: element.textContent = userInput;
   React: import DOMPurify from 'dompurify';
@@ -71,7 +71,7 @@ Detectar cualquiera de estos patrones:
 
 ---
 
-## 🟡 WARNINGS
+##  WARNINGS
 
 ### CORS
 - Access-Control-Allow-Origin con valor * en producción
@@ -102,7 +102,7 @@ Detectar cualquiera de estos patrones:
 
 ---
 
-## 🔵 SUGGESTIONS
+##  SUGGESTIONS
 
 ### Mejoras de Seguridad
 - Implementar CSRF tokens en formularios

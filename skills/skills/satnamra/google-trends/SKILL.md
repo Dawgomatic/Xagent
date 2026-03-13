@@ -12,7 +12,7 @@ tags:
   - content
 metadata:
   openclaw:
-    emoji: "📈"
+    emoji: ""
 ---
 
 # Google Trends Monitoring

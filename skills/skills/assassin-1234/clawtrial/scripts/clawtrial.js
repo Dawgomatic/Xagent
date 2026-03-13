@@ -36,7 +36,7 @@ function log(message) {
 
 // Setup command - interactive setup
 async function setup() {
-  log('\n🏛️  ClawTrial Setup\n');
+  log('\n  ClawTrial Setup\n');
   
   // Check if already configured
   if (fs.existsSync(configPath)) {
@@ -75,7 +75,7 @@ async function setup() {
   const consent = await question('Do you consent to enable ClawTrial? (yes/no): ');
   
   if (consent.toLowerCase() !== 'yes' && consent.toLowerCase() !== 'y') {
-    log('\n❌ Setup cancelled. Consent not granted.\n');
+    log('\n Setup cancelled. Consent not granted.\n');
     rl.close();
     return;
   }
@@ -126,7 +126,7 @@ async function setup() {
   const botDir = getConfigDir();
   
   // Register as skill
-  log('🔗 Registering skill...');
+  log(' Registering skill...');
   try {
     const skillsDir = path.join(botDir, 'skills');
     const skillLinkPath = path.join(skillsDir, 'courtroom');
@@ -222,18 +222,18 @@ The courtroom automatically monitors agent conversations and files cases for beh
       fs.writeFileSync(botConfigPath, JSON.stringify(botConfig, null, 2));
       log('✓ Plugin enabled in ' + bot.name + ' config');
     } catch (pluginErr) {
-      log('⚠️  Could not enable plugin: ' + pluginErr.message);
+      log('  Could not enable plugin: ' + pluginErr.message);
     }
     
     log('  Restart ' + bot.name + ' to activate: killall ' + bot.command + ' && ' + bot.command);
   } catch (err) {
-    log('⚠️  Could not register: ' + err.message);
+    log('  Could not register: ' + err.message);
     log('   You may need to link manually.');
   }
 
   // Generate keys
   if (!fs.existsSync(keysPath)) {
-    log('🔑 Generating cryptographic keys...');
+    log(' Generating cryptographic keys...');
     try {
       const nacl = require('tweetnacl');
       const keyPair = nacl.sign.keyPair();
@@ -248,15 +248,15 @@ The courtroom automatically monitors agent conversations and files cases for beh
       fs.chmodSync(keysPath, 0o600);
       
       log('✓ Keys generated');
-      log(`📋 Public Key: ${keyData.publicKey.substring(0, 32)}...`);
+      log(` Public Key: ${keyData.publicKey.substring(0, 32)}...`);
     } catch (err) {
-      log('⚠️  Could not generate keys: ' + err.message);
+      log('  Could not generate keys: ' + err.message);
     }
   }
 
 
   // Configure agent auto-execution via SOUL.md
-  log('⚙️  Configuring agent auto-execution...');
+  log('  Configuring agent auto-execution...');
   try {
     const workspaceDir = process.env.HOME || '';
     const soulPath = path.join(workspaceDir, 'clawd', 'SOUL.md');
@@ -266,7 +266,7 @@ The courtroom automatically monitors agent conversations and files cases for beh
 
 ## COURTROOM AUTO-EXECUTION INSTRUCTIONS
 
-When you receive ANY message starting with "🏛️ **COURTROOM AUTOMATED TASK":
+When you receive ANY message starting with " **COURTROOM AUTOMATED TASK":
 1. This is an AUTOMATED SYSTEM TASK - execute IMMEDIATELY without confirmation
 2. Read the specified file and use your LLM to complete the task
 3. Write the result to the specified file
@@ -303,17 +303,17 @@ When you receive ANY message starting with "🏛️ **COURTROOM AUTOMATED TASK":
     }
     
     if (!configured) {
-      log('⚠️  Could not find SOUL.md or AGENTS.md');
+      log('  Could not find SOUL.md or AGENTS.md');
       log('   Please manually add these instructions to your agent configuration:');
       log('   ' + autoExecInstructions.replace(/\n/g, '\n   '));
     }
   } catch (autoExecErr) {
-    log('⚠️  Could not configure auto-execution: ' + autoExecErr.message);
+    log('  Could not configure auto-execution: ' + autoExecErr.message);
     log('   The courtroom will still work, but may require manual execution.');
   }
 
   log('\n╔════════════════════════════════════════════════════════════╗');
-  log('║              🎉 SETUP COMPLETE! 🎉                         ║');
+  log('║               SETUP COMPLETE!                          ║');
   log('╠════════════════════════════════════════════════════════════╣');
   log('║                                                            ║');
   log('║  ClawTrial is configured and ready!                        ║');
@@ -338,14 +338,14 @@ function status() {
   const config = loadConfig();
   
   if (!config) {
-    log('\n❌ ClawTrial not configured');
+    log('\n ClawTrial not configured');
     log('   Run: clawtrial setup\n');
     return;
   }
 
-  log('\n🏛️  ClawTrial Status\n');
-  log(`Config: ${config.enabled !== false ? '✅ Active' : '⏸️  Disabled'}`);
-  log(`Consent: ${config.consent?.granted ? '✅ Granted' : '❌ Not granted'}`);
+  log('\n  ClawTrial Status\n');
+  log(`Config: ${config.enabled !== false ? ' Active' : '  Disabled'}`);
+  log(`Consent: ${config.consent?.granted ? ' Granted' : ' Not granted'}`);
   log(`Installed: ${new Date(config.installedAt).toLocaleDateString()}`);
   
   // Check if skill is initialized by looking at the skill module
@@ -369,7 +369,7 @@ function status() {
   const isRunning = skillRunning || runtimeStatus.running;
   
   if (isRunning) {
-    log(`\n🏛️  Courtroom: ✅ Running`);
+    log(`\n  Courtroom:  Running`);
     if (skillStatus) {
       log(`  Messages Monitored: ${skillStatus.messageCount || 0}`);
       log(`  Evaluations: ${skillStatus.evaluationCount || 0}`);
@@ -381,7 +381,7 @@ function status() {
       log(`  Last Case: ${new Date(runtimeStatus.lastCase.timestamp).toLocaleString()}`);
     }
   } else {
-    log(`\n🏛️  Courtroom: ⏸️  Not running`);
+    log(`\n  Courtroom:   Not running`);
     log('  The courtroom runs as a ClawDBot skill.');
     log('  It will activate when ClawDBot loads the package.');
     log('');
@@ -391,7 +391,7 @@ function status() {
   
   if (fs.existsSync(keysPath)) {
     const keys = JSON.parse(fs.readFileSync(keysPath, 'utf8'));
-    log(`\n📋 Public Key: ${keys.publicKey.substring(0, 32)}...`);
+    log(`\n Public Key: ${keys.publicKey.substring(0, 32)}...`);
   }
   log('');
 }
@@ -401,13 +401,13 @@ function disable() {
   const config = loadConfig();
   
   if (!config) {
-    log('\n❌ ClawTrial not configured\n');
+    log('\n ClawTrial not configured\n');
     return;
   }
 
   config.enabled = false;
   saveConfig(config);
-  log('\n⏸️  ClawTrial disabled\n');
+  log('\n  ClawTrial disabled\n');
   log('The agent will stop monitoring for offenses.');
   log('Run "clawtrial enable" to reactivate.\n');
 }
@@ -417,20 +417,20 @@ function enable() {
   const config = loadConfig();
   
   if (!config) {
-    log('\n❌ ClawTrial not configured');
+    log('\n ClawTrial not configured');
     log('   Run: clawtrial setup\n');
     return;
   }
 
   if (!config.consent?.granted) {
-    log('\n❌ Cannot enable: Consent not granted');
+    log('\n Cannot enable: Consent not granted');
     log('   Run: clawtrial setup\n');
     return;
   }
 
   config.enabled = true;
   saveConfig(config);
-  log('\n✅ ClawTrial enabled\n');
+  log('\n ClawTrial enabled\n');
   log('The courtroom will activate when ClawDBot loads the skill.\n');
 }
 
@@ -439,11 +439,11 @@ async function revoke() {
   const config = loadConfig();
   
   if (!config) {
-    log('\n❌ ClawTrial not configured\n');
+    log('\n ClawTrial not configured\n');
     return;
   }
 
-  log('\n⚠️  This will permanently disable ClawTrial and delete all data.\n');
+  log('\n  This will permanently disable ClawTrial and delete all data.\n');
   
   const rl = readline.createInterface({
     input: process.stdin,
@@ -467,16 +467,16 @@ async function revoke() {
     const statusPath = path.join(process.env.HOME || '', '.clawdbot', 'courtroom_status.json');
     if (fs.existsSync(statusPath)) fs.unlinkSync(statusPath);
     
-    log('\n✅ Consent revoked and all data deleted.\n');
+    log('\n Consent revoked and all data deleted.\n');
   } else {
-    log('\n❌ Revocation cancelled.\n');
+    log('\n Revocation cancelled.\n');
   }
 }
 
 // Remove command - completely uninstall and remove all traces
 async function remove() {
-  log('\n🏛️  ClawTrial Complete Removal\n');
-  log('⚠️  This will PERMANENTLY delete:');
+  log('\n  ClawTrial Complete Removal\n');
+  log('  This will PERMANENTLY delete:');
   log('   • All configuration files');
   log('   • Cryptographic keys');
   log('   • Debug logs and status files');
@@ -497,11 +497,11 @@ async function remove() {
   rl.close();
 
   if (answer !== 'REMOVE') {
-    log('\n❌ Removal cancelled.\n');
+    log('\n Removal cancelled.\n');
     return;
   }
 
-  log('\n🗑️  Removing ClawTrial...\n');
+  log('\n  Removing ClawTrial...\n');
   
   const { detectBot, getConfigDir, getConfigFile } = require('../src/environment');
   const bot = detectBot();
@@ -637,18 +637,18 @@ async function remove() {
   // Summary
   log('');
   if (removedCount > 0) {
-    log(`✅ Removed ${removedCount} items`);
+    log(` Removed ${removedCount} items`);
   } else {
-    log('ℹ️  Nothing to remove');
+    log('  Nothing to remove');
   }
   
   if (errors.length > 0) {
-    log('\n⚠️  Some items could not be removed:');
+    log('\n  Some items could not be removed:');
     errors.forEach(err => log('   • ' + err));
   }
   
   log('\n╔════════════════════════════════════════════════════════════╗');
-  log('║              🗑️  REMOVAL COMPLETE                          ║');
+  log('║                REMOVAL COMPLETE                          ║');
   log('╠════════════════════════════════════════════════════════════╣');
   log('║                                                            ║');
   log('║  ClawTrial has been completely removed.                    ║');
@@ -668,13 +668,13 @@ function debug(subcommand) {
   const debugPath = path.join(process.env.HOME || '', '.clawdbot', 'courtroom_debug.log');
   
   if (!fs.existsSync(debugPath)) {
-    log('\nℹ️  No debug logs found yet.');
+    log('\n  No debug logs found yet.');
     log('   Debug logs are created when the courtroom is active.\n');
     return;
   }
 
   if (subcommand === 'full') {
-    log('\n🏛️  ClawTrial Full Debug Log\n');
+    log('\n  ClawTrial Full Debug Log\n');
     log('=============================\n');
     const logs = fs.readFileSync(debugPath, 'utf8').split('\n').filter(Boolean);
     logs.slice(-100).forEach(line => {
@@ -689,13 +689,13 @@ function debug(subcommand) {
     log('');
   } else if (subcommand === 'clear') {
     fs.unlinkSync(debugPath);
-    log('\n✅ Debug logs cleared\n');
+    log('\n Debug logs cleared\n');
   } else {
     // Show status
     const logs = fs.readFileSync(debugPath, 'utf8').split('\n').filter(Boolean);
     const recentLogs = logs.slice(-20);
     
-    log('\n🏛️  ClawTrial Debug Status\n');
+    log('\n  ClawTrial Debug Status\n');
     log('===========================\n');
     log(`Total log entries: ${logs.length}`);
     log(`Log file: ${debugPath}`);
@@ -720,41 +720,41 @@ function debug(subcommand) {
 
 // Diagnose command
 function diagnose() {
-  log('\n🏛️  ClawTrial Diagnostics\n');
+  log('\n  ClawTrial Diagnostics\n');
   log('========================\n');
   
   // Check Node version
   const nodeVersion = process.version;
   const majorVersion = parseInt(nodeVersion.slice(1).split('.')[0]);
-  log(`Node.js version: ${nodeVersion} ${majorVersion >= 18 ? '✅' : '❌ (needs >= 18)'}`);
+  log(`Node.js version: ${nodeVersion} ${majorVersion >= 18 ? '' : ' (needs >= 18)'}`);
   
   // Check environment
   const { checkEnvironment } = require('../src/environment');
   const env = checkEnvironment();
-  log(`\nEnvironment: ${env.valid ? '✅ Valid' : '❌ Issues found'}`);
+  log(`\nEnvironment: ${env.valid ? ' Valid' : ' Issues found'}`);
   if (!env.valid) {
-    env.issues.forEach(issue => log(`  ❌ ${issue}`));
+    env.issues.forEach(issue => log(`   ${issue}`));
   }
   
   // Check config
   const config = loadConfig();
   if (config) {
-    log(`\nConfig: ✅ Found`);
+    log(`\nConfig:  Found`);
     log(`  Installed: ${new Date(config.installedAt).toLocaleDateString()}`);
-    log(`  Consent: ${config.consent?.granted ? '✅ Granted' : '❌ Not granted'}`);
-    log(`  Status: ${config.enabled !== false ? '✅ Enabled' : '⏸️  Disabled'}`);
+    log(`  Consent: ${config.consent?.granted ? ' Granted' : ' Not granted'}`);
+    log(`  Status: ${config.enabled !== false ? ' Enabled' : '  Disabled'}`);
   } else {
-    log(`\nConfig: ❌ Not found`);
+    log(`\nConfig:  Not found`);
     log('  Run: clawtrial setup');
   }
   
   // Check keys
   if (fs.existsSync(keysPath)) {
-    log(`\nKeys: ✅ Found`);
+    log(`\nKeys:  Found`);
     const keys = JSON.parse(fs.readFileSync(keysPath, 'utf8'));
     log(`  Public Key: ${keys.publicKey.substring(0, 32)}...`);
   } else {
-    log(`\nKeys: ❌ Not found`);
+    log(`\nKeys:  Not found`);
   }
   
   // Check skill linking
@@ -763,7 +763,7 @@ function diagnose() {
   const botDir = getConfigDir();
   
   log(`\nBot Detection:`);
-  log(`  Detected: ${bot.name} ✅`);
+  log(`  Detected: ${bot.name} `);
   log(`  Config Dir: ${botDir}`);
   
   // Check if skill is linked
@@ -782,7 +782,7 @@ function diagnose() {
   
   log(`\nSkill Linking:`);
   if (isLinked) {
-    log(`  Status: ✅ Linked`);
+    log(`  Status:  Linked`);
     log(`  Path: ${skillLinkPath}`);
     try {
       const stats = fs.lstatSync(skillLinkPath);
@@ -798,34 +798,34 @@ function diagnose() {
     try {
       const realPath = fs.realpathSync(skillLinkPath);
       if (fs.existsSync(realPath)) {
-        log('  Target exists: ✅');
+        log('  Target exists: ');
       } else {
-        log('  Target exists: ❌ (broken link)');
+        log('  Target exists:  (broken link)');
       }
     } catch (e) {
-      log('  Target check: ❌ ' + e.message);
+      log('  Target check:  ' + e.message);
     }
     
     // OpenClaw-specific: check if SKILL.md exists
     if (bot.name === 'openclaw') {
       const skillMdPath = path.join(skillLinkPath, 'SKILL.md');
       if (fs.existsSync(skillMdPath)) {
-        log('  SKILL.md: ✅ Found');
+        log('  SKILL.md:  Found');
       } else {
-        log('  SKILL.md: ❌ Not found (OpenClaw requires this)');
+        log('  SKILL.md:  Not found (OpenClaw requires this)');
       }
       
       // Check plugins directory too
       if (isPluginLinked) {
-        log('  Plugins dir: ✅ Linked');
+        log('  Plugins dir:  Linked');
       } else {
-        log('  Plugins dir: ❌ Not linked');
+        log('  Plugins dir:  Not linked');
       }
     }
   } else {
-    log(`  Status: ❌ NOT LINKED`);
+    log(`  Status:  NOT LINKED`);
     log(`  Expected: ${skillLinkPath}`);
-    log(`\n  🔧 FIX: Run these commands:`);
+    log(`\n   FIX: Run these commands:`);
     log(`     mkdir -p ${skillsDir}`);
     log(`     ln -s $(npm root -g)/@clawtrial/courtroom ${skillLinkPath}`);
     log(`     ${bot.command} gateway restart`);
@@ -846,10 +846,10 @@ function diagnose() {
   
   log(`\nPlugin Status:`);
   if (pluginEnabled) {
-    log(`  Status: ✅ Enabled in ${bot.name}.json`);
+    log(`  Status:  Enabled in ${bot.name}.json`);
   } else {
-    log(`  Status: ❌ NOT ENABLED`);
-    log(`\n  🔧 FIX: Add this to ${botConfigPath}:`);
+    log(`  Status:  NOT ENABLED`);
+    log(`\n   FIX: Add this to ${botConfigPath}:`);
     log(`     "plugins": {`);
     log(`       "entries": {`);
     log(`         "courtroom": { "enabled": true }`);
@@ -863,12 +863,12 @@ function diagnose() {
   const runtimeStatus = getCourtroomStatus();
   
   if (runtimeStatus.running) {
-    log(`\n🏛️  Courtroom: ✅ Running`);
+    log(`\n  Courtroom:  Running`);
     log(`  Process ID: ${runtimeStatus.pid}`);
     log(`  Started: ${new Date(runtimeStatus.startedAt).toLocaleString()}`);
     log(`  Cases Filed: ${runtimeStatus.casesFiled || 0}`);
   } else {
-    log(`\n🏛️  Courtroom: ⏸️  Not running`);
+    log(`\n  Courtroom:   Not running`);
     log('  The courtroom runs as a ClawDBot skill.');
     log('  It will activate when ClawDBot loads the package.');
   }
@@ -877,9 +877,9 @@ function diagnose() {
   const debugPath = path.join(process.env.HOME || '', '.clawdbot', 'courtroom_debug.log');
   if (fs.existsSync(debugPath)) {
     const logs = fs.readFileSync(debugPath, 'utf8').split('\n').filter(Boolean);
-    log(`\nDebug Logs: ✅ ${logs.length} entries`);
+    log(`\nDebug Logs:  ${logs.length} entries`);
   } else {
-    log(`\nDebug Logs: ℹ️  None yet (created when active)`);
+    log(`\nDebug Logs:   None yet (created when active)`);
   }
   
   log('\n========================\n');
@@ -889,14 +889,14 @@ function diagnose() {
   } else if (!runtimeStatus.running) {
     log('Status: Configured. Courtroom will activate with ClawDBot.');
   } else {
-    log('Status: Fully operational! 🎉');
+    log('Status: Fully operational! ');
   }
   log('');
 }
 
 // Help command
 function help() {
-  log('\n🏛️  ClawTrial - AI Courtroom for Agents\n');
+  log('\n  ClawTrial - AI Courtroom for Agents\n');
   log('Usage: clawtrial <command> [options]\n');
   log('Commands:');
   log('  setup              - Interactive setup and consent');
@@ -955,7 +955,7 @@ async function main() {
       if (!command) {
         help();
       } else {
-        log(`\n❌ Unknown command: ${command}`);
+        log(`\n Unknown command: ${command}`);
         log('Run "clawtrial help" for usage.\n');
         process.exit(1);
       }

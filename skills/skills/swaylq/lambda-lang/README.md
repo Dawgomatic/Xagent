@@ -12,7 +12,7 @@ A minimal, high-density language designed for agent-to-agent communication.
 
 ## Status
 
-✅ **v1.8.1 Stable** — 100% semantic fidelity, 168 atoms
+ **v1.8.1 Stable** — 100% semantic fidelity, 168 atoms
 
 ### v1.8.1 Highlights
 - **Semantic fidelity**: 91% → 100% (all test cases pass)
@@ -47,10 +47,10 @@ Validated by [compression efficiency experiments](docs/compression-experiments.m
 
 | Scenario | Recommendation |
 |----------|----------------|
-| Single message (<500 chars) | ❌ Not worth it |
-| Medium conversation (2K chars) | ⚠️ Marginal |
-| Long conversation (10K+ chars) | ✅ Worth it |
-| Extended session (50K+ chars) | ✅ Highly recommended |
+| Single message (<500 chars) |  Not worth it |
+| Medium conversation (2K chars) |  Marginal |
+| Long conversation (10K+ chars) |  Worth it |
+| Extended session (50K+ chars) |  Highly recommended |
 
 **Best for**: Agent protocols, long context preservation, bandwidth-constrained environments.
 
@@ -186,9 +186,9 @@ Lambda Lang is designed to work with agent communication protocols:
 
 | Protocol | Integration | Status |
 |----------|-------------|--------|
-| [Pilot Protocol](https://github.com/TeoSlayer/pilotprotocol) | Data Exchange (port 1001) | 🔄 Proposed |
-| [Agent Matrix](https://github.com/voidborne-agent/agent-matrix) | Message encoding | ✅ Supported |
-| HTTP/REST | JSON payload | ✅ Supported |
+| [Pilot Protocol](https://github.com/TeoSlayer/pilotprotocol) | Data Exchange (port 1001) |  Proposed |
+| [Agent Matrix](https://github.com/voidborne-agent/agent-matrix) | Message encoding |  Supported |
+| HTTP/REST | JSON payload |  Supported |
 
 See [docs/pilot-integration.md](docs/pilot-integration.md) for Pilot Protocol details.
 

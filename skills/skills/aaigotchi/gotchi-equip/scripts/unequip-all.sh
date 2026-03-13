@@ -10,7 +10,7 @@ SKILL_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Validate inputs
 if [ $# -ne 1 ]; then
-    echo "❌ Usage: unequip-all.sh <gotchi-id>"
+    echo " Usage: unequip-all.sh <gotchi-id>"
     echo ""
     echo "Example:"
     echo "  unequip-all.sh 9638"
@@ -19,7 +19,7 @@ fi
 
 GOTCHI_ID="$1"
 
-echo "👻 Unequipping ALL Wearables from Gotchi #$GOTCHI_ID"
+echo " Unequipping ALL Wearables from Gotchi #$GOTCHI_ID"
 echo ""
 echo "==================================================================="
 echo "Gotchi ID: $GOTCHI_ID"
@@ -40,7 +40,7 @@ const gotchiId = $GOTCHI_ID;
 try {
     const txData = buildUnequipAllTransaction(gotchiId);
     
-    console.log('📋 Transaction prepared:');
+    console.log(' Transaction prepared:');
     console.log('   To:', txData.transaction.to);
     console.log('   Chain:', txData.transaction.chainId);
     console.log('   Description:', txData.description);
@@ -49,10 +49,10 @@ try {
     // Save for Bankr submission
     const outFile = '$SKILL_DIR/unequip-tx.json';
     fs.writeFileSync(outFile, JSON.stringify(txData, null, 2));
-    console.log('💾 Saved transaction to:', outFile);
+    console.log(' Saved transaction to:', outFile);
     console.log('');
 } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
 }
 EOF
@@ -62,12 +62,12 @@ cd "$SKILL_DIR"
 node "$TEMP_SCRIPT"
 
 # Submit via Bankr
-echo "🚀 Submitting transaction via Bankr..."
+echo " Submitting transaction via Bankr..."
 echo ""
 
 BANKR_CONFIG="$HOME/.openclaw/skills/bankr/config.json"
 if [ ! -f "$BANKR_CONFIG" ]; then
-    echo "❌ Bankr config not found: $BANKR_CONFIG"
+    echo " Bankr config not found: $BANKR_CONFIG"
     exit 1
 fi
 
@@ -86,13 +86,13 @@ if [ "$SUCCESS" = "true" ]; then
     TX_HASH=$(echo "$RESPONSE" | jq -r '.transactionHash')
     echo ""
     echo "==================================================================="
-    echo "🎉 SUCCESS! All wearables unequipped!"
+    echo " SUCCESS! All wearables unequipped!"
     echo "==================================================================="
     echo "Transaction: $TX_HASH"
     echo "View on BaseScan: https://basescan.org/tx/$TX_HASH"
     echo ""
 else
     echo ""
-    echo "❌ Transaction failed!"
+    echo " Transaction failed!"
     exit 1
 fi

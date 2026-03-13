@@ -114,10 +114,10 @@ Output:
 ```
 # Relevant Memory Context
 
-⚠️ [CORRECTION] Never use wildcard imports — the linter will fail CI
-⚙️ [PREFERENCE] User prefers code examples over long explanations
-📌 [FACT] The Stripe API key is in .env as STRIPE_SECRET_KEY
-📋 [PROCEDURE] Run migrations with: poetry run alembic upgrade head
+ [CORRECTION] Never use wildcard imports — the linter will fail CI
+ [PREFERENCE] User prefers code examples over long explanations
+ [FACT] The Stripe API key is in .env as STRIPE_SECRET_KEY
+ [PROCEDURE] Run migrations with: poetry run alembic upgrade head
 ```
 
 Corrections always surface first. Importance score determines ranking.
@@ -169,10 +169,10 @@ print(mm.format_summary())
 ```
 
 ```
-🧠 Total Active Memories: 24  |  Archived: 3
+ Total Active Memories: 24  |  Archived: 3
    Avg Importance: 7.4/10
 
-📊 BY TYPE
+ BY TYPE
   • correction             4
   • fact                   8
   • preference             5
@@ -238,11 +238,11 @@ Import from JSON export file.
 
 ## Privacy & Security
 
-- ✅ **Zero telemetry** — No data sent anywhere
-- ✅ **Local-only storage** — Everything in `.persistentmind/` on your machine
-- ✅ **No API keys required** — Zero credentials needed
-- ✅ **No authentication** — No accounts or logins
-- ✅ **Full transparency** — MIT licensed, source code included
+-  **Zero telemetry** — No data sent anywhere
+-  **Local-only storage** — Everything in `.persistentmind/` on your machine
+-  **No API keys required** — Zero credentials needed
+-  **No authentication** — No accounts or logins
+-  **Full transparency** — MIT licensed, source code included
 
 ---
 
@@ -250,16 +250,16 @@ Import from JSON export file.
 
 ### [1.0.0] - 2026-02-16
 
-- ✨ Initial release — PersistentMind
-- ✨ 7 memory types: fact, preference, procedure, context, correction, relationship, reminder
-- ✨ 3 scopes: global, project, session
-- ✨ Full-text search with relevance scoring, importance boosting, recency decay
-- ✨ Prompt context injection via `get_context()`
-- ✨ Automatic tag extraction from content
-- ✨ Memory consolidation for deduplication
-- ✨ Export/import for team sharing
-- ✨ Auto-expiry and stale session cleanup
-- ✨ Zero dependencies, local-only storage, MIT licensed
+-  Initial release — PersistentMind
+-  7 memory types: fact, preference, procedure, context, correction, relationship, reminder
+-  3 scopes: global, project, session
+-  Full-text search with relevance scoring, importance boosting, recency decay
+-  Prompt context injection via `get_context()`
+-  Automatic tag extraction from content
+-  Memory consolidation for deduplication
+-  Export/import for team sharing
+-  Auto-expiry and stale session cleanup
+-  Zero dependencies, local-only storage, MIT licensed
 
 ---
 
@@ -267,4 +267,4 @@ Import from JSON export file.
 **Current Version**: 1.0.0
 **Status**: Active & Community-Maintained
 
-© 2026 UnisAI Community
+ 2026 UnisAI Community

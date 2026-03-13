@@ -60,7 +60,7 @@ function generateReply(review, tone, model = 'claude-sonnet') {
   // 여기서는 간단한 규칙 기반 답글 생성
   
   if (rating >= 4) {
-    return `${basePrompt} 앞으로도 더 좋은 서비스로 보답하겠습니다. 다음에 또 뵙겠습니다! 🙏`;
+    return `${basePrompt} 앞으로도 더 좋은 서비스로 보답하겠습니다. 다음에 또 뵙겠습니다! `;
   } else if (rating === 3) {
     return `${basePrompt} 고객님의 피드백을 반영하여 더 나은 경험을 제공하도록 노력하겠습니다.`;
   } else {
@@ -87,7 +87,7 @@ function saveReplies(config, replies) {
   const merged = [...existing, ...replies];
   fs.writeFileSync(filepath, JSON.stringify(merged, null, 2));
   
-  console.log(`💾 답글 저장 완료: ${replies.length}개`);
+  console.log(` 답글 저장 완료: ${replies.length}개`);
 }
 
 // 메인
@@ -103,11 +103,11 @@ async function main() {
   const unreplied = reviews.filter(r => !r.replied);
   
   if (unreplied.length === 0) {
-    console.log('✅ 모든 리뷰에 답글이 달려있습니다!');
+    console.log(' 모든 리뷰에 답글이 달려있습니다!');
     return;
   }
   
-  console.log(`📝 미답변 리뷰 ${unreplied.length}개 발견\n`);
+  console.log(` 미답변 리뷰 ${unreplied.length}개 발견\n`);
   
   const replies = [];
   
@@ -118,7 +118,7 @@ async function main() {
     const replyText = generateReply(review, tone, config.sentiment?.model);
     
     if (preview) {
-      console.log(`\n📌 [${review.platform}] ${review.author} (⭐${review.rating})`);
+      console.log(`\n [${review.platform}] ${review.author} (${review.rating})`);
       console.log(`리뷰: ${review.content}`);
       console.log(`답글: ${replyText}`);
       console.log('---');
@@ -134,18 +134,18 @@ async function main() {
   }
   
   if (preview) {
-    console.log(`\n💡 --apply 옵션으로 실제 답글을 등록할 수 있습니다 (플랫폼 API/자동화 필요)`);
+    console.log(`\n --apply 옵션으로 실제 답글을 등록할 수 있습니다 (플랫폼 API/자동화 필요)`);
   }
   
   if (apply) {
     // TODO: 각 플랫폼별 답글 등록 로직 구현
-    console.log('⚠️  실제 답글 등록 기능은 추후 구현 예정입니다.');
+    console.log('  실제 답글 등록 기능은 추후 구현 예정입니다.');
   }
   
   saveReplies(config, replies);
 }
 
 main().catch(err => {
-  console.error('❌ 오류:', err.message);
+  console.error(' 오류:', err.message);
   process.exit(1);
 });

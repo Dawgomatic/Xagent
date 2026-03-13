@@ -325,7 +325,7 @@ async function enrichItem(item) {
 async function searchReddit(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
-    console.error('❌ No API key found.');
+    console.error(' No API key found.');
     console.error('   Set OPENAI_API_KEY or run: clawdbot config set skills.entries.search-reddit.apiKey "sk-YOUR-KEY"');
     console.error('   Or set: clawdbot config set skills.entries.openai.apiKey "sk-YOUR-KEY"');
     console.error('   Get your key at: https://platform.openai.com');
@@ -365,7 +365,7 @@ async function searchReddit(options) {
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error(`❌ API Error (${res.statusCode}):`, data.slice(0, 500));
+          console.error(` API Error (${res.statusCode}):`, data.slice(0, 500));
           process.exit(1);
         }
         try {
@@ -500,7 +500,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args.includes('--help')) {
   console.log(`
-🔍 Search Reddit — Real-time Reddit search via OpenAI web_search
+ Search Reddit — Real-time Reddit search via OpenAI web_search
 
 Usage:
   search-reddit [options] "your search query"
@@ -528,12 +528,12 @@ Examples:
 const options = parseArgs(args);
 
 if (!options.query) {
-  console.error('❌ Please provide a search query');
+  console.error(' Please provide a search query');
   process.exit(1);
 }
 
 if (!options.json && !options.linksOnly) {
-  console.error(`🔍 Searching Reddit: "${options.query}" (last ${options.days} days)...\n`);
+  console.error(` Searching Reddit: "${options.query}" (last ${options.days} days)...\n`);
 }
 
 searchReddit(options).then(({ response, items }) => {
@@ -566,13 +566,13 @@ searchReddit(options).then(({ response, items }) => {
 
   const links = items.map(item => item.url);
   if (links.length > 0) {
-    console.log(`📎 Links (${links.length}):`);
+    console.log(` Links (${links.length}):`);
     links.slice(0, 10).forEach(url => console.log(`   ${url}`));
     if (links.length > 10) {
       console.log(`   ... and ${links.length - 10} more`);
     }
   }
 }).catch((err) => {
-  console.error('❌ Request failed:', err.message);
+  console.error(' Request failed:', err.message);
   process.exit(1);
 });

@@ -408,8 +408,8 @@ class SystemHealthMonitor:
         for name, details in health['component_details'].items():
             status_symbol = {
                 'healthy': '✓',
-                'degraded': '⚠',
-                'failing': '⚠⚠',
+                'degraded': '',
+                'failing': '',
                 'failed': '✗',
                 'unknown': '?'
             }.get(details['status'], '?')

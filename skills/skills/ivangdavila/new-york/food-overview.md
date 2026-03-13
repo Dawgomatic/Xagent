@@ -72,8 +72,8 @@ NYC style = dense, creamy, no-frills. Served cold.
 
 ## Tourist Traps
 
-- ❌ Times Square chains
-- ❌ Most of Little Italy (except Ferrara, Di Palo's)
-- ❌ Serendipity 3 (2hr waits for frozen hot chocolate)
+-  Times Square chains
+-  Most of Little Italy (except Ferrara, Di Palo's)
+-  Serendipity 3 (2hr waits for frozen hot chocolate)
 
 **Rule:** Walk 5 blocks from tourist areas for better food.

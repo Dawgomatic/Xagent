@@ -156,10 +156,10 @@ function getRiskLevel(score) {
 // Get emoji for risk level
 function getRiskEmoji(level) {
   switch (level) {
-    case 'MALICIOUS': return '☠️';
-    case 'SUSPICIOUS': return '🚫';
-    case 'LOW': return '⚠️';
-    default: return '✅';
+    case 'MALICIOUS': return '';
+    case 'SUSPICIOUS': return '';
+    case 'LOW': return '';
+    default: return '';
   }
 }
 
@@ -617,9 +617,9 @@ function formatFindingsForTerminal(report) {
     const findings = bySeverity[severity];
     if (!findings || findings.length === 0) continue;
     
-    const icon = severity === 'CRITICAL' ? '🔴' : 
-                 severity === 'HIGH' ? '🟠' :
-                 severity === 'MEDIUM' ? '🟡' : '⚪';
+    const icon = severity === 'CRITICAL' ? '' : 
+                 severity === 'HIGH' ? '' :
+                 severity === 'MEDIUM' ? '' : '';
     
     lines.push(`\n${icon} ${severity} (${findings.length})`);
     lines.push('─'.repeat(50));
@@ -702,7 +702,7 @@ Exit codes:
   const skillPath = path.resolve(positional[0]);
   
   if (!options.json) {
-    console.error(`🔍 Bomb-Dog-Sniff Security Scanner v1.2.0`);
+    console.error(` Bomb-Dog-Sniff Security Scanner v1.2.0`);
     console.error(`Target: ${skillPath}`);
     console.error('');
   }
@@ -710,7 +710,7 @@ Exit codes:
   const report = scanSkill(skillPath, options);
   
   if (report.error) {
-    console.error(`❌ Error: ${report.error}`);
+    console.error(` Error: ${report.error}`);
     process.exitCode = 1;
     return;
   }
@@ -738,12 +738,12 @@ Exit codes:
     if (Object.keys(report.severityCounts).length > 0) {
       console.error('\n   Severity Breakdown:');
       for (const [sev, count] of Object.entries(report.severityCounts)) {
-        const icon = sev === 'CRITICAL' ? '🔴' : sev === 'HIGH' ? '🟠' : sev === 'MEDIUM' ? '🟡' : '⚪';
+        const icon = sev === 'CRITICAL' ? '' : sev === 'HIGH' ? '' : sev === 'MEDIUM' ? '' : '';
         console.error(`     ${icon} ${sev}: ${count}`);
       }
     }
     
-    console.error('\n📋 Recommendation:');
+    console.error('\n Recommendation:');
     console.error(`   ${report.recommendation}`);
     console.error('');
     console.error(`Scan ID: ${report.scanId}`);

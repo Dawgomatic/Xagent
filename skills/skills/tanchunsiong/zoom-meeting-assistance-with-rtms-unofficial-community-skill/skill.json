@@ -16,7 +16,7 @@
     "openclaw"
   ],
   "openclaw": {
-    "emoji": "🎙️",
+    "emoji": "",
     "webhookEvents": ["meeting.rtms_started", "meeting.rtms_stopped"],
     "forwardPort": 4048,
     "forwardPath": "/",

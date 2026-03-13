@@ -18,10 +18,10 @@ async function batchSend(senderAccount, recipients) {
       const cmd = `near send ${senderAccount} ${recipient.account} ${recipient.amount}`;
       await execAsync(cmd);
       results.push({ account: recipient.account, status: 'success', amount: recipient.amount });
-      console.log(`✅ Sent ${recipient.amount} NEAR to ${recipient.account}`);
+      console.log(` Sent ${recipient.amount} NEAR to ${recipient.account}`);
     } catch (error) {
       results.push({ account: recipient.account, status: 'failed', error: error.message });
-      console.error(`❌ Failed to send to ${recipient.account}: ${error.message}`);
+      console.error(` Failed to send to ${recipient.account}: ${error.message}`);
     }
   }
 
@@ -42,10 +42,10 @@ async function batchNFT(senderAccount, transfers) {
       const cmd = `near call ${transfer.contract} nft_transfer '{"receiver_id":"${transfer.receiver}","token_id":"${transfer.token_id}"}' --accountId ${senderAccount}`;
       await execAsync(cmd);
       results.push({ token_id: transfer.token_id, receiver: transfer.receiver, status: 'success' });
-      console.log(`✅ Transferred NFT ${transfer.token_id} to ${transfer.receiver}`);
+      console.log(` Transferred NFT ${transfer.token_id} to ${transfer.receiver}`);
     } catch (error) {
       results.push({ token_id: transfer.token_id, receiver: transfer.receiver, status: 'failed', error: error.message });
-      console.error(`❌ Failed to transfer ${transfer.token_id}: ${error.message}`);
+      console.error(` Failed to transfer ${transfer.token_id}: ${error.message}`);
     }
   }
 
@@ -101,7 +101,7 @@ async function main() {
         const data = await fs.readFile(arg2, 'utf8');
         const { recipients } = JSON.parse(data);
         await batchSend(arg1, recipients);
-        console.log('✅ Batch send complete!');
+        console.log(' Batch send complete!');
         break;
       }
 
@@ -114,7 +114,7 @@ async function main() {
         const data = await fs.readFile(arg2, 'utf8');
         const { transfers } = JSON.parse(data);
         await batchNFT(arg1, transfers);
-        console.log('✅ Batch NFT transfer complete!');
+        console.log(' Batch NFT transfer complete!');
         break;
       }
 

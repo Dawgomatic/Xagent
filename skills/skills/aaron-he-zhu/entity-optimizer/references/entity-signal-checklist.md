@@ -124,14 +124,14 @@ These signals provide marginal gains but demonstrate thoroughness and maturity.
 
 ## How to Use This Checklist
 
-Work through signals by priority tier. For each signal, mark status as ✅ (present and correct), ⚠️ (present but incomplete), or ❌ (absent). Focus on completing each priority tier before moving to the next.
+Work through signals by priority tier. For each signal, mark status as  (present and correct),  (present but incomplete), or  (absent). Focus on completing each priority tier before moving to the next.
 
 ### Priority Action Matrix
 
 | Current State | Focus Area | Expected Timeline |
 |--------------|-----------|-------------------|
-| Most Priority 1 signals ❌ | Priority 1 foundation signals only | 2-4 weeks |
-| Priority 1 mostly ✅, Priority 2 mixed | Priority 2 authority signals | 1-2 months |
-| Priority 1-2 mostly ✅ | Priority 3 AI-specific signals | 2-3 months |
-| Priority 1-3 mostly ✅ | Selective Priority 4 for completeness | Ongoing |
-| All tiers mostly ✅ | Maintenance + quarterly re-audit | Quarterly review |
+| Most Priority 1 signals  | Priority 1 foundation signals only | 2-4 weeks |
+| Priority 1 mostly , Priority 2 mixed | Priority 2 authority signals | 1-2 months |
+| Priority 1-2 mostly  | Priority 3 AI-specific signals | 2-3 months |
+| Priority 1-3 mostly  | Selective Priority 4 for completeness | Ongoing |
+| All tiers mostly  | Maintenance + quarterly re-audit | Quarterly review |

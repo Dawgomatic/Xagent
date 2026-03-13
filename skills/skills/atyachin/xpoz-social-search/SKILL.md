@@ -107,9 +107,9 @@ mcporter call xpoz.getRedditSubredditsByKeywords query="startup"
 
 ## Notes
 
-⚠️ **Always poll** `checkOperationStatus` — searches return `operationId`, not data  
-🚀 **Use `fields`** for performance  
-📊 **CSV for scale** via `dataDumpExportOperationId`  
-📅 **Dates:** `YYYY-MM-DD` (current: 2026)
+ **Always poll** `checkOperationStatus` — searches return `operationId`, not data  
+ **Use `fields`** for performance  
+ **CSV for scale** via `dataDumpExportOperationId`  
+ **Dates:** `YYYY-MM-DD` (current: 2026)
 
 **Free tier:** 100 searches/mo, 1K results/search | [xpoz.ai](https://xpoz.ai)

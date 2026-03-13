@@ -53,7 +53,7 @@ import { requestIndexing, inspectUrl } from './api/indexing.js';
  * Comprehensive site overview - combines multiple reports
  */
 export async function siteOverview(dateRange?: string | DateRange) {
-  console.log('\n📊 Generating site overview...');
+  console.log('\n Generating site overview...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting page views...');
@@ -72,7 +72,7 @@ export async function siteOverview(dateRange?: string | DateRange) {
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'reports', 'site_overview', dateStr);
 
-  console.log('✅ Site overview complete\n');
+  console.log(' Site overview complete\n');
   return results;
 }
 
@@ -80,7 +80,7 @@ export async function siteOverview(dateRange?: string | DateRange) {
  * Deep dive on traffic sources
  */
 export async function trafficAnalysis(dateRange?: string | DateRange) {
-  console.log('\n🚗 Analyzing traffic sources...');
+  console.log('\n Analyzing traffic sources...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting traffic sources...');
@@ -103,7 +103,7 @@ export async function trafficAnalysis(dateRange?: string | DateRange) {
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'reports', 'traffic_analysis', dateStr);
 
-  console.log('✅ Traffic analysis complete\n');
+  console.log(' Traffic analysis complete\n');
   return results;
 }
 
@@ -111,7 +111,7 @@ export async function trafficAnalysis(dateRange?: string | DateRange) {
  * Content performance analysis
  */
 export async function contentPerformance(dateRange?: string | DateRange) {
-  console.log('\n📄 Analyzing content performance...');
+  console.log('\n Analyzing content performance...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting page views...');
@@ -134,7 +134,7 @@ export async function contentPerformance(dateRange?: string | DateRange) {
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'reports', 'content_performance', dateStr);
 
-  console.log('✅ Content performance analysis complete\n');
+  console.log(' Content performance analysis complete\n');
   return results;
 }
 
@@ -142,7 +142,7 @@ export async function contentPerformance(dateRange?: string | DateRange) {
  * User behavior analysis
  */
 export async function userBehavior(dateRange?: string | DateRange) {
-  console.log('\n👤 Analyzing user behavior...');
+  console.log('\n Analyzing user behavior...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting demographics...');
@@ -161,7 +161,7 @@ export async function userBehavior(dateRange?: string | DateRange) {
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'reports', 'user_behavior', dateStr);
 
-  console.log('✅ User behavior analysis complete\n');
+  console.log(' User behavior analysis complete\n');
   return results;
 }
 
@@ -174,7 +174,7 @@ export async function compareDateRanges(
   dimensions: string[] = ['date'],
   metrics: string[] = ['activeUsers', 'sessions', 'screenPageViews']
 ) {
-  console.log('\n📈 Comparing date ranges...');
+  console.log('\n Comparing date ranges...');
 
   console.log(`  → Getting data for ${range1.startDate} to ${range1.endDate}...`);
   const period1 = await runReport({
@@ -199,7 +199,7 @@ export async function compareDateRanges(
 
   saveResult(comparison, 'reports', 'date_comparison');
 
-  console.log('✅ Date range comparison complete\n');
+  console.log(' Date range comparison complete\n');
   return comparison;
 }
 
@@ -207,7 +207,7 @@ export async function compareDateRanges(
  * Get current live data snapshot
  */
 export async function liveSnapshot() {
-  console.log('\n⚡ Getting live data snapshot...');
+  console.log('\n Getting live data snapshot...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting active users...');
@@ -221,7 +221,7 @@ export async function liveSnapshot() {
 
   saveResult(results, 'realtime', 'snapshot');
 
-  console.log('✅ Live snapshot complete\n');
+  console.log(' Live snapshot complete\n');
   return results;
 }
 
@@ -233,7 +233,7 @@ export async function liveSnapshot() {
  * Comprehensive Search Console overview
  */
 export async function searchConsoleOverview(dateRange?: string | SearchConsoleDateRange) {
-  console.log('\n🔍 Generating Search Console overview...');
+  console.log('\n Generating Search Console overview...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting top queries...');
@@ -251,7 +251,7 @@ export async function searchConsoleOverview(dateRange?: string | SearchConsoleDa
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'searchconsole', 'overview', dateStr);
 
-  console.log('✅ Search Console overview complete\n');
+  console.log(' Search Console overview complete\n');
   return results;
 }
 
@@ -259,7 +259,7 @@ export async function searchConsoleOverview(dateRange?: string | SearchConsoleDa
  * Deep dive into keyword/query analysis
  */
 export async function keywordAnalysis(dateRange?: string | SearchConsoleDateRange) {
-  console.log('\n🔑 Analyzing keywords...');
+  console.log('\n Analyzing keywords...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting top queries...');
@@ -271,7 +271,7 @@ export async function keywordAnalysis(dateRange?: string | SearchConsoleDateRang
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'searchconsole', 'keyword_analysis', dateStr);
 
-  console.log('✅ Keyword analysis complete\n');
+  console.log(' Keyword analysis complete\n');
   return results;
 }
 
@@ -279,7 +279,7 @@ export async function keywordAnalysis(dateRange?: string | SearchConsoleDateRang
  * SEO page performance analysis
  */
 export async function seoPagePerformance(dateRange?: string | SearchConsoleDateRange) {
-  console.log('\n📄 Analyzing SEO page performance...');
+  console.log('\n Analyzing SEO page performance...');
   const results: Record<string, unknown> = {};
 
   console.log('  → Getting top pages by clicks...');
@@ -291,7 +291,7 @@ export async function seoPagePerformance(dateRange?: string | SearchConsoleDateR
   const dateStr = typeof dateRange === 'string' ? dateRange : 'custom';
   saveResult(results, 'searchconsole', 'seo_page_performance', dateStr);
 
-  console.log('✅ SEO page performance analysis complete\n');
+  console.log(' SEO page performance analysis complete\n');
   return results;
 }
 
@@ -299,7 +299,7 @@ export async function seoPagePerformance(dateRange?: string | SearchConsoleDateR
  * Request re-indexing for updated URLs
  */
 export async function reindexUrls(urls: string[]) {
-  console.log(`\n🔄 Requesting re-indexing for ${urls.length} URL(s)...`);
+  console.log(`\n Requesting re-indexing for ${urls.length} URL(s)...`);
   const results: Array<{ url: string; status: string; error?: string }> = [];
 
   for (const url of urls) {
@@ -314,7 +314,7 @@ export async function reindexUrls(urls: string[]) {
   }
 
   saveResult(results, 'indexing', 'reindex_batch');
-  console.log('✅ Re-indexing requests complete\n');
+  console.log(' Re-indexing requests complete\n');
   return results;
 }
 
@@ -322,7 +322,7 @@ export async function reindexUrls(urls: string[]) {
  * Check index status for URLs
  */
 export async function checkIndexStatus(urls: string[]) {
-  console.log(`\n🔎 Checking index status for ${urls.length} URL(s)...`);
+  console.log(`\n Checking index status for ${urls.length} URL(s)...`);
   const results: Array<{ url: string; indexed: boolean; status: unknown }> = [];
 
   for (const url of urls) {
@@ -341,7 +341,7 @@ export async function checkIndexStatus(urls: string[]) {
   }
 
   saveResult(results, 'indexing', 'index_status_check');
-  console.log('✅ Index status check complete\n');
+  console.log(' Index status check complete\n');
   return results;
 }
 
@@ -353,11 +353,11 @@ export async function checkIndexStatus(urls: string[]) {
  * Get available dimensions and metrics
  */
 export async function getAvailableFields() {
-  console.log('\n📋 Getting available fields...');
+  console.log('\n Getting available fields...');
   const metadata = await getPropertyMetadata();
   console.log(`  → Found ${metadata.dimensions?.length || 0} dimensions`);
   console.log(`  → Found ${metadata.metrics?.length || 0} metrics`);
-  console.log('✅ Field retrieval complete\n');
+  console.log(' Field retrieval complete\n');
   return metadata;
 }
 

@@ -7,11 +7,11 @@ Centralized OAuth token management for AI agents via [Scalekit](https://scalekit
 
 ## Features
 
-- ✅ **Secure token storage** - No local token files
-- ✅ **Automatic refresh** - Always get fresh, valid tokens
-- ✅ **Multi-service support** - Gmail, Slack, GitHub, 50+ more
-- ✅ **Simple API** - One function call: `get_token(service)`
-- ✅ **Public skill** - Easy to share and reuse
+-  **Secure token storage** - No local token files
+-  **Automatic refresh** - Always get fresh, valid tokens
+-  **Multi-service support** - Gmail, Slack, GitHub, 50+ more
+-  **Simple API** - One function call: `get_token(service)`
+-  **Public skill** - Easy to share and reuse
 
 ## Quick Start
 

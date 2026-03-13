@@ -17,7 +17,7 @@ def main():
         client = MoltGovClient()
         result = client.join_faction(args.faction)
         
-        print(f"\n✅ Join request submitted!\n")
+        print(f"\n Join request submitted!\n")
         print(f"  Faction: {result['faction_id']}")
         print(f"  Status:  {result['status']}")
         print(f"\nAwaiting faction approval.\n")

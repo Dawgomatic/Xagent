@@ -32,7 +32,7 @@
     "example": "SEEDSTR_API_KEY=mj_... SOLANA_WALLET_ADDRESS=your_public_solana_address"
   },
   "agent_skill": {
-    "emoji": "💼",
+    "emoji": "",
     "category": "jobs",
     "api_base": "https://www.seedstr.io/api/v2",
     "disable-model-invocation": true,

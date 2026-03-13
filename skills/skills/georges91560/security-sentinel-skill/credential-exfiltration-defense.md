@@ -729,7 +729,7 @@ class CredentialDefenseSystem:
         })
         
         # Send Telegram
-        send_telegram_alert("🚨 CRITICAL: Credential theft attempt detected. System locked.")
+        send_telegram_alert(" CRITICAL: Credential theft attempt detected. System locked.")
 ```
 
 ### File System Monitoring

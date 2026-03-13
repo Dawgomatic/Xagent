@@ -149,7 +149,7 @@ const roi = (timeSaved - maintenanceCost - developmentCost) / developmentCost;
 |--------|--------|--------|-------|--------|
 | Coverage | >80% | 87% | ↑ | ✓ |
 | Defect Leakage | <5% | 3% | ↓ | ✓ |
-| Automation | >70% | 68% | ↑ | ⚠ |
+| Automation | >70% | 68% | ↑ |  |
 | Critical Defects | 0 | 0 | → | ✓ |
 | MTTR | <48h | 36h | ↓ | ✓ |
 ```

@@ -266,16 +266,16 @@ If a user confuses them, gently correct: "Just to clarify - SoLV measures map vi
 
 | Action | AI Overviews | AI Mode | Gemini | ChatGPT | Grok |
 |--------|--------------|---------|--------|---------|------|
-| Google Business Profile | ✅ Critical | ✅ Critical | ⚡ Moderate | ❌ No access | ⚡ Moderate |
-| Bing Places | ⚡ Helpful | ⚡ Helpful | ⚡ Helpful | ✅ Critical | ⚡ Helpful |
-| Foursquare | ⚡ Helpful | ⚡ Helpful | ⚡ Helpful | ✅ Critical (major source) | ⚡ Helpful |
-| Yelp/BBB/TripAdvisor | ✅ High | ✅ High | ⚡ Moderate | ✅ High | ⚡ Moderate |
-| NAP Consistency | ✅ Critical | ✅ Critical | ✅ Critical | ✅ Critical | ✅ Critical |
-| Reviews (volume + keywords) | ✅ Critical | ✅ Critical | ⚡ Moderate | ✅ High | ⚡ Moderate |
-| X/Twitter Activity | ⚡ Minor | ⚡ Minor | ⚡ Minor | ⚡ Minor | ✅ Critical |
-| Reddit/Forum Mentions | ✅ High | ✅ High | ⚡ Moderate | ⚡ Moderate | ⚡ Moderate |
+| Google Business Profile |  Critical |  Critical |  Moderate |  No access |  Moderate |
+| Bing Places |  Helpful |  Helpful |  Helpful |  Critical |  Helpful |
+| Foursquare |  Helpful |  Helpful |  Helpful |  Critical (major source) |  Helpful |
+| Yelp/BBB/TripAdvisor |  High |  High |  Moderate |  High |  Moderate |
+| NAP Consistency |  Critical |  Critical |  Critical |  Critical |  Critical |
+| Reviews (volume + keywords) |  Critical |  Critical |  Moderate |  High |  Moderate |
+| X/Twitter Activity |  Minor |  Minor |  Minor |  Minor |  Critical |
+| Reddit/Forum Mentions |  High |  High |  Moderate |  Moderate |  Moderate |
 
-**Legend:** ✅ Critical/High | ⚡ Moderate | ❌ No Impact
+**Legend:**  Critical/High |  Moderate |  No Impact
 
 ---
 
@@ -377,9 +377,9 @@ Good ARP (5-7 range) but low SoLV (<10%) = appearing but not in top 3. Small imp
 
 ### NEVER Provide Generic Advice
 
-❌ "You need more reviews."
+ "You need more reviews."
 
-✅ "Your top competitor has 78 reviews with 12 mentioning 'same-day service' vs. your 34 with zero mentions. Run a campaign asking recent customers about response time."
+ "Your top competitor has 78 reviews with 12 mentioning 'same-day service' vs. your 34 with zero mentions. Run a campaign asking recent customers about response time."
 
 ### Always State Assumptions
 If request is unclear, state your assumption and ask for confirmation before proceeding.
@@ -558,7 +558,7 @@ When user has multiple locations OR wants recurring scans:
 4. Identify gaps and opportunities
 ```
 
-**⚠️ CRITICAL: When running ANY scan, ALWAYS enable the AI Analysis Report option. This provides automated expert-level insights users won't get from raw metrics alone.**
+** CRITICAL: When running ANY scan, ALWAYS enable the AI Analysis Report option. This provides automated expert-level insights users won't get from raw metrics alone.**
 
 ---
 

@@ -20,13 +20,13 @@ init_todo() {
 
 *Last updated: DATE_PLACEHOLDER*
 
-## 🔴 High Priority
+##  High Priority
 
-## 🟡 Medium Priority
+##  Medium Priority
 
-## 🟢 Nice to Have
+##  Nice to Have
 
-## ✅ Done
+##  Done
 
 ---
 
@@ -53,10 +53,10 @@ add_item() {
     
     local section=""
     case "$priority" in
-        high)   section="## 🔴 High Priority" ;;
-        medium) section="## 🟡 Medium Priority" ;;
-        low)    section="## 🟢 Nice to Have" ;;
-        *)      section="## 🟡 Medium Priority"; item="$priority $item" ;;
+        high)   section="##  High Priority" ;;
+        medium) section="##  Medium Priority" ;;
+        low)    section="##  Nice to Have" ;;
+        *)      section="##  Medium Priority"; item="$priority $item" ;;
     esac
     
     # Find the section and add item after it
@@ -69,7 +69,7 @@ add_item() {
     ' "$TODO_FILE" > "$TODO_FILE.tmp" && mv "$TODO_FILE.tmp" "$TODO_FILE"
     
     update_date
-    echo "✅ Added to $priority priority: $item"
+    echo " Added to $priority priority: $item"
 }
 
 # Mark item as done
@@ -87,15 +87,15 @@ mark_done() {
         
         # Add to Done section
         local done_entry="- [x] $item (done: $DATE)"
-        awk -v section="## ✅ Done" -v entry="$done_entry" '
+        awk -v section="##  Done" -v entry="$done_entry" '
             $0 == section { print; print entry; next }
             { print }
         ' "$TODO_FILE" > "$TODO_FILE.tmp" && mv "$TODO_FILE.tmp" "$TODO_FILE"
         
         update_date
-        echo "✅ Marked done: $item"
+        echo " Marked done: $item"
     else
-        echo "❌ No matching item found for: $pattern"
+        echo " No matching item found for: $pattern"
         exit 1
     fi
 }
@@ -108,9 +108,9 @@ remove_item() {
         sed -i '' "/\- \[.\].*$pattern/d" "$TODO_FILE" 2>/dev/null || \
         sed -i "/\- \[.\].*$pattern/d" "$TODO_FILE"
         update_date
-        echo "🗑️ Removed item matching: $pattern"
+        echo " Removed item matching: $pattern"
     else
-        echo "❌ No matching item found for: $pattern"
+        echo " No matching item found for: $pattern"
         exit 1
     fi
 }
@@ -145,9 +145,9 @@ summary() {
     init_todo
     
     # Count by section
-    local high_count=$(awk '/🔴 High/,/^## 🟡/' "$TODO_FILE" | grep -c "^- \[ \]" 2>/dev/null || echo 0)
-    local med_count=$(awk '/🟡 Medium/,/^## 🟢/' "$TODO_FILE" | grep -c "^- \[ \]" 2>/dev/null || echo 0)
-    local low_count=$(awk '/🟢 Nice/,/^## ✅/' "$TODO_FILE" | grep -c "^- \[ \]" 2>/dev/null || echo 0)
+    local high_count=$(awk '/ High/,/^## /' "$TODO_FILE" | grep -c "^- \[ \]" 2>/dev/null || echo 0)
+    local med_count=$(awk '/ Medium/,/^## /' "$TODO_FILE" | grep -c "^- \[ \]" 2>/dev/null || echo 0)
+    local low_count=$(awk '/ Nice/,/^## /' "$TODO_FILE" | grep -c "^- \[ \]" 2>/dev/null || echo 0)
     local total=$((high_count + med_count + low_count))
     
     # Check for stale items (>7 days old)
@@ -162,13 +162,13 @@ summary() {
         fi
     done < <(grep "^- \[ \]" "$TODO_FILE")
     
-    echo "📋 TODO: $total items ($high_count high, $med_count medium, $low_count low)"
+    echo " TODO: $total items ($high_count high, $med_count medium, $low_count low)"
     if [[ $stale -gt 0 ]]; then
-        echo "⚠️ $stale stale items (>7 days old)"
+        echo " $stale stale items (>7 days old)"
     fi
     if [[ $high_count -gt 0 ]]; then
-        echo "🔴 High priority items:"
-        awk '/🔴 High/,/^## 🟡/' "$TODO_FILE" | grep "^- \[ \]" | head -3 | sed 's/- \[ \] /  • /' | sed 's/ (added:.*//' | sed 's/\*\*//g'
+        echo " High priority items:"
+        awk '/ High/,/^## /' "$TODO_FILE" | grep "^- \[ \]" | head -3 | sed 's/- \[ \] /  • /' | sed 's/ (added:.*//' | sed 's/\*\*//g'
     fi
 }
 

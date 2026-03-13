@@ -1,7 +1,7 @@
 ---
 name: Hosting
 description: Choose and manage web hosting services for websites and apps without server administration.
-metadata: {"clawdbot":{"emoji":"🌍","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Web Hosting Guidance

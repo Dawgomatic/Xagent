@@ -173,18 +173,18 @@ def parse_runtime(stats_line):
 
 def run_audit(args):
     """Main audit logic."""
-    print("🔍 Agent Audit — Scanning your OpenClaw setup...\n")
+    print(" Agent Audit — Scanning your OpenClaw setup...\n")
 
     # Phase 1: Discovery
     config_path = find_openclaw_config()
     if not config_path:
-        print("❌ Could not find OpenClaw config. Looked in:")
+        print(" Could not find OpenClaw config. Looked in:")
         print("   ~/.openclaw/openclaw.json")
         print("   ~/.openclaw/clawdbot.json")
         print("   ~/.config/openclaw/config.json")
         sys.exit(1)
 
-    print(f"📁 Config: {config_path}")
+    print(f" Config: {config_path}")
 
     with open(config_path) as f:
         config = json.load(f)
@@ -213,20 +213,20 @@ def run_audit(args):
             if isinstance(a, dict):
                 agents[a.get("id", a.get("name", "unknown"))] = a
 
-    print(f"👥 Agents found: {len(agents)}")
+    print(f" Agents found: {len(agents)}")
 
     # We'll collect cron data via the report — for now, output the framework
     # In a real deployment, this would call the cron API
 
     report = []
-    report.append("# 🔍 Agent Audit Report")
+    report.append("#  Agent Audit Report")
     report.append(f"\n**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     report.append(f"**Config:** `{config_path}`")
     report.append(f"**Agents:** {len(agents)}")
     report.append("")
 
     # Phase 2: Agent Analysis
-    report.append("## 👥 Agent Overview\n")
+    report.append("##  Agent Overview\n")
     total_estimated_monthly = 0
 
     for name, agent_config in agents.items():
@@ -246,7 +246,7 @@ def run_audit(args):
         report.append("")
 
     # Phase 3: Recommendations placeholder
-    report.append("## 💡 Recommendations\n")
+    report.append("##  Recommendations\n")
     report.append("To generate specific recommendations, the audit needs cron job run history.")
     report.append("Run this audit with OpenClaw's cron API access for detailed per-job analysis.\n")
     report.append("### General Guidelines\n")
@@ -256,7 +256,7 @@ def run_audit(args):
     report.append("| Content drafts, research, summaries | Medium | Sonnet, GPT-4o, Flash, Grok |")
     report.append("| Coding, security, complex reasoning | Complex | Opus, GPT-4.5, 2.5-Pro, Grok-3 |")
     report.append("")
-    report.append("### ⛔ Never Downgrade")
+    report.append("###  Never Downgrade")
     report.append("- Coding/development tasks")
     report.append("- Security reviews")
     report.append("- Financial/trading tasks")
@@ -268,12 +268,12 @@ def run_audit(args):
     if args.output:
         with open(args.output, "w") as f:
             f.write(full_report)
-        print(f"\n📄 Report saved to: {args.output}")
+        print(f"\n Report saved to: {args.output}")
     else:
         print(full_report)
 
-    print("\n✅ Audit complete.")
-    print("\n💡 TIP: For detailed per-cron analysis, run the audit from within an OpenClaw session")
+    print("\n Audit complete.")
+    print("\n TIP: For detailed per-cron analysis, run the audit from within an OpenClaw session")
     print("   where the agent can access cron job history and session data directly.")
 
 

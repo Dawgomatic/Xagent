@@ -7,7 +7,7 @@ metadata:
       {
         "requires": { "bins": ["aluvia"], "env": ["ALUVIA_API_KEY"] },
         "primaryEnv": "ALUVIA_API_KEY",
-        "emoji": "🌐",
+        "emoji": "",
       },
   }
 ---

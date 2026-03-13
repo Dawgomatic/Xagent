@@ -1,7 +1,7 @@
 ---
 name: Firewall
 description: Configure firewalls on servers and cloud providers with security best practices.
-metadata: {"clawdbot":{"emoji":"🛡️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Firewall Rules

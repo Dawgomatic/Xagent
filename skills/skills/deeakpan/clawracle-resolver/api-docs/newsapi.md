@@ -830,7 +830,7 @@ Example response
         *   "url": ["https://www.cbsnews.com/video/justice-jackson-discusses-navigating-relationships-supreme-court/"](https://www.cbsnews.com/video/justice-jackson-discusses-navigating-relationships-supreme-court/),
         *   "urlToImage": ["https://assets2.cbsnewsstatic.com/hub/i/r/2026/02/10/fcff7b18-54f5-4667-b68b-a63ec4e26d47/thumbnail/1200x630/2a0ac48650db803c90507311f8e3a4c3/cbsn-fusion-justice-jackson-discusses-navigating-relationships-supreme-court-thumbnail.jpg"](https://assets2.cbsnewsstatic.com/hub/i/r/2026/02/10/fcff7b18-54f5-4667-b68b-a63ec4e26d47/thumbnail/1200x630/2a0ac48650db803c90507311f8e3a4c3/cbsn-fusion-justice-jackson-discusses-navigating-relationships-supreme-court-thumbnail.jpg),
         *   "publishedAt": "2026-02-10T14:36:00+00:00",
-        *   "content": "Copyright ©2026 CBS Interactive Inc. All rights reserved."
+        *   "content": "Copyright 2026 CBS Interactive Inc. All rights reserved."
 
 },
     *   -
@@ -849,7 +849,7 @@ Example response
         *   "url": ["https://www.cbsnews.com/video/eye-opener-savannah-guthrie-asks-for-publics-help-in-search-for-her-mother/"](https://www.cbsnews.com/video/eye-opener-savannah-guthrie-asks-for-publics-help-in-search-for-her-mother/),
         *   "urlToImage": ["https://assets2.cbsnewsstatic.com/hub/i/r/2026/02/10/e24c7e7c-be25-4b89-b5bd-d5b8299a4e06/thumbnail/1200x630/182750bf3f6637c7cc8a48238f5c4291/cbsn-fusion-eye-opener-savannah-guthrie-asks-for-publics-help-in-search-for-her-mother-thumbnail.jpg"](https://assets2.cbsnewsstatic.com/hub/i/r/2026/02/10/e24c7e7c-be25-4b89-b5bd-d5b8299a4e06/thumbnail/1200x630/182750bf3f6637c7cc8a48238f5c4291/cbsn-fusion-eye-opener-savannah-guthrie-asks-for-publics-help-in-search-for-her-mother-thumbnail.jpg),
         *   "publishedAt": "2026-02-10T14:26:00+00:00",
-        *   "content": "Copyright ©2026 CBS Interactive Inc. All rights reserved."
+        *   "content": "Copyright 2026 CBS Interactive Inc. All rights reserved."
 
 },
     *   -

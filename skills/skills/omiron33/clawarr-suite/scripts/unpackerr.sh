@@ -18,14 +18,14 @@ docker_exec() {
 }
 
 cmd_status() {
-  echo "📦 Unpackerr Status"
+  echo " Unpackerr Status"
   echo ""
 
   local state
   state=$(docker_exec inspect --format '{{.State.Status}}' "$CONTAINER" 2>/dev/null || echo "not_found")
 
   if [[ "$state" == "not_found" ]]; then
-    echo "  ❌ Container '${CONTAINER}' not found"
+    echo "   Container '${CONTAINER}' not found"
     return
   fi
 
@@ -61,13 +61,13 @@ cmd_status() {
 }
 
 cmd_activity() {
-  echo "📦 Unpackerr Extraction Activity"
+  echo " Unpackerr Extraction Activity"
   echo ""
   docker_exec logs --tail 50 "$CONTAINER" 2>&1 | grep -iE "extract|unpack|complete|import|queue|waiting" | tail -20
 }
 
 cmd_errors() {
-  echo "❌ Unpackerr Errors"
+  echo " Unpackerr Errors"
   echo ""
   local errors
   errors=$(docker_exec logs --tail 200 "$CONTAINER" 2>&1 | grep -iE "error|fail|warn" | tail -20)
@@ -80,13 +80,13 @@ cmd_errors() {
 
 cmd_logs() {
   local count="${1:-50}"
-  echo "📋 Unpackerr Logs (last ${count} lines)"
+  echo " Unpackerr Logs (last ${count} lines)"
   echo ""
   docker_exec logs --tail "$count" "$CONTAINER" 2>&1
 }
 
 cmd_config() {
-  echo "⚙️ Unpackerr Configuration"
+  echo " Unpackerr Configuration"
   echo ""
   echo "  Unpackerr is configured via environment variables."
   echo "  Current config:"
@@ -106,9 +106,9 @@ cmd_config() {
 }
 
 cmd_restart() {
-  echo "🔄 Restarting Unpackerr..."
+  echo " Restarting Unpackerr..."
   docker_exec restart "$CONTAINER" 2>&1
-  echo "✅ Restarted"
+  echo " Restarted"
 }
 
 usage() {

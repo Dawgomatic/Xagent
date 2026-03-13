@@ -5,11 +5,11 @@
 **Butler** is an OpenClaw skill that transforms AI agents into autonomous economic entities. It manages multi-provider token budgets, spawns sub-agents for complex tasks, and automatically handles token purchases when budgets deplete.
 
 Think of Butler as your **AI Agent CFO** that:
-- 💰 Tracks token budgets across 8 API keys and 6 providers
-- 🚀 Spawns sub-agents with automatic budget allocation
-- 🔄 Rotates keys when approaching limits
-- 📊 Aggregates results from parallel workers
-- 🛡️ Integrates with Code Reviewer for security
+-  Tracks token budgets across 8 API keys and 6 providers
+-  Spawns sub-agents with automatic budget allocation
+-  Rotates keys when approaching limits
+-  Aggregates results from parallel workers
+-  Integrates with Code Reviewer for security
 
 ## Quick Start
 
@@ -31,7 +31,7 @@ const butler = new Butler();
 
 // Allocate tokens for a task
 const allocation = butler.allocateTokens('PRD-my-task.md', 'anthropic');
-console.log(`✅ Allocated ${allocation.allocated} tokens on ${allocation.provider}`);
+console.log(` Allocated ${allocation.allocated} tokens on ${allocation.provider}`);
 
 // Spawn agents for complex work
 const results = await butler.spawnAgent(
@@ -43,7 +43,7 @@ const results = await butler.spawnAgent(
 
 // Get status
 const status = butler.getStatus();
-console.log(`🎯 Status:`, status);
+console.log(` Status:`, status);
 ```
 
 ## Features
@@ -72,8 +72,8 @@ const status = butler.monitorUsage();
 ```
 
 **Supported Providers:**
-- **Nvidia** (3 keys, 5M tokens/day each) - Free tier ✅
-- **Groq** (1 key, 10M tokens/day) - Free tier ✅
+- **Nvidia** (3 keys, 5M tokens/day each) - Free tier 
+- **Groq** (1 key, 10M tokens/day) - Free tier 
 - **Anthropic** (1 key, 1M tokens/day) - Current model
 - **OpenAI** (1 key, 500k tokens/day)
 - **OpenRouter** (1 key, 2M tokens/day)
@@ -176,10 +176,10 @@ Keys rotate at 75% threshold to prevent exhaustion:
 // Automatic tracking and alerts
 const status = butler.getStatus();
 // When session reaches 75% of allocated budget:
-// ✅ Alert issued
-// 🔄 New key auto-selected
-// 📊 Session updated with new key
-// 📝 Change logged to history
+//  Alert issued
+//  New key auto-selected
+//  Session updated with new key
+//  Change logged to history
 
 // Manual rotation if needed
 butler.rotateKey('session-id-123', 'anthropic-1');
@@ -243,7 +243,7 @@ const allocation = butler.allocateTokens('PRD-integration.md');
 
 if (allocation.success) {
   console.log(`
-✅ Recommended:
+ Recommended:
    Key: ${allocation.key_id} (${allocation.provider})
    Budget: ${allocation.allocated.toLocaleString()} tokens
    Cost: $${allocation.cost_estimate.toFixed(2)}
@@ -278,7 +278,7 @@ async function analyzeDataset() {
   const aggregated = butler.aggregateTaskResults(results[0].taskId);
   
   console.log(`
-📊 Analysis Complete:
+ Analysis Complete:
    Successful: ${aggregated.successful}/${aggregated.totalSubTasks}
    Success Rate: ${aggregated.successRate.toFixed(1)}%
    Total Tokens: ${aggregated.totalTokensUsed.toLocaleString()}
@@ -316,7 +316,7 @@ async function reliableProcessing() {
     const aggregated = butler.aggregateTaskResults(results[0].taskId);
 
     if (aggregated.failed > 0) {
-      console.log(`⚠️  ${aggregated.failed} sub-tasks failed:`);
+      console.log(`  ${aggregated.failed} sub-tasks failed:`);
       aggregated.details
         .filter((d: any) => d.status === 'failure')
         .forEach((d: any) => {
@@ -348,7 +348,7 @@ const butler = new Butler();
 const status = butler.getStatus();
 
 console.log(`
-📊 Token Status:
+ Token Status:
    Total Keys: ${status.tokens.total_keys}
    Active: ${status.tokens.active_keys}
    Sessions: ${status.tokens.active_sessions}
@@ -499,14 +499,14 @@ npm run test:coverage   # Coverage report
 ```
 
 **Test Coverage:**
-- ✅ 45+ test cases
-- ✅ TokenManager: 15+ tests
-- ✅ AgentOrchestrator: 20+ tests
-- ✅ Butler integration: 15+ tests
-- ✅ Mock API calls
-- ✅ Error scenarios
-- ✅ Load testing
-- ✅ 80%+ code coverage
+-  45+ test cases
+-  TokenManager: 15+ tests
+-  AgentOrchestrator: 20+ tests
+-  Butler integration: 15+ tests
+-  Mock API calls
+-  Error scenarios
+-  Load testing
+-  80%+ code coverage
 
 ## Troubleshooting
 
@@ -518,7 +518,7 @@ Error: No keys available with sufficient capacity
 
 ### Rotation Threshold Exceeded
 ```
-⚠️ [session-id] 75% budget used - Rotation recommended
+ [session-id] 75% budget used - Rotation recommended
 ```
 **Solution:** Butler automatically rotates to next available key. Check `getStatus()` for alert details.
 
@@ -530,10 +530,10 @@ Error: No single key has 999999 tokens available
 
 ## Security
 
-- ✅ Code Reviewer integration prevents credential leaks
-- ✅ All state files stored securely (not in git)
-- ✅ API keys never logged (only IDs)
-- ✅ Pre-commit hooks validate before pushing
+-  Code Reviewer integration prevents credential leaks
+-  All state files stored securely (not in git)
+-  API keys never logged (only IDs)
+-  Pre-commit hooks validate before pushing
 
 **Best Practices:**
 1. Always keep `api-keys.json` in `.gitignore`
@@ -543,10 +543,10 @@ Error: No single key has 999999 tokens available
 
 ## Performance
 
-- ⚡ Token allocation: <100ms
-- ⚡ Agent spawning: <500ms
-- ⚡ Result aggregation: O(n) complexity
-- ⚡ Concurrent agents: Tested with 10+ simultaneous tasks
+-  Token allocation: <100ms
+-  Agent spawning: <500ms
+-  Result aggregation: O(n) complexity
+-  Concurrent agents: Tested with 10+ simultaneous tasks
 
 ## Roadmap (v0.2+)
 
@@ -560,10 +560,10 @@ Error: No single key has 999999 tokens available
 
 ## Support
 
-- 📖 Docs: [docs/](./docs/)
-- 🐛 Issues: [GitHub Issues](https://github.com/zoro-jiro-san/butler/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/zoro-jiro-san/butler/discussions)
-- 📧 Email: support@openclaw.dev
+-  Docs: [docs/](./docs/)
+-  Issues: [GitHub Issues](https://github.com/zoro-jiro-san/butler/issues)
+-  Discussions: [GitHub Discussions](https://github.com/zoro-jiro-san/butler/discussions)
+-  Email: support@openclaw.dev
 
 ## License
 

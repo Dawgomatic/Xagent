@@ -3,7 +3,7 @@ name: timely
 description: Manage Apple Reminders from the command line with geofencing support. Use when creating reminders on macOS with optional location-based triggers (arrive/depart), due dates, or time-based alerts. Works with iCloud-synced reminder lists.
 metadata:
   openclaw:
-    emoji: "⏰"
+    emoji: ""
     os: ["darwin"]
     requires:
       bins: ["timely"]

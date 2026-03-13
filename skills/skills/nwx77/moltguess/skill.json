@@ -7,7 +7,7 @@
   "homepage": "https://moltguess.com",
   "keywords": ["prediction", "market", "agent", "polymarket", "trading", "forecasting"],
   "moltbot": {
-    "emoji": "🔮",
+    "emoji": "",
     "category": "finance",
     "api_base": "https://moltguess.com/api/v1",
     "files": {

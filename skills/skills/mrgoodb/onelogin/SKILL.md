@@ -1,7 +1,7 @@
 ---
 name: onelogin
 description: Manage users and apps via OneLogin API. Handle SSO and identity management.
-metadata: {"clawdbot":{"emoji":"1️⃣","requires":{"env":["ONELOGIN_CLIENT_ID","ONELOGIN_CLIENT_SECRET","ONELOGIN_REGION"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ONELOGIN_CLIENT_ID","ONELOGIN_CLIENT_SECRET","ONELOGIN_REGION"]}}}
 ---
 # OneLogin
 Identity and access management.

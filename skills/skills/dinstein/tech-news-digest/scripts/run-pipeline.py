@@ -140,7 +140,7 @@ def main() -> int:
     tmp_github = Path(_run_dir) / "github.json"
     tmp_reddit = Path(_run_dir) / "reddit.json"
     tmp_web = Path(_run_dir) / "web.json"
-    logger.info(f"📁 Run directory: {_run_dir}")
+    logger.info(f" Run directory: {_run_dir}")
 
     # Common args for all fetch scripts
     common = ["--defaults", str(args.defaults)]
@@ -163,7 +163,7 @@ def main() -> int:
          tmp_web),
     ]
 
-    logger.info(f"🚀 Starting pipeline: {len(steps)} sources, {args.hours}h window, freshness={args.freshness}")
+    logger.info(f" Starting pipeline: {len(steps)} sources, {args.hours}h window, freshness={args.freshness}")
     t_start = time.time()
 
     # Phase 1: Parallel fetch
@@ -177,17 +177,17 @@ def main() -> int:
         for future in as_completed(futures):
             res = future.result()
             step_results.append(res)
-            status_icon = {"ok": "✅", "error": "❌", "timeout": "⏰"}.get(res["status"], "?")
+            status_icon = {"ok": "", "error": "", "timeout": ""}.get(res["status"], "?")
             logger.info(f"  {status_icon} {res['name']}: {res['count']} items ({res['elapsed_s']}s)")
             if res["status"] != "ok" and res["stderr_tail"]:
                 for line in res["stderr_tail"]:
                     logger.debug(f"    {line}")
 
     fetch_elapsed = time.time() - t_start
-    logger.info(f"📡 Fetch phase done in {fetch_elapsed:.1f}s")
+    logger.info(f" Fetch phase done in {fetch_elapsed:.1f}s")
 
     # Phase 2: Merge
-    logger.info("🔀 Merging & scoring...")
+    logger.info(" Merging & scoring...")
     merge_args = ["--verbose"] if args.verbose else []
     for flag, path in [("--rss", tmp_rss), ("--twitter", tmp_twitter),
                        ("--github", tmp_github), ("--reddit", tmp_reddit),
@@ -204,14 +204,14 @@ def main() -> int:
 
     # Summary
     logger.info(f"{'=' * 50}")
-    logger.info(f"📊 Pipeline Summary ({total_elapsed:.1f}s total)")
+    logger.info(f" Pipeline Summary ({total_elapsed:.1f}s total)")
     for r in step_results:
         logger.info(f"   {r['name']:10s} {r['status']:7s} {r['count']:4d} items  {r['elapsed_s']:5.1f}s")
     logger.info(f"   {'Merge':10s} {merge_result['status']:7s} {merge_result.get('count',0):4d} items  {merge_result['elapsed_s']:5.1f}s")
     logger.info(f"   Output: {args.output}")
 
     if merge_result["status"] != "ok":
-        logger.error(f"❌ Merge failed: {merge_result['stderr_tail']}")
+        logger.error(f" Merge failed: {merge_result['stderr_tail']}")
         return 1
 
     # Write pipeline metadata alongside output for agent consumption
@@ -227,7 +227,7 @@ def main() -> int:
     with open(meta_path, "w") as f:
         json.dump(meta, f, indent=2)
 
-    logger.info(f"✅ Done → {args.output}")
+    logger.info(f" Done → {args.output}")
     return 0
 
 

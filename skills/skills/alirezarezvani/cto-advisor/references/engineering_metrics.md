@@ -107,7 +107,7 @@
 │ Change Failure Rate: 8.3% ✓         │
 │                                     │
 │ Team Health:         8.2/10         │
-│ Tech Debt Ratio:     12% ⚠          │
+│ Tech Debt Ratio:     12%           │
 │ Feature Delivery:    85% ✓          │
 └─────────────────────────────────────┘
 ```
@@ -198,11 +198,11 @@
 
 ### What NOT to Measure
 
-❌ **Lines of Code**: Encourages bloat  
-❌ **Hours Worked**: Promotes presenteeism  
-❌ **Individual Velocity**: Creates competition  
-❌ **Bug Count Without Context**: Discourages risk-taking  
-❌ **Commit Count**: Encourages tiny commits  
+ **Lines of Code**: Encourages bloat  
+ **Hours Worked**: Promotes presenteeism  
+ **Individual Velocity**: Creates competition  
+ **Bug Count Without Context**: Discourages risk-taking  
+ **Commit Count**: Encourages tiny commits  
 
 ### Goodhart's Law
 "When a measure becomes a target, it ceases to be a good measure"
@@ -262,10 +262,10 @@
 ## DORA Metrics
 | Metric | This Month | Last Month | Target | Status |
 |--------|------------|------------|--------|--------|
-| Deploy Frequency | X/day | Y/day | Z/day | ✓/⚠/✗ |
-| Lead Time | X hrs | Y hrs | <Z hrs | ✓/⚠/✗ |
-| MTTR | X min | Y min | <Z min | ✓/⚠/✗ |
-| Change Failure | X% | Y% | <Z% | ✓/⚠/✗ |
+| Deploy Frequency | X/day | Y/day | Z/day | ✓//✗ |
+| Lead Time | X hrs | Y hrs | <Z hrs | ✓//✗ |
+| MTTR | X min | Y min | <Z min | ✓//✗ |
+| Change Failure | X% | Y% | <Z% | ✓//✗ |
 
 ## Team Performance
 - Velocity: X story points (Y% of plan)
@@ -377,17 +377,17 @@
 ✓ Innovation time >20%  
 
 ### Warning Signs
-⚠️ Increasing MTTR trend  
-⚠️ Declining velocity  
-⚠️ Rising bug escape rate  
-⚠️ Increasing unplanned work  
-⚠️ Growing PR queue  
-⚠️ Decreasing test coverage  
+ Increasing MTTR trend  
+ Declining velocity  
+ Rising bug escape rate  
+ Increasing unplanned work  
+ Growing PR queue  
+ Decreasing test coverage  
 
 ### Crisis Indicators
-🚨 Multiple production incidents per week  
-🚨 Team satisfaction <6/10  
-🚨 Attrition >20%  
-🚨 Technical debt >30%  
-🚨 No deployments for >1 week  
-🚨 Customer escalations increasing
+ Multiple production incidents per week  
+ Team satisfaction <6/10  
+ Attrition >20%  
+ Technical debt >30%  
+ No deployments for >1 week  
+ Customer escalations increasing

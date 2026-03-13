@@ -88,7 +88,7 @@ def validate_outputs(results: list) -> dict:
 def generate_summary(mission: dict, results: list, validation: dict) -> str:
     """통합 리포트 생성"""
     
-    report = f"""# 🦸 Avengers Mission Report
+    report = f"""#  Avengers Mission Report
 
 ## 미션 정보
 - **ID:** {mission['id']}
@@ -101,12 +101,12 @@ def generate_summary(mission: dict, results: list, validation: dict) -> str:
 - **완료:** {validation['completed']}
 - **누락:** {validation['missing']}
 - **빈 결과:** {validation['empty']}
-- **성공 여부:** {'✅ 성공' if validation['success'] else '⚠️ 일부 실패'}
+- **성공 여부:** {' 성공' if validation['success'] else ' 일부 실패'}
 
 """
 
     if validation["issues"]:
-        report += "### ⚠️ 이슈\n"
+        report += "###  이슈\n"
         for issue in validation["issues"]:
             report += f"- {issue}\n"
         report += "\n"
@@ -164,12 +164,12 @@ def main():
     try:
         mission, plan = load_mission(args.mission)
     except FileNotFoundError:
-        print(f"❌ 미션을 찾을 수 없습니다: {args.mission}")
+        print(f" 미션을 찾을 수 없습니다: {args.mission}")
         sys.exit(1)
     
     mission_path = Path(mission["path"])
     
-    print(f"\n🔧 결과 수집 중: {args.mission}")
+    print(f"\n 결과 수집 중: {args.mission}")
     
     # 결과 수집
     results = collect_outputs(mission_path, plan)
@@ -180,7 +180,7 @@ def main():
     print(f"   완료: {validation['completed']}/{validation['total']}")
     
     if not validation["success"] and not args.force:
-        print("\n⚠️  일부 에이전트가 완료되지 않았습니다:")
+        print("\n  일부 에이전트가 완료되지 않았습니다:")
         for issue in validation["issues"]:
             print(f"   - {issue}")
         print("\n   --force 옵션으로 강제 통합 가능")
@@ -210,13 +210,13 @@ def main():
             "validation": validation
         }, indent=2, ensure_ascii=False))
     else:
-        print(f"\n✅ 통합 완료!")
-        print(f"📄 리포트: {output_path}")
+        print(f"\n 통합 완료!")
+        print(f" 리포트: {output_path}")
         print(f"\n{'='*60}")
         print("미션 요약:")
         print(f"  - 총 에이전트: {validation['total']}")
         print(f"  - 성공: {validation['completed']}")
-        print(f"  - 상태: {'✅ 완료' if validation['success'] else '⚠️ 부분 완료'}")
+        print(f"  - 상태: {' 완료' if validation['success'] else ' 부분 완료'}")
         print(f"{'='*60}")
 
 

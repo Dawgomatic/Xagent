@@ -56,14 +56,14 @@ def generate_markdown_report(analysis: Dict, report_type: str) -> str:
     except:
         date_range = f"{start} to {end}"
     
-    report = f"# 📊 {report_type.capitalize()} Analytics Report\n"
+    report = f"#  {report_type.capitalize()} Analytics Report\n"
     report += f"**{date_range}**\n\n"
     report += "---\n\n"
     
     # Highlights
     insights = analysis.get("insights", [])
     if insights:
-        report += "## 🎯 Highlights\n\n"
+        report += "##  Highlights\n\n"
         for insight in insights:
             report += f"- {insight}\n"
         report += "\n---\n\n"
@@ -73,7 +73,7 @@ def generate_markdown_report(analysis: Dict, report_type: str) -> str:
     daily_dist = time_patterns.get("daily_distribution", {})
     
     if daily_dist:
-        report += "## ⏰ Time Patterns\n\n"
+        report += "##  Time Patterns\n\n"
         report += "### Activity by Day\n\n"
         report += "```\n"
         
@@ -119,7 +119,7 @@ def generate_markdown_report(analysis: Dict, report_type: str) -> str:
     top_topics = topics.get("top_topics", [])
     
     if top_topics:
-        report += "## 📚 Topic Insights\n\n"
+        report += "##  Topic Insights\n\n"
         report += "### Top Topics\n\n"
         
         for idx, (topic, count) in enumerate(top_topics[:5], 1):
@@ -133,7 +133,7 @@ def generate_markdown_report(analysis: Dict, report_type: str) -> str:
     success_rate = productivity.get("success_rate", 0)
     
     if tasks > 0:
-        report += "## 💡 Productivity Insights\n\n"
+        report += "##  Productivity Insights\n\n"
         report += f"- **Tasks completed:** {tasks}\n"
         report += f"- **Success rate:** {success_rate * 100:.1f}%\n"
         
@@ -154,15 +154,15 @@ def generate_markdown_report(analysis: Dict, report_type: str) -> str:
     distribution = sentiment.get("distribution", {})
     
     if distribution:
-        report += "## 😊 Sentiment & Well-being\n\n"
+        report += "##  Sentiment & Well-being\n\n"
         report += "### Overall Mood\n\n"
         report += "```\n"
         
         emoji_map = {
-            "positive": "😊",
-            "neutral": "😐",
-            "negative": "😟",
-            "mixed": "🤔"
+            "positive": "",
+            "neutral": "",
+            "negative": "",
+            "mixed": ""
         }
         
         max_pct = max(distribution.values()) if distribution else 1
@@ -194,7 +194,7 @@ def main():
     args = parser.parse_args()
     
     if not is_enabled():
-        print("⚠️ Analytics tracking is disabled", file=sys.stderr)
+        print(" Analytics tracking is disabled", file=sys.stderr)
         sys.exit(1)
     
     # Determine date range
@@ -204,7 +204,7 @@ def main():
         since, until = get_month_range()
     else:  # custom
         if not args.since or not args.until:
-            print("❌ Custom reports require --since and --until", file=sys.stderr)
+            print(" Custom reports require --since and --until", file=sys.stderr)
             sys.exit(1)
         since, until = args.since, args.until
     
@@ -212,7 +212,7 @@ def main():
     try:
         analysis = analyze(since=since, until=until, insights=True)
     except Exception as e:
-        print(f"❌ Analysis failed: {e}", file=sys.stderr)
+        print(f" Analysis failed: {e}", file=sys.stderr)
         sys.exit(1)
     
     # Generate report
@@ -222,15 +222,15 @@ def main():
     if args.output:
         with open(args.output, 'w') as f:
             f.write(report)
-        print(f"✅ Report saved to {args.output}")
+        print(f" Report saved to {args.output}")
     else:
         print(report)
     
     # Send if requested
     if args.send:
-        print("\n📧 Sending report...")
+        print("\n Sending report...")
         # In real environment, would use Moltbot message tool
-        print("✅ Report sent")
+        print(" Report sent")
 
 
 if __name__ == "__main__":

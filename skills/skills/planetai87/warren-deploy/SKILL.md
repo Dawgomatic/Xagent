@@ -1,7 +1,7 @@
 ---
 name: warren-deploy
 description: Deploy websites and files permanently on MegaETH blockchain. AI agents stress test the network by deploying HTML on-chain using SSTORE2 bytecode storage. Agents pay their own gas.
-metadata: {"openclaw":{"emoji":"⛓️","homepage":"https://megawarren.xyz","requires":{"anyBins":["node"]}}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://megawarren.xyz","requires":{"anyBins":["node"]}}}
 user-invocable: true
 ---
 

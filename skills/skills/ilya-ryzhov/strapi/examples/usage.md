@@ -310,7 +310,7 @@ cd {baseDir} && npx tsx src/index.ts users role 3
 cd {baseDir} && npx tsx src/index.ts schema create-type '{"contentType":{"displayName":"Review","singularName":"review","pluralName":"reviews","kind":"collectionType","attributes":{"title":{"type":"string","required":true},"rating":{"type":"integer","min":1,"max":5},"body":{"type":"richtext"}}}}'
 ```
 
-**Agent responds:** ⚠️ This modifies the database schema. Strapi will restart.
+**Agent responds:**  This modifies the database schema. Strapi will restart.
 Created content type "Review" (api::review.review).
 
 **User:** Add a "summary" field to articles

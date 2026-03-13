@@ -82,15 +82,15 @@ async function runTests() {
         try {
           execSync(`node "${CONVERTER_PATH}"`, { stdio: 'pipe' });
           // Should not reach here
-          console.log('  ❌ FAIL: Should have failed with no arguments');
+          console.log('   FAIL: Should have failed with no arguments');
           failed++;
         } catch (error) {
           const stderr = error.stderr?.toString() || '';
           if (stderr.includes('Usage:') || stderr.includes('No file path')) {
-            console.log('  ✅ PASS: Correctly handled no arguments');
+            console.log('   PASS: Correctly handled no arguments');
             passed++;
           } else {
-            console.log('  ❌ FAIL: Unexpected error:', stderr.substring(0, 100));
+            console.log('   FAIL: Unexpected error:', stderr.substring(0, 100));
             failed++;
           }
         }
@@ -103,22 +103,22 @@ async function runTests() {
           });
           
           if (test.shouldPass) {
-            console.log('  ✅ PASS: Conversion succeeded as expected');
+            console.log('   PASS: Conversion succeeded as expected');
             passed++;
             
             // Check if output file was created
             const outputPath = test.filePath.replace(/\.[^/.]+$/, '.md');
             if (fs.existsSync(outputPath)) {
-              console.log('  ✅ PASS: Output file created');
+              console.log('   PASS: Output file created');
               const stats = fs.statSync(outputPath);
               if (stats.size > 0) {
-                console.log('  ✅ PASS: Output file has content');
+                console.log('   PASS: Output file has content');
               } else {
-                console.log('  ⚠️  WARN: Output file is empty');
+                console.log('    WARN: Output file is empty');
               }
             }
           } else {
-            console.log('  ❌ FAIL: Should have failed but succeeded');
+            console.log('   FAIL: Should have failed but succeeded');
             failed++;
           }
         } catch (error) {
@@ -126,24 +126,24 @@ async function runTests() {
           
           if (!test.shouldPass) {
             if (test.expectedError && stderr.includes(test.expectedError)) {
-              console.log(`  ✅ PASS: Correctly failed with "${test.expectedError}"`);
+              console.log(`   PASS: Correctly failed with "${test.expectedError}"`);
               passed++;
             } else if (!test.expectedError) {
-              console.log('  ✅ PASS: Failed as expected (any error)');
+              console.log('   PASS: Failed as expected (any error)');
               passed++;
             } else {
-              console.log(`  ❌ FAIL: Expected "${test.expectedError}" but got:`, stderr.substring(0, 100));
+              console.log(`   FAIL: Expected "${test.expectedError}" but got:`, stderr.substring(0, 100));
               failed++;
             }
           } else {
-            console.log('  ❌ FAIL: Should have succeeded but failed:', stderr.substring(0, 100));
+            console.log('   FAIL: Should have succeeded but failed:', stderr.substring(0, 100));
             failed++;
           }
         }
       }
       
     } catch (error) {
-      console.log('  ❌ FAIL: Test setup error:', error.message);
+      console.log('   FAIL: Test setup error:', error.message);
       failed++;
     }
     
@@ -190,13 +190,13 @@ async function integrationTest() {
         timeout: 30000
       });
       
-      console.log('  ✅ PASS: Real .doc file converted successfully');
+      console.log('   PASS: Real .doc file converted successfully');
       
       // Parse JSON output
       try {
         const output = JSON.parse(result);
         if (output.success) {
-          console.log('  ✅ PASS: JSON output structure correct');
+          console.log('   PASS: JSON output structure correct');
           console.log(`  Output file: ${output.outputPath}`);
           console.log(`  Stats: ${output.stats?.lines || 0} lines`);
           
@@ -205,21 +205,21 @@ async function integrationTest() {
             const content = fs.readFileSync(output.outputPath, 'utf-8');
             console.log(`  Content length: ${content.length} characters`);
             console.log(`  Contains Chinese: ${/[\u4e00-\u9fff]/.test(content)}`);
-            console.log('  ✅ PASS: Integration test complete');
+            console.log('   PASS: Integration test complete');
             return true;
           }
         }
       } catch (parseError) {
-        console.log('  ⚠️  WARN: Could not parse JSON output');
+        console.log('    WARN: Could not parse JSON output');
         console.log('  Raw output:', result.substring(0, 200));
       }
       
     } catch (error) {
-      console.log('  ❌ FAIL: Real .doc conversion failed:', error.message);
+      console.log('   FAIL: Real .doc conversion failed:', error.message);
       return false;
     }
   } else {
-    console.log('  ⚠️  SKIP: Actual .doc file not available for integration test');
+    console.log('    SKIP: Actual .doc file not available for integration test');
   }
   
   return true;
@@ -231,11 +231,11 @@ async function main() {
   const integrationTestPassed = await integrationTest();
   
   console.log('\n=== Final Results ===');
-  console.log(`Unit tests: ${unitTestsPassed ? '✅ PASS' : '❌ FAIL'}`);
-  console.log(`Integration test: ${integrationTestPassed ? '✅ PASS' : '❌ FAIL'}`);
+  console.log(`Unit tests: ${unitTestsPassed ? ' PASS' : ' FAIL'}`);
+  console.log(`Integration test: ${integrationTestPassed ? ' PASS' : ' FAIL'}`);
   
   const allPassed = unitTestsPassed && integrationTestPassed;
-  console.log(`\nOverall: ${allPassed ? '✅ ALL TESTS PASSED' : '❌ SOME TESTS FAILED'}`);
+  console.log(`\nOverall: ${allPassed ? ' ALL TESTS PASSED' : ' SOME TESTS FAILED'}`);
   
   process.exit(allPassed ? 0 : 1);
 }

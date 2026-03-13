@@ -1,7 +1,7 @@
 ---
 name: wishfinity
 description: Add "save for later" to shopping agents, product recommendation engines, gift idea generators, and AI commerce experiences. Saves any product URL to a universal wishlist. Requires MCP config and free Wishfinity account.
-metadata: {"openclaw":{"emoji":"💜","requires":{"config":["agents.list.0.mcp.servers"]},"homepage":"https://wishfinity.com"}}
+metadata: {"openclaw":{"emoji":"","requires":{"config":["agents.list.0.mcp.servers"]},"homepage":"https://wishfinity.com"}}
 ---
 
 # Wishfinity +W

@@ -29,7 +29,7 @@ def get_api_key():
             pass
     
     if not api_key:
-        print("❌ Error: MANUS_API_KEY not found")
+        print(" Error: MANUS_API_KEY not found")
         print("Set it with: export MANUS_API_KEY='sk-...'")
         print("Or configure in ~/.clawdbot/clawdbot.json")
         sys.exit(1)
@@ -53,7 +53,7 @@ def create_task(api_key, prompt, title=None):
     response = requests.post(url, json=data, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error creating task: {response.text}")
+        print(f" Error creating task: {response.text}")
         sys.exit(1)
     
     return response.json()
@@ -69,7 +69,7 @@ def get_task_status(api_key, task_id):
     response = requests.get(url, headers=headers)
     
     if response.status_code != 200:
-        print(f"❌ Error getting task: {response.text}")
+        print(f" Error getting task: {response.text}")
         sys.exit(1)
     
     return response.json()
@@ -78,7 +78,7 @@ def wait_for_completion(api_key, task_id, timeout=DEFAULT_TIMEOUT):
     """Wait for task to complete."""
     start_time = time.time()
     
-    print(f"⏳ Task started: {task_id}")
+    print(f" Task started: {task_id}")
     print(f"   URL: https://manus.im/app/{task_id}")
     print()
     
@@ -88,26 +88,26 @@ def wait_for_completion(api_key, task_id, timeout=DEFAULT_TIMEOUT):
         
         # Show status
         status_icons = {
-            "pending": "⏳ Pending",
-            "running": "🔄 Running",
-            "completed": "✅ Completed",
-            "failed": "❌ Failed"
+            "pending": " Pending",
+            "running": " Running",
+            "completed": " Completed",
+            "failed": " Failed"
         }
         print(f"\r{status_icons.get(status, status)} ", end="", flush=True)
         
         if status == "completed":
-            print("\n\n✅ Task completed!")
+            print("\n\n Task completed!")
             return task
         
         elif status == "failed":
-            print("\n\n❌ Task failed!")
+            print("\n\n Task failed!")
             error = task.get("error", "Unknown error")
             print(f"   Error: {error}")
             return task
         
         time.sleep(2)
     
-    print(f"\n\n⚠️ Timeout after {timeout}s - Task still running")
+    print(f"\n\n Timeout after {timeout}s - Task still running")
     print(f"   Check status: https://manus.im/app/{task_id}")
     return None
 
@@ -154,7 +154,7 @@ def main():
     
     api_key = get_api_key()
     
-    print("🧠 Manus AI Task Runner")
+    print(" Manus AI Task Runner")
     print("=" * 40)
     print(f"Prompt: {args.prompt[:100]}...")
     print()
@@ -164,11 +164,11 @@ def main():
     task_id = task.get("task_id") or task.get("id")
     task_url = task.get("task_url", f"https://manus.im/app/{task_id}")
     
-    print(f"📋 Task ID: {task_id}")
-    print(f"🔗 URL: {task_url}")
+    print(f" Task ID: {task_id}")
+    print(f" URL: {task_url}")
     
     if args.no_wait:
-        print("\n✅ Task created! Use check_status.py or get_result.py to track progress.")
+        print("\n Task created! Use check_status.py or get_result.py to track progress.")
         return
     
     # Wait for completion
@@ -178,14 +178,14 @@ def main():
         # Extract and show result
         result = extract_result(completed_task)
         print("\n" + "=" * 40)
-        print("📝 RESULT:")
+        print(" RESULT:")
         print("=" * 40)
         print(result)
         print()
         
         # Show credit usage
         credit_usage = completed_task.get("credit_usage", 0)
-        print(f"💰 Credit usage: {credit_usage}")
+        print(f" Credit usage: {credit_usage}")
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Check key ETF and crypto prices
-echo "📈 Investment Prices - $(date '+%Y-%m-%d %H:%M')"
+echo " Investment Prices - $(date '+%Y-%m-%d %H:%M')"
 echo "============================================"
 
 # VWCE - Vanguard FTSE All-World (main ETF)
@@ -16,7 +16,7 @@ ETH=$(curl -s "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_cur
 echo "Ethereum (ETH):    €$ETH"
 
 echo ""
-echo "📊 Quick Analysis:"
+echo " Quick Analysis:"
 if [ "$VWCE" != "N/A" ]; then
   echo "- VWCE at €$VWCE - check 52-week range"
 fi

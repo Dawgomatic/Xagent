@@ -1,4 +1,4 @@
-# Calorie Counter 🍎
+# Calorie Counter 
 
 Simple, reliable calorie and protein tracking for OpenClaw agents.
 
@@ -84,20 +84,20 @@ history [days]                    # Show calorie history
 ## Why This Skill?
 
 **vs. Other calorie trackers:**
-- ✅ No API keys or external services
-- ✅ Works offline
-- ✅ Simple manual entry (you control accuracy)
-- ✅ Protein tracking included
-- ✅ Instant feedback on food entry
-- ✅ Clean, portable SQLite storage
-- ✅ No security vulnerabilities
+-  No API keys or external services
+-  Works offline
+-  Simple manual entry (you control accuracy)
+-  Protein tracking included
+-  Instant feedback on food entry
+-  Clean, portable SQLite storage
+-  No security vulnerabilities
 
 **vs. diet-tracker skill:**
-- ✅ Actually works (no broken APIs)
-- ✅ Portable (no hardcoded paths)
-- ✅ English language
-- ✅ Secure (parameterized SQL)
-- ✅ Simpler, cleaner code
+-  Actually works (no broken APIs)
+-  Portable (no hardcoded paths)
+-  English language
+-  Secure (parameterized SQL)
+-  Simpler, cleaner code
 
 ## Documentation
 

@@ -6,7 +6,7 @@ homepage: https://numbergroup.xyz
 metadata:
   {
     "openclaw": {
-      "emoji": "🔐",
+      "emoji": "",
       "requires": { "bins": ["op"] },
       "tags": ["security", "wallet", "keys", "crypto", "secrets"]
     }
@@ -38,7 +38,7 @@ Secure key management patterns for AI agents handling private keys and secrets. 
 
 ## Quick Reference
 
-### DO ✅
+### DO 
 
 ```bash
 # Retrieve key at runtime via 1Password
@@ -51,7 +51,7 @@ op run --env-file=.env.tpl -- node agent.js
 # (delegate specific capabilities, not full wallet access)
 ```
 
-### DON'T ❌
+### DON'T 
 
 ```bash
 # NEVER store keys in files
@@ -151,17 +151,17 @@ def get_session_key(item_name: str) -> dict:
 ### 3. Never Log or Store the Key
 
 ```python
-# ❌ BAD - Key in logs
+#  BAD - Key in logs
 logger.info(f"Using key: {session_key}")
 
-# ✅ GOOD - Redacted identifier
+#  GOOD - Redacted identifier
 logger.info(f"Using session key: {session_key[:8]}...{session_key[-4:]}")
 
-# ❌ BAD - Key in memory file
+#  BAD - Key in memory file
 with open("memory/today.md", "a") as f:
     f.write(f"Session key: {session_key}")
 
-# ✅ GOOD - Reference only
+#  GOOD - Reference only
 with open("memory/today.md", "a") as f:
     f.write(f"Session key: [stored in 1Password: trading-bot-session]")
 ```
@@ -215,7 +215,7 @@ PATTERNS=(
 
 for pattern in "${PATTERNS[@]}"; do
     if git diff --cached | grep -qE "$pattern"; then
-        echo "❌ Potential secret detected matching: $pattern"
+        echo " Potential secret detected matching: $pattern"
         echo "   Remove secrets before committing!"
         exit 1
     fi
@@ -378,7 +378,7 @@ PRIVATE_KEY=sk-ant-api03-real-key-here...  # "for testing"
 try:
     sign_transaction(private_key, tx)
 except Exception as e:
-    logger.error(f"Failed with key {private_key}: {e}")  # ❌
+    logger.error(f"Failed with key {private_key}: {e}")  # 
 ```
 
 **Fix**: Never include credentials in error context

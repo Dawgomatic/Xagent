@@ -4,7 +4,7 @@ slug: tokyo
 version: 1.0.0
 homepage: https://clawic.com/skills/tokyo
 description: Navigate Tokyo as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, safety, culture, and local insights.
-metadata: {"clawdbot":{"emoji":"🗼","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

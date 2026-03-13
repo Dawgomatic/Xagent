@@ -98,4 +98,4 @@ DeepSearch performs multiple search + read + reasoning steps to answer complex q
 
 ## License
 
-MIT © Adhish Thite 2026
+MIT  Adhish Thite 2026

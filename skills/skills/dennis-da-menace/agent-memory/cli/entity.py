@@ -49,14 +49,14 @@ def main():
     if args.command == "track":
         attrs = dict(args.attr) if args.attr else {}
         entity_id = mem.track_entity(args.name, args.type, attrs)
-        print(f"✅ Tracking [{args.type}] {args.name} (id: {entity_id})")
+        print(f" Tracking [{args.type}] {args.name} (id: {entity_id})")
         if attrs:
             print(f"   Attributes: {json.dumps(attrs)}")
             
     elif args.command == "get":
         entity = mem.get_entity(args.name, entity_type=args.type)
         if not entity:
-            print(f"❌ Entity '{args.name}' not found")
+            print(f" Entity '{args.name}' not found")
             sys.exit(1)
         print(f"[{entity.entity_type}] {entity.name}")
         print(f"  ID: {entity.id}")
@@ -70,9 +70,9 @@ def main():
         attrs = dict(args.attr)
         entity = mem.update_entity(args.name, args.type, attrs)
         if entity:
-            print(f"✅ Updated {entity.name}: {json.dumps(attrs)}")
+            print(f" Updated {entity.name}: {json.dumps(attrs)}")
         else:
-            print(f"❌ Entity not found")
+            print(f" Entity not found")
             
     elif args.command == "list":
         entities = mem.list_entities(entity_type=args.type)
@@ -84,7 +84,7 @@ def main():
             
     elif args.command == "link":
         mem.link_fact_to_entity(args.name, args.fact_id)
-        print(f"🔗 Linked fact {args.fact_id} to {args.name}")
+        print(f" Linked fact {args.fact_id} to {args.name}")
 
 
 if __name__ == "__main__":

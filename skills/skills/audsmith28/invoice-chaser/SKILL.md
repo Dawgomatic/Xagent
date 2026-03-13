@@ -3,7 +3,7 @@ name: invoice-chaser
 description: Automated invoice follow-up sequences that escalate from friendly to firm. Track unpaid invoices, send timed reminder emails with escalating tone, log payment interactions, and generate AR aging reports. Your agent handles the awkward conversations so you don't have to — preserving cash flow and client relationships while you focus on actual work. Configure invoice tracking, email templates per stage (friendly → firm → final notice), timing rules, and let your agent chase payments 24/7. Use when adding invoices, running payment chases, checking status, or generating accounts receivable reports.
 metadata:
   clawdbot:
-    emoji: "💸"
+    emoji: ""
     requires:
       skills:
         - gog
@@ -91,7 +91,7 @@ Run `scripts/chase.sh` on schedule (cron daily recommended). The chase cycle:
 ```
 SENT → REMINDER (friendly) → OVERDUE (professional) → FIRM (insistent) → FINAL (urgent) → ESCALATED
   ↓         ↓ day 3              ↓ day 7+             ↓ day 30         ↓ day 45        ↓ day 60
-PAID (any time) ✅
+PAID (any time) 
 ```
 
 **Default timeline:**
@@ -151,12 +151,12 @@ status.sh INV-042 --archive --reason "Bad debt write-off"
 scripts/report.sh
 
 # Output:
-# 📊 Accounts Receivable Aging Report
+#  Accounts Receivable Aging Report
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Current (0-30 days):     $12,500  (5 invoices)
-# 31-60 days:              $3,200   (2 invoices) ⚠️
-# 61-90 days:              $1,800   (1 invoice)  🚨
-# 90+ days:                $500     (1 invoice)  💀
+# 31-60 days:              $3,200   (2 invoices) 
+# 61-90 days:              $1,800   (1 invoice)  
+# 90+ days:                $500     (1 invoice)  
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Total Outstanding:       $18,000  (9 invoices)
 
@@ -205,9 +205,9 @@ clawdbot cron add \
 DRAFT → SENT → REMINDED → OVERDUE → FIRM → FINAL → ESCALATED
                                                         ↓
                                                    (human intervention)
-Any state → PAID ✅
-Any state → PAUSED ⏸ (temporary hold)
-Any state → ARCHIVED 📁 (written off or canceled)
+Any state → PAID 
+Any state → PAUSED  (temporary hold)
+Any state → ARCHIVED  (written off or canceled)
 ```
 
 ## Integration with Accounting

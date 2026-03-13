@@ -8,11 +8,11 @@ Official Website: [https://seede.ai](https://seede.ai)
 
 ## Features
 
-- 🎨 **Text to Design** - Generate beautiful designs through natural language descriptions
-- 🖼️ **Image Reference** - Mimic the style, color, or layout of a reference image
-- 🎨 **Brand Themes** - Support for specifying brand color schemes and themes
-- 📤 **Multi-format Export** - Supports exporting to WebP, PNG, JPG, etc.
-- 📁 **Asset Management** - Upload and reference logos or custom images
+-  **Text to Design** - Generate beautiful designs through natural language descriptions
+-  **Image Reference** - Mimic the style, color, or layout of a reference image
+-  **Brand Themes** - Support for specifying brand color schemes and themes
+-  **Multi-format Export** - Supports exporting to WebP, PNG, JPG, etc.
+-  **Asset Management** - Upload and reference logos or custom images
 
 ## Installation
 
@@ -84,7 +84,7 @@ For detailed API documentation, please see [SKILL.md](./SKILL.md).
 
 ## About
 
-Built by **hilongjw** for the OpenClaw Community 🦞.
+Built by **hilongjw** for the OpenClaw Community .
 
 ## License
 

@@ -4,7 +4,7 @@ A comprehensive OpenClaw skill for learning programming through interactive teac
 
 ## Features
 
-### 🎓 8 Teaching Modes
+###  8 Teaching Modes
 
 1. **Concept Learning** - Learn programming concepts with progressive examples
 2. **Code Review & Refactoring** - Get feedback on your code with guided improvements
@@ -15,7 +15,7 @@ A comprehensive OpenClaw skill for learning programming through interactive teac
 7. **Interview Preparation** - Practice coding interviews and system design
 8. **Language Learning** - Learn new languages by mapping from familiar ones
 
-### 📚 Comprehensive References
+###  Comprehensive References
 
 - **Algorithms**: 15+ common patterns (Two Pointers, Sliding Window, DFS/BFS, DP, etc.)
 - **Data Structures**: Arrays, strings, trees, graphs, heaps
@@ -23,7 +23,7 @@ A comprehensive OpenClaw skill for learning programming through interactive teac
 - **Languages**: Python and JavaScript quick references
 - **Best Practices**: Clean code, SOLID principles, testing strategies
 
-### 🛠️ Utility Scripts
+###  Utility Scripts
 
 - **`analyze_code.py`**: Static code analysis for bugs, style, complexity, security
 - **`run_tests.py`**: Execute tests with formatted output (pytest, unittest, jest)
@@ -373,6 +373,6 @@ Built with OpenClaw framework for creating educational AI skills.
 
 ---
 
-**Happy Learning!** 🚀
+**Happy Learning!** 
 
 Remember: The best way to learn programming is by doing. This mentor is here to guide you, challenge you, and help you discover solutions on your own. Struggle is part of learning—embrace it!

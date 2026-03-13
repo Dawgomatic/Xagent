@@ -28,7 +28,7 @@ node dist/cli.js signals --coin bitcoin
 ## Output Format
 
 ```
-🔍 BTC Analysis — ¥15,234,567
+ BTC Analysis — ¥15,234,567
 
 Technical Indicators:
 | Indicator | Value | Signal |
@@ -61,7 +61,7 @@ CoinGecko → Price Data → Technical Indicators → DeepSeek API → Signal
 - **CoinGecko rate limit**: Cached data used if available; warn user
 - **Conflicting signals**: AI weighs indicators and provides reasoning for its decision
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 **For informational/educational purposes only.** Not financial advice. Always DYOR.
 

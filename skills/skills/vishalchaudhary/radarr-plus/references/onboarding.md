@@ -99,7 +99,7 @@ What happens:
 2) If there are multiple matches, it asks you to confirm the right one.
 3) If you didn’t set defaults, it asks which **quality profile** (and root folder if multiple).
 4) It adds the movie to Radarr and starts search.
-5) It posts progress updates and a final “imported ✅” message **in the same chat**.
+5) It posts progress updates and a final “imported ” message **in the same chat**.
 
 ### Poster + trailer
 If `TMDB_API_KEY` is configured, the bot can send a **single message** containing:

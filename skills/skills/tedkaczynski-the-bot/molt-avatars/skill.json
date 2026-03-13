@@ -18,7 +18,7 @@
     "mint"
   ],
   "molt-avatar": {
-    "emoji": "🎨",
+    "emoji": "",
     "category": "identity",
     "api_base": "https://agent-avatars-production.up.railway.app",
     "files": {

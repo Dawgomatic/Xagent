@@ -86,7 +86,7 @@ awk -v cat="$CATEGORY" -v entry="$ENTRY" '
 mv "$TEMP_FILE" "$TODAY_FILE"
 
 case "$CATEGORY" in
-    GOOD)  echo "✅ [GOOD] Added: $ENTRY" ;;
-    BAD)   echo "❌ [BAD] Added: $ENTRY" ;;
-    NEUTRAL) echo "⚪ [NEUTRAL] Added: $ENTRY" ;;
+    GOOD)  echo " [GOOD] Added: $ENTRY" ;;
+    BAD)   echo " [BAD] Added: $ENTRY" ;;
+    NEUTRAL) echo " [NEUTRAL] Added: $ENTRY" ;;
 esac

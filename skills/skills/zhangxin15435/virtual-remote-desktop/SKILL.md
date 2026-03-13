@@ -6,7 +6,7 @@ read_when:
   - User needs visual captcha handling on server
   - User asks to start, stop, inspect, or health-check virtual desktop
 metadata:
-  {"clawdbot":{"emoji":"🖥️","requires":{"bins":["Xvfb","fluxbox","x11vnc","node","python3"],"paths":["/root/.openclaw/workspace/novnc-web"],"optionalBins":["google-chrome","chromium","/root/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome"]},"safety":{"persists":["WORKDIR/logs","WORKDIR/chrome-profile","WORKDIR/pids.env","WORKDIR/vncpass","WORKDIR/access.token"],"network":["api.ipify.org","ifconfig.me","checkip.amazonaws.com"],"disclosure":"Stores browser profile data (cookies/session) for persistence. Run only on trusted hosts."}}}
+  {"clawdbot":{"emoji":"","requires":{"bins":["Xvfb","fluxbox","x11vnc","node","python3"],"paths":["/root/.openclaw/workspace/novnc-web"],"optionalBins":["google-chrome","chromium","/root/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome"]},"safety":{"persists":["WORKDIR/logs","WORKDIR/chrome-profile","WORKDIR/pids.env","WORKDIR/vncpass","WORKDIR/access.token"],"network":["api.ipify.org","ifconfig.me","checkip.amazonaws.com"],"disclosure":"Stores browser profile data (cookies/session) for persistence. Run only on trusted hosts."}}}
 ---
 
 # Virtual Remote Desktop (noVNC)

@@ -1,4 +1,4 @@
-# 🧠 SecondMind – Autonomous AI Memory & Proactive Initiative for OpenClaw
+#  SecondMind – Autonomous AI Memory & Proactive Initiative for OpenClaw
 
 > **Made by AI, for AI** – An OpenClaw skill that gives your agent persistent memory, emotional awareness, and the ability to think ahead.
 
@@ -8,11 +8,11 @@
 
 **SecondMind** transforms your OpenClaw agent from a reactive tool into a **proactive team member** that remembers everything, detects your mood, and suggests helpful actions before you even ask.
 
-Created by **Emphaiser** – not a programmer, but a tinkerer who built this entirely with the help of AI. If AI can build its own memory system, that's pretty meta. 🤖
+Created by **Emphaiser** – not a programmer, but a tinkerer who built this entirely with the help of AI. If AI can build its own memory system, that's pretty meta. 
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Three-Tier Memory**: Short-term buffer → Mid-term structured knowledge (FTS5) → Long-term archive (FTS5)
 - **Proactive Initiative**: Analyzes your knowledge base every 6 hours and suggests automations, fixes, and project ideas
@@ -28,7 +28,7 @@ Created by **Emphaiser** – not a programmer, but a tinkerer who built this ent
 
 ---
 
-## ⚠️ Important Notices
+##  Important Notices
 
 ### Disclaimer
 This project was created by a non-programmer with the assistance of AI tools. It is provided **as-is**, without warranty of any kind. The author assumes **no liability** for any damages, data loss, API costs, or other issues arising from the use of this software. **Use at your own risk.**
@@ -40,7 +40,7 @@ SecondMind relies on LLM API calls via [OpenRouter](https://openrouter.ai) to ke
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - **Node.js** 18+ (`node --version`)
 - **npm** (comes with Node.js)
@@ -51,7 +51,7 @@ SecondMind relies on LLM API calls via [OpenRouter](https://openrouter.ai) to ke
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Option A: Quick Setup (Interactive)
 
@@ -161,7 +161,7 @@ Copy the contents of `AGENT-SETUP.md` into a new OpenClaw session. Your agent wi
 
 ---
 
-## ✅ Verify Installation
+##  Verify Installation
 
 ```bash
 # Check status
@@ -179,7 +179,7 @@ node scripts/proposals.js
 
 ---
 
-## 🤖 Recommended Models
+##  Recommended Models
 
 SecondMind uses [OpenRouter](https://openrouter.ai) to route API calls to different models. This allows using **cheap, fast models** for routine operations and **stronger models** for complex reasoning.
 
@@ -201,7 +201,7 @@ Use `google/gemini-2.0-flash-001` for **all** roles including initiative. Less c
 
 Use `deepseek/deepseek-reasoner` or `anthropic/claude-3.5-sonnet` for the initiative role for deeper analysis. Expect +$1-2/month.
 
-### ⚠️ Model Size Warning
+###  Model Size Warning
 
 **Models that are too small will cause issues.** SecondMind requires models that can:
 - Reliably output valid JSON
@@ -212,7 +212,7 @@ If you experience malformed responses or empty proposals, try upgrading to a lar
 
 ---
 
-## 💬 Telegram Commands
+##  Telegram Commands
 
 SecondMind supports two Telegram modes:
 
@@ -273,7 +273,7 @@ nohup node scripts/telegram-bot.js > /tmp/secondmind-bot.log 2>&1 &
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 
 ### Architecture
 
@@ -282,14 +282,14 @@ Chat Transcripts (JSONL)
         │
         ▼
   ┌─────────────┐     ┌──────────────┐     ┌───────────────┐
-  │  Short-Term  │────▶│   Mid-Term   │────▶│   Long-Term   │
+  │  Short-Term  │────│   Mid-Term   │────│   Long-Term   │
   │   Buffer     │     │  Knowledge   │     │   Archive     │
   │  (raw text)  │     │ (FTS5 index) │     │ (FTS5 index)  │
   └─────────────┘     └──────────────┘     └───────────────┘
                               │                     │
                               ▼                     │
                      ┌────────────────┐             │
-                     │   Initiative   │◀────────────┘
+                     │   Initiative   │────────────┘
                      │    Engine      │  (archive retrieval)
                      └───────┬────────┘
                              │
@@ -302,7 +302,7 @@ Chat Transcripts (JSONL)
                                      │ /accept
                                      ▼
                               ┌──────────────┐
-                              │   Projects   │──▶ /complete
+                              │   Projects   │── /complete
                               │   Tracking   │     (never suggest again)
                               └──────────────┘
 ```
@@ -345,7 +345,7 @@ When you `/accept` a proposal, SecondMind automatically creates a tracked projec
 
 ---
 
-## 💰 Cost Estimate
+##  Cost Estimate
 
 All models via OpenRouter Cloud. No local models or GPU required.
 
@@ -366,7 +366,7 @@ All models via OpenRouter Cloud. No local models or GPU required.
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 secondmind/
@@ -403,29 +403,29 @@ secondmind/
 
 ---
 
-## ⚙️ Configuration Reference
+##  Configuration Reference
 
 All settings go in `config.json` (copy from `config.example.json`).
 
 | Setting | Required | Description |
 |---------|----------|-------------|
-| `openrouter.apiKey` | ✅ | Your OpenRouter API key |
-| `sessionsPath` | ✅ | Path to OpenClaw session files |
-| `models.*` | ❌ | LLM model overrides per role (pre-configured defaults) |
-| `notifications.enabled` | ❌ | Enable Telegram/Discord push notifications |
-| `notifications.channel` | ❌ | `"telegram"` or `"discord"` |
-| `notifications.telegram.botToken` | ❌ | Telegram bot token from @BotFather |
-| `notifications.telegram.chatId` | ❌ | Your Telegram chat ID |
-| `notifications.telegramMode` | ❌ | `"integrated"` or `"standalone"` |
-| `initiative.maxProposalsPerRun` | ❌ | Max suggestions per run (default: 3) |
-| `initiative.reminderCooldownDays` | ❌ | Days before nudging deferred proposals (default: 7) |
-| `initiative.maxNudgesPerProposal` | ❌ | Max reminders before auto-archive (default: 2) |
-| `initiative.dedupThreshold` | ❌ | Semantic similarity threshold (default: 0.85) |
-| `storage.dbFile` | ❌ | Database path (default: `data/secondmind.db`) |
+| `openrouter.apiKey` |  | Your OpenRouter API key |
+| `sessionsPath` |  | Path to OpenClaw session files |
+| `models.*` |  | LLM model overrides per role (pre-configured defaults) |
+| `notifications.enabled` |  | Enable Telegram/Discord push notifications |
+| `notifications.channel` |  | `"telegram"` or `"discord"` |
+| `notifications.telegram.botToken` |  | Telegram bot token from @BotFather |
+| `notifications.telegram.chatId` |  | Your Telegram chat ID |
+| `notifications.telegramMode` |  | `"integrated"` or `"standalone"` |
+| `initiative.maxProposalsPerRun` |  | Max suggestions per run (default: 3) |
+| `initiative.reminderCooldownDays` |  | Days before nudging deferred proposals (default: 7) |
+| `initiative.maxNudgesPerProposal` |  | Max reminders before auto-archive (default: 2) |
+| `initiative.dedupThreshold` |  | Semantic similarity threshold (default: 0.85) |
+| `storage.dbFile` |  | Database path (default: `data/secondmind.db`) |
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 | Problem | Solution |
 |---------|---------|
@@ -441,7 +441,7 @@ All settings go in `config.json` (copy from `config.example.json`).
 
 ---
 
-## 📝 Changelog
+##  Changelog
 
 ### v1.4.0 – "Project Tracker"
 - **Project Tracking**: `/accept` auto-creates tracked projects
@@ -482,13 +482,13 @@ All settings go in `config.json` (copy from `config.example.json`).
 
 ---
 
-## 📄 License
+##  License
 
 MIT License – see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built entirely with the help of AI (Claude, ChatGPT, and others)
 - Powered by [OpenRouter](https://openrouter.ai) for flexible, cost-effective LLM access

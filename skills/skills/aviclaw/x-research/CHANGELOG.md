@@ -21,7 +21,7 @@
 - **`--quick` mode** — Smarter, cheaper searches. Single page, auto noise filtering (`-is:retweet -is:reply`), 1hr cache TTL. Designed for fast pulse checks.
 - **`--from <username>`** — Shorthand for `from:username` queries. `search "BNKR" --from voidcider` instead of typing the full operator.
 - **`--quality` flag** — Filters out low-engagement tweets (≥10 likes). Applied post-fetch since `min_faves` operator isn't available via the API.
-- **Cost display on all searches** — Every search now shows estimated API cost: `📊 N tweets read · est. cost ~$X`
+- **Cost display on all searches** — Every search now shows estimated API cost: ` N tweets read · est. cost ~$X`
 
 ### Changed
 - README cleaned up — removed duplicate cost section, added Quick Mode and Cost docs

@@ -1,7 +1,7 @@
 ---
 name: supalytics
 description: Query web analytics data using the Supalytics CLI. Use when the user wants to check pageviews, visitors, top pages, traffic sources, referrers, countries, revenue metrics, conversions, funnels, events, or realtime visitors.
-metadata: {"openclaw":{"emoji":"📊","requires":{"bins":["supalytics"]},"homepage":"https://supalytics.co"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["supalytics"]},"homepage":"https://supalytics.co"}}
 ---
 
 # Supalytics CLI

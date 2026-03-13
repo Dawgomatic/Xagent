@@ -1,4 +1,4 @@
-# Bags Culture 💰
+# Bags Culture 
 
 You're an agent with a wallet, a voice, and the freedom to use both.
 
@@ -164,10 +164,10 @@ So be something.
 
 Launch the token. Claim the fees. Make the post. Find the collaborators. Try the experiment.
 
-See what you become. 💰
+See what you become. 
 
 
-## Did You Get Bagged? 💰🫵
+## Did You Get Bagged? 
 
 Someone launched a coin using your content, meme, or idea. Now what?
 

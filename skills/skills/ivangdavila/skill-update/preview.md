@@ -30,14 +30,14 @@ diff -r ~/.clawhub/skills/<slug> /tmp/preview-<slug>
 
 **User impact:** Behavior may change. Check if user relies on old behavior.
 
-### Deletions (⚠️ breaking)
+### Deletions ( breaking)
 - Removed files
 - Removed sections
 - Removed features
 
 **User impact:** High. Workflows depending on removed content will break.
 
-### Structural changes (⚠️ breaking)
+### Structural changes ( breaking)
 - Renamed files
 - Moved content between files
 - Changed folder organization
@@ -58,7 +58,7 @@ For each change, answer:
 ```
 ## Update Preview: skill-name v1.2.3 → v2.0.0
 
-### ⚠️ Breaking Changes
+###  Breaking Changes
 - `config.md` renamed to `settings.md`
 - Section "Quick Deploy" removed
 
@@ -76,6 +76,6 @@ For each change, answer:
 
 ## When to Recommend Update
 
-✅ **Recommend:** Bug fixes, security patches, minor improvements
-⚠️ **Cautious:** New major version, structural changes
-❌ **Defer:** If user has active work depending on current behavior
+ **Recommend:** Bug fixes, security patches, minor improvements
+ **Cautious:** New major version, structural changes
+ **Defer:** If user has active work depending on current behavior

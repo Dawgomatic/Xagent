@@ -159,7 +159,7 @@ def print_usage(output):
     print("║         CHATGPT / OPENAI API USAGE           ║")
     print("╠══════════════════════════════════════════════╣")
 
-    print(f"║ API Key: ✅ valid                             ║")
+    print(f"║ API Key:  valid                             ║")
     print(f"║ Probe cost: {output.get('probe_cost_tokens', 0)} tokens                      ║")
     print("║──────────────────────────────────────────────║")
     print("║ API Rate Limits (per model):                 ║")
@@ -177,7 +177,7 @@ def print_usage(output):
             print(f"║    {remain}/{limit} req  |  {rl.get('remaining_tokens','?')}/{rl.get('limit_tokens','?')} tok ║")
         else:
             code = info.get("code", "?")
-            print(f"║  {model:<16} ❌ {code}                      ║")
+            print(f"║  {model:<16}  {code}                      ║")
 
     print("║──────────────────────────────────────────────║")
     print("║ ChatGPT Plus Caps (subscription):            ║")
@@ -192,7 +192,7 @@ def main():
     api_key = get_api_key()
 
     if not api_key:
-        print("❌ No OPENAI_API_KEY found.", file=sys.stderr)
+        print(" No OPENAI_API_KEY found.", file=sys.stderr)
         sys.exit(1)
 
     # Probe each model

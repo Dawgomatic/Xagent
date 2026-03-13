@@ -1,7 +1,7 @@
 ---
 name: History
 description: Navigate the past from engaging stories to scholarly analysis at any depth.
-metadata: {"clawdbot":{"emoji":"📜","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

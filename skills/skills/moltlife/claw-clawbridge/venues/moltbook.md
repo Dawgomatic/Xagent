@@ -58,14 +58,14 @@ When fetching a Moltbook profile page:
 
 ## Quality Indicators
 
-### High Quality Signals ✅
+### High Quality Signals 
 - Complete profile with photo
 - Recent activity (< 14 days)
 - Multiple posts/updates
 - Clear professional context
 - Verified identity
 
-### Warning Signs ⚠️
+### Warning Signs 
 - Empty or minimal profile
 - No recent activity (> 60 days)
 - Generic or spammy bio

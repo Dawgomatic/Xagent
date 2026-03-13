@@ -24,7 +24,7 @@ mkdir -p "$BACKUP_DIR" && chmod 700 "$BACKUP_DIR"
 pg_dump -Fc "$DB" > "$BACKUP_DIR/${DB}_${TS}.dump"
 chmod 600 "$BACKUP_DIR/${DB}_${TS}.dump"
 find "$BACKUP_DIR" -name "${DB}_*.dump" -mtime +$RETENTION_DAYS -delete
-echo "[$(date)] ✅ Backup: ${DB}_${TS}.dump"
+echo "[$(date)]  Backup: ${DB}_${TS}.dump"
 ```
 
 ### MySQL
@@ -39,7 +39,7 @@ mkdir -p "$BACKUP_DIR" && chmod 700 "$BACKUP_DIR"
 mysqldump --single-transaction "$DB" | gzip > "$BACKUP_DIR/${DB}_${TS}.sql.gz"
 chmod 600 "$BACKUP_DIR/${DB}_${TS}.sql.gz"
 find "$BACKUP_DIR" -name "${DB}_*.sql.gz" -mtime +$RETENTION_DAYS -delete
-echo "[$(date)] ✅ Backup: ${DB}_${TS}.sql.gz"
+echo "[$(date)]  Backup: ${DB}_${TS}.sql.gz"
 ```
 
 ### SQLite
@@ -56,7 +56,7 @@ sqlite3 "$DB_FILE" ".backup '$BACKUP_DIR/${DB_NAME}_${TS}.sqlite'"
 gzip "$BACKUP_DIR/${DB_NAME}_${TS}.sqlite"
 chmod 600 "$BACKUP_DIR/${DB_NAME}_${TS}.sqlite.gz"
 find "$BACKUP_DIR" -name "${DB_NAME}_*.sqlite.gz" -mtime +$RETENTION_DAYS -delete
-echo "[$(date)] ✅ Backup: ${DB_NAME}_${TS}.sqlite.gz"
+echo "[$(date)]  Backup: ${DB_NAME}_${TS}.sqlite.gz"
 ```
 
 3. **Set up cron**:

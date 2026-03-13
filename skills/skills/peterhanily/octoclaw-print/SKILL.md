@@ -1,7 +1,7 @@
 ---
 name: octoclaw
 description: Control OctoPrint 3D printer — monitor status, capture webcam snapshots, manage prints, analyze gcode, and detect errors. Use when the user asks about their 3D printer, print status, filament, temperatures, or wants to start/pause/cancel a print.
-metadata: { "openclaw": { "emoji": "🐙", "requires": { "bins": ["python3"] } } }
+metadata: { "openclaw": { "emoji": "", "requires": { "bins": ["python3"] } } }
 ---
 
 # OctoClaw — OctoPrint Control

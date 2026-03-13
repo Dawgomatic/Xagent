@@ -4,7 +4,7 @@ description: Query Fitbit health data including sleep, heart rate, activity, SpO
 homepage: https://www.fitbit.com
 metadata:
   clawdbot:
-    emoji: "💪"
+    emoji: ""
     requires:
       bins: ["fitbit-cli"]
 ---

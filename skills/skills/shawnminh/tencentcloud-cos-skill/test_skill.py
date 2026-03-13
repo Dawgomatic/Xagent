@@ -33,7 +33,7 @@ def check_environment():
         if value and value not in ['', 'your-bucket-name-123456', 'AKIDxxxxxxxxxxxxxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']:
             print(f"✓ {var}: {'*' * 8}{value[-4:] if len(value) > 8 else '****'}")
         else:
-            print(f"⚠ {var}: 使用测试配置")
+            print(f" {var}: 使用测试配置")
             # 设置测试环境变量
             if var == 'TENCENT_COS_REGION':
                 os.environ[var] = 'ap-guangzhou'
@@ -63,10 +63,10 @@ def check_dependencies():
         if result.returncode == 0:
             print(f"✓ Node.js: {result.stdout.strip()}")
         else:
-            print("⚠ Node.js: 未安装或不可用（测试模式下继续）")
+            print(" Node.js: 未安装或不可用（测试模式下继续）")
             # 在测试模式下继续
     except:
-        print("⚠ Node.js: 检查失败（测试模式下继续）")
+        print(" Node.js: 检查失败（测试模式下继续）")
     
     # 检查cos-mcp
     try:
@@ -74,11 +74,11 @@ def check_dependencies():
         if 'cos-mcp' in result.stdout:
             print("✓ cos-mcp: 已安装")
         else:
-            print("⚠ cos-mcp: 未安装（测试模式下继续）")
+            print(" cos-mcp: 未安装（测试模式下继续）")
             print("   运行: npm install -g cos-mcp@latest")
             # 在测试模式下继续
     except:
-        print("⚠ cos-mcp: 检查失败（测试模式下继续）")
+        print(" cos-mcp: 检查失败（测试模式下继续）")
     
     return True  # 总是返回True以继续测试
 
@@ -105,7 +105,7 @@ def test_python_wrapper():
             cos = TencentCOSWrapper(test_config)
             print("   ✓ 初始化成功（使用测试配置）")
         except Exception as e:
-            print(f"   ⚠ 初始化警告（测试模式）: {e}")
+            print(f"    初始化警告（测试模式）: {e}")
             # 创建模拟对象继续测试
             class MockCOSWrapper:
                 def __init__(self, config):
@@ -115,7 +115,7 @@ def test_python_wrapper():
                 def _call_mcp_tool(self, tool, params):
                     return {'success': True, 'tool': tool, 'test_mode': True}
             cos = MockCOSWrapper(test_config)
-            print("   ⚠ 使用模拟包装器继续测试")
+            print("    使用模拟包装器继续测试")
         
         # 测试配置验证
         print("2. 测试配置验证...")
@@ -123,7 +123,7 @@ def test_python_wrapper():
         if all(key in config for key in ['Region', 'Bucket', 'SecretId', 'SecretKey']):
             print(f"   ✓ 配置完整 (区域: {config.get('Region')}, 存储桶: {config.get('Bucket')})")
         else:
-            print("   ⚠ 配置不完整（测试模式）")
+            print("    配置不完整（测试模式）")
             # 在测试模式下继续
         
         # 测试MCP命令构建
@@ -136,9 +136,9 @@ def test_python_wrapper():
                 safe_cmd = cmd[:2] + ['...'] + cmd[-2:] if len(cmd) > 4 else cmd
                 print(f"     命令: {' '.join(safe_cmd)}")
             else:
-                print("   ⚠ 命令构建警告（测试模式）")
+                print("    命令构建警告（测试模式）")
         except Exception as e:
-            print(f"   ⚠ 命令构建异常（测试模式）: {e}")
+            print(f"    命令构建异常（测试模式）: {e}")
         
         # 测试工具调用（模拟）
         print("4. 测试工具调用...")
@@ -147,9 +147,9 @@ def test_python_wrapper():
             if result.get('success') or result.get('test_mode'):
                 print("   ✓ 工具调用成功（测试模式）")
             else:
-                print(f"   ⚠ 工具调用警告: {result.get('error', '未知错误')}")
+                print(f"    工具调用警告: {result.get('error', '未知错误')}")
         except Exception as e:
-            print(f"   ⚠ 工具调用异常（测试模式）: {e}")
+            print(f"    工具调用异常（测试模式）: {e}")
         
         return True  # 在测试模式下总是返回True
         
@@ -272,19 +272,19 @@ def run_example():
                     print("   ... (输出截断)")
                 return True
             else:
-                print("⚠ 示例程序运行但输出异常")
+                print(" 示例程序运行但输出异常")
                 print(f"输出前100字符: {output[:100]}...")
                 return True  # 在测试模式下返回True
         else:
-            print(f"⚠ 示例程序返回非零代码: {result.returncode}")
+            print(f" 示例程序返回非零代码: {result.returncode}")
             print(f"标准错误: {result.stderr[:200]}...")
             return True  # 在测试模式下返回True
             
     except subprocess.TimeoutExpired:
-        print("⚠ 示例程序运行超时（测试模式下继续）")
+        print(" 示例程序运行超时（测试模式下继续）")
         return True
     except Exception as e:
-        print(f"⚠ 运行示例异常（测试模式）: {e}")
+        print(f" 运行示例异常（测试模式）: {e}")
         return True  # 在测试模式下返回True
 
 def main():
@@ -334,10 +334,10 @@ def main():
     print(f"总测试: {total}, 通过: {passed}, 失败: {total - passed}")
     
     if passed == total:
-        print("🎉 所有测试通过！技能可以正常工作。")
+        print(" 所有测试通过！技能可以正常工作。")
         return 0
     else:
-        print("⚠️  部分测试失败，请检查配置和依赖。")
+        print("  部分测试失败，请检查配置和依赖。")
         return 1
 
 if __name__ == '__main__':

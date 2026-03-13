@@ -13,7 +13,7 @@ metadata:
 
 A powerful network auditing tool that queries ntopng data directly from Redis via a secure SSH tunnel. This skill is built for network administrators and security professionals who need high-visibility into local network traffic.
 
-## ⚠️ High Privilege Warning & Responsible Use
+##  High Privilege Warning & Responsible Use
 
 **PROCEED WITH CAUTION:** This skill performs high-privilege operations, including executing commands on your network gateway via SSH and reading internal network states. 
 

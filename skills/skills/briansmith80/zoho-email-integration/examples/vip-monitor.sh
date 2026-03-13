@@ -19,7 +19,7 @@ for sender in "${VIP_SENDERS[@]}"; do
     
     if [ $COUNT -gt 0 ]; then
         SUBJECT=$(echo "$RESULTS" | jq -r '.[0].subject')
-        echo "⚠️  VIP Email Alert!"
+        echo "  VIP Email Alert!"
         echo "From: $sender"
         echo "Subject: $SUBJECT"
         

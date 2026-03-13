@@ -25,11 +25,11 @@ description: |
 > 目标：不是让会话模型（例如 GLM）直接写复杂代码，而是让它**指挥**，由 Kimi Code CLI **真正产出/修改代码文件**。
 
 ```
-🧠 会话模型（规划/拆解/验收）
+ 会话模型（规划/拆解/验收）
   ↓ 调用
-📋 kimi-cli skill（exec + pty + workdir + process 控制）
+ kimi-cli skill（exec + pty + workdir + process 控制）
   ↓ 运行
-💻 Kimi Code CLI（生成/修改文件、输出步骤）
+ Kimi Code CLI（生成/修改文件、输出步骤）
 ```
 
 - **会话模型**：需求澄清、任务拆解、验收标准、结果核查、复盘总结
@@ -116,10 +116,10 @@ process action:kill sessionId:abc123
 许多系统同时安装了 `python` 和 `python3`，但 `python` 可能不存在：
 
 ```bash
-# ✅ 明确指定 python3
+#  明确指定 python3
 kimi --print -p "使用 python3 运行..."
 
-# ❌ 不指定可能失败
+#  不指定可能失败
 kimi --print -p "使用 python 运行..."  # 可能找不到命令
 ```
 
@@ -144,10 +144,10 @@ kimi --print -p "创建一个脚本，要求：1) 支持参数 X 2) 验证输入
 Kimi CLI 是交互式应用，**必须**使用 `pty:true`：
 
 ```bash
-# ✅ 正确
+#  正确
 bash pty:true command:"kimi --print -p '...'"
 
-# ❌ 错误 - 可能挂起或输出异常
+#  错误 - 可能挂起或输出异常
 bash command:"kimi --print -p '...'"
 ```
 
@@ -225,38 +225,38 @@ process action:submit sessionId:xxx data:"y"
 
 ### v1.2.4 (2026-02-04)
 **改进点**:
-- ✅ 完成 **A03 (ACP 合规输出)**：Kimi 生成 `payload.acp`（acpVersion=2.0, signature, data），`scripts/acp_check.py` 验证通过（VALID）
-- ✅ 设置每小时自动检查任务（cron job），完成上一题后自动启动下一题
-- ✅ 新增 5 道探索性题目（E01-E05）：自我监控、渐进式复杂度、多语言混合、失败恢复、网络降级
+-  完成 **A03 (ACP 合规输出)**：Kimi 生成 `payload.acp`（acpVersion=2.0, signature, data），`scripts/acp_check.py` 验证通过（VALID）
+-  设置每小时自动检查任务（cron job），完成上一题后自动启动下一题
+-  新增 5 道探索性题目（E01-E05）：自我监控、渐进式复杂度、多语言混合、失败恢复、网络降级
 
 ### v1.2.3 (2026-02-04)
 **改进点**:
-- ✅ 完成 **R01 (Ralph print)** 验证：Kimi 成功生成 `summary.json` + `summary.txt`，数据一致（metric=42, status=SUCCESS），JSON 通过 `python3 -m json.tool` 校验
-- ✅ 确认 Ralph-style 输出格式可被后续 agent 解析
-- ✅ 完成 **S02 (Agent Swarm)**：验证 exec → config.json → swarm_consumer.py → swarm-report.md 链路
+-  完成 **R01 (Ralph print)** 验证：Kimi 成功生成 `summary.json` + `summary.txt`，数据一致（metric=42, status=SUCCESS），JSON 通过 `python3 -m json.tool` 校验
+-  确认 Ralph-style 输出格式可被后续 agent 解析
+-  完成 **S02 (Agent Swarm)**：验证 exec → config.json → swarm_consumer.py → swarm-report.md 链路
 
 ### v1.2.2 (2026-02-04)
 **改进点**:
-- ✅ 增补“mini_kv + pytest”完整迭代案例（T02），并记录：虚拟环境/依赖安装限制 + `pip3` + `--break-system-packages` 解决办法
-- ✅ 强调 `pip install` 可能因 PEP 668/externally-managed 限制失败，需使用 `pip3` 或系统包 + `--break-system-packages` 作为备选
+-  增补“mini_kv + pytest”完整迭代案例（T02），并记录：虚拟环境/依赖安装限制 + `pip3` + `--break-system-packages` 解决办法
+-  强调 `pip install` 可能因 PEP 668/externally-managed 限制失败，需使用 `pip3` 或系统包 + `--break-system-packages` 作为备选
 
 ### v1.2.1 (2026-02-04)
 **改进点**:
-- ✅ 补充 `exec.workdir` 需要“目录预先存在”的注意事项与推荐流程（避免 silently fallback）
+-  补充 `exec.workdir` 需要“目录预先存在”的注意事项与推荐流程（避免 silently fallback）
 
 ### v1.2.0 (2026-02-04)
 **改进点**:
-- ✅ 统一 Quick Mode 的 one-shot 命令为 `kimi --print -p "..."`（移除 `kimi '...'` 误导写法）
-- ✅ 增加“会话模型 + kimi-cli + Kimi CLI”的架构与职责分工说明
-- ✅ 增加 429 rate limit 的处理 SOP（识别/等待/记录/补跑）
-- ✅ 更新测试计划进度（L1 已完成）
+-  统一 Quick Mode 的 one-shot 命令为 `kimi --print -p "..."`（移除 `kimi '...'` 误导写法）
+-  增加“会话模型 + kimi-cli + Kimi CLI”的架构与职责分工说明
+-  增加 429 rate limit 的处理 SOP（识别/等待/记录/补跑）
+-  更新测试计划进度（L1 已完成）
 
 ### v1.1.0 (2026-02-04)
 **改进点**:
-- ✅ 修正命令格式为 `kimi --print -p "prompt"`
-- ✅ 添加明确指定 `python3` 的最佳实践（避免环境问题）
-- ✅ 添加 Prompt 最佳实践章节
-- ✅ 创建 50 任务测试套件（L1-L5）
+-  修正命令格式为 `kimi --print -p "prompt"`
+-  添加明确指定 `python3` 的最佳实践（避免环境问题）
+-  添加 Prompt 最佳实践章节
+-  创建 50 任务测试套件（L1-L5）
 
 ### v1.0.0 (2026-02-04)
 **初始版本**:
@@ -272,7 +272,7 @@ process action:submit sessionId:xxx data:"y"
 
 | 阶段 | 任务数 | 状态 |
 |------|--------|------|
-| L1 基础 | 10 | ✅ 完成 (10/10) |
+| L1 基础 | 10 |  完成 (10/10) |
 | L2 中等 | 15 | 待开始 |
 | L3 复杂 | 15 | 待开始 |
 | L4 交互 | 5 | 待开始 |

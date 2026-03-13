@@ -193,7 +193,7 @@ openclaw contextclaw setup
 
 ### Analyze Command
 ```
-📊 Session Analysis
+ Session Analysis
 
 ┌──────────────────┬────────┐
 │ Metric           │ Value  │
@@ -208,9 +208,9 @@ openclaw contextclaw setup
 
 ### Prune Command
 ```
-🧹 Session Pruning
+ Session Pruning
 
-⚠️  DRY RUN MODE - No files will be deleted
+  DRY RUN MODE - No files will be deleted
 
 Sessions older than 30 days:
   ✓ Would delete: 12

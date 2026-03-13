@@ -2,7 +2,7 @@
 name: mongodb-atlas
 description: browse MongoDB Atlas Admin API specifications and execute operations (if credentials provided).
 homepage: https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/
-metadata: {"clawdbot":{"emoji":"🍃","requires":{"bins":["node"],"env":["ATLAS_CLIENT_ID","ATLAS_CLIENT_SECRET"]},"primaryEnv":""}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["ATLAS_CLIENT_ID","ATLAS_CLIENT_SECRET"]},"primaryEnv":""}}
 ---
 
 # MongoDB Atlas Admin API
@@ -41,7 +41,7 @@ Execute real HTTP requests against the Atlas API.
 
 **Script:** `node {baseDir}/scripts/atlas-call.mjs <METHOD> <ENDPOINT> [flags]`
 
-#### ⚠️ Mandatory Safety Protocol
+####  Mandatory Safety Protocol
 **For any state-changing operation (POST, PUT, PATCH, DELETE):**
 1.  **STOP & REVIEW**: You MUST NOT execute the command immediately.
 2.  **PREVIEW**: Use `--dry-run` first to verify the payload and endpoint.

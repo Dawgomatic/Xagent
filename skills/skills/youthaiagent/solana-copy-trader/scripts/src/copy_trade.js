@@ -130,7 +130,7 @@ async function processWhaleTx(tx, portfolio, options = {}) {
         continue;
       }
 
-      console.log(`\n[CopyTrade] 🐋 Whale BUY detected: ${mint.slice(0,20)}...`);
+      console.log(`\n[CopyTrade]  Whale BUY detected: ${mint.slice(0,20)}...`);
 
       // Get our buy quote
       const lamports = Math.floor(solPerTrade * 1e9);
@@ -182,7 +182,7 @@ async function processWhaleTx(tx, portfolio, options = {}) {
         portfolio.buy(mint, solPerTrade, tokensOut, pricePerToken);
         
         await sendTelegram(`
-🔴 <b>COPY TRADE — PAPER BUY</b>
+ <b>COPY TRADE — PAPER BUY</b>
 
 Copying whale: AgmLJBM...
 Token: <code>${mint.slice(0,25)}...</code>
@@ -190,7 +190,7 @@ SOL spent: ${solPerTrade} SOL
 Tokens: ${tokensOut.toLocaleString()}
 Impact: ${priceImpact.toFixed(2)}%
 Route: ${routeLabel}
-${isPumpDirect ? '🎯 Pump.fun direct trade' : ''}
+${isPumpDirect ? ' Pump.fun direct trade' : ''}
 
 Portfolio: ${portfolio.sol.toFixed(4)} SOL left
 Positions: ${portfolio.positions.size}/${maxPositions}
@@ -209,7 +209,7 @@ Positions: ${portfolio.positions.size}/${maxPositions}
       // Whale sold — we sell too
       if (!portfolio.positions.has(mint)) continue;
 
-      console.log(`\n[CopyTrade] 🐋 Whale SELL detected: ${mint.slice(0,20)}...`);
+      console.log(`\n[CopyTrade]  Whale SELL detected: ${mint.slice(0,20)}...`);
 
       const pos = portfolio.positions.get(mint);
       const sellQuote = await getJupiterQuote(mint, TOKENS.SOL, Math.floor(pos.tokens), 2000);
@@ -224,11 +224,11 @@ Positions: ${portfolio.positions.size}/${maxPositions}
         const pnlPct = (pnl / pos.solSpent) * 100;
         
         await sendTelegram(`
-📊 <b>COPY TRADE — PAPER SELL</b>
+ <b>COPY TRADE — PAPER SELL</b>
 
 Token: <code>${mint.slice(0,25)}...</code>
 SOL received: ${solBack.toFixed(4)}
-P&L: ${pnl >= 0 ? '+' : ''}${pnlPct.toFixed(1)}% ${pnl >= 0 ? '✅' : '❌'}
+P&L: ${pnl >= 0 ? '+' : ''}${pnlPct.toFixed(1)}% ${pnl >= 0 ? '' : ''}
 
 Portfolio total: ${portfolio.sol.toFixed(4)} SOL
 `.trim());
@@ -266,13 +266,13 @@ async function executeRealSwap(inputMint, outputMint, lamports, quote) {
     
     await connection.confirmTransaction(sig, 'confirmed');
     
-    console.log(`[CopyTrade] ✅ REAL SWAP EXECUTED: ${sig}`);
-    await sendTelegram(`✅ REAL SWAP: https://solscan.io/tx/${sig}`);
+    console.log(`[CopyTrade]  REAL SWAP EXECUTED: ${sig}`);
+    await sendTelegram(` REAL SWAP: https://solscan.io/tx/${sig}`);
     return sig;
     
   } catch (e) {
     console.error('[CopyTrade] Swap failed:', e.message);
-    await sendTelegram(`❌ Swap failed: ${e.message}`);
+    await sendTelegram(` Swap failed: ${e.message}`);
     return null;
   }
 }
@@ -296,17 +296,17 @@ async function startCopyTrader(options = {}) {
 ╔══════════════════════════════════════════╗
 ║  IRONMAN COPY TRADER                     ║
 ║  Copying: AgmLJBMDCqWynYnQiPCu...       ║
-║  Mode: ${opts.paper ? 'PAPER (No real money)    ' : '⚠️  LIVE - REAL MONEY     '}║
+║  Mode: ${opts.paper ? 'PAPER (No real money)    ' : '  LIVE - REAL MONEY     '}║
 ║  Per trade: ${opts.solPerTrade} SOL${' '.repeat(25)}║
 ║  Max positions: ${opts.maxPositions}${' '.repeat(25)}║
 ╚══════════════════════════════════════════╝
   `);
 
   await sendTelegram(`
-🤖 <b>Copy Trader STARTED</b>
+ <b>Copy Trader STARTED</b>
 
 Copying: AgmLJBMDCqWynYnQiPCu...zN51
-Mode: ${opts.paper ? 'PAPER TRADING' : '⚠️ LIVE'}
+Mode: ${opts.paper ? 'PAPER TRADING' : ' LIVE'}
 Per trade: ${opts.solPerTrade} SOL
 Balance: ${portfolio.sol} SOL
 Max positions: ${opts.maxPositions}
@@ -343,7 +343,7 @@ Max positions: ${opts.maxPositions}
     const stats = portfolio.getStats();
     console.log('\n[Stats]', stats);
     await sendTelegram(`
-📊 <b>Copy Trader Update</b>
+ <b>Copy Trader Update</b>
 
 Balance: ${stats.currentSOL.toFixed(4)} SOL
 P&L: ${stats.totalPnL >= 0 ? '+' : ''}${stats.totalPnLPct.toFixed(2)}%

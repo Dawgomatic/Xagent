@@ -112,7 +112,7 @@ class AgentTester:
         
         # Test health
         if not self.test_health():
-            print("\n⚠ Health check failed, continuing with other tests...")
+            print("\n Health check failed, continuing with other tests...")
         
         # Default test inputs if none provided
         if not test_inputs:

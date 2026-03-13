@@ -438,7 +438,7 @@ print("Hello from OpenClaw+!")
         else:
             print(f"   ✓ {len(result['modified'])} modified, {len(result['untracked'])} untracked")
     else:
-        print(f"   ℹ {result.get('error', 'Unknown error')}")
+        print(f"    {result.get('error', 'Unknown error')}")
     
     print("\n=== Workflow Complete ===")
 

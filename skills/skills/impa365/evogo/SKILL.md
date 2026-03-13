@@ -18,7 +18,7 @@ Complete WhatsApp automation via Evolution API Go v3. Send messages, manage grou
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Set Environment Variables
 
@@ -63,13 +63,13 @@ curl -X POST "$EVOGO_API_URL/send/text" \
   -H "Content-Type: application/json" \
   -d '{
     "number": "5511999999999",
-    "text": "Hello from evoGo! 🚀"
+    "text": "Hello from evoGo! "
   }'
 ```
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 Two authentication levels:
 
@@ -82,7 +82,7 @@ Set via environment or pass directly in headers.
 
 ---
 
-## 📦 Core Concepts
+##  Core Concepts
 
 ### Phone Number Formats
 
@@ -106,9 +106,9 @@ Add `delay` (milliseconds) to avoid rate limits:
 
 ---
 
-## 🎯 Feature Reference
+##  Feature Reference
 
-### 📱 Instance Management
+###  Instance Management
 
 #### Create Instance
 ```bash
@@ -185,7 +185,7 @@ Header: apikey: $EVOGO_GLOBAL_KEY
 
 ---
 
-### 💬 Send Messages
+###  Send Messages
 
 #### Text Message
 ```bash
@@ -326,7 +326,7 @@ POST /send/carousel
 
 ---
 
-### 📨 Message Operations
+###  Message Operations
 
 #### React to Message
 ```bash
@@ -334,14 +334,14 @@ POST /message/react
 
 {
   "number": "5511999999999",
-  "reaction": "👍",
+  "reaction": "",
   "id": "MESSAGE_ID",
   "fromMe": false,
   "participant": "5511888888888@s.whatsapp.net"  # Required in groups
 }
 ```
 
-**Reactions:** `👍`, `❤️`, `😂`, `😮`, `😢`, `🙏`, or `"remove"`
+**Reactions:** ``, ``, ``, ``, ``, ``, or `"remove"`
 
 #### Typing/Recording Indicator
 ```bash
@@ -423,7 +423,7 @@ Returns delivery/read status.
 
 ---
 
-### 👥 Group Management
+###  Group Management
 
 #### List Groups
 ```bash
@@ -567,7 +567,7 @@ POST /group/description
 
 ---
 
-### 💬 Chat Management
+###  Chat Management
 
 #### Pin/Unpin Chat
 ```bash
@@ -608,7 +608,7 @@ Requests full chat history sync (may take time).
 
 ---
 
-### 👤 User & Profile
+###  User & Profile
 
 #### Get User Info
 ```bash
@@ -714,7 +714,7 @@ POST /user/profileStatus
 
 ---
 
-### 🏷️ Labels (Tags)
+###  Labels (Tags)
 
 #### Add Label
 ```bash
@@ -763,7 +763,7 @@ GET /label
 
 ---
 
-### 🏘️ Communities
+###  Communities
 
 #### Create Community
 ```bash
@@ -792,7 +792,7 @@ POST /community/remove
 
 ---
 
-### 📢 Newsletters (Channels)
+###  Newsletters (Channels)
 
 #### Create Newsletter
 ```bash
@@ -848,7 +848,7 @@ POST /newsletter/link
 
 ---
 
-### 📞 Call Management
+###  Call Management
 
 #### Reject Call
 ```bash
@@ -861,7 +861,7 @@ Use with webhook automation to auto-reject calls.
 
 ---
 
-## 🎬 Common Workflows
+##  Common Workflows
 
 ### Broadcast Message to Multiple Contacts
 ```bash
@@ -908,7 +908,7 @@ curl -X POST "$EVOGO_API_URL/send/text" \
   -H "Content-Type: application/json" \
   -d "{
     \"number\": \"$GROUP_JID\",
-    \"text\": \"Welcome to Team Alpha! 🎉\"
+    \"text\": \"Welcome to Team Alpha! \"
   }"
 ```
 
@@ -928,7 +928,7 @@ curl -X POST "$EVOGO_API_URL/user/check" \
 
 ---
 
-## ⚠️ Rate Limits & Best Practices
+##  Rate Limits & Best Practices
 
 ### Delays
 Always add delays between messages:
@@ -961,7 +961,7 @@ Always add delays between messages:
 
 ---
 
-## 🔗 Webhooks
+##  Webhooks
 
 Configure webhooks to receive real-time events:
 - Message received
@@ -975,7 +975,7 @@ Use `POST /webhook/set` endpoint to configure webhook URL (see Postman collectio
 
 ---
 
-## 🧪 Troubleshooting
+##  Troubleshooting
 
 ### Instance Won't Connect
 ```bash
@@ -1002,7 +1002,7 @@ GET /instance/logs/{instance}?level=error
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - **Evolution API Go:** https://github.com/EvolutionAPI/evolution-api
 - **WhatsApp Business API:** https://developers.facebook.com/docs/whatsapp
@@ -1010,7 +1010,7 @@ GET /instance/logs/{instance}?level=error
 
 ---
 
-## 🆕 Known Limitations
+##  Known Limitations
 
 **Not Working (v3.0):**
 - `/send/button` - Interactive buttons (deprecated by WhatsApp)
@@ -1020,7 +1020,7 @@ These endpoints exist but are non-functional due to WhatsApp API changes.
 
 ---
 
-## 💡 Tips
+##  Tips
 
 1. **Always check status** before operations
 2. **Use delays** to avoid rate limits (1-2s minimum)

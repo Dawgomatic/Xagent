@@ -1,11 +1,11 @@
-# 🎯 UPDATED APPROACH - Menu Bar Webchat Launcher
+#  UPDATED APPROACH - Menu Bar Webchat Launcher
 
 ## Problem
 - WebSocket auth is complex
 - CLI commands not straightforward  
 - Need marketplace-ready solution NOW
 
-## Solution: Quick Launcher ✅
+## Solution: Quick Launcher 
 
 The menu bar app becomes a **smart launcher** that:
 
@@ -17,12 +17,12 @@ The menu bar app becomes a **smart launcher** that:
 
 ## Benefits
 
-✅ **Zero complexity** - Just launches browser  
-✅ **Works immediately** - No API integration needed  
-✅ **Full features** - Users get complete webchat  
-✅ **Marketplace-ready** - Nothing can break  
-✅ **Cross-platform** - Same on Mac/Windows/Linux  
-✅ **Fast** - Opens in <1 second  
+ **Zero complexity** - Just launches browser  
+ **Works immediately** - No API integration needed  
+ **Full features** - Users get complete webchat  
+ **Marketplace-ready** - Nothing can break  
+ **Cross-platform** - Same on Mac/Windows/Linux  
+ **Fast** - Opens in <1 second  
 
 ## User Experience
 
@@ -43,4 +43,4 @@ User: Cmd+Shift+O → Webchat opens → Full chat experience
 3. Add "Copy link" feature
 4. Optional: Show notification when gateway offline
 
-Want me to implement this simpler approach? It's **actually better** for users! 🚀
+Want me to implement this simpler approach? It's **actually better** for users! 

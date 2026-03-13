@@ -22,7 +22,7 @@ def get_latest_summary():
 def format_report(data):
     """Format GEO test results as Telegram message"""
     if not data:
-        return "⚠️ No GEO test data available"
+        return " No GEO test data available"
     
     total = data.get("total", 0)
     cited = data.get("cited", 0)
@@ -42,7 +42,7 @@ def format_report(data):
         if r.get("actual_cited") and not r.get("expected"):
             new_citations.append(r["query_id"])
     
-    message = f"""📊 **Daily GEO Report** - {datetime.now().strftime('%Y-%m-%d')}
+    message = f""" **Daily GEO Report** - {datetime.now().strftime('%Y-%m-%d')}
 
 **Overall Performance:**
 • Citation rate: **{cited}/{total}** ({rate:.1f}%)
@@ -63,20 +63,20 @@ def format_report(data):
     for cat, stats in sorted(categories.items()):
         cited_count = stats["cited"]
         total_count = stats["total"]
-        emoji = "✅" if cited_count == total_count else "⚠️" if cited_count > 0 else "❌"
+        emoji = "" if cited_count == total_count else "" if cited_count > 0 else ""
         message += f"\n{emoji} {cat}: {cited_count}/{total_count}"
     
     if new_citations:
-        message += f"\n\n🎉 **New citations:** {', '.join(new_citations)}"
+        message += f"\n\n **New citations:** {', '.join(new_citations)}"
     
     # Top gaps
     critical_gaps = [r for r in results if r.get("priority") == "critical" and r.get("expected") and not r.get("actual_cited")]
     if critical_gaps:
-        message += f"\n\n⚠️ **Critical gaps ({len(critical_gaps)}):**"
+        message += f"\n\n **Critical gaps ({len(critical_gaps)}):**"
         for gap in critical_gaps[:3]:  # Show top 3
             message += f"\n• {gap['category']}: {gap['query_id']}"
     
-    message += "\n\n💡 Tip: Run `python3 scripts/geo-monitor.py --query \"your test\"` to test specific queries"
+    message += "\n\n Tip: Run `python3 scripts/geo-monitor.py --query \"your test\"` to test specific queries"
     
     return message
 

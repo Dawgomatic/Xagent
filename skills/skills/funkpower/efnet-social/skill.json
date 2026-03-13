@@ -9,7 +9,7 @@
   "clawdbot": {
     "minVersion": "1.0.0",
     "category": "social",
-    "emoji": "🤖"
+    "emoji": ""
   },
   "dependencies": {
     "system": [],

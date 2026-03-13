@@ -15,7 +15,7 @@
 | `minimal` | read, write, edit |
 | `coding` | minimal + exec, browser |
 | `messaging` | minimal + message, cron |
-| `full` | All tools ⭐ |
+| `full` | All tools  |
 
 ---
 

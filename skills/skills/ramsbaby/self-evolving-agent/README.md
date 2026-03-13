@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 Self-Evolving Agent
+#  Self-Evolving Agent
 
 **A 5-stage multi-agent pipeline that reads your AI's logs, finds what's actually broken, measures whether fixes worked, and proposes evidence-based rule changes — for your review.**
 
@@ -21,7 +21,7 @@
 
 ---
 
-## 🆕 What's New in v5.0
+##  What's New in v5.0
 
 > Three new pillars. Same zero-cost local-first philosophy. Same human-approval guarantee.
 
@@ -105,11 +105,11 @@ Manually updating AGENTS.md works. But it requires you to notice the pattern, re
 ### v5.0 (Recommended)
 
 ```
-Real-time:  [stream-monitor.sh] ──── threshold breach ──▶ instant Discord alert
+Real-time:  [stream-monitor.sh] ──── threshold breach ── instant Discord alert
 
 Batch (Sunday 22:00):
 ┌─────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐  ┌───────────┐  ┌──────────┐
-│ Collect │─▶│ Embed    │─▶│  Trend   │─▶│ Fleet  │─▶│ Benchmark │─▶│Synthesize│
+│ Collect │─│ Embed    │─│  Trend   │─│ Fleet  │─│ Benchmark │─│Synthesize│
 │  Logs   │  │ Analyze  │  │ Analyze  │  │Analyze │  │  Compare  │  │ Proposal │
 └─────────┘  └──────────┘  └──────────┘  └────────┘  └───────────┘  └──────────┘
   7d logs +   Ollama emb.   4-week        multi-       past fixes     Claude/
@@ -126,7 +126,7 @@ Each box is a separate script. Each produces a structured JSON artifact.
 
 ```
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│ Collect  │───▶│ Analyze  │───▶│Benchmark │───▶│ Measure  │───▶│Synthesize│
+│ Collect  │───│ Analyze  │───│Benchmark │───│ Measure  │───│Synthesize│
 │  Logs    │    │ Patterns │    │ Compare  │    │ Effects  │    │ Proposal │
 └──────────┘    └──────────┘    └──────────┘    └──────────┘    └──────────┘
   7d logs        Heuristic       AGENTS.md       Past fixes      Markdown
@@ -137,7 +137,7 @@ Each box is a separate script. Each produces a structured JSON artifact.
 
 ---
 
-## 🆓 Zero-Cost Mode — Run for $0.00/week with Ollama
+##  Zero-Cost Mode — Run for $0.00/week with Ollama
 
 > **v4.2 new.** Self-evolving AI self-improvement, completely free. No API keys. No internet. No cloud. Just your machine.
 
@@ -165,10 +165,10 @@ ollama serve &
 
 | Provider | Cost/week | API Key | Internet | Quality |
 |----------|:---------:|:-------:|:--------:|:-------:|
-| **Anthropic** | ~$0.05 | Required | Required | ⭐⭐⭐⭐⭐ |
-| **OpenAI** | ~$0.05 | Required | Required | ⭐⭐⭐⭐⭐ |
-| **Ollama** 🆓 | **$0.00** | **None** | **None** | ⭐⭐⭐⭐ |
-| **none** 🆓 | **$0.00** | **None** | **None** | Heuristic only |
+| **Anthropic** | ~$0.05 | Required | Required |  |
+| **OpenAI** | ~$0.05 | Required | Required |  |
+| **Ollama**  | **$0.00** | **None** | **None** |  |
+| **none**  | **$0.00** | **None** | **None** | Heuristic only |
 
 ### Ollama Usage (v5.0 — Embedding + LLM)
 
@@ -238,15 +238,15 @@ Split the monolith into 5 specialized stages. Added `role_filter` to separate us
 
 **What changed:**
 - False positive rate: ~40% → ~15%
-- Feedback loop: None → closed (you see `"Proposal #2: −45% ✅"` next week)
+- Feedback loop: None → closed (you see `"Proposal #2: −45% "` next week)
 - Cost: Still < $0.05/run (only Stage 5 hits the API)
 - Runtime: < 3 minutes end-to-end
 
 ```
-v1.0  ──▶  keyword grep + dump
-v2.0  ──▶  + exec retry detection
-v3.0  ──▶  + session health + cleaner output
-v4.0  ──▶  5-stage pipeline + role filter + effect measurement ✅
+v1.0  ──  keyword grep + dump
+v2.0  ──  + exec retry detection
+v3.0  ──  + session health + cleaner output
+v4.0  ──  5-stage pipeline + role filter + effect measurement 
 ```
 
 ---
@@ -263,11 +263,11 @@ Week 1: Proposal #2 — "Add exec retry limit rule"
 
 Week 2: Benchmark Agent checks:
         "다시" pattern: 22× → 12× (−45%)
-        → Verdict: ✅ Effective
+        → Verdict:  Effective
 
         Report includes:
-        📈 Last week's proposals:
-           #2 Exec retry rule: Effective (−45%) ✅
+         Last week's proposals:
+           #2 Exec retry rule: Effective (−45%) 
            #3 Log check rule:  Neutral (+2%)  — observe more
 ```
 
@@ -279,20 +279,20 @@ If a rule made things worse (Regressed), the Benchmark Agent flags it for re-rev
 
 | Feature | Self-Evolving Agent v5 | CrewAI / Autogen | LangChain loops | Custom crons |
 |---------|:------------------:|:----------------:|:---------------:|:------------:|
-| Reads actual chat logs | ✅ | ❌ | ❌ | Manual |
-| Multi-agent pipeline | ✅ 6 stages | ✅ Complex | ✅ Complex | ❌ |
-| **Semantic embeddings** | ✅ Ollama local | ❌ | ❌ (optional) | ❌ |
-| **Real-time streaming** | ✅ <30s alerts | ❌ | ❌ | ❌ |
-| **Fleet / multi-instance** | ✅ Cross-agent analysis | ❌ | ❌ | ❌ |
+| Reads actual chat logs |  |  |  | Manual |
+| Multi-agent pipeline |  6 stages |  Complex |  Complex |  |
+| **Semantic embeddings** |  Ollama local |  |  (optional) |  |
+| **Real-time streaming** |  <30s alerts |  |  |  |
+| **Fleet / multi-instance** |  Cross-agent analysis |  |  |  |
 | Setup complexity | **Low** (3 commands) | High | High | Medium |
-| Effect measurement | ✅ Benchmark agent | ❌ | ❌ | ❌ |
+| Effect measurement |  Benchmark agent |  |  |  |
 | False positive rate | **~8%** (semantic+structured) | N/A | N/A | ~40%+ |
-| Human approval gate | ✅ Hard constraint | Optional | Optional | Optional |
-| AGENTS.md targeting | ✅ Native | ❌ | ❌ | ❌ |
+| Human approval gate |  Hard constraint | Optional | Optional | Optional |
+| AGENTS.md targeting |  Native |  |  |  |
 | Cost per run | **$0.00 (Ollama)** | $0.50+ | $0.50+ | $0 (no LLM) |
 | Runtime | **< 5 min** (w/ embed) | 5–20 min | 5–20 min | < 1 min |
-| OpenClaw native | ✅ | ❌ | ❌ | ❌ |
-| Graceful degradation | ✅ v4 fallback | ❌ | ❌ | N/A |
+| OpenClaw native |  |  |  |  |
+| Graceful degradation |  v4 fallback |  |  | N/A |
 
 **Honest take:** CrewAI and LangChain are powerful general-purpose frameworks. If you need complex agent coordination for arbitrary tasks, use them. Self-Evolving Agent is purpose-built for one thing: improving your AI's AGENTS.md based on real log evidence — and then measuring whether it worked. v5.0 adds semantic understanding and real-time awareness without losing the simplicity that makes it auditable in 15 minutes.
 
@@ -303,19 +303,19 @@ If a rule made things worse (Regressed), the Benchmark Agent flags it for re-rev
 Every Sunday at 22:00, this lands in your Discord channel:
 
 ```
-🧠 Self-Evolving Agent v4.0 — Week of Feb 17
+ Self-Evolving Agent v4.0 — Week of Feb 17
 
-📈 Benchmark (last week's proposals):
-   #2 Exec retry limit:  ✅ Effective (−45%, "다시" 22× → 12×)
-   #3 Log check rule:    ⏳ Neutral   (+2%) — observe one more week
+ Benchmark (last week's proposals):
+   #2 Exec retry limit:   Effective (−45%, "다시" 22× → 12×)
+   #3 Log check rule:     Neutral   (+2%) — observe one more week
 
-📊 This week's analysis:
+ This week's analysis:
    Sessions: 30 analyzed (of 964 total)
    exec retries: 405 events, max 119 consecutive
    Cron errors: 3 active
    Role-filtered false positives removed: ~18
 
-📝 3 new proposals:
+ 3 new proposals:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Proposal #1 — HIGH
@@ -332,8 +332,8 @@ After:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ Apply:  "apply proposal #1"
-❌ Reject: "reject: [reason]"
+ Apply:  "apply proposal #1"
+ Reject: "reject: [reason]"
 ```
 
 No vague suggestions. Real numbers. Diff format. Your decision.
@@ -361,7 +361,7 @@ Deployed on a personal OpenClaw instance. These are actual numbers from the syst
 
 ---
 
-## 📊 Local Dashboard
+##  Local Dashboard
 
 Visualize your agent's self-improvement history in a browser — no npm, no build step.
 
@@ -373,11 +373,11 @@ bash dashboard/serve.sh
 
 | Panel | What it shows |
 |---|---|
-| 📈 Quality Trend | `quality_score` line chart over time |
-| 🏥 AGENTS.md Health | Benchmark score ring (0–100) + history sparkline |
-| 🔍 Pattern Frequency | Complaint patterns stacked bar chart by week |
-| 📋 Proposal History | All proposals with severity, status, effect badges |
-| ⚡ Rules Effectiveness | Green = reduced patterns, Red = regressed, Blue = neutral |
+|  Quality Trend | `quality_score` line chart over time |
+|  AGENTS.md Health | Benchmark score ring (0–100) + history sparkline |
+|  Pattern Frequency | Complaint patterns stacked bar chart by week |
+|  Proposal History | All proposals with severity, status, effect badges |
+|  Rules Effectiveness | Green = reduced patterns, Red = regressed, Blue = neutral |
 
 > See [`dashboard/README.md`](dashboard/README.md) for full docs.
 
@@ -569,7 +569,7 @@ Payload delivered as:
   "source": "self-evolving-agent",
   "version": "4.0",
   "timestamp": "2026-02-18T00:00:00Z",
-  "proposal": "## 🧠 SEA v4.0 ...(full markdown)..."
+  "proposal": "##  SEA v4.0 ...(full markdown)..."
 }
 ```
 
@@ -585,14 +585,14 @@ PLATFORM=slack bash scripts/v4/deliver.sh data/undelivered/<file>.md
 
 Being explicit here:
 
-- ⚠️ **Semantic embeddings require Ollama** — if Ollama is offline, auto-falls back to v4 heuristics (~15% FP). With Ollama: ~8% FP.
-- ⚠️ **~8% false positive rate (embedding) / ~15% (heuristic fallback)** — improved from v3.0's ~40%, but still imperfect
-- ⚠️ **Streaming monitor needs persistent process** — `sea monitor` or a LaunchAgent; not a fire-and-forget cron
-- ⚠️ **Trend analysis needs 4+ weeks** — first month shows sparse trends
-- ❌ **Benchmark ≠ causal analysis** — frequency-based correlation, not causation
-- ❌ **Generic output on quiet weeks** — if no complaint data, proposals will be vague
-- ❌ **Cold start** — first 2–4 weeks have little data
-- ❌ **Mixed-language sessions** — embedding helps, but code-switching edge cases remain
+-  **Semantic embeddings require Ollama** — if Ollama is offline, auto-falls back to v4 heuristics (~15% FP). With Ollama: ~8% FP.
+-  **~8% false positive rate (embedding) / ~15% (heuristic fallback)** — improved from v3.0's ~40%, but still imperfect
+-  **Streaming monitor needs persistent process** — `sea monitor` or a LaunchAgent; not a fire-and-forget cron
+-  **Trend analysis needs 4+ weeks** — first month shows sparse trends
+-  **Benchmark ≠ causal analysis** — frequency-based correlation, not causation
+-  **Generic output on quiet weeks** — if no complaint data, proposals will be vague
+-  **Cold start** — first 2–4 weeks have little data
+-  **Mixed-language sessions** — embedding helps, but code-switching edge cases remain
 
 **v5.0:** Semantic embeddings (Ollama `nomic-embed-text`) now handle the patterns that keyword lists can't. Auto-fallback to v4 heuristics if Ollama is offline. The analysis mechanism is now: 6 shell scripts + one optional Claude/Ollama call + your approval.
 
@@ -643,7 +643,7 @@ The name "self-evolving" describes the goal, not the mechanism. Useful? Yes. Mag
 
 ---
 
-## 🤖 Fleet Analysis (v5.0)
+##  Fleet Analysis (v5.0)
 
 **SEA v5.0 introduces multi-agent fleet analysis** — instead of analyzing one agent, it analyzes ALL agents simultaneously and finds shared patterns, benchmark leaders, and cross-agent improvement opportunities.
 
@@ -719,33 +719,33 @@ sea fleet health
 
 | Version | Feature | Status |
 |---------|---------|--------|
-| **v1.0** | Complaint detection (keyword grep) | ✅ Done |
-| **v2.0** | exec retry detection (119× real case) | ✅ Done |
-| **v3.0** | Session health metrics + cleaner proposals | ✅ Done |
-| **v4.0** | 5-stage pipeline + effect measurement + role filter | ✅ Done |
-| **v4.1** | Multi-platform delivery (Slack/Telegram) + ko/en patterns | ✅ Done |
-| **v4.2** | Ollama/local LLM — zero-cost AI self-improvement | ✅ Done |
-| **v4.3** | Interactive approval (sea watch) + export + GitHub Issues | ✅ Done |
-| **v5.0** | Semantic embeddings + streaming monitor + fleet analysis | ✅ **Live** |
-| **v5.1** | Multi-language embedding anchors (JP, ES, ZH) | 🔨 Next |
-| **v5.2** | Causal inference for effect measurement (interrupted time series) | 📋 Planned |
-| **v5.3** | Dashboard v2 — embedding cluster visualization, fleet heatmap | 📋 Planned |
-| **v6.0** | Active learning — flag low-confidence predictions for user feedback | 💡 Concept |
+| **v1.0** | Complaint detection (keyword grep) |  Done |
+| **v2.0** | exec retry detection (119× real case) |  Done |
+| **v3.0** | Session health metrics + cleaner proposals |  Done |
+| **v4.0** | 5-stage pipeline + effect measurement + role filter |  Done |
+| **v4.1** | Multi-platform delivery (Slack/Telegram) + ko/en patterns |  Done |
+| **v4.2** | Ollama/local LLM — zero-cost AI self-improvement |  Done |
+| **v4.3** | Interactive approval (sea watch) + export + GitHub Issues |  Done |
+| **v5.0** | Semantic embeddings + streaming monitor + fleet analysis |  **Live** |
+| **v5.1** | Multi-language embedding anchors (JP, ES, ZH) |  Next |
+| **v5.2** | Causal inference for effect measurement (interrupted time series) |  Planned |
+| **v5.3** | Dashboard v2 — embedding cluster visualization, fleet heatmap |  Planned |
+| **v6.0** | Active learning — flag low-confidence predictions for user feedback |  Concept |
 
 ---
 
 ## Safety Principles
 
-- ✅ **Propose only** — no code path modifies AGENTS.md without explicit approval
-- ✅ **Evidence required** — every proposal cites measured data + semantic confidence score
-- ✅ **Diff format** — before/after always shown; never vague "you should improve X"
-- ✅ **Rejection learning** — rejected proposals logged and respected
-- ✅ **Transparent code** — ~500 lines of shell scripts you can audit in 20 minutes
-- ✅ **Local-first** — all analysis runs on your machine; embeddings are local too (Ollama)
-- ✅ **Human in the loop** — always. The AI proposes, you decide.
-- ✅ **Effect measurement** — tracks whether previous proposals actually helped
-- ✅ **Embedding privacy** — cache stores vectors only, never raw message text
-- ✅ **Graceful degradation** — Ollama offline → heuristic fallback, not crash
+-  **Propose only** — no code path modifies AGENTS.md without explicit approval
+-  **Evidence required** — every proposal cites measured data + semantic confidence score
+-  **Diff format** — before/after always shown; never vague "you should improve X"
+-  **Rejection learning** — rejected proposals logged and respected
+-  **Transparent code** — ~500 lines of shell scripts you can audit in 20 minutes
+-  **Local-first** — all analysis runs on your machine; embeddings are local too (Ollama)
+-  **Human in the loop** — always. The AI proposes, you decide.
+-  **Effect measurement** — tracks whether previous proposals actually helped
+-  **Embedding privacy** — cache stores vectors only, never raw message text
+-  **Graceful degradation** — Ollama offline → heuristic fallback, not crash
 
 ---
 
@@ -771,8 +771,8 @@ MIT — use freely, modify freely, ship freely.
 
 *Honest tool. Imperfect. But it caught 119 exec retries I never noticed — and now it tells me whether the fix actually worked. And with Ollama, it costs exactly $0.00.*
 
-*Made with ❤️ on [OpenClaw](https://openclaw.ai)*
+*Made with  on [OpenClaw](https://openclaw.ai)*
 
-**[⭐ Star this skill](#) · [🐛 Report a bug](#) · [💡 Suggest a pattern](#) · [📖 Architecture docs](docs/v4-architecture.md)**
+**[ Star this skill](#) · [ Report a bug](#) · [ Suggest a pattern](#) · [ Architecture docs](docs/v4-architecture.md)**
 
 </div>

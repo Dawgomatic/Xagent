@@ -18,14 +18,14 @@ Archon is an open-source decentralized self-sovereign identity (SSI) system. Thi
 ## Platform Support
 
 **Cross-Platform (All Platforms):**
-- ✅ Public network API operations (DID resolution, network stats)
-- ✅ Keymaster CLI via npx (@didcid/keymaster)
-- ✅ Read-only operations require only Node.js + curl
+-  Public network API operations (DID resolution, network stats)
+-  Keymaster CLI via npx (@didcid/keymaster)
+-  Read-only operations require only Node.js + curl
 
 **Local Node Operations:**
-- ✅ **Linux** - Native Docker support, all scripts work
-- ✅ **macOS** - Docker Desktop, scripts work (minor command differences handled)
-- ⚠️ **Windows** - Requires WSL2 + Docker Desktop or native Docker with PowerShell adaptations
+-  **Linux** - Native Docker support, all scripts work
+-  **macOS** - Docker Desktop, scripts work (minor command differences handled)
+-  **Windows** - Requires WSL2 + Docker Desktop or native Docker with PowerShell adaptations
   - Helper scripts are bash (use Git Bash, WSL2, or adapt to PowerShell)
   - Path handling differs (`%USERPROFILE%` vs `~`)
 
@@ -294,7 +294,7 @@ hexmem_lesson "identity" "Always encrypt vault items with meaningful metadata" "
 **Identity Operations:**
 - Create DIDs for new agents/projects
 - Issue credentials attesting to capabilities
-- Cross-platform identity linking (Nostr ↔ Archon)
+- Cross-platform identity linking (Nostr  Archon)
 - Cryptographic proof of identity
 
 **Secure Storage:**

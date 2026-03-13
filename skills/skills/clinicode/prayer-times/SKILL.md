@@ -43,12 +43,12 @@ Works with typos: "Meca", "Dubay", "Istanbol" - fuzzy search finds it!
 
 ## Features
 
-✅ Auto-detects your location (via IP)
-✅ Works for ANY city worldwide
-✅ Handles typos and misspellings
-✅ Shows location clearly at top of results
-✅ 12-hour format (AM/PM)
-✅ Uses ISNA calculation method
+ Auto-detects your location (via IP)
+ Works for ANY city worldwide
+ Handles typos and misspellings
+ Shows location clearly at top of results
+ 12-hour format (AM/PM)
+ Uses ISNA calculation method
 
 ## Examples
 ```bash
@@ -95,8 +95,8 @@ python prayer_times.py Istanbul
 ## Output Format
 ```
 ============================================================
-🕌 PRAYER TIMES - MAKKAH, SAUDI ARABIA
-📅 08 Feb 2026
+ PRAYER TIMES - MAKKAH, SAUDI ARABIA
+ 08 Feb 2026
 ============================================================
 
 Fajr:    05:12 AM

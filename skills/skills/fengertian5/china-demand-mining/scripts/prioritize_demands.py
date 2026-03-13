@@ -107,7 +107,7 @@ class DemandPrioritizer:
                 "prioritized_demands": prioritized_demands
             }, f, ensure_ascii=False, indent=2)
         
-        print(f"✅ 已完成需求分级并保存到 {output_path}")
+        print(f" 已完成需求分级并保存到 {output_path}")
         print(f"   P0级需求: {summary['priority_distribution']['P0']} 个")
         print(f"   P1级需求: {summary['priority_distribution']['P1']} 个")
         print(f"   P2级需求: {summary['priority_distribution']['P2']} 个")

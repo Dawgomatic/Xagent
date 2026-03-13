@@ -46,28 +46,28 @@ def generate_report(
     # Get period title
     now = datetime.now()
     if period == "today" or period == "day":
-        title = f"📊 Today's Spending ({now.strftime('%b %d, %Y')})"
+        title = f" Today's Spending ({now.strftime('%b %d, %Y')})"
     elif period == "week":
-        title = f"📊 This Week's Spending"
+        title = f" This Week's Spending"
     elif period == "month":
-        title = f"📊 This Month's Spending"
+        title = f" This Month's Spending"
     elif period == "year":
-        title = f"📊 This Year's Spending"
+        title = f" This Year's Spending"
     else:
-        title = f"📊 All-Time Spending"
+        title = f" All-Time Spending"
     
     # Get stats
     stats = storage.get_stats(days=days)
     currency = storage.get_currency()
     
     if stats["count"] == 0:
-        return f"{title}\n━━━━━━━━━━━━━━━━━━━━━\n\n📭 No transactions found for this period."
+        return f"{title}\n━━━━━━━━━━━━━━━━━━━━━\n\n No transactions found for this period."
     
     # Build report
     lines = [
         title,
         "━━━━━━━━━━━━━━━━━━━━━",
-        f"💵 Total: {stats['total']:,} {currency}",
+        f" Total: {stats['total']:,} {currency}",
         ""
     ]
     
@@ -81,8 +81,8 @@ def generate_report(
         lines.append(f"{emoji} {category.capitalize()}: {amount:,} {currency} ({pct:.1f}%)")
     
     lines.append("")
-    lines.append(f"📝 {stats['count']} transactions")
-    lines.append(f"📈 Average: {stats['average']:,} {currency}")
+    lines.append(f" {stats['count']} transactions")
+    lines.append(f" Average: {stats['average']:,} {currency}")
     
     return "\n".join(lines)
 
@@ -108,9 +108,9 @@ def list_recent(
     currency = storage.get_currency()
     
     if not transactions:
-        return "📭 No transactions yet.\n\nAdd one: finance add 50000 \"coffee\""
+        return " No transactions yet.\n\nAdd one: finance add 50000 \"coffee\""
     
-    lines = [f"📝 Recent Transactions (last {len(transactions)}):", ""]
+    lines = [f" Recent Transactions (last {len(transactions)}):", ""]
     
     for tx in transactions:
         emoji = get_emoji(tx["category"])
@@ -143,12 +143,12 @@ def search_transactions(
     currency = storage.get_currency()
     
     if not results:
-        return f"🔍 No transactions found matching '{query}'"
+        return f" No transactions found matching '{query}'"
     
     total = sum(tx["amount"] for tx in results)
     
     lines = [
-        f"🔍 Search: '{query}'",
+        f" Search: '{query}'",
         f"Found {len(results)} transactions (total: {total:,} {currency})",
         ""
     ]

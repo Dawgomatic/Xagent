@@ -46,7 +46,7 @@ for (const file of files) {
 }
 
 if (!booking) {
-  console.error(`❌ Booking not found: ${bookingId}`);
+  console.error(` Booking not found: ${bookingId}`);
   process.exit(1);
 }
 
@@ -101,13 +101,13 @@ if (customerNoshows.length >= threshold) {
       require_deposit: config.noshow_policy?.require_deposit_when_flagged || false
     };
     fs.writeFileSync(FLAGGED_FILE, JSON.stringify(flagged, null, 2));
-    console.log(`\n🚩 Customer flagged for repeat no-shows (${customerNoshows.length} times)`);
+    console.log(`\n Customer flagged for repeat no-shows (${customerNoshows.length} times)`);
   } else {
     flagged[key].noshow_count = customerNoshows.length;
     fs.writeFileSync(FLAGGED_FILE, JSON.stringify(flagged, null, 2));
   }
 }
 
-console.log('✅ Booking marked as no-show:');
+console.log(' Booking marked as no-show:');
 console.log(JSON.stringify(booking, null, 2));
 console.log(`\nCustomer no-show history: ${customerNoshows.length} times`);

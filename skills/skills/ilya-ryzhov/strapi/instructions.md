@@ -137,7 +137,7 @@ The `publishedAt` field in responses is `null` for drafts.
 
 ### Schema management (content types & components)
 
-**⚠️ DANGEROUS: These operations modify the database schema. Strapi restarts
+** DANGEROUS: These operations modify the database schema. Strapi restarts
 after every change. Always confirm with the user before executing.**
 
 **IMPORTANT: Schema write operations only work on local/dev Strapi instances.

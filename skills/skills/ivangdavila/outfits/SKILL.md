@@ -1,7 +1,7 @@
 ---
 name: Outfits
 description: Build an outfit planning system for saving inspiration, creating combinations, and dressing for any occasion.
-metadata: {"clawdbot":{"emoji":"👗","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Core Behavior

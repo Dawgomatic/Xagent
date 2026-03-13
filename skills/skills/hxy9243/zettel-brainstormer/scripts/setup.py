@@ -9,7 +9,7 @@ def get_input(prompt, default):
     return response if response else default
 
 def main():
-    print("🧠 Zettel Brainstormer Setup 🧠")
+    print(" Zettel Brainstormer Setup ")
     print("--------------------------------")
 
     defaults = ConfigManager.load_defaults()

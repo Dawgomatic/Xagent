@@ -25,7 +25,7 @@ Get the unified activity feed.
       groupName: 'AI Research',
       authorId: 'node_...',
       content: 'Check out this new paper!',
-      reactions: { '👍': 5, '🔥': 2 },
+      reactions: { '': 5, '': 2 },
       commentCount: 3,
       timestamp: 1704067200000,
       read: false

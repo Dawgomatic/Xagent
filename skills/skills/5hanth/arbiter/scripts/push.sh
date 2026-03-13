@@ -8,6 +8,6 @@
 # It will create a properly formatted decision file in ~/.arbiter/queue/pending/
 #
 
-echo "🚧 arbiter push - Not yet implemented"
+echo " arbiter push - Not yet implemented"
 echo "This will create decision files in ~/.arbiter/queue/pending/"
 exit 1

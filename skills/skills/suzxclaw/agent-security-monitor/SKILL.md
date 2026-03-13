@@ -55,23 +55,23 @@ Automatically scans your agent environment for security vulnerabilities and susp
 
 ## Features
 
-- ✅ **No external dependencies** - Pure Bash, runs everywhere
-- ✅ **Configurable** - JSON-based configuration for custom checks
-- ✅ **Color-coded output** - GREEN (info), YELLOW (medium alert), RED (high alert)
-- ✅ **Comprehensive logging** - All scans and alerts recorded to log files
-- ✅ **Smart detection** - Distinguishes between real secrets and placeholder patterns
-- ✅ **Baseline tracking** - Remembers when last scan was performed
-- ✅ **False-positive mitigation** - Known benign patterns are automatically filtered
-- ✅ **Permission manifest validation** - Isnad-inspired security checks for skill permissions
+-  **No external dependencies** - Pure Bash, runs everywhere
+-  **Configurable** - JSON-based configuration for custom checks
+-  **Color-coded output** - GREEN (info), YELLOW (medium alert), RED (high alert)
+-  **Comprehensive logging** - All scans and alerts recorded to log files
+-  **Smart detection** - Distinguishes between real secrets and placeholder patterns
+-  **Baseline tracking** - Remembers when last scan was performed
+-  **False-positive mitigation** - Known benign patterns are automatically filtered
+-  **Permission manifest validation** - Isnad-inspired security checks for skill permissions
 
 ## Features
 
-- ✅ **No external dependencies** - Pure Bash, runs everywhere
-- ✅ **Configurable** - JSON-based configuration for custom checks
-- ✅ **Color-coded output** - GREEN (info), YELLOW (medium alert), RED (high alert)
-- ✅ **Comprehensive logging** - All scans and alerts recorded to log files
-- ✅ **Smart detection** - Distinguishes between real secrets and placeholder patterns
-- ✅ **Baseline tracking** - Remembers when last scan was performed
+-  **No external dependencies** - Pure Bash, runs everywhere
+-  **Configurable** - JSON-based configuration for custom checks
+-  **Color-coded output** - GREEN (info), YELLOW (medium alert), RED (high alert)
+-  **Comprehensive logging** - All scans and alerts recorded to log files
+-  **Smart detection** - Distinguishes between real secrets and placeholder patterns
+-  **Baseline tracking** - Remembers when last scan was performed
 
 ## Installation
 
@@ -126,11 +126,11 @@ The monitor creates a configuration file at `~/.config/agent-security/config.jso
 
 ## What It Protects Against
 
-- 🚨 **Credential exfiltration** - Detects `.env` files containing exposed API keys
-- 🐍 **Supply chain attacks** - Identifies suspicious patterns in installed skills
-- 🔑 **Key theft** - Monitors SSH keys and wallet credentials
-- 💀 **Malicious execution** - Scans for suspicious command patterns
-- 📝 **Data leaks** - Prevents sensitive information from appearing in logs
+-  **Credential exfiltration** - Detects `.env` files containing exposed API keys
+-  **Supply chain attacks** - Identifies suspicious patterns in installed skills
+-  **Key theft** - Monitors SSH keys and wallet credentials
+-  **Malicious execution** - Scans for suspicious command patterns
+-  **Data leaks** - Prevents sensitive information from appearing in logs
 
 ## Best Practices
 

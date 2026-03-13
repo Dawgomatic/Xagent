@@ -6,7 +6,7 @@ export class CaptchaHandler {
    */
   static async handleCaptchaRequired(isInteractive: boolean = true): Promise<void> {
     const message = `
-🚫 CAPTCHA verification is required to proceed.
+ CAPTCHA verification is required to proceed.
 
 MonarchMoney has temporarily blocked API access and requires web browser verification.
 
@@ -44,15 +44,15 @@ This security measure will automatically clear after successful web login.
           const response = answer.toLowerCase().trim()
           
           if (response === 'y' || response === 'yes') {
-            console.log('✅ Great! Attempting to continue with API login...')
+            console.log(' Great! Attempting to continue with API login...')
             rl.close()
             resolve()
           } else if (response === 'skip' || response === 's') {
-            console.log('⏭️ Skipping CAPTCHA resolution - this may fail')
+            console.log(' Skipping CAPTCHA resolution - this may fail')
             rl.close()
             resolve()
           } else if (response === 'n' || response === 'no') {
-            console.log('⏳ Waiting for web login completion...')
+            console.log(' Waiting for web login completion...')
             setTimeout(ask, 2000)
           } else {
             console.log('Please answer with y/yes, n/no, or skip')

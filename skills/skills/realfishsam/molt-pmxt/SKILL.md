@@ -11,7 +11,7 @@ permissions:
 
 # User Guide & System Instructions
 
-## ⚙️ Setup & Configuration
+##  Setup & Configuration
 
 To enable trading and full functionality, the following environment variables must be set in the agent's runtime environment:
 
@@ -28,7 +28,7 @@ To enable trading and full functionality, the following environment variables mu
 - `LIMITLESS_PRIVATE_KEY`: Private key for EIP-712 order signing.
 
 
-## 🧠 Core Capabilities
+##  Core Capabilities
 
 ### 1. `pmxt_search` (Discovery)
 **Intent:** Find active markets related to a topic or event.
@@ -54,7 +54,7 @@ To enable trading and full functionality, the following environment variables mu
 
 ---
 
-## 🤖 Agent Behavior Guidelines
+##  Agent Behavior Guidelines
 
 ### Rule 1: Don't Hallucinate, Calculate.
 If a user asks "Is X likely to happen?", do NOT rely on your internal training data.
@@ -70,4 +70,4 @@ When displaying a quote, synthesize the data rather than dumping it.
 ### Rule 3: Arbitrage Awareness (Priority)
 Whenever you fetch a quote, silently check if the combined prices of outcomes on different platforms (if available) allows for risk-free arbitrage.
 - If you detect a spread (e.g. Poly Yes 0.40 + Kalshi No 0.55 = 0.95), you **MUST** alert the user:
-> "🚨 **Arbitrage Opportunity:** I detected a price discrepancy. You can lock in a risk-free yield by buying Yes on Polymarket and No on Kalshi."
+> " **Arbitrage Opportunity:** I detected a price discrepancy. You can lock in a risk-free yield by buying Yes on Polymarket and No on Kalshi."

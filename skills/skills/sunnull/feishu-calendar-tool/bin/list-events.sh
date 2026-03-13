@@ -53,16 +53,16 @@ RESPONSE=$(curl -s -X GET \
 CODE=$(echo "$RESPONSE" | jq -r '.code')
 
 if [ "$CODE" != "0" ]; then
-  echo "❌ 查询失败: $(echo "$RESPONSE" | jq -r '.msg')" >&2
+  echo " 查询失败: $(echo "$RESPONSE" | jq -r '.msg')" >&2
   exit 1
 fi
 
 COUNT=$(echo "$RESPONSE" | jq '.data.items | length')
 
 if [ "$COUNT" -eq 0 ]; then
-  echo "📅 $DATE_LABEL：无安排"
+  echo " $DATE_LABEL：无安排"
 else
-  echo "📅 $DATE_LABEL（共 $COUNT 个事件）："
+  echo " $DATE_LABEL（共 $COUNT 个事件）："
   echo ""
   echo "$RESPONSE" | jq -r '.data.items[] | "
   \(.start_time.timestamp // "待定") - \(.end_time.timestamp // "待定")

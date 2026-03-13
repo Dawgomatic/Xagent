@@ -3,7 +3,7 @@ name: janee
 version: 0.1.0
 description: Secrets management for AI agents. Never expose your API keys again.
 homepage: https://github.com/rsdouglas/janee
-metadata: {"category": "security", "emoji": "🔐"}
+metadata: {"category": "security", "emoji": ""}
 ---
 
 # Janee
@@ -112,7 +112,7 @@ capabilities:
 
 ```
 ┌─────────────┐      ┌──────────┐      ┌─────────┐
-│  AI Agent   │─────▶│  Janee   │─────▶│   API   │
+│  AI Agent   │─────│  Janee   │─────│   API   │
 │             │ MCP  │          │ HTTP │         │
 └─────────────┘      └──────────┘      └─────────┘
       │                   │

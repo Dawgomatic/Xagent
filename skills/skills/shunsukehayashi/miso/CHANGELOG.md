@@ -2,7 +2,7 @@
 
 ## v1.0.0 (2026-02-17)
 
-### 🍜 Initial Release
+###  Initial Release
 
 **MISO — Mission Inline Skill Orchestration**
 The world's first Telegram-native Agentic UI framework.
@@ -30,11 +30,11 @@ The world's first Telegram-native Agentic UI framework.
 - `scripts/miso_telegram.py` — Pin/unpin helper
 
 #### Roadmap
-- v1.1: 🎙️ Narrated Mode (real-time commentary during missions)
+- v1.1:  Narrated Mode (real-time commentary during missions)
 - v1.2: miso-orchestrator (auto spawn + board updates)
 - v1.3: miso-planner (task decomposition)
 
 ---
 
-*Simple ingredients. Rich flavor.* 🍜
-*By Shunsuke Hayashi + Miyabi 🌸*
+*Simple ingredients. Rich flavor.* 
+*By Shunsuke Hayashi + Miyabi *

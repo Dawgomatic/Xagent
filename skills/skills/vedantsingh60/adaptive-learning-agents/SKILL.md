@@ -6,7 +6,7 @@ Free and open-source (MIT License) • Zero dependencies • Works locally
 
 ---
 
-## 🚀 Why This Skill?
+##  Why This Skill?
 
 ### Problem Statement
 Working with Claude or any AI agent means encountering:
@@ -29,7 +29,7 @@ But there's no systematic way to **learn from these moments** and apply the know
 
 ---
 
-## ✨ What You Get
+##  What You Get
 
 ### Four Core Functions
 
@@ -70,17 +70,17 @@ Understand what you've learned at a glance.
 
 ### Key Features
 
-✅ **Zero dependencies** - Pure Python, works everywhere
-✅ **Local-only storage** - All data on your machine, no uploads
-✅ **MIT Licensed** - Free to use, modify, fork, redistribute
-✅ **Automatic categorization** - Errors become learnings
-✅ **Search and filter** - Find knowledge by keyword or category
-✅ **Export capability** - Share learnings as JSON
-✅ **No API keys** - Works without any external credentials
+ **Zero dependencies** - Pure Python, works everywhere
+ **Local-only storage** - All data on your machine, no uploads
+ **MIT Licensed** - Free to use, modify, fork, redistribute
+ **Automatic categorization** - Errors become learnings
+ **Search and filter** - Find knowledge by keyword or category
+ **Export capability** - Share learnings as JSON
+ **No API keys** - Works without any external credentials
 
 ---
 
-## 📊 Real-World Example
+##  Real-World Example
 
 ```python
 from adaptive_learning_agent import AdaptiveLearningAgent
@@ -97,7 +97,7 @@ agent.record_error(
 
 # Day 2: Same bug, but now you have the solution
 similar_errors = agent.search_learnings("newlines")
-# Result: [Previous learning with solution] ✅
+# Result: [Previous learning with solution] 
 
 # Week 1: Document successful pattern
 agent.record_learning(
@@ -114,7 +114,7 @@ print(f"Resolved {summary['error_statistics']['resolved']} errors")
 
 ---
 
-## 🔧 Installation
+##  Installation
 
 No installation needed! The skill is pure Python with zero dependencies.
 
@@ -127,7 +127,7 @@ from adaptive_learning_agent import AdaptiveLearningAgent
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 ### Software Development
 Record bugs you find and their fixes. Next time you hit a similar error, you have the solution ready.
@@ -176,12 +176,12 @@ Before major tasks, review what you've learned to avoid repeating mistakes.
 summary = agent.get_learning_summary()
 unresolved = summary['error_statistics']['unresolved']
 if unresolved > 0:
-    print(f"⚠️ {unresolved} unresolved errors—review before proceeding")
+    print(f" {unresolved} unresolved errors—review before proceeding")
 ```
 
 ---
 
-## 📚 Categories
+##  Categories
 
 When recording learnings, choose from these categories:
 
@@ -196,7 +196,7 @@ When recording learnings, choose from these categories:
 
 ---
 
-## 🎯 Sources
+##  Sources
 
 When recording learnings, specify the source:
 
@@ -207,7 +207,7 @@ When recording learnings, specify the source:
 
 ---
 
-## 📖 API Reference
+##  API Reference
 
 ### Core Methods
 
@@ -262,17 +262,17 @@ Export all learnings and errors to JSON file.
 
 ---
 
-## 🔒 Privacy & Security
+##  Privacy & Security
 
-- ✅ **Zero telemetry** - No data sent anywhere
-- ✅ **Local-only storage** - Everything stored in `.adaptive_learning/` on your machine
-- ✅ **No API calls** - Works completely offline
-- ✅ **No authentication** - No accounts, keys, or logins needed
-- ✅ **Full transparency** - Source code included and open-source
+-  **Zero telemetry** - No data sent anywhere
+-  **Local-only storage** - Everything stored in `.adaptive_learning/` on your machine
+-  **No API calls** - Works completely offline
+-  **No authentication** - No accounts, keys, or logins needed
+-  **Full transparency** - Source code included and open-source
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This is MIT Licensed and community-maintained. You're encouraged to:
 - Fork the repository
@@ -282,11 +282,11 @@ This is MIT Licensed and community-maintained. You're encouraged to:
 
 ---
 
-## 📝 Changelog
+##  Changelog
 
 ### [1.0.0] - 2026-02-14
 
-#### ✨ Initial Release
+####  Initial Release
 - **Core learning system** - Record and retrieve learnings
 - **Error tracking** - Capture errors with solutions
 - **Search functionality** - Find learnings by keyword or category
@@ -298,7 +298,7 @@ This is MIT Licensed and community-maintained. You're encouraged to:
 
 ---
 
-## 📞 Support
+##  Support
 
 - **GitHub**: https://github.com/clawhub-skills/adaptive-learning-agent
 - **Issues & Contributions**: Open an issue or PR on GitHub
@@ -306,14 +306,14 @@ This is MIT Licensed and community-maintained. You're encouraged to:
 
 ---
 
-## 📄 License
+##  License
 
 **MIT License** - Free and open-source
 
 Use, modify, fork, and redistribute freely. See [LICENSE.md](LICENSE.md) for full details.
 
 ```
-Copyright © 2026 UnisAI Community
+Copyright  2026 UnisAI Community
 ```
 
 ---

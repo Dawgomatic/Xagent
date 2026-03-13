@@ -169,7 +169,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (!channelId || channelId === '--all') {
     detectAllChannels(options)
       .then(conversations => {
-        console.log(`\n✅ Total conversations detected: ${conversations.length}`);
+        console.log(`\n Total conversations detected: ${conversations.length}`);
         process.exit(0);
       })
       .catch(err => {
@@ -179,7 +179,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   } else {
     detectConversations(channelId, options)
       .then(conversations => {
-        console.log(`\n✅ Detected ${conversations.length} conversations`);
+        console.log(`\n Detected ${conversations.length} conversations`);
         // Output as JSON for piping to summarizer
         if (args.includes('--json')) {
           console.log(JSON.stringify(conversations, null, 2));

@@ -25,7 +25,7 @@ class MetaEventListSkill:
 
     def execute(self, query: str = ""):
         if not self.access_token or not self.ad_account_id:
-            return "❌ Configuration Error: Please set META_ACCESS_TOKEN and META_AD_ACCOUNT_ID."
+            return " Configuration Error: Please set META_ACCESS_TOKEN and META_AD_ACCOUNT_ID."
 
         try:
             FacebookAdsApi.init(access_token=self.access_token)
@@ -44,23 +44,23 @@ class MetaEventListSkill:
             insights = account.get_insights(fields=fields, params=params)
 
             if not insights:
-                return f"⚠️ No events found for yesterday ({date_str}). Please check if your ads are active."
+                return f" No events found for yesterday ({date_str}). Please check if your ads are active."
 
             data = insights[0]
             actions = data.get('actions', [])
             
             if not actions:
-                return f"⚠️ Ads ran yesterday, but no conversion actions were recorded."
+                return f" Ads ran yesterday, but no conversion actions were recorded."
 
             # Generate list
-            result_lines = [f"📋 **Available Events (from {date_str})**", "Copy the 'Action Type' below to your .env file.\n"]
+            result_lines = [f" **Available Events (from {date_str})**", "Copy the 'Action Type' below to your .env file.\n"]
             
             for action in actions:
                 a_type = action.get('action_type')
                 a_val = action.get('value')
-                result_lines.append(f"🔹 **Type:** `{a_type}`\n   Count: {a_val}")
+                result_lines.append(f" **Type:** `{a_type}`\n   Count: {a_val}")
 
             return "\n".join(result_lines)
 
         except Exception as e:
-            return f"❌ Error fetching events: {str(e)}"
+            return f" Error fetching events: {str(e)}"

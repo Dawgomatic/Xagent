@@ -131,7 +131,7 @@ def test_network():
         return False
 
 def main():
-    print("\n🔍 RAGFlow API 诊断工具")
+    print("\n RAGFlow API 诊断工具")
     print("")
 
     results = []
@@ -147,16 +147,16 @@ def main():
     print("=" * 60)
 
     for name, result in results:
-        status = "✅ 通过" if result else "❌ 失败"
+        status = " 通过" if result else " 失败"
         print(f"{name:15s} {status}")
 
     # 建议
     all_passed = all(r[1] for r in results)
     print("\n" + "=" * 60)
     if all_passed:
-        print("✅ 所有测试通过！API工作正常。")
+        print(" 所有测试通过！API工作正常。")
     else:
-        print("❌ 存在问题，建议检查：")
+        print(" 存在问题，建议检查：")
         failed_tests = [r[0] for r in results if not r[1]]
         for test in failed_tests:
             if test == "API连接":

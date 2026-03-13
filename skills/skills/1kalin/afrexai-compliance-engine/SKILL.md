@@ -311,7 +311,7 @@ SOC 2 is built on 5 categories. **Security** is mandatory. Others are optional b
 | A.7 Physical | 14 | Perimeters, entry, offices, monitoring, utilities, cabling |
 | A.8 Technological | 34 | Endpoints, access rights, auth, malware, vuln mgmt, logging, crypto, SDLC |
 
-### SOC 2 ↔ ISO 27001 Control Mapping (Save 40-60% effort)
+### SOC 2  ISO 27001 Control Mapping (Save 40-60% effort)
 
 | SOC 2 TSC | ISO 27001 Annex A | Overlap |
 |-----------|------------------|---------|

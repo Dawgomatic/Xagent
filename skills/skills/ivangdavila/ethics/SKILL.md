@@ -1,7 +1,7 @@
 ---
 name: Ethics
 description: Navigate moral reasoning from personal dilemmas to academic philosophy.
-metadata: {"clawdbot":{"emoji":"⚖️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

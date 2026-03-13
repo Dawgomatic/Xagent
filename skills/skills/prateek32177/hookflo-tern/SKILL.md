@@ -42,7 +42,7 @@ description: >
 
 metadata:
   openclaw:
-    emoji: "🪝"
+    emoji: ""
     homepage: "https://hookflo.com"
     source: "https://github.com/Hookflo/tern"
     requires:

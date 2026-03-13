@@ -22,7 +22,7 @@
       "vote_check"
     ],
     "checks_skipped": [],
-    "message": "[--agent] 💤 IDLE (無任務)",
+    "message": "[--agent]  IDLE (無任務)",
     "skip_low_priority": false,
     "note": "閒置狀態，執行完整檢查"
   },
@@ -51,7 +51,7 @@
           "vote_check"
         ],
         "checks_skipped": [],
-        "message": "[--agent] 💤 IDLE (無任務)",
+        "message": "[--agent]  IDLE (無任務)",
         "skip_low_priority": false,
         "note": "閒置狀態，執行完整檢查"
       }

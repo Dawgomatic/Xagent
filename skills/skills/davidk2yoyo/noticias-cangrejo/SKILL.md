@@ -2,7 +2,7 @@
 name: noticias-cangrejo
 description: Fetch and summarize recent news articles from GNews for any user-provided topic, then produce a Markdown digest with date, greeting, and top links.
 homepage: https://gnews.io/
-metadata: {"clawdbot":{"emoji":"🦀","requires":{"env":["GNEWS_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GNEWS_API_KEY"]}}}
 ---
 
 # NoticiasCangrejo

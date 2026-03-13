@@ -1,7 +1,7 @@
 ---
 name: video_upscale
 description: "AI-powered video upscaling with Real-ESRGAN and Waifu2x. Use when user asks to enhance, upscale, improve video quality, make HD/4K. Supports anime and real footage with progress tracking."
-metadata: {"openclaw":{"emoji":"🎬","triggers":["upscale","enhance","make HD","make 4K","improve quality"]}}
+metadata: {"openclaw":{"emoji":"","triggers":["upscale","enhance","make HD","make 4K","improve quality"]}}
 ---
 
 # Video Upscale Skill

@@ -139,22 +139,22 @@ format_output() {
     eval "$data"
 
     # 天气图标映射
-    local weather_icon="🌤️"
+    local weather_icon=""
     local weather="${WEATHER:-未知}"
 
     # 清理weather内容
     weather=$(echo "$weather" | tr -d '[:space:]')
 
     case "$weather" in
-        *晴*阴*) weather_icon="🌤️" ;;
-        *晴*多云*) weather_icon="🌤️" ;;
-        *多云*晴*) weather_icon="🌤️" ;;
-        *多云*阴*) weather_icon="☁️" ;;
-        *晴*) weather_icon="☀️" ;;
-        *多云*) weather_icon="⛅" ;;
-        *阴*) weather_icon="☁️" ;;
-        *雨*) weather_icon="🌧️" ;;
-        *雪*) weather_icon="❄️" ;;
+        *晴*阴*) weather_icon="" ;;
+        *晴*多云*) weather_icon="" ;;
+        *多云*晴*) weather_icon="" ;;
+        *多云*阴*) weather_icon="" ;;
+        *晴*) weather_icon="" ;;
+        *多云*) weather_icon="" ;;
+        *阴*) weather_icon="" ;;
+        *雨*) weather_icon="" ;;
+        *雪*) weather_icon="" ;;
     esac
 
     # 输出
@@ -163,15 +163,15 @@ format_output() {
     echo -e "${YELLOW}  ${city}天气${NC}"
     echo -e "${GREEN}═════════════════════════════════════════════════${NC}"
     echo ""
-    echo -e "${YELLOW}📍 今日天气（$(date +%Y-%m-%d)）${NC}"
+    echo -e "${YELLOW} 今日天气（$(date +%Y-%m-%d)）${NC}"
     echo "  ${weather_icon} ${WEATHER:-未知}  |  ${BLUE}温度：${TEMP:-未知}${NC}"
     echo ""
-    echo -e "${YELLOW}📊 生活指数${NC}"
-    echo "  🤧 感冒：${COLD_INDEX}"
-    echo "  🏃 运动：${SPORT_INDEX}"
-    echo "  👔 穿衣：${DRESS_INDEX}"
-    echo "  🚗 洗车：${WASH_INDEX}"
-    echo "  ☀️ 紫外线：${UV_INDEX}"
+    echo -e "${YELLOW} 生活指数${NC}"
+    echo "   感冒：${COLD_INDEX}"
+    echo "   运动：${SPORT_INDEX}"
+    echo "   穿衣：${DRESS_INDEX}"
+    echo "   洗车：${WASH_INDEX}"
+    echo "   紫外线：${UV_INDEX}"
     echo ""
     echo -e "${GREEN}═════════════════════════════════════════════════${NC}"
     echo ""

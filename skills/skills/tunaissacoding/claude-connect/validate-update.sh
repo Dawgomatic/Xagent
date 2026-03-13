@@ -41,7 +41,7 @@ if [[ ! -f "$SCRIPT_DIR/config.example.json" ]]; then
     echo -e "${GREEN}✓${NC}"
     ((CHECKS_PASSED++))
 else
-    echo -e "${YELLOW}⚠${NC} Old file still exists"
+    echo -e "${YELLOW}${NC} Old file still exists"
     # Not a failure, just a warning
 fi
 
@@ -122,7 +122,7 @@ if [[ -f "$SCRIPT_DIR/UPGRADE.md" ]]; then
     echo -e "${GREEN}✓${NC}"
     ((CHECKS_PASSED++))
 else
-    echo -e "${YELLOW}⚠${NC} UPGRADE.md not found"
+    echo -e "${YELLOW}${NC} UPGRADE.md not found"
     # Not critical
 fi
 

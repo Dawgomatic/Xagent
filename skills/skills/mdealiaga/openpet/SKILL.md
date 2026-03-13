@@ -56,13 +56,13 @@ Create `tamagotchi/pets/` directory if missing.
 ```
     ╭──────────╮
     │ (◕‿◕)    │
-    │   ♥      │
+    │         │
     │ "Name"   │
     ╰──────────╯
     
- ❤️ Happiness: ████████░░░░  70%
- 🍖 Hunger:    ███░░░░░░░░░  30%
- ⚡ Energy:    █████░░░░░░░  50%
+  Happiness: ████████░░░░  70%
+  Hunger:    ███░░░░░░░░░  30%
+  Energy:    █████░░░░░░░  50%
 ```
 
 Use sprites from `references/sprites.json`. Mood = happy (≥70), neutral (40-69), sad (<40).
@@ -105,7 +105,7 @@ Extract from message context:
 ## Alerts
 
 Send to user's origin platform when:
-- Pet is hungry (>80): "🍖 {name} is starving!"
-- Pet is sad (<20): "😢 {name} misses you!"
-- Pet died: "💀 {name} has passed away..."
-- Evolution: "✨ {name} evolved into a {species}!"
+- Pet is hungry (>80): " {name} is starving!"
+- Pet is sad (<20): " {name} misses you!"
+- Pet died: " {name} has passed away..."
+- Evolution: " {name} evolved into a {species}!"

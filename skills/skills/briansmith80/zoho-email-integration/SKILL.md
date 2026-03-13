@@ -20,7 +20,7 @@ metadata:
 
 Choose your authentication: OAuth2 (recommended, secure) or app password (simple setup).
 
-## 🔄 Update to Latest Version
+##  Update to Latest Version
 
 ```bash
 clawhub install zoho-email-integration --force
@@ -31,7 +31,7 @@ Or update all skills:
 clawhub update
 ```
 
-## 🔒 Security Notice (v2.2.5+)
+##  Security Notice (v2.2.5+)
 
 **CRITICAL FIX:** Removed vulnerable JavaScript command handler. If you deployed `email-command.js` from the examples folder, update immediately:
 
@@ -43,33 +43,33 @@ cp ~/.openclaw/skills/zoho-email-integration/examples/clawdbot-extension/email-c
 
 The vulnerable version used `execSync` with shell interpolation. The new version uses `spawn` with argument arrays to prevent command injection.
 
-## ✨ Features
+##  Features
 
-### 🔐 Authentication & Performance
+###  Authentication & Performance
 - **OAuth2 authentication** - Secure token-based auth with automatic refresh
 - **REST API backend** - 5-10x faster operations than IMAP/SMTP
 - **Graceful fallback** - Automatically falls back to IMAP if REST API unavailable
 - **App password support** - Simple alternative to OAuth2
 
-### 📧 Email Operations
-- **📥 Read emails** - Fetch from any folder (Inbox, Sent, Drafts, etc.)
-- **🔍 Smart search** - Search by subject, sender, keywords with REST API speed
-- **📊 Monitor inbox** - Real-time unread count for notifications
-- **📤 Send emails** - Plain text or HTML with CC/BCC support
-- **🎨 HTML emails** - Rich formatting with professional templates included
-- **📎 Attachments** - Send and download file attachments
+###  Email Operations
+- ** Read emails** - Fetch from any folder (Inbox, Sent, Drafts, etc.)
+- ** Smart search** - Search by subject, sender, keywords with REST API speed
+- ** Monitor inbox** - Real-time unread count for notifications
+- ** Send emails** - Plain text or HTML with CC/BCC support
+- ** HTML emails** - Rich formatting with professional templates included
+- ** Attachments** - Send and download file attachments
 
-### ⚡ Batch & Bulk Operations
+###  Batch & Bulk Operations
 - **Batch operations** - Mark, delete, or move multiple emails efficiently
 - **Bulk actions** - Search and act on hundreds of emails at once
 - **Dry-run mode** - Preview actions before executing for safety
 
-### 🔒 Security
+###  Security
 - **No hardcoded credentials** - OAuth2 tokens or environment variables only
 - **Automatic token refresh** - Seamless token renewal
 - **Encrypted connections** - SSL/TLS for all operations
 
-## 📦 Installation
+##  Installation
 
 ```bash
 clawdhub install zoho-email
@@ -80,7 +80,7 @@ clawdhub install zoho-email
 - `requests` library (install: `pip3 install requests`)
 - Zoho Mail account
 
-## ⚙️ Setup
+##  Setup
 
 ### 1. Get an App-Specific Password
 
@@ -133,7 +133,7 @@ Expected output:
 {"unread_count": 5}
 ```
 
-## 🚀 Usage
+##  Usage
 
 All commands require credentials set via environment variables.
 
@@ -215,12 +215,12 @@ zoho.send_html_email(
 ```
 
 **Features:**
-- ✅ Multipart/alternative emails (HTML + plain text)
-- ✅ Auto-generated plain text fallback
-- ✅ Load HTML from files or inline strings
-- ✅ Preview mode to test before sending
-- ✅ Full CSS styling support
-- ✅ Works with all email clients
+-  Multipart/alternative emails (HTML + plain text)
+-  Auto-generated plain text fallback
+-  Load HTML from files or inline strings
+-  Preview mode to test before sending
+-  Full CSS styling support
+-  Works with all email clients
 
 **Templates:**
 Pre-built templates available in `examples/templates/`:
@@ -320,7 +320,7 @@ Returns JSON with download details:
 }
 ```
 
-## 🤖 Clawdbot Integration Examples
+##  Clawdbot Integration Examples
 
 ### Morning Briefing
 
@@ -328,7 +328,7 @@ Check unread emails and report:
 
 ```bash
 UNREAD=$(python3 scripts/zoho-email.py unread | jq -r '.unread_count')
-echo "📧 You have $UNREAD unread emails"
+echo " You have $UNREAD unread emails"
 ```
 
 ### Email Monitoring
@@ -340,7 +340,7 @@ RESULTS=$(python3 scripts/zoho-email.py search "Important Client")
 COUNT=$(echo "$RESULTS" | jq '. | length')
 
 if [ $COUNT -gt 0 ]; then
-  echo "⚠️ New email from Important Client!"
+  echo " New email from Important Client!"
 fi
 ```
 
@@ -388,7 +388,7 @@ python3 generate_report.py > report.txt
 python3 scripts/zoho-email.py send "manager@example.com" "Weekly Report" "Please see attached report" --attach report.txt --attach chart.png
 ```
 
-## 📚 Python API
+##  Python API
 
 Import the module for programmatic use:
 
@@ -454,7 +454,7 @@ result = zoho.download_attachment(
 count = zoho.get_unread_count()
 ```
 
-## 📖 HTML Email Examples
+##  HTML Email Examples
 
 Check out the complete example in `examples/send-html-newsletter.py`:
 
@@ -483,12 +483,12 @@ with open('examples/templates/welcome.html', 'r') as f:
 # Send to recipient
 zoho.send_html_email(
     to="newuser@example.com",
-    subject="🎉 Welcome to Our Platform!",
+    subject=" Welcome to Our Platform!",
     html_body=html
 )
 ```
 
-## 📁 Folder Reference
+##  Folder Reference
 
 Common Zoho Mail folders:
 
@@ -499,7 +499,7 @@ Common Zoho Mail folders:
 - `Trash` - Deleted emails
 - Custom folders (e.g., `INBOX/ClientName`)
 
-## 🔧 Advanced Configuration
+##  Advanced Configuration
 
 Override default IMAP/SMTP servers (if using Zoho Mail self-hosted):
 
@@ -510,7 +510,7 @@ export ZOHO_IMAP_PORT="993"
 export ZOHO_SMTP_PORT="465"
 ```
 
-## ❓ Troubleshooting
+##  Troubleshooting
 
 ### Authentication Failed
 
@@ -539,9 +539,9 @@ export ZOHO_EMAIL="your-email@domain.com"
 export ZOHO_PASSWORD="your-app-password"
 ```
 
-## 🛣️ Roadmap
+##  Roadmap
 
-### ✅ Completed (v2.0.0)
+###  Completed (v2.0.0)
 
 - [x] **OAuth2 authentication** - Secure token-based auth with auto-refresh
 - [x] **Zoho Mail REST API** - 5-10x faster than IMAP/SMTP
@@ -550,7 +550,7 @@ export ZOHO_PASSWORD="your-app-password"
 - [x] **Batch operations** - Mark, delete, move multiple emails
 - [x] **Bulk actions** - Search and act on many emails at once
 
-### 🔮 Future Enhancements
+###  Future Enhancements
 
 - [ ] **Email threading/conversations** - Group related emails together
 - [ ] **Label management** - Create and manage Zoho Mail labels
@@ -562,28 +562,28 @@ export ZOHO_PASSWORD="your-app-password"
 - [ ] **Zoho Calendar integration** - Create events from emails
 - [ ] **Zoho CRM integration** - Sync contacts and activities
 
-## 📝 Notes
+##  Notes
 
 - **Search limit:** Returns last 5-10 emails by default (configurable in code)
 - **Body truncation:** Search results show first 500 characters
 - **Encoding:** Handles UTF-8 and various email encodings
 - **Security:** Credentials never leave your system except to Zoho servers
 
-## 🤝 Contributing
+##  Contributing
 
 Found a bug or want to contribute? Submit issues or PRs on GitHub!
 
-## 📄 License
+##  License
 
 MIT License - free to use, modify, and distribute.
 
 ---
 
 **Created:** 2026-01-29  
-**Status:** Production-ready ✅  
+**Status:** Production-ready   
 **Requires:** Python 3.x. For REST API mode: `pip install -r requirements.txt` (includes `requests`).
 
-## 🔄 Batch Operations
+##  Batch Operations
 
 New in v1.1! Process multiple emails efficiently with batch commands.
 

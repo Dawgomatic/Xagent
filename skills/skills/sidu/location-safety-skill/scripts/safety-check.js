@@ -44,7 +44,7 @@ function getTestOverride() {
       fs.unlinkSync(TEST_OVERRIDE_FILE);
       return null;
     }
-    console.error('⚠️  TEST MODE: Using injected test scenario:', override._scenario);
+    console.error('  TEST MODE: Using injected test scenario:', override._scenario);
     return override;
   } catch (e) {
     return null;
@@ -287,7 +287,7 @@ async function runSafetyCheck() {
   };
   
   fs.writeFileSync(logFile, JSON.stringify(logEntry, null, 2));
-  console.error(`📝 Log written: ${logFile}`);
+  console.error(` Log written: ${logFile}`);
   
   // Output JSON
   console.log(JSON.stringify(result, null, 2));

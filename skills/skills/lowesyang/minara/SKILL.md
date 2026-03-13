@@ -11,7 +11,7 @@ metadata:
         "disableModelInvocation": true,
         "primaryEnv": "MINARA_API_KEY",
         "requires": { "config": ["skills.entries.minara.enabled"] },
-        "emoji": "👩",
+        "emoji": "",
         "homepage": "https://minara.ai",
       },
   }

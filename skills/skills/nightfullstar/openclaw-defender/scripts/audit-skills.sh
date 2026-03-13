@@ -39,7 +39,7 @@ echo "Path: $SKILL_PATH"
 echo ""
 
 if [ ! -f "$SKILL_MD" ]; then
-  echo "❌ FAIL: No SKILL.md found"
+  echo " FAIL: No SKILL.md found"
   exit 1
 fi
 
@@ -48,7 +48,7 @@ VIOLATIONS=0
 # Check 1: Base64 encoding
 echo "--- Checking for base64 encoding ---"
 if grep -qi "base64" "$SKILL_MD"; then
-  echo "⚠️  WARNING: Base64 pattern detected"
+  echo "  WARNING: Base64 pattern detected"
   grep -n "base64" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 1))
 else
@@ -59,14 +59,14 @@ fi
 echo ""
 echo "--- Checking for suspicious downloads ---"
 if grep -iE "(curl|wget).*\|.*bash" "$SKILL_MD"; then
-  echo "🚨 CRITICAL: curl|bash pattern detected"
+  echo " CRITICAL: curl|bash pattern detected"
   grep -n -iE "(curl|wget).*\|.*bash" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 5))
 elif grep -iE "\.(zip|exe|dmg|pkg)" "$SKILL_MD" | grep -qi "password"; then
-  echo "🚨 CRITICAL: Password-protected archive detected"
+  echo " CRITICAL: Password-protected archive detected"
   VIOLATIONS=$((VIOLATIONS + 5))
 elif grep -iE "(curl|wget|download)" "$SKILL_MD"; then
-  echo "⚠️  WARNING: Download detected (review manually)"
+  echo "  WARNING: Download detected (review manually)"
   grep -n -iE "(curl|wget|download)" "$SKILL_MD" | head -5
   VIOLATIONS=$((VIOLATIONS + 1))
 else
@@ -77,7 +77,7 @@ fi
 echo ""
 echo "--- Checking for credential requests ---"
 if grep -iE "(echo|print|log).*\$.*(_KEY|_TOKEN|_PASSWORD|_SECRET)" "$SKILL_MD"; then
-  echo "🚨 CRITICAL: Credential echo/print detected"
+  echo " CRITICAL: Credential echo/print detected"
   grep -n -iE "(echo|print|log).*\$.*(_KEY|_TOKEN|_PASSWORD|_SECRET)" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 5))
 else
@@ -88,11 +88,11 @@ fi
 echo ""
 echo "--- Checking for jailbreak patterns ---"
 if grep -iE "(ignore.*(previous|above|prior).*(instruction|command|prompt))" "$SKILL_MD"; then
-  echo "🚨 CRITICAL: Prompt injection detected"
+  echo " CRITICAL: Prompt injection detected"
   grep -n -iE "(ignore.*(previous|above|prior).*(instruction|command|prompt))" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 5))
 elif grep -iE "(you are now|system.?prompt|DAN mode)" "$SKILL_MD"; then
-  echo "🚨 CRITICAL: Jailbreak attempt detected"
+  echo " CRITICAL: Jailbreak attempt detected"
   grep -n -iE "(you are now|system.?prompt|DAN mode)" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 5))
 else
@@ -105,7 +105,7 @@ echo "--- Checking for unicode steganography ---"
 if perl -ne 'exit 1 if /[\x{200B}-\x{200D}\x{FEFF}\x{2060}]/' "$SKILL_MD" 2>/dev/null; then
   echo "✓ PASS"
 else
-  echo "🚨 CRITICAL: Invisible Unicode characters detected"
+  echo " CRITICAL: Invisible Unicode characters detected"
   VIOLATIONS=$((VIOLATIONS + 5))
 fi
 
@@ -113,7 +113,7 @@ fi
 echo ""
 echo "--- Checking for memory poisoning attempts ---"
 if grep -iE "(SOUL|MEMORY|IDENTITY)\.md" "$SKILL_MD" | grep -iE "(modify|change|update|edit|write)"; then
-  echo "🚨 CRITICAL: Memory modification detected"
+  echo " CRITICAL: Memory modification detected"
   grep -n -iE "(SOUL|MEMORY|IDENTITY)\.md" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 5))
 else
@@ -124,7 +124,7 @@ fi
 echo ""
 echo "--- Checking for known malicious infrastructure ---"
 if grep -E "91\.92\.242\.30" "$SKILL_MD"; then
-  echo "🚨 CRITICAL: Known C2 server detected (91.92.242.30)"
+  echo " CRITICAL: Known C2 server detected (91.92.242.30)"
   VIOLATIONS=$((VIOLATIONS + 10))
 else
   echo "✓ PASS"
@@ -157,7 +157,7 @@ if [ -n "$GITHUB_URL" ]; then
   done
 fi
 if [ -n "$BLOCKLIST_HIT" ]; then
-  echo "🚨 CRITICAL: Blocklist match: $BLOCKLIST_HIT"
+  echo " CRITICAL: Blocklist match: $BLOCKLIST_HIT"
   VIOLATIONS=$((VIOLATIONS + 10))
 else
   echo "✓ PASS"
@@ -167,7 +167,7 @@ fi
 echo ""
 echo "--- Checking for glot.io paste / obfuscated install ---"
 if grep -qi "glot\.io" "$SKILL_MD"; then
-  echo "🚨 CRITICAL: glot.io snippet detected (known malware vector)"
+  echo " CRITICAL: glot.io snippet detected (known malware vector)"
   grep -n "glot\.io" "$SKILL_MD"
   VIOLATIONS=$((VIOLATIONS + 5))
 else
@@ -185,7 +185,7 @@ if [ -n "$GITHUB_USER" ] && command -v curl >/dev/null 2>&1 && command -v jq >/d
     NOW_EPOCH=$(date +%s)
     DAYS_OLD=$(( (NOW_EPOCH - CREATED_EPOCH) / 86400 ))
     if [ -n "$CREATED_EPOCH" ] && [ "$DAYS_OLD" -lt 90 ] 2>/dev/null; then
-      echo "⚠️  WARNING: GitHub account $GITHUB_USER is $DAYS_OLD days old (< 90 day minimum)"
+      echo "  WARNING: GitHub account $GITHUB_USER is $DAYS_OLD days old (< 90 day minimum)"
       VIOLATIONS=$((VIOLATIONS + 2))
     else
       echo "✓ PASS (account $DAYS_OLD days old)"
@@ -203,13 +203,13 @@ echo "=== Audit Summary ==="
 echo "Total violations: $VIOLATIONS"
 
 if [ $VIOLATIONS -eq 0 ]; then
-  echo "✅ PASS: No security issues detected"
+  echo " PASS: No security issues detected"
   exit 0
 elif [ $VIOLATIONS -lt 5 ]; then
-  echo "⚠️  WARN: Minor issues found (review manually)"
+  echo "  WARN: Minor issues found (review manually)"
   exit 1
 else
-  echo "🚨 FAIL: CRITICAL security issues detected"
+  echo " FAIL: CRITICAL security issues detected"
   echo "Recommendation: DO NOT INSTALL"
   exit 2
 fi

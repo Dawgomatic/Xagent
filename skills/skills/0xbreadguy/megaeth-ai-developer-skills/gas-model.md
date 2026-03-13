@@ -24,10 +24,10 @@ const baseFee = await client.request({ method: 'eth_gasPrice' });
 ### Common Mistakes
 
 ```javascript
-// ❌ Wrong: viem adds 20% buffer
+//  Wrong: viem adds 20% buffer
 const gasPrice = await publicClient.getGasPrice(); // Returns 1.2M wei
 
-// ❌ Wrong: using maxPriorityFeePerGas
+//  Wrong: using maxPriorityFeePerGas
 const priority = await client.request({ 
   method: 'eth_maxPriorityFeePerGas' 
 }); // Returns 0 (hardcoded)
@@ -37,7 +37,7 @@ const priority = await client.request({
 
 ### MegaEVM Intrinsic Gas
 
-> ⚠️ **Important:** MegaEVM has different intrinsic gas costs than standard EVM. A simple ETH transfer costs **60,000 gas** on MegaETH, not 21,000.
+>  **Important:** MegaEVM has different intrinsic gas costs than standard EVM. A simple ETH transfer costs **60,000 gas** on MegaETH, not 21,000.
 
 If you hardcode gas limits, use MegaETH-specific values:
 
@@ -64,13 +64,13 @@ await wallet.sendTransaction({
 For any non-trivial operation, use `eth_estimateGas` — MegaEVM opcode costs differ from standard EVM:
 
 ```javascript
-// ✅ Correct: remote estimation
+//  Correct: remote estimation
 const gas = await client.request({
   method: 'eth_estimateGas',
   params: [{ from, to, data }]
 });
 
-// ❌ Wrong: local simulation (Hardhat/Foundry)
+//  Wrong: local simulation (Hardhat/Foundry)
 // These use standard EVM costs, not MegaEVM
 ```
 

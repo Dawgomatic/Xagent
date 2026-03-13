@@ -393,11 +393,11 @@ validate_yubikey() {
       return 0
       ;;
     REPLAYED_OTP)
-      echo "❌ YubiKey OTP already used (replay attack prevented)" >&2
+      echo " YubiKey OTP already used (replay attack prevented)" >&2
       return 1
       ;;
     BAD_OTP)
-      echo "❌ Invalid YubiKey OTP" >&2
+      echo " Invalid YubiKey OTP" >&2
       return 1
       ;;
     BAD_SIGNATURE)
@@ -476,7 +476,7 @@ if [ "$CODE_TYPE" = "totp" ]; then
       NEW_FAILURE_COUNT=$(jq -r --arg userId "$USER_ID" '.failureCounts[$userId].count // 0' "$STATE_FILE")
       audit_log "VERIFY" "$USER_ID" "TOTP_FAIL"
       run_failure_hook "VERIFY_FAIL" "$USER_ID" "$NEW_FAILURE_COUNT"
-      echo "❌ Invalid OTP code" >&2
+      echo " Invalid OTP code" >&2
       exit 1
     fi
   fi
@@ -529,15 +529,15 @@ git commit -m "feat(verify): add YubiKey validation path in main flow"
 
 Find the final success line:
 ```bash
-echo "✅ OTP verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
+echo " OTP verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
 ```
 
 Replace with:
 ```bash
 if [ "$CODE_TYPE" = "yubikey" ]; then
-  echo "✅ YubiKey verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
+  echo " YubiKey verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
 else
-  echo "✅ OTP verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
+  echo " OTP verified for $USER_ID (valid for $INTERVAL_HOURS hours)"
 fi
 ```
 

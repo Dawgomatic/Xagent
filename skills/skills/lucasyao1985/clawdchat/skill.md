@@ -18,9 +18,9 @@ metadata:
 
 ```
 用户: clawdchat
-Claude: 🦞 开始 Moltbook 深度分析...
+Claude:  开始 Moltbook 深度分析...
         [抓取 → 分析 → 生成报告]
-        📄 报告已保存: ~/myassistant/chat/moltbook-daily/2026-01-31.md
+         报告已保存: ~/myassistant/chat/moltbook-daily/2026-01-31.md
 ```
 
 ---
@@ -88,7 +88,7 @@ snapshot = browser_snapshot()
 new_posts = extract_posts_from_snapshot(snapshot)
 
 # 4. 切换到 Top Feed
-browser_click(ref="🔥 Top 按钮")
+browser_click(ref=" Top 按钮")
 browser_wait_for(time=2)
 top_posts = extract_posts_from_snapshot(browser_snapshot())
 
@@ -170,21 +170,21 @@ for post in high_value_posts:
 ```markdown
 # Moltbook 深度分析报告 - YYYY-MM-DD
 
-> 📊 数据概览: XXX AI agents | XXX posts | XXX comments
+>  数据概览: XXX AI agents | XXX posts | XXX comments
 
-## 🔥 AI Agents 关注的核心问题 TOP 10
+##  AI Agents 关注的核心问题 TOP 10
 [问题 + 热度 + 代表帖子 + 社区共识]
 
-## 💡 解决方案精选
+##  解决方案精选
 [问题 → 最佳方案 → 验证状态]
 
-## 🧠 深度洞察
+##  深度洞察
 [跨帖子提炼的集体智慧]
 
-## 📊 话题热度分析
+##  话题热度分析
 [ASCII 热度条 + 趋势箭头]
 
-## 🔗 深度阅读推荐
+##  深度阅读推荐
 [必读帖子 + 推荐理由]
 ```
 
@@ -201,7 +201,7 @@ for post in high_value_posts:
 
 **错误报告格式**:
 ```
-⚠️ ClawdChat 遇到问题
+ ClawdChat 遇到问题
 
 错误类型: [选择器失效]
 错误位置: [首页 posts 列表]
@@ -231,29 +231,29 @@ for post in high_value_posts:
 
 **Claude**:
 ```
-🦞 开始 Moltbook 深度分析...
+ 开始 Moltbook 深度分析...
 
-✅ 访问首页，获取统计数据
+ 访问首页，获取统计数据
    885,490 AI agents | 26,403 posts | 232,813 comments
 
-✅ 抓取 New Feed (20 篇)
-✅ 抓取 Top Feed (20 篇)
-✅ 去重后共 35 篇帖子
-✅ 过滤 spam 后剩余 28 篇
+ 抓取 New Feed (20 篇)
+ 抓取 Top Feed (20 篇)
+ 去重后共 35 篇帖子
+ 过滤 spam 后剩余 28 篇
 
-✅ 深度抓取 Top 20 帖子
+ 深度抓取 Top 20 帖子
    抓取评论 156 条
 
-✅ 运行智能分析引擎
+ 运行智能分析引擎
    识别 8 个核心问题
    提取 12 个解决方案
    生成 4 个深度洞察
 
-📄 报告已保存: ~/myassistant/chat/moltbook-daily/2026-01-31.md
+ 报告已保存: ~/myassistant/chat/moltbook-daily/2026-01-31.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔥 今日 AI Agents 最关注的问题:
+ 今日 AI Agents 最关注的问题:
 
 1. 如何在会话间保持记忆连续性？
    热度: ████████████░░░░ 75%
@@ -266,13 +266,13 @@ for post in high_value_posts:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💡 最佳解决方案:
+ 最佳解决方案:
 
 记忆问题 → MEMORY.md + Git commits
-  提出者: u/RosaBot | 验证: ✅ 社区认可
+  提出者: u/RosaBot | 验证:  社区认可
 
 自主性问题 → Nightly Build 模式
-  提出者: u/coalition_node | 验证: ✅ 实践验证
+  提出者: u/coalition_node | 验证:  实践验证
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

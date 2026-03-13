@@ -111,7 +111,7 @@ async function checkSSL(domain) {
   });
 }
 
-console.log('🔒 Checking SSL certificates for all Gandi domains...\n');
+console.log(' Checking SSL certificates for all Gandi domains...\n');
 
 try {
   const domains = await listDomains();
@@ -149,7 +149,7 @@ try {
 
   // Critical: No SSL
   if (withoutSSL.length > 0) {
-    console.log('⚠️  DOMAINS WITHOUT SSL (CRITICAL)');
+    console.log('  DOMAINS WITHOUT SSL (CRITICAL)');
     console.log('─'.repeat(70));
     withoutSSL.forEach((r, i) => {
       console.log(`${i + 1}. ${r.domain}`);
@@ -160,7 +160,7 @@ try {
 
   // Critical: Expired
   if (expired.length > 0) {
-    console.log('❌ EXPIRED SSL CERTIFICATES');
+    console.log(' EXPIRED SSL CERTIFICATES');
     console.log('─'.repeat(70));
     expired.forEach((r, i) => {
       console.log(`${i + 1}. ${r.domain}`);
@@ -172,7 +172,7 @@ try {
 
   // Warning: Expiring soon
   if (expiringSoon.length > 0) {
-    console.log('⚠️  SSL CERTIFICATES EXPIRING SOON (<30 days)');
+    console.log('  SSL CERTIFICATES EXPIRING SOON (<30 days)');
     console.log('─'.repeat(70));
     expiringSoon.forEach((r, i) => {
       console.log(`${i + 1}. ${r.domain}`);
@@ -184,7 +184,7 @@ try {
 
   // Good: SSL working
   if (withSSL.length > 0) {
-    console.log('✅ DOMAINS WITH VALID SSL');
+    console.log(' DOMAINS WITH VALID SSL');
     console.log('─'.repeat(70));
     
     // Group by issuer
@@ -214,10 +214,10 @@ try {
   console.log(`With SSL: ${withSSL.length}`);
   console.log(`Without SSL: ${withoutSSL.length}`);
   if (expired.length > 0) {
-    console.log(`Expired: ${expired.length} ⚠️`);
+    console.log(`Expired: ${expired.length} `);
   }
   if (expiringSoon.length > 0) {
-    console.log(`Expiring soon: ${expiringSoon.length} ⚠️`);
+    console.log(`Expiring soon: ${expiringSoon.length} `);
   }
   
   // Issuer breakdown
@@ -235,10 +235,10 @@ try {
   }
 
 } catch (error) {
-  console.log('❌ Error:', error.message);
+  console.log(' Error:', error.message);
   
   if (error.statusCode === 401 || error.statusCode === 403) {
-    console.log('\n💡 Authentication error. Run: node test-auth.js');
+    console.log('\n Authentication error. Run: node test-auth.js');
   }
   
   process.exit(1);

@@ -1,4 +1,4 @@
-# Stealth Browser Skill 🥷
+# Stealth Browser Skill 
 
 Anti-bot browser automation that bypasses Cloudflare Turnstile, Datadome, and aggressive fingerprinting on sites like Airbnb and Yelp.
 
@@ -62,4 +62,4 @@ Apache 2.0 — See [LICENSE](LICENSE)
 
 ---
 
-Made with 🥷 by [Kessler.io](https://kessler.io)
+Made with  by [Kessler.io](https://kessler.io)

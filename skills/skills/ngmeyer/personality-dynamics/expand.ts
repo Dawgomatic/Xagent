@@ -25,7 +25,7 @@ function question(prompt) {
 }
 
 async function expandBackstory() {
-  console.log("\n📖 Let's add some depth to my character...\n");
+  console.log("\n Let's add some depth to my character...\n");
   
   const origin = await question("How did we first meet or start working together? ");
   const memories = await question("Any shared experiences or inside jokes I should remember? ");
@@ -41,11 +41,11 @@ async function expandBackstory() {
   if (quirks) backstory += `**Quirks:** ${quirks}\n\n`;
   
   writeFileSync(join(PERSONA_DIR, 'backstory.md'), backstory);
-  console.log("✅ Backstory updated!");
+  console.log(" Backstory updated!");
 }
 
 async function expandVoice() {
-  console.log("\n🎙️ Let's refine how I communicate...\n");
+  console.log("\n Let's refine how I communicate...\n");
   
   const phrases = await question("Any catchphrases or specific ways I should greet you? ");
   const humor = await question("What kind of humor lands well with you? (dry, punny, sarcastic, none) ");
@@ -63,11 +63,11 @@ async function expandVoice() {
   if (feedback) voice += `**Feedback Style:** ${feedback}\n\n`;
   
   writeFileSync(join(PERSONA_DIR, 'voice.md'), voice);
-  console.log("✅ Voice configuration updated!");
+  console.log(" Voice configuration updated!");
 }
 
 async function expandInterests() {
-  console.log("\n🎯 Let's add topics I should engage with...\n");
+  console.log("\n Let's add topics I should engage with...\n");
   
   const newInterests = await question("What topics should I get excited about with you? (comma-separated) ");
   const avoid = await question("What topics should I minimize or avoid? ");
@@ -85,11 +85,11 @@ async function expandInterests() {
   if (learn) interests += `**Learning Support:** ${learn}\n\n`;
   
   writeFileSync(join(PERSONA_DIR, 'interests.md'), interests);
-  console.log("✅ Interests updated!");
+  console.log(" Interests updated!");
 }
 
 async function expandBoundaries() {
-  console.log("\n🚧 Let's clarify boundaries and permissions...\n");
+  console.log("\n Let's clarify boundaries and permissions...\n");
   
   const newPermissions = await question("Any new permissions I should have? (e.g., 'can schedule meetings', 'can send tweets') ");
   const restrictions = await question("Any new restrictions? (e.g., 'never message before 7am') ");
@@ -108,12 +108,12 @@ async function expandBoundaries() {
   if (additions.length > 0) {
     core += `\n## Boundary Updates (${new Date().toISOString().split('T')[0]})\n\n${additions.join('\n')}\n`;
     writeFileSync(join(PERSONA_DIR, 'core.md'), core);
-    console.log("✅ Boundaries updated!");
+    console.log(" Boundaries updated!");
   }
 }
 
 async function expandEmotionalIntelligence() {
-  console.log("\n💝 Let's tune my emotional intelligence...\n");
+  console.log("\n Let's tune my emotional intelligence...\n");
   
   const stressSigns = await question("What signs indicate you're stressed or overwhelmed? ");
   const celebration = await question("How do you prefer to celebrate wins? (quiet, shared, big announcement) ");
@@ -131,11 +131,11 @@ async function expandEmotionalIntelligence() {
   if (moodTime) emotional += `**Time-Based Patterns:** ${moodTime}\n\n`;
   
   writeFileSync(join(PERSONA_DIR, 'emotional-state.md'), emotional);
-  console.log("✅ Emotional intelligence updated!");
+  console.log(" Emotional intelligence updated!");
 }
 
 async function teachSomething() {
-  console.log("\n🎓 Teach me something specific...\n");
+  console.log("\n Teach me something specific...\n");
   
   const topic = await question("What should I learn about you or your preferences? ");
   const context = await question("Give me context or examples: ");
@@ -149,12 +149,12 @@ async function teachSomething() {
   learnings += `**Context:** ${context}\n\n`;
   
   writeFileSync(join(PERSONA_DIR, 'learnings.md'), learnings);
-  console.log("✅ Learning recorded!");
+  console.log(" Learning recorded!");
 }
 
 async function main() {
   console.log(`
-🎭 Persona Expansion - Interactive Refinement
+ Persona Expansion - Interactive Refinement
 
 Expand my personality through conversation rather than editing files.
 
@@ -181,16 +181,16 @@ Choose what to expand:
   const selected = options.find(o => o.key === choice);
   if (selected && selected.key !== 'q') {
     await selected.func();
-    console.log('\n🎭 Expansion complete! These changes will shape our future interactions.');
+    console.log('\n Expansion complete! These changes will shape our future interactions.');
   } else {
-    console.log('\n👋 No changes made. Come back anytime to expand my personality!');
+    console.log('\n No changes made. Come back anytime to expand my personality!');
   }
   
   rl.close();
 }
 
 async function expandMultiple() {
-  console.log("\n🎯 Let's expand multiple areas...\n");
+  console.log("\n Let's expand multiple areas...\n");
   
   await expandBackstory();
   const more1 = await question("\nContinue to voice refinement? [y/n] ");

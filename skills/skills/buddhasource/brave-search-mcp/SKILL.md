@@ -11,15 +11,15 @@ Official MCP server from Brave integrating the [Brave Search API](https://brave.
 
 ## Why Brave Search?
 
-### 🔒 Privacy-Focused
+###  Privacy-Focused
 No user tracking, no profiling, no search history surveillance. Unlike Google, Brave Search doesn't build profiles or track behavior.
 
-### 🤖 AI-Native Features
+###  AI-Native Features
 - AI-powered summarization (summarizer tool)
 - Structured data for agent consumption
 - Rich context in search results
 
-### 🌐 Comprehensive Coverage
+###  Comprehensive Coverage
 - **Web Search** - General internet search
 - **Image Search** - Visual content discovery
 - **Video Search** - Video content from multiple platforms
@@ -195,12 +195,12 @@ Agent: "Here's your Tokyo trip prep:
 
 | Feature | Brave Search | Google Search |
 |---------|--------------|---------------|
-| **Privacy** | ✅ No tracking | ❌ Extensive tracking |
-| **AI Summary** | ✅ Built-in | ⚠️ Limited |
-| **API Cost** | ✅ 2K free/month | ❌ Expensive |
-| **Speed** | ✅ Fast | ✅ Fast |
-| **Coverage** | ✅ Independent index | ✅ Comprehensive |
-| **Agent-Friendly** | ✅ Structured data | ⚠️ Limited |
+| **Privacy** |  No tracking |  Extensive tracking |
+| **AI Summary** |  Built-in |  Limited |
+| **API Cost** |  2K free/month |  Expensive |
+| **Speed** |  Fast |  Fast |
+| **Coverage** |  Independent index |  Comprehensive |
+| **Agent-Friendly** |  Structured data |  Limited |
 
 ## Rate Limits
 

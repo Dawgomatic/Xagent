@@ -353,4 +353,4 @@ openclaw skills run b3ehive --task "Your task"
 
 ## 8. License
 
-MIT © Weiyang ([@weiyangzen](https://github.com/weiyangzen))
+MIT  Weiyang ([@weiyangzen](https://github.com/weiyangzen))

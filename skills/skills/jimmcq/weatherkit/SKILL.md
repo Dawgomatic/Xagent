@@ -6,7 +6,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🌤️",
+        "emoji": "",
         "requires": { "env": ["APPLE_TEAM_ID", "APPLE_KEY_ID", "APPLE_WEATHERKIT_KEY_PATH", "APPLE_SERVICE_ID"] },
       },
   }

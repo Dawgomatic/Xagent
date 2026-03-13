@@ -18,14 +18,14 @@ Accept Stablecoin (USDC) payments on Solana and Monad for any purpose: selling p
 
 ## What This Skill Does
 
-✅ **Create Payment Links** - One flexible payment link for all use cases
-✅ **Collect Customer Data** - Gather email, name, phone, or ANY custom fields you need
-✅ **Dashboard Analytics** - Get detailed payment stats, customer lists, and charts
-✅ **Accept Stablecoin Payments** - USDC on Solana and Monad blockchains
-✅ **Track Everything** - Sales analytics, fundraising progress, payment history
-✅ **Multi-Platform** - Works via Telegram, WhatsApp, Discord, and more
-✅ **Low Fees** - 0.5-1.5% per transaction (vs 2.9% for Stripe)
-✅ **Instant Settlement** - Funds in your wallet within minutes
+ **Create Payment Links** - One flexible payment link for all use cases
+ **Collect Customer Data** - Gather email, name, phone, or ANY custom fields you need
+ **Dashboard Analytics** - Get detailed payment stats, customer lists, and charts
+ **Accept Stablecoin Payments** - USDC on Solana and Monad blockchains
+ **Track Everything** - Sales analytics, fundraising progress, payment history
+ **Multi-Platform** - Works via Telegram, WhatsApp, Discord, and more
+ **Low Fees** - 0.5-1.5% per transaction (vs 2.9% for Stripe)
+ **Instant Settlement** - Funds in your wallet within minutes
 
 ---
 
@@ -65,7 +65,7 @@ obverse-cli create-link 50 USDC solana "My first payment"
 
 ## Three Main Use Cases
 
-### 1. 🛍️ **Product/Service Sales** (Merchant Sales)
+### 1.  **Product/Service Sales** (Merchant Sales)
 
 Sell products or services to anyone with a payment link. **Automatically collects customer email and name for your mailing list!**
 
@@ -122,7 +122,7 @@ obverse-cli list-contributors shoe-xyz 50
 
 ---
 
-### 2. 💰 **Crowdfunding/Fundraising**
+### 2.  **Crowdfunding/Fundraising**
 
 Raise money from multiple contributors for a shared goal.
 
@@ -168,7 +168,7 @@ obverse-cli list-contributors fund-xyz
 
 ---
 
-### 3. 💳 **Simple Payments & Invoicing**
+### 3.  **Simple Payments & Invoicing**
 
 Accept one-time payments or create invoices for clients.
 
@@ -200,7 +200,7 @@ obverse-cli create-invoice john@example.com 750 USDC monad
 
 ---
 
-## 🎯 NEW: Data Collection & Dashboard Features
+##  NEW: Data Collection & Dashboard Features
 
 ### Collect Customer Data with Payment Links
 
@@ -249,11 +249,11 @@ obverse-cli generate-dashboard shoe-xyz
 ```
 
 **What you get in the dashboard:**
-- 📊 Payment statistics (total revenue, count, success rate)
-- 📧 Customer data (emails, names, all collected fields)
-- 📈 Charts and trends over time
-- 🔍 Searchable payment history
-- 💾 Export customer lists
+-  Payment statistics (total revenue, count, success rate)
+-  Customer data (emails, names, all collected fields)
+-  Charts and trends over time
+-  Searchable payment history
+-  Export customer lists
 
 ---
 
@@ -377,7 +377,7 @@ obverse-cli list-payments work-xyz
 ```
 User: "Create payment link to sell my AI course for $299"
 
-Agent: ✅ Product Payment Link Created!
+Agent:  Product Payment Link Created!
        Product: AI Course Bundle
        Price: $299 USDC
        Link: https://www.obverse.cc/pay/course-xyz
@@ -388,7 +388,7 @@ Agent: ✅ Product Payment Link Created!
 ```
 User: "How many courses have I sold?"
 
-Agent: 📊 Sales Analytics
+Agent:  Sales Analytics
        Total Sales: 47
        Revenue: $14,053 USDC
        Customers: 47
@@ -400,7 +400,7 @@ Agent: 📊 Sales Analytics
 ```
 User: "Start a fundraiser for $5000"
 
-Agent: 🚀 Fundraising Campaign Created!
+Agent:  Fundraising Campaign Created!
        Goal: $5,000 USDC
        Link: https://www.obverse.cc/pay/fund-xyz
 ```
@@ -408,7 +408,7 @@ Agent: 🚀 Fundraising Campaign Created!
 ```
 User: "How much have we raised?"
 
-Agent: 💰 Fundraising Progress
+Agent:  Fundraising Progress
        Goal: $5,000 USDC
        Raised: $3,450 (69%)
        Remaining: $1,550
@@ -420,7 +420,7 @@ Agent: 💰 Fundraising Progress
 ```
 User: "Bill the client for $750"
 
-Agent: 💳 Payment Link Created
+Agent:  Payment Link Created
        Amount: $750 USDC
        Link: https://www.obverse.cc/pay/work-xyz
 ```
@@ -428,7 +428,7 @@ Agent: 💳 Payment Link Created
 ```
 User: "Did they pay?"
 
-Agent: ✅ PAYMENT RECEIVED!
+Agent:  PAYMENT RECEIVED!
        Amount: $750 USDC
        Transaction: 0x8a9b7c...
        Time: 15 minutes ago
@@ -439,12 +439,12 @@ Agent: ✅ PAYMENT RECEIVED!
 ```
 User: "Create a payment link for my course and collect customer emails"
 
-Agent: ✅ Product Link Created with Data Collection!
+Agent:  Product Link Created with Data Collection!
        Product: Online Course
        Price: $299 USDC
        Link: https://www.obverse.cc/pay/course-xyz
 
-       📧 Automatically collects:
+        Automatically collects:
        • Customer email
        • Customer name
 
@@ -454,14 +454,14 @@ Agent: ✅ Product Link Created with Data Collection!
 ```
 User: "Show me who bought my course"
 
-Agent: 📊 Generating Dashboard Access...
+Agent:  Generating Dashboard Access...
 
-       🔐 Dashboard Credentials:
+        Dashboard Credentials:
        URL: https://www.obverse.cc/dashboard
        Username: @yourname
        Password: AbC123XyZ456
 
-       ⏰ Valid for: 2 hours
+        Valid for: 2 hours
 
        View all customer emails, names, payments, and analytics!
 ```
@@ -469,7 +469,7 @@ Agent: 📊 Generating Dashboard Access...
 ```
 User: "I want to collect phone numbers too"
 
-Agent: ✅ Custom Payment Link Created!
+Agent:  Custom Payment Link Created!
        Link: https://www.obverse.cc/pay/custom-xyz
 
        Collecting:
@@ -549,8 +549,8 @@ obverse-cli check-payment <linkCode>
 
 Whether you're selling products, raising funds, or invoicing clients - it's all the same flexible payment link system. The convenience commands just make it easier to use.
 
-No complex setup. No multiple endpoints. Just simple, flexible payments. 💙
+No complex setup. No multiple endpoints. Just simple, flexible payments. 
 
 ---
 
-**Made with ❤️ by the Obverse Team**
+**Made with  by the Obverse Team**

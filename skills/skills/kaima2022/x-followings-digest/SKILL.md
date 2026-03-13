@@ -53,12 +53,12 @@ Feed the fetched tweets to the AI using the prompt template in `references/analy
 
 Digest includes (only shows categories with content):
 
-- **🔥 重大事件 / Major Events** - 具体细节和影响分析 / Specific details & impact analysis
-- **🚀 产品发布 / Product Releases** - 新模型、API更新、工具版本 / New models, API updates, tools
-- **💡 技术洞察 / Tech Insights** - 技术方案、优化技巧、代码片段 / Technical solutions, optimizations
-- **🔗 资源汇总 / Resources** - 论文、开源项目、教程、工具 / Papers, OSS, tutorials, tools
-- **🎁 福利羊毛 / Deals & Freebies** - 免费额度、优惠、赠品 / Free credits, discounts, giveaways
-- **📊 舆情信号 / Signals** - 争议话题、预测、警告 / Controversies, predictions, warnings
+- ** 重大事件 / Major Events** - 具体细节和影响分析 / Specific details & impact analysis
+- ** 产品发布 / Product Releases** - 新模型、API更新、工具版本 / New models, API updates, tools
+- ** 技术洞察 / Tech Insights** - 技术方案、优化技巧、代码片段 / Technical solutions, optimizations
+- ** 资源汇总 / Resources** - 论文、开源项目、教程、工具 / Papers, OSS, tutorials, tools
+- ** 福利羊毛 / Deals & Freebies** - 免费额度、优惠、赠品 / Free credits, discounts, giveaways
+- ** 舆情信号 / Signals** - 争议话题、预测、警告 / Controversies, predictions, warnings
 
 ## 语言设置 / Language Setting
 

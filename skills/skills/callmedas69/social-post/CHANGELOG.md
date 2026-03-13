@@ -108,11 +108,11 @@ Solves the problem of posting the same announcement from multiple Twitter accoun
 
 ### Changed
 - **Updated X/Twitter API pricing documentation**:
-  - ✅ Corrected to **consumption-based model** (no tiers)
-  - ✅ Removed outdated subscription tier references (Basic/Pro)
-  - ✅ Clarified pay-per-API-request model
-  - ✅ Added official pricing link: https://developer.twitter.com/#pricing
-  - ✅ Updated setup instructions to reflect billing model
+  -  Corrected to **consumption-based model** (no tiers)
+  -  Removed outdated subscription tier references (Basic/Pro)
+  -  Clarified pay-per-API-request model
+  -  Added official pricing link: https://developer.twitter.com/#pricing
+  -  Updated setup instructions to reflect billing model
 - **Enhanced cost transparency**:
   - Added platform comparison table
   - Documented Farcaster costs (0.001 USDC per cast)
@@ -138,10 +138,10 @@ Solves the problem of posting the same announcement from multiple Twitter accoun
   - Updated platform limits section
 
 ### Fixed
-- ❌ Removed incorrect "free tier" references for X API
-- ❌ Removed outdated tier pricing ($100/mo, $200/mo, $5k/mo)
-- ❌ Fixed `.env` file parsing error (quoted mnemonic)
-- ✅ Corrected all cost documentation to reflect current pricing models
+-  Removed incorrect "free tier" references for X API
+-  Removed outdated tier pricing ($100/mo, $200/mo, $5k/mo)
+-  Fixed `.env` file parsing error (quoted mnemonic)
+-  Corrected all cost documentation to reflect current pricing models
 
 ### Documentation
 - Added setup time estimates (X: 5-10 min, Farcaster: 15-20 min)

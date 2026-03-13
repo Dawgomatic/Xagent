@@ -3,7 +3,7 @@ name: aioz-stream-audio-upload
 description: Quick upload audio to AIOZ Stream API. Create audio objects with default or custom encoding configurations, upload the file, complete the upload, then return the audio link to the user.
 metadata:
   openclaw:
-    emoji: "🎵"
+    emoji: ""
     requires:
       bins: 
         - curl

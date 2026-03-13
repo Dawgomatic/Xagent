@@ -64,7 +64,7 @@ When a user requests to delete catalogs or manage catalog data removal, follow t
 
 4. **Cost Optimization Examples**:
    ```graphql
-   # ❌ HIGH COST - Deletes catalog with excessive return fields
+   #  HIGH COST - Deletes catalog with excessive return fields
    mutation catalogDelete($input: CatalogDeleteInput!) {
      catalogDelete(input: $input) {
        deletedCatalogId
@@ -73,7 +73,7 @@ When a user requests to delete catalogs or manage catalog data removal, follow t
      }
    }
    
-   # ✅ LOW COST - Deletes catalog with essential fields only
+   #  LOW COST - Deletes catalog with essential fields only
    mutation catalogDelete($input: CatalogDeleteInput!) {
      catalogDelete(input: $input) {
        deletedCatalogId
@@ -127,7 +127,7 @@ When generating a catalog delete mutation for the user:
 ```
 I'll help you delete a catalog from your store.
 
-**⚠️ IMPORTANT WARNING**: This will permanently delete the catalog and all associated data. This action cannot be undone.
+** IMPORTANT WARNING**: This will permanently delete the catalog and all associated data. This action cannot be undone.
 
 **Mutation:**
 ```graphql

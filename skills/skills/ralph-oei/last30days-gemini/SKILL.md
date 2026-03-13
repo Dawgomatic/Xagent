@@ -2,7 +2,7 @@
 name: last30days
 description: "Research any topic from the last 30 days. Sources: X (Twitter), YouTube transcripts, web search. Generates expert briefings and copy-paste prompts using Gemini."
 argument-hint: 'last30 AI agents, last30 marketing automation'
-metadata: {"version": "2.1.0", "clawdbot":{"emoji":"🔍","requires":{"bins":["python3","node","yt-dlp"],"env":["AUTH_TOKEN","CT0","BRAVE_API_KEY"]}}, "original_repo": "https://github.com/mvanhorn/last30days-skill", "author": "mvanhorn", "license": "MIT"}
+metadata: {"version": "2.1.0", "clawdbot":{"emoji":"","requires":{"bins":["python3","node","yt-dlp"],"env":["AUTH_TOKEN","CT0","BRAVE_API_KEY"]}}, "original_repo": "https://github.com/mvanhorn/last30days-skill", "author": "mvanhorn", "license": "MIT"}
 ---
 
 > **Credit:** This skill is based on [last30days](https://github.com/mvanhorn/last30days-skill) by [@mvanhorn](https://x.com/mvanhorn). The original skill researches topics across Reddit, X, YouTube, and web. This version adds Gemini synthesis for briefings and prompts.

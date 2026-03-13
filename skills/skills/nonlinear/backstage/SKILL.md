@@ -23,13 +23,13 @@ dependencies:
 
 ---
 
-## 🔴 Why This Skill Exists (Anti-Drift)
+##  Why This Skill Exists (Anti-Drift)
 
 **Backstage-skill = ANTI-DRIFT:**
-- ✅ Force context awareness (project/epic)
-- ✅ HEALTH checks prevent chaos
-- ✅ Architecture-first workflow
-- ✅ Roadmap visibility = no surprises
+-  Force context awareness (project/epic)
+-  HEALTH checks prevent chaos
+-  Architecture-first workflow
+-  Roadmap visibility = no surprises
 
 **WITHOUT IT:**  
 Work happens outside backstage → drift → broken trust → triple metabolic cost
@@ -78,13 +78,13 @@ flowchart TD
     INTERP[Interpretive<br/>Contextual rules]
     
     SH[checks.sh executes]
-    SH_OK[✅ Enforced]
-    SH_FAIL[❌ Error reported]
+    SH_OK[ Enforced]
+    SH_FAIL[ Error reported]
     
     AI[AI interprets + acts]
-    AI_ACT[✅ Enforce or discuss]
-    AI_AMBIG[⚠️ Ask user]
-    AI_FAIL[❌ Needs rewrite]
+    AI_ACT[ Enforce or discuss]
+    AI_AMBIG[ Ask user]
+    AI_FAIL[ Needs rewrite]
     
     REPORT[Integrated report]
     
@@ -118,7 +118,7 @@ flowchart TD
 1. **Executable (Deterministic)**
    - Code blocks in HEALTH.md
    - Templates in POLICY.md (navigation blocks, versions)
-   - File structure rules (must have 🤖 markers)
+   - File structure rules (must have  markers)
    - **Enforced by:** checks.sh (extracts + executes)
 
 2. **Interpretive (Contextual)**
@@ -156,11 +156,11 @@ flowchart TD
    - Example (default):
      ```mermaid
      graph LR
-         A[🏗️ v0.1.0 Active Epic] --> B[📋 v0.2.0 Backlog Epic]
+         A[ v0.1.0 Active Epic] --> B[ v0.2.0 Backlog Epic]
      ```
 
 4. **Propagate to all files** (deterministic - SH):
-   - Insert after `> 🤖` marker
+   - Insert after `> ` marker
    - README.md, ROADMAP.md, CHANGELOG.md, POLICY.md, HEALTH.md
    - Remove old diagrams (anti-drift)
 
@@ -169,7 +169,7 @@ flowchart TD
 > Read global/POLICY.md and project/POLICY.md mermaid diagram rules.
 > Run `parse-roadmap.sh` to extract epics.
 > Generate mermaid diagram following POLICY rules (prefer project over global).
-> Insert diagram after navigation block (`> 🤖`) in all backstage files.
+> Insert diagram after navigation block (`> `) in all backstage files.
 > If project POLICY says `diagram: none`, skip generation.
 
 **Tools:**
@@ -218,11 +218,11 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    START["Trigger 1️⃣<br/>[SH]"]
+    START["Trigger <br/>[SH]"]
     MODE{"Session mode?"}
     
     %% Common checks module (expanded)
-    CHECKS["checks.sh 6️⃣"]
+    CHECKS["checks.sh "]
     READ_POLICY["Read POLICY<br/>global + project<br/>[AI reads MD]"]
     READ_HEALTH["Read HEALTH<br/>global + project<br/>[AI reads MD]"]
     
@@ -237,21 +237,21 @@ flowchart TD
     CHECKS_GATE{"All pass?"}
     
     %% Start Branch
-    START_BRANCH["Read README 🤖 block 2️⃣<br/>[MD → AI]"]
-    START_FILES["Locate status files 3️⃣<br/>[SH]"]
-    START_GIT["Check git branch 4️⃣<br/>[SH]"]
-    START_WORK["Analyze changes 5️⃣<br/>[SH]"]
-    START_FIX["🛑 STOP: Fix issues<br/>[AI + SH]"]
-    START_UPDATE["Update docs 7️⃣<br/>[SH writes MD]"]
-    START_REPORT["Developer context 8️⃣<br/>[AI reads MD]"]
-    START_PUSH["Push / Groom 9️⃣<br/>[SH]"]
+    START_BRANCH["Read README  block <br/>[MD → AI]"]
+    START_FILES["Locate status files <br/>[SH]"]
+    START_GIT["Check git branch <br/>[SH]"]
+    START_WORK["Analyze changes <br/>[SH]"]
+    START_FIX[" STOP: Fix issues<br/>[AI + SH]"]
+    START_UPDATE["Update docs <br/>[SH writes MD]"]
+    START_REPORT["Developer context <br/>[AI reads MD]"]
+    START_PUSH["Push / Groom <br/>[SH]"]
     
     %% End Branch
     END_FIXES["Add fixes to roadmap<br/>[AI writes MD]"]
     END_PUSH["Commit + push<br/>[SH]"]
-    END_VICTORY["Victory lap 🏆<br/>[AI reads MD]"]
-    END_BODY["Body check ⏸️<br/>[AI prompt]"]
-    END_CLOSE["Close VS Code 🌙<br/>[SH]"]
+    END_VICTORY["Victory lap <br/>[AI reads MD]"]
+    END_BODY["Body check <br/>[AI prompt]"]
+    END_CLOSE["Close VS Code <br/>[SH]"]
     END_SILENT["[STAY SILENT]"]
     
     %% Flow
@@ -311,19 +311,19 @@ flowchart TD
 
 **Notes:**
 
-**1️⃣ Trigger:** "backstage start", "vamos trabalhar no X", "whatsup" (start mode) OR "backstage end", "boa noite", "wrap up" (end mode)
+** Trigger:** "backstage start", "vamos trabalhar no X", "whatsup" (start mode) OR "backstage end", "boa noite", "wrap up" (end mode)
 - **Code:** `backstage-start.sh` OR `backstage-end.sh`
 
-**2️⃣ Read README 🤖 block:** Find navigation block between `> 🤖` markers. Extract all status file paths (ROADMAP, CHANGELOG, HEALTH, POLICY). This is ONLY source of truth for file locations.
+** Read README  block:** Find navigation block between `> ` markers. Extract all status file paths (ROADMAP, CHANGELOG, HEALTH, POLICY). This is ONLY source of truth for file locations.
 - **Code:** `backstage-start.sh::read_navigation_block()`
 
-**3️⃣ Locate status files:** Use paths from 🤖 block. If missing, STOP and ask user where to create them. Check BOTH global (`backstage/global/`) and project (`backstage/`) for polycentric governance.
+** Locate status files:** Use paths from  block. If missing, STOP and ask user where to create them. Check BOTH global (`backstage/global/`) and project (`backstage/`) for polycentric governance.
 - **Code:** `backstage-start.sh::locate_status_files()`
 
-**4️⃣ Check git branch:** Run `git branch --show-current`. Determine work context.
+** Check git branch:** Run `git branch --show-current`. Determine work context.
 - **Code:** `backstage-start.sh::check_branch()`
 
-**5️⃣ Analyze changes:** 
+** Analyze changes:** 
 ```bash
 git diff --name-status
 git diff --stat
@@ -333,7 +333,7 @@ git log --oneline "${LAST_VERSION}..HEAD"
 Categorize: patch/minor/major. Compare with ROADMAP. Match reality to plans.
 - **Code:** `backstage-start.sh::analyze_changes()`
 
-**6️⃣ checks.sh - Unified POLICY + HEALTH enforcement:**
+** checks.sh - Unified POLICY + HEALTH enforcement:**
 1. **Read POLICY** (global + project, project wins)
 2. **Enforce POLICY** - Detect doc drift (system ≠ docs), fix docs
 3. **Read HEALTH** (global + project, project wins)
@@ -347,22 +347,22 @@ Categorize: patch/minor/major. Compare with ROADMAP. Match reality to plans.
 
 - **Code:** `checks.sh` (called by both start/end)
 
-**7️⃣ Update docs:** If checks pass, auto-update ROADMAP (mark checkboxes) and CHANGELOG (add new entries at TOP, append-only). Bump version. Add navigation menu to all status files.
+** Update docs:** If checks pass, auto-update ROADMAP (mark checkboxes) and CHANGELOG (add new entries at TOP, append-only). Bump version. Add navigation menu to all status files.
 - **Code:** `backstage-start.sh::update_docs()`
 
-**8️⃣ Developer context:** Generate outcome-based summary (5 possible states: 🛑 Failed, ⚠️ Mismatch, 🧑 Grooming, ✅ Progress, 🎉 Complete). Show: When, What, Why, Status, Next.
+** Developer context:** Generate outcome-based summary (5 possible states:  Failed,  Mismatch,  Grooming,  Progress,  Complete). Show: When, What, Why, Status, Next.
 - **Code:** `backstage-start.sh::show_developer_context()`
 
-**9️⃣ Push / Groom:** If checks passed, commit with appropriate message (progress/release). If grooming mode, just update ROADMAP priorities.
+** Push / Groom:** If checks passed, commit with appropriate message (progress/release). If grooming mode, just update ROADMAP priorities.
 - **Code:** `backstage-start.sh::prompt_push()`
 
-**Victory lap 🏆:** Brief reminder of achievements (3 main items max + stats). Keep it short.
+**Victory lap :** Brief reminder of achievements (3 main items max + stats). Keep it short.
 - **Code:** `backstage-end.sh::victory_lap()`
 
-**Body check ⏸️:** Ask: Hungry? Thirsty? Tired? Need to stretch? What does body NEED right now?
+**Body check :** Ask: Hungry? Thirsty? Tired? Need to stretch? What does body NEED right now?
 - **Code:** `backstage-end.sh::body_check()`
 
-**Close VS Code 🌙:** Run countdown + `osascript -e 'quit app "Visual Studio Code"'`. CRITICAL: Agent must NOT send ANY message after this or VS Code will prompt "unsaved changes".
+**Close VS Code :** Run countdown + `osascript -e 'quit app "Visual Studio Code"'`. CRITICAL: Agent must NOT send ANY message after this or VS Code will prompt "unsaved changes".
 - **Code:** `backstage-end.sh::close_vscode()`
 
 **[STAY SILENT]:** No reply after closing VS Code (prevents unsaved prompt).
@@ -391,7 +391,7 @@ Categorize: patch/minor/major. Compare with ROADMAP. Match reality to plans.
 
 ## Key Principles
 
-1. **README's 🤖 block = Single source of truth** for file locations
+1. **README's  block = Single source of truth** for file locations
 2. **Status files = AI prompts** (HEALTH = tests, POLICY = rules, ROADMAP = backlog, CHANGELOG = history)
 3. **Polycentric governance** (global + project rules, project wins on conflict)
 4. **Checks must pass** before commit (non-negotiable for start mode, soft fail for end mode)
@@ -408,11 +408,11 @@ Categorize: patch/minor/major. Compare with ROADMAP. Match reality to plans.
 
 | State               | When         | Action            | Can Push? |
 |---------------------|--------------|-------------------|-----------|
-| 🛑 Failed Checks    | Tests fail   | Fix issues        | ❌ NO     |
-| ⚠️ Docs Mismatch    | Code ≠ docs  | Auto-update docs  | ✅ YES    |
-| 🧑 Grooming         | No changes   | Plan next work    | N/A       |
-| ✅ In Progress      | Partial work | Update checkboxes | ✅ YES    |
-| 🎉 Version Complete | All done!    | Move to CHANGELOG | ✅ YES 🎉 |
+|  Failed Checks    | Tests fail   | Fix issues        |  NO     |
+|  Docs Mismatch    | Code ≠ docs  | Auto-update docs  |  YES    |
+|  Grooming         | No changes   | Plan next work    | N/A       |
+|  In Progress      | Partial work | Update checkboxes |  YES    |
+|  Version Complete | All done!    | Move to CHANGELOG |  YES  |
 
 ---
 
@@ -459,7 +459,7 @@ Categorize: patch/minor/major. Compare with ROADMAP. Match reality to plans.
 
 ## TODO / Future Refinements
 
-- [ ] **Add emoji notes** (like design-discrepancy 1️⃣-8️⃣ format)
+- [ ] **Add emoji notes** (like design-discrepancy - format)
 - [ ] **Simplify diagram** (too many nodes, need consolidation)
 - [ ] **Add code execution points** (where scripts run, if any)
 - [ ] **Create templates** (for new projects without status files)

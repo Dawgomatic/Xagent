@@ -55,8 +55,8 @@ discovery_brief:
 **[Persona] needs [capability] because [reason], but currently [blocker], which causes [measurable impact].**
 
 Examples:
-- ❌ "Users need better onboarding" (vague, unmeasurable)
-- ✅ "New free-trial users (500/month) need to reach their first 'aha moment' within 10 minutes because 73% who don't will churn within 48 hours, but currently the average time-to-value is 34 minutes due to a 12-step setup wizard, which costs us ~$18K/month in lost conversions."
+-  "Users need better onboarding" (vague, unmeasurable)
+-  "New free-trial users (500/month) need to reach their first 'aha moment' within 10 minutes because 73% who don't will churn within 48 hours, but currently the average time-to-value is 34 minutes due to a 12-step setup wizard, which costs us ~$18K/month in lost conversions."
 
 ### Kill Criteria
 
@@ -246,7 +246,7 @@ story:
 - Specific (numbers, not adjectives)
 - Independent (testable in isolation)
 
-| ❌ Bad | ✅ Good |
+|  Bad |  Good |
 |--------|---------|
 | "Works correctly" | "Returns 200 with JSON body containing `id`, `name`, `status` fields" |
 | "Fast enough" | "API responds in <200ms at p95 with 100 concurrent users" |

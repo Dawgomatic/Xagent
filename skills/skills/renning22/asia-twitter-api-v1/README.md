@@ -1,32 +1,32 @@
-# OpenClaw Twitter 🐦
+# OpenClaw Twitter 
 
 Twitter/X data and automation for autonomous agents. Powered by AIsa.
 
-## ⚠️ Security Notice
+##  Security Notice
 
 This skill provides two types of operations with different security profiles:
 
-### ✅ Read Operations (SAFE - Recommended)
+###  Read Operations (SAFE - Recommended)
 - User info, tweets, search, trends, followers
 - **No authentication required**
 - **No credentials transmitted**
 - Safe for production use
 
-### ⚠️ Write Operations (HIGH RISK - Use with Extreme Caution)
+###  Write Operations (HIGH RISK - Use with Extreme Caution)
 - Posting tweets, liking, retweeting
 - **Requires transmitting sensitive credentials to third-party API**
 - Email, password, and proxy are sent to `api.aisa.one`
 
-**⚠️ CRITICAL WARNING**: Write operations involve trusting a third-party service with full account access. While AIsa is a legitimate API provider, this represents significant security risk.
+** CRITICAL WARNING**: Write operations involve trusting a third-party service with full account access. While AIsa is a legitimate API provider, this represents significant security risk.
 
 **Strong Recommendations if Using Write Operations:**
-- ❌ **NEVER use your primary Twitter account**
-- ✅ Create a dedicated automation/test account
-- ✅ Use unique passwords not used elsewhere
-- ✅ Enable 2FA on your main account
-- ✅ Monitor account activity regularly
-- ✅ Review AIsa's security policies at [aisa.one](https://aisa.one)
-- ✅ Consider using read-only operations only
+-  **NEVER use your primary Twitter account**
+-  Create a dedicated automation/test account
+-  Use unique passwords not used elsewhere
+-  Enable 2FA on your main account
+-  Monitor account activity regularly
+-  Review AIsa's security policies at [aisa.one](https://aisa.one)
+-  Consider using read-only operations only
 
 ## Installation
 
@@ -49,7 +49,7 @@ python scripts/twitter_client.py trends
 
 ## Features
 
-### ✅ Read Operations (No Authentication Required)
+###  Read Operations (No Authentication Required)
 - User information and profiles
 - User tweets and timeline
 - Tweet search (latest/top)
@@ -57,7 +57,7 @@ python scripts/twitter_client.py trends
 - User followers and followings
 - User search
 
-### ⚠️ Write Operations (Authentication Required - High Risk)
+###  Write Operations (Authentication Required - High Risk)
 - Post tweets
 - Like tweets
 - Retweet

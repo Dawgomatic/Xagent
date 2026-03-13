@@ -150,7 +150,7 @@ function simulatePluginHandler(event, ctx, mode = "enforce") {
         if (shouldBlock(check.severity, mode)) {
             return {
                 block: true,
-                blockReason: `🛡️ guard-scanner: ${check.desc} [${check.id}]`,
+                blockReason: ` guard-scanner: ${check.desc} [${check.id}]`,
             };
         }
     }
@@ -373,7 +373,7 @@ describe("Plugin Hook: blockReason format", () => {
             createCtx("exec"),
             "enforce"
         );
-        assert.ok(result.blockReason.startsWith("🛡️ guard-scanner:"));
+        assert.ok(result.blockReason.startsWith(" guard-scanner:"));
     });
 
     it("blockReason should include check ID", () => {

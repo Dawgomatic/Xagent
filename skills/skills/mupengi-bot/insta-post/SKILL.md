@@ -1,10 +1,10 @@
 ---
 name: insta-post
 description: Upload Instagram posts via browser automation. Use when uploading images to Instagram, creating Instagram posts, or automating Instagram content publishing. Handles image upload, caption entry, collaborator tagging, and sharing through the OpenClaw browser tool connected to an active Instagram session.
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# Instagram Post Upload 🐧
+# Instagram Post Upload 
 
 Upload images as Instagram posts via OpenClaw browser tool (CDP port 18800).
 
@@ -76,4 +76,4 @@ Configure your default collaborators in your workspace `TOOLS.md` file.
 | Wrong element clicked | Always snapshot before clicking, verify ref |
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

@@ -4,7 +4,7 @@ description: Authenticate with the Trifle API using Sign-In with Ethereum (SIWE)
 version: 1.0.0
 metadata:
   clawdhub:
-    emoji: "🔐"
+    emoji: ""
     requires:
       bins: ["node"]
       npm: ["viem", "siwe"]

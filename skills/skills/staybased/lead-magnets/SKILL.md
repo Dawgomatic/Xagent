@@ -56,7 +56,7 @@ Your lead magnet must solve ONE step of a multi-step problem. It provides a quic
 
 ## The 7 Lead Magnet Types (Ranked by 2025-26 Effectiveness)
 
-### 1. Templates & Plug-and-Play Tools ⭐⭐⭐⭐⭐
+### 1. Templates & Plug-and-Play Tools 
 **Why they work:** Zero effort required. Download → use → get result.
 **Conversion rate:** Highest among all types.
 **Examples:**
@@ -66,7 +66,7 @@ Your lead magnet must solve ONE step of a multi-step problem. It provides a quic
 
 **For us:** Free OpenClaw AGENTS.md + SOUL.md template → leads to premium Agent Family Kit.
 
-### 2. Interactive Quizzes / Assessments ⭐⭐⭐⭐⭐
+### 2. Interactive Quizzes / Assessments 
 **Why they work:** Personalized results + instant gratification. Users invest time answering = higher commitment.
 **Conversion rate:** BusySeed client saw 68% increase in opt-ins replacing static PDF with quiz.
 **Examples:**
@@ -76,7 +76,7 @@ Your lead magnet must solve ONE step of a multi-step problem. It provides a quic
 
 **For us:** "Is your OpenClaw agent secure?" quiz → leads to prompt-guard + ops-hygiene skills.
 
-### 3. ROI / Cost Calculators ⭐⭐⭐⭐
+### 3. ROI / Cost Calculators 
 **Why they work:** Quantifies the value of your solution in their specific numbers.
 **Conversion rate:** One company attributed 45% of total revenue to a single calculator (BusySeed/Palisade Fence case study).
 **Examples:**
@@ -85,28 +85,28 @@ Your lead magnet must solve ONE step of a multi-step problem. It provides a quic
 
 **For us:** "Missed call cost calculator" for massage/service businesses → leads to Alfred-style automation.
 
-### 4. "What NOT To Do" Lists ⭐⭐⭐⭐
+### 4. "What NOT To Do" Lists 
 **Why they work:** Pattern interrupt. Most content says what TO do. Mistake lists create urgency ("Am I making these?").
 **Conversion rate:** High open rates + shares because they trigger loss aversion.
 **Examples:**
 - "7 Mistakes Killing Your OpenClaw Agent's Performance"
 - "5 Cold Email Errors That Get You Blacklisted"
 
-### 5. Mini-Courses / Email Sequences ⭐⭐⭐
+### 5. Mini-Courses / Email Sequences 
 **Why they work:** Drip value over days, building relationship. Each email is a touchpoint.
 **Conversion rate:** Lower initial opt-in, but higher eventual purchase rate.
 **Examples:**
 - "5-Day Agent Masterclass" (one lesson per email)
 - "Build Your First n8n Automation in 3 Days"
 
-### 6. Checklists & Cheat Sheets ⭐⭐⭐
+### 6. Checklists & Cheat Sheets 
 **Why they work:** Simple, actionable, easy to consume.
 **Conversion rate:** Good for top-of-funnel, but lower conversion to paid unless the checklist reveals gaps.
 **Examples:**
 - "OpenClaw Security Hardening Checklist"
 - "Pre-Launch Automation Checklist"
 
-### 7. Webinars / Live Demos ⭐⭐⭐
+### 7. Webinars / Live Demos 
 **Why they work:** Highest trust-building format. Real-time Q&A. Personality sells.
 **Conversion rate:** 20-40% attendance rate, 2-5% conversion to paid (LeadsPicker).
 **Note:** Requires scheduling, live presence, and recording infrastructure.

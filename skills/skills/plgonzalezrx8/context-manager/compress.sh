@@ -407,13 +407,13 @@ For full details, see: $summary_file
 To continue with compressed context, start a new session with /new or /reset
 EOF
 
-    echo -e "${GREEN}✅ Session compression complete!${NC}"
+    echo -e "${GREEN} Session compression complete!${NC}"
     echo ""
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}Context has been compressed and saved.${NC}"
     echo ""
-    echo "📄 Summary: $summary_file"
-    echo "📋 Continuation: $continuation_file"
+    echo " Summary: $summary_file"
+    echo " Continuation: $continuation_file"
     echo ""
     echo -e "${YELLOW}Next Steps:${NC}"
     echo "  1. Start a new session with: /new"
@@ -426,7 +426,7 @@ EOF
 
 # Main compression function
 compress_session() {
-    echo -e "${YELLOW}🧠 Starting context compression...${NC}"
+    echo -e "${YELLOW} Starting context compression...${NC}"
     
     local session_id=$(date +%Y%m%d-%H%M%S)
     local transcript_file="$COMPRESSED_DIR/$session_id.transcript.md"
@@ -488,7 +488,7 @@ EOF
     # Generate summary
     generate_summary "$transcript_file" "$session_id" "$summary_file"
     
-    echo -e "${GREEN}✅ Compression complete!${NC}"
+    echo -e "${GREEN} Compression complete!${NC}"
     echo "  - Transcript: $transcript_file"
     echo "  - Summary: $summary_file"
     echo ""
@@ -520,7 +520,7 @@ cmd_list() {
     local count
     count=$(echo "$sessions_json" | jq -r '.count')
     
-    echo "📋 Available Sessions ($count total)"
+    echo " Available Sessions ($count total)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     printf "%-4s %-45s %-8s %8s %8s\n" "#" "SESSION KEY" "KIND" "TOKENS" "USAGE"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -563,7 +563,7 @@ cmd_status() {
     fi
     local usage=$((CURRENT_TOKENS * 100 / MAX_TOKENS))
     
-    echo "📊 Context Manager Status"
+    echo " Context Manager Status"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  Session Key: ${SESSION_KEY}"
     echo "  Session ID:  ${SESSION_ID}"
@@ -581,7 +581,7 @@ cmd_status() {
     fi
     
     if [[ "$usage" -ge "$THRESHOLD" ]]; then
-        echo -e "\n${YELLOW}⚠️  Context usage above threshold!${NC}"
+        echo -e "\n${YELLOW}  Context usage above threshold!${NC}"
         echo "  Run './compress.sh compress $SESSION_KEY' to compress."
     else
         echo -e "\n${GREEN}✓ Context usage normal${NC}"
@@ -601,7 +601,7 @@ cmd_set_threshold() {
     
     THRESHOLD=$new_threshold
     save_config
-    echo -e "${GREEN}✅ Threshold set to ${THRESHOLD}%${NC}"
+    echo -e "${GREEN} Threshold set to ${THRESHOLD}%${NC}"
 }
 
 # Set depth
@@ -615,7 +615,7 @@ cmd_set_depth() {
     
     DEPTH=$new_depth
     save_config
-    echo -e "${GREEN}✅ Depth set to ${DEPTH}${NC}"
+    echo -e "${GREEN} Depth set to ${DEPTH}${NC}"
 }
 
 # Set quiet hours
@@ -624,7 +624,7 @@ cmd_set_quiet_hours() {
     
     if [[ -z "$range" ]]; then
         QUIET_HOURS=""
-        echo -e "${GREEN}✅ Quiet hours disabled${NC}"
+        echo -e "${GREEN} Quiet hours disabled${NC}"
     else
         # Validate format HH:00-HH:00
         if ! [[ "$range" =~ ^[0-2][0-9]:00-[0-2][0-9]:00$ ]]; then
@@ -632,7 +632,7 @@ cmd_set_quiet_hours() {
             exit 1
         fi
         QUIET_HOURS=$range
-        echo -e "${GREEN}✅ Quiet hours set to ${QUIET_HOURS}${NC}"
+        echo -e "${GREEN} Quiet hours set to ${QUIET_HOURS}${NC}"
     fi
     
     save_config
@@ -647,7 +647,7 @@ cmd_compress() {
     local target_session="${1:-}"
     
     if in_quiet_hours; then
-        echo -e "${YELLOW}⏸️  In quiet hours (${QUIET_HOURS}). Compression skipped.${NC}"
+        echo -e "${YELLOW}  In quiet hours (${QUIET_HOURS}). Compression skipped.${NC}"
         exit 0
     fi
     
@@ -687,7 +687,7 @@ cmd_check() {
     fi
     
     if [[ "$usage" -ge "$THRESHOLD" ]]; then
-        echo -e "${YELLOW}⚠️  Context above threshold. Compressing...${NC}"
+        echo -e "${YELLOW}  Context above threshold. Compressing...${NC}"
         compress_session
     else
         echo -e "${GREEN}✓ Context within limits${NC}"
@@ -721,7 +721,7 @@ cmd_ai_summarize() {
         return 1
     fi
     
-    echo -e "${YELLOW}🧠 Requesting AI summary for session: $SESSION_KEY${NC}"
+    echo -e "${YELLOW} Requesting AI summary for session: $SESSION_KEY${NC}"
     echo "  Session ID: $SESSION_ID"
     if $do_replace; then
         echo -e "  ${RED}Mode: REPLACE (will reset session after summary)${NC}"
@@ -778,7 +778,7 @@ Model: $SESSION_MODEL
 $summary_text
 EOF
     
-    echo -e "${GREEN}✅ AI Summary generated!${NC}"
+    echo -e "${GREEN} AI Summary generated!${NC}"
     echo "  Saved to: $summary_file"
     echo ""
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -788,7 +788,7 @@ EOF
     # If --replace flag, reset session and inject summary
     if $do_replace; then
         echo ""
-        echo -e "${YELLOW}🔄 Resetting session and injecting compressed context...${NC}"
+        echo -e "${YELLOW} Resetting session and injecting compressed context...${NC}"
         
         local old_session_id="$SESSION_ID"
         local state_dir="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
@@ -833,7 +833,7 @@ Please acknowledge that you have received this compressed context and are ready 
             sleep 1
             get_session_info "$SESSION_KEY" 2>/dev/null
             
-            echo -e "${GREEN}✅ Session compressed successfully!${NC}"
+            echo -e "${GREEN} Session compressed successfully!${NC}"
             echo "  Old session ID: $old_session_id"
             echo "  New session ID: $SESSION_ID"
             echo "  Backup: $backup_file"
@@ -863,7 +863,7 @@ cmd_check_all() {
         return 1
     fi
     
-    echo "📊 Checking all sessions (threshold: ${THRESHOLD}%)"
+    echo " Checking all sessions (threshold: ${THRESHOLD}%)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local needs_compression=0
@@ -875,7 +875,7 @@ cmd_check_all() {
         local color="$GREEN"
         
         if [[ $usage -ge $THRESHOLD ]]; then
-            status="⚠️"
+            status=""
             color="$YELLOW"
             needs_compression=1
         fi

@@ -301,11 +301,11 @@ DEVOTIONAL_PLAYLIST_ID=PLxxxxxxxxxx
 
 ## Next Steps
 
-1. ✅ Test manual run: `npm start`
-2. ✅ Verify YouTube upload worked
-3. ✅ Set up cron scheduling
-4. ✅ Monitor logs: `tail -f ~/.openclaw-devotional/logs/devotional.log`
-5. 📊 Check your YouTube channel for new videos tomorrow morning!
+1.  Test manual run: `npm start`
+2.  Verify YouTube upload worked
+3.  Set up cron scheduling
+4.  Monitor logs: `tail -f ~/.openclaw-devotional/logs/devotional.log`
+5.  Check your YouTube channel for new videos tomorrow morning!
 
 ## Getting Help
 
@@ -318,4 +318,4 @@ DEVOTIONAL_PLAYLIST_ID=PLxxxxxxxxxx
 - **README.md** - User guide and features
 - **SKILL.md** - Technical reference and API details
 
-Enjoy your automated devotional workflow! 🙏📹
+Enjoy your automated devotional workflow! 

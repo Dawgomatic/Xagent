@@ -277,7 +277,7 @@ format_pattern_summary() {
     echo ""
 
     if [[ "$churn_pct" -gt 10 ]]; then
-        echo "### ⚠️ Churn Alert"
+        echo "###  Churn Alert"
         echo "- $churn_pct% of commits are quick fixes, reverts, or typo corrections"
         echo ""
     fi

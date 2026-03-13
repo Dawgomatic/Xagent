@@ -1182,10 +1182,10 @@ Formula (source TOML) ─── "Ice-9"
     ▼ bd cook
 Protomolecule (frozen template) ─── Solid
     │
-    ├─▶ bd mol pour ──▶ Mol (persistent) ─── Liquid ──▶ bd squash ──▶ Digest
+    ├─ bd mol pour ── Mol (persistent) ─── Liquid ── bd squash ── Digest
     │
-    └─▶ bd mol wisp ──▶ Wisp (ephemeral) ─── Vapor ──┬▶ bd squash ──▶ Digest
-                                                     └▶ bd burn ──▶ (gone)
+    └─ bd mol wisp ── Wisp (ephemeral) ─── Vapor ──┬ bd squash ── Digest
+                                                     └ bd burn ── (gone)
 ```
 
 ### Core Concepts
@@ -1324,7 +1324,7 @@ TIER 3: SYSTEM (embedded)
 A **convoy** is a persistent tracking unit that monitors related issues across multiple rigs. When you kick off work - even a single issue - a convoy tracks it.
 
 ```
-                 🚚 Convoy (hq-cv-abc)
+                  Convoy (hq-cv-abc)
                          │
             ┌────────────┼────────────┐
             │            │            │
@@ -1387,7 +1387,7 @@ bd dep add hq-cv-abc gt-new-issue --type=tracks
 
 **Example convoy status output:**
 ```
-🚚 hq-cv-abc: Deploy v2.0
+ hq-cv-abc: Deploy v2.0
 
   Status:    ●
   Progress:  2/4 completed
@@ -1410,7 +1410,7 @@ gt convoy create "Feature X" gt-abc --notify mayor/ --notify --human
 
 **Notification content:**
 ```
-🚚 Convoy Landed: Deploy v2.0 (hq-cv-abc)
+ Convoy Landed: Deploy v2.0 (hq-cv-abc)
 
 Issues (3):
   ✓ gt-xyz: Update API endpoint
@@ -1494,7 +1494,7 @@ Branch: <branch>
 
 **HANDOFF** (Agent → self):
 ```
-Subject: 🤝 HANDOFF: <brief-context>
+Subject:  HANDOFF: <brief-context>
 Body:
 attached_molecule: <molecule-id>   # if work in progress
 attached_at: <timestamp>

@@ -50,16 +50,16 @@ export async function startTunnel(config: TunnelConfig): Promise<TunnelResult> {
     ? `${configSubdomain}-${shortHash(configSubdomain)}`
     : `openclaw-${Date.now().toString(36)}`;
 
-  console.log('🚇 Starting Cloudflare tunnel...');
+  console.log(' Starting Cloudflare tunnel...');
 
   const { publicUrl, process: tunnelProcess } = await startCloudflareTunnel(port);
   
   const webhookUrl = `${publicUrl}/voice/webhook`;
-  console.log(`✅ Tunnel established: ${publicUrl}`);
-  console.log(`📝 Webhook URL: ${webhookUrl}`);
+  console.log(` Tunnel established: ${publicUrl}`);
+  console.log(` Webhook URL: ${webhookUrl}`);
 
   // Create or update Call Control Application
-  console.log(`\n🔗 Setting up Telnyx Call Control Application...`);
+  console.log(`\n Setting up Telnyx Call Control Application...`);
   
   let callControlAppId: string | undefined;
   let sipAddress: string | undefined;
@@ -74,12 +74,12 @@ export async function startTunnel(config: TunnelConfig): Promise<TunnelResult> {
     });
     callControlAppId = result.appId;
     sipAddress = result.sipAddress;
-    console.log(`✅ Call Control App ready`);
+    console.log(` Call Control App ready`);
     console.log(`   App ID: ${callControlAppId}`);
     console.log(`   SIP: ${sipAddress}`);
   } catch (error) {
-    console.error('❌ Failed to set up Call Control App:', error);
-    console.log('\n⚠️  You may need to create the app manually in the Telnyx portal');
+    console.error(' Failed to set up Call Control App:', error);
+    console.log('\n  You may need to create the app manually in the Telnyx portal');
   }
 
   return { 
@@ -266,9 +266,9 @@ function startCloudflareTunnel(port: number): Promise<{ publicUrl: string; proce
  */
 export async function stopTunnel(tunnelProcess?: ChildProcess): Promise<void> {
   if (tunnelProcess) {
-    console.log('\n🛑 Shutting down tunnel...');
+    console.log('\n Shutting down tunnel...');
     tunnelProcess.kill();
-    console.log('✅ Tunnel closed');
+    console.log(' Tunnel closed');
   }
 }
 
@@ -279,7 +279,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const CONNECTION_ID = process.env.TELNYX_CONNECTION_ID;
 
   if (!TELNYX_API_KEY) {
-    console.error('❌ Missing TELNYX_API_KEY');
+    console.error(' Missing TELNYX_API_KEY');
     process.exit(1);
   }
 
@@ -289,7 +289,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     connectionId: CONNECTION_ID || '',
   })
     .then(({ webhookUrl, sipAddress }) => {
-      console.log('\n🎉 Ready!');
+      console.log('\n Ready!');
       console.log(`   Webhook: ${webhookUrl}`);
       if (sipAddress) console.log(`   Dial: ${sipAddress}`);
       console.log('\nPress Ctrl+C to stop.');

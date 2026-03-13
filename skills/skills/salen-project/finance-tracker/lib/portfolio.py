@@ -13,22 +13,22 @@ class Portfolio:
     """Track assets, income, and net worth."""
     
     ASSET_TYPES = {
-        "cash": {"emoji": "💵", "name": "Cash & Bank"},
-        "stocks": {"emoji": "📈", "name": "Stocks"},
-        "crypto": {"emoji": "🪙", "name": "Cryptocurrency"},
-        "realestate": {"emoji": "🏠", "name": "Real Estate"},
-        "savings": {"emoji": "🏦", "name": "Savings"},
-        "investments": {"emoji": "💼", "name": "Investments"},
-        "other": {"emoji": "📦", "name": "Other Assets"}
+        "cash": {"emoji": "", "name": "Cash & Bank"},
+        "stocks": {"emoji": "", "name": "Stocks"},
+        "crypto": {"emoji": "", "name": "Cryptocurrency"},
+        "realestate": {"emoji": "", "name": "Real Estate"},
+        "savings": {"emoji": "", "name": "Savings"},
+        "investments": {"emoji": "", "name": "Investments"},
+        "other": {"emoji": "", "name": "Other Assets"}
     }
     
     INCOME_TYPES = {
-        "salary": {"emoji": "💼", "name": "Salary"},
-        "freelance": {"emoji": "💻", "name": "Freelance"},
-        "business": {"emoji": "🏪", "name": "Business"},
-        "investment": {"emoji": "📈", "name": "Investment Returns"},
-        "gift": {"emoji": "🎁", "name": "Gifts"},
-        "other": {"emoji": "💰", "name": "Other Income"}
+        "salary": {"emoji": "", "name": "Salary"},
+        "freelance": {"emoji": "", "name": "Freelance"},
+        "business": {"emoji": "", "name": "Business"},
+        "investment": {"emoji": "", "name": "Investment Returns"},
+        "gift": {"emoji": "", "name": "Gifts"},
+        "other": {"emoji": "", "name": "Other Income"}
     }
     
     def __init__(self, data_dir: Optional[Path] = None):
@@ -136,14 +136,14 @@ class Portfolio:
         currency = data.get("currency", "UZS")
         
         if not assets:
-            return "📊 Portfolio\n━━━━━━━━━━━━━━━━━━━━━\n\n📭 No assets tracked yet.\n\nAdd one: finance asset add \"Bank Account\" 5000000 cash"
+            return " Portfolio\n━━━━━━━━━━━━━━━━━━━━━\n\n No assets tracked yet.\n\nAdd one: finance asset add \"Bank Account\" 5000000 cash"
         
         total = self.get_net_worth()
         
         lines = [
-            "📊 Portfolio & Net Worth",
+            " Portfolio & Net Worth",
             "━━━━━━━━━━━━━━━━━━━━━",
-            f"💎 Net Worth: {total:,} {currency}",
+            f" Net Worth: {total:,} {currency}",
             ""
         ]
         
@@ -203,14 +203,14 @@ class Portfolio:
         currency = data.get("currency", "UZS")
         
         if not income:
-            return f"📈 Income (last {days} days)\n━━━━━━━━━━━━━━━━━━━━━\n\n📭 No income recorded.\n\nAdd: finance income 5000000 \"salary\""
+            return f" Income (last {days} days)\n━━━━━━━━━━━━━━━━━━━━━\n\n No income recorded.\n\nAdd: finance income 5000000 \"salary\""
         
         total = sum(i["amount"] for i in income)
         
         lines = [
-            f"📈 Income (last {days} days)",
+            f" Income (last {days} days)",
             "━━━━━━━━━━━━━━━━━━━━━",
-            f"💵 Total: {total:,} {currency}",
+            f" Total: {total:,} {currency}",
             ""
         ]
         
@@ -228,7 +228,7 @@ class Portfolio:
             pct = (data["amount"] / total * 100) if total > 0 else 0
             lines.append(f"{type_info['emoji']} {type_info['name']}: {data['amount']:,} {currency} ({pct:.1f}%)")
         
-        lines.append(f"\n📝 {len(income)} entries")
+        lines.append(f"\n {len(income)} entries")
         
         return "\n".join(lines)
 

@@ -8,9 +8,9 @@ description: Private web tools for AI agents — search, scrape, and screenshot 
 Search, scrape, and screenshot the web privately. Uses the x402 payment protocol — your agent pays per request with USDC on Base mainnet. No API keys, no accounts, no logging.
 
 **Services:**
-- 🔍 **Web Search** — Multi-engine private search ($0.002/query)
-- 🕸️ **Web Scrape** — Extract clean markdown from any URL ($0.005/page)
-- 📸 **Screenshot** — Capture any URL as PNG/JPEG ($0.002/shot)
+-  **Web Search** — Multi-engine private search ($0.002/query)
+-  **Web Scrape** — Extract clean markdown from any URL ($0.005/page)
+-  **Screenshot** — Capture any URL as PNG/JPEG ($0.002/shot)
 
 **Gateway:** `https://search.reversesandbox.com`
 

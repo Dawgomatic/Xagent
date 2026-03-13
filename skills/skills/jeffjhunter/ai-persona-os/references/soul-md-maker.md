@@ -14,7 +14,7 @@ The agent offers SOUL.md Maker when:
 
 **Opening message (EXACT TEXT):**
 ```
-🔥 Welcome to SOUL.md Maker — the deep SOUL.md builder.
+ Welcome to SOUL.md Maker — the deep SOUL.md builder.
 
 I'm going to ask you a series of questions to understand who you 
 are, how you work, and exactly what kind of AI partner you need.
@@ -23,8 +23,8 @@ This takes about 10 minutes. The result is a SOUL.md built
 specifically for you — not a template.
 
 Two options:
-1. 🎯 Quick Forge (5 questions, ~2 minutes)
-2. 🔬 Deep Forge (full interview, ~10 minutes)
+1.  Quick Forge (5 questions, ~2 minutes)
+2.  Deep Forge (full interview, ~10 minutes)
 
 Which do you prefer?
 ```

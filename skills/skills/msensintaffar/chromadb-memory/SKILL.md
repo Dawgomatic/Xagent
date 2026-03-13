@@ -6,7 +6,7 @@ author: matts
 homepage: https://github.com/openclaw/openclaw
 metadata:
   openclaw:
-    emoji: "🧠"
+    emoji: ""
     requires:
       bins: ["curl"]
     category: "memory"

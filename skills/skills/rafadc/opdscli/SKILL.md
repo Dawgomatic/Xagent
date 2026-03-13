@@ -2,7 +2,7 @@
 name: opdscli
 description: Browse, search, and download ebooks from OPDS catalogs using the opdscli CLI. Use when adding/managing catalogs, searching for books, downloading ebooks, or browsing latest additions.
 homepage: https://github.com/rafadc/opdscli
-metadata: {"clawdbot":{"emoji":"📚","requires":{"bins":["opdscli"]},"install":[{"id":"brew","kind":"brew","tap":"rafadc/opdscli","formula":"opdscli","bins":["opdscli"],"label":"Install opdscli (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["opdscli"]},"install":[{"id":"brew","kind":"brew","tap":"rafadc/opdscli","formula":"opdscli","bins":["opdscli"],"label":"Install opdscli (brew)"}]}}
 ---
 
 # opdscli

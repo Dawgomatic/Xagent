@@ -4,11 +4,11 @@ version: 1.2.0
 description: Beeper integration for Clawdbot. Send messages and search chats across WhatsApp, Telegram, Signal, Discord, Slack, Instagram, iMessage, LinkedIn, Facebook Messenger, Google Messages via Beeper Desktop API. Reactions, reminders, attachments, mark as read. Unified multi-platform messaging automation—just ask.
 author: nickhamze
 keywords: Beeper, messaging, WhatsApp, Telegram, Signal, Discord, Slack, Instagram, iMessage, LinkedIn, Facebook Messenger, Google Messages, Google Chat, chat automation, unified messaging, Desktop API, send messages, search messages, reactions, reminders, multi-platform, cross-platform messaging, chat search, message history, unread messages
-metadata: {"clawdbot":{"emoji":"📟","skillKey":"claw-me-maybe","requires":{"bins":["curl"]},"homepage":"https://www.beeper.com","defaultEnv":{"BEEPER_API_URL":"http://localhost:23373"}}}
+metadata: {"clawdbot":{"emoji":"","skillKey":"claw-me-maybe","requires":{"bins":["curl"]},"homepage":"https://www.beeper.com","defaultEnv":{"BEEPER_API_URL":"http://localhost:23373"}}}
 user-invocable: true
 ---
 
-# Claw Me Maybe - Beeper Desktop API & Multi-Platform Messaging 📟
+# Claw Me Maybe - Beeper Desktop API & Multi-Platform Messaging 
 
 **Your lobster just got a Beeper.**
 
@@ -18,19 +18,19 @@ Powered by [Beeper](https://www.beeper.com) - the app that unifies all your chat
 
 ## What Can Your Lobster Do With Beeper?
 
-🔍 **Search Everything** - "What did Sarah say about the project last week?" Your lobster will dig through all your Beeper chats instantly.
+ **Search Everything** - "What did Sarah say about the project last week?" Your lobster will dig through all your Beeper chats instantly.
 
-💬 **Send Messages Anywhere** - "Tell Mom I'll be late" - and it goes to WhatsApp. "Message the team on Slack" - done. No app switching.
+ **Send Messages Anywhere** - "Tell Mom I'll be late" - and it goes to WhatsApp. "Message the team on Slack" - done. No app switching.
 
-📊 **Summarize Your Inbox** - "What did I miss?" Get a digest of unread messages across all your Beeper networks.
+ **Summarize Your Inbox** - "What did I miss?" Get a digest of unread messages across all your Beeper networks.
 
-🔔 **Set Reminders** - "Remind me to reply to this chat tomorrow" - your lobster remembers so you don't have to.
+ **Set Reminders** - "Remind me to reply to this chat tomorrow" - your lobster remembers so you don't have to.
 
-📎 **Grab Attachments** - Download files, images, and media from any Beeper conversation.
+ **Grab Attachments** - Download files, images, and media from any Beeper conversation.
 
-😀 **React to Messages** - Add emoji reactions to any message across any Beeper network.
+ **React to Messages** - Add emoji reactions to any message across any Beeper network.
 
-✅ **Mark as Read** - Keep your Beeper inbox tidy by marking conversations as read.
+ **Mark as Read** - Keep your Beeper inbox tidy by marking conversations as read.
 
 ## Supported Beeper Networks
 
@@ -38,18 +38,18 @@ Your Clawdbot can reach you on **any platform Beeper supports**:
 
 | Platform | Status |
 |----------|--------|
-| WhatsApp | ✅ Full Support |
-| Telegram | ✅ Full Support |
-| Signal | ✅ Full Support |
-| Discord | ✅ Full Support |
-| Slack | ✅ Full Support |
-| Instagram DMs | ✅ Full Support |
-| Facebook Messenger | ✅ Full Support |
-| LinkedIn Messages | ✅ Full Support |
-| X (Twitter) DMs | ✅ Full Support |
-| Google Messages | ✅ Full Support |
-| Google Chat | ✅ Full Support |
-| iMessage | ✅ macOS only |
+| WhatsApp |  Full Support |
+| Telegram |  Full Support |
+| Signal |  Full Support |
+| Discord |  Full Support |
+| Slack |  Full Support |
+| Instagram DMs |  Full Support |
+| Facebook Messenger |  Full Support |
+| LinkedIn Messages |  Full Support |
+| X (Twitter) DMs |  Full Support |
+| Google Messages |  Full Support |
+| Google Chat |  Full Support |
+| iMessage |  macOS only |
 
 **One skill. Twelve platforms. Infinite possibilities.**
 
@@ -106,7 +106,7 @@ Once set up, just ask naturally:
 
 > "Find all messages from Lisa in the last week"
 
-> "React with 👍 to that last message"
+> "React with  to that last message"
 
 > "Mark my Discord chats as read"
 
@@ -266,7 +266,7 @@ curl -s "${BEEPER_API_URL}/v1/chats/{chatID}/messages" \
     "text": "Don't forget to call grandma!",
     "timestamp": "2026-01-23T15:30:00Z",
     "reactions": [
-      {"emoji": "👍", "user": {"id": "user-2", "name": "Dad"}}
+      {"emoji": "", "user": {"id": "user-2", "name": "Dad"}}
     ]
   },
   {
@@ -311,7 +311,7 @@ curl -s "${BEEPER_API_URL}/v1/messages/search?q=dinner+plans" \
 curl -X POST "${BEEPER_API_URL}/v1/chats/{chatID}/messages" \
   -H "Authorization: Bearer ${BEEPER_ACCESS_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"text": "Hello from my lobster! 🦞"}'
+  -d '{"text": "Hello from my lobster! "}'
 ```
 
 **Example Response:**
@@ -319,7 +319,7 @@ curl -X POST "${BEEPER_API_URL}/v1/chats/{chatID}/messages" \
 {
   "id": "msg-new123",
   "chatID": "chat-abc123",
-  "text": "Hello from my lobster! 🦞",
+  "text": "Hello from my lobster! ",
   "timestamp": "2026-01-23T16:00:00Z",
   "status": "sent"
 }
@@ -354,7 +354,7 @@ curl -X POST "${BEEPER_API_URL}/v1/chats/{chatID}/read" \
 curl -X POST "${BEEPER_API_URL}/v1/chats/{chatID}/messages/{messageID}/reactions" \
   -H "Authorization: Bearer ${BEEPER_ACCESS_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"emoji": "👍"}'
+  -d '{"emoji": ""}'
 ```
 
 #### Remove a Reaction
@@ -363,7 +363,7 @@ curl -X POST "${BEEPER_API_URL}/v1/chats/{chatID}/messages/{messageID}/reactions
 curl -X DELETE "${BEEPER_API_URL}/v1/chats/{chatID}/messages/{messageID}/reactions" \
   -H "Authorization: Bearer ${BEEPER_ACCESS_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"emoji": "👍"}'
+  -d '{"emoji": ""}'
 ```
 
 ### Contacts
@@ -425,7 +425,7 @@ curl -X POST "${BEEPER_API_URL}/v1/assets/download" \
   --output attachment.file
 ```
 
-## Pro Tips 🦞
+## Pro Tips 
 
 ### Get Unread Summary from Beeper
 
@@ -477,7 +477,7 @@ LAST_MSG=$(curl -s "${BEEPER_API_URL}/v1/chats/{chatID}/messages?limit=1" \
 curl -X POST "${BEEPER_API_URL}/v1/chats/{chatID}/messages/${LAST_MSG}/reactions" \
   -H "Authorization: Bearer ${BEEPER_ACCESS_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"emoji": "👍"}'
+  -d '{"emoji": ""}'
 ```
 
 ### Check if Beeper is Ready
@@ -543,7 +543,7 @@ curl -s "${BEEPER_API_URL}/v1/chats" \
 
 ### "Reaction not supported"
 
-Some networks have limited emoji support. Try a more common emoji like 👍 ❤️ 😂 😮 😢 😡
+Some networks have limited emoji support. Try a more common emoji like      
 
 ## Links
 
@@ -554,7 +554,7 @@ Some networks have limited emoji support. Try a more common emoji like 👍 ❤�
 
 ## Credits
 
-Built with 🦞 by @nickhamze and the Clawdbot community.
+Built with  by @nickhamze and the Clawdbot community.
 
 Powered by [Beeper](https://www.beeper.com) - One app for all your chats.
 

@@ -7,5 +7,5 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #51050 | 8:16 AM | 🟣 | Added skill skeletons for OpenClaw | ~258 |
+| #51050 | 8:16 AM |  | Added skill skeletons for OpenClaw | ~258 |
 </claude-mem-context>

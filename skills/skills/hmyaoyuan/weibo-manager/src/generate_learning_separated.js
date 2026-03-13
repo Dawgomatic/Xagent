@@ -17,10 +17,10 @@ const cmd = `uv run skills/nano-banana-ultra/scripts/generate_image.py --prompt 
 try {
     execSync(cmd, { stdio: 'inherit' });
     if (fs.existsSync(FILENAME)) {
-        console.log(`✅ Saved to ${FILENAME}`);
+        console.log(` Saved to ${FILENAME}`);
     } else {
-        console.error(`❌ Failed to generate`);
+        console.error(` Failed to generate`);
     }
 } catch (e) {
-    console.error(`❌ Error:`, e.message);
+    console.error(` Error:`, e.message);
 }

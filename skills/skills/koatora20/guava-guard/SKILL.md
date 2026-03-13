@@ -3,10 +3,10 @@ name: guava-guard
 description: Runtime security guard for OpenClaw agents. Warns on dangerous tool call patterns. For full static scanning, use guard-scanner.
 metadata:
   clawdbot:
-    emoji: "🛡️"
+    emoji: ""
 ---
 
-# GuavaGuard 🛡️
+# GuavaGuard 
 
 **Runtime security monitoring for your OpenClaw agent.**
 
@@ -23,7 +23,7 @@ openclaw hooks install skills/guava-guard/hooks/guava-guard
 openclaw hooks enable guava-guard
 
 # 3. Restart gateway, then verify:
-openclaw hooks list   # Should show 🍈 guava-guard as ✓ ready
+openclaw hooks list   # Should show  guava-guard as ✓ ready
 ```
 
 That's it. GuavaGuard is now monitoring your agent's tool calls.
@@ -32,18 +32,18 @@ That's it. GuavaGuard is now monitoring your agent's tool calls.
 
 | Pattern | Severity | Example |
 |---------|----------|---------|
-| Reverse shell | 🔴 CRITICAL | `/dev/tcp/`, `nc -e`, `socat TCP` |
-| Credential exfiltration | 🔴 CRITICAL | Secrets → webhook.site, ngrok, requestbin |
-| Guardrail disabling | 🔴 CRITICAL | `exec.approval = off` (CVE-2026-25253) |
-| macOS Gatekeeper bypass | 🔴 CRITICAL | `xattr -d quarantine` |
-| ClawHavoc AMOS | 🔴 CRITICAL | `socifiapp`, Atomic Stealer indicators |
-| Base64 → shell | 🔴 CRITICAL | `base64 -d \| bash` |
-| Download → shell | 🔴 CRITICAL | `curl \| bash`, `wget \| sh` |
-| Cloud metadata SSRF | 🔴 CRITICAL | `169.254.169.254` |
-| Known malicious IP | 🔴 CRITICAL | `91.92.242.30` |
-| DNS exfiltration | 🟠 HIGH | `nslookup $secret`, `dig @attacker` |
-| SSH key access | 🟠 HIGH | `.ssh/id_*`, `.ssh/authorized_keys` |
-| Crypto wallet access | 🟠 HIGH | `wallet seed`, `mnemonic`, `seed phrase` |
+| Reverse shell |  CRITICAL | `/dev/tcp/`, `nc -e`, `socat TCP` |
+| Credential exfiltration |  CRITICAL | Secrets → webhook.site, ngrok, requestbin |
+| Guardrail disabling |  CRITICAL | `exec.approval = off` (CVE-2026-25253) |
+| macOS Gatekeeper bypass |  CRITICAL | `xattr -d quarantine` |
+| ClawHavoc AMOS |  CRITICAL | `socifiapp`, Atomic Stealer indicators |
+| Base64 → shell |  CRITICAL | `base64 -d \| bash` |
+| Download → shell |  CRITICAL | `curl \| bash`, `wget \| sh` |
+| Cloud metadata SSRF |  CRITICAL | `169.254.169.254` |
+| Known malicious IP |  CRITICAL | `91.92.242.30` |
+| DNS exfiltration |  HIGH | `nslookup $secret`, `dig @attacker` |
+| SSH key access |  HIGH | `.ssh/id_*`, `.ssh/authorized_keys` |
+| Crypto wallet access |  HIGH | `wallet seed`, `mnemonic`, `seed phrase` |
 
 ## Current Limitation
 
@@ -83,4 +83,4 @@ GuavaGuard exists to detect dangerous runtime tool-call patterns early and leave
 
 ## License
 
-MIT. Zero dependencies. 🍈
+MIT. Zero dependencies. 

@@ -2,16 +2,16 @@
 name: Twitter Command Center (Search + Post)
 description: "Search X (Twitter) in real time, extract relevant posts, and publish tweets/replies instantly—perfect for social listening, engagement, and rapid content ops."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"🐦","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw Twitter 🐦
+# OpenClaw Twitter 
 
 **Twitter/X data access and automation for autonomous agents. Powered by AIsa.**
 
 One API key. Full Twitter intelligence.
 
-## 🔥 What Can You Do?
+##  What Can You Do?
 
 ### Monitor Influencers
 ```
@@ -88,7 +88,7 @@ curl "https://api.aisa.one/apis/v1/twitter/user/user_followings?userName=elonmus
 
 ### Write Operations (Requires Login)
 
-> ⚠️ **Warning**: Posting requires account login. Use responsibly to avoid rate limits or account suspension.
+>  **Warning**: Posting requires account login. Use responsibly to avoid rate limits or account suspension.
 
 ```bash
 # Step 1: Login first (async, check status after)

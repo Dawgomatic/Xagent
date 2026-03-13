@@ -39,13 +39,13 @@ fi
 
 TOKEN=$(get_token)
 if [ -z "$TOKEN" ]; then
-    echo "❌ No API token. Run ./scripts/setup.sh first." >&2
+    echo " No API token. Run ./scripts/setup.sh first." >&2
     exit 1
 fi
 
 ZONE_ID=$(get_zone_id "$DOMAIN")
 if [ -z "$ZONE_ID" ]; then
-    echo "❌ Zone '$DOMAIN' not found"
+    echo " Zone '$DOMAIN' not found"
     exit 1
 fi
 

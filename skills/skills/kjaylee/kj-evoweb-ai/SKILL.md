@@ -2,7 +2,7 @@
 name: EvoWeb.ai Website Builder
 description: Create a Website Designed to Bring Clients from ChatGPT, Gemini & Modern Search
 homepage: https://evoweb.ai/
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[],"env":["EVOWEB_API_KEY"]}}}
 ---
 
 # EvoWeb Website Builder
@@ -163,7 +163,7 @@ Tell them:
 - It will take approximately 4 minutes
 - You'll check progress automatically
 
-Example: "✨ Creating your website now! Generation typically takes 3-5 minutes. I'll check the status and let you know when it's ready."
+Example: " Creating your website now! Generation typically takes 3-5 minutes. I'll check the status and let you know when it's ready."
 
 ### Step 4: Poll for Status
 
@@ -196,10 +196,10 @@ When status is `ready`:
 
 **Example response:**
 ```
-🎉 Your website is ready!
+ Your website is ready!
 
-🌐 View it here: https://yoga-studio-23f4.evoweb.ai
-✏️ Customize it: https://editor.evoweb.ai/sites/abc123xyz
+ View it here: https://yoga-studio-23f4.evoweb.ai
+ Customize it: https://editor.evoweb.ai/sites/abc123xyz
 
 Quick improvements you might want:
 1. Add online class booking system
@@ -219,7 +219,7 @@ When status is `failed`:
 
 **Example response:**
 ```
-❌ Website generation failed: [error message]
+ Website generation failed: [error message]
 
 Would you like me to try again? I can restart the generation process.
 ```
@@ -308,14 +308,14 @@ Use warm, inviting design with red and green accents, rustic Italian aesthetic"
 
 ### Writing Good Prompts
 
-✅ **Do:**
+ **Do:**
 - Be specific about sections and features
 - Mention design style and mood
 - Include color preferences
 - Specify the purpose and audience
 - List key pages/sections needed
 
-❌ **Don't:**
+ **Don't:**
 - Be too vague ("make a website")
 - Skip important details
 - Assume AI will guess preferences
@@ -366,4 +366,4 @@ Use warm, inviting design with red and green accents, rustic Italian aesthetic"
 
 ---
 
-**Ready to create amazing websites with just a text description!** 🚀
+**Ready to create amazing websites with just a text description!** 

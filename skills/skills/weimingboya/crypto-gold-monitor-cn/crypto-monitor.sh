@@ -213,14 +213,14 @@ cmd_all() {
     # 计算每两价格 (克*50)
     gold_liang=$(echo "scale=0; $gold_cny * 50 / 1" | bc 2>/dev/null || echo "0")
     
-    echo -e "${YELLOW}🥇 贵金属 / Precious Metals${NC}"
+    echo -e "${YELLOW} 贵金属 / Precious Metals${NC}"
     echo "─────────────────────────────────────────────────────"
-    echo -e "  ${YELLOW}🥇 Gold (黄金)${NC}"
+    echo -e "  ${YELLOW} Gold (黄金)${NC}"
     echo -e "      国内金价:          ${GREEN}¥${gold_cny}/克 (≈¥${gold_liang}/两)${NC}"
     echo -e "      国际金价:          ${GREEN}\$${gold_usd}/oz${NC}"
     echo -e "      24h涨跌 / 24h:     $(fmt_change "$gold_change")"
     echo ""
-    echo -e "  ${CYAN}🥈 Silver (白银)${NC}"
+    echo -e "  ${CYAN} Silver (白银)${NC}"
     echo -e "      国内银价:          ${GREEN}¥${silver_cny}/克${NC}"
     echo -e "      国际银价:          ${GREEN}\$${silver_usd}/oz${NC}"
     echo -e "      24h涨跌 / 24h:     $(fmt_change "$silver_change")"
@@ -236,7 +236,7 @@ cmd_update() {
     mkdir -p /tmp/crypto-monitor
     echo "{\"gold\":$gold,\"silver\":$silver,\"timestamp\":$(date +%s)}" > "/tmp/crypto-monitor/metals_history.json"
     
-    echo -e "${GREEN}✅ 已更新贵金属价格${NC}"
+    echo -e "${GREEN} 已更新贵金属价格${NC}"
     echo "Gold: \$$gold/oz"
     echo "Silver: \$$silver/oz"
     echo ""

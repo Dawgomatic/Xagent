@@ -32,9 +32,9 @@ COMMENT_ID=$(echo "$RESPONSE" | jq -r '.id')
 TEXT_OUT=$(echo "$RESPONSE" | jq -r '.text')
 
 if [ "$COMMENT_ID" != "null" ]; then
-  echo "✅ Added comment #$COMMENT_ID: $TEXT_OUT"
+  echo " Added comment #$COMMENT_ID: $TEXT_OUT"
 else
-  echo "❌ Failed to add comment"
+  echo " Failed to add comment"
   echo "$RESPONSE" | jq .
   exit 1
 fi

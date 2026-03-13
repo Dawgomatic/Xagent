@@ -75,15 +75,15 @@ Format the fetched data as a status dashboard:
 
 | Area                  | Status | Details |
 |-----------------------|--------|---------|
-| WhatsApp Sessions     | ✅/❌  | {count} sessions, {working} active |
-| Group Monitoring      | ✅/❌  | {monitored}/{available} groups |
-| Custom Groups         | ✅/❌  | {count} groups ({member_count} contacts) |
-| Lead Pipeline         | ✅/❌  | {lead_count} leads ({new_count} new, {contacted} contacted) |
-| AI Features           | ✅/❌  | Consent {yes/no}, {profile_count} style profiles |
-| Scheduled Messages    | ✅/❌  | {count} active |
-| Review Collectors     | ✅/❌  | {count} active |
-| Webhooks              | ✅/❌  | {count} configured |
-| Conversations         | 📊     | {chat_count} conversations, {total_messages} messages |
+| WhatsApp Sessions     | /  | {count} sessions, {working} active |
+| Group Monitoring      | /  | {monitored}/{available} groups |
+| Custom Groups         | /  | {count} groups ({member_count} contacts) |
+| Lead Pipeline         | /  | {lead_count} leads ({new_count} new, {contacted} contacted) |
+| AI Features           | /  | Consent {yes/no}, {profile_count} style profiles |
+| Scheduled Messages    | /  | {count} active |
+| Review Collectors     | /  | {count} active |
+| Webhooks              | /  | {count} configured |
+| Conversations         |      | {chat_count} conversations, {total_messages} messages |
 ```
 
 ## Step 3: Analyze Growth Opportunities

@@ -64,6 +64,6 @@ If a finding could be either legitimate or malicious:
 - Check if the skill's stated purpose explains the finding
 - Check if the finding is in a doc file vs executable code  
 - Check if the URL/path is a well-known safe domain
-- If still uncertain, flag it as "⚠️ Worth reviewing" rather than "🔴 Dangerous"
+- If still uncertain, flag it as " Worth reviewing" rather than " Dangerous"
 
 Present both the finding AND the possible innocent explanation so the user can decide.

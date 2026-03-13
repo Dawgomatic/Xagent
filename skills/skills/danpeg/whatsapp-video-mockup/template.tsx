@@ -105,15 +105,15 @@ const ChatHeader = () => (
         fontSize: 36,
       }}
     >
-      🐡
+      
     </div>
     <div style={{ flex: 1 }}>
-      <div style={{ color: COLORS.text, fontSize: 32, fontWeight: 600 }}>Pokey 🐡</div>
+      <div style={{ color: COLORS.text, fontSize: 32, fontWeight: 600 }}>Pokey </div>
       <div style={{ color: COLORS.textSecondary, fontSize: 22 }}>online</div>
     </div>
     <div style={{ display: "flex", gap: 24, color: COLORS.textSecondary, fontSize: 32 }}>
-      <span>📹</span>
-      <span>📞</span>
+      <span></span>
+      <span></span>
     </div>
   </div>
 );
@@ -198,7 +198,7 @@ const Message = ({
         }}
       >
         {!isOutgoing && (
-          <div style={{ color: COLORS.green, fontSize: 28, marginBottom: 6 }}>[🐡]</div>
+          <div style={{ color: COLORS.green, fontSize: 28, marginBottom: 6 }}>[]</div>
         )}
         <div
           style={{
@@ -350,7 +350,7 @@ const ChatMessages = () => {
 
         {/* Success message */}
         <Message
-          text={`✅ **Skill saved!**
+          text={` **Skill saved!**
 
 \`~/clawd/skills/whatsapp-video/\`
 
@@ -362,7 +362,7 @@ Includes template, docs, and render script. Just tell me what conversation to sh
 
         {/* Dan's follow-up */}
         <Message
-          text="How do I share this skill with others? 🤔"
+          text="How do I share this skill with others? "
           isOutgoing={true}
           time="9:21 AM"
           delay={340}
@@ -374,7 +374,7 @@ Includes template, docs, and render script. Just tell me what conversation to sh
 
         {/* Pokey's answer */}
         <Message
-          text="Publish it to ClawdHub! 🚀"
+          text="Publish it to ClawdHub! "
           isOutgoing={false}
           time="9:21 AM"
           delay={440}
@@ -401,7 +401,7 @@ const EndCard = () => {
       }}
     >
       <div style={{ textAlign: "center", transform: `scale(${scale})`, opacity }}>
-        <div style={{ fontSize: 80, marginBottom: 25 }}>🧩</div>
+        <div style={{ fontSize: 80, marginBottom: 25 }}></div>
         <div
           style={{
             color: "white",

@@ -2,9 +2,9 @@
 name: google-weather
 description: Google Weather API - accurate, real-time weather data. Get current conditions, temperature, humidity, wind, and forecasts. Powered by Google's Weather API for reliable, hyperlocal data updated every 15 minutes. Supports any location worldwide.
 version: 1.2.0
-author: Leo 🦁
+author: Leo 
 tags: [weather, google, forecast, temperature, real-time, current-conditions, climate, wind, humidity]
-metadata: {"clawdbot":{"emoji":"🌤️","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","secondaryEnv":["GOOGLE_WEATHER_API_KEY","GOOGLE_MAPS_API_KEY"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","secondaryEnv":["GOOGLE_WEATHER_API_KEY","GOOGLE_MAPS_API_KEY"]}}
 allowed-tools: [exec]
 ---
 
@@ -31,20 +31,20 @@ python3 skills/google-weather/lib/weather_helper.py json "Paris"
 
 ```
 *New York*
-Partly Cloudy ⛅
-🌡️ 12°C (feels like 10°C)
-💨 Wind: 18 km/h NORTHWEST
-💧 Humidity: 55%
+Partly Cloudy 
+ 12°C (feels like 10°C)
+ Wind: 18 km/h NORTHWEST
+ Humidity: 55%
 ```
 
 ```
 *24h Forecast for Tel Aviv*
-18:00: 17.8°C, ☀️ 5 km/h NORTH
-22:00: 14.3°C, ☀️ 6 km/h EAST_NORTHEAST
-02:00: 12.8°C, ⛅ 8 km/h NORTHEAST
-06:00: 10.8°C, ☀️ 6 km/h EAST_NORTHEAST
-10:00: 16.1°C, ☀️ 5 km/h SOUTH
-14:00: 20.4°C, 🌤️ 8 km/h WEST_NORTHWEST
+18:00: 17.8°C,  5 km/h NORTH
+22:00: 14.3°C,  6 km/h EAST_NORTHEAST
+02:00: 12.8°C,  8 km/h NORTHEAST
+06:00: 10.8°C,  6 km/h EAST_NORTHEAST
+10:00: 16.1°C,  5 km/h SOUTH
+14:00: 20.4°C,  8 km/h WEST_NORTHWEST
 ```
 
 ## Supported Locations
@@ -84,5 +84,5 @@ Output adapts to location - supports English, Hebrew, and other languages based 
 ```bash
 # Hebrew output
 python3 skills/google-weather/lib/weather_helper.py current "Tel Aviv"
-# Output: בהיר ☀️ 19°C...
+# Output: בהיר  19°C...
 ```

@@ -177,14 +177,14 @@ Output format (see `templates/OUTPUT_TEMPLATE.md`):
 
 ### Caption Best Practices
 
-✅ DO:
+ DO:
 - Start with a hook (question, bold statement, emotion)
 - Write conversationally (like talking to a friend)
 - Use line breaks for readability
 - Include clear CTA
 - Add 3-5 relevant hashtags
 
-❌ DON'T:
+ DON'T:
 - Write paragraphs longer than 3 lines
 - Use excessive emojis (1-3 max)
 - Overuse hashtags (30 max, quality > quantity)
@@ -220,7 +220,7 @@ CTA: See the difference → link in bio
 
 ### Template 3: Social Proof
 ```
-Hook: ⭐⭐⭐⭐⭐ "Review quote"
+Hook:  "Review quote"
 Body: Join [number]+ happy customers.
 CTA: Try it risk-free → link in bio
 ```
@@ -234,7 +234,7 @@ CTA: Save this post + follow for more
 
 ### Template 5: Limited Time
 ```
-Hook: 🚨 Only [number] left!
+Hook:  Only [number] left!
 Body: [Product] at [price] for [timeframe].
 CTA: Don't miss out → link in bio
 ```

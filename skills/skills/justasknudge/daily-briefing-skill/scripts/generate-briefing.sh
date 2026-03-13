@@ -50,36 +50,36 @@ print_section() {
 date_str=$(date +"%A, %B %d")
 
 # Output header
-echo "📰 Good morning! Here's your briefing for $date_str"
+echo " Good morning! Here's your briefing for $date_str"
 echo
 
 # 1. Weather
-weather_output=$(python3 "${LIB_DIR}/weather.py" "$CITY" "$LAT" "$LON" 2>/dev/null || echo "⚠️ Weather unavailable")
-print_section "🌤️" "Weather in Leyton" "$weather_output"
+weather_output=$(python3 "${LIB_DIR}/weather.py" "$CITY" "$LAT" "$LON" 2>/dev/null || echo " Weather unavailable")
+print_section "" "Weather in Leyton" "$weather_output"
 
 # 2. Calendar
-calendar_output=$(python3 "${LIB_DIR}/calendar.py" 2>/dev/null || echo "   📭 Calendar unavailable")
-print_section "📅" "Today" "$calendar_output"
+calendar_output=$(python3 "${LIB_DIR}/calendar.py" 2>/dev/null || echo "    Calendar unavailable")
+print_section "" "Today" "$calendar_output"
 
 # 3. News
-news_output=$(python3 "${LIB_DIR}/news.py" 5 2>/dev/null || echo "   ⚠️ News unavailable")
-print_section "📰" "Top Stories" "$news_output"
+news_output=$(python3 "${LIB_DIR}/news.py" 5 2>/dev/null || echo "    News unavailable")
+print_section "" "Top Stories" "$news_output"
 
 # 4. AI/Tech Pulse
-ai_output=$(python3 "${LIB_DIR}/ai_pulse.py" 4 2>/dev/null || echo "   ⚠️ AI pulse unavailable")
-print_section "🤖" "AI/Tech Pulse" "$ai_output"
+ai_output=$(python3 "${LIB_DIR}/ai_pulse.py" 4 2>/dev/null || echo "    AI pulse unavailable")
+print_section "" "AI/Tech Pulse" "$ai_output"
 
 # 5. OpenClaw Deep Dive
-openclaw_output=$(python3 "${LIB_DIR}/openclaw_dive.py" 2>/dev/null || echo "   📦 Check out the latest skills in ~/openclaw/skills/")
-print_section "🦾" "OpenClaw Deep Dive" "$openclaw_output"
+openclaw_output=$(python3 "${LIB_DIR}/openclaw_dive.py" 2>/dev/null || echo "    Check out the latest skills in ~/openclaw/skills/")
+print_section "" "OpenClaw Deep Dive" "$openclaw_output"
 
 # 6. Model Usage / Costs
-cost_output=$(python3 "${LIB_DIR}/cost_tracker.py" 2>/dev/null || echo "   💸 Cost tracking unavailable")
-print_section "💸" "AI Spend Tracker" "$cost_output"
+cost_output=$(python3 "${LIB_DIR}/cost_tracker.py" 2>/dev/null || echo "    Cost tracking unavailable")
+print_section "" "AI Spend Tracker" "$cost_output"
 
 # 7. Two Things to Try
 suggestions_output=$(python3 "${LIB_DIR}/suggestions.py" 2 2>/dev/null || echo "   1. Review your TOOLS.md and update with any new learnings")
-print_section "💡" "Two Things to Try" "$suggestions_output"
+print_section "" "Two Things to Try" "$suggestions_output"
 
 # Footer
-echo "☕ Have a great day!"
+echo " Have a great day!"

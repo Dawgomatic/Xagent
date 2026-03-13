@@ -78,20 +78,20 @@ fi
 # Calculate posture score
 if [[ $TOTAL_SCANS -eq 0 ]]; then
     POSTURE="N/A (no scans)"
-    POSTURE_EMOJI="❓"
+    POSTURE_EMOJI=""
 elif [[ $THREATS_FOUND -eq 0 ]]; then
     POSTURE="Excellent (100/100)"
-    POSTURE_EMOJI="🟢"
+    POSTURE_EMOJI=""
 elif [[ $THREATS_FOUND -le 2 ]]; then
     POSTURE="Fair (60/100)"
-    POSTURE_EMOJI="🟡"
+    POSTURE_EMOJI=""
 else
     POSTURE="Poor (20/100)"
-    POSTURE_EMOJI="🔴"
+    POSTURE_EMOJI=""
 fi
 
 # Generate report
-REPORT="# 🛡️ Crusty Security Report
+REPORT="#  Crusty Security Report
 
 **Generated:** $TIMESTAMP
 **Period:** Last $DAYS days
@@ -115,7 +115,7 @@ if [[ $THREATS_FOUND -gt 0 ]]; then
 
 "
 else
-    REPORT+="✅ No threats detected in the reporting period.
+    REPORT+=" No threats detected in the reporting period.
 
 "
 fi
@@ -125,13 +125,13 @@ REPORT+="## Recommendations
 "
 
 if [[ $TOTAL_SCANS -eq 0 ]]; then
-    REPORT+="- ⚠️ No scans have been run. Schedule regular scans.
+    REPORT+="-  No scans have been run. Schedule regular scans.
 - Run: \`bash scripts/scan_file.sh -r /data/workspace\`
 "
 fi
 
 if [[ $THREATS_FOUND -gt 0 ]]; then
-    REPORT+="- 🚨 Review and remediate detected threats immediately.
+    REPORT+="-  Review and remediate detected threats immediately.
 - Check quarantine directory for isolated files.
 - Consider running a full system scan.
 "
@@ -139,10 +139,10 @@ fi
 
 # Check ClamAV
 if command -v clamscan &>/dev/null; then
-    REPORT+="- ✅ ClamAV is installed.
+    REPORT+="-  ClamAV is installed.
 "
 else
-    REPORT+="- ⚠️ ClamAV is not installed. Run \`scripts/install_clamav.sh\`.
+    REPORT+="-  ClamAV is not installed. Run \`scripts/install_clamav.sh\`.
 "
 fi
 

@@ -125,4 +125,4 @@ Run a direct SQL query. **Use with extreme caution.**
 - `query` (string, required): SQL query
 - Returns results for SELECT queries, affected rows for UPDATE/INSERT/DELETE.
 
-⚠️ **Safety**: Only use for read queries unless explicitly asked. Never DROP tables or modify core WP tables without confirmation.
+ **Safety**: Only use for read queries unless explicitly asked. Never DROP tables or modify core WP tables without confirmation.

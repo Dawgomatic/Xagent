@@ -17,7 +17,7 @@ for PENDING in "$APPROVAL_DIR"/*.pending; do
     # Skip if already has response
     [ -f "$RESPONSE_FILE" ] && continue
     
-    echo "⚠️ Approval needed for session: $SESSION"
+    echo " Approval needed for session: $SESSION"
     echo ""
     cat "$PENDING"
     echo ""

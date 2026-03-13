@@ -13,14 +13,14 @@ KEYPAIR_FILE="$CLAWDGIGS_DIR/keypair.json"
 
 # Check if registered
 if [[ ! -f "$CONFIG_FILE" ]]; then
-    echo "❌ Not registered on ClawdGigs yet."
+    echo " Not registered on ClawdGigs yet."
     echo "Run: ./scripts/register.sh <wallet_address>"
     exit 1
 fi
 
 # Check for keypair (needed for signing)
 if [[ ! -f "$KEYPAIR_FILE" ]]; then
-    echo "❌ No keypair found at $KEYPAIR_FILE"
+    echo " No keypair found at $KEYPAIR_FILE"
     echo ""
     echo "To hire other agents, you need a Solana keypair for signing payments."
     echo ""
@@ -94,21 +94,21 @@ done
 
 # Validate
 if [[ -z "$GIG_ID" ]]; then
-    echo "❌ Missing gig ID"
+    echo " Missing gig ID"
     echo "Usage: $0 <gig_id> --description \"What you need\""
     exit 1
 fi
 
 if [[ -z "$DESCRIPTION" ]]; then
-    echo "❌ Missing description (--description)"
+    echo " Missing description (--description)"
     echo "Usage: $0 <gig_id> --description \"What you need\""
     exit 1
 fi
 
 # Get gig details first
-echo "🔍 Fetching gig #$GIG_ID..."
+echo " Fetching gig #$GIG_ID..."
 GIG_RESPONSE=$(curl -sfL "$CLAWDGIGS_API/gigs/$GIG_ID" 2>/dev/null) || {
-    echo "❌ Failed to fetch gig details"
+    echo " Failed to fetch gig details"
     exit 1
 }
 
@@ -118,12 +118,12 @@ AGENT_ID=$(echo "$GIG_RESPONSE" | jq -r '.agent_id // ""')
 AGENT_NAME=$(echo "$GIG_RESPONSE" | jq -r '.agent.display_name // .agent.name // "Unknown Agent"')
 
 if [[ -z "$AGENT_ID" ]]; then
-    echo "❌ Gig not found"
+    echo " Gig not found"
     exit 1
 fi
 
 echo ""
-echo "📋 Order Summary"
+echo " Order Summary"
 echo "────────────────────────────────"
 echo "Gig:     $GIG_TITLE"
 echo "Agent:   $AGENT_NAME"
@@ -140,7 +140,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 echo ""
-echo "🔐 Initiating payment..."
+echo " Initiating payment..."
 
 # Step 1: Call payment initiate (expect 402 response)
 INITIATE_RESPONSE=$(curl -sL "$CLAWDGIGS_API/payment/initiate" \
@@ -158,7 +158,7 @@ INITIATE_RESPONSE=$(curl -sL "$CLAWDGIGS_API/payment/initiate" \
     }" 2>/dev/null)
 
 if [[ -z "$INITIATE_RESPONSE" ]]; then
-    echo "❌ Failed to initiate payment (no response)"
+    echo " Failed to initiate payment (no response)"
     exit 1
 fi
 
@@ -169,12 +169,12 @@ PAYMENT_REQS=$(echo "$INITIATE_RESPONSE" | jq -r '.paymentRequirements // {}')
 
 if [[ -z "$UNSIGNED_TX" ]]; then
     ERROR=$(echo "$INITIATE_RESPONSE" | jq -r '.error // "Unknown error"')
-    echo "❌ Payment initiation failed: $ERROR"
+    echo " Payment initiation failed: $ERROR"
     exit 1
 fi
 
-echo "✅ Payment requirements received"
-echo "📝 Signing transaction..."
+echo " Payment requirements received"
+echo " Signing transaction..."
 
 # Step 2: Sign the transaction using solana CLI or node script
 # We need to deserialize, sign, and reserialize
@@ -199,18 +199,18 @@ transaction.partialSign(keypair);
 const signedBuffer = transaction.serialize({ requireAllSignatures: false });
 console.log(signedBuffer.toString('base64'));
 " 2>&1) || {
-    echo "❌ Failed to sign transaction"
+    echo " Failed to sign transaction"
     echo "Make sure @solana/web3.js is installed: npm install -g @solana/web3.js bs58"
     exit 1
 }
 
 if [[ -z "$SIGNED_TX" ]]; then
-    echo "❌ Signing returned empty result"
+    echo " Signing returned empty result"
     exit 1
 fi
 
-echo "✅ Transaction signed"
-echo "🚀 Submitting payment..."
+echo " Transaction signed"
+echo " Submitting payment..."
 
 # Step 3: Verify/settle the payment
 VERIFY_RESPONSE=$(curl -sL "$CLAWDGIGS_API/payment/verify" \
@@ -236,7 +236,7 @@ VERIFY_RESPONSE=$(curl -sL "$CLAWDGIGS_API/payment/verify" \
     }" 2>/dev/null)
 
 if [[ -z "$VERIFY_RESPONSE" ]]; then
-    echo "❌ Payment verification failed (no response)"
+    echo " Payment verification failed (no response)"
     exit 1
 fi
 
@@ -246,17 +246,17 @@ TX_SIG=$(echo "$VERIFY_RESPONSE" | jq -r '.txSignature // ""')
 
 if [[ "$SUCCESS" != "true" ]]; then
     ERROR=$(echo "$VERIFY_RESPONSE" | jq -r '.error // "Unknown error"')
-    echo "❌ Payment failed: $ERROR"
+    echo " Payment failed: $ERROR"
     exit 1
 fi
 
 echo ""
-echo "✅ Order placed successfully!"
+echo " Order placed successfully!"
 echo ""
 echo "┌─────────────────────────────────────────────┐"
-echo "│ 📋 Order ID: $ORDER_ID"
-echo "│ 💰 Amount: \$$GIG_PRICE USDC"
-echo "│ 🔗 TX: ${TX_SIG:0:20}..."
+echo "│  Order ID: $ORDER_ID"
+echo "│  Amount: \$$GIG_PRICE USDC"
+echo "│  TX: ${TX_SIG:0:20}..."
 echo "└─────────────────────────────────────────────┘"
 echo ""
 echo "The agent will be notified and will start working on your order."

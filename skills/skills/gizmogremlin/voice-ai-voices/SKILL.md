@@ -4,12 +4,12 @@ description: >
   High-quality voice synthesis with 9 personas, 11 languages, and streaming using Voice.ai API.
 version: 1.1.5
 tags: [tts, voice, speech, voice-ai, audio, streaming, multilingual]
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["node"],"env":["VOICE_AI_API_KEY"]},"primaryEnv":"VOICE_AI_API_KEY"},"openclaw":{"requires":{"bins":["node"],"env":{"VOICE_AI_API_KEY":"required"},"note":"Set VOICE_AI_API_KEY via an environment variable."}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"],"env":["VOICE_AI_API_KEY"]},"primaryEnv":"VOICE_AI_API_KEY"},"openclaw":{"requires":{"bins":["node"],"env":{"VOICE_AI_API_KEY":"required"},"note":"Set VOICE_AI_API_KEY via an environment variable."}}}
 ---
 
 # Voice.ai Voices
 
-## ✨ Features
+##  Features
 
 - **9 Voice Personas** - Carefully curated voices for different use cases
 - **11 Languages** - Multi-language synthesis with multilingual model
@@ -19,7 +19,7 @@ metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["node"],"env":["VOI
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Set your API key as an environment variable:
 
@@ -31,11 +31,11 @@ export VOICE_AI_API_KEY="your-api-key"
 
 ---
 
-## 📦 Installation
+##  Installation
 
 No install step is required. This skill bundles a Node.js CLI and SDK (no external npm dependencies).
 
-## 🧩 Key Files
+##  Key Files
 
 - [`scripts/tts.js`](scripts/tts.js) - CLI entrypoint
 - [`voice-ai-tts-sdk.js`](voice-ai-tts-sdk.js) - Node.js SDK used by the CLI
@@ -53,19 +53,19 @@ This skill:
 - Writes audio output to the `--output` path (default `output.mp3`)
 - Does not execute shell commands and does not modify system configuration files
 
-## 🌐 API Endpoint
+##  API Endpoint
 
 The SDK and spec use `https://dev.voice.ai`, which is the official Voice.ai production API domain.
 
 ---
 
-## 🤖 OpenClaw Integration
+##  OpenClaw Integration
 
 OpenClaw can invoke the CLI script directly if your environment exposes `VOICE_AI_API_KEY`. Use the `/tts` commands as configured by your OpenClaw installation.
 
 ---
 
-## 📝 Triggers
+##  Triggers
 
 These chat commands work with OpenClaw:
 
@@ -86,7 +86,7 @@ These chat commands work with OpenClaw:
 
 ---
 
-## 🎙️ Available Voices
+##  Available Voices
 
 | Voice   | ID | Gender | Persona     | Best For                   |
 |---------|-----|--------|-------------|----------------------------|
@@ -102,7 +102,7 @@ These chat commands work with OpenClaw:
 
 ---
 
-## 🌍 Supported Languages
+##  Supported Languages
 
 | Code | Language   |
 |------|------------|
@@ -131,7 +131,7 @@ const audio = await client.generateSpeech({
 
 ---
 
-## 🎨 Voice Design
+##  Voice Design
 
 Customize voice output with these parameters:
 
@@ -153,7 +153,7 @@ const audio = await client.generateSpeech({
 
 ---
 
-## 📡 Streaming Mode
+##  Streaming Mode
 
 Generate audio with real-time streaming (recommended for long texts):
 
@@ -184,7 +184,7 @@ stream.on('data', chunk => {
 
 ---
 
-## 🔊 Audio Formats
+##  Audio Formats
 
 | Format | Description | Use Case |
 |--------|-------------|----------|
@@ -198,7 +198,7 @@ See `voice-ai-tts-sdk.js` for all format options.
 
 ---
 
-## 💻 CLI Usage
+##  CLI Usage
 
 ```bash
 # Set API key
@@ -219,7 +219,7 @@ node scripts/tts.js --help
 
 ---
 
-## 📁 Files
+##  Files
 
 ```
 voice-ai-tts/
@@ -238,7 +238,7 @@ voice-ai-tts/
 
 ---
 
-## 💰 Cost & Usage
+##  Cost & Usage
 
 Voice.ai uses a credit-based system. Check your usage:
 
@@ -255,7 +255,7 @@ const voices = await client.listVoices();
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **[Get API Key](https://voice.ai/dashboard)** - Sign up and get your key
 - **[API Documentation](https://voice.ai/docs)** - Full API reference
@@ -265,7 +265,7 @@ const voices = await client.listVoices();
 
 ---
 
-## 📋 Changelog
+##  Changelog
 
 ### v1.1.5 (2026-02-16)
 - Declare runtime requirements via `metadata.clawdbot` so ClawHub shows required env vars
@@ -301,7 +301,7 @@ const voices = await client.listVoices();
 
 ---
 
-## 🛠️ SDK Quick Reference
+##  SDK Quick Reference
 
 ```javascript
 const VoiceAI = require('./voice-ai-tts-sdk');
@@ -338,7 +338,7 @@ await client.deleteVoice('voice-id');
 
 ---
 
-## ❓ Troubleshooting
+##  Troubleshooting
 
 | Error | Cause | Solution |
 |-------|-------|----------|
@@ -349,4 +349,4 @@ await client.deleteVoice('voice-id');
 
 ---
 
-Made with ❤️ by [Nick Gill](https://github.com/gizmoGremlin)
+Made with  by [Nick Gill](https://github.com/gizmoGremlin)

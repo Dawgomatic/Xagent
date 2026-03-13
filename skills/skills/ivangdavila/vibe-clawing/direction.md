@@ -108,12 +108,12 @@ The player touches every note. The conductor sets the direction and lets the orc
 ## The Ultimate Goal
 
 Wake up. Check what happened while you slept.
-- ☑️ PRDs written, tasks prioritized
-- ☑️ Interfaces designed, flows tested
-- ☑️ Servers deployed, issues fixed
-- ☑️ Markets researched, next steps ready
-- ☑️ Customers onboarded, support handled
-- ☑️ Campaigns launched, results tracked
+-  PRDs written, tasks prioritized
+-  Interfaces designed, flows tested
+-  Servers deployed, issues fixed
+-  Markets researched, next steps ready
+-  Customers onboarded, support handled
+-  Campaigns launched, results tracked
 
 Your job: Set the direction for the next cycle.
 Point at what matters. Connect the dots. Get out of the way.

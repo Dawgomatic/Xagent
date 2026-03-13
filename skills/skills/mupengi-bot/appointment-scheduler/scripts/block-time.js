@@ -63,5 +63,5 @@ bookings.sort((a, b) => a.time.localeCompare(b.time));
 
 fs.writeFileSync(filePath, JSON.stringify(bookings, null, 2));
 
-console.log('✅ Time slot blocked:');
+console.log(' Time slot blocked:');
 console.log(JSON.stringify(blocked, null, 2));

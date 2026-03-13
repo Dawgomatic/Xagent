@@ -25,7 +25,7 @@ async function uploadVideo() {
   
   const videoPath = '/Users/ericwoodard/Desktop/devotionals/devotional-with-title.mp4';
   
-  console.log('📹 Starting video upload...\n');
+  console.log(' Starting video upload...\n');
   
   try {
     const response = await youtube.videos.insert({
@@ -37,8 +37,8 @@ async function uploadVideo() {
 
 But Scripture offers us a different perspective. The psalmist declares that even if the mountains fall into the sea, we need not fear. Why? Because God is not only our refuge—He is our strength.
 
-🌅 Daily Devotional - Feb 4, 2026
-📖 Psalm 46:1-3
+ Daily Devotional - Feb 4, 2026
+ Psalm 46:1-3
 
 Subscribe for daily devotionals!`,
           tags: ['devotional', 'daily devotion', 'psalm 46', 'faith', 'christian', 'bible', 'prayer'],
@@ -54,13 +54,13 @@ Subscribe for daily devotionals!`,
     });
     
     const videoId = response.data.id;
-    console.log('✅ Upload complete!\n');
-    console.log(`📺 Video ID: ${videoId}`);
-    console.log(`🔗 Link: https://youtube.com/watch?v=${videoId}`);
+    console.log(' Upload complete!\n');
+    console.log(` Video ID: ${videoId}`);
+    console.log(` Link: https://youtube.com/watch?v=${videoId}`);
     
     return videoId;
   } catch (error) {
-    console.error('❌ Upload failed:', error.message);
+    console.error(' Upload failed:', error.message);
     throw error;
   }
 }

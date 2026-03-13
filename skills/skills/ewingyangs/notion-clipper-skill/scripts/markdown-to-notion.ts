@@ -190,7 +190,7 @@ export function createMetadataCallout(
       }],
       icon: {
         type: "emoji",
-        emoji: "📎",
+        emoji: "",
       },
       color: "gray_background",
     },

@@ -105,7 +105,7 @@ class ProductionShibPaymentExecutor {
     // Extract agent ID (set by middleware before execution)
     const agentId = this.currentAgentId || 'unknown';
     
-    console.log(`📨 [${agentId}] Received [${taskId}]: ${text}`);
+    console.log(` [${agentId}] Received [${taskId}]: ${text}`);
     
     const createMessage = (text) => ({
       kind: 'message',
@@ -131,7 +131,7 @@ class ProductionShibPaymentExecutor {
       const authCheck = authSystem.authorize(agentId, 'payment', amount);
       if (!authCheck.authorized) {
         auditLogger.logPaymentRequest(agentId, recipient, amount, false);
-        eventBus.publish(createMessage(`❌ Payment denied: ${authCheck.reason}`));
+        eventBus.publish(createMessage(` Payment denied: ${authCheck.reason}`));
         eventBus.finished();
         return;
       }
@@ -139,7 +139,7 @@ class ProductionShibPaymentExecutor {
       const rateLimitCheck = rateLimiter.checkPayment(agentId, amount);
       if (!rateLimitCheck.allowed) {
         auditLogger.logRateLimitHit(agentId, rateLimitCheck.reason);
-        eventBus.publish(createMessage(`❌ Rate limit: ${rateLimitCheck.reason}\nRetry after ${rateLimitCheck.retryAfter}s`));
+        eventBus.publish(createMessage(` Rate limit: ${rateLimitCheck.reason}\nRetry after ${rateLimitCheck.retryAfter}s`));
         eventBus.finished();
         return;
       }
@@ -154,18 +154,18 @@ class ProductionShibPaymentExecutor {
         auditLogger.logPaymentExecuted(agentId, recipient, amount, result.txHash, result.gasCostUSD);
         
         eventBus.publish(createMessage(
-          `✅ Payment sent!\n\nAmount: ${amount} SHIB\nTo: ${recipient}\nTx: ${result.txHash}\nGas: ${result.gasCostUSD}\n\n${result.explorerUrl}\n\n🔒 Audit: Logged`
+          ` Payment sent!\n\nAmount: ${amount} SHIB\nTo: ${recipient}\nTx: ${result.txHash}\nGas: ${result.gasCostUSD}\n\n${result.explorerUrl}\n\n Audit: Logged`
         ));
       } catch (error) {
         auditLogger.logPaymentFailed(agentId, recipient, amount, error.message);
-        eventBus.publish(createMessage(`❌ Payment failed: ${error.message}`));
+        eventBus.publish(createMessage(` Payment failed: ${error.message}`));
       }
 
     } else if (text.includes('balance')) {
       // Check auth
       const authCheck = authSystem.authorize(agentId, 'balance');
       if (!authCheck.authorized) {
-        eventBus.publish(createMessage(`❌ Access denied: ${authCheck.reason}`));
+        eventBus.publish(createMessage(` Access denied: ${authCheck.reason}`));
         eventBus.finished();
         return;
       }
@@ -175,15 +175,15 @@ class ProductionShibPaymentExecutor {
         auditLogger.logBalanceCheck(agentId, balance.address, balance.balance);
         
         eventBus.publish(createMessage(
-          `💰 SHIB Balance\n\nAddress: ${balance.address}\nBalance: ${balance.balance} SHIB\nNetwork: Polygon`
+          ` SHIB Balance\n\nAddress: ${balance.address}\nBalance: ${balance.balance} SHIB\nNetwork: Polygon`
         ));
       } catch (error) {
-        eventBus.publish(createMessage(`❌ Balance check failed: ${error.message}`));
+        eventBus.publish(createMessage(` Balance check failed: ${error.message}`));
       }
 
     } else {
       eventBus.publish(createMessage(
-        `🦪 SHIB Payment Agent (Production)\n\nCommands:\n- send <amount> SHIB to <address>\n- balance\n\n🔒 Security:\n- API key required (X-API-Key header)\n- Rate limit: 3 payments/min\n- Max payment: Check your agent config\n- All actions logged\n\nExample: send 100 SHIB to 0xDBD846593c1C89014a64bf0ED5802126912Ba99A`
+        ` SHIB Payment Agent (Production)\n\nCommands:\n- send <amount> SHIB to <address>\n- balance\n\n Security:\n- API key required (X-API-Key header)\n- Rate limit: 3 payments/min\n- Max payment: Check your agent config\n- All actions logged\n\nExample: send 100 SHIB to 0xDBD846593c1C89014a64bf0ED5802126912Ba99A`
       ));
     }
     
@@ -191,7 +191,7 @@ class ProductionShibPaymentExecutor {
   }
   
   async cancelTask(taskId, eventBus) {
-    console.log(`🛑 Task ${taskId} cancellation requested`);
+    console.log(` Task ${taskId} cancellation requested`);
     auditLogger.log('task_cancelled', { taskId });
   }
 }
@@ -311,9 +311,9 @@ async function startServer() {
 
   // Start listening
   app.listen(port, () => {
-    console.log('🦪 OpenClaw SHIB Payment Agent (PRODUCTION)');
+    console.log(' OpenClaw SHIB Payment Agent (PRODUCTION)');
     console.log('');
-    console.log('✅ Agent is online and secured!');
+    console.log(' Agent is online and secured!');
     console.log('');
     console.log('Agent Info:');
     console.log(`  Name: ${agentCard.name}`);
@@ -321,7 +321,7 @@ async function startServer() {
     console.log(`  Wallet: ${config.walletAddress}`);
     console.log(`  Network: Polygon (eip155:137)`);
     console.log('');
-    console.log('🔒 Security Features:');
+    console.log(' Security Features:');
     console.log('  ✓ API Key Authentication');
     console.log('  ✓ Rate Limiting (3 payments/min, 500 SHIB/min)');
     console.log('  ✓ Audit Logging (immutable, hash-chained)');
@@ -339,7 +339,7 @@ async function startServer() {
     console.log('');
     
     // Print API keys for configured agents
-    console.log('🔑 Configured Agents:');
+    console.log(' Configured Agents:');
     const authConfig = authSystem.config;
     Object.entries(authConfig.agents).forEach(([id, agent]) => {
       if (agent.enabled) {
@@ -355,7 +355,7 @@ async function startServer() {
   // Graceful shutdown
   process.on('SIGINT', () => {
     console.log('');
-    console.log('🛑 Shutting down agent...');
+    console.log(' Shutting down agent...');
     auditLogger.log('agent_stop', { timestamp: new Date().toISOString() });
     process.exit(0);
   });

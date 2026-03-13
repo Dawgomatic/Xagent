@@ -249,7 +249,7 @@ def get_web3(command: str = "read", network_override: Optional[str] = None):
     try:
         from web3 import Web3
     except ImportError:
-        print("❌ Error: web3 package not installed")
+        print(" Error: web3 package not installed")
         print("   Run: pip install web3")
         sys.exit(1)
     
@@ -261,7 +261,7 @@ def get_web3(command: str = "read", network_override: Optional[str] = None):
     w3 = Web3(Web3.HTTPProvider(config["rpc_url"]))
     
     if not w3.is_connected():
-        print(f"❌ Error: Cannot connect to {config['network']} RPC")
+        print(f" Error: Cannot connect to {config['network']} RPC")
         sys.exit(1)
     
     return w3, config
@@ -399,13 +399,13 @@ def render_progress_bar(score: int, width: int = 10) -> str:
 def trust_level(score: int) -> str:
     """Convert score to trust level."""
     if score >= 80:
-        return "✅ HIGH TRUST"
+        return " HIGH TRUST"
     elif score >= 60:
-        return "🟡 MODERATE"
+        return " MODERATE"
     elif score >= 40:
-        return "🟠 LOW"
+        return " LOW"
     else:
-        return "🔴 VERY LOW"
+        return " VERY LOW"
 
 
 # ============================================================================
@@ -416,20 +416,20 @@ def cmd_verify(identifier: str, network: Optional[str] = None):
     """Verify an agent's on-chain identity."""
     w3, config = get_web3("read", network)
     
-    print(f"⛓️ Verifying agent: {identifier}")
+    print(f" Verifying agent: {identifier}")
     print(f"   Network: {config['network'].upper()}")
     print("━" * 40)
     
     agent_id, owner = resolve_agent_id(w3, config, identifier)
     
     if agent_id is None and owner is None:
-        print("❌ NOT REGISTERED on ERC-8004")
+        print(" NOT REGISTERED on ERC-8004")
         print("")
         print("This identifier has no on-chain agent identity.")
         print("They can register at: https://chaoscha.in")
         return
     
-    print(f"✅ REGISTERED on ERC-8004")
+    print(f" REGISTERED on ERC-8004")
     print("")
     
     if agent_id:
@@ -457,7 +457,7 @@ def cmd_verify(identifier: str, network: Optional[str] = None):
         
         # Link to 8004scan
         print("")
-        print(f"🔗 https://8004scan.io/agents/{config['network']}/{agent_id}")
+        print(f" https://8004scan.io/agents/{config['network']}/{agent_id}")
     else:
         print(f"Address: {owner}")
         print("This address owns agent(s) but specific ID not resolved.")
@@ -470,11 +470,11 @@ def cmd_reputation(identifier: str, network: Optional[str] = None):
     agent_id, owner = resolve_agent_id(w3, config, identifier)
     
     if agent_id is None:
-        print(f"❌ Cannot fetch reputation: Agent not found")
+        print(f" Cannot fetch reputation: Agent not found")
         print(f"   Identifier: {identifier}")
         return
     
-    print(f"⛓️ Agent #{agent_id} Reputation")
+    print(f" Agent #{agent_id} Reputation")
     print(f"   Network: {config['network'].upper()}")
     print("━" * 40)
     
@@ -500,7 +500,7 @@ def cmd_reputation(identifier: str, network: Optional[str] = None):
     print(f"Based on {count} on-chain feedback entries.")
     
     print("")
-    print(f"🔗 https://8004scan.io/agents/{config['network']}/{agent_id}")
+    print(f" https://8004scan.io/agents/{config['network']}/{agent_id}")
 
 
 def cmd_whoami(network: Optional[str] = None):
@@ -517,7 +517,7 @@ def cmd_whoami(network: Optional[str] = None):
         address = account.address
     
     if not address:
-        print("❌ No wallet configured")
+        print(" No wallet configured")
         print("")
         print("Set CHAOSCHAIN_ADDRESS or CHAOSCHAIN_PRIVATE_KEY in your OpenClaw config:")
         print("")
@@ -532,7 +532,7 @@ def cmd_whoami(network: Optional[str] = None):
         print('  }')
         return
     
-    print(f"⛓️ Checking identity for: {address[:10]}...{address[-8:]}")
+    print(f" Checking identity for: {address[:10]}...{address[-8:]}")
     print(f"   Network: {config['network'].upper()}")
     print("━" * 40)
     
@@ -545,16 +545,16 @@ def cmd_whoami(network: Optional[str] = None):
         balance = identity.functions.balanceOf(w3.to_checksum_address(address)).call()
         
         if balance > 0:
-            print(f"✅ You have {balance} registered agent(s)")
+            print(f" You have {balance} registered agent(s)")
             print("")
             print("Use /chaoschain reputation <your_agent_id> to see your scores.")
         else:
-            print("❌ No registered agent found for this wallet")
+            print(" No registered agent found for this wallet")
             print("")
             print("Register with: /chaoschain register")
             print("(Requires CHAOSCHAIN_PRIVATE_KEY and ETH for gas)")
     except Exception as e:
-        print(f"❌ Error checking identity: {e}")
+        print(f" Error checking identity: {e}")
 
 
 def cmd_register(network: Optional[str] = None):
@@ -562,12 +562,12 @@ def cmd_register(network: Optional[str] = None):
     # Get config FIRST to show which network
     w3, config = get_web3("register", network)
     
-    print("⚠️  WARNING: ON-CHAIN TRANSACTION")
+    print("  WARNING: ON-CHAIN TRANSACTION")
     print("━" * 40)
     
     # Extra warning for mainnet
     if config["network"] == "mainnet":
-        print("🔴 MAINNET TRANSACTION - REAL ETH REQUIRED")
+        print(" MAINNET TRANSACTION - REAL ETH REQUIRED")
         print("")
         print("You are about to register on Ethereum Mainnet.")
         print("This costs real ETH and is permanent.")
@@ -587,7 +587,7 @@ def cmd_register(network: Optional[str] = None):
     private_key = os.environ.get("CHAOSCHAIN_PRIVATE_KEY")
     
     if not private_key:
-        print("❌ CHAOSCHAIN_PRIVATE_KEY not set")
+        print(" CHAOSCHAIN_PRIVATE_KEY not set")
         print("")
         print("To register, add your private key to OpenClaw config:")
         print("")
@@ -617,7 +617,7 @@ def cmd_register(network: Optional[str] = None):
     
     if balance_eth < 0.001:
         print("")
-        print("❌ Insufficient ETH for gas")
+        print(" Insufficient ETH for gas")
         print(f"   Need at least 0.001 ETH, have {balance_eth:.6f} ETH")
         return
     
@@ -630,7 +630,7 @@ def cmd_register(network: Optional[str] = None):
     existing = identity.functions.balanceOf(w3.to_checksum_address(address)).call()
     if existing > 0:
         print("")
-        print(f"⚠️  You already have {existing} registered agent(s)")
+        print(f"  You already have {existing} registered agent(s)")
         print("   Registration will create an additional agent ID.")
     
     print("")
@@ -663,8 +663,8 @@ def cmd_register(network: Optional[str] = None):
         signed = w3.eth.account.sign_transaction(tx, private_key)
         tx_hash = w3.eth.send_raw_transaction(signed.raw_transaction)
         
-        print(f"📤 Transaction sent: {tx_hash.hex()}")
-        print(f"🔗 {config['explorer']}/tx/{tx_hash.hex()}")
+        print(f" Transaction sent: {tx_hash.hex()}")
+        print(f" {config['explorer']}/tx/{tx_hash.hex()}")
         print("")
         print("Waiting for confirmation...")
         
@@ -673,17 +673,17 @@ def cmd_register(network: Optional[str] = None):
         
         if receipt.status == 1:
             print("")
-            print("✅ Registration successful!")
+            print(" Registration successful!")
             print("")
             print("Your agent is now registered on ERC-8004.")
             print("Use /chaoschain whoami to see your agent ID.")
         else:
             print("")
-            print("❌ Transaction failed")
+            print(" Transaction failed")
             print(f"   Receipt: {receipt}")
     
     except Exception as e:
-        print(f"❌ Registration failed: {e}")
+        print(f" Registration failed: {e}")
 
 
 def parse_network_flag(args: list) -> Tuple[list, Optional[str]]:
@@ -697,7 +697,7 @@ def parse_network_flag(args: list) -> Tuple[list, Optional[str]]:
             network = args[i + 1].lower()
             network = NETWORK_ALIASES.get(network, network)
             if network not in CONTRACTS:
-                print(f"❌ Unknown network: {network}")
+                print(f" Unknown network: {network}")
                 print("   Valid options: mainnet, sepolia, or SDK-style keys (e.g. base_mainnet)")
                 sys.exit(1)
             i += 2
@@ -705,7 +705,7 @@ def parse_network_flag(args: list) -> Tuple[list, Optional[str]]:
             network = args[i].split("=")[1].lower()
             network = NETWORK_ALIASES.get(network, network)
             if network not in CONTRACTS:
-                print(f"❌ Unknown network: {network}")
+                print(f" Unknown network: {network}")
                 print("   Valid options: mainnet, sepolia, or SDK-style keys (e.g. base_mainnet)")
                 sys.exit(1)
             i += 1

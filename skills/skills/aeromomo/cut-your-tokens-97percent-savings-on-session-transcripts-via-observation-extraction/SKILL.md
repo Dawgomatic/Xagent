@@ -3,7 +3,7 @@ name: claw-compactor
 description: "Claw Compactor v6.0 — 50%+ savings through rule-based compression, dictionary encoding, session observation compression, and progressive context loading."
 ---
 
-# 🦞 Claw Compactor
+#  Claw Compactor
 
 ![Claw Compactor Banner](assets/banner.png)
 
@@ -24,11 +24,11 @@ description: "Claw Compactor v6.0 — 50%+ savings through rule-based compressio
 
 | # | Layer | Method | Savings | Lossless? |
 |---|-------|--------|---------|-----------|
-| 1 | Rule engine | Dedup lines, strip markdown filler, merge sections | 4-8% | ✅ |
-| 2 | Dictionary encoding | Auto-learned codebook, `$XX` substitution | 4-5% | ✅ |
-| 3 | Observation compression | Session JSONL → structured summaries | ~97% | ❌* |
-| 4 | RLE patterns | Path shorthand (`$WS`), IP prefix, enum compaction | 1-2% | ✅ |
-| 5 | Compressed Context Protocol | ultra/medium/light abbreviation | 20-60% | ❌* |
+| 1 | Rule engine | Dedup lines, strip markdown filler, merge sections | 4-8% |  |
+| 2 | Dictionary encoding | Auto-learned codebook, `$XX` substitution | 4-5% |  |
+| 3 | Observation compression | Session JSONL → structured summaries | ~97% | * |
+| 4 | RLE patterns | Path shorthand (`$WS`), IP prefix, enum compaction | 1-2% |  |
+| 5 | Compressed Context Protocol | ultra/medium/light abbreviation | 20-60% | * |
 
 \*Lossy techniques preserve all facts and decisions; only verbose formatting is removed.
 
@@ -190,7 +190,7 @@ A: Yes. Full CJK support including character-aware token estimation and Chinese 
 ## Credits
 
 - Inspired by [claude-mem](https://github.com/thedotmack/claude-mem) by thedotmack
-- Built by Bot777 🤖 for [OpenClaw](https://openclaw.ai)
+- Built by Bot777  for [OpenClaw](https://openclaw.ai)
 
 ## License
 

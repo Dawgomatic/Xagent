@@ -68,7 +68,7 @@ function checkSqliteVec(db) {
         sqliteVecPath = 'vec0 (system)';
         console.error('✓ sqlite-vec loaded (system)');
     } catch (err) {
-        console.error('ℹ sqlite-vec not available, using JS cosine similarity');
+        console.error(' sqlite-vec not available, using JS cosine similarity');
     }
 }
 
@@ -129,7 +129,7 @@ function createSchema(db) {
             `);
             console.error('✓ vec0 virtual table created');
         } catch (err) {
-            console.error('⚠ Failed to create vec0 table:', err.message);
+            console.error(' Failed to create vec0 table:', err.message);
             sqliteVecAvailable = false;
         }
     }

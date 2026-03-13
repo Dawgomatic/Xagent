@@ -37,7 +37,7 @@ const DOCTRINAL_KEYWORDS = [
 const DOCTRINAL_ALERTS_FILE = path.join(process.env.HOME, '.clawd-devotional', 'temp', 'doctrinal-alerts.json');
 
 async function checkCommentsForSuggestions() {
-  console.log('🔍 Checking YouTube comments for user suggestions...\n');
+  console.log(' Checking YouTube comments for user suggestions...\n');
   
   // Load credentials
   const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_FILE, 'utf8'));
@@ -123,7 +123,7 @@ async function checkCommentsForSuggestions() {
                 used: false
               });
               
-              console.log(`  💡 Suggestion from ${author}: "${topic.substring(0, 60)}..."`);
+              console.log(`   Suggestion from ${author}: "${topic.substring(0, 60)}..."`);
             }
           }
           
@@ -142,7 +142,7 @@ async function checkCommentsForSuggestions() {
             
             if (!isDuplicateAlert(alert, existingAlerts)) {
               doctrinalAlerts.push(alert);
-              console.log(`  ⚠️  DOCTRINAL ALERT from ${author}: "${comment.textDisplay.substring(0, 50)}..."`);
+              console.log(`    DOCTRINAL ALERT from ${author}: "${comment.textDisplay.substring(0, 50)}..."`);
             }
           }
         }
@@ -156,22 +156,22 @@ async function checkCommentsForSuggestions() {
     if (suggestions.length > 0) {
       const allSuggestions = [...existingSuggestions, ...suggestions];
       saveSuggestions(allSuggestions);
-      console.log(`\n✅ Found ${suggestions.length} new suggestions`);
-      console.log(`📁 Total suggestions: ${allSuggestions.filter(s => !s.used).length} unused`);
+      console.log(`\n Found ${suggestions.length} new suggestions`);
+      console.log(` Total suggestions: ${allSuggestions.filter(s => !s.used).length} unused`);
     } else {
-      console.log('\n✅ No new suggestions found');
+      console.log('\n No new suggestions found');
     }
     
     // Save doctrinal alerts
     if (doctrinalAlerts.length > 0) {
       const allAlerts = [...existingAlerts, ...doctrinalAlerts];
       saveAlerts(allAlerts);
-      console.log(`\n🚨 Found ${doctrinalAlerts.length} doctrinal questions for Snail's attention`);
-      console.log(`📁 Total unreviewed alerts: ${allAlerts.filter(a => !a.reviewed).length}`);
+      console.log(`\n Found ${doctrinalAlerts.length} doctrinal questions for Snail's attention`);
+      console.log(` Total unreviewed alerts: ${allAlerts.filter(a => !a.reviewed).length}`);
     }
     
   } catch (error) {
-    console.error('❌ Error checking comments:', error.message);
+    console.error(' Error checking comments:', error.message);
   }
 }
 

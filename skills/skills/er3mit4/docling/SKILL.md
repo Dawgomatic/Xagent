@@ -54,7 +54,7 @@ docling "/path/to/file.pdf" --ocr --device cuda --output /tmp/docling_out
 
 ## Security Notes
 
-⚠️ **Avoid these flags unless you trust the source:**
+ **Avoid these flags unless you trust the source:**
 - `--enable-remote-services` - can send data to remote endpoints
 - `--allow-external-plugins` - loads third-party code
 - Custom `--headers` with untrusted values - can redirect requests

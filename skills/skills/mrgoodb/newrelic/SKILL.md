@@ -1,7 +1,7 @@
 ---
 name: newrelic
 description: Monitor applications and infrastructure via New Relic API. Query metrics and manage alerts.
-metadata: {"clawdbot":{"emoji":"📈","requires":{"env":["NEWRELIC_API_KEY","NEWRELIC_ACCOUNT_ID"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["NEWRELIC_API_KEY","NEWRELIC_ACCOUNT_ID"]}}}
 ---
 # New Relic
 Observability platform.

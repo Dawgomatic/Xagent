@@ -169,7 +169,7 @@ async function runMode(mode: "blocks" | "mutes", rawArgs: string[]): Promise<voi
       return;
     }
 
-    console.log(`\n🚫 ${cfg.noun[0].toUpperCase()}${cfg.noun.slice(1)} — @${tokens.username} (${users.length})\n`);
+    console.log(`\n ${cfg.noun[0].toUpperCase()}${cfg.noun.slice(1)} — @${tokens.username} (${users.length})\n`);
     for (let i = 0; i < users.length; i++) {
       const u = users[i];
       const followers = u.public_metrics?.followers_count;
@@ -200,7 +200,7 @@ async function runMode(mode: "blocks" | "mutes", rawArgs: string[]): Promise<voi
 
     console.log(
       ok
-        ? `✅ ${mode === "blocks" ? "Blocked" : "Muted"} @${resolved.username}`
+        ? ` ${mode === "blocks" ? "Blocked" : "Muted"} @${resolved.username}`
         : `Failed to ${mode === "blocks" ? "block" : "mute"} @${resolved.username}`,
     );
     return;
@@ -224,7 +224,7 @@ async function runMode(mode: "blocks" | "mutes", rawArgs: string[]): Promise<voi
 
     console.log(
       ok
-        ? `✅ Removed ${mode === "blocks" ? "block" : "mute"} for @${resolved.username}`
+        ? ` Removed ${mode === "blocks" ? "block" : "mute"} for @${resolved.username}`
         : `Failed to remove ${mode === "blocks" ? "block" : "mute"} for @${resolved.username}`,
     );
     return;

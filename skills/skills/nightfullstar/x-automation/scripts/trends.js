@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function getTrendingTopics() {
-  console.log('🔥 Fetching trending topics...');
+  console.log(' Fetching trending topics...');
   
   const browser = await chromium.connectOverCDP('http://127.0.0.1:18792');
   const context = browser.contexts()[0];
@@ -36,7 +36,7 @@ async function getTrendingTopics() {
       });
     });
     
-    console.log(`📊 Found ${trends.length} trending topics:`);
+    console.log(` Found ${trends.length} trending topics:`);
     trends.forEach((t, i) => {
       console.log(`  ${i+1}. ${t.topic} (${t.tweets})`);
     });
@@ -50,12 +50,12 @@ async function getTrendingTopics() {
     const filename = path.join(dataDir, `trends-${Date.now()}.json`);
     fs.writeFileSync(filename, JSON.stringify(trends, null, 2));
     
-    console.log(`💾 Saved to ${filename}`);
+    console.log(` Saved to ${filename}`);
     
     return trends;
     
   } catch (error) {
-    console.error('❌ Error fetching trends:', error.message);
+    console.error(' Error fetching trends:', error.message);
     throw error;
   } finally {
     await page.close();

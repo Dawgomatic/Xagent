@@ -38,7 +38,7 @@ def search_unsplash(query: str, per_page: int = 5) -> List[str]:
         urls = [photo["links"]["download"] for photo in data.get("results", [])]
         return urls
     except Exception as e:
-        print(f"⚠️  Unsplash search failed: {e}")
+        print(f"  Unsplash search failed: {e}")
         return []
 
 def search_pexels(query: str, per_page: int = 5) -> List[str]:
@@ -49,7 +49,7 @@ def search_pexels(query: str, per_page: int = 5) -> List[str]:
     api_key = os.getenv("PEXELS_API_KEY", "")
     
     if not api_key:
-        print("⚠️  PEXELS_API_KEY not set, skipping Pexels search")
+        print("  PEXELS_API_KEY not set, skipping Pexels search")
         return []
     
     url = "https://api.pexels.com/v1/search"
@@ -68,7 +68,7 @@ def search_pexels(query: str, per_page: int = 5) -> List[str]:
         urls = [photo["src"]["large"] for photo in data.get("photos", [])]
         return urls
     except Exception as e:
-        print(f"⚠️  Pexels search failed: {e}")
+        print(f"  Pexels search failed: {e}")
         return []
 
 def search_images(
@@ -93,7 +93,7 @@ def search_images(
     
     for i, section in enumerate(sections):
         query = section.get("search_query", "")
-        print(f"🔍 Section {i}: Searching for '{query}'")
+        print(f" Section {i}: Searching for '{query}'")
         
         # Try primary source first
         if source == "unsplash":
@@ -121,11 +121,11 @@ def search_images(
                     f.write(response.content)
                 
                 results[i] = str(image_path)
-                print(f"   ✅ Downloaded: {image_path}")
+                print(f"    Downloaded: {image_path}")
             except Exception as e:
-                print(f"   ⚠️  Download failed: {e}")
+                print(f"     Download failed: {e}")
         else:
-            print(f"   ⚠️  No images found for this section")
+            print(f"     No images found for this section")
     
     return results
 
@@ -150,7 +150,7 @@ def main():
     with open(args.output, "w") as f:
         json.dump(results, f, indent=2)
     
-    print(f"\n✅ Image search complete: {args.output}")
+    print(f"\n Image search complete: {args.output}")
     print(f"   Found: {len(results)}/{len(config.get('sections', []))} images")
 
 if __name__ == "__main__":

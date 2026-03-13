@@ -19,16 +19,16 @@ Tendency to sell winning positions too early and hold losing positions too long.
 ### Real Example:
 ```
 BTC position at $90K entry:
-✅ Goes to $92K → Trader sells (+2%)
-❌ Goes to $88K → Trader holds (hoping for recovery)
+ Goes to $92K → Trader sells (+2%)
+ Goes to $88K → Trader holds (hoping for recovery)
 Result: Small winners, big losers
 ```
 
 ### How AI Prevents:
-- ✅ Calculates target profit BEFORE entry
-- ✅ Sets stop loss automatically (2% max risk)
-- ✅ Recommends taking profit at predetermined level
-- ✅ Reminds: "Small losses are normal, big losses are not"
+-  Calculates target profit BEFORE entry
+-  Sets stop loss automatically (2% max risk)
+-  Recommends taking profit at predetermined level
+-  Reminds: "Small losses are normal, big losses are not"
 
 ---
 
@@ -53,10 +53,10 @@ Result: Miss good opportunities
 ```
 
 ### How AI Prevents:
-- ✅ Shows risk/reward ratio clearly
-- ✅ Requires minimum 1.5:1 ratio
-- ✅ Explains expected value math
-- ✅ Limits single trade risk to 2% (manageable loss)
+-  Shows risk/reward ratio clearly
+-  Requires minimum 1.5:1 ratio
+-  Explains expected value math
+-  Limits single trade risk to 2% (manageable loss)
 
 ---
 
@@ -80,10 +80,10 @@ ETH position:
 ```
 
 ### How AI Prevents:
-- ✅ Each analysis is independent of past trades
-- ✅ Stop loss triggers automatically at predetermined level
-- ✅ Doesn't consider "how much already lost"
-- ✅ Only considers: "Is this a good trade RIGHT NOW?"
+-  Each analysis is independent of past trades
+-  Stop loss triggers automatically at predetermined level
+-  Doesn't consider "how much already lost"
+-  Only considers: "Is this a good trade RIGHT NOW?"
 
 ---
 
@@ -107,11 +107,11 @@ DOGE pumping:
 ```
 
 ### How AI Prevents:
-- ✅ Analyzes ALL data, not just price
-- ✅ Checks multiple timeframes
-- ✅ Warns if entering overbought conditions
-- ✅ Blocks trades with poor risk/reward
-- ✅ Shows: "Price up 40% = higher risk, not opportunity"
+-  Analyzes ALL data, not just price
+-  Checks multiple timeframes
+-  Warns if entering overbought conditions
+-  Blocks trades with poor risk/reward
+-  Shows: "Price up 40% = higher risk, not opportunity"
 
 ---
 
@@ -135,11 +135,11 @@ Day starts:
 ```
 
 ### How AI Prevents:
-- ✅ Every trade uses same 2% risk rule
-- ✅ No position size increases after losses
-- ✅ Requires full analysis every time
-- ✅ Blocks emotional decision-making
-- ✅ Reminds: "Losses are part of trading"
+-  Every trade uses same 2% risk rule
+-  No position size increases after losses
+-  Requires full analysis every time
+-  Blocks emotional decision-making
+-  Reminds: "Losses are part of trading"
 
 ---
 
@@ -165,11 +165,11 @@ Result: Big loss that wipes out 5 wins
 ```
 
 ### How AI Prevents:
-- ✅ Caps confidence at 95% maximum
-- ✅ Warns when confidence > 90%
-- ✅ Requires analysis every single time
-- ✅ Shows historical accuracy would be ~60-65%
-- ✅ Reminds: "No one can predict markets reliably"
+-  Caps confidence at 95% maximum
+-  Warns when confidence > 90%
+-  Requires analysis every single time
+-  Shows historical accuracy would be ~60-65%
+-  Reminds: "No one can predict markets reliably"
 
 ---
 
@@ -186,19 +186,19 @@ Seeking information that confirms your existing belief, ignoring contradicting d
 ### Real Example:
 ```
 Bullish on BTC:
-- Sees: "JP Morgan predicts $100K" ✅ Notices
-- Sees: "Fed raising rates" ❌ Ignores
-- Sees: "Technical analysis bearish" ❌ Ignores
-- Sees: "Michael Saylor buying" ✅ Notices
+- Sees: "JP Morgan predicts $100K"  Notices
+- Sees: "Fed raising rates"  Ignores
+- Sees: "Technical analysis bearish"  Ignores
+- Sees: "Michael Saylor buying"  Notices
 Result: One-sided view of reality
 ```
 
 ### How AI Prevents:
-- ✅ Analyzes ALL timeframes equally
-- ✅ Considers bullish AND bearish indicators
-- ✅ No predetermined bias
-- ✅ Shows conflicting signals when present
-- ✅ Makes decision based on TOTAL data
+-  Analyzes ALL timeframes equally
+-  Considers bullish AND bearish indicators
+-  No predetermined bias
+-  Shows conflicting signals when present
+-  Makes decision based on TOTAL data
 
 ---
 
@@ -224,11 +224,11 @@ Reality: Long history of 80% drawdowns
 ```
 
 ### How AI Prevents:
-- ✅ Analyzes 100+ historical candles
-- ✅ Weighs all data equally
-- ✅ Considers long-term volatility
-- ✅ Uses 2% risk rule (protects from crashes)
-- ✅ Doesn't assume "this time is different"
+-  Analyzes 100+ historical candles
+-  Weighs all data equally
+-  Considers long-term volatility
+-  Uses 2% risk rule (protects from crashes)
+-  Doesn't assume "this time is different"
 
 ---
 
@@ -252,11 +252,11 @@ Reality: $60K is arbitrary, market doesn't care
 ```
 
 ### How AI Prevents:
-- ✅ Calculates entry/exit based on current data
-- ✅ Ignores past personal entry prices
-- ✅ Uses ATR (volatility) for levels, not round numbers
-- ✅ Each analysis independent of history
-- ✅ Stop loss based on technical reality, not comfort
+-  Calculates entry/exit based on current data
+-  Ignores past personal entry prices
+-  Uses ATR (volatility) for levels, not round numbers
+-  Each analysis independent of history
+-  Stop loss based on technical reality, not comfort
 
 ---
 
@@ -273,7 +273,7 @@ Following the crowd without independent analysis.
 ### Real Example:
 ```
 Crypto Twitter:
-"Everyone buying SHIB! 🚀🚀🚀"
+"Everyone buying SHIB! "
 
 Trader:
 - No analysis
@@ -284,11 +284,11 @@ Trader:
 ```
 
 ### How AI Prevents:
-- ✅ Independent analysis of each coin
-- ✅ Doesn't check social media
-- ✅ Only uses objective data
-- ✅ Filters out noise
-- ✅ Decision based on math, not popularity
+-  Independent analysis of each coin
+-  Doesn't check social media
+-  Only uses objective data
+-  Filters out noise
+-  Decision based on math, not popularity
 
 ---
 
@@ -312,11 +312,11 @@ Result: Hold losing position too long
 ```
 
 ### How AI Prevents:
-- ✅ Treats every coin equally
-- ✅ No emotional attachment
-- ✅ Exits when data says exit
-- ✅ Doesn't "believe" in any coin
-- ✅ Only criterion: "Does data support position?"
+-  Treats every coin equally
+-  No emotional attachment
+-  Exits when data says exit
+-  Doesn't "believe" in any coin
+-  Only criterion: "Does data support position?"
 
 ---
 
@@ -340,11 +340,11 @@ Reality: Each trade is independent
 ```
 
 ### How AI Prevents:
-- ✅ Each trade analyzed independently
-- ✅ No assumption about "being due"
-- ✅ Same criteria for all trades
-- ✅ Doesn't try to "make up" for losses
-- ✅ Only takes trades that meet criteria
+-  Each trade analyzed independently
+-  No assumption about "being due"
+-  Same criteria for all trades
+-  Doesn't try to "make up" for losses
+-  Only takes trades that meet criteria
 
 ---
 
@@ -370,11 +370,11 @@ Reality:
 ```
 
 ### How AI Prevents:
-- ✅ Treats all account money equally
-- ✅ 2% risk rule applies to total balance
-- ✅ Doesn't distinguish profit from deposit
-- ✅ Risk management consistent always
-- ✅ No "playing with house money"
+-  Treats all account money equally
+-  2% risk rule applies to total balance
+-  Doesn't distinguish profit from deposit
+-  Risk management consistent always
+-  No "playing with house money"
 
 ---
 
@@ -399,11 +399,11 @@ Reality: Can take years (2018 crypto winter)
 ```
 
 ### How AI Prevents:
-- ✅ 2% max risk protects from "new normal"
-- ✅ Stop losses prevent holding through crashes
-- ✅ Doesn't assume quick recovery
-- ✅ Analyzes current reality, not hoped-for future
-- ✅ Prepared for extended drawdowns
+-  2% max risk protects from "new normal"
+-  Stop losses prevent holding through crashes
+-  Doesn't assume quick recovery
+-  Analyzes current reality, not hoped-for future
+-  Prepared for extended drawdowns
 
 ---
 
@@ -431,11 +431,11 @@ Forgotten:
 ```
 
 ### How AI Prevents:
-- ✅ Perfect memory of all data
-- ✅ Weighs all events equally
-- ✅ Not influenced by vivid stories
-- ✅ Analyzes full dataset, not anecdotes
-- ✅ No recency or availability bias
+-  Perfect memory of all data
+-  Weighs all events equally
+-  Not influenced by vivid stories
+-  Analyzes full dataset, not anecdotes
+-  No recency or availability bias
 
 ---
 
@@ -478,18 +478,18 @@ If YES to any: STOP and wait
 ## The AI Advantage
 
 ### Humans Are:
-- ❌ Emotional
-- ❌ Biased
-- ❌ Inconsistent
-- ❌ Affected by fear/greed
-- ❌ Prone to errors under stress
+-  Emotional
+-  Biased
+-  Inconsistent
+-  Affected by fear/greed
+-  Prone to errors under stress
 
 ### AI Is:
-- ✅ Emotionless
-- ✅ Objective
-- ✅ Consistent
-- ✅ Not affected by fear/greed
-- ✅ Same quality under all conditions
+-  Emotionless
+-  Objective
+-  Consistent
+-  Not affected by fear/greed
+-  Same quality under all conditions
 
 ### But Remember:
 - AI analyzes data perfectly

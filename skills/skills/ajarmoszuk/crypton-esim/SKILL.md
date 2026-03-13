@@ -69,7 +69,7 @@ Show available commands and usage information.
 ```
 User: esim
 
-Bot: 🌍 Available eSIM Destinations
+Bot:  Available eSIM Destinations
 
 • Germany (DE) - from €1.40 (15 plans)
 • France (FR) - from €1.75 (13 plans)
@@ -82,7 +82,7 @@ Type `esim [country]` to see plans.
 
 User: esim germany
 
-Bot: 📱 eSIM Plans for Germany
+Bot:  eSIM Plans for Germany
 
 | Data | Validity | Price | Package ID |
 |------|----------|-------|------------|
@@ -96,7 +96,7 @@ To purchase: `buy [package_id] with btc/xmr/card`
 
 User: buy DE_1_7 with btc
 
-Bot: ✅ Order Created
+Bot:  Order Created
 
 **Plan:** Germany 1GB 7Days
 **Data:** 1.0 GB
@@ -115,7 +115,7 @@ Send payment to complete your order.
 
 User: status a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
-Bot: ✅ Order Complete
+Bot:  Order Complete
 
 **Plan:** Germany 1GB 7Days
 **Data Remaining:** 1024 MB

@@ -4,7 +4,7 @@
 # Usage: ./restart-gateway.sh [--dry-run]
 
 if [ "$1" = "--dry-run" ]; then
-  echo "🔍 DRY RUN MODE - Gateway would restart but won't"
+  echo " DRY RUN MODE - Gateway would restart but won't"
   echo "===================================================="
   echo ""
   
@@ -22,7 +22,7 @@ if [ "$1" = "--dry-run" ]; then
   exit 0
 fi
 
-echo "🔌 Restarting Clawdis Gateway"
+echo " Restarting Clawdis Gateway"
 echo "================================"
 echo ""
 
@@ -39,7 +39,7 @@ if [ "$REMAINING" -gt 0 ]; then
   sleep 1
 fi
 
-echo "✅ Gateway processes stopped"
+echo " Gateway processes stopped"
 echo ""
 
 # Start new gateway
@@ -56,21 +56,21 @@ sleep 3
 
 # Check if it's running
 if ps -p $GATEWAY_PID > /dev/null 2>&1; then
-  echo "✅ Gateway started successfully!"
+  echo " Gateway started successfully!"
   echo "   PID: $GATEWAY_PID"
   echo ""
 
   # Check if port is listening
   if ss -tuln | grep -q ":18789"; then
-    echo "✅ Port 18790 is listening"
+    echo " Port 18790 is listening"
     echo "   Local:  http://127.0.0.1:18790"
     echo "   Network: http://192.168.1.163:18790"
     echo "   Tailscale: http://100.73.174.80:18790"
   else
-    echo "⚠️  Port 18790 not yet listening (may still be starting)"
+    echo "  Port 18790 not yet listening (may still be starting)"
   fi
 else
-  echo "❌ Failed to start Gateway"
+  echo " Failed to start Gateway"
   echo ""
   echo "Check logs:"
   echo "  cd /home/srose/clawdis && pnpm clawdis gateway --port 18789"

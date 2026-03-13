@@ -2,7 +2,7 @@
 name: mcd-cn
 description: Query McDonald's China MCP server via the mcd-cn CLI for campaign calendars, coupons, and auto-claiming. Use for human-friendly coupon lookup or JSON output for scripts.
 homepage: https://github.com/ryanchen01/mcd-cn
-metadata: {"clawdbot":{"emoji":"🍟","requires":{"bins":["mcd-cn"],"env":["MCDCN_MCP_TOKEN"]},"primaryEnv":"MCDCN_MCP_TOKEN","install":[{"id":"brew","kind":"brew","formula":"ryanchen01/tap/mcd-cn","bins":["mcd-cn"],"label":"Install mcd-cn (brew)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["mcd-cn"],"env":["MCDCN_MCP_TOKEN"]},"primaryEnv":"MCDCN_MCP_TOKEN","install":[{"id":"brew","kind":"brew","formula":"ryanchen01/tap/mcd-cn","bins":["mcd-cn"],"label":"Install mcd-cn (brew)"}]}}
 
 ---
 

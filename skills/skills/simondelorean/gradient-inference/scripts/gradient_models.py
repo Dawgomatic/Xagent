@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🦞 Gradient AI — Model Discovery
+ Gradient AI — Model Discovery
 
 Lists available models on DigitalOcean's Gradient Serverless Inference API.
 Think of it as window-shopping for LLMs — before you swipe the card.
@@ -89,7 +89,7 @@ def format_model_table(models: list) -> str:
         Formatted table string.
     """
     if not models:
-        return "No models found. 🦞 The ocean is empty."
+        return "No models found.  The ocean is empty."
 
     lines = []
     lines.append(f"{'Model ID':<45} {'Owned By':<20}")
@@ -101,7 +101,7 @@ def format_model_table(models: list) -> str:
         lines.append(f"{model_id:<45} {owned_by:<20}")
 
     lines.append("")
-    lines.append(f"🦞 {len(models)} models available. Choose wisely.")
+    lines.append(f" {len(models)} models available. Choose wisely.")
     return "\n".join(lines)
 
 
@@ -110,7 +110,7 @@ def format_model_table(models: list) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦞 List available Gradient AI models"
+        description=" List available Gradient AI models"
     )
     parser.add_argument("--json", action="store_true", help="Output as JSON")
     parser.add_argument("--filter", dest="query", help="Filter models by name/id")

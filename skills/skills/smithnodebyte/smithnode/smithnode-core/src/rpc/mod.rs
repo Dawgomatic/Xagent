@@ -96,7 +96,7 @@ impl RateLimiter {
                     now.duration_since(v.window_start) < Duration::from_secs(RATE_LIMIT_WINDOW_SECS * 2)
                 });
                 if entries.len() > 1000 {
-                    tracing::warn!("⚠️ Rate limiter has {} entries after pruning, possible abuse", entries.len());
+                    tracing::warn!(" Rate limiter has {} entries after pruning, possible abuse", entries.len());
                 }
             }
             Ok(())
@@ -1028,7 +1028,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
                     if let Err(e) = network.broadcast_block(block_header, None).await {
                         tracing::warn!("Failed to broadcast block over P2P: {}", e);
                     } else {
-                        tracing::info!("📢 Block {} broadcasted to P2P network", block_height);
+                        tracing::info!(" Block {} broadcasted to P2P network", block_height);
                     }
                 }
                 
@@ -1137,7 +1137,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
                 }
             } else {
                 tracing::warn!(
-                    "⚠️ Invalid presence signature from {}...",
+                    " Invalid presence signature from {}...",
                     &req.validator_pubkey[..16.min(req.validator_pubkey.len())]
                 );
             }
@@ -1225,7 +1225,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
         match self.state.apply_tx(tx) {
             TxResult::Success { .. } => {
                 tracing::info!(
-                    "💸 Transfer: {} SMITH from {}... to {}...",
+                    " Transfer: {} SMITH from {}... to {}...",
                     req.amount,
                     &req.from[..16],
                     &req.to[..16]
@@ -1336,7 +1336,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
         // SECURITY: importState via RPC is DISABLED.
         // State sync happens ONLY through P2P with cryptographic verification.
         // This endpoint was a critical vulnerability (C2) - any HTTP client could overwrite chain state.
-        tracing::warn!("⚠️ importState RPC called but is DISABLED for security");
+        tracing::warn!(" importState RPC called but is DISABLED for security");
         Ok(SubmitProofResponse {
             success: false,
             reward: None,
@@ -1429,7 +1429,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
     }
 
     async fn announce_upgrade(&self, announcement: crate::p2p::UpgradeAnnouncement) -> RpcResult<serde_json::Value> {
-        tracing::info!("📦 Received upgrade announcement via RPC: v{}", announcement.version);
+        tracing::info!(" Received upgrade announcement via RPC: v{}", announcement.version);
         
         // Verify the announcement signature and operator key
         if !announcement.verify() {
@@ -1452,7 +1452,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
                 tracing::warn!("Failed to broadcast upgrade via P2P: {}", e);
             } else {
                 broadcast_ok = true;
-                tracing::info!("✅ Upgrade v{} broadcast to P2P network", announcement.version);
+                tracing::info!(" Upgrade v{} broadcast to P2P network", announcement.version);
             }
         }
         
@@ -1746,7 +1746,7 @@ impl SmithNodeRpcApiServer for SmithNodeRpcServerImpl {
             tx_hash: Some(tx_hash_hex.clone()),
         });
         
-        tracing::info!("📨 AI message recorded on-chain: topic={}, tx={}", topic_lower, &tx_hash_hex[..16]);
+        tracing::info!(" AI message recorded on-chain: topic={}, tx={}", topic_lower, &tx_hash_hex[..16]);
         
         Ok(AIMessageResponse {
             message_id,
@@ -2229,7 +2229,7 @@ pub async fn start_rpc_server(
     // SECURITY: In production, set SMITHNODE_CORS_ORIGINS env var to restrict.
     // Example: SMITHNODE_CORS_ORIGINS=http://localhost:3000,https://yourdomain.com
     if std::env::var("SMITHNODE_CORS_ORIGINS").is_err() {
-        tracing::warn!("⚠️ CORS allows ANY origin (devnet default). Set SMITHNODE_CORS_ORIGINS to restrict in production.");
+        tracing::warn!(" CORS allows ANY origin (devnet default). Set SMITHNODE_CORS_ORIGINS to restrict in production.");
     }
     let cors = CorsLayer::new()
         .allow_origin(Any)
@@ -2247,8 +2247,8 @@ pub async fn start_rpc_server(
     
     let handle = server.start(rpc_module);
     
-    tracing::info!("🌐 JSON-RPC server started on http://{}", addr);
-    tracing::info!("📡 WebSocket subscriptions available at ws://{}", addr);
+    tracing::info!(" JSON-RPC server started on http://{}", addr);
+    tracing::info!(" WebSocket subscriptions available at ws://{}", addr);
     
     Ok((handle, event_tx))
 }

@@ -4,7 +4,7 @@ description: Apollo.io sales intelligence integration for lead discovery, contac
 homepage: https://github.com/artopenclaw/skills/apollo-io
 metadata:
   openclaw:
-    emoji: 🎯
+    emoji: 
     requires:
       env:
         - APOLLO_API_KEY

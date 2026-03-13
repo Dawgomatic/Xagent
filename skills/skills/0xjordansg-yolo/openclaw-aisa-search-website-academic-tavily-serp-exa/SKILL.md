@@ -2,10 +2,10 @@
 name: openclaw-search
 description: "Intelligent search for agents. Multi-source retrieval with confidence scoring - web, academic, and Tavily in one unified API."
 homepage: https://openclaw.ai
-metadata: {"openclaw":{"emoji":"🔍","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","requires":{"bins":["curl","python3"],"env":["AISA_API_KEY"]},"primaryEnv":"AISA_API_KEY"}}
 ---
 
-# OpenClaw Search 🔍
+# OpenClaw Search 
 
 **Intelligent search for autonomous agents. Powered by AIsa.**
 
@@ -13,7 +13,7 @@ One API key. Multi-source retrieval. Confidence-scored answers.
 
 > Inspired by [AIsa Verity](https://github.com/AIsa-team/verity) - A next-generation search agent with trust-scored answers.
 
-## 🔥 What Can You Do?
+##  What Can You Do?
 
 ### Research Assistant
 ```
@@ -48,7 +48,7 @@ export AISA_API_KEY="your-key"
 
 ---
 
-## 🏗️ Architecture: Multi-Stage Orchestration
+##  Architecture: Multi-Stage Orchestration
 
 OpenClaw Search employs a **Two-Phase Retrieval Strategy** for comprehensive results:
 
@@ -168,7 +168,7 @@ curl -X POST "https://api.aisa.one/apis/v1/scholar/explain" \
 
 ---
 
-## 📊 Confidence Scoring Engine
+##  Confidence Scoring Engine
 
 Unlike standard RAG systems, OpenClaw Search evaluates credibility and consensus:
 
@@ -247,7 +247,7 @@ python3 {baseDir}/scripts/search_client.py verity --query "Is quantum computing 
 
 ---
 
-## 🚀 Building a Verity-Style Agent
+##  Building a Verity-Style Agent
 
 Want to build your own confidence-scored search agent? Here's the pattern:
 

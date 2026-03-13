@@ -17,7 +17,7 @@ const client = new Lark.Client({
 
 async function clearTestEvents() {
     try {
-        console.log('🧹 Cleaning up test events...');
+        console.log(' Cleaning up test events...');
         
         // 1. Find Bot Calendar
         let botCalendarId;
@@ -36,7 +36,7 @@ async function clearTestEvents() {
         }
 
         if (!botCalendarId) {
-            console.error('❌ Bot calendar not found.');
+            console.error(' Bot calendar not found.');
             return;
         }
 
@@ -61,7 +61,7 @@ async function clearTestEvents() {
         if (res.code === 0 && res.data.items) {
             for (const evt of res.data.items) {
                 if (evt.summary.includes('Test') || evt.summary.includes('Invite')) {
-                    console.log(`🗑️ Deleting: ${evt.summary} (${evt.event_id})`);
+                    console.log(` Deleting: ${evt.summary} (${evt.event_id})`);
                     await client.request({
                         method: 'DELETE',
                         url: `/open-apis/calendar/v4/calendars/${encodeURIComponent(botCalendarId)}/events/${evt.event_id}`
@@ -76,7 +76,7 @@ async function clearTestEvents() {
 
 async function addMaintenanceSchedule() {
     try {
-        console.log('📅 Adding Daily Maintenance Schedule...');
+        console.log(' Adding Daily Maintenance Schedule...');
         
         // 1. Get calendar list to find appropriate target
         let botCalendarId;
@@ -108,7 +108,7 @@ async function addMaintenanceSchedule() {
                 method: 'POST',
                 url: `/open-apis/calendar/v4/calendars/${encodeURIComponent(calId)}/events`,
                 data: {
-                    summary: '🛡️ System Maintenance (Auto-Restart)',
+                    summary: ' System Maintenance (Auto-Restart)',
                     description: 'Routine system health check and gateway restart if idle.',
                     start_time: { timestamp: String(startTs), timezone: 'Asia/Shanghai' },
                     end_time: { timestamp: String(endTs), timezone: 'Asia/Shanghai' },
@@ -128,9 +128,9 @@ async function addMaintenanceSchedule() {
         }
 
         if (res.code === 0) {
-            console.log(`✅ Maintenance Schedule Added: ${res.data.event.app_link}`);
+            console.log(` Maintenance Schedule Added: ${res.data.event.app_link}`);
         } else {
-            console.error(`❌ Failed to add schedule: ${res.msg}`);
+            console.error(` Failed to add schedule: ${res.msg}`);
         }
 
     } catch (e) {

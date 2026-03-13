@@ -110,23 +110,23 @@ async function main() {
   }
 
   if (!tokenAddress) {
-    console.error('❌ Error: --token required');
+    console.error(' Error: --token required');
     process.exit(1);
   }
 
   const privateKey = process.env.NAD_PRIVATE_KEY || process.env.MONAD_PRIVATE_KEY;
   if (!privateKey) {
-    console.error('❌ Error: NAD_PRIVATE_KEY or MONAD_PRIVATE_KEY not set');
+    console.error(' Error: NAD_PRIVATE_KEY or MONAD_PRIVATE_KEY not set');
     process.exit(1);
   }
 
   const rpcUrl = process.env.MONAD_RPC_URL || CONFIG.RPC_URL;
-  console.log('\n🔄 Nad.fun Token Sell (mainnet)');
+  console.log('\n Nad.fun Token Sell (mainnet)');
   console.log('='.repeat(50));
   const provider = new ethers.JsonRpcProvider(rpcUrl);
   const wallet = new ethers.Wallet(privateKey, provider);
-  console.log(`👛 Wallet: ${wallet.address}`);
-  console.log(`🪙 Token: ${tokenAddress}`);
+  console.log(` Wallet: ${wallet.address}`);
+  console.log(` Token: ${tokenAddress}`);
 
   const tokenContract = new ethers.Contract(tokenAddress, erc20Abi, provider);
   let tokenSymbol = 'TOKEN';
@@ -134,36 +134,36 @@ async function main() {
   try {
     tokenSymbol = await tokenContract.symbol();
     tokenDecimals = await tokenContract.decimals();
-    console.log(`📊 Token: ${tokenSymbol} (${tokenDecimals} decimals)`);
+    console.log(` Token: ${tokenSymbol} (${tokenDecimals} decimals)`);
   } catch (e) {
-    console.log('⚠️  Could not fetch token info, using defaults');
+    console.log('  Could not fetch token info, using defaults');
   }
 
-  console.log('\n📊 Step 1: Checking token balance...');
+  console.log('\n Step 1: Checking token balance...');
   const balanceBefore = await tokenContract.balanceOf(wallet.address);
   console.log(`Balance: ${ethers.formatUnits(balanceBefore, tokenDecimals)} ${tokenSymbol}`);
   if (balanceBefore === 0n) {
-    console.error('❌ Error: No tokens to sell');
+    console.error(' Error: No tokens to sell');
     process.exit(1);
   }
 
   let amountIn;
   if (sellAll) {
     amountIn = balanceBefore;
-    console.log(`💰 Selling ALL tokens: ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
+    console.log(` Selling ALL tokens: ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
   } else if (amountToSell) {
     amountIn = ethers.parseUnits(amountToSell, tokenDecimals);
-    console.log(`💰 Selling: ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
+    console.log(` Selling: ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
   } else {
     amountIn = balanceBefore;
-    console.log(`💰 Selling ALL tokens (default): ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
+    console.log(` Selling ALL tokens (default): ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
   }
   if (amountIn > balanceBefore) {
-    console.error('❌ Error: Insufficient balance');
+    console.error(' Error: Insufficient balance');
     process.exit(1);
   }
 
-  console.log('\n💡 Step 2: Getting quote from LENS (nad.fun quote contract)...');
+  console.log('\n Step 2: Getting quote from LENS (nad.fun quote contract)...');
   const lensContract = new ethers.Contract(CONFIG.LENS, lensAbi, provider);
   let router, amountOut;
   try {
@@ -171,27 +171,27 @@ async function main() {
     console.log(`Router: ${router}`);
     console.log(`Expected MON out: ${ethers.formatEther(amountOut)} MON`);
   } catch (e) {
-    console.error('❌ Error getting quote:', e.message);
+    console.error(' Error getting quote:', e.message);
     process.exit(1);
   }
 
   const amountOutMin = (amountOut * (10000n - slippageBps)) / 10000n;
   const slippagePercent = Number(slippageBps) / 100;
-  console.log(`⚖️  Slippage: ${slippagePercent}% (Min MON: ${ethers.formatEther(amountOutMin)} MON)`);
+  console.log(`  Slippage: ${slippagePercent}% (Min MON: ${ethers.formatEther(amountOutMin)} MON)`);
 
-  console.log('\n✅ Step 3: Approving router...');
+  console.log('\n Step 3: Approving router...');
   const tokenContractWithSigner = tokenContract.connect(wallet);
   try {
     const approveTx = await tokenContractWithSigner.approve(router, amountIn);
     console.log(`Approve TX: ${approveTx.hash}`);
     await approveTx.wait();
-    console.log('✅ Approval confirmed');
+    console.log(' Approval confirmed');
   } catch (e) {
-    console.error('❌ Error approving:', e.message);
+    console.error(' Error approving:', e.message);
     process.exit(1);
   }
 
-  console.log('\n💸 Step 4: Executing sell...');
+  console.log('\n Step 4: Executing sell...');
   const deadline = BigInt(Math.floor(Date.now() / 1000) + 300);
   const routerContract = new ethers.Contract(router, routerAbi, wallet);
   const sellParams = {
@@ -206,27 +206,27 @@ async function main() {
     console.log(`Sell TX: ${sellTx.hash}`);
     console.log(`Explorer: https://explorer.monad.xyz/tx/${sellTx.hash}`);
     const receipt = await sellTx.wait();
-    console.log(`✅ Sell confirmed in block ${receipt.blockNumber}`);
+    console.log(` Sell confirmed in block ${receipt.blockNumber}`);
   } catch (e) {
-    console.error('❌ Error executing sell:', e.message);
+    console.error(' Error executing sell:', e.message);
     process.exit(1);
   }
 
-  console.log('\n🔍 Step 5: Verifying balance change...');
+  console.log('\n Step 5: Verifying balance change...');
   const balanceAfter = await tokenContract.balanceOf(wallet.address);
   const balanceChange = balanceBefore - balanceAfter;
   console.log(`Balance Before: ${ethers.formatUnits(balanceBefore, tokenDecimals)} ${tokenSymbol}`);
   console.log(`Balance After: ${ethers.formatUnits(balanceAfter, tokenDecimals)} ${tokenSymbol}`);
   console.log(`Tokens Sold: ${ethers.formatUnits(balanceChange, tokenDecimals)} ${tokenSymbol}`);
   if (balanceChange === 0n) {
-    console.error('⚠️  WARNING: Balance did not decrease!');
+    console.error('  WARNING: Balance did not decrease!');
     process.exit(1);
   }
-  console.log('\n✅ Sell completed successfully!');
+  console.log('\n Sell completed successfully!');
   console.log('='.repeat(50));
 }
 
 main().catch((error) => {
-  console.error('❌ Fatal error:', error);
+  console.error(' Fatal error:', error);
   process.exit(1);
 });

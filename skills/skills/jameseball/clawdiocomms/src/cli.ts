@@ -17,14 +17,14 @@ program
   .action(async (opts) => {
     const node = await Clawdio.create({ port: parseInt(opts.port) });
     const connStr = node.getConnectionString(opts.host);
-    console.log(`\n🔑 Your connection string:\n${connStr}\n`);
+    console.log(`\n Your connection string:\n${connStr}\n`);
     console.log('Waiting for connections... (Ctrl+C to stop)\n');
     node.on('peer', (id: string) => {
-      console.log(`✅ Peer connected: ${id.slice(0, 16)}...`);
-      console.log(`🔒 Fingerprint: ${node.getFingerprint(id)}`);
+      console.log(` Peer connected: ${id.slice(0, 16)}...`);
+      console.log(` Fingerprint: ${node.getFingerprint(id)}`);
     });
     node.onMessage((msg, from) => {
-      console.log(`📨 [${from.slice(0, 8)}...]: ${JSON.stringify(msg)}`);
+      console.log(` [${from.slice(0, 8)}...]: ${JSON.stringify(msg)}`);
     });
   });
 
@@ -34,12 +34,12 @@ program
   .option('-p, --port <port>', 'Local port to listen on', '9091')
   .action(async (connStr, opts) => {
     const node = await Clawdio.create({ port: parseInt(opts.port) });
-    console.log(`\n🔑 Your ID: ${node.publicKey.slice(0, 16)}...`);
+    console.log(`\n Your ID: ${node.publicKey.slice(0, 16)}...`);
     const peerId = await node.exchangeKeys(connStr);
-    console.log(`✅ Connected to: ${peerId.slice(0, 16)}...`);
-    console.log(`🔒 Fingerprint: ${node.getFingerprint(peerId)}`);
+    console.log(` Connected to: ${peerId.slice(0, 16)}...`);
+    console.log(` Fingerprint: ${node.getFingerprint(peerId)}`);
     node.onMessage((msg, from) => {
-      console.log(`📨 [${from.slice(0, 8)}...]: ${JSON.stringify(msg)}`);
+      console.log(` [${from.slice(0, 8)}...]: ${JSON.stringify(msg)}`);
     });
     process.stdin.setEncoding('utf-8');
     process.stdout.write('\n> ');

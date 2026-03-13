@@ -143,7 +143,7 @@ export async function checkClawhubReputation(skillSlug, version, threshold = 70)
         if (line.includes("Warning:") || line.includes("risky patterns") || 
             line.includes("crypto keys") || line.includes("external APIs") || 
             line.includes("eval") || line.includes("VirusTotal Code Insight")) {
-          const cleanLine = line.trim().replace(/^⚠️\s*/, '').replace(/^\s*Warning:\s*/, '');
+          const cleanLine = line.trim().replace(/^\s*/, '').replace(/^\s*Warning:\s*/, '');
           if (cleanLine && !result.virustotal.includes(cleanLine)) {
             result.virustotal.push(cleanLine);
           }

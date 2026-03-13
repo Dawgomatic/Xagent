@@ -1,7 +1,7 @@
 ---
 name: Founder OS
 description: Complete startup operating system — from idea validation to Series A. Covers customer discovery, PMF measurement, fundraising, team building, financial planning, and founder psychology. Use when building, launching, pivoting, or scaling a startup.
-metadata: {"clawdbot":{"emoji":"🚀","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Founder OS — Complete Startup Operating System

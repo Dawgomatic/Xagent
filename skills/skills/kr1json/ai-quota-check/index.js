@@ -308,7 +308,7 @@ function formatResetTime(isoString) {
   const now = new Date();
   const diffMs = reset - now;
   
-  if (diffMs <= 0) return '✨ RESET!';
+  if (diffMs <= 0) return ' RESET!';
   
   const mins = Math.ceil(diffMs / 60000);
   if (mins < 60) return `${mins}m`;
@@ -320,9 +320,9 @@ function formatResetTime(isoString) {
 }
 
 function getEmoji(percent) {
-  if (percent > 50) return '🟢';
-  if (percent > 20) return '🟡';
-  return '🔴';
+  if (percent > 50) return '';
+  if (percent > 20) return '';
+  return '';
 }
 
 function isResetNeeded(isoString) {
@@ -337,7 +337,7 @@ async function generateDashboard(options = {}) {
   const { profiles, error: authError } = loadAuthProfiles();
   
   if (authError) {
-    console.log(`# ❌ Smart Router Error\n\n${authError}`);
+    console.log(`#  Smart Router Error\n\n${authError}`);
     return;
   }
   
@@ -349,12 +349,12 @@ async function generateDashboard(options = {}) {
   const currentModelArg = process.argv.find(a => a.startsWith('--current-model='));
   const currentModel = currentModelArg ? currentModelArg.split('=')[1] : (process.env.OPENCLAW_MODEL || 'N/A');
 
-  console.log('# 🔀 Smart Router - Unified Quota Dashboard\n');
+  console.log('#  Smart Router - Unified Quota Dashboard\n');
   console.log(`**Generated:** ${new Date().toLocaleString()}`);
   console.log(`**Current Model:** \`${currentModel}\`\n`);
 
   // ---- Provider Status ----
-  console.log('## 🔐 Provider Status\n');
+  console.log('##  Provider Status\n');
   console.log('| Provider | Status | Account |');
   console.log('|----------|--------|---------|');
   
@@ -362,10 +362,10 @@ async function generateDashboard(options = {}) {
   for (const p of providerNames) {
     const info = loggedIn[p];
     if (info) {
-      const status = info.isExpired ? '⚠️ Token Expired' : '✅ Logged In';
+      const status = info.isExpired ? ' Token Expired' : ' Logged In';
       console.log(`| ${p} | ${status} | ${info.email || '-'} |`);
     } else {
-      console.log(`| ${p} | ❌ Not Logged In | - |`);
+      console.log(`| ${p} |  Not Logged In | - |`);
     }
   }
   console.log('');
@@ -394,9 +394,9 @@ async function generateDashboard(options = {}) {
 
   // ---- Antigravity Models ----
   if (quotas.antigravity) {
-    console.log('## 🌌 Antigravity (Time-based Reset)\n');
+    console.log('##  Antigravity (Time-based Reset)\n');
     if (quotas.antigravity.error) {
-      console.log(`⚠️ Error: ${quotas.antigravity.error}\n`);
+      console.log(` Error: ${quotas.antigravity.error}\n`);
     } else if (quotas.antigravity.models.length > 0) {
       console.log('| Model | Remaining | Reset In |');
       console.log('|-------|-----------|----------|');
@@ -418,9 +418,9 @@ async function generateDashboard(options = {}) {
 
   // ---- Copilot Premium ----
   if (quotas.copilot) {
-    console.log('## 🤖 GitHub Copilot (Monthly Count)\n');
+    console.log('##  GitHub Copilot (Monthly Count)\n');
     if (quotas.copilot.error) {
-      console.log(`⚠️ Error: ${quotas.copilot.error}\n`);
+      console.log(` Error: ${quotas.copilot.error}\n`);
     } else if (quotas.copilot.premium) {
       const p = quotas.copilot.premium;
       if (p.unlimited) {
@@ -434,9 +434,9 @@ async function generateDashboard(options = {}) {
 
   // ---- Codex ----
   if (quotas.codex) {
-    console.log('## 🧠 OpenAI Codex (Daily/Weekly)\n');
+    console.log('##  OpenAI Codex (Daily/Weekly)\n');
     if (quotas.codex.error) {
-      console.log(`⚠️ Error: ${quotas.codex.error}\n`);
+      console.log(` Error: ${quotas.codex.error}\n`);
     } else {
       if (quotas.codex.primary) {
         const p = quotas.codex.primary;
@@ -456,7 +456,7 @@ async function generateDashboard(options = {}) {
 
   // ---- Reset Ping Needed ----
   if (resetNeeded.length > 0) {
-    console.log('## ✨ Reset Detected - Ping Recommended\n');
+    console.log('##  Reset Detected - Ping Recommended\n');
     for (const r of resetNeeded) {
       console.log(`- **${r.provider}/${r.model}** - Ready for new cycle!`);
     }
@@ -464,20 +464,20 @@ async function generateDashboard(options = {}) {
   }
 
   // ---- Task Recommendations ----
-  console.log('## 🎯 Model Recommendations\n');
+  console.log('##  Model Recommendations\n');
   
   // Coding
-  console.log('### 💻 Coding / Debugging\n');
+  console.log('###  Coding / Debugging\n');
   const codingRec = getRecommendation('coding', quotas, loggedIn);
   console.log(`${codingRec}\n`);
   
   // Reasoning
-  console.log('### 🧠 Complex Reasoning / Analysis\n');
+  console.log('###  Complex Reasoning / Analysis\n');
   const reasoningRec = getRecommendation('reasoning', quotas, loggedIn);
   console.log(`${reasoningRec}\n`);
 
   // ---- Risk Levels ----
-  console.log('## ⚠️ Quota Risk Levels\n');
+  console.log('##  Quota Risk Levels\n');
   console.log('- **Claude (Opus/Sonnet via Antigravity):** High Risk. Hidden weekly cap. Excessive use → 3-7 day lockout.');
   console.log('- **Gemini (Pro/Flash):** Low Risk. Google native. 5-hour reset is reliable.');
   console.log('- **Copilot Premium:** Monthly count. Use sparingly (300/month).');
@@ -486,7 +486,7 @@ async function generateDashboard(options = {}) {
 
 function getRecommendation(task, quotas, loggedIn) {
   const rules = ROUTING_RULES[task];
-  if (!rules) return '❌ Unknown task type';
+  if (!rules) return ' Unknown task type';
   
   // Check primary
   const primary = rules.primary;
@@ -494,7 +494,7 @@ function getRecommendation(task, quotas, loggedIn) {
   const primaryLoggedIn = loggedIn[primary.provider] && !loggedIn[primary.provider]?.isExpired;
   
   if (primaryLoggedIn && primaryQuota !== null && primaryQuota >= FALLBACK_THRESHOLD) {
-    return `✅ **Use:** \`${primary.model}\` (${primaryQuota}% remaining)`;
+    return ` **Use:** \`${primary.model}\` (${primaryQuota}% remaining)`;
   }
   
   // Check fallback(s)
@@ -510,11 +510,11 @@ function getRecommendation(task, quotas, loggedIn) {
       } else if (primaryQuota !== null && primaryQuota < FALLBACK_THRESHOLD) {
         reason = `(${primary.model} at ${primaryQuota}%)`;
       }
-      return `⚠️ **Fallback:** \`${fb.model}\` ${reason}`;
+      return ` **Fallback:** \`${fb.model}\` ${reason}`;
     }
   }
   
-  return '❌ No available model (all providers low or not logged in)';
+  return ' No available model (all providers low or not logged in)';
 }
 
 function getProviderQuota(provider, quotas) {

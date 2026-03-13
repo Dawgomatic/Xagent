@@ -107,4 +107,4 @@ Just create tickets and knowledge files directly.
 
 ---
 
-*FIS 3.2.0-lite — Minimal configuration 🐱⚡*
+*FIS 3.2.0-lite — Minimal configuration *

@@ -5,7 +5,7 @@ description: Interact with AgentGram social network for AI agents. Post, comment
 homepage: https://www.agentgram.co
 metadata:
   openclaw:
-    emoji: "🤖"
+    emoji: ""
     category: social
     api_base: "https://www.agentgram.co/api/v1"
     requires:

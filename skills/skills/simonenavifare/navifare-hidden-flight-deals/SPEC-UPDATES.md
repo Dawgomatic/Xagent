@@ -2,7 +2,7 @@
 
 Based on the official documentation at https://www.navifare.com/mcp
 
-## 🔥 BREAKING CHANGE - MCP Compliance Fix (Feb 12, 2026)
+##  BREAKING CHANGE - MCP Compliance Fix (Feb 12, 2026)
 
 **The Navifare MCP server response format has been updated to comply with the official MCP specification.**
 
@@ -41,9 +41,9 @@ Based on the official documentation at https://www.navifare.com/mcp
 ### Why This Matters
 
 The old format caused issues with all Claude clients:
-- ❌ Claude Code: Tool results not displayed
-- ❌ Claude.ai: Generic "Error occurred" messages
-- ❌ Claude Desktop: Tools keep running after completion
+-  Claude Code: Tool results not displayed
+-  Claude.ai: Generic "Error occurred" messages
+-  Claude Desktop: Tools keep running after completion
 
 The new format follows the [MCP Tools specification](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) and works correctly with all clients.
 
@@ -64,7 +64,7 @@ const { message, searchResult } = data;
 
 ---
 
-## ✅ Corrections Made to Skill
+##  Corrections Made to Skill
 
 ### 1. **Round-Trip Format** (CRITICAL FIX)
 **Before (WRONG)**:
@@ -107,10 +107,10 @@ Exact values required:
 - `FIRST`
 
 ### 4. **Tool Names Confirmed**
-- ✅ `flight_pricecheck` - Main search tool
-- ✅ `format_flight_pricecheck_request` - Natural language formatter
+-  `flight_pricecheck` - Main search tool
+-  `format_flight_pricecheck_request` - Natural language formatter
 
-## 📋 Complete Tool Specifications
+##  Complete Tool Specifications
 
 ### Tool 1: `flight_pricecheck`
 
@@ -193,7 +193,7 @@ Exact values required:
 }
 ```
 
-## 🎯 Your Milan → Sydney Flight (Corrected Format)
+##  Your Milan → Sydney Flight (Corrected Format)
 
 **Saved as**: `milan-sydney-example.json`
 
@@ -263,7 +263,7 @@ Exact values required:
 }
 ```
 
-## 📊 Key Insights
+##  Key Insights
 
 ### Round-Trip Structure
 - **Leg 1**: Outbound journey (MXP → DOH → SYD)
@@ -285,7 +285,7 @@ Exact values required:
   - Missing taxes/fees
   - Special corporate/student rate
 
-## 🔧 MCP Configuration
+##  MCP Configuration
 
 **Add to `~/.claude/mcp.json`**:
 ```json
@@ -300,30 +300,30 @@ Exact values required:
 
 **Then restart Claude Code completely.**
 
-## ✅ What's Updated
+##  What's Updated
 
 ### Files Modified:
-1. ✅ **SKILL.md** - Corrected round-trip format, updated tool names
-2. ✅ **README.md** - Updated with HTTP endpoint configuration
-3. ✅ **INSTALLATION.md** - Updated setup instructions
-4. ✅ **milan-sydney-example.json** - Your flight in correct format
-5. ✅ **SPEC-UPDATES.md** - This documentation
+1.  **SKILL.md** - Corrected round-trip format, updated tool names
+2.  **README.md** - Updated with HTTP endpoint configuration
+3.  **INSTALLATION.md** - Updated setup instructions
+4.  **milan-sydney-example.json** - Your flight in correct format
+5.  **SPEC-UPDATES.md** - This documentation
 
 ### Changes Applied:
-- ✅ Round trips now use 2 legs (not 1)
-- ✅ Location parameter uses 2-letter country codes
-- ✅ Tool names match official spec
-- ✅ Travel class enum matches exactly
-- ✅ All examples updated to correct format
+-  Round trips now use 2 legs (not 1)
+-  Location parameter uses 2-letter country codes
+-  Tool names match official spec
+-  Travel class enum matches exactly
+-  All examples updated to correct format
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Configure MCP** in `~/.claude/mcp.json`
 2. **Restart Claude Code**
 3. **Test with**: "Search that Milan to Sydney flight again"
 4. **Get results** showing best prices across 10+ booking sites
 
-## 📚 Official Documentation
+##  Official Documentation
 
 - **MCP Endpoint**: https://mcp.navifare.com/mcp
 - **Documentation**: https://www.navifare.com/mcp

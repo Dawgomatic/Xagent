@@ -1,4 +1,4 @@
-# 🧠 Konteks — Agent Context Layer
+#  Konteks — Agent Context Layer
 
 **Give your AI agent persistent memory, tasks, notes, and project context.**
 
@@ -15,15 +15,15 @@ AI agents forget everything between sessions. Konteks gives them a persistent la
 
 ## What's New
 
-- ✅ **Subscription system** — Free tier + Pro ($5/mo early adopter pricing)
-- 🔑 **API key management** — Generate and revoke keys from Settings
-- 🌗 **Dark/light mode** — Full theme support
-- 📧 **Branded auth emails** — Custom verification, reset, and magic link templates
-- 🗑️ **Account deletion** — Full GDPR-compliant account removal
-- 🔒 **Priority levels** — High, Normal, Low (renamed from Someday)
-- 📌 **Pinned notes** — Pin important notes to top of views
-- 🔄 **Sort options** — A-Z, Z-A, Last Updated, Date Created in project/area views
-- 🕐 **Timezone-aware** — Today view uses user's local timezone
+-  **Subscription system** — Free tier + Pro ($5/mo early adopter pricing)
+-  **API key management** — Generate and revoke keys from Settings
+-  **Dark/light mode** — Full theme support
+-  **Branded auth emails** — Custom verification, reset, and magic link templates
+-  **Account deletion** — Full GDPR-compliant account removal
+-  **Priority levels** — High, Normal, Low (renamed from Someday)
+-  **Pinned notes** — Pin important notes to top of views
+-  **Sort options** — A-Z, Z-A, Last Updated, Date Created in project/area views
+-  **Timezone-aware** — Today view uses user's local timezone
 
 ## Installation
 
@@ -54,7 +54,7 @@ skills:
 
 ## What Your Agent Can Do
 
-### 💾 Agent Memory
+###  Agent Memory
 Store and retrieve persistent context across sessions.
 
 ```bash
@@ -68,7 +68,7 @@ GET /api/agent/context?category=memory&limit=10
 
 Categories: `memory`, `decision`, `preference`, `learning`, `project_note`
 
-### ✅ Tasks & Notes
+###  Tasks & Notes
 Create and manage items in your Konteks workspace.
 
 ```bash
@@ -86,7 +86,7 @@ PATCH /api/agent/items/{id}
 
 Priority values: `high`, `normal`, `low`
 
-### 📁 Projects & Areas
+###  Projects & Areas
 Organize work into folders.
 
 ```bash
@@ -95,10 +95,10 @@ GET /api/agent/folders?type=project
 
 # Create a project
 POST /api/agent/folders
-{ "name": "Q1 Launch", "folder_type": "project", "icon": "🚀", "goal": "Ship MVP by March" }
+{ "name": "Q1 Launch", "folder_type": "project", "icon": "", "goal": "Ship MVP by March" }
 ```
 
-### 📋 Daily Plans
+###  Daily Plans
 Check what's on the agenda.
 
 ```bash
@@ -146,4 +146,4 @@ MIT
 
 ---
 
-*Built with 🐙 by [Tersono](https://github.com/jamesalmeida) for [OpenClaw](https://github.com/openclaw/openclaw)*
+*Built with  by [Tersono](https://github.com/jamesalmeida) for [OpenClaw](https://github.com/openclaw/openclaw)*

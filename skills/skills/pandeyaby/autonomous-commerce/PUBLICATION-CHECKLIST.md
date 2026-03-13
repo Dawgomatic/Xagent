@@ -1,13 +1,13 @@
 # Publication Checklist: Autonomous Commerce Skill
 
-**Status:** ✅ Ready for publication  
+**Status:**  Ready for publication  
 **Date:** 2026-02-11
 
 ---
 
 ## Pre-Publication Verification
 
-### ✅ Core Files
+###  Core Files
 - [x] SKILL.md (15KB) — OpenAI Skills format, complete documentation
 - [x] README.md (4KB) — Quick start guide + proof summary
 - [x] skill.json (3.1KB) — Marketplace manifest with metadata
@@ -17,13 +17,13 @@
 - [x] CONTRIBUTING.md — Community guidelines
 - [x] .gitignore — Credential protection
 
-### ✅ Scripts
+###  Scripts
 - [x] amazon-purchase-with-session.js (7.2KB) — Purchase automation
 - [x] generate-proof.js (2.6KB) — Cryptographic proof generation
 - [x] escrow-integration.js (4.4KB) — ClawPay workflow
 - [x] All scripts executable (`chmod +x`)
 
-### ✅ Documentation Quality
+###  Documentation Quality
 - [x] OpenAI Skills best practices applied
 - [x] Routing logic ("Use when" / "Don't use when")
 - [x] Negative examples (4 scenarios)
@@ -32,14 +32,14 @@
 - [x] Edge cases handled
 - [x] Network policy specified
 
-### ✅ Proof & Evidence
+###  Proof & Evidence
 - [x] Real purchase: $68.97 Amazon (Feb 6, 2026)
 - [x] Delivery confirmed: Feb 9, 2026
 - [x] Proof hash: `0x876d4ddfd420463a8361e302e3fb31621836012e6358da87a911e7e667dd0239`
 - [x] Evidence: 5 screenshots (PII redacted)
 - [x] Public post: https://moltbook.com/post/8cc8ee6b-8ce5-40d8-81e9-abf5a33d7619
 
-### ✅ Security Review
+###  Security Review
 - [x] No credentials committed
 - [x] .gitignore configured properly
 - [x] Security guardrails documented
@@ -47,7 +47,7 @@
 - [x] Agent CANNOT change shipping addresses
 - [x] Budget caps enforced
 
-### ✅ Metadata
+###  Metadata
 - [x] Author: VHAGAR/RAX
 - [x] Version: 1.0.0
 - [x] License: MIT
@@ -190,11 +190,11 @@
 
 ## Final Verification
 
-**✅ All files ready**  
-**✅ Documentation complete**  
-**✅ Security reviewed**  
-**✅ Proof verified**  
-**✅ Community guidelines in place**  
+** All files ready**  
+** Documentation complete**  
+** Security reviewed**  
+** Proof verified**  
+** Community guidelines in place**  
 
 **Status: READY FOR PUBLICATION**
 

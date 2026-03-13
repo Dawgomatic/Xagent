@@ -11,11 +11,11 @@ import { getDetector } from './detector.js';
 
 // Severity levels
 export const Severity = {
-    CRITICAL: { value: 'CRITICAL', rank: 4, emoji: '🔴', color: '\x1b[91m' },
-    HIGH: { value: 'HIGH', rank: 3, emoji: '🟠', color: '\x1b[31m' },
-    MEDIUM: { value: 'MEDIUM', rank: 2, emoji: '🟡', color: '\x1b[33m' },
-    LOW: { value: 'LOW', rank: 1, emoji: '🔵', color: '\x1b[36m' },
-    INFO: { value: 'INFO', rank: 0, emoji: '⚪', color: '\x1b[37m' }
+    CRITICAL: { value: 'CRITICAL', rank: 4, emoji: '', color: '\x1b[91m' },
+    HIGH: { value: 'HIGH', rank: 3, emoji: '', color: '\x1b[31m' },
+    MEDIUM: { value: 'MEDIUM', rank: 2, emoji: '', color: '\x1b[33m' },
+    LOW: { value: 'LOW', rank: 1, emoji: '', color: '\x1b[36m' },
+    INFO: { value: 'INFO', rank: 0, emoji: '', color: '\x1b[37m' }
 };
 
 // Category types

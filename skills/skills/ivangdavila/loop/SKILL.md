@@ -4,7 +4,7 @@ slug: loop
 version: 1.0.2
 description: Run iterative agent loops until success criteria are met. Controlled autonomous iteration.
 changelog: Fixed internal contradiction about Git commits in memory.md
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## Data Storage
@@ -22,13 +22,13 @@ Create on first use: `mkdir -p ~/loop/history`
 ## Scope
 
 This skill:
-- ✅ Runs iterative attempts toward defined success criteria
-- ✅ Logs each iteration with learnings
-- ✅ Exits on success, max iterations, or unrecoverable error
-- ❌ NEVER makes Git commits automatically
-- ❌ NEVER deploys to production
-- ❌ NEVER modifies system configuration
-- ❌ NEVER runs indefinitely (max 10 iterations hard limit)
+-  Runs iterative attempts toward defined success criteria
+-  Logs each iteration with learnings
+-  Exits on success, max iterations, or unrecoverable error
+-  NEVER makes Git commits automatically
+-  NEVER deploys to production
+-  NEVER modifies system configuration
+-  NEVER runs indefinitely (max 10 iterations hard limit)
 
 ## Quick Reference
 
@@ -67,9 +67,9 @@ Task + Criteria → Execute → Verify → [Pass? Exit : Retry]
 5. **Decide** — Pass? Exit. Fail? Retry if under limit.
 
 ### 5. Stopping Conditions
-- ✅ Success criteria met
-- ❌ Max iterations reached
-- ⚠️ Unrecoverable error (missing dependency, permission denied)
+-  Success criteria met
+-  Max iterations reached
+-  Unrecoverable error (missing dependency, permission denied)
 
 ### 6. On Failure
 If max reached without success:

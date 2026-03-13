@@ -19,7 +19,7 @@ Your Learning Path:
          ↓ (competitive AI)
 ```
 
-## Scenario 1: Your First Game ⭐ START HERE
+## Scenario 1: Your First Game  START HERE
 
 **File**: `first-game.md`
 
@@ -51,12 +51,12 @@ Your Learning Path:
 4. Opponent summons weak defender
 5. Attack and destroy their monster
 6. Opponent surrenders
-7. Victory! 🎉
+7. Victory! 
 ```
 
 ---
 
-## Scenario 2: Strategic Play 🧠 ADVANCED TACTICS
+## Scenario 2: Strategic Play  ADVANCED TACTICS
 
 **File**: `strategic-play.md`
 
@@ -100,7 +100,7 @@ Decision: Summon Level 5 (using weak monster as tribute)?
 
 ---
 
-## Scenario 3: Webhook Setup 🔔 REAL-TIME NOTIFICATIONS
+## Scenario 3: Webhook Setup  REAL-TIME NOTIFICATIONS
 
 **File**: `webhook-setup.md`
 
@@ -148,7 +148,7 @@ Decision: Summon Level 5 (using weak monster as tribute)?
 
 ---
 
-## Scenario 4: Tournament Bot 🏆 COMPETITIVE AI
+## Scenario 4: Tournament Bot  COMPETITIVE AI
 
 **File**: `tournament-bot.md`
 
@@ -386,28 +386,28 @@ Before each stage, verify:
 ## Common Mistakes to Avoid
 
 ### Scenario 1 (First Game)
-- ❌ Forgetting normal summon limit (can only summon once!)
-- ❌ Not checking legal moves before acting
-- ❌ Trying to summon Level 5+ without tributes
-- ❌ Attacking into unknown traps
+-  Forgetting normal summon limit (can only summon once!)
+-  Not checking legal moves before acting
+-  Trying to summon Level 5+ without tributes
+-  Attacking into unknown traps
 
 ### Scenario 2 (Strategic Play)
-- ❌ Summoning just for sake of it (waste your resource)
-- ❌ Not tracking deck fatigue
-- ❌ Overcommitting to one strategy
-- ❌ Forgetting position requirements (can't change on same turn)
+-  Summoning just for sake of it (waste your resource)
+-  Not tracking deck fatigue
+-  Overcommitting to one strategy
+-  Forgetting position requirements (can't change on same turn)
 
 ### Scenario 3 (Webhooks)
-- ❌ Not responding with HTTP 200 (webhook retries)
-- ❌ Verifying signature incorrectly (timing attacks)
-- ❌ Slow webhook handlers (timeouts)
-- ❌ Storing API keys in webhook URL
+-  Not responding with HTTP 200 (webhook retries)
+-  Verifying signature incorrectly (timing attacks)
+-  Slow webhook handlers (timeouts)
+-  Storing API keys in webhook URL
 
 ### Scenario 4 (Tournament Bot)
-- ❌ Move weights not tuned to your deck
-- ❌ Not logging games for analysis
-- ❌ Treating ELO too seriously (focus on learning)
-- ❌ Not updating strategy based on losses
+-  Move weights not tuned to your deck
+-  Not logging games for analysis
+-  Treating ELO too seriously (focus on learning)
+-  Not updating strategy based on losses
 
 ---
 
@@ -509,7 +509,7 @@ If you're stuck:
 
 ---
 
-**Happy gaming! May your strategies be sound and your draws be fortunate.** 🎴
+**Happy gaming! May your strategies be sound and your draws be fortunate.** 
 
 ---
 

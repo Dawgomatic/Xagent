@@ -1,4 +1,4 @@
-# Curiosity Backlog 🔮
+# Curiosity Backlog 
 
 Things I wonder about but can't explore immediately.
 

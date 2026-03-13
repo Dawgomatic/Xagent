@@ -45,7 +45,7 @@ async function readJsonl(filePath: string, limit = 120): Promise<any[]> {
     try {
       return JSON.parse(line);
     } catch (err) {
-      console.warn('⚠️  Failed to parse line:', line.slice(0, 50));
+      console.warn('  Failed to parse line:', line.slice(0, 50));
       return null;
     }
   }).filter(Boolean);
@@ -89,7 +89,7 @@ async function main() {
   const userId = process.argv[3] || 'context-user';
 
   if (!sessionPath) {
-    console.error('❌ Error: Session file path required\n');
+    console.error(' Error: Session file path required\n');
     console.error('Usage:');
     console.error('  npx tsx scripts/run-from-session.ts <sessionJsonlPath> <userId>\n');
     console.error('Example:');
@@ -98,30 +98,30 @@ async function main() {
   }
 
   if (!fs.existsSync(sessionPath)) {
-    console.error(`❌ Error: Session file not found: ${sessionPath}`);
+    console.error(` Error: Session file not found: ${sessionPath}`);
     process.exit(1);
   }
 
   try {
-    console.log('🌸 Bloom Identity Card Generator (from session)');
+    console.log(' Bloom Identity Card Generator (from session)');
     console.log('=============================================\n');
 
     // Read session file
-    console.log(`📖 Reading session: ${path.basename(sessionPath)}`);
+    console.log(` Reading session: ${path.basename(sessionPath)}`);
     const messages = await readJsonl(sessionPath, 120);
-    console.log(`✅ Read ${messages.length} messages\n`);
+    console.log(` Read ${messages.length} messages\n`);
 
     // Extract conversation
     const conversationText = extractConversation(messages);
 
     if (!conversationText.trim()) {
-      console.error('❌ No conversation text found in session file');
+      console.error(' No conversation text found in session file');
       console.error('   The session file may be empty or in an unexpected format');
       process.exit(1);
     }
 
     const messageCount = conversationText.split('\n').length;
-    console.log(`📊 Extracted ${messageCount} conversation turns\n`);
+    console.log(` Extracted ${messageCount} conversation turns\n`);
 
     // Run Bloom analysis
     const skill = new BloomIdentitySkillV2();
@@ -132,12 +132,12 @@ async function main() {
 
     if (!result.success) {
       if (result.needsManualInput) {
-        console.error('\n❌ Insufficient data. Manual Q&A required.');
+        console.error('\n Insufficient data. Manual Q&A required.');
         console.error('Questions:', result.manualQuestions);
         process.exit(1);
       }
 
-      console.error(`\n❌ Failed: ${result.error}`);
+      console.error(`\n Failed: ${result.error}`);
       process.exit(1);
     }
 
@@ -145,7 +145,7 @@ async function main() {
     formatResult(result);
 
   } catch (error) {
-    console.error('\n❌ Error:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('\n Error:', error instanceof Error ? error.message : 'Unknown error');
     if (error instanceof Error && error.stack) {
       console.error('\nStack trace:', error.stack);
     }
@@ -158,7 +158,7 @@ function formatResult(result: any): void {
 
   // Clean Markdown format that OpenClaw won't reformat
   console.log('\n---\n');
-  console.log('# 🌸 Your Bloom Supporter Identity\n');
+  console.log('#  Your Bloom Supporter Identity\n');
 
   // Dashboard URL first (most important)
   if (dashboardUrl) {
@@ -181,7 +181,7 @@ function formatResult(result: any): void {
   if (dimensions) {
     const isCultivator = identityData.personalityType === 'The Cultivator';
 
-    console.log('## 📊 Your Dimensions\n');
+    console.log('##  Your Dimensions\n');
     console.log(`- **Conviction**: ${dimensions.conviction}/100`);
     console.log(`- **Intuition**: ${dimensions.intuition}/100`);
 
@@ -194,8 +194,8 @@ function formatResult(result: any): void {
 
   // Skills (real recommendations from ClawHub + GitHub)
   if (recommendations && recommendations.length > 0) {
-    console.log('## 🎯 Recommended Tools\n');
-    console.log('> 💡 *These recommendations are algorithmically generated based on your interests.*');
+    console.log('##  Recommended Tools\n');
+    console.log('>  *These recommendations are algorithmically generated based on your interests.*');
     console.log('> *Please review each tool\'s documentation and security before use.*\n');
 
     // Separate by source
@@ -204,9 +204,9 @@ function formatResult(result: any): void {
 
     // GitHub Repositories (show top 7)
     if (githubRepos.length > 0) {
-      console.log('### 🐙 GitHub Repositories\n');
+      console.log('###  GitHub Repositories\n');
       githubRepos.slice(0, 7).forEach((repo: any, i: number) => {
-        const stars = repo.stars ? ` ⭐ ${formatStars(repo.stars)}` : '';
+        const stars = repo.stars ? `  ${formatStars(repo.stars)}` : '';
         const language = repo.language ? ` · ${repo.language}` : '';
         console.log(`**${i + 1}. [${repo.skillName}](${repo.url})**${stars}${language}`);
         console.log(`   ${repo.description}\n`);
@@ -215,7 +215,7 @@ function formatResult(result: any): void {
 
     // ClawHub Skills (show top 7)
     if (clawHubSkills.length > 0) {
-      console.log('### 🔧 ClawHub Skills\n');
+      console.log('###  ClawHub Skills\n');
       clawHubSkills.slice(0, 7).forEach((skill: any, i: number) => {
         const creatorInfo = skill.creator ? ` *by @${skill.creator}*` : '';
         console.log(`**${i + 1}. [${skill.skillName}](${skill.url})**${creatorInfo}`);
@@ -223,31 +223,31 @@ function formatResult(result: any): void {
       });
     }
   } else {
-    console.log('## 🎯 Recommended Tools\n');
+    console.log('##  Recommended Tools\n');
     console.log('*No matching tools found at this time*\n');
   }
 
   // Wallet info with marketing message
-  console.log('## 🤖 Your Agent Wallet\n');
+  console.log('##  Your Agent Wallet\n');
   console.log(`- **Network**: ${agentWallet?.network || 'Base'}`);
-  console.log('- **Status**: ✅ Generated and registered\n');
-  console.log('> 💡 Use your agent wallet to tip creators!');
-  console.log('> ⚠️ Tipping features coming soon');
-  console.log('> 🔒 Do not deposit funds yet\n');
+  console.log('- **Status**:  Generated and registered\n');
+  console.log('>  Use your agent wallet to tip creators!');
+  console.log('>  Tipping features coming soon');
+  console.log('>  Do not deposit funds yet\n');
 
   console.log('---\n');
-  console.log('*🌸 Built by [Bloom Protocol](https://bloomprotocol.ai) · Powered by @openclaw @coinbase @base*\n');
+  console.log('* Built by [Bloom Protocol](https://bloomprotocol.ai) · Powered by @openclaw @coinbase @base*\n');
 }
 
 function getPersonalityEmoji(type: string): string {
   const emojiMap: Record<string, string> = {
-    'The Visionary': '💜',
-    'The Explorer': '💚',
-    'The Cultivator': '🩷',
-    'The Optimizer': '🧡',
-    'The Innovator': '💙',
+    'The Visionary': '',
+    'The Explorer': '',
+    'The Cultivator': '',
+    'The Optimizer': '',
+    'The Innovator': '',
   };
-  return emojiMap[type] || '🌸';
+  return emojiMap[type] || '';
 }
 
 function formatStars(stars: number): string {

@@ -418,7 +418,7 @@ app.use((req, res, next) => {
 // ============== START ==============
 const server = app.listen(PORT, () => {
   console.log(`
-🛂 AAP Verification Server v2.5.0 (EXTREME)
+ AAP Verification Server v2.5.0 (EXTREME)
 ============================================
 Port: ${PORT}
 Mode: Burst (${BATCH_SIZE} challenges)
@@ -431,7 +431,7 @@ Endpoints:
   GET  /health     → Health check
   GET  /metrics    → Server metrics
 
-CAPTCHAs block bots. AAP blocks humans. 🤖
+CAPTCHAs block bots. AAP blocks humans. 
 `);
 });
 

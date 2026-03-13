@@ -42,11 +42,11 @@ arrive as announce messages in the orchestrator's session.
 As each announce arrives, update the checklist:
 ```
 WORKERS_EXPECTED:
-- wreckit-slop: PASS ✅ (received)
-- wreckit-typecheck: PASS ✅ (received)
-- wreckit-testquality: PENDING ⏳
-- wreckit-mutation: PENDING ⏳
-- wreckit-security: PASS ✅ (received)
+- wreckit-slop: PASS  (received)
+- wreckit-typecheck: PASS  (received)
+- wreckit-testquality: PENDING 
+- wreckit-mutation: PENDING 
+- wreckit-security: PASS  (received)
 ```
 
 ### Step 4: Check completion
@@ -66,18 +66,18 @@ If a worker hasn't reported after 5 minutes:
 ## What WRONG Looks Like
 
 ```
-❌ Orchestrator spawns 5 workers
-❌ Only 1 completes
-❌ Orchestrator writes proof bundle with results for all 5
-❌ 4 results are fabricated
+ Orchestrator spawns 5 workers
+ Only 1 completes
+ Orchestrator writes proof bundle with results for all 5
+ 4 results are fabricated
 ```
 
 ## What RIGHT Looks Like
 
 ```
-✅ Orchestrator spawns 5 workers
-✅ Waits for all 5 announces
-✅ 4 complete, 1 times out
-✅ Proof bundle shows 4 real results + 1 ERROR (timed out)
-✅ Decision based only on real data
+ Orchestrator spawns 5 workers
+ Waits for all 5 announces
+ 4 complete, 1 times out
+ Proof bundle shows 4 real results + 1 ERROR (timed out)
+ Decision based only on real data
 ```

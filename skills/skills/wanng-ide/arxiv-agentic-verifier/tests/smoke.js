@@ -19,14 +19,14 @@ for line in sys.stdin:
     console.log("Smoke Test Result:", result);
     
     if (result && result.passed !== undefined) {
-      console.log("✅ Smoke test passed (execution successful).");
+      console.log(" Smoke test passed (execution successful).");
     } else {
-      console.error("❌ Smoke test failed (invalid result format).");
+      console.error(" Smoke test failed (invalid result format).");
       process.exit(1);
     }
 
   } catch (error) {
-    console.error("❌ Smoke test crashed:", error);
+    console.error(" Smoke test crashed:", error);
     process.exit(1);
   }
 })();

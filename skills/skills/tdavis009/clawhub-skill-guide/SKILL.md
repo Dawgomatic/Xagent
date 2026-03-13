@@ -39,8 +39,8 @@ my-skill/
 
 | Field | Required | Purpose |
 |-------|----------|---------|
-| `name` | ✅ | Lowercase, hyphens, under 64 chars |
-| `description` | ✅ | Trigger text with keywords |
+| `name` |  | Lowercase, hyphens, under 64 chars |
+| `description` |  | Trigger text with keywords |
 | `env` | When credentials needed | Array of env var declarations |
 | `metadata` | Alternative env format | OpenClaw-specific metadata |
 | `requires` | When dependencies exist | Human-readable requirement list |
@@ -346,9 +346,9 @@ npx clawhub publish ./skill-dir \
 |---------|---------------|-----|
 | No env declarations when skill uses credentials | ! CREDENTIALS | Add env vars via `metadata.openclaw.env` in frontmatter |
 | "Agent automatically applies config" language | ! INSTRUCTION SCOPE | Change to "manual review required" |
-| Scripts without inspection warning | ℹ INSTALL MECHANISM | Add "inspect before running" note |
-| No agent isolation for multi-user skills | ℹ PERSISTENCE | Add security model section |
-| `requireMention:false` without data exposure docs | ℹ INSTRUCTION SCOPE | Document what data the skill sees |
+| Scripts without inspection warning |  INSTALL MECHANISM | Add "inspect before running" note |
+| No agent isolation for multi-user skills |  PERSISTENCE | Add security model section |
+| `requireMention:false` without data exposure docs |  INSTRUCTION SCOPE | Document what data the skill sees |
 | Description too short / missing keywords | Poor discoverability | Expand with trigger scenarios |
 | Shipping test DBs or generated files | Bloat | Clean before publishing |
 | Personal data in examples | Privacy risk | Use generic examples |

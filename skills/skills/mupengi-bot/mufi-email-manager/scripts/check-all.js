@@ -29,7 +29,7 @@ async function checkAccount(accountName, limit) {
     await client.connect();
     const messages = await client.getUnreadMessages(limit);
     
-    console.log(`\n📬 ${accountName.toUpperCase()}: ${messages.length}건의 읽지 않은 메일`);
+    console.log(`\n ${accountName.toUpperCase()}: ${messages.length}건의 읽지 않은 메일`);
     console.log('━'.repeat(50));
 
     if (messages.length === 0) {
@@ -51,7 +51,7 @@ async function checkAccount(accountName, limit) {
     await client.disconnect();
     return messages.length;
   } catch (err) {
-    console.error(`❌ ${accountName} 오류:`, err.message);
+    console.error(` ${accountName} 오류:`, err.message);
     return 0;
   }
 }
@@ -61,11 +61,11 @@ async function main() {
   const accounts = getAllConfiguredAccounts();
 
   if (accounts.length === 0) {
-    console.error('❌ 설정된 계정이 없습니다. .env 파일을 확인하세요.');
+    console.error(' 설정된 계정이 없습니다. .env 파일을 확인하세요.');
     process.exit(1);
   }
 
-  console.log('🔍 전체 계정 메일 확인 중...\n');
+  console.log(' 전체 계정 메일 확인 중...\n');
 
   let totalUnread = 0;
   for (const account of accounts) {
@@ -74,7 +74,7 @@ async function main() {
   }
 
   console.log('\n' + '='.repeat(50));
-  console.log(`📊 총 ${totalUnread}건의 읽지 않은 메일`);
+  console.log(` 총 ${totalUnread}건의 읽지 않은 메일`);
   console.log('='.repeat(50) + '\n');
 }
 

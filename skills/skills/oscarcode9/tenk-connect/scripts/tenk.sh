@@ -20,12 +20,12 @@ api_get() {
   curl -sf "$API$path" -H "Authorization: Bearer $tok"
 }
 
-die() { echo "❌ $*" >&2; exit 1; }
+die() { echo " $*" >&2; exit 1; }
 
 # ── commands ────────────────────────────────────────────────────────────────
 
 cmd_auth() {
-  echo "🔐 Iniciando autenticación con TenK..."
+  echo " Iniciando autenticación con TenK..."
 
   # Request device code
   local resp; resp=$(curl -sf -X POST "$API/device-auth/code") || die "No se pudo conectar a TenK API"
@@ -35,7 +35,7 @@ cmd_auth() {
 
   echo ""
   echo "  Abre este enlace en tu navegador:"
-  echo "  👉  https://tenk.oventlabs.com/#/authorize/$code"
+  echo "    https://tenk.oventlabs.com/#/authorize/$code"
   echo ""
   echo "  Código: $code"
   echo "  (expira en ${expires}s)"
@@ -52,7 +52,7 @@ cmd_auth() {
     if [[ "$status" == "approved" ]]; then
       local token; token=$(echo "$status_resp" | python3 -c "import json,sys; print(json.load(sys.stdin)['data']['token'])")
       token_save "$token"
-      echo "✅ Autenticado exitosamente. Token guardado."
+      echo " Autenticado exitosamente. Token guardado."
       exit 0
     elif [[ "$status" == "expired" ]]; then
       die "El código expiró. Vuelve a ejecutar: tenk.sh auth"
@@ -72,8 +72,8 @@ cmd_whoami() {
   echo "$resp" | python3 -c "
 import json, sys
 d = json.load(sys.stdin)['data']
-print(f\"👤 {d['name']} ({d['email']})\")
-print(f\"   Tier: {d['tier']} | Onboarding: {'✅' if d['hasCompletedOnboarding'] else '❌'}\")
+print(f\" {d['name']} ({d['email']})\")
+print(f\"   Tier: {d['tier']} | Onboarding: {'' if d['hasCompletedOnboarding'] else ''}\")
 "
 }
 
@@ -87,13 +87,13 @@ import json, sys
 data = json.load(sys.stdin)
 skills = data.get('data', [])
 if not skills:
-    print('📭 No tienes habilidades registradas.')
+    print(' No tienes habilidades registradas.')
     sys.exit(0)
-print(f'🎯 Habilidades ({len(skills)}):')
+print(f' Habilidades ({len(skills)}):')
 for s in skills:
     total = s.get('totalSessions', 0)
     hours = round(total / 3600, 1) if total else 0
-    gps = '📍' if s.get('isGpsSkill') else ''
+    gps = '' if s.get('isGpsSkill') else ''
     print(f\"  {gps} {s['icon']} {s['name']} — {hours}h ({total} sesiones)\")
 "
 }
@@ -111,7 +111,7 @@ total_h = round(total_sec / 3600, 1)
 goal = 10000
 pct = round(total_h / goal * 100, 2)
 remaining = round(goal - total_h, 1)
-print(f'📊 Stats TenK:')
+print(f' Stats TenK:')
 print(f'   Total: {total_h}h de {goal}h ({pct}%)')
 print(f'   Faltan: {remaining}h para las 10,000h')
 print(f'   Habilidades activas: {len(skills)}')
@@ -168,9 +168,9 @@ print(json.dumps({'skillId': '$skill_id', 'duration': $duration_sec, 'notes': sy
 import json, sys
 d = json.load(sys.stdin)
 if d.get('success'):
-    print(f\"✅ Registrado: $skill_name — ${minutes} min\")
+    print(f\" Registrado: $skill_name — ${minutes} min\")
 else:
-    print(f\"❌ Error: {d}\")
+    print(f\" Error: {d}\")
 "
 }
 
@@ -184,7 +184,7 @@ import json, sys
 from datetime import datetime, timezone
 skills = json.load(sys.stdin).get('data', [])
 # Show last session per skill
-print('🔥 Última actividad:')
+print(' Última actividad:')
 for s in sorted(skills, key=lambda x: x.get('lastSessionAt') or '', reverse=True)[:5]:
     last = s.get('lastSessionAt', 'Nunca')
     if last and last != 'Nunca':
@@ -203,7 +203,7 @@ for s in sorted(skills, key=lambda x: x.get('lastSessionAt') or '', reverse=True
 
 cmd_logout() {
   rm -f "$TOKEN_FILE"
-  echo "👋 Sesión cerrada."
+  echo " Sesión cerrada."
 }
 
 cmd_help() {

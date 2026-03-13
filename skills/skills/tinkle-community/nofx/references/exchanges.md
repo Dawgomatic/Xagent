@@ -4,26 +4,26 @@
 
 | Exchange | Registration Link (Referral) | Status |
 |----------|------------------------------|--------|
-| **Binance** | [Register](https://www.binance.com/join?ref=NOFXENG) | ✅ Supported |
-| **Bybit** | [Register](https://partner.bybit.com/b/83856) | ✅ Supported |
-| **OKX** | [Register](https://www.okx.com/join/1865360) | ✅ Supported |
-| **Bitget** | [Register](https://www.bitget.com/referral/register?from=referral&clacCode=c8a43172) | ✅ Supported |
-| **KuCoin** | [Register](https://www.kucoin.com/r/broker/CXEV7XKK) | ✅ Supported |
-| **Gate.io** | [Register](https://www.gatenode.xyz/share/VQBGUAxY) | ✅ Supported |
+| **Binance** | [Register](https://www.binance.com/join?ref=NOFXENG) |  Supported |
+| **Bybit** | [Register](https://partner.bybit.com/b/83856) |  Supported |
+| **OKX** | [Register](https://www.okx.com/join/1865360) |  Supported |
+| **Bitget** | [Register](https://www.bitget.com/referral/register?from=referral&clacCode=c8a43172) |  Supported |
+| **KuCoin** | [Register](https://www.kucoin.com/r/broker/CXEV7XKK) |  Supported |
+| **Gate.io** | [Register](https://www.gatenode.xyz/share/VQBGUAxY) |  Supported |
 
 ## DEX Decentralized Perpetual Exchanges
 
 | Exchange | Registration Link | Status |
 |----------|------------------|--------|
-| **Hyperliquid** | [Register](https://app.hyperliquid.xyz/join/AITRADING) | ✅ Supported |
-| **Aster DEX** | [Register](https://www.asterdex.com/en/referral/fdfc0e) | ✅ Supported |
-| **Lighter** | [Register](https://app.lighter.xyz/?referral=68151432) | ✅ Supported |
+| **Hyperliquid** | [Register](https://app.hyperliquid.xyz/join/AITRADING) |  Supported |
+| **Aster DEX** | [Register](https://www.asterdex.com/en/referral/fdfc0e) |  Supported |
+| **Lighter** | [Register](https://app.lighter.xyz/?referral=68151432) |  Supported |
 
 ## Supported AI Models
 
 | Model | Get API Key | Recommendation |
 |-------|------------|----------------|
-| **DeepSeek** | [Get](https://platform.deepseek.com) | ⭐ High cost-effectiveness |
+| **DeepSeek** | [Get](https://platform.deepseek.com) |  High cost-effectiveness |
 | **Qwen** | [Get](https://dashscope.console.aliyun.com) | Chinese optimized |
 | **OpenAI (GPT)** | [Get](https://platform.openai.com) | General purpose strong |
 | **Claude** | [Get](https://console.anthropic.com) | Strong reasoning |
@@ -39,9 +39,9 @@
 2. Go to API Management: User Center → API Management
 3. Create API → System Generated
 4. Enable permissions:
-   - ✅ Read
-   - ✅ Spot & Margin Trading
-   - ✅ Futures Trading
+   -  Read
+   -  Spot & Margin Trading
+   -  Futures Trading
 5. IP Whitelist (recommended): Add server IP
 6. Copy API Key and Secret
 
@@ -51,8 +51,8 @@
 2. Go to API: Account → API Management
 3. Create New API
 4. Permission settings:
-   - ✅ Derivatives - Order
-   - ✅ Derivatives - Position
+   -  Derivatives - Order
+   -  Derivatives - Position
 5. Bind IP (optional)
 
 ### OKX
@@ -61,8 +61,8 @@
 2. Go to API: User Center → API
 3. Create V5 API
 4. Permissions:
-   - ✅ Read
-   - ✅ Trade
+   -  Read
+   -  Trade
 5. Set Passphrase (must remember)
 
 ### Gate.io
@@ -71,9 +71,9 @@
 2. Go to API: User Center → API Management
 3. Create API Key
 4. Permissions:
-   - ✅ Spot Trading
-   - ✅ Futures Trading
-   - ✅ Withdrawal (optional, recommended to disable)
+   -  Spot Trading
+   -  Futures Trading
+   -  Withdrawal (optional, recommended to disable)
 
 ### Hyperliquid
 

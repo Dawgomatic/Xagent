@@ -2,7 +2,7 @@
 name: nas-agent-sync
 version: 1.1.0
 description: Synology NAS integration for OpenClaw — centralized file storage for multi-agent teams via SSH
-emoji: 📦
+emoji: 
 tags:
   - nas
   - synology
@@ -158,11 +158,11 @@ ssh $SSH_HOST "echo 'NAS connected!'"
 
 ## Security
 
-- ✅ SSH key-based auth (no passwords in configs)
-- ✅ VPN/Tailnet for encrypted tunnel (no port forwarding needed)
-- ✅ File Master pattern limits SSH access to one agent
-- ✅ Other agents never get SSH credentials
-- ❌ Never store SSH keys in agent SOUL.md or memory files
+-  SSH key-based auth (no passwords in configs)
+-  VPN/Tailnet for encrypted tunnel (no port forwarding needed)
+-  File Master pattern limits SSH access to one agent
+-  Other agents never get SSH credentials
+-  Never store SSH keys in agent SOUL.md or memory files
 
 ## Why File Master Pattern?
 
@@ -215,11 +215,11 @@ done
 
 ## Compatible NAS Models
 
-- ✅ Synology (any model with DSM 7+)
-- ✅ QNAP (QTS 5+)
-- ✅ TrueNAS / FreeNAS
-- ✅ Any Linux server with SSH access
-- ✅ Raspberry Pi with external storage
+-  Synology (any model with DSM 7+)
+-  QNAP (QTS 5+)
+-  TrueNAS / FreeNAS
+-  Any Linux server with SSH access
+-  Raspberry Pi with external storage
 
 ## Changelog
 

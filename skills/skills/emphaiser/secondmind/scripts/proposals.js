@@ -17,8 +17,8 @@ function main() {
   const rows = db.prepare(sql).all(...params);
   if (!rows.length) { console.log(`No proposals (${filter}).`); return; }
 
-  const eff = { quick: '⚡', medium: '🔧', large: '🏗️' };
-  console.log(`💡 Proposals (${filter}):\n`);
+  const eff = { quick: '', medium: '', large: '' };
+  console.log(` Proposals (${filter}):\n`);
   for (const p of rows) {
     console.log(`#${p.id} [${p.status}] ${eff[p.effort_estimate] || ''} ${p.title}`);
     console.log(`   ${p.description}`);

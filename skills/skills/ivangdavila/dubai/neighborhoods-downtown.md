@@ -5,7 +5,7 @@
 
 ---
 
-## 🗺️ Overview
+##  Overview
 
 This triangle forms Dubai's commercial and cultural heart:
 - **Downtown Dubai** — Burj Khalifa, Dubai Mall, Opera, luxury living
@@ -16,7 +16,7 @@ All three share excellent metro connectivity and walkability — a rarity in Dub
 
 ---
 
-## 🏙️ Downtown Dubai
+##  Downtown Dubai
 
 ### The Vibe
 Iconic. This is THE address. If someone asks "where do you live?" and you say Downtown, conversation over. Home to Burj Khalifa, Dubai Mall, Dubai Opera, and some of the most expensive real estate in the region.
@@ -38,44 +38,44 @@ Iconic. This is THE address. If someone asks "where do you live?" and you say Do
 - **Nationalities:** European expats (UK, French, German), wealthy Arabs (Lebanon, Egypt), Indians in finance
 - **Income:** AED 40,000+/month minimum to live comfortably
 
-### Walkability: ⭐⭐⭐⭐⭐
+### Walkability: 
 One of the few truly walkable areas in Dubai. You can:
 - Walk to Dubai Mall (10 min)
 - Walk to Metro (5 min)
 - Walk to Burj Khalifa Park (5 min)
 - Walk to restaurants, supermarkets, pharmacies
 
-### Metro Access: ⭐⭐⭐⭐⭐
+### Metro Access: 
 - **Burj Khalifa/Dubai Mall Station** — Red Line
 - Direct access to Business Bay, DIFC, Marina, Airport
 
-### Pros ✅
+### Pros 
 - Global prestige address
 - Walkable lifestyle (rare in Dubai)
 - Dubai Mall entertainment on doorstep
 - Dubai Opera for culture
 - Strong rental demand = good resale
 
-### Cons ❌
+### Cons 
 - **Service charges:** Highest in Dubai (AED 18-25/sqft/year)
 - **Parking:** Nightmare, especially on weekends
 - **Crowds:** Tourist heavy, especially around fountains
 - **Noise:** Fountain shows, events, constant activity
 - **Premium pricing:** 20-30% above similar quality elsewhere
 
-### Hidden Gems 💎
+### Hidden Gems 
 - **Burj Khalifa residences** — Not just for billionaires; smaller units exist
 - **South Ridge towers** — Slightly older but much better value
 - **Opera District** — Newer buildings, less crowded than Burj-facing
 
-### ⚠️ Warnings
+###  Warnings
 - Don't underestimate service charges — can add AED 20-40K/year
 - Verify parking included in rent (often it's extra)
 - Ground floor units = zero privacy (tourists everywhere)
 
 ---
 
-## 💼 DIFC (Dubai International Financial Centre)
+##  DIFC (Dubai International Financial Centre)
 
 ### The Vibe
 Corporate. Power. Suits. This is where the money moves. DIFC operates under its own legal and regulatory framework (Common Law), attracting hedge funds, banks, and law firms. After work, Gate Village comes alive with galleries and restaurants.
@@ -98,43 +98,43 @@ Corporate. Power. Suits. This is where the money moves. DIFC operates under its 
 - **Nationalities:** British, American, European (France, Germany), wealthy GCC nationals
 - **Income:** AED 60,000+/month
 
-### Walkability: ⭐⭐⭐⭐⭐
+### Walkability: 
 Compact area, everything within walking distance:
 - Gate Village restaurants (2 min)
 - Financial Centre Metro (5 min)
 - Dubai Mall (15 min walk through link)
 
-### Metro Access: ⭐⭐⭐⭐⭐
+### Metro Access: 
 - **Financial Centre Station** — Red Line
 - Covered walkway to Dubai Mall
 
-### Pros ✅
+### Pros 
 - Walk-to-work for finance professionals
 - High-quality buildings
 - Art galleries and fine dining
 - Safe, well-maintained
 - Common Law legal framework (matters for business)
 
-### Cons ❌
+### Cons 
 - **Not family-friendly** — No schools, playgrounds, parks
 - **Expensive** — Premium pricing for everything
 - **Dead on weekends** — Everyone leaves
 - **Limited inventory** — Hard to find units
 - **No villas/townhouses** — Apartments only
 
-### Hidden Gems 💎
+### Hidden Gems 
 - **Gate Village Art Galleries** — World-class contemporary art
 - **La Petite Maison** — Best French restaurant in Dubai
 - **ICD Brookfield Place** — New development, modern units
 
-### ⚠️ Warnings
+###  Warnings
 - Zero family amenities — don't move here with kids
 - Weekend ghost town — plan to leave the area
 - Noise from Emirates Towers construction zone
 
 ---
 
-## 📈 Business Bay
+##  Business Bay
 
 ### The Vibe
 The ambitious little sibling of Downtown. Newer buildings, lower prices, same metro access. Dubai Canal runs through it — waterfront living at (relatively) affordable prices. Corporate HQs are here, but it's more residential than DIFC.
@@ -157,31 +157,31 @@ The ambitious little sibling of Downtown. Newer buildings, lower prices, same me
 - **Nationalities:** Mixed — Indian, Pakistani, Arab, European, African
 - **Income:** AED 25,000-60,000/month
 
-### Walkability: ⭐⭐⭐⭐
+### Walkability: 
 Good, but spread out:
 - Canal promenade for walks
 - Walking to Downtown possible (15-20 min)
 - Some areas require car
 
-### Metro Access: ⭐⭐⭐⭐
+### Metro Access: 
 - **Business Bay Station** — Red Line
 - Some buildings 10-15 min walk from station
 
-### Pros ✅
+### Pros 
 - **Best value** in CBD zone
 - Newer buildings than Downtown
 - Dubai Canal waterfront
 - Good mix of residential + commercial
 - Strong rental yields (~5.2%)
 
-### Cons ❌
+### Cons 
 - **Still developing** — Construction everywhere
 - **Traffic** — Sheikh Zayed Road access can be brutal
 - **Quality varies** — Some buildings poorly built
 - **Generic** — Less character than Downtown
 - **Parking** — Getting worse
 
-### Popular Buildings 🏢
+### Popular Buildings 
 - **The Opus** (Zaha Hadid designed)
 - **Damac Maison towers**
 - **Executive Towers**
@@ -189,73 +189,73 @@ Good, but spread out:
 - **Volante Tower**
 - **SLS Dubai**
 
-### Hidden Gems 💎
+### Hidden Gems 
 - **Canal-facing units** — Same views as Palm at 50% price
 - **Dubai Design District (D3)** — Adjacent creative hub
 - **Waterfront restaurants** — Fraction of Downtown prices
 
-### ⚠️ Warnings
+###  Warnings
 - Verify building completion quality (ask about construction defects)
 - Check distance to metro — "Business Bay" is huge
 - Avoid buildings facing construction sites
 
 ---
 
-## 📊 Side-by-Side Comparison
+##  Side-by-Side Comparison
 
 | Factor | Downtown | DIFC | Business Bay |
 |--------|----------|------|--------------|
 | **Studio Rent** | 78K | 80K (rare) | 69K |
 | **1BR Rent** | 120K | 137K | 93K |
 | **2BR Rent** | 194K | 203K | 132K |
-| **Walkability** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Metro** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **For Families** | ⭐⭐⭐ | ⭐ | ⭐⭐⭐ |
-| **Nightlife** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **Value** | ⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **Walkability** |  |  |  |
+| **Metro** |  |  |  |
+| **For Families** |  |  |  |
+| **Nightlife** |  |  |  |
+| **Value** |  |  |  |
 
 ---
 
-## 🎯 Who Should Live Where?
+##  Who Should Live Where?
 
 ### Downtown Dubai
-✅ **Ideal for:**
+ **Ideal for:**
 - Status-conscious professionals
 - Couples who love city life
 - Culture lovers (Opera, galleries)
 - Those who want THE Dubai address
 
-❌ **Avoid if:**
+ **Avoid if:**
 - You're budget-conscious
 - You have a car and need parking
 - You hate crowds
 
 ### DIFC
-✅ **Ideal for:**
+ **Ideal for:**
 - Finance/legal professionals working in DIFC
 - Single professionals, 30+
 - Art collectors and foodies
 
-❌ **Avoid if:**
+ **Avoid if:**
 - You have children
 - You want a weekend neighborhood
 - You work outside DIFC
 
 ### Business Bay
-✅ **Ideal for:**
+ **Ideal for:**
 - Young professionals on a budget
 - Couples starting out
 - Those who want CBD life without CBD prices
 - Investors (better yields)
 
-❌ **Avoid if:**
+ **Avoid if:**
 - You hate construction
 - You need "the address"
 - You want an established community feel
 
 ---
 
-## 🏫 Schools Nearby
+##  Schools Nearby
 
 **Note:** None of these areas are ideal for families with school-age children. Nearest schools:
 
@@ -270,7 +270,7 @@ Most families in this zone either:
 
 ---
 
-## 🛒 Daily Life Essentials
+##  Daily Life Essentials
 
 | Need | Downtown | DIFC | Business Bay |
 |------|----------|------|--------------|
@@ -281,7 +281,7 @@ Most families in this zone either:
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Negotiate rent** — Market is stabilizing in 2026; ask for 2 free months on annual lease
 2. **Service charges** — Ask exact amount before signing; can be 15-25K/year on top of rent

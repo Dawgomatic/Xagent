@@ -1,8 +1,8 @@
-# 🦞 OpenClaw-ComfyUI Skill
+#  OpenClaw-ComfyUI Skill
 
 A professional, token-saving agent skill for controlling ComfyUI through OpenClaw.
 
-## ✨ Features
+##  Features
 - **Token Optimization:** Uses Template IDs instead of sending full Workflow JSONs in prompts.
 - **Auto-Asset Management:** 
     - Automatically **uploads** input images to ComfyUI remote host.
@@ -10,7 +10,7 @@ A professional, token-saving agent skill for controlling ComfyUI through OpenCla
 - **Multi-Output Support:** Easily send results to Telegram, open on Mac, or display via Canvas.
 - **Scalable Architecture:** Add new workflows by simply dropping JSON files into the `workflows/` folder.
 
-## 🚀 Installation
+##  Installation
 
 1. Clone this repository into your OpenClaw `skills/` directory:
    ```bash
@@ -32,7 +32,7 @@ A professional, token-saving agent skill for controlling ComfyUI through OpenCla
    - Output Directory: outputs/comfy/
    ```
 
-## 🛠 Usage
+##  Usage
 The AI Agent can now use this skill by calling the `comfy_client.py` script. 
 
 Example CLI command:
@@ -40,10 +40,10 @@ Example CLI command:
 python3 skills/comfyui/comfy_client.py <template_id> "<prompt>" [input_image_path]
 ```
 
-## 📂 Project Structure
+##  Project Structure
 - `comfy_client.py`: Core logic for API interaction.
 - `SKILL.md`: Instructions for the AI Agent.
 - `workflows/`: Collection of ComfyUI workflow JSON files.
 
 ---
-Developed with ❤️ by **SalmonRK** & **Ava (เอวา)** 🎀
+Developed with  by **SalmonRK** & **Ava (เอวา)** 

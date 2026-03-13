@@ -5,7 +5,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🎬",
+        "emoji": "",
         "requires":
           {
             "env": { "GEMINI_API_KEY": "" },

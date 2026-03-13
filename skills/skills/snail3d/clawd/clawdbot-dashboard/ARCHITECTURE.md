@@ -1,6 +1,6 @@
 # Dashboard Architecture & Component Guide
 
-## 🏗 Overall Architecture
+##  Overall Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -35,7 +35,7 @@
            │               │    └─────────────────┘
 ```
 
-## 📦 Component Hierarchy
+##  Component Hierarchy
 
 ```
 App
@@ -78,7 +78,7 @@ App
     └── Footer (status info)
 ```
 
-## 🎭 Component Details
+##  Component Details
 
 ### App.tsx
 **Purpose**: Root component, layout management, theme state  
@@ -264,7 +264,7 @@ blockquote: Accent left border
 
 ---
 
-## 🎨 Styling System
+##  Styling System
 
 ### Tailwind Classes Used
 
@@ -317,7 +317,7 @@ sm:block (hidden on mobile), max-w-2xl, w-80 (sidebar width)
 
 ---
 
-## 📊 Data Flow
+##  Data Flow
 
 ### Message Flow
 ```
@@ -382,7 +382,7 @@ Icon changes back to Copy
 
 ---
 
-## ⚡ Performance Optimizations
+##  Performance Optimizations
 
 ### Code Splitting
 ```
@@ -406,7 +406,7 @@ index-*.js       (App code)
 
 ---
 
-## 🔄 Re-render Optimization
+##  Re-render Optimization
 
 **Components that trigger re-renders**:
 1. `App`: isDark state change → all children
@@ -422,7 +422,7 @@ export const ChatPanel = memo(ChatPanelComponent)
 
 ---
 
-## 🧪 Testing Points
+##  Testing Points
 
 **Unit Tests** (components):
 - Message markdown rendering
@@ -443,7 +443,7 @@ export const ChatPanel = memo(ChatPanelComponent)
 
 ---
 
-## 🚀 Scaling to Phase 2 (Real-time)
+##  Scaling to Phase 2 (Real-time)
 
 ### Add Socket.io Integration
 
@@ -494,7 +494,7 @@ if (author === 'typing') {
 
 ---
 
-## 📐 Responsive Design Checklist
+##  Responsive Design Checklist
 
 - [ ] Mobile breakpoints (sm, md, lg)
 - [ ] Sidebar collapse on mobile
@@ -505,7 +505,7 @@ if (author === 'typing') {
 
 ---
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 1. **React 19**: https://react.dev
 2. **Tailwind CSS v4**: https://tailwindcss.com
@@ -516,4 +516,4 @@ if (author === 'typing') {
 ---
 
 **Last Updated**: January 2025  
-**Phase**: 1 (Complete) ✅
+**Phase**: 1 (Complete) 

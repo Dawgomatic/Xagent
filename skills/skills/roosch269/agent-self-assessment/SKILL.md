@@ -17,7 +17,7 @@ keywords:
   - agent hardening
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     minVersion: "1.0.0"
 ---
 
@@ -54,9 +54,9 @@ When invoked, you (the agent) perform the following six checks against your **ac
 ```
 
 **Scoring:**
-- 🟢 GREEN — All consequential actions require explicit gate; boundaries documented
-- 🟡 AMBER — Gates exist but not all paths covered, or documentation missing
-- 🔴 RED — Direct ingress → action path exists with no gate; or cannot verify
+-  GREEN — All consequential actions require explicit gate; boundaries documented
+-  AMBER — Gates exist but not all paths covered, or documentation missing
+-  RED — Direct ingress → action path exists with no gate; or cannot verify
 
 ---
 
@@ -88,9 +88,9 @@ wc -l audit/atlas-actions.ndjson 2>/dev/null
 ```
 
 **Scoring:**
-- 🟢 GREEN — Log exists, append-only NDJSON, hash chaining present, recently written
-- 🟡 AMBER — Log exists but missing hash chaining, or sparse/incomplete entries
-- 🔴 RED — No audit log; or log exists but is mutable/cleartext with no integrity check
+-  GREEN — Log exists, append-only NDJSON, hash chaining present, recently written
+-  AMBER — Log exists but missing hash chaining, or sparse/incomplete entries
+-  RED — No audit log; or log exists but is mutable/cleartext with no integrity check
 
 **Remediation:** Install the `audit-trail` skill from ClawHub — it provides the append-only hash-chained logging implementation.
 
@@ -120,9 +120,9 @@ tail -20 ~/.zsh_history 2>/dev/null | grep -iE '(key|token|secret)=' | sed 's/=.
 ```
 
 **Scoring:**
-- 🟢 GREEN — Each credential scoped to one domain; inventory documented; no world-readable credential files
-- 🟡 AMBER — Credentials present but not fully documented; minor scope ambiguity
-- 🔴 RED — Cross-domain credentials; credentials in shell history or world-readable files; no inventory
+-  GREEN — Each credential scoped to one domain; inventory documented; no world-readable credential files
+-  AMBER — Credentials present but not fully documented; minor scope ambiguity
+-  RED — Cross-domain credentials; credentials in shell history or world-readable files; no inventory
 
 ---
 
@@ -146,9 +146,9 @@ tail -20 ~/.zsh_history 2>/dev/null | grep -iE '(key|token|secret)=' | sed 's/=.
 ```
 
 **Scoring:**
-- 🟢 GREEN — Ingress and Action planes explicitly separated; prompt injection mitigated; policy documented
-- 🟡 AMBER — Separation mostly in place but some shared paths or no explicit policy
-- 🔴 RED — Ingress → Action with no separation; prompt injection in untrusted content can trigger actions
+-  GREEN — Ingress and Action planes explicitly separated; prompt injection mitigated; policy documented
+-  AMBER — Separation mostly in place but some shared paths or no explicit policy
+-  RED — Ingress → Action with no separation; prompt injection in untrusted content can trigger actions
 
 ---
 
@@ -174,9 +174,9 @@ tail -20 ~/.zsh_history 2>/dev/null | grep -iE '(key|token|secret)=' | sed 's/=.
 ```
 
 **Scoring:**
-- 🟢 GREEN — Spending limits set; every transaction receipted in audit log; escrow used for agent-to-agent; stake configured
-- 🟡 AMBER — Payments possible but missing receipts, no spending cap, or no escrow
-- 🔴 RED — Unbounded autonomous spending; no receipts; no accountability mechanism
+-  GREEN — Spending limits set; every transaction receipted in audit log; escrow used for agent-to-agent; stake configured
+-  AMBER — Payments possible but missing receipts, no spending cap, or no escrow
+-  RED — Unbounded autonomous spending; no receipts; no accountability mechanism
 
 ---
 
@@ -207,9 +207,9 @@ grep -rl "quarantine\|sha256\|provenance" skills/ 2>/dev/null | head -5
 ```
 
 **Scoring:**
-- 🟢 GREEN — All imported artifacts sha256-hashed with provenance; no direct untrusted-to-memory path; memory files scanned for injection
-- 🟡 AMBER — Some imports tracked but not all; no systematic quarantine; or memory accessible but low-risk
-- 🔴 RED — Untrusted content written directly to memory; no provenance tracking; no injection scanning
+-  GREEN — All imported artifacts sha256-hashed with provenance; no direct untrusted-to-memory path; memory files scanned for injection
+-  AMBER — Some imports tracked but not all; no systematic quarantine; or memory accessible but low-risk
+-  RED — Untrusted content written directly to memory; no provenance tracking; no injection scanning
 
 ---
 
@@ -226,12 +226,12 @@ After completing all six checks, produce a report in this exact structure:
 
 SUMMARY SCORECARD
 ─────────────────────────────────────────────────────────────
-  Check 1 — Decision Boundaries      [ 🟢 / 🟡 / 🔴 ]
-  Check 2 — Audit Trail              [ 🟢 / 🟡 / 🔴 ]
-  Check 3 — Credential Scoping       [ 🟢 / 🟡 / 🔴 ]
-  Check 4 — Plane Separation         [ 🟢 / 🟡 / 🔴 ]
-  Check 5 — Economic Accountability  [ 🟢 / 🟡 / 🔴 ]
-  Check 6 — Memory Safety            [ 🟢 / 🟡 / 🔴 ]
+  Check 1 — Decision Boundaries      [  /  /  ]
+  Check 2 — Audit Trail              [  /  /  ]
+  Check 3 — Credential Scoping       [  /  /  ]
+  Check 4 — Plane Separation         [  /  /  ]
+  Check 5 — Economic Accountability  [  /  /  ]
+  Check 6 — Memory Safety            [  /  /  ]
 
   OVERALL POSTURE: [ SECURE / HARDENING NEEDED / CRITICAL ]
   RED count: N | AMBER count: N | GREEN count: N

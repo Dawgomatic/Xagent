@@ -2,7 +2,7 @@
 name: "data-model-designer"
 description: "Design data models for construction projects. Create entity-relationship diagrams, define schemas, and generate database structures."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw": {"emoji": "📐", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
+metadata: {"openclaw": {"emoji": "", "os": ["darwin", "linux", "win32"], "homepage": "https://datadrivenconstruction.io", "requires": {"bins": ["python3"]}}}
 ---
 # Data Model Designer
 

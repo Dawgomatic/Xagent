@@ -40,7 +40,7 @@ pick_recipe() {
 PICKED=$(pick_recipe)
 
 echo "$PICKED" | awk -F'|' '{
-  print "🍳 **Idée de ce soir** 🍳"
+  print " **Idée de ce soir** "
   print ""
   print "**" $1 "** (" $2 ")"
   print ""
@@ -49,7 +49,7 @@ echo "$PICKED" | awk -F'|' '{
   print "*Comment faire:*"
   print $5
   print ""
-  print "📌 " $6
+  print " " $6
   print ""
   print "---"
   print ""

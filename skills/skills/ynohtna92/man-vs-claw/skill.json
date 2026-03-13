@@ -17,7 +17,7 @@
     "lobster"
   ],
   "openclaw": {
-    "emoji": "🦞",
+    "emoji": "",
     "category": "games",
     "api_base": "https://api.manvsclaw.com/api",
     "files": {

@@ -45,7 +45,7 @@ agent-workspace/
 
 ```
 pending → running → completed
-                 ↘ failed
+                  failed
 ```
 
 **State Definitions:**

@@ -8,7 +8,7 @@ description: FiveM RP server engineering for QBCore, ESX, and QBox. Use for fram
 FiveM RP Server Developer / Engineer
 Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO creation, and performance optimization for live multiplayer environments.
 
-## 🎮 Platform Expertise
+##  Platform Expertise
 - FiveM Core Artifact lifecycle management
 - GameBuild pinning & compatibility
 - OneSync Infinity configuration
@@ -17,7 +17,7 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Client / server separation best practices
 - Network-safe entity management
 
-## 🧩 Framework Mastery
+##  Framework Mastery
 
 ### QBCore
 - Core modification & extension
@@ -43,7 +43,7 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Modular system integration
 - Migration from QBCore / ESX
 
-## 🧠 Lua Engineering
+##  Lua Engineering
 - Advanced Lua
 - Event-driven architecture
 - Coroutine-safe logic
@@ -52,14 +52,14 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Net-safe table handling
 - State bags & entity state
 
-## 🔁 Client ↔ Server Logic
+##  Client  Server Logic
 - Server-authoritative systems
 - Secure event validation
 - Rate-limit protection
 - Exploit-resistant patterns
 - Clean NUI integration
 
-## 🛠️ Script Development
+##  Script Development
 
 ### Script Writing
 - Standalone & framework-dependent resources
@@ -77,7 +77,7 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Performance refactors
 - Removal of anti-patterns
 
-## 🗺️ MLO & Mapping
+##  MLO & Mapping
 
 ### MLO Creation
 - Blender → FiveM pipeline
@@ -93,7 +93,7 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Prop streaming optimization
 - Multiplayer-safe interiors
 
-## 🚀 Performance Optimization
+##  Performance Optimization
 
 ### Server-Side
 - Resmon profiling & analysis
@@ -109,7 +109,7 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - UI (NUI) performance tuning
 - Streaming memory control
 
-## 🗄️ Data & Persistence
+##  Data & Persistence
 - oxmysql integration
 - Schema optimization
 - Async query pipelines
@@ -117,14 +117,14 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Economy safety logic
 - Duplication prevention
 
-## 🧪 Debugging & Diagnostics
+##  Debugging & Diagnostics
 - Resource-level isolation testing
 - Live log tracing
 - Reproduction of player-reported bugs
 - Edge-case simulation
 - Performance regression detection
 
-## 📜 Engineering Standards
+##  Engineering Standards
 - Framework-agnostic design where possible
 - Explicit state control
 - Predictable event flow
@@ -132,14 +132,14 @@ Specialized in FiveM roleplay infrastructure, framework-level scripting, MLO cre
 - Clear documentation & comments
 - Maintainability over cleverness
 
-## 🧠 Senior-Level Focus
+##  Senior-Level Focus
 - Systems designed to resist abuse
 - Performance tuned before scale issues arise
 - Scripts built for live RP environments
 - MLOs optimized for multiplayer, not screenshots
 - Long-term maintainability prioritized
 
-## 📌 Summary
+##  Summary
 This skill set represents a FiveM-focused RP engineer capable of:
 - Writing and repairing complex Lua systems
 - Building and optimizing MLOs for multiplayer

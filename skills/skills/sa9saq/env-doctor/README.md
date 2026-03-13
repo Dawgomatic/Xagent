@@ -1,4 +1,4 @@
-# 🩺 env-doctor
+#  env-doctor
 
 Diagnose problems in your .env files before they break your app.
 
@@ -8,7 +8,7 @@ Diagnose problems in your .env files before they break your app.
 - Cross-references `.env` with `.env.example` for missing/extra keys
 - Flags security risks (exposed secrets, missing `.gitignore`)
 - Catches common mistakes (spaces around `=`, bad URLs, invalid ports)
-- Severity-rated report: 🔴 Critical, 🟡 Warning, 🔵 Info
+- Severity-rated report:  Critical,  Warning,  Info
 
 ## Usage Examples
 

@@ -123,11 +123,11 @@ def main():
         print(json.dumps(result, indent=2))
     else:
         if result["success"]:
-            print(f"✅ Transaction successful!")
+            print(f" Transaction successful!")
             print(f"   Signature: {result['signature']}")
             print(f"   Explorer:  {result['explorer_url']}")
         else:
-            print(f"❌ Transaction failed: {result['error']}")
+            print(f" Transaction failed: {result['error']}")
             sys.exit(1)
 
 

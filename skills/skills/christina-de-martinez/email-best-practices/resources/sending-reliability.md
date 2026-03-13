@@ -50,11 +50,11 @@ Handle transient failures with exponential backoff.
 
 | Error Type | Retry? | Notes |
 |------------|--------|-------|
-| 5xx (server error) | ✅ Yes | Transient, likely to resolve |
-| 429 (rate limit) | ✅ Yes | Wait for rate limit window |
-| 4xx (client error) | ❌ No | Fix the request first |
-| Network timeout | ✅ Yes | Transient |
-| DNS failure | ✅ Yes | May be transient |
+| 5xx (server error) |  Yes | Transient, likely to resolve |
+| 429 (rate limit) |  Yes | Wait for rate limit window |
+| 4xx (client error) |  No | Fix the request first |
+| Network timeout |  Yes | Transient |
+| DNS failure |  Yes | May be transient |
 
 ### Exponential Backoff
 

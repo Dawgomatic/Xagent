@@ -9,7 +9,7 @@ class AgenticVerifier {
     if (key) {
       this.openai = new OpenAI({ apiKey: key });
     } else {
-      console.warn("⚠️ No OPENAI_API_KEY provided. Using mock mode.");
+      console.warn(" No OPENAI_API_KEY provided. Using mock mode.");
       this.openai = null;
     }
     this.tempDir = path.join(__dirname, 'temp_exec');
@@ -130,15 +130,15 @@ Return ONLY a JSON object with:
 
     // 3. Analyze result
     if (!result.success) {
-      console.log(`❌ Code crashed or timed out: ${result.error}`);
+      console.log(` Code crashed or timed out: ${result.error}`);
       return { passed: false, reason: "Runtime Error", detail: result };
     }
 
     if (result.actualOutput === testCase.expectedOutput) {
-      console.log(`✅ Passed test case. Output: ${result.actualOutput}`);
+      console.log(` Passed test case. Output: ${result.actualOutput}`);
       return { passed: true, testCase };
     } else {
-      console.log(`❌ Failed test case. Expected: ${testCase.expectedOutput}, Got: ${result.actualOutput}`);
+      console.log(` Failed test case. Expected: ${testCase.expectedOutput}, Got: ${result.actualOutput}`);
       return { passed: false, reason: "Wrong Answer", detail: { expected: testCase.expectedOutput, actual: result.actualOutput } };
     }
   }

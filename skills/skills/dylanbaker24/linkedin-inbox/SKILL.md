@@ -84,7 +84,7 @@ For each unread message:
 
 Example notification:
 ```
-💼 LinkedIn: New message from **Alex M.** (Founder @ SomeCompany)
+ LinkedIn: New message from **Alex M.** (Founder @ SomeCompany)
 
 Preview: "Hi, I noticed you're growing and wondered if..."
 
@@ -93,7 +93,7 @@ Preview: "Hi, I noticed you're growing and wondered if..."
 **Draft reply:**
 > Thanks for reaching out. We're set on that side for now, but I'll keep you in mind if that changes.
 
-React ✅ to send, ❌ to skip, or reply with edits.
+React  to send,  to skip, or reply with edits.
 ```
 
 ### Send Approved Messages
@@ -134,13 +134,13 @@ See `references/style-extraction.md` for detailed guidance.
 
 Add LinkedIn summary to your morning ping:
 ```markdown
-📣 The Morning Ping — Monday, Jan 27
+ The Morning Ping — Monday, Jan 27
 
 **LinkedIn:**
-• 💚 Sarah Chen replied — "That sounds great, let's do Thursday" → Draft ready
-• 💚 Mike R. replied — "Not interested right now" → No action needed
-• 📩 3 new connection requests (2 sales pitches, 1 relevant)
-• 📩 1 unread message from Alex (job inquiry) → Draft ready
+•  Sarah Chen replied — "That sounds great, let's do Thursday" → Draft ready
+•  Mike R. replied — "Not interested right now" → No action needed
+•  3 new connection requests (2 sales pitches, 1 relevant)
+•  1 unread message from Alex (job inquiry) → Draft ready
 
 Reply "send sarah" to approve, "skip mike" to archive.
 ```

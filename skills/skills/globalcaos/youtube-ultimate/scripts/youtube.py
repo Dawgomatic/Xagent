@@ -342,7 +342,7 @@ def cmd_search(args):
     for item in response.get('items', []):
         snippet = item['snippet']
         video_id = item['id']['videoId']
-        print(f"📺 {snippet['title']}")
+        print(f" {snippet['title']}")
         print(f"   https://youtube.com/watch?v={video_id}")
         print(f"   Channel: {snippet['channelTitle']} | {snippet['publishedAt'][:10]}")
         if args.verbose:
@@ -375,7 +375,7 @@ def cmd_video(args):
         stats = item.get('statistics', {})
         content = item.get('contentDetails', {})
         
-        print(f"📺 {snippet['title']}")
+        print(f" {snippet['title']}")
         print(f"   ID: {item['id']}")
         print(f"   Channel: {snippet['channelTitle']}")
         print(f"   Published: {snippet['publishedAt'][:10]}")
@@ -408,9 +408,9 @@ def cmd_comments(args):
 
     for item in response.get('items', []):
         comment = item['snippet']['topLevelComment']['snippet']
-        print(f"💬 {comment['authorDisplayName']}")
+        print(f" {comment['authorDisplayName']}")
         print(f"   {comment['textDisplay'][:200]}")
-        print(f"   👍 {comment['likeCount']} | {comment['publishedAt'][:10]}")
+        print(f"    {comment['likeCount']} | {comment['publishedAt'][:10]}")
         
         # Show replies if requested
         if args.replies and item['snippet']['totalReplyCount'] > 0:
@@ -452,7 +452,7 @@ def cmd_channel(args):
     for item in response['items']:
         snippet = item['snippet']
         stats = item.get('statistics', {})
-        print(f"📢 {snippet['title']}")
+        print(f" {snippet['title']}")
         print(f"   ID: {item['id']}")
         print(f"   Subscribers: {int(stats.get('subscriberCount', 0)):,}")
         print(f"   Videos: {stats.get('videoCount', 'N/A')}")
@@ -480,7 +480,7 @@ def cmd_subscriptions(args):
 
     for item in response.get('items', []):
         snippet = item['snippet']
-        print(f"📢 {snippet['title']}")
+        print(f" {snippet['title']}")
         print(f"   Channel: {snippet['resourceId']['channelId']}")
 
 
@@ -500,7 +500,7 @@ def cmd_playlists(args):
     for item in response.get('items', []):
         snippet = item['snippet']
         count = item['contentDetails']['itemCount']
-        print(f"📋 {snippet['title']} ({count} videos)")
+        print(f" {snippet['title']} ({count} videos)")
         print(f"   ID: {item['id']}")
 
 
@@ -520,7 +520,7 @@ def cmd_playlist_items(args):
     for item in response.get('items', []):
         snippet = item['snippet']
         video_id = snippet['resourceId']['videoId']
-        print(f"📺 {snippet['title']}")
+        print(f" {snippet['title']}")
         print(f"   https://youtube.com/watch?v={video_id}")
 
 
@@ -539,7 +539,7 @@ def cmd_liked(args):
 
     for item in response.get('items', []):
         snippet = item['snippet']
-        print(f"❤️ {snippet['title']}")
+        print(f" {snippet['title']}")
         print(f"   https://youtube.com/watch?v={item['id']}")
 
 

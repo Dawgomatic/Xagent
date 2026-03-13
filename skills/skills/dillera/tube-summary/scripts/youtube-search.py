@@ -112,7 +112,7 @@ def search_via_web_scrape(query):
 
 def format_results(videos):
     """Format video results for display"""
-    output = [f"\n📺 Top 10 YouTube Videos for this search:\n"]
+    output = [f"\n Top 10 YouTube Videos for this search:\n"]
     
     for i, video in enumerate(videos, 1):
         output.append(f"{i}. {video['title']}")
@@ -120,7 +120,7 @@ def format_results(videos):
         output.append(f"   Views: {video['views']} • Duration: {video.get('duration', 'N/A')}")
         output.append(f"   URL: {video['url']}\n")
     
-    output.append("\n➡️  Respond with the video number (1-10) to summarize that video.\n")
+    output.append("\n  Respond with the video number (1-10) to summarize that video.\n")
     return "".join(output)
 
 def main():
@@ -143,7 +143,7 @@ def main():
         print("\n<!-- JSON Data (for tool processing) -->")
         print(json.dumps(videos, indent=2))
     else:
-        print("❌ No videos found. Try a different search query or check your internet connection.")
+        print(" No videos found. Try a different search query or check your internet connection.")
         sys.exit(1)
 
 if __name__ == '__main__':

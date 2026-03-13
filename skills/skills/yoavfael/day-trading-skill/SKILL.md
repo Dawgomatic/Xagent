@@ -4,7 +4,7 @@ description: Professional AI Trading Mentor. Master price action, technical anal
 author: yoavfael
 homepage: https://github.com/yoavfael/day-trading-skill
 version: 1.2.1
-emoji: 💹
+emoji: 
 tags: [trading, investing, day-trading, technical-analysis, risk-management]
 ---
 

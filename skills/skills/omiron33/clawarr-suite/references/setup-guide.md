@@ -628,10 +628,10 @@ See [Common Issues](common-issues.md) for detailed troubleshooting.
 ## Next Steps
 
 After setup:
-1. ✅ Run `scripts/diagnose.sh` to verify everything
-2. ✅ Test adding content via Overseerr
-3. ✅ Monitor first download to ensure import works
-4. ✅ Set up Bazarr for subtitles
-5. ✅ Configure Tautulli for Plex stats
+1.  Run `scripts/diagnose.sh` to verify everything
+2.  Test adding content via Overseerr
+3.  Monitor first download to ensure import works
+4.  Set up Bazarr for subtitles
+5.  Configure Tautulli for Plex stats
 
-Enjoy your fully automated media stack! 🎬📺🎵
+Enjoy your fully automated media stack! 

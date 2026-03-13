@@ -1,7 +1,7 @@
 ---
 name: Linux
 description: Operate Linux systems avoiding permission traps, silent failures, and common admin mistakes.
-metadata: {"clawdbot":{"emoji":"🐧","os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin"]}}
 ---
 
 # Linux Gotchas

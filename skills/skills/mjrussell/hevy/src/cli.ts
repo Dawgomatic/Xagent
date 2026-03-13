@@ -86,15 +86,15 @@ function formatSet(set: Set, unit: "kg" | "lbs" = "lbs"): string {
 }
 
 function printWorkoutSummary(workout: Workout, unit: "kg" | "lbs" = "lbs"): void {
-  console.log(`\n📅 ${formatDate(workout.start_time)} - ${workout.title}`);
-  console.log(`   ⏱️  ${formatTime(workout.start_time)} - ${formatTime(workout.end_time)} (${formatDuration(workout.start_time, workout.end_time)})`);
+  console.log(`\n ${formatDate(workout.start_time)} - ${workout.title}`);
+  console.log(`     ${formatTime(workout.start_time)} - ${formatTime(workout.end_time)} (${formatDuration(workout.start_time, workout.end_time)})`);
   
   if (workout.description) {
-    console.log(`   📝 ${workout.description}`);
+    console.log(`    ${workout.description}`);
   }
   
   const totalSets = workout.exercises.reduce((sum, ex) => sum + ex.sets.length, 0);
-  console.log(`   💪 ${workout.exercises.length} exercises, ${totalSets} sets`);
+  console.log(`    ${workout.exercises.length} exercises, ${totalSets} sets`);
 }
 
 function printWorkoutDetail(workout: Workout, unit: "kg" | "lbs" = "lbs"): void {
@@ -104,7 +104,7 @@ function printWorkoutDetail(workout: Workout, unit: "kg" | "lbs" = "lbs"): void 
   for (const exercise of workout.exercises) {
     console.log(`   ${exercise.index + 1}. ${exercise.title}`);
     if (exercise.notes) {
-      console.log(`      📝 ${exercise.notes}`);
+      console.log(`       ${exercise.notes}`);
     }
     for (const set of exercise.sets) {
       console.log(`      • ${formatSet(set, unit)}`);
@@ -118,9 +118,9 @@ function printRoutineSummary(routine: Routine): void {
 }
 
 function printRoutineDetail(routine: Routine, unit: "kg" | "lbs" = "lbs"): void {
-  console.log(`\n🏋️ ${routine.title}`);
+  console.log(`\n ${routine.title}`);
   if (routine.notes) {
-    console.log(`   📝 ${routine.notes}`);
+    console.log(`    ${routine.notes}`);
   }
   console.log(`   Created: ${formatDate(routine.created_at)}`);
   console.log("");
@@ -128,10 +128,10 @@ function printRoutineDetail(routine: Routine, unit: "kg" | "lbs" = "lbs"): void 
   for (const exercise of routine.exercises) {
     console.log(`   ${exercise.index + 1}. ${exercise.title}`);
     if (exercise.notes) {
-      console.log(`      📝 ${exercise.notes}`);
+      console.log(`       ${exercise.notes}`);
     }
     if (exercise.rest_seconds) {
-      console.log(`      ⏱️  Rest: ${exercise.rest_seconds}s`);
+      console.log(`        Rest: ${exercise.rest_seconds}s`);
     }
     for (const set of exercise.sets) {
       const repRange = set.rep_range 
@@ -154,7 +154,7 @@ program
   .description("Check API key configuration and connection")
   .action(async () => {
     if (!isConfigured()) {
-      console.log("❌ Not configured - HEVY_API_KEY environment variable not set");
+      console.log(" Not configured - HEVY_API_KEY environment variable not set");
       console.log("");
       console.log("To get your API key:");
       console.log("  1. Go to https://hevy.com/settings?developer");
@@ -172,7 +172,7 @@ program
       console.log(`✓ Connected to Hevy API`);
       console.log(`✓ Account has ${count} workouts`);
     } catch (error) {
-      console.log("❌ Failed to connect to Hevy API");
+      console.log(" Failed to connect to Hevy API");
       console.error(error instanceof Error ? error.message : error);
       process.exit(1);
     }
@@ -211,7 +211,7 @@ program
         return;
       }
 
-      console.log(`\n📊 ${workouts.length} workout${workouts.length !== 1 ? "s" : ""}:\n`);
+      console.log(`\n ${workouts.length} workout${workouts.length !== 1 ? "s" : ""}:\n`);
       for (const workout of workouts) {
         printWorkoutSummary(workout, unit);
       }
@@ -269,7 +269,7 @@ program
         return;
       }
 
-      console.log(`\n🏋️ ${routines.length} routine${routines.length !== 1 ? "s" : ""}:\n`);
+      console.log(`\n ${routines.length} routine${routines.length !== 1 ? "s" : ""}:\n`);
       for (const routine of routines) {
         printRoutineSummary(routine);
       }
@@ -349,7 +349,7 @@ program
         return;
       }
 
-      console.log(`\n💪 ${templates.length} exercise${templates.length !== 1 ? "s" : ""}:\n`);
+      console.log(`\n ${templates.length} exercise${templates.length !== 1 ? "s" : ""}:\n`);
       for (const template of templates.slice(0, 50)) {
         const custom = template.is_custom ? " [custom]" : "";
         console.log(`• ${template.title}${custom}`);
@@ -399,7 +399,7 @@ program
         return;
       }
 
-      console.log(`\n📈 History for ${exerciseName} (${Math.min(limit, history.length)} of ${history.length} entries):\n`);
+      console.log(`\n History for ${exerciseName} (${Math.min(limit, history.length)} of ${history.length} entries):\n`);
       
       let currentWorkout = "";
       for (const entry of history.slice(0, limit)) {
@@ -444,7 +444,7 @@ program
         return;
       }
 
-      console.log(`\n📁 ${folders.length} folder${folders.length !== 1 ? "s" : ""}:\n`);
+      console.log(`\n ${folders.length} folder${folders.length !== 1 ? "s" : ""}:\n`);
       for (const folder of folders) {
         console.log(`• ${folder.title} (ID: ${folder.id})`);
       }
@@ -527,7 +527,7 @@ program
       if (options.json) {
         console.log(JSON.stringify(routine, null, 2));
       } else {
-        console.log(`✅ Created routine: ${routine.title}`);
+        console.log(` Created routine: ${routine.title}`);
         console.log(`   ID: ${routine.id}`);
         console.log(`   Exercises: ${routine.exercises.length}`);
       }
@@ -553,7 +553,7 @@ program
       if (options.json) {
         console.log(JSON.stringify(folder, null, 2));
       } else {
-        console.log(`✅ Created folder: ${folder.title}`);
+        console.log(` Created folder: ${folder.title}`);
         console.log(`   ID: ${folder.id}`);
       }
     } catch (error) {
@@ -596,7 +596,7 @@ program
       if (options.json) {
         console.log(JSON.stringify(routine, null, 2));
       } else {
-        console.log(`✅ Updated routine: ${routine.title}`);
+        console.log(` Updated routine: ${routine.title}`);
         console.log(`   ID: ${routine.id}`);
         console.log(`   Exercises: ${routine.exercises.length}`);
       }
@@ -637,7 +637,7 @@ program
         );
         
         if (exactMatch) {
-          console.error(`❌ Exercise "${exactMatch.title}" already exists!`);
+          console.error(` Exercise "${exactMatch.title}" already exists!`);
           console.error(`   ID: ${exactMatch.id}`);
           console.error(`   Muscle: ${exactMatch.primary_muscle_group}`);
           console.error(`   Type: ${exactMatch.type}`);
@@ -661,7 +661,7 @@ program
       if (options.json) {
         console.log(JSON.stringify(exercise, null, 2));
       } else {
-        console.log(`✅ Created exercise: ${exercise.title}`);
+        console.log(` Created exercise: ${exercise.title}`);
         console.log(`   ID: ${exercise.id}`);
         console.log(`   Muscle: ${exercise.primary_muscle_group}`);
         console.log(`   Type: ${exercise.type}`);

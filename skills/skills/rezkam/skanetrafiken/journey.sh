@@ -331,7 +331,7 @@ while IFS= read -r journey; do
     echo "Depart:  ${DEPART_LOCAL}${DEPART_DEV_STR}${PASSED_STR}"
     echo "Arrive:  ${ARRIVE_LOCAL}${ARRIVE_DEV_STR}"
     echo "Changes: ${CHANGES}"
-    [[ -n "$STATUS_TEXT" ]] && echo "Status:  ⚠️  ${STATUS_TEXT}"
+    [[ -n "$STATUS_TEXT" ]] && echo "Status:    ${STATUS_TEXT}"
     echo ""
     echo "LEGS:"
 
@@ -385,7 +385,7 @@ while IFS= read -r journey; do
     # Check for disruptions
     DISRUPTIONS=$(echo "$journey" | jq -r '[.routeLinks[].deviations // [] | .[] | .text] | unique | .[]' 2>/dev/null)
     if [[ -n "$DISRUPTIONS" ]]; then
-        echo "⚠️  DISRUPTIONS:"
+        echo "  DISRUPTIONS:"
         while IFS= read -r disruption; do
             echo "  • ${disruption}"
         done <<< "$DISRUPTIONS"

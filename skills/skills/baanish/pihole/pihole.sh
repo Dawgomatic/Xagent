@@ -22,13 +22,13 @@ fi
 
 # Validate API URL and token
 if [[ -z "$PIHOLE_API_URL" ]] || [[ "$PIHOLE_API_URL" == "empty" ]]; then
-    echo "⚠️  Pi-hole API URL not configured"
+    echo "  Pi-hole API URL not configured"
     echo "Set PIHOLE_API_URL environment variable or configure in clawdbot.json"
     exit 1
 fi
 
 if [[ -z "$PIHOLE_API_TOKEN" ]] || [[ "$PIHOLE_API_TOKEN" == "empty" ]]; then
-    echo "⚠️  Pi-hole API token not configured"
+    echo "  Pi-hole API token not configured"
     echo "Set PIHOLE_API_TOKEN environment variable or configure in clawdbot.json"
     exit 1
 fi
@@ -46,12 +46,12 @@ validate_number() {
     local min="${3:-0}"
 
     if ! [[ "$value" =~ ^[0-9]+$ ]]; then
-        echo "⚠️  ${name} must be a number"
+        echo "  ${name} must be a number"
         exit 1
     fi
 
     if (( value < min )); then
-        echo "⚠️  ${name} must be at least ${min}"
+        echo "  ${name} must be at least ${min}"
         exit 1
     fi
     return 0
@@ -62,13 +62,13 @@ validate_domain() {
     local domain="$1"
 
     if [[ -z "$domain" ]]; then
-        echo "⚠️  Domain cannot be empty"
+        echo "  Domain cannot be empty"
         exit 1
     fi
 
     # Basic domain validation
     if ! [[ "$domain" =~ ^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$ ]]; then
-        echo "⚠️  Invalid domain format: $domain"
+        echo "  Invalid domain format: $domain"
         exit 1
     fi
     return 0
@@ -83,7 +83,7 @@ get_session() {
         "${PIHOLE_API_URL}/auth" 2>/dev/null)
 
     if ! echo "$response" | jq -e '.session.sid' >/dev/null 2>&1; then
-        echo "⚠️  Failed to authenticate with Pi-hole"
+        echo "  Failed to authenticate with Pi-hole"
         echo "Response: $response"
         exit 1
     fi
@@ -122,7 +122,7 @@ case "$COMMAND" in
         # Get Pi-hole blocking status
         RESULT=$(api_request "/dns/blocking")
         if ! echo "$RESULT" | jq -e '.blocking' >/dev/null 2>&1; then
-            echo "⚠️  Could not determine status"
+            echo "  Could not determine status"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -131,14 +131,14 @@ case "$COMMAND" in
         TIMER=$(echo "$RESULT" | jq -r '.timer // "none"')
 
         if [[ "$BLOCKING" == "true" ]]; then
-            echo "🟢 Pi-hole is ENABLED"
+            echo " Pi-hole is ENABLED"
             if [[ "$TIMER" != "none" ]] && [[ "$TIMER" != "null" ]]; then
-                echo "⏱️  Temporarily disabled for $TIMER seconds"
+                echo "  Temporarily disabled for $TIMER seconds"
             fi
         else
-            echo "🔴 Pi-hole is DISABLED"
+            echo " Pi-hole is DISABLED"
             if [[ "$TIMER" != "none" ]] && [[ "$TIMER" != "null" ]]; then
-                echo "⏱️  Will re-enable in $TIMER seconds"
+                echo "  Will re-enable in $TIMER seconds"
             fi
         fi
         ;;
@@ -149,9 +149,9 @@ case "$COMMAND" in
         RESULT=$(api_request "/dns/blocking" "POST" '{"blocking":true}')
         BLOCKING=$(echo "$RESULT" | jq -r '.blocking')
         if [[ "$BLOCKING" == "true" ]] || [[ "$BLOCKING" == "enabled" ]]; then
-            echo "✅ Pi-hole is now ENABLED"
+            echo " Pi-hole is now ENABLED"
         else
-            echo "⚠️  Failed to enable Pi-hole"
+            echo "  Failed to enable Pi-hole"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -163,9 +163,9 @@ case "$COMMAND" in
         RESULT=$(api_request "/dns/blocking" "POST" '{"blocking":false}')
         BLOCKING=$(echo "$RESULT" | jq -r '.blocking')
         if [[ "$BLOCKING" == "false" ]] || [[ "$BLOCKING" == "disabled" ]]; then
-            echo "✅ Pi-hole is now DISABLED"
+            echo " Pi-hole is now DISABLED"
         else
-            echo "⚠️  Failed to disable Pi-hole"
+            echo "  Failed to disable Pi-hole"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -177,9 +177,9 @@ case "$COMMAND" in
         RESULT=$(api_request "/dns/blocking" "POST" '{"blocking":false,"timer":300}')
         BLOCKING=$(echo "$RESULT" | jq -r '.blocking')
         if [[ "$BLOCKING" == "false" ]] || [[ "$BLOCKING" == "disabled" ]]; then
-            echo "✅ Pi-hole disabled for 5 minutes"
+            echo " Pi-hole disabled for 5 minutes"
         else
-            echo "⚠️  Failed to disable Pi-hole"
+            echo "  Failed to disable Pi-hole"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -196,9 +196,9 @@ case "$COMMAND" in
         RESULT=$(api_request "/dns/blocking" "POST" "{\"blocking\":false,\"timer\":$SECONDS}")
         BLOCKING=$(echo "$RESULT" | jq -r '.blocking')
         if [[ "$BLOCKING" == "false" ]] || [[ "$BLOCKING" == "disabled" ]]; then
-            echo "✅ Pi-hole disabled for ${DURATION} minutes"
+            echo " Pi-hole disabled for ${DURATION} minutes"
         else
-            echo "⚠️  Failed to disable Pi-hole"
+            echo "  Failed to disable Pi-hole"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -211,11 +211,11 @@ case "$COMMAND" in
             exit 1
         fi
 
-        echo "🔍 Checking blocked queries in last $((DURATION / 60)) minutes..."
+        echo " Checking blocked queries in last $((DURATION / 60)) minutes..."
         RESULT=$(api_request "/queries?start=-${DURATION}")
 
         if ! echo "$RESULT" | jq -e '.queries' >/dev/null 2>&1; then
-            echo "⚠️  Could not fetch blocked queries"
+            echo "  Could not fetch blocked queries"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -223,20 +223,20 @@ case "$COMMAND" in
         BLOCKED=$(echo "$RESULT" | jq -r '.queries | map(select(.status=="GRAVITY")) | .[] | .domain' | sort | uniq -c | sort -rn | head -20)
 
         if [[ -z "$BLOCKED" ]]; then
-            echo "✅ No domains blocked in last $((DURATION / 60)) minutes"
+            echo " No domains blocked in last $((DURATION / 60)) minutes"
         else
-            echo "🚫 Blocked domains (count in time window):"
+            echo " Blocked domains (count in time window):"
             echo "$BLOCKED" | awk '{printf "%4dx %s\n", $1, $2}'
         fi
         ;;
 
     stats|summary)
         # Show Pi-hole stats
-        echo "📊 Pi-hole Stats:"
+        echo " Pi-hole Stats:"
         RESULT=$(api_request "/stats/summary")
 
         if ! echo "$RESULT" | jq -e '.queries' >/dev/null 2>&1; then
-            echo "⚠️  Could not fetch statistics"
+            echo "  Could not fetch statistics"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -265,11 +265,11 @@ case "$COMMAND" in
             exit 1
         fi
 
-        echo "📊 Top $LIMIT domains:"
+        echo " Top $LIMIT domains:"
         RESULT=$(api_request "/stats/query_types?start=-86400")
 
         if ! echo "$RESULT" | jq -e '.top_domains' >/dev/null 2>&1; then
-            echo "⚠️  Could not fetch top domains"
+            echo "  Could not fetch top domains"
             echo "Response: $RESULT"
             exit 1
         fi
@@ -284,7 +284,7 @@ case "$COMMAND" in
             exit 1
         fi
 
-        echo "⚠️  Whitelist functionality requires DNSMASQ config in Pi-hole v6"
+        echo "  Whitelist functionality requires DNSMASQ config in Pi-hole v6"
         echo "Domain: $DOMAIN"
         echo "This feature is not implemented via API yet"
         exit 1

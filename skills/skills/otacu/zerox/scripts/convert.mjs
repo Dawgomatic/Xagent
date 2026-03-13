@@ -33,7 +33,7 @@ if (!outputPath) {
 
 // Check if file exists
 if (!fs.existsSync(filePath)) {
-  console.error(`❌ File not found: ${filePath}`);
+  console.error(` File not found: ${filePath}`);
   process.exit(1);
 }
 
@@ -54,13 +54,13 @@ if (!apiKey) {
 }
 
 if (!apiKey) {
-  console.error("❌ Missing APIYI_API_KEY environment variable or .env entry");
+  console.error(" Missing APIYI_API_KEY environment variable or .env entry");
   process.exit(1);
 }
 
 const processDocument = async () => {
   try {
-    console.log(`🔄 Converting: ${filePath}`);
+    console.log(` Converting: ${filePath}`);
     
     const result = await zerox({
       filePath: filePath,
@@ -82,7 +82,7 @@ const processDocument = async () => {
         fs.mkdirSync(outputDir, { recursive: true });
       }
       fs.writeFileSync(outputPath, markdownContent, "utf-8");
-      console.log(`✅ Markdown saved to: ${outputPath}`);
+      console.log(` Markdown saved to: ${outputPath}`);
     } else {
       // Print to stdout
       console.log(markdownContent);
@@ -90,9 +90,9 @@ const processDocument = async () => {
     
     return result;
   } catch (error) {
-    console.error("\n❌ Conversion failed:", error.message);
+    console.error("\n Conversion failed:", error.message);
     if (error.cause) {
-      console.error("❌ Underlying error:", error.cause);
+      console.error(" Underlying error:", error.cause);
     }
     process.exit(1);
   }

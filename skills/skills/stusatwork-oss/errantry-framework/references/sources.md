@@ -44,7 +44,7 @@
 
 ---
 
-## Timeline Evidence (NME ↔ AI Hardware)
+## Timeline Evidence (NME  AI Hardware)
 
 | Year | Young Wizards | AI/Hardware |
 |------|---------------|-------------|

@@ -40,7 +40,7 @@ try {
   console.log('✓ 定时任务已配置：每 15 分钟扫描一次关系提醒');
   console.log(channel ? '  提醒将推送到配置的渠道' : '  提醒将推送到当前聊天');
 } catch (err) {
-  console.warn('⚠ 配置定时任务失败（可稍后手动执行 npm run install:cron）');
+  console.warn(' 配置定时任务失败（可稍后手动执行 npm run install:cron）');
   console.warn('  请确保 OpenClaw 已安装且 Gateway 已启动');
   // 不 exit(1)，避免 npm install 整体失败
 }

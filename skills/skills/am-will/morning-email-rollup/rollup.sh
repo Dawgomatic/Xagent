@@ -17,10 +17,10 @@ log() {
     echo "- [$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
 }
 
-echo "📧 **Morning Email Rollup** - $(date '+%A, %B %d, %Y')"
+echo " **Morning Email Rollup** - $(date '+%A, %B %d, %Y')"
 echo ""
 
-log "🔄 Starting morning email rollup"
+log " Starting morning email rollup"
 
 # Check for calendar events (gog) - graceful fallback if not installed
 if command -v gog &> /dev/null; then
@@ -34,7 +34,7 @@ if command -v gog &> /dev/null; then
     EVENT_COUNT=$(echo "$EVENT_COUNT" | tr -cd '0-9')
 
     if [[ "$EVENT_COUNT" -gt 0 ]]; then
-        echo "📅 **$EVENT_COUNT calendar event(s) today**"
+        echo " **$EVENT_COUNT calendar event(s) today**"
 
         # Parse and format events (skip header line)
         echo "$CALENDAR_EVENTS" | tail -n +2 | while IFS= read -r line; do
@@ -56,7 +56,7 @@ if command -v gog &> /dev/null; then
             echo "• $title - $start_12h to $end_12h"
         done
         echo ""
-        log "📅 Calendar events listed ($EVENT_COUNT events)"
+        log " Calendar events listed ($EVENT_COUNT events)"
     fi
 fi
 
@@ -66,8 +66,8 @@ echo ""
 IMPORTANT_EMAILS=$(gog gmail search 'is:important OR is:starred newer_than:1d' --max 20 --account "$GOG_ACCOUNT" --json 2>/dev/null)
 
 if [[ -z "$IMPORTANT_EMAILS" ]] || [[ "$IMPORTANT_EMAILS" == "null" ]]; then
-    echo "✅ No important emails in the last 24 hours."
-    log "✅ No important emails found"
+    echo " No important emails in the last 24 hours."
+    log " No important emails found"
     exit 0
 fi
 
@@ -75,12 +75,12 @@ fi
 EMAIL_COUNT=$(echo "$IMPORTANT_EMAILS" | jq -r '.threads | length' 2>/dev/null || echo "0")
 
 if [[ "$EMAIL_COUNT" -eq 0 ]]; then
-    echo "✅ No important emails in the last 24 hours."
-    log "✅ No important emails found"
+    echo " No important emails in the last 24 hours."
+    log " No important emails found"
     exit 0
 fi
 
-echo "📧 **$EMAIL_COUNT important email(s) from last 24 hours**"
+echo " **$EMAIL_COUNT important email(s) from last 24 hours**"
 if [[ $EMAIL_COUNT -gt $MAX_EMAILS ]]; then
     echo "(Showing top $MAX_EMAILS)"
 fi
@@ -186,9 +186,9 @@ while IFS= read -r thread_id; do
     # Check read/unread status
     labels=$(echo "$email_data" | grep "^label_ids" | cut -f2-)
     if [[ "$labels" == *"UNREAD"* ]]; then
-        read_marker="🔴 "
+        read_marker=" "
     else
-        read_marker="🟢 "
+        read_marker=" "
     fi
 
     echo "${read_marker}**${sender_name}: ${subject}**"
@@ -200,7 +200,7 @@ done < "$TEMP_THREAD_IDS"
 # Clean up temp file
 rm -f "$TEMP_THREAD_IDS"
 
-log "✅ Rollup complete: $EMAIL_COUNT emails"
+log " Rollup complete: $EMAIL_COUNT emails"
 echo ""
 echo "---"
-echo "💡 **Need more details?** Ask me to read or search specific emails."
+echo " **Need more details?** Ask me to read or search specific emails."

@@ -73,19 +73,19 @@ def get_video_status(api_key: str, video_id: str) -> dict:
 def get_step_progress(step: str) -> str:
     """Get progress indicator for step."""
     if step in COMPLETE_STATES:
-        return "✅"
+        return ""
     if step in ERROR_STATES:
-        return "❌"
+        return ""
     if step in BLOCKED_STATES:
-        return "⚠️"
+        return ""
     
     try:
         idx = PROCESSING_STEPS.index(step)
         total = len(PROCESSING_STEPS)
         pct = int((idx + 1) / total * 100)
-        return f"⏳ {pct}%"
+        return f" {pct}%"
     except ValueError:
-        return "🔄"
+        return ""
 
 
 def poll_until_complete(api_key: str, video_id: str, 
@@ -102,7 +102,7 @@ def poll_until_complete(api_key: str, video_id: str,
         elapsed = time.time() - start_time
         
         if elapsed > timeout:
-            print(f"\n⏱️ Timeout reached after {int(elapsed)}s")
+            print(f"\n Timeout reached after {int(elapsed)}s")
             return {
                 "success": False,
                 "error": "Timeout",
@@ -112,7 +112,7 @@ def poll_until_complete(api_key: str, video_id: str,
         result = get_video_status(api_key, video_id)
         
         if not result["success"]:
-            print(f"\n❌ Error: {result.get('error')}")
+            print(f"\n Error: {result.get('error')}")
             return result
         
         video = result["video"]
@@ -127,7 +127,7 @@ def poll_until_complete(api_key: str, video_id: str,
         # Check terminal states
         if step in COMPLETE_STATES:
             url = video.get("url")
-            print(f"\n✅ Video complete!")
+            print(f"\n Video complete!")
             print(f"   URL: {url}")
             return {
                 "success": True,
@@ -138,7 +138,7 @@ def poll_until_complete(api_key: str, video_id: str,
         
         if step in ERROR_STATES:
             error = video.get("error", {})
-            print(f"\n❌ Video failed: {step}")
+            print(f"\n Video failed: {step}")
             print(f"   Error: {error}")
             return {
                 "success": False,
@@ -148,7 +148,7 @@ def poll_until_complete(api_key: str, video_id: str,
             }
         
         if step in BLOCKED_STATES:
-            print(f"\n⚠️ Video blocked: {step}")
+            print(f"\n Video blocked: {step}")
             print("   Manual intervention required in Fliz dashboard")
             return {
                 "success": False,
@@ -189,7 +189,7 @@ def main():
             if video.get("url"):
                 print(f"   URL: {video['url']}")
         else:
-            print(f"❌ Error: {result.get('error')}")
+            print(f" Error: {result.get('error')}")
             sys.exit(1)
     else:
         result = poll_until_complete(

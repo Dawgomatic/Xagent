@@ -130,7 +130,7 @@ def handle_video_complete(payload):
     video_url = payload.get('url')
     title = payload.get('title', 'Untitled')
     
-    logger.info(f"✅ Video complete: {title}")
+    logger.info(f" Video complete: {title}")
     logger.info(f"   ID: {video_id}")
     logger.info(f"   URL: {video_url}")
     
@@ -160,7 +160,7 @@ def handle_video_failed(payload):
     error_code = error.get('code', 'unknown')
     error_message = error.get('message', 'No details')
     
-    logger.error(f"❌ Video failed: {video_id}")
+    logger.error(f" Video failed: {video_id}")
     logger.error(f"   Step: {step}")
     logger.error(f"   Error: {error_code} - {error_message}")
     
@@ -244,10 +244,10 @@ app.post('/webhook/fliz', (req, res) => {
     console.log(`Webhook: ${event} - Video: ${video_id} - Step: ${step}`);
     
     if (step === 'complete') {
-        console.log(`✅ Video ready: ${url}`);
+        console.log(` Video ready: ${url}`);
         // Handle completion
     } else if (step.includes('failed')) {
-        console.log(`❌ Video failed: ${error?.message}`);
+        console.log(` Video failed: ${error?.message}`);
         // Handle failure
     }
     

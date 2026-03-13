@@ -2,7 +2,7 @@
 name: imagerouter
 description: Generate AI images with any model using ImageRouter API (requires API key).
 homepage: https://imagerouter.io
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":["curl"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # ImageRouter Image Generation
@@ -124,8 +124,8 @@ curl 'https://api.imagerouter.io/v1/openai/images/edits' \
 
 | Feature | Unified (/edits) | JSON (/generations) |
 |---------|------------------|---------------------|
-| Text-to-Image | ✅ | ✅ |
-| Image-to-Image | ✅ | ❌ |
+| Text-to-Image |  |  |
+| Image-to-Image |  |  |
 | Encoding | multipart/form-data | application/json |
 
 ## Tips

@@ -13,16 +13,16 @@ This skill consults a specialized ollama model (dolphin-llama3) that has been tr
 
 The dolphin-llama3 model (8 billion parameters) was trained on the equivalent of ~122 million books (~15 trillion training tokens), giving it knowledge across:
 
-- 🏥 **Medical**: Treating wounds, injuries, illnesses with limited supplies
-- 🌲 **Survival**: Water purification, shelter building, navigation, fire-making
-- 🔧 **Repair**: Diagnosing mechanical/electrical problems (engines, systems)
-- 🌾 **Agriculture**: Crop selection, soil conditions, growing in harsh environments
-- ⚡ **Electrical**: Wiring, solar systems, battery management, power generation
-- 🧪 **Chemistry**: Making soap, compounds, reactions, processing materials
-- 📻 **Communications**: HAM radio setup, repeaters, emergency broadcasting
-- 🍳 **Food Preservation**: Curing, smoking, drying, fermenting without modern equipment
-- 💊 **Natural Medicine**: Herbal remedies, plant-based treatments, alternative care
-- 🏠 **General Preparedness**: Disaster recovery, emergency supplies, contingency planning
+-  **Medical**: Treating wounds, injuries, illnesses with limited supplies
+-  **Survival**: Water purification, shelter building, navigation, fire-making
+-  **Repair**: Diagnosing mechanical/electrical problems (engines, systems)
+-  **Agriculture**: Crop selection, soil conditions, growing in harsh environments
+-  **Electrical**: Wiring, solar systems, battery management, power generation
+-  **Chemistry**: Making soap, compounds, reactions, processing materials
+-  **Communications**: HAM radio setup, repeaters, emergency broadcasting
+-  **Food Preservation**: Curing, smoking, drying, fermenting without modern equipment
+-  **Natural Medicine**: Herbal remedies, plant-based treatments, alternative care
+-  **General Preparedness**: Disaster recovery, emergency supplies, contingency planning
 
 ## Quick Start
 

@@ -3,7 +3,7 @@ name: secretcodex
 description: Generate creative code names and encode/decode secret messages using classic and sophisticated ciphers. Blends nostalgic decoder ring fun with modern cryptographic techniques. Includes Caesar, Vigenère, Polybius, Rail Fence, and hybrid methods. Provides keys for secure message sharing between trusted parties.
 metadata:
   openclaw:
-    emoji: "🔐"
+    emoji: ""
     version: "1.0.0"
     author: "AM"
     tags: ["cryptography", "cipher", "encryption", "decoding", "secret-messages", "code-names", "security"]
@@ -20,12 +20,12 @@ metadata:
 SecretCodex brings back the magic of decoder rings from your childhood cereal boxes, but with the sophistication of modern cryptography. Generate creative code names for operations and team members, encode secret messages using multiple cipher methods, and decode messages from trusted contacts—all with keys that you control and share manually with intended recipients.
 
 Perfect for:
-- 🎯 Creating code names for projects, operations, or team members
-- 🔒 Sending secret messages between friends, family, or team
-- 🎓 Learning cryptography through hands-on practice
-- 🎮 Adding mystery to games, scavenger hunts, or puzzles
-- 🎪 Fun challenges and brain teasers
-- 📝 Private notes that only you (and your key-holders) can read
+-  Creating code names for projects, operations, or team members
+-  Sending secret messages between friends, family, or team
+-  Learning cryptography through hands-on practice
+-  Adding mystery to games, scavenger hunts, or puzzles
+-  Fun challenges and brain teasers
+-  Private notes that only you (and your key-holders) can read
 
 ## Core Philosophy
 
@@ -154,7 +154,7 @@ T → W (shift 3)
 **Decoding:**
 Shift backward by the same amount.
 
-**Strength:** ⭐☆☆☆☆ (Very weak - only 25 possible keys)
+**Strength:** ☆☆☆☆ (Very weak - only 25 possible keys)
 **Best for:** Kids, quick messages, nostalgia
 
 ---
@@ -176,7 +176,7 @@ E → R (shift 13)
 ...
 ```
 
-**Strength:** ⭐☆☆☆☆ (Very weak - single fixed key)
+**Strength:** ☆☆☆☆ (Very weak - single fixed key)
 **Best for:** Quick obfuscation, forum spoilers, simple hiding
 
 ---
@@ -201,7 +201,7 @@ E → V
 N → M
 ```
 
-**Strength:** ⭐☆☆☆☆ (Very weak - no key variation)
+**Strength:** ☆☆☆☆ (Very weak - no key variation)
 **Best for:** Quick reversal, simple codes
 
 ---
@@ -240,7 +240,7 @@ L = top-right of second grid
 O = middle of second grid
 ```
 
-**Strength:** ⭐⭐☆☆☆ (Weak - pattern recognition)
+**Strength:** ☆☆☆ (Weak - pattern recognition)
 **Best for:** Visual encoding, kids, scavenger hunts
 
 ---
@@ -277,7 +277,7 @@ C = row 1, col 3 = 13
 K = row 2, col 5 = 25
 ```
 
-**Strength:** ⭐⭐☆☆☆ (Weak alone, strong when combined)
+**Strength:** ☆☆☆ (Weak alone, strong when combined)
 **Best for:** Numeric encoding, combining with other methods
 
 ---
@@ -316,7 +316,7 @@ C | C D E F G H ...
 **Decoding:**
 Use keyword to shift backward.
 
-**Strength:** ⭐⭐⭐☆☆ (Moderate - strong if long keyword)
+**Strength:** ☆☆ (Moderate - strong if long keyword)
 **Best for:** Keyword-based secrecy, shared phrase keys
 
 ---
@@ -344,7 +344,7 @@ Compact: TSETHSIASCEEISR
 **Decoding:**
 Know number of rails, reverse the zigzag write.
 
-**Strength:** ⭐⭐☆☆☆ (Weak - pattern-based)
+**Strength:** ☆☆☆ (Weak - pattern-based)
 **Best for:** Visual rearrangement, combining with substitution
 
 ---
@@ -391,7 +391,7 @@ LD: L=row4,col1 D=row2,col5 → Rectangle → UD
 Ciphertext: EB LZ OL AZ NA UD
 ```
 
-**Strength:** ⭐⭐⭐⭐☆ (Strong - resists frequency analysis)
+**Strength:** ☆ (Strong - resists frequency analysis)
 **Best for:** Serious encoding, resisting decryption
 
 ---
@@ -426,7 +426,7 @@ Ciphertext: CAXTANTТXADXAKW
 Compact: CAXTANTTXADXAKW
 ```
 
-**Strength:** ⭐⭐⭐☆☆ (Moderate - order is key)
+**Strength:** ☆☆ (Moderate - order is key)
 **Best for:** Scrambling message structure
 
 ---
@@ -458,7 +458,7 @@ Ciphertext: EQNVZ
 - Used only ONCE (hence "one-time")
 - Securely shared ahead of time
 
-**Strength:** ⭐⭐⭐⭐⭐ (Perfect if used correctly)
+**Strength:**  (Perfect if used correctly)
 **Best for:** Maximum security (if you can manage true randomness and single-use keys)
 
 ---
@@ -485,7 +485,7 @@ Final Ciphertext: RJZGRTVХGUGUKWTГRI
 
 **Decoding:** Reverse order (Rail Fence first, then Vigenère)
 
-**Strength:** ⭐⭐⭐⭐☆ (Much stronger than either alone)
+**Strength:** ☆ (Much stronger than either alone)
 
 ---
 
@@ -507,7 +507,7 @@ Add key to numbers (mod 100):
 Final Ciphertext: 41 29 43 48 48
 ```
 
-**Strength:** ⭐⭐⭐⭐☆ (Numeric + alphabetic layers)
+**Strength:** ☆ (Numeric + alphabetic layers)
 
 ---
 
@@ -564,11 +564,11 @@ Final Ciphertext: 41 29 43 48 48
    - Use drop location for key card
 
 **Key Security Rules:**
-- ❌ Never send key with encrypted message on same channel
-- ❌ Never reuse one-time pad keys
-- ✅ Change keys regularly
-- ✅ Destroy old keys after use
-- ✅ Memorize when possible
+-  Never send key with encrypted message on same channel
+-  Never reuse one-time pad keys
+-  Change keys regularly
+-  Destroy old keys after use
+-  Memorize when possible
 
 ---
 
@@ -761,15 +761,15 @@ Answer: HIDDEN CHAMBER (requires Playfair decoding)
 
 | Cipher | Strength | Speed | Key Type | Best For |
 |--------|----------|-------|----------|----------|
-| Caesar | ⭐ | Fast | Number | Kids, quick |
-| Atbash | ⭐ | Fast | None | Reversal |
-| Pigpen | ⭐⭐ | Medium | Pattern | Visual |
-| Vigenère | ⭐⭐⭐ | Medium | Keyword | Shared secrets |
-| Polybius | ⭐⭐ | Medium | Grid | Numbers |
-| Rail Fence | ⭐⭐ | Medium | Number | Scrambling |
-| Playfair | ⭐⭐⭐⭐ | Slow | Keyword | Strong encryption |
-| OTP | ⭐⭐⭐⭐⭐ | Medium | Random | Maximum security |
-| Hybrid | ⭐⭐⭐⭐ | Slow | Multiple | Layered protection |
+| Caesar |  | Fast | Number | Kids, quick |
+| Atbash |  | Fast | None | Reversal |
+| Pigpen |  | Medium | Pattern | Visual |
+| Vigenère |  | Medium | Keyword | Shared secrets |
+| Polybius |  | Medium | Grid | Numbers |
+| Rail Fence |  | Medium | Number | Scrambling |
+| Playfair |  | Slow | Keyword | Strong encryption |
+| OTP |  | Medium | Random | Maximum security |
+| Hybrid |  | Slow | Multiple | Layered protection |
 
 ---
 
@@ -777,18 +777,18 @@ Answer: HIDDEN CHAMBER (requires Playfair decoding)
 
 ### What SecretCodex IS:
 
-✅ Educational cryptography tool
-✅ Fun way to learn cipher techniques
-✅ Practical for casual secret messages
-✅ Great for games, puzzles, scavenger hunts
-✅ Introduction to key management concepts
+ Educational cryptography tool
+ Fun way to learn cipher techniques
+ Practical for casual secret messages
+ Great for games, puzzles, scavenger hunts
+ Introduction to key management concepts
 
 ### What SecretCodex IS NOT:
 
-❌ Not a replacement for modern encryption (AES, RSA, etc.)
-❌ Not suitable for truly sensitive data (use proper encryption software)
-❌ Not protection against determined adversaries
-❌ Not a substitute for secure communication platforms
+ Not a replacement for modern encryption (AES, RSA, etc.)
+ Not suitable for truly sensitive data (use proper encryption software)
+ Not protection against determined adversaries
+ Not a substitute for secure communication platforms
 
 ### When to Use Proper Encryption:
 
@@ -826,4 +826,4 @@ Use SecretCodex when you want to:
 
 **Remember: The strength of encryption isn't just the algorithm—it's the key. Protect your keys, share them wisely, and change them often!**
 
-🔐 *"In cryptography, we trust... but only with good key management!"* 🔐
+ *"In cryptography, we trust... but only with good key management!"* 

@@ -3,7 +3,7 @@ name: terminal-helper
 description: A practical runbook for using OpenClaw exec safely (sandbox-first, explicit confirmations, and debugging playbooks).
 user-invocable: true
 disable-model-invocation: false
-metadata: { "openclaw": { "emoji": "🖥️", "os": ["darwin","linux","win32"] } }
+metadata: { "openclaw": { "emoji": "", "os": ["darwin","linux","win32"] } }
 ---
 
 # Terminal Helper — a runbook for OpenClaw exec

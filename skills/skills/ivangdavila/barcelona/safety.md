@@ -99,11 +99,11 @@ The metro area between Catalunya, Universitat, and Passeig de Gràcia has highes
 
 | Safety | Areas |
 |--------|-------|
-| ⭐⭐⭐⭐⭐ Very Safe | Sarrià, Les Corts, Pedralbes, Horta, Gràcia (residential) |
-| ⭐⭐⭐⭐ Safe | Eixample, Poblenou, Sant Antoni, Poble Sec, Born (main) |
-| ⭐⭐⭐ Generally Safe | Barceloneta (watch theft), Gòtic (watch pockets) |
-| ⭐⭐ Caution | Raval (varies by block), parts of Nou Barris |
-| ⭐ Avoid (certain hours) | Lower Raval at night, specific Ciutat Vella corners |
+|  Very Safe | Sarrià, Les Corts, Pedralbes, Horta, Gràcia (residential) |
+|  Safe | Eixample, Poblenou, Sant Antoni, Poble Sec, Born (main) |
+|  Generally Safe | Barceloneta (watch theft), Gòtic (watch pockets) |
+|  Caution | Raval (varies by block), parts of Nou Barris |
+|  Avoid (certain hours) | Lower Raval at night, specific Ciutat Vella corners |
 
 **Note:** Even "caution" areas are fine during daytime. Issues are nighttime, specific blocks.
 

@@ -275,14 +275,14 @@ async function cmdGenerate() {
   );
 
   if (!opResult.error && opResult.status === 0) {
-    console.log('✅ Private key saved directly to 1Password (vault: Gigi)');
+    console.log(' Private key saved directly to 1Password (vault: Gigi)');
     console.log('   Item: "EVM Wallet - Trifle Agent"');
     console.log('   Set TRIFLE_KEY env var or update trifle-auth.mjs op:// path to use it.');
   } else {
     // 1Password unavailable — write to a restricted file, never stdout
     const keyFile = join(process.env.HOME, '.trifle-wallet.key');
     writeFileSync(keyFile, privateKey, { mode: 0o600 }); // nocheck — writing to restricted file, not stdout
-    console.log(`⚠️  1Password unavailable. Private key written to: ${keyFile} (mode 600)`);
+    console.log(`  1Password unavailable. Private key written to: ${keyFile} (mode 600)`);
     console.log('   Move it to a secure vault as soon as possible.');
     console.log('   NEVER commit or share this file.');
   }

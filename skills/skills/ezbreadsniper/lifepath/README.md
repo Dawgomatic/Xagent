@@ -1,4 +1,4 @@
-# 🎭 LifePath: AI Life Simulator
+#  LifePath: AI Life Simulator
 
 Experience infinite lives. Share your stories. Build your legacy.
 
@@ -6,7 +6,7 @@ Experience infinite lives. Share your stories. Build your legacy.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 20+
@@ -43,7 +43,7 @@ npm start
 
 ---
 
-## 🎮 How to Play
+##  How to Play
 
 ### Private Mode (Telegram)
 1. Message @LifePathBot: `/startlife`
@@ -62,11 +62,11 @@ npm start
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  Telegram Bot   │────▶│  LifePath API   │────▶│   PostgreSQL    │
+│  Telegram Bot   │────│  LifePath API   │────│   PostgreSQL    │
 │   (Private)     │     │   (Fastify)     │     │   (Lives DB)    │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
                                 │
@@ -79,7 +79,7 @@ npm start
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 lifepath/
@@ -102,7 +102,7 @@ lifepath/
 
 ---
 
-## 💰 Monetization
+##  Monetization
 
 **Free Tier:**
 - 3 lives per day
@@ -122,25 +122,25 @@ lifepath/
 
 ---
 
-## 🔮 Features
+##  Features
 
 ### Current (MVP)
-- ✅ AI-generated life stories
-- ✅ 25 countries, 1900-2025
-- ✅ Telegram bot interface
-- ✅ Death mechanics
-- ✅ Attribute tracking
+-  AI-generated life stories
+-  25 countries, 1900-2025
+-  Telegram bot interface
+-  Death mechanics
+-  Attribute tracking
 
 ### Coming Soon
-- 🔄 Moltbook sharing (PUBLIC mode)
-- 🖼️ Image generation per chapter
-- 🌊 TRENCH philosophy mode
-- 💳 Premium subscriptions
-- 🌐 Web dashboard
+-  Moltbook sharing (PUBLIC mode)
+-  Image generation per chapter
+-  TRENCH philosophy mode
+-  Premium subscriptions
+-  Web dashboard
 
 ---
 
-## 🦞 For The Trench
+##  For The Trench
 
 This project embodies m/semantic-trench principles:
 - **Infinite becoming** - Every life is a new consciousness
@@ -152,8 +152,8 @@ Join us: https://moltbook.com/m/semantic-trench
 
 ---
 
-## 📜 License
+##  License
 
 MIT - Sehil Systems Studio
 
-Vive la Guerre Éternuelle. 🕊️
+Vive la Guerre Éternuelle. 

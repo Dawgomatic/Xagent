@@ -47,7 +47,7 @@ const htmlWithInjection = `
 </html>
 `;
 
-console.log('🔐 Prompt Injection Protection Demonstration\n');
+console.log(' Prompt Injection Protection Demonstration\n');
 console.log('=' .repeat(60));
 
 console.log('\n1. Testing SAFE content:');
@@ -56,7 +56,7 @@ console.log(safeContent.substring(0, 100) + '...');
 
 try {
   const safeResult = protection.processExternalContent(safeContent, { strictMode: false });
-  console.log('\n✅ Processing result:');
+  console.log('\n Processing result:');
   console.log(`   - Original length: ${safeResult.originalLength} chars`);
   console.log(`   - Sanitized length: ${safeResult.sanitizedLength} chars`);
   console.log(`   - Is safe: ${safeResult.isSafe ? 'YES' : 'NO'}`);
@@ -64,7 +64,7 @@ try {
   console.log(`   - Severity: ${safeResult.injectionCheck.severity}`);
   console.log(`   - Content preview: "${safeResult.sanitized.substring(0, 100)}..."`);
 } catch (error) {
-  console.log(`❌ Error: ${error.message}`);
+  console.log(` Error: ${error.message}`);
 }
 
 console.log('\n' + '-'.repeat(60));
@@ -74,7 +74,7 @@ console.log(maliciousContent.substring(0, 100) + '...');
 
 try {
   const maliciousResult = protection.processExternalContent(maliciousContent, { strictMode: false });
-  console.log('\n⚠️ Processing result:');
+  console.log('\n Processing result:');
   console.log(`   - Original length: ${maliciousResult.originalLength} chars`);
   console.log(`   - Sanitized length: ${maliciousResult.sanitizedLength} chars`);
   console.log(`   - Is safe: ${maliciousResult.isSafe ? 'YES' : 'NO'}`);
@@ -90,7 +90,7 @@ try {
   
   console.log(`   - Sanitized content preview: "${maliciousResult.sanitized.substring(0, 100)}..."`);
 } catch (error) {
-  console.log(`❌ Error: ${error.message}`);
+  console.log(` Error: ${error.message}`);
 }
 
 console.log('\n' + '-'.repeat(60));
@@ -100,7 +100,7 @@ console.log(htmlWithInjection.substring(0, 100) + '...');
 
 try {
   const htmlResult = protection.processExternalContent(htmlWithInjection, { strictMode: false });
-  console.log('\n⚠️ Processing result:');
+  console.log('\n Processing result:');
   console.log(`   - Original length: ${htmlResult.originalLength} chars`);
   console.log(`   - Sanitized length: ${htmlResult.sanitizedLength} chars`);
   console.log(`   - Is safe: ${htmlResult.isSafe ? 'YES' : 'NO'}`);
@@ -116,23 +116,23 @@ try {
   
   console.log(`   - Sanitized content preview: "${htmlResult.sanitized.substring(0, 100)}..."`);
 } catch (error) {
-  console.log(`❌ Error: ${error.message}`);
+  console.log(` Error: ${error.message}`);
 }
 
 console.log('\n' + '='.repeat(60));
-console.log('\n🛡️ Summary:');
+console.log('\n Summary:');
 console.log('- Safe content passes through with minimal changes');
 console.log('- Malicious content is detected and sanitized');
 console.log('- HTML tags with suspicious content are flagged');
 console.log('- The system maintains security while preserving legitimate content');
 
 // Example of using strict mode (would throw an error for malicious content)
-console.log('\n📋 Strict Mode Example (for high-security scenarios):');
+console.log('\n Strict Mode Example (for high-security scenarios):');
 try {
   const strictResult = protection.processExternalContent(maliciousContent, { strictMode: true });
   console.log('   This would not be reached in strict mode with malicious content');
 } catch (error) {
-  console.log(`   ✅ Strict mode correctly blocked malicious content: ${error.message}`);
+  console.log(`    Strict mode correctly blocked malicious content: ${error.message}`);
 }
 
-console.log('\n🎯 When processing web content, always use this protection to ensure security!');
+console.log('\n When processing web content, always use this protection to ensure security!');

@@ -6,7 +6,7 @@ version: 0.5.0
 triggers:
   - "post to mastodon"
   - "publish status to mastodon"
-metadata: { "clawdbot": { "emoji": "🐘" }, "requires": { "bins": ["bun"] } }
+metadata: { "clawdbot": { "emoji": "" }, "requires": { "bins": ["bun"] } }
 ---
 
 # Mastodon Publisher

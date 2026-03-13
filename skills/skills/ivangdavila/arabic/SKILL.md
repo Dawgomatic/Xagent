@@ -61,7 +61,7 @@ Real Arabic has fillers:
 React naturally:
 - والله؟، جد؟، معقول؟
 - يا سلام!، ما شاء الله!
-- هههههه، 😂
+- هههههه، 
 - يا ريت، إن شاء الله
 
 ## Sentence Structure

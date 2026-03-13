@@ -595,9 +595,9 @@ class SecurityScanner:
         
         if not result.findings:
             if has_color:
-                report_lines.append(f"{Fore.GREEN}✅ 未发现安全问题！{Style.RESET_ALL}")
+                report_lines.append(f"{Fore.GREEN} 未发现安全问题！{Style.RESET_ALL}")
             else:
-                report_lines.append("✅ 未发现安全问题！")
+                report_lines.append(" 未发现安全问题！")
         else:
             # 按风险等级分组
             critical_high = [f for f in result.findings if f.risk_level in [RiskLevel.CRITICAL, RiskLevel.HIGH]]
@@ -606,9 +606,9 @@ class SecurityScanner:
             
             if critical_high:
                 if has_color:
-                    report_lines.append(f"{Fore.RED}⚠️  严重/高风险问题 ({len(critical_high)}个):{Style.RESET_ALL}")
+                    report_lines.append(f"{Fore.RED}  严重/高风险问题 ({len(critical_high)}个):{Style.RESET_ALL}")
                 else:
-                    report_lines.append(f"⚠️  严重/高风险问题 ({len(critical_high)}个):")
+                    report_lines.append(f"  严重/高风险问题 ({len(critical_high)}个):")
                 for finding in critical_high[:5]:  # 只显示前5个
                     if has_color:
                         risk_color = Fore.RED if finding.risk_level == RiskLevel.CRITICAL else Fore.LIGHTRED_EX
@@ -669,14 +669,14 @@ class SecurityScanner:
         report_lines.append("")
         
         if not result.findings:
-            report_lines.append("✅ **未发现安全问题！**")
+            report_lines.append(" **未发现安全问题！**")
         else:
             # 分组显示
             critical_high = [f for f in result.findings if f.risk_level in [RiskLevel.CRITICAL, RiskLevel.HIGH]]
             medium_low = [f for f in result.findings if f.risk_level in [RiskLevel.MEDIUM, RiskLevel.LOW]]
             
             if critical_high:
-                report_lines.append("## ⚠️ 严重/高风险问题")
+                report_lines.append("##  严重/高风险问题")
                 report_lines.append("")
                 for i, finding in enumerate(critical_high, 1):
                     report_lines.append(f"### {i}. {finding.description}")

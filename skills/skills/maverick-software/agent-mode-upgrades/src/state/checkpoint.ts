@@ -310,7 +310,7 @@ export class CheckpointManager {
       : "No plan";
 
     return `
-📍 **Checkpoint: ${checkpoint.id.slice(-8)}**
+ **Checkpoint: ${checkpoint.id.slice(-8)}**
 - **Created:** ${date}
 - **Progress:** ${progress}
 - **Trigger:** ${checkpoint.metadata.trigger}
@@ -329,7 +329,7 @@ ${checkpoint.plan ? `- **Goal:** ${checkpoint.plan.goal}` : ""}
       : `${hoursSince.toFixed(1)} hours`;
 
     return `
-🔄 **Incomplete Task Found**
+ **Incomplete Task Found**
 
 You have an unfinished task from ${timeAgo} ago:
 
@@ -413,9 +413,9 @@ Reply with your choice.
       
       for (const step of checkpoint.plan.steps) {
         const isActive = step.id === checkpoint.activeStepId;
-        const icon = checkpoint.completedStepIds.includes(step.id) ? "✅" :
-                     checkpoint.failedStepIds.includes(step.id) ? "❌" :
-                     isActive ? "👉" : "⬜";
+        const icon = checkpoint.completedStepIds.includes(step.id) ? "" :
+                     checkpoint.failedStepIds.includes(step.id) ? "" :
+                     isActive ? "" : "";
         
         lines.push(`${icon} ${step.title}${isActive ? " ← resume here" : ""}`);
       }

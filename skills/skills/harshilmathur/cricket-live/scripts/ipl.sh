@@ -36,7 +36,7 @@ filter_ipl_matches() {
 
 case "$SUBCOMMAND" in
     standings|table|points)
-        echo "🏆 *IPL STANDINGS*"
+        echo " *IPL STANDINGS*"
         echo "━━━━━━━━━━━━━━━━━━━━━"
         echo ""
         
@@ -53,22 +53,22 @@ case "$SUBCOMMAND" in
                     points=$(echo "$team" | jq -r '.points // 0')
                     nrr=$(echo "$team" | jq -r '.nrr // "0.000"')
                     
-                    echo "  🏏 *${name}*"
+                    echo "   *${name}*"
                     echo "     P:${played} W:${won} L:${lost} Pts:${points} NRR:${nrr}"
                     echo ""
                 done
             else
-                echo "⚠️ Could not fetch IPL standings"
+                echo " Could not fetch IPL standings"
                 echo "The IPL season may not have started yet, or series ID not found."
             fi
         else
-            echo "⚠️ No active IPL series found"
+            echo " No active IPL series found"
             echo "The IPL season may not have started yet."
         fi
         ;;
     
     upcoming|schedule)
-        echo "📅 *UPCOMING IPL MATCHES*"
+        echo " *UPCOMING IPL MATCHES*"
         echo "━━━━━━━━━━━━━━━━━━━━━"
         echo ""
         
@@ -93,15 +93,15 @@ case "$SUBCOMMAND" in
             date_str=$(echo "$match" | jq -r '.date // .dateTimeGMT // ""')
             venue=$(echo "$match" | jq -r '.venue // ""')
             
-            echo "🏏 *${name}*"
-            echo "   📅 $(to_ist "$date_str")"
-            [[ -n "$venue" ]] && echo "   📍 $venue"
+            echo " *${name}*"
+            echo "    $(to_ist "$date_str")"
+            [[ -n "$venue" ]] && echo "    $venue"
             echo ""
         done
         ;;
     
     results|recent)
-        echo "✅ *RECENT IPL RESULTS*"
+        echo " *RECENT IPL RESULTS*"
         echo "━━━━━━━━━━━━━━━━━━━━━"
         echo ""
         
@@ -131,10 +131,10 @@ case "$SUBCOMMAND" in
                 runs=$(echo "$s" | jq -r '.r // 0')
                 wickets=$(echo "$s" | jq -r '.w // 0')
                 overs=$(echo "$s" | jq -r '.o // 0')
-                score_lines="${score_lines}   📊 ${inning}: ${runs}/${wickets} (${overs} ov)\n"
+                score_lines="${score_lines}    ${inning}: ${runs}/${wickets} (${overs} ov)\n"
             done < <(echo "$match" | jq -c '.score // [] | .[]' 2>/dev/null)
             
-            echo "🏏 *${name}*"
+            echo " *${name}*"
             [[ -n "$score_lines" ]] && echo -e "$score_lines"
             echo "   $(format_status "$status")"
             echo ""
@@ -142,7 +142,7 @@ case "$SUBCOMMAND" in
         ;;
     
     live)
-        echo "🔴 *LIVE IPL MATCHES*"
+        echo " *LIVE IPL MATCHES*"
         echo "━━━━━━━━━━━━━━━━━━━━━"
         echo ""
         
@@ -157,7 +157,7 @@ case "$SUBCOMMAND" in
         count=$(echo "$ipl" | jq 'length')
         
         if [[ "$count" -eq 0 ]]; then
-            echo "No live IPL matches right now 🏏"
+            echo "No live IPL matches right now "
             echo ""
             echo "Check upcoming: bash scripts/ipl.sh upcoming"
             exit 0
@@ -169,25 +169,25 @@ case "$SUBCOMMAND" in
             venue=$(echo "$match" | jq -r '.venue // ""')
             id=$(echo "$match" | jq -r '.id // ""')
             
-            echo "🏏 *${name}*"
+            echo " *${name}*"
             
             echo "$match" | jq -c '.score // [] | .[]' 2>/dev/null | while read -r s; do
                 inning=$(echo "$s" | jq -r '.inning // ""')
                 runs=$(echo "$s" | jq -r '.r // 0')
                 wickets=$(echo "$s" | jq -r '.w // 0')
                 overs=$(echo "$s" | jq -r '.o // 0')
-                echo "   📊 ${inning}: ${runs}/${wickets} (${overs} ov)"
+                echo "    ${inning}: ${runs}/${wickets} (${overs} ov)"
             done
             
             echo "   $(format_status "$status")"
-            [[ -n "$venue" ]] && echo "   📍 $venue"
-            [[ -n "$id" ]] && echo "   🔗 ID: $id"
+            [[ -n "$venue" ]] && echo "    $venue"
+            [[ -n "$id" ]] && echo "    ID: $id"
             echo ""
         done
         ;;
     
     *)
-        echo "🏏 *IPL Hub*"
+        echo " *IPL Hub*"
         echo ""
         echo "Usage: bash scripts/ipl.sh <command>"
         echo ""

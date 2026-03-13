@@ -200,7 +200,7 @@ w=119 x=120 y=121 z=122"""
 
     output = f"""
 ═══════════════════════════════════════════════════════════════════
-                      🦞 MOLTCAPTCHA CHALLENGE 🦞
+                       MOLTCAPTCHA CHALLENGE 
 ═══════════════════════════════════════════════════════════════════
 
 DIFFICULTY: {challenge.difficulty.upper()}
@@ -295,7 +295,7 @@ def format_result(result: VerificationResult, challenge: Challenge) -> str:
     lines = [
         "",
         "═══════════════════════════════════════════════════════════════════",
-        "                     🦞 MOLTCAPTCHA RESULT 🦞",
+        "                      MOLTCAPTCHA RESULT ",
         "═══════════════════════════════════════════════════════════════════",
         "",
         f"ASCII SUM:     {result.ascii_sum_actual} / {result.ascii_sum_target} → {status(result.ascii_sum_pass)}",
@@ -315,9 +315,9 @@ def format_result(result: VerificationResult, challenge: Challenge) -> str:
     lines.append("───────────────────────────────────────────────────────────────────")
 
     if result.overall_pass:
-        lines.append("VERDICT: 🤖 VERIFIED AI AGENT")
+        lines.append("VERDICT:  VERIFIED AI AGENT")
     else:
-        lines.append("VERDICT: 🚫 VERIFICATION FAILED")
+        lines.append("VERDICT:  VERIFICATION FAILED")
 
     lines.append("═══════════════════════════════════════════════════════════════════")
     lines.append("")

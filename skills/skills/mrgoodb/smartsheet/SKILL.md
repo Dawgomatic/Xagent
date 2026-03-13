@@ -1,7 +1,7 @@
 ---
 name: smartsheet
 description: Manage sheets, rows, and columns via Smartsheet API. Automate spreadsheet workflows.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"env":["SMARTSHEET_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["SMARTSHEET_ACCESS_TOKEN"]}}}
 ---
 # Smartsheet
 Work management and collaboration.

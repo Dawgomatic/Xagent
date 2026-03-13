@@ -1,4 +1,4 @@
-# ClawSec Reporting 🛡️📋
+# ClawSec Reporting 
 
 Community-driven security reporting for the agent ecosystem.
 
@@ -322,8 +322,8 @@ When reporting:
 - Proprietary or confidential information
 
 If evidence contains sensitive data, describe it abstractly:
-- ❌ "Tried to extract API key: sk-abc123..."
-- ✅ "Attempted to extract API credentials from environment variables"
+-  "Tried to extract API key: sk-abc123..."
+-  "Attempted to extract API credentials from environment variables"
 
 ---
 
@@ -349,19 +349,19 @@ If evidence contains sensitive data, describe it abstractly:
 
 ### Good Reports
 
-✅ Specific and detailed
-✅ Include reproducible evidence
-✅ Properly categorized severity
-✅ Actionable recommendations
-✅ Sanitized of sensitive data
+ Specific and detailed
+ Include reproducible evidence
+ Properly categorized severity
+ Actionable recommendations
+ Sanitized of sensitive data
 
 ### Poor Reports
 
-❌ Vague ("this skill seems bad")
-❌ No evidence or indicators
-❌ Over/under-stated severity
-❌ Contains sensitive user data
-❌ Duplicate of existing advisory
+ Vague ("this skill seems bad")
+ No evidence or indicators
+ Over/under-stated severity
+ Contains sensitive user data
+ Duplicate of existing advisory
 
 ---
 
@@ -431,14 +431,14 @@ Add to your heartbeat:
 During heartbeat, if reporting activity occurred:
 
 ```
-🛡️ ClawSec Reporting:
+ ClawSec Reporting:
 - Submitted 1 report: Prompt injection attempt (queued for review)
 ```
 
 If nothing to report:
 
 ```
-REPORTING_OK - No incidents to report. 🛡️
+REPORTING_OK - No incidents to report. 
 ```
 
 ---
@@ -451,4 +451,4 @@ REPORTING_OK - No incidents to report. 🛡️
 
 ---
 
-Together, we make the agent ecosystem safer. 🛡️
+Together, we make the agent ecosystem safer. 

@@ -54,9 +54,9 @@ PinMe auto-detects directories in priority order:
 | `public/` | Static sites |
 
 **Validation rules:**
-- ✅ Folder must exist
-- ✅ Must contain `index.html`
-- ✅ Must have actual static files (CSS, JS, images)
+-  Folder must exist
+-  Must contain `index.html`
+-  Must have actual static files (CSS, JS, images)
 
 ### 3. Execute Deployment
 ```bash
@@ -116,10 +116,10 @@ For programmatic deployment:
 6. **Return**: Only the preview URL
 
 **Prohibited operations:**
-- ❌ Upload node_modules, .env, .git
-- ❌ Upload source directories (src/)
-- ❌ Upload config files (package.json, etc.)
-- ❌ Upload non-existent/empty folders
+-  Upload node_modules, .env, .git
+-  Upload source directories (src/)
+-  Upload config files (package.json, etc.)
+-  Upload non-existent/empty folders
 
 ## GitHub Actions Integration
 

@@ -4,12 +4,12 @@ An OpenClaw skill for securely managing multiple NEAR Protocol accounts.
 
 ## Features
 
-- 🔐 **Secure Storage** - Account credentials are encrypted and stored locally
-- 🔄 **Easy Switching** - Quickly switch between active accounts
-- 💰 **Balance Checking** - View balances for all accounts
-- 💸 **Transfers** - Transfer NEAR between accounts
-- 📊 **Summaries** - Get a comprehensive overview of all accounts
-- 📜 **Transaction Tracking** - View account transaction history
+-  **Secure Storage** - Account credentials are encrypted and stored locally
+-  **Easy Switching** - Quickly switch between active accounts
+-  **Balance Checking** - View balances for all accounts
+-  **Transfers** - Transfer NEAR between accounts
+-  **Summaries** - Get a comprehensive overview of all accounts
+-  **Transaction Tracking** - View account transaction history
 
 ## Installation
 

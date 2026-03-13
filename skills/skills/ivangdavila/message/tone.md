@@ -16,12 +16,12 @@ Check message history before assuming.
 - Professional greeting: "Hi María,"
 - Clear structure: context → ask → close
 - Signature with title
-- No emojis or minimal (🙂 max)
+- No emojis or minimal ( max)
 
 ### Semi-Formal (Slack to colleagues, professional Discord)
 - Complete sentences, relaxed grammar
 - Quick greeting or none: "Hey," or straight to point
-- Some emojis okay (👍, ✅)
+- Some emojis okay (, )
 - Thread-appropriate casual
 
 ### Casual (Friend groups, gaming Discord, personal Telegram)

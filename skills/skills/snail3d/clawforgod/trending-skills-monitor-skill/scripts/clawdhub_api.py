@@ -13,7 +13,7 @@ from pathlib import Path
 try:
     import requests
 except ImportError:
-    print("❌ requests module not found. Install with: pip install requests", file=sys.stderr)
+    print(" requests module not found. Install with: pip install requests", file=sys.stderr)
     sys.exit(1)
 
 class ClawdHubAPI:
@@ -38,7 +38,7 @@ class ClawdHubAPI:
     def log(self, msg):
         """Log debug messages"""
         if self.verbose:
-            print(f"🔍 {msg}", file=sys.stderr)
+            print(f" {msg}", file=sys.stderr)
     
     def _fetch(self, endpoint: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
         """Fetch from ClawdHub API with fallback to mock data"""

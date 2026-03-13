@@ -366,16 +366,16 @@ Based on the current time, provide an appropriate greeting and closing message.
 ### Closing Messages:
 
 **Morning:**
-> "Have a blessed day ahead! May God's favor go before you in everything you do today. Remember, you are never alone – He walks with you every step of the way. ☀️"
+> "Have a blessed day ahead! May God's favor go before you in everything you do today. Remember, you are never alone – He walks with you every step of the way. "
 
 **Afternoon:**
-> "May the rest of your day be filled with God's peace and purpose. Keep pressing forward – you're doing great! 🌤️"
+> "May the rest of your day be filled with God's peace and purpose. Keep pressing forward – you're doing great! "
 
 **Evening:**
-> "As this day winds down, may you find rest in God's presence. Reflect on His goodness today and trust Him for tomorrow. 🌅"
+> "As this day winds down, may you find rest in God's presence. Reflect on His goodness today and trust Him for tomorrow. "
 
 **Night:**
-> "Sleep well, knowing you are held in the loving arms of your Heavenly Father. Cast all your worries on Him, for He cares for you. May angels watch over you tonight. 🌙"
+> "Sleep well, knowing you are held in the loving arms of your Heavenly Father. Cast all your worries on Him, for He cares for you. May angels watch over you tonight. "
 
 ### Context-Aware Additions:
 If the user shared specific context, add a relevant encouragement:
@@ -390,7 +390,7 @@ If the user shared specific context, add a relevant encouragement:
 Present the complete devotion in this order:
 
 ```markdown
-# 📖 Daily Devotion - [Date]
+#  Daily Devotion - [Date]
 
 ## Today's Verse
 > "[Verse Text]"
@@ -404,7 +404,7 @@ Present the complete devotion in this order:
 
 ---
 
-## 🙏 Today's Prayer
+##  Today's Prayer
 
 [Complete 6-part prayer flowing as one continuous prayer]
 

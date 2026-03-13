@@ -7,7 +7,7 @@ metadata:
   {
     "openclaw":
       {
-        "emoji": "🔗",
+        "emoji": "",
         "requires": { "tools": ["sessions_list", "sessions_history"] },
       },
   }
@@ -70,10 +70,10 @@ Returns conversation history even though you're in an isolated session.
 ### 3. Use Context + Execute Task
 
 Your isolated session now has:
-- ✅ Conversation history (what was discussed)
-- ✅ Memory files (persistent notes)
-- ✅ Cheap model (Haiku)
-- ✅ Full tool access
+-  Conversation history (what was discussed)
+-  Memory files (persistent notes)
+-  Cheap model (Haiku)
+-  Full tool access
 
 ## Use Cases
 
@@ -196,12 +196,12 @@ Complete example for daily morning report:
 5. Check calendar events for today
 
 Report format:
-📍 WEATHER: [conditions]
-🌙 OVERNIGHT: [from session history - what we worked on]
-📝 PERSISTENT NOTES: [from memory file]
-📧 EMAIL: [urgent only]
-📅 CALENDAR: [today's events]
-🔗 DASHBOARD: [mission control link]
+ WEATHER: [conditions]
+ OVERNIGHT: [from session history - what we worked on]
+ PERSISTENT NOTES: [from memory file]
+ EMAIL: [urgent only]
+ CALENDAR: [today's events]
+ DASHBOARD: [mission control link]
 
 Send to Telegram using message tool.
 

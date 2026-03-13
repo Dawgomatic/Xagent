@@ -14,7 +14,7 @@ if [ -z "$EMAIL" ]; then
     exit 1
 fi
 
-echo "🦀 Claw Score Audit Submission"
+echo " Claw Score Audit Submission"
 echo "=============================="
 echo ""
 
@@ -86,11 +86,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     
     if echo "$RESPONSE" | grep -q '"success":true'; then
         echo ""
-        echo "✅ Submission successful!"
+        echo " Submission successful!"
         echo "You'll receive your Claw Score report at $EMAIL within 24-48 hours."
     else
         echo ""
-        echo "❌ Submission failed. Response:"
+        echo " Submission failed. Response:"
         echo "$RESPONSE"
         echo ""
         echo "You can manually email your files to: atlasai@fastmail.com"

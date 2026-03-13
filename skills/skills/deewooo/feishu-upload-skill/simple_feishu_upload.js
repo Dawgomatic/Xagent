@@ -72,7 +72,7 @@ async function uploadFile() {
         }
         
         const fileKey = data.data.file_key;
-        console.log('✅ 文件上传成功!');
+        console.log(' 文件上传成功!');
         console.log('文件Key:', fileKey);
         
         // 输出JSON格式结果
@@ -86,7 +86,7 @@ async function uploadFile() {
         return fileKey;
         
     } catch (error) {
-        console.error('❌ 上传失败:', error.message);
+        console.error(' 上传失败:', error.message);
         console.error(JSON.stringify({
             status: 'error',
             error: error.message

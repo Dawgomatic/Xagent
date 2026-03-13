@@ -29,7 +29,7 @@ def main():
     print("2. 列出所有分类：")
     categories = explorer.list_categories()
     for category in categories:
-        print(f"   📂 {category}")
+        print(f"    {category}")
     
     print()
     
@@ -38,11 +38,11 @@ def main():
     query = "search"
     results = explorer.search_skills(query, 5)
     if results:
-        print(f"   🔍 搜索 '{query}' 找到 {len(results)} 个结果：")
+        print(f"    搜索 '{query}' 找到 {len(results)} 个结果：")
         for skill in results:
-            print(f"      🎯 {skill.name} ({skill.slug}@v{skill.version})")
+            print(f"       {skill.name} ({skill.slug}@v{skill.version})")
     else:
-        print(f"   🔍 没有找到与 '{query}' 相关的技能")
+        print(f"    没有找到与 '{query}' 相关的技能")
     
     print()
     
@@ -51,11 +51,11 @@ def main():
     category = "all"
     results = explorer.browse_category(category, 5)
     if results:
-        print(f"   📂 分类 '{category}' 的技能：")
+        print(f"    分类 '{category}' 的技能：")
         for skill in results:
-            print(f"      🎯 {skill.name} ({skill.slug}@v{skill.version})")
+            print(f"       {skill.name} ({skill.slug}@v{skill.version})")
     else:
-        print(f"   📂 分类 '{category}' 为空")
+        print(f"    分类 '{category}' 为空")
     
     print()
     print("=== 使用完成 ===")

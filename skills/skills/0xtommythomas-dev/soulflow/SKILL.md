@@ -4,7 +4,7 @@ description: General-purpose AI workflow framework for OpenClaw. Build custom mu
 homepage: https://github.com/0xtommythomas-dev/soulflow
 metadata: 
   clawdbot:
-    emoji: "⚙️"
+    emoji: ""
     requires:
       bins: ["node"]
       config_files:

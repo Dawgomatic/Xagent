@@ -1,4 +1,4 @@
-# 🧬 openclaw-multi-brain
+#  openclaw-multi-brain
 
 **Multi-LLM perspective synthesis for OpenClaw agents via hooks.**
 
@@ -55,7 +55,7 @@ name: turn-preflight
 description: "Multi-Brain: Kimi K2.5 + Codex 5.3 perspectives before every agent turn"
 metadata:
   openclaw:
-    emoji: "🧬"
+    emoji: ""
     events: ["turn:before"]
     handler: "handler.js"
     install: [{ id: "workspace", kind: "workspace", label: "Workspace hook" }]

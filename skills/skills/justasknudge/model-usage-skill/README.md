@@ -4,10 +4,10 @@ Track AI model costs from CodexBar CLI — per-model breakdowns for Codex or Cla
 
 ## Features
 
-- 📊 **Per-model cost tracking** — See exactly which models cost you the most
-- 💰 **30-day summaries** — Track spend over time
-- 🔍 **Current vs All** — Check latest session or full history
-- 📈 **JSON/Text output** — Scriptable or human-readable
+-  **Per-model cost tracking** — See exactly which models cost you the most
+-  **30-day summaries** — Track spend over time
+-  **Current vs All** — Check latest session or full history
+-  **JSON/Text output** — Scriptable or human-readable
 
 ## Quick Start
 

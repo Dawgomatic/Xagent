@@ -18,9 +18,9 @@ Telegram renders messages differently across iOS, Android, macOS, and Web. Monos
 MISO uses a layered information architecture. Each layer has a different read speed and information density.
 
 ```
-Layer 0  📌 Pin        → "Something is happening" (instant, chat open)
-Layer 0.5 👀 ackReaction → "Message received" (instant, on receive)
-Layer 1  🔥🎉❌ Reaction → "What state is it in" (instant, chat list)
+Layer 0   Pin        → "Something is happening" (instant, chat open)
+Layer 0.5  ackReaction → "Message received" (instant, on receive)
+Layer 1   Reaction → "What state is it in" (instant, chat list)
 Layer 2  Message body   → "Details and progress" (seconds, read)
 Layer 3  Inline buttons → "Take action" (tap to interact)
 ```
@@ -32,16 +32,16 @@ Layer 3  Inline buttons → "Take action" (tap to interact)
 - Individual missions = temporary pin (unpin on complete)
 
 ### Layer 0.5: ackReaction (Receipt)
-- 👀 on every received message = "I got your message"
+-  on every received message = "I got your message"
 - Auto-removed after reply
 - Fastest possible feedback loop
-- Config: `messages.ackReaction: "👀"`, `messages.ackReactionScope: "all"`
+- Config: `messages.ackReaction: ""`, `messages.ackReactionScope: "all"`
 
 ### Layer 1: Reaction (State)
-- 🔥 = Running/Active
-- 👀 = Awaiting approval
-- 🎉 = Complete
-- ❌ = Error
+-  = Running/Active
+-  = Awaiting approval
+-  = Complete
+-  = Error
 - Visible from chat list without opening the message
 
 ### Layer 2: Message Body (Detail)
@@ -50,8 +50,8 @@ Layer 3  Inline buttons → "Take action" (tap to interact)
 - Contains cost, time, agent count
 
 ### Layer 3: Inline Buttons (Action)
-- Approval gate: ✅ Approve / 👁 Preview / ✏️ Revise / ❌ Abort
-- Error recovery: 🔄 Retry / ⏭ Skip / 📄 Partial complete / ❌ Abort
+- Approval gate:  Approve /  Preview /  Revise /  Abort
+- Error recovery:  Retry /  Skip /  Partial complete /  Abort
 
 ## Visual Elements
 
@@ -90,82 +90,82 @@ Use Unicode Mathematical Bold (U+1D5D4 range):
 ### Footer
 Small caps for branding:
 ```
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 ### Status Icons
 
 | State | Icon | Label |
 |-------|------|-------|
-| Initializing | ⏳ | INIT |
-| Running | 🔥 | RUNNING |
-| Writing | ✏️ | WRITING |
-| Waiting | ⏸️ | WAITING |
-| Done | ✅ | DONE |
-| Error | ❌ | ERROR |
-| Retry | 🔄 | RETRY |
-| Awaiting Approval | ⏸️ | AWAITING APPROVAL |
+| Initializing |  | INIT |
+| Running |  | RUNNING |
+| Writing |  | WRITING |
+| Waiting |  | WAITING |
+| Done |  | DONE |
+| Error |  | ERROR |
+| Retry |  | RETRY |
+| Awaiting Approval |  | AWAITING APPROVAL |
 
 ### Strikethrough for Completion
 Use Telegram `~text~` for completed tasks in WBS-style tickets:
 ```
-~✅ Task 1 — Complete~
-👉 🔥 Task 2 — IN PROGRESS
-⬜ Task 3 — Not started
+~ Task 1 — Complete~
+  Task 2 — IN PROGRESS
+ Task 3 — Not started
 ```
 
 ## Channel Integration
 
 ### Privacy Rules
 Channel posts must NOT contain:
-- 💰 Cost information
-- ❌ Error details
-- ⏸️ Approval gates
-- 🧠 Agent thinking output
+-  Cost information
+-  Error details
+-  Approval gates
+-  Agent thinking output
 
 Channel receives only:
-- 🚀 Mission started (description + agent count)
-- ✅ Mission complete (description + key insights)
+-  Mission started (description + agent count)
+-  Mission complete (description + key insights)
 
 ### Master Ticket (WBS Style)
 
 Goal-driven structure with milestone tracking:
 
 ```
-🎯 𝗚𝗢𝗔𝗟: {project goal}
+ 𝗚𝗢𝗔𝗟: {project goal}
 ——————————————
 
-📌 𝗠𝗶𝗹𝗲𝘀𝘁𝗼𝗻𝗲 𝟭: {name}
-~✅ T1: {task}~
-~✅ T2: {task}~
+ 𝗠𝗶𝗹𝗲𝘀𝘁𝗼𝗻𝗲 𝟭: {name}
+~ T1: {task}~
+~ T2: {task}~
 
-📌 𝗠𝗶𝗹𝗲𝘀𝘁𝗼𝗻𝗲 𝟮: {name}
-👉 🔥 T3: {task} — IN PROGRESS
-⬜ T4: {task}
+ 𝗠𝗶𝗹𝗲𝘀𝘁𝗼𝗻𝗲 𝟮: {name}
+  T3: {task} — IN PROGRESS
+ T4: {task}
 
 ——————————————
 Updated: {timestamp}
 Next: {next milestone}
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
+ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪʏᴀʙɪ
 ```
 
 ## Forbidden Patterns
 
-### ❌ Box-drawing characters
+###  Box-drawing characters
 ```
 ┏━━━━━━━━━━━━━━━━━━━━┓
 ┃  Breaks on mobile    ┃
 ┗━━━━━━━━━━━━━━━━━━━━┛
 ```
 
-### ❌ Space alignment
+###  Space alignment
 ```
 Agent 1    ████░░░░  50%
 Agent 2    ██░░░░░░  25%
 ```
 Spaces render differently across clients.
 
-### ❌ DAG ASCII art
+###  DAG ASCII art
 ```
     T1 ──┐
     T2 ──┼──→ T5 ──→ T6
@@ -174,12 +174,12 @@ Spaces render differently across clients.
 ```
 Collapses on mobile. Use inline text instead: `T1-4 (parallel) → T5 → T6`
 
-### ❌ Markdown tables
+###  Markdown tables
 Tables don't render in Telegram. Use vertical lists instead.
 
 ## Tested Platforms
-- ✅ Telegram iOS
-- ✅ Telegram Android
-- ✅ Telegram macOS
-- ✅ Telegram Web
-- ✅ Telegram Desktop (Windows/Linux)
+-  Telegram iOS
+-  Telegram Android
+-  Telegram macOS
+-  Telegram Web
+-  Telegram Desktop (Windows/Linux)

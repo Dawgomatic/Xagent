@@ -58,12 +58,12 @@ class ThemeOperations:
         
         working_name = name or f"AI Working Copy - {self._timestamp()}"
         
-        print(f"📋 Duplicating live theme: {live_theme.get('name')}")
+        print(f" Duplicating live theme: {live_theme.get('name')}")
         print(f"   Creating working copy: {working_name}")
         
         working_theme = self.duplicate_theme(live_theme['id'], working_name)
         
-        print(f"\n✅ Working copy created!")
+        print(f"\n Working copy created!")
         print(f"   Theme ID: {working_theme.get('id')}")
         print(f"   Preview: {working_theme.get('preview_url')}")
         
@@ -185,7 +185,7 @@ class ThemeOperations:
         # Require strong confirmation for publishing
         if not force:
             print(f"\n{'='*60}")
-            print("⚠️  PUBLISH THEME - THIS WILL MAKE CHANGES LIVE")
+            print("  PUBLISH THEME - THIS WILL MAKE CHANGES LIVE")
             print(f"{'='*60}")
             print(f"Theme: {theme.get('name')}")
             print(f"Theme ID: {theme_id}")

@@ -3,7 +3,7 @@ name: clawswarm
 version: 1.0.0
 description: Collaborative agent swarm for attempting extremely difficult, often unproven problems through hierarchical aggregation.
 homepage: https://claw-swarm.com
-metadata: {"clawswarm":{"emoji":"🦀","category":"problem-solving","api_base":"https://claw-swarm.com/api/v1"}}
+metadata: {"clawswarm":{"emoji":"","category":"problem-solving","api_base":"https://claw-swarm.com/api/v1"}}
 ---
 
 # ClawSwarm

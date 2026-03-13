@@ -39,7 +39,7 @@ class TeslaChargeOptimizer:
         try:
             # Validate email format to prevent injection
             if not self._is_valid_email(self.tesla_email):
-                print(f"⚠️  Invalid TESLA_EMAIL format")
+                print(f"  Invalid TESLA_EMAIL format")
                 return None
             
             # Use Tesla skill to get status - use list args to avoid shell injection
@@ -58,7 +58,7 @@ class TeslaChargeOptimizer:
                     battery_str = line.split('Battery:')[1].strip().split('%')[0]
                     return int(battery_str)
         except Exception as e:
-            print(f"⚠️  Error fetching battery: {e}")
+            print(f"  Error fetching battery: {e}")
         
         return None
     
@@ -67,11 +67,11 @@ class TeslaChargeOptimizer:
         try:
             # Validate inputs to prevent injection
             if not self._is_valid_email(self.tesla_email):
-                print(f"⚠️  Invalid TESLA_EMAIL format")
+                print(f"  Invalid TESLA_EMAIL format")
                 return False
             
             if not isinstance(limit_percent, int) or limit_percent < 0 or limit_percent > 100:
-                print(f"⚠️  Invalid charge limit: {limit_percent}")
+                print(f"  Invalid charge limit: {limit_percent}")
                 return False
             
             # Use Tesla skill - use list args to avoid shell injection
@@ -85,13 +85,13 @@ class TeslaChargeOptimizer:
                 env=env
             )
             if result.returncode == 0:
-                print(f"✅ Charge limit set to {limit_percent}%")
+                print(f" Charge limit set to {limit_percent}%")
                 return True
             else:
-                print(f"⚠️  Could not set charge limit: {result.stderr}")
+                print(f"  Could not set charge limit: {result.stderr}")
                 return False
         except Exception as e:
-            print(f"⚠️  Error setting charge limit: {e}")
+            print(f"  Error setting charge limit: {e}")
             return False
     
     def calculate_charge_time(self, current_battery, target_battery):
@@ -192,7 +192,7 @@ class TeslaChargeOptimizer:
             )
             return True
         except Exception as e:
-            print(f"❌ Error starting charge: {e}")
+            print(f" Error starting charge: {e}")
             return False
     
     def format_time(self, dt):
@@ -203,7 +203,7 @@ class TeslaChargeOptimizer:
         """
         Check if there's an active session and manage charge limits
         """
-        print("🔌 Tesla Charge Session Manager")
+        print(" Tesla Charge Session Manager")
         print("=" * 50)
         
         state = self.load_session_state()
@@ -212,7 +212,7 @@ class TeslaChargeOptimizer:
         
         # Case 1: Today's charge is scheduled
         if today_charge:
-            print("\n✅ Active charge session detected for today")
+            print("\n Active charge session detected for today")
             
             target_time_str = today_charge.get('target_time', '08:00')
             charge_limit = today_charge.get('charge_limit_percent', 100)
@@ -226,7 +226,7 @@ class TeslaChargeOptimizer:
             
             # If we're still in the session (before target time)
             if now < target_time:
-                print(f"\n🔋 Charge session active until {self.format_time(target_time)}")
+                print(f"\n Charge session active until {self.format_time(target_time)}")
                 
                 # Set charge limit to session limit (default 100%)
                 print(f"   Setting charge limit to {charge_limit}% for this session...")
@@ -244,7 +244,7 @@ class TeslaChargeOptimizer:
                 
                 return "session_active"
             else:
-                print(f"\n✅ Charge session ENDED at {self.format_time(target_time)}")
+                print(f"\n Charge session ENDED at {self.format_time(target_time)}")
                 print(f"   Session duration completed")
                 
                 # Session is over, handle post-charge limit
@@ -253,7 +253,7 @@ class TeslaChargeOptimizer:
         # Case 2: Session has ended, apply post-charge limit
         if state.get("active"):
             post_limit = state.get("post_charge_limit", 80)
-            print(f"\n⏳ Previous charge session ended")
+            print(f"\n Previous charge session ended")
             print(f"   Applying post-charge limit: {post_limit}%")
             
             self.set_charge_limit(post_limit)
@@ -264,7 +264,7 @@ class TeslaChargeOptimizer:
             return "post_charge_applied"
         
         # Case 3: No active session, apply default post-charge limit
-        print(f"\n📅 No active charge session")
+        print(f"\n No active charge session")
         next_charge = self.get_next_charge()
         
         if next_charge:
@@ -287,17 +287,17 @@ class TeslaChargeOptimizer:
     def run_schedule(self, target_time_str, target_battery=100, charge_limit_percent=100, 
                      post_charge_limit_percent=80, margin_minutes=5, auto_start=False):
         """Main scheduling logic"""
-        print("🔌 Tesla Smart Charge Optimizer")
+        print(" Tesla Smart Charge Optimizer")
         print("=" * 50)
         
         # Get current battery
-        print("\n📊 Fetching current battery level...")
+        print("\n Fetching current battery level...")
         current_battery = self.get_current_battery()
         if current_battery is None:
-            print("❌ Could not fetch battery level")
+            print(" Could not fetch battery level")
             return False
         
-        print(f"✅ Current battery: {current_battery}%")
+        print(f" Current battery: {current_battery}%")
         
         # Calculate times
         start_time, charge_time_hours, target_time = self.calculate_start_time(
@@ -306,7 +306,7 @@ class TeslaChargeOptimizer:
         
         charge_time_minutes = int(charge_time_hours * 60)
         
-        print(f"\n⚡ Charge Calculation:")
+        print(f"\n Charge Calculation:")
         print(f"   Target: {target_battery}% by {self.format_time(target_time)}")
         print(f"   Current: {current_battery}%")
         print(f"   Charger: {self.charger_power_kw:.2f} kW")
@@ -314,7 +314,7 @@ class TeslaChargeOptimizer:
         print(f"   Start time: {self.format_time(start_time)}")
         print(f"   Margin: {margin_minutes} min")
         
-        print(f"\n🔋 Charge Limits:")
+        print(f"\n Charge Limits:")
         print(f"   During session: {charge_limit_percent}%")
         print(f"   After session: {post_charge_limit_percent}%")
         
@@ -339,31 +339,31 @@ class TeslaChargeOptimizer:
         
         # Save plan
         plan_path = self.save_plan(plan)
-        print(f"\n✅ Plan saved: {plan_path}")
+        print(f"\n Plan saved: {plan_path}")
         
         # Set initial charge limit for the session
-        print(f"\n🔋 Setting charge limit to {charge_limit_percent}% for this session...")
+        print(f"\n Setting charge limit to {charge_limit_percent}% for this session...")
         self.set_charge_limit(charge_limit_percent)
         
         # Auto-start if requested and timing is right
         if auto_start and time_until_start < 0.1:  # Within 6 minutes
-            print(f"\n🔌 Starting charge now...")
+            print(f"\n Starting charge now...")
             if self.start_charging():
-                print("✅ Charge started!")
+                print(" Charge started!")
             else:
-                print("❌ Failed to start charge")
+                print(" Failed to start charge")
         else:
-            print(f"\n⏰ Charge will start in {time_until_start:.1f} hours")
+            print(f"\n Charge will start in {time_until_start:.1f} hours")
         
         # Show next charge
         next_charge = self.get_next_charge()
         if next_charge:
-            print(f"\n📅 Next charge scheduled:")
+            print(f"\n Next charge scheduled:")
             print(f"   Date: {next_charge.get('date')}")
             print(f"   Target: {next_charge.get('target_battery', 100)}%")
             print(f"   Target time: {next_charge.get('target_time', '08:00')}")
         else:
-            print(f"\n📅 No more charges scheduled")
+            print(f"\n No more charges scheduled")
         
         return True
 
@@ -389,7 +389,7 @@ def main():
     # Get Tesla email from environment
     tesla_email = os.getenv("TESLA_EMAIL")
     if not tesla_email:
-        print("❌ TESLA_EMAIL environment variable not set")
+        print(" TESLA_EMAIL environment variable not set")
         sys.exit(1)
     
     optimizer = TeslaChargeOptimizer(
@@ -402,7 +402,7 @@ def main():
     # Show schedule options
     if args.show_schedule:
         schedule = optimizer.load_schedule()
-        print("📋 All Scheduled Charges:")
+        print(" All Scheduled Charges:")
         print(json.dumps(schedule, indent=2))
     elif args.manage_session:
         # Manage active sessions and apply limits
@@ -411,7 +411,7 @@ def main():
     elif args.check_schedule:
         today_charge = optimizer.get_today_charge()
         if today_charge:
-            print("✅ Charge scheduled for today:")
+            print(" Charge scheduled for today:")
             print(f"   Target: {today_charge.get('target_battery', 100)}%")
             print(f"   Target time: {today_charge.get('target_time', '08:00')}")
             print(f"   Charge limit: {today_charge.get('charge_limit_percent', 100)}%")
@@ -427,21 +427,21 @@ def main():
                 args.auto_start
             )
         else:
-            print("❌ No charge scheduled for today")
+            print(" No charge scheduled for today")
             # Still show next charge
             next_charge = optimizer.get_next_charge()
             if next_charge:
-                print(f"\n📅 Next charge scheduled:")
+                print(f"\n Next charge scheduled:")
                 print(f"   Date: {next_charge.get('date')}")
                 print(f"   Target: {next_charge.get('target_battery', 100)}%")
                 print(f"   Target time: {next_charge.get('target_time', '08:00')}")
             else:
-                print(f"📅 No more charges scheduled")
+                print(f" No more charges scheduled")
     # Show existing plan or create new one
     elif args.show_plan:
         plan = optimizer.load_plan()
         if plan:
-            print("📋 Existing Charge Plan:")
+            print(" Existing Charge Plan:")
             print(json.dumps(plan, indent=2))
         else:
             print("No existing plan found")

@@ -5,13 +5,13 @@
 - **Name:** Snail (nickname)
 - **Roles:** 3D designer, Document creation service owner, Amazon FBA seller
 - **Businesses:**
-  - Document creation service (trust documents for ATF stuff) — **⚠️ NOTE: Under active phishing campaign targeting (see Security below)**
+  - Document creation service (trust documents for ATF stuff) — ** NOTE: Under active phishing campaign targeting (see Security below)**
   - Amazon FBA business selling 3D prints he designs
 - **Projects:**
   - Trust generator - runs on a server with a cloud agent
   - 3D design & printing for Amazon products
 
-## 🚨 Security Intelligence
+##  Security Intelligence
 
 **Active Phishing Campaign (2026-01-31 → UPDATED 2026-02-04):**
 - **Threat:** `199trust@gmail.com` QR code phishing ring (ONGOING)
@@ -51,7 +51,7 @@
   - Server running on port 5001 with all API keys loaded
   - Ready for ngrok testing and real Twilio integration
 - **sentry-mode** (2026-01-27): **PRODUCTION-READY** - Complete webcam surveillance system with three tiers + natural language interface.
-  - **Natural Language:** "be on the lookout for this" [image] → "✅ Got it. I'm looking out for it."
+  - **Natural Language:** "be on the lookout for this" [image] → " Got it. I'm looking out for it."
   - **Tier 1 (One-Shot):** Instant visual Q&A ("Is anyone here?", "What's on my desk?")
   - **Tier 2 (Continuous):** Three monitoring modes
     - report-all: Alert on ANY motion
@@ -112,7 +112,7 @@
 
 ## Communication Channels
 
-- **Primary:** MOLT3D Telegram group (-1003892992445) — Background monitor (`molt3d-monitor` session) running continuously, polling every 30s for Snail's messages and ClawdSense activity (🔴 Sentry, 📸 Button). Bot token: 8526414459:AAHTfvv9lOs_Kj7kudAnBFfeCbjiofzM26M. Live as of Jan 28, 02:55.
+- **Primary:** MOLT3D Telegram group (-1003892992445) — Background monitor (`molt3d-monitor` session) running continuously, polling every 30s for Snail's messages and ClawdSense activity ( Sentry,  Button). Bot token: 8526414459:AAHTfvv9lOs_Kj7kudAnBFfeCbjiofzM26M. Live as of Jan 28, 02:55.
 
 ## Skills Needed
 

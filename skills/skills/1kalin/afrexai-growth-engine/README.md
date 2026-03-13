@@ -1,4 +1,4 @@
-# 📈 AfrexAI Growth Engine
+#  AfrexAI Growth Engine
 
 The complete growth system for startups and scaling businesses — from North Star definition through viral loops, experimentation frameworks, and scaling playbooks.
 
@@ -48,7 +48,7 @@ After installing, try these commands with your agent:
 - **10 growth killers** — common mistakes with diagnostic table
 - **Edge cases** — B2B vs B2C, marketplace, international, developer tools, zero-budget
 
-## ⚡ Level Up
+##  Level Up
 
 Want the full business context for your vertical? Our **AI Agent Context Packs** ($47) give your agent deep industry knowledge:
 
@@ -57,9 +57,9 @@ Want the full business context for your vertical? Our **AI Agent Context Packs**
 - **Ecommerce Context Pack** — conversion, retention, LTV optimization
 - **Professional Services Context Pack** — pipeline, proposals, expansion revenue
 
-👉 [Browse all 10 vertical packs](https://afrexai-cto.github.io/context-packs/)
+ [Browse all 10 vertical packs](https://afrexai-cto.github.io/context-packs/)
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [afrexai-lead-hunter](https://clawhub.com/skills/afrexai-lead-hunter) — ICP definition, prospecting, outreach sequences
 - [afrexai-sales-playbook](https://clawhub.com/skills/afrexai-sales-playbook) — Full B2B sales system (MEDDPICC + scripts)
@@ -69,4 +69,4 @@ Want the full business context for your vertical? Our **AI Agent Context Packs**
 
 ---
 
-Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 🖤💛
+Built by [AfrexAI](https://afrexai-cto.github.io/context-packs/) 

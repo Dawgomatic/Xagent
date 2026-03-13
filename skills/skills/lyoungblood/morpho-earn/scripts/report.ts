@@ -146,17 +146,17 @@ async function gatherReportData(): Promise<ReportData> {
 function formatTelegramReport(data: ReportData): string {
   const shortWallet = `${data.wallet.slice(0, 6)}...${data.wallet.slice(-4)}`;
   
-  let report = `🌜🌛 **Moonwell Yield Report**\n\n`;
+  let report = ` **Moonwell Yield Report**\n\n`;
   
   // Position
-  report += `📊 **Position**\n`;
+  report += ` **Position**\n`;
   report += `├ Value: **$${data.positionUSDC.toFixed(2)}**\n`;
   report += `├ Base APY: ${data.vaultAPY.toFixed(2)}%\n`;
   report += `└ Total APY: ~${data.totalAPY.toFixed(2)}%\n\n`;
   
   // Rewards
   if (data.totalRewardsUSD > 0.01) {
-    report += `🎁 **Pending Rewards**\n`;
+    report += ` **Pending Rewards**\n`;
     if (data.wellBalance > 0) {
       report += `├ WELL: ${data.wellBalance.toFixed(2)} (~$${data.wellValueUSD.toFixed(2)})\n`;
     }
@@ -170,14 +170,14 @@ function formatTelegramReport(data: ReportData): string {
   const dailyEarnings = (data.positionUSDC * data.totalAPY / 100) / 365;
   const monthlyEarnings = dailyEarnings * 30;
   
-  report += `💰 **Estimated Earnings**\n`;
+  report += ` **Estimated Earnings**\n`;
   report += `├ Daily: ~$${dailyEarnings.toFixed(4)}\n`;
   report += `└ Monthly: ~$${monthlyEarnings.toFixed(2)}\n\n`;
   
   // Gas status
-  const gasStatus = data.ethBalance > 0.001 ? '✅' : '⚠️';
-  report += `⛽ Gas: ${gasStatus} ${data.ethBalance.toFixed(4)} ETH\n`;
-  report += `🔗 Wallet: \`${shortWallet}\``;
+  const gasStatus = data.ethBalance > 0.001 ? '' : '';
+  report += ` Gas: ${gasStatus} ${data.ethBalance.toFixed(4)} ETH\n`;
+  report += ` Wallet: \`${shortWallet}\``;
   
   return report;
 }

@@ -68,16 +68,16 @@ Risk Level: High
 
 [Priority Action Recommendations]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚨 Urgent (Within 1 week)
+ Urgent (Within 1 week)
 • Visit endocrinology to adjust diabetes regimen
 • Visit cardiology to evaluate cardiac function
 
-⚠️ High Priority (Within 1 month)
+ High Priority (Within 1 month)
 • Start low-salt, low-fat diet
 • Regular exercise, 3-5 times per week
 • Purchase glucose meter, regular monitoring
 
-📋 Medium Priority (Within 3 months)
+ Medium Priority (Within 3 months)
 • Lose 5-10% body weight (if applicable)
 • Quit smoking, limit alcohol
 

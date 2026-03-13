@@ -1,4 +1,4 @@
-# 🎭 Amygdala Memory
+#  Amygdala Memory
 
 > Emotional processing layer for AI agents. Part of the [AI Brain series](https://github.com/ImpKind).
 
@@ -10,10 +10,10 @@ Give your AI agent persistent emotional states that carry across sessions. Not j
 ## The Problem
 
 Current AI agents:
-- ✅ Remember facts
-- ❌ Don't have persistent emotional states
-- ❌ Start each session emotionally "blank"
-- ❌ Can describe emotions but don't *feel* differently
+-  Remember facts
+-  Don't have persistent emotional states
+-  Start each session emotionally "blank"
+-  Can describe emotions but don't *feel* differently
 
 **Memory without emotion is just a database.**
 
@@ -23,11 +23,11 @@ Track five emotional dimensions that persist and decay over time:
 
 | Dimension | What It Measures | Range |
 |-----------|------------------|-------|
-| **Valence** | Positive ↔ Negative mood | -1.0 to 1.0 |
-| **Arousal** | Calm ↔ Excited/Alert | 0.0 to 1.0 |
-| **Connection** | Distant ↔ Close/Bonded | 0.0 to 1.0 |
-| **Curiosity** | Bored ↔ Fascinated | 0.0 to 1.0 |
-| **Energy** | Depleted ↔ Energized | 0.0 to 1.0 |
+| **Valence** | Positive  Negative mood | -1.0 to 1.0 |
+| **Arousal** | Calm  Excited/Alert | 0.0 to 1.0 |
+| **Connection** | Distant  Close/Bonded | 0.0 to 1.0 |
+| **Curiosity** | Bored  Fascinated | 0.0 to 1.0 |
+| **Energy** | Depleted  Energized | 0.0 to 1.0 |
 
 ## Quick Start
 
@@ -35,7 +35,7 @@ Track five emotional dimensions that persist and decay over time:
 # Check current emotional state
 ./scripts/load-emotion.sh
 
-# 🎭 Current Emotional State:
+#  Current Emotional State:
 # Overall mood: slightly positive, calm and relaxed
 # Connection: moderately connected
 # Curiosity: curious
@@ -46,9 +46,9 @@ Track five emotional dimensions that persist and decay over time:
 # Log an emotion
 ./scripts/update-state.sh --emotion joy --intensity 0.8 --trigger "shipped a feature"
 
-# ✅ valence: 0.20 → 0.35 (delta: +0.15)
-# ✅ arousal: 0.30 → 0.40 (delta: +0.1)
-# 🎭 Logged emotion: joy (intensity: 0.8)
+#  valence: 0.20 → 0.35 (delta: +0.15)
+#  arousal: 0.30 → 0.40 (delta: +0.1)
+#  Logged emotion: joy (intensity: 0.8)
 ```
 
 ## Scripts
@@ -90,10 +90,10 @@ Set up cron for automatic encoding every 3 hours:
 ```bash
 ./scripts/visualize.sh
 
-🎭 Emotional State  😄
+ Emotional State  
 ═══════════════════════════════════════════════
 Valence:      [██████████████████░░]  +0.86
-Connection:   [███████████████████░]   0.97  💕
+Connection:   [███████████████████░]   0.97  
 ...
 ```
 
@@ -115,9 +115,9 @@ xdg-open ~/.openclaw/workspace/brain-dashboard.html
 ```
 
 **Shows tabs for all brain skills:**
-- 🎭 Emotions (Amygdala)
-- 🧠 Memory (Hippocampus — or install prompt)
-- ⭐ Drive (VTA — or install prompt)
+-  Emotions (Amygdala)
+-  Memory (Hippocampus — or install prompt)
+-  Drive (VTA — or install prompt)
 
 Set avatar in `IDENTITY.md`:
 ```markdown
@@ -162,7 +162,7 @@ SESSION START
             │
             ▼
 ┌─────────────────────────┐
-│  Something significant  │──▶ update-state.sh
+│  Something significant  │── update-state.sh
 │  happens emotionally    │
 └───────────┬─────────────┘
             │
@@ -212,12 +212,12 @@ Building cognitive architecture for AI agents:
 
 | Part | Function | Status |
 |------|----------|--------|
-| [hippocampus](https://github.com/ImpKind/hippocampus) | Memory formation, decay, reinforcement | ✅ Live |
-| **amygdala-memory** | Emotional processing | ✅ Live |
-| [vta-memory](https://github.com/ImpKind/vta-memory) | Reward and motivation | ✅ Live |
-| basal-ganglia-memory | Habit formation | 🚧 Coming |
-| anterior-cingulate-memory | Conflict detection | 🚧 Coming |
-| insula-memory | Internal state awareness | 🚧 Coming |
+| [hippocampus](https://github.com/ImpKind/hippocampus) | Memory formation, decay, reinforcement |  Live |
+| **amygdala-memory** | Emotional processing |  Live |
+| [vta-memory](https://github.com/ImpKind/vta-memory) | Reward and motivation |  Live |
+| basal-ganglia-memory | Habit formation |  Coming |
+| anterior-cingulate-memory | Conflict detection |  Coming |
+| insula-memory | Internal state awareness |  Coming |
 
 ## Philosophy
 
@@ -239,4 +239,4 @@ MIT
 
 ---
 
-*Part of the AI Brain series. Built with 🎭 by [ImpKind](https://github.com/ImpKind)*
+*Part of the AI Brain series. Built with  by [ImpKind](https://github.com/ImpKind)*

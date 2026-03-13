@@ -426,7 +426,7 @@ def main():
         if not recommendations:
             print("No trading recommendations found")
         else:
-            print(f"\n📊 Congressional Trading Recommendations ({len(recommendations)} found):")
+            print(f"\n Congressional Trading Recommendations ({len(recommendations)} found):")
             print("="*80)
 
             for i, rec in enumerate(recommendations, 1):
@@ -444,14 +444,14 @@ def main():
         # Get integration statistics
         stats = integration.get_integration_stats()
 
-        print("\n📈 Broker Integration Statistics:")
+        print("\n Broker Integration Statistics:")
         print("="*60)
         print(f"Broker Adapter: {stats['broker']}")
         print(f"Processed Alerts: {stats['processed_alerts']}")
         print(f"Total Recommendations: {stats.get('total_recommendations', 0)}")
         print(f"Notifications Directory: {stats['notifications_directory']}")
         print(f"Recommendations Directory: {stats['recommendations_directory']}")
-        print(f"Config Loaded: {'✅' if stats['config_loaded'] else '❌'}")
+        print(f"Config Loaded: {'' if stats['config_loaded'] else ''}")
         print("="*60)
 
     else:

@@ -50,23 +50,23 @@ def list_tasks(args):
         print("No tasks found matching criteria.")
         return
     
-    print(f"\n📋 Tasks ({len(filtered)} items)\n")
+    print(f"\n Tasks ({len(filtered)} items)\n")
     
     current_section = None
     for task in filtered:
         section = task.get('section')
         if section != current_section:
             section_names = {
-                '🔴': 'High Priority',
-                '🟡': 'Medium Priority',
-                '🟢': 'Delegated',
-                '📅': 'Upcoming',
-                '✅': 'Done',
+                '': 'High Priority',
+                '': 'Medium Priority',
+                '': 'Delegated',
+                '': 'Upcoming',
+                '': 'Done',
             }
             current_section = section
             print(f"### {section_names.get(section, section or 'Uncategorized')}\n")
         
-        checkbox = '✅' if task['done'] else '⬜'
+        checkbox = '' if task['done'] else ''
         due_str = f" (due: {task['due']})" if task.get('due') else ''
         blocks_str = f" [blocks: {task['blocks']}]" if task.get('blocks') else ''
         
@@ -84,10 +84,10 @@ def add_task(args):
     
     # Build task entry
     priority_section = {
-        'high': '🔴 High Priority',
-        'medium': '🟡 Medium Priority',
-        'low': '🟢 Delegated / Waiting',
-    }.get(args.priority, '🟡 Medium Priority')
+        'high': ' High Priority',
+        'medium': ' Medium Priority',
+        'low': ' Delegated / Waiting',
+    }.get(args.priority, ' Medium Priority')
     
     task_lines = [f'- [ ] **{args.title}**']
     if args.owner and args.owner != 'martin':
@@ -108,9 +108,9 @@ def add_task(args):
         insert_content = match.group(2).rstrip() + '\n\n' + task_entry + '\n'
         new_content = content[:match.start(2)] + insert_content + content[match.end(2):]
         TASKS_FILE.write_text(new_content)
-        print(f"✅ Added task: {args.title}")
+        print(f" Added task: {args.title}")
     else:
-        print(f"⚠️ Section '{priority_section}' not found. Add manually.")
+        print(f" Section '{priority_section}' not found. Add manually.")
 
 
 def done_task(args):
@@ -143,7 +143,7 @@ def done_task(args):
     
     new_content = content.replace(old_line, new_line)
     TASKS_FILE.write_text(new_content)
-    print(f"✅ Completed: {task['title']}")
+    print(f" Completed: {task['title']}")
 
 
 def show_blockers(args):
@@ -158,10 +158,10 @@ def show_blockers(args):
         print("No blocking tasks found.")
         return
     
-    print(f"\n🚧 Blocking Tasks ({len(blockers)} items)\n")
+    print(f"\n Blocking Tasks ({len(blockers)} items)\n")
     
     for task in blockers:
-        print(f"⬜ **{task['title']}**")
+        print(f" **{task['title']}**")
         print(f"   Blocks: {task['blocks']}")
         if task.get('due'):
             print(f"   Due: {task['due']}")
@@ -186,7 +186,7 @@ def archive_done(args):
     
     archive_entry = f"\n## Archived {datetime.now().strftime('%Y-%m-%d')}\n\n"
     for task in done_tasks:
-        archive_entry += f"- ✅ **{task['title']}**\n"
+        archive_entry += f"-  **{task['title']}**\n"
     
     # Append to archive
     if archive_file.exists():
@@ -199,7 +199,7 @@ def archive_done(args):
     
     # Remove from done section in TASKS.md
     import re
-    done_section_pattern = r'(## ✅ Done.*?\n\n).*?(\n## |\n---|\Z)'
+    done_section_pattern = r'(##  Done.*?\n\n).*?(\n## |\n---|\Z)'
     new_content = re.sub(
         done_section_pattern,
         r'\1_Move completed items here during daily standup_\n\n\2',
@@ -208,7 +208,7 @@ def archive_done(args):
     )
     
     TASKS_FILE.write_text(new_content)
-    print(f"✅ Archived {len(done_tasks)} tasks to {archive_file.name}")
+    print(f" Archived {len(done_tasks)} tasks to {archive_file.name}")
 
 
 def main():

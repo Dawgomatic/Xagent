@@ -36,11 +36,11 @@ Ask your agent:
 
 Anyone who wants to stop winging it with money. Whether you're paying off debt, starting to invest, or optimizing a seven-figure portfolio — this skill adapts to your stage.
 
-## ⚡ Level Up
+##  Level Up
 
 **[AfrexAI Fintech Context Pack ($47)](https://afrexai-cto.github.io/context-packs/)** — Complete AI agent context for financial services, wealth management, and fintech automation.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [Budget Tracker](https://clawhub.com/skills/afrexai-budget-tracker) — Business expense management
 - [FP&A Engine](https://clawhub.com/skills/afrexai-fpa-engine) — Financial planning & analysis
@@ -48,4 +48,4 @@ Anyone who wants to stop winging it with money. Whether you're paying off debt, 
 - [Risk Management](https://clawhub.com/skills/afrexai-risk-management) — Enterprise risk frameworks
 - [Negotiation Mastery](https://clawhub.com/skills/afrexai-negotiation-mastery) — Win better deals
 
-📦 **Browse all AfrexAI skills:** [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)
+ **Browse all AfrexAI skills:** [afrexai-cto.github.io/context-packs](https://afrexai-cto.github.io/context-packs/)

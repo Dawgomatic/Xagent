@@ -181,20 +181,20 @@ poll_video() {
     
     if [ "$step" = "complete" ]; then
       url=$(echo "$response" | grep -o '"url":"[^"]*"' | head -1 | cut -d'"' -f4)
-      echo "✅ Video complete!"
+      echo " Video complete!"
       echo "   URL: $url"
       return 0
     fi
     
     if [[ "$step" == *"failed"* ]]; then
-      echo "❌ Video failed: $step"
+      echo " Video failed: $step"
       return 1
     fi
     
     sleep $interval
   done
   
-  echo "⏱️ Timeout reached"
+  echo " Timeout reached"
   return 1
 }
 

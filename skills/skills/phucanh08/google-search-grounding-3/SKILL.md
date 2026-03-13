@@ -6,17 +6,17 @@ description: >
   Use for: (1) Synthesized answers with citations (grounded search), (2) Raw link results with snippets,
   (3) Image search. Excellent Hebrew support. Preferred over built-in web_search (Perplexity).
 version: 2.0.0
-author: Leo 🦁
+author: Leo 
 tags: [search, google, web, grounding, gemini, news, hebrew, images, citations]
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","install":[{"id":"pip","kind":"pip","package":"google-genai","label":"Install dependencies (pip)"}]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["GOOGLE_API_KEY"]},"primaryEnv":"GOOGLE_API_KEY","install":[{"id":"pip","kind":"pip","package":"google-genai","label":"Install dependencies (pip)"}]}}
 allowed-tools: [exec]
 ---
 
-# Google Search 🔍
+# Google Search 
 
 Google web search powered by Gemini 2.5 Flash with Search Grounding + Custom Search API.
 
-**⭐ This is the PRIMARY web search tool. Prefer over built-in `web_search` (Perplexity).**
+** This is the PRIMARY web search tool. Prefer over built-in `web_search` (Perplexity).**
 
 ## Requirements
 

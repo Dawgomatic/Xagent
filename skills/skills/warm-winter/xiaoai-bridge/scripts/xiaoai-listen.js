@@ -25,12 +25,12 @@ const TRIGGER_PREFIX = process.env.TRIGGER_PREFIX || "请";
 
 // 验证配置
 if (!config.userId || !config.did) {
-  console.error("❌ 缺少必要配置：MI_USER_ID 和 MI_DEVICE_ID");
+  console.error(" 缺少必要配置：MI_USER_ID 和 MI_DEVICE_ID");
   process.exit(1);
 }
 
 if (!config.passToken && !config.password) {
-  console.error("❌ 需要提供 MI_PASS_TOKEN 或 MI_PASSWORD");
+  console.error(" 需要提供 MI_PASS_TOKEN 或 MI_PASSWORD");
   process.exit(1);
 }
 
@@ -41,17 +41,17 @@ let isRunning = false;
 
 async function init() {
   try {
-    console.log("🔌 正在连接小爱音箱...");
+    console.log(" 正在连接小爱音箱...");
     mina = await getMiNA(config);
     
     if (!mina) {
       throw new Error("登录失败");
     }
     
-    console.log("✅ 连接成功");
+    console.log(" 连接成功");
     return true;
   } catch (error) {
-    console.error("❌ 连接失败:", error.message);
+    console.error(" 连接失败:", error.message);
     return false;
   }
 }
@@ -88,7 +88,7 @@ async function fetchMessages() {
 
     return newMessages;
   } catch (error) {
-    console.error("❌ 获取消息失败:", error.message);
+    console.error(" 获取消息失败:", error.message);
     return [];
   }
 }
@@ -98,7 +98,7 @@ async function speak(text) {
     await mina.play({ text });
     return true;
   } catch (error) {
-    console.error("❌ 播放失败:", error.message);
+    console.error(" 播放失败:", error.message);
     return false;
   }
 }
@@ -119,7 +119,7 @@ async function poll() {
 
 async function start() {
   if (isRunning) {
-    console.error("❌ 服务已在运行");
+    console.error(" 服务已在运行");
     return;
   }
 
@@ -129,7 +129,7 @@ async function start() {
   }
 
   isRunning = true;
-  console.log("🎤 开始监听消息...");
+  console.log(" 开始监听消息...");
 
   // 轮询间隔（毫秒）
   const POLL_INTERVAL = parseInt(process.env.POLL_INTERVAL || "1000");
@@ -147,7 +147,7 @@ if (command === "speak") {
   // 播放模式：node xiaoai-listen.js speak "要说的话"
   const text = process.argv[3];
   if (!text) {
-    console.error("❌ 缺少文本参数");
+    console.error(" 缺少文本参数");
     process.exit(1);
   }
   
@@ -167,14 +167,14 @@ if (command === "speak") {
 } else {
   // 默认：监听模式
   start().catch((error) => {
-    console.error("❌ 服务异常:", error);
+    console.error(" 服务异常:", error);
     process.exit(1);
   });
 }
 
 // 优雅退出
 process.on("SIGINT", () => {
-  console.log("\n👋 停止监听");
+  console.log("\n 停止监听");
   isRunning = false;
   process.exit(0);
 });

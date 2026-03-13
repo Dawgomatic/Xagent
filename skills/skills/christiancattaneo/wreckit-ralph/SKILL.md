@@ -33,10 +33,10 @@ Auto-detected from context:
 
 | Mode | Trigger | Description |
 |------|---------|-------------|
-| 🟢 BUILD | Empty repo + PRD | Full pipeline for greenfield |
-| 🟡 REBUILD | Existing code + migration spec | BUILD + behavior capture + replay |
-| 🔴 FIX | Existing code + bug report | Fix, verify, check regressions |
-| 🔵 AUDIT | Existing code, no changes | Verify and report only |
+|  BUILD | Empty repo + PRD | Full pipeline for greenfield |
+|  REBUILD | Existing code + migration spec | BUILD + behavior capture + replay |
+|  FIX | Existing code + bug report | Fix, verify, check regressions |
+|  AUDIT | Existing code, no changes | Verify and report only |
 
 ## Gates
 
@@ -44,17 +44,17 @@ Read the gate file before executing it. Each contains: question, checks, pass/fa
 
 | Gate | BUILD | REBUILD | FIX | AUDIT | File |
 |------|-------|---------|-----|-------|------|
-| AI Slop Scan | ✅ | ✅ | ✅ | ✅ | `references/gates/slop-scan.md` |
-| Type Check | ✅ | ✅ | ✅ | ✅ | `references/gates/type-check.md` |
-| Ralph Loop | ✅ | ✅ | ✅ | ❌ | `references/gates/ralph-loop.md` |
-| Test Quality | ✅ | ✅ | ✅ | ✅ | `references/gates/test-quality.md` |
-| Mutation Kill | ✅ | ✅ | ✅ | ✅ | `references/gates/mutation-kill.md` |
-| Cross-Verify | ✅ | ❌ | ❌ | ❌ | `references/gates/cross-verify.md` |
-| Behavior Capture | ❌ | ✅ | ❌ | ❌ | `references/gates/behavior-capture.md` |
-| Regression | ❌ | ✅ | ✅ | ❌ | `references/gates/regression.md` |
-| SAST | ❌ | ❌ | ✅ | ✅ | `references/gates/sast.md` |
+| AI Slop Scan |  |  |  |  | `references/gates/slop-scan.md` |
+| Type Check |  |  |  |  | `references/gates/type-check.md` |
+| Ralph Loop |  |  |  |  | `references/gates/ralph-loop.md` |
+| Test Quality |  |  |  |  | `references/gates/test-quality.md` |
+| Mutation Kill |  |  |  |  | `references/gates/mutation-kill.md` |
+| Cross-Verify |  |  |  |  | `references/gates/cross-verify.md` |
+| Behavior Capture |  |  |  |  | `references/gates/behavior-capture.md` |
+| Regression |  |  |  |  | `references/gates/regression.md` |
+| SAST |  |  |  |  | `references/gates/sast.md` |
 | LLM-as-Judge | opt | opt | opt | opt | `references/gates/llm-judge.md` |
-| Proof Bundle | ✅ | ✅ | ✅ | ✅ | `references/gates/proof-bundle.md` |
+| Proof Bundle |  |  |  |  | `references/gates/proof-bundle.md` |
 
 ## Scripts
 
@@ -93,9 +93,9 @@ Worker output format: `references/swarm/handoff.md`.
 
 | Verdict | Criteria |
 |---------|----------|
-| **Ship** ✅ | All gates pass, ≥95% mutation kill, zero slop |
-| **Caution** ⚠️ | All pass but mutation kill 90-95%, or minor slop in non-critical |
-| **Blocked** 🚫 | Any gate fails, hallucinated deps, <90% mutation kill |
+| **Ship**  | All gates pass, ≥95% mutation kill, zero slop |
+| **Caution**  | All pass but mutation kill 90-95%, or minor slop in non-critical |
+| **Blocked**  | Any gate fails, hallucinated deps, <90% mutation kill |
 
 ## Running an Audit (Single-Agent, No Swarm)
 

@@ -5,7 +5,7 @@ description: Manage Thermomix/Cookidoo meal planning via tmx-cli. Use for recipe
 
 # Cookidoo / tmx-cli Skill
 
-Manage Cookidoo® (Thermomix) meal plans, recipes, and shopping lists using `tmx-cli` — a pure-Python CLI bundled in this skill at `{baseDir}/tmx_cli.py`.
+Manage Cookidoo (Thermomix) meal plans, recipes, and shopping lists using `tmx-cli` — a pure-Python CLI bundled in this skill at `{baseDir}/tmx_cli.py`.
 
 ## Setup
 
@@ -60,7 +60,7 @@ tmx shopping from-plan               # generate from meal plan
 tmx shopping add <recipe_id>         # add recipe ingredients
 tmx shopping add-item "Milch" "1L"   # add custom item
 tmx shopping remove <recipe_id>      # remove recipe ingredients
-tmx shopping clear                   # clear entire list ⚠️
+tmx shopping clear                   # clear entire list 
 tmx shopping export                  # export as markdown
 tmx shopping export --format json    # export as JSON
 ```

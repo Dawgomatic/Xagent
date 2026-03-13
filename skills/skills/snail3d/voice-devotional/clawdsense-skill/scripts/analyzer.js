@@ -90,7 +90,7 @@ async function analyzeWithGroq(imagePath) {
  * Poll directory for new photos
  */
 function startPolling() {
-  console.log(`📷 Polling ${mediaDir} every 500ms for new photos...\n`);
+  console.log(` Polling ${mediaDir} every 500ms for new photos...\n`);
 
   // Get initial files
   try {
@@ -113,15 +113,15 @@ function startPolling() {
         const filePath = path.join(mediaDir, file);
         const stats = fs.statSync(filePath);
 
-        console.log(`📸 New photo: ${file} (${stats.size} bytes)`);
-        console.log(`⏳ Analyzing with Groq Vision...`);
+        console.log(` New photo: ${file} (${stats.size} bytes)`);
+        console.log(` Analyzing with Groq Vision...`);
 
         try {
           const result = await analyzeWithGroq(filePath);
-          console.log(`✅ Result:\n${result}\n`);
+          console.log(` Result:\n${result}\n`);
           console.log(`${'='.repeat(60)}\n`);
         } catch (error) {
-          console.error(`❌ Error: ${error.message}\n`);
+          console.error(` Error: ${error.message}\n`);
         }
       }
     } catch (e) {
@@ -132,9 +132,9 @@ function startPolling() {
 
 // Start
 startPolling();
-console.log(`🚀 ClawdSense Analyzer ready.\n`);
+console.log(` ClawdSense Analyzer ready.\n`);
 
 process.on('SIGINT', () => {
-  console.log('\n👋 Shutting down...');
+  console.log('\n Shutting down...');
   process.exit(0);
 });

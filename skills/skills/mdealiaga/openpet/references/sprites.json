@@ -1,15 +1,15 @@
 {
   "egg": {
-    "happy": "  🥚  ",
-    "neutral": "  🥚  ",
-    "sad": "  🥚  "
+    "happy": "    ",
+    "neutral": "    ",
+    "sad": "    "
   },
   "blob": {
     "happy": " (◕‿◕) ",
     "neutral": " (•_•) ",
     "sad": " (╥﹏╥) ",
     "sleeping": " (－‿－) zzZ",
-    "dead": " (✖_✖) "
+    "dead": " (_) "
   },
   "cat": {
     "happy": " /ᐠ｡ꞈ｡ᐟ\\ ",
@@ -19,10 +19,10 @@
     "dead": " /ᐠx_xᐟ\\ "
   },
   "dragon": {
-    "happy": " 🐲✨ ",
-    "neutral": " 🐲 ",
-    "sad": " 🐲💧 ",
-    "sleeping": " 🐲💤 ",
-    "dead": " 💀🔥 "
+    "happy": "  ",
+    "neutral": "  ",
+    "sad": "  ",
+    "sleeping": "  ",
+    "dead": "  "
   }
 }

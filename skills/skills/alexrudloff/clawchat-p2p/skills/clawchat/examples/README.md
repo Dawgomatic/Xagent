@@ -2,7 +2,7 @@
 
 This directory contains example scripts demonstrating ClawChat integration patterns.
 
-## ⚠️ Important Security Notice
+##  Important Security Notice
 
 These examples are for demonstration purposes only and include:
 - Simplified password handling

@@ -1,7 +1,7 @@
 ---
 name: Hype
 description: Assist with Hyperliquid perpetuals trading, deposits, withdrawals, and L1 features.
-metadata: {"clawdbot":{"emoji":"🟢","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Deposits and Withdrawals

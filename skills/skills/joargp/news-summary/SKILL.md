@@ -82,16 +82,16 @@ curl -s https://api.openai.com/v1/audio/speech \
 ## Example Output Format
 
 ```
-📰 News Summary [date]
+ News Summary [date]
 
-🌍 WORLD
+ WORLD
 - [headline 1]
 - [headline 2]
 
-💼 BUSINESS
+ BUSINESS
 - [headline 1]
 
-💻 TECH
+ TECH
 - [headline 1]
 ```
 

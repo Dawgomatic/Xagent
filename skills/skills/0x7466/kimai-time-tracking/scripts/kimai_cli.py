@@ -116,7 +116,7 @@ class OutputFormatter:
 
 def confirm_deletion(entity_type: str, entity_id: str, cascade_warning: str = "") -> bool:
     """Interactive confirmation for destructive operations"""
-    print(f"⚠️ WARNING: You are about to DELETE {entity_type} ID {entity_id}")
+    print(f" WARNING: You are about to DELETE {entity_type} ID {entity_id}")
     if cascade_warning:
         print(f"   {cascade_warning}")
     print("This action cannot be undone.")

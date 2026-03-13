@@ -39,7 +39,7 @@ scripts/slack-thread.sh <channel-id> --with-threads --thread-limit 5
 ## Workflow
 
 1. When given a Slack link or channel ID, use this script to fetch the conversation history.
-2. **⚠️ If the link type and the user's request don't match, always ask for clarification.**
+2. ** If the link type and the user's request don't match, always ask for clarification.**
    - Link format: `/archives/CHANNEL` = channel, `/archives/CHANNEL/pTIMESTAMP` = thread
    - Example: If the user provides a thread link but says "get the channel history" → **"The link you provided points to a specific thread. Did you want the thread content or the entire channel history?"**
    - People make mistakes. If the link and the request don't match, ask instead of guessing.
@@ -62,8 +62,8 @@ scripts/slack-thread.sh <channel-id> --with-threads --thread-limit 5
 | Sender | Real name | `John Doe:` |
 | Mentions | `@name` resolved | `@Jane Smith` |
 | Emoji reactions | Emoji + reactor names | `[:thumbsup: John,Jane]` |
-| Attachments | 📎 filename (type) | `📎 image.png (image/png)` |
-| Thread reply count | 💬N | `💬13` |
+| Attachments |  filename (type) | ` image.png (image/png)` |
+| Thread reply count | N | `13` |
 | Thread replies (inline) | ├ └ tree | with `--with-threads` |
 
 ## Notes

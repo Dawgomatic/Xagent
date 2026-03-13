@@ -240,7 +240,7 @@ Defines specific methods, addresses, and calldata allowed.
 | `exactCalldata` | `ExactCalldataBuilderConfig` | No | Exact calldata required |
 | `valueLte` | `ValueLteBuilderConfig` | No | Maximum native token value (default: 0, meaning no native token transfer) |
 
-**⚠️ Breaking Change in v0.3.0:** Function call scope defaults to NO native token transfer. Use `valueLte` to allow.
+** Breaking Change in v0.3.0:** Function call scope defaults to NO native token transfer. Use `valueLte` to allow.
 
 ```typescript
 const delegation = createDelegation({
@@ -287,7 +287,7 @@ interface ICaveatEnforcer {
 }
 ```
 
-**⚠️ IMPORTANT:** Without caveats, delegations have infinite authority. Always use caveat enforcers.
+** IMPORTANT:** Without caveats, delegations have infinite authority. Always use caveat enforcers.
 
 ### Available Caveat Types
 

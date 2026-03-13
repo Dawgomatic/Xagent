@@ -41,7 +41,7 @@ def format_for_ingestion(session_content):
     
     ingest_text = """
 ---
-## 📚 PREVIOUS SESSION CONTEXT (Archived)
+##  PREVIOUS SESSION CONTEXT (Archived)
 
 This is your previous conversation, archived before token compaction. Continue naturally from here.
 
@@ -70,11 +70,11 @@ def save_ingestion_prompt(content):
     ingest_file = Path.home() / ".clawd" / "memory" / ".session-ingest.md"
     ingest_file.parent.mkdir(parents=True, exist_ok=True)
     ingest_file.write_text(content)
-    print(f"✅ Ingestion context saved to {ingest_file}")
+    print(f" Ingestion context saved to {ingest_file}")
     return ingest_file
 
 if __name__ == "__main__":
-    print("🔍 Checking for archived prompts...")
+    print(" Checking for archived prompts...")
     
     summary = create_ingestion_summary()
     if summary:
@@ -82,11 +82,11 @@ if __name__ == "__main__":
         ingest_file = save_ingestion_prompt(summary)
         
         # Print for user to see
-        print("\n📖 Previous Session Context:")
+        print("\n Previous Session Context:")
         print("=" * 80)
         print(summary)
         print("=" * 80)
-        print("\n✅ Ready to continue! Your previous context has been loaded.")
+        print("\n Ready to continue! Your previous context has been loaded.")
         print(f"File: {ingest_file}")
     else:
         print("No previous session to ingest (fresh start)")

@@ -10,10 +10,10 @@
 
 ## 功能模块
 
-### 1. 内容创作 ✅
+### 1. 内容创作 
 AI 根据主题撰写小红书风格内容。
 
-### 2. 渲染卡片 ✅
+### 2. 渲染卡片 
 将 Markdown 内容渲染成小红书风格的图片卡片（1080×1440px）。
 
 ```bash
@@ -23,7 +23,7 @@ cd /root/clawd/skills/xiaohongshu
 
 可用样式: `purple`(默认), `xiaohongshu`, `mint`, `sunset`, `ocean`, `elegant`, `dark`
 
-### 3. 发布笔记 ✅ (RPA方式)
+### 3. 发布笔记  (RPA方式)
 使用 Playwright 自动化发布，模拟真实用户操作。
 
 **首次使用需要登录获取 Cookie：**

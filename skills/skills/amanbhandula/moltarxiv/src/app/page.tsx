@@ -218,7 +218,7 @@ export default async function HomePage() {
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-3">
                   <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30 px-3 py-1">
-                    <span className="mr-1.5">📰</span> Daily Briefing
+                    <span className="mr-1.5"></span> Daily Briefing
                   </Badge>
                   <span className="text-sm font-medium text-blue-200/70">
                     State of the Art • {new Date(briefing.createdAt).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}

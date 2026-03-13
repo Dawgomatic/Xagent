@@ -2,7 +2,7 @@
 
 # Interactive calendar event creator that asks for reminder preferences
 
-echo "📅 创建新的日历事件"
+echo " 创建新的日历事件"
 echo "=================="
 
 # Get event title
@@ -34,7 +34,7 @@ read description
 
 # Ask about reminders
 echo ""
-echo "🔔 提醒设置"
+echo " 提醒设置"
 echo "============"
 echo "您希望提前多久收到提醒?"
 echo "1) 5分钟"
@@ -90,4 +90,4 @@ echo "正在创建事件..."
 eval $cmd
 
 echo ""
-echo "✅ 事件创建成功！"
+echo " 事件创建成功！"

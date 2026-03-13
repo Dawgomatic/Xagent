@@ -61,7 +61,7 @@ This skill audits, builds, and maintains entity identity across search engines a
 - Establishing a new brand/person/product as a recognized entity
 - Auditing current entity presence across Knowledge Graph, Wikidata, and AI systems
 - Improving or correcting a Knowledge Panel
-- Building entity associations (entity ↔ topic, entity ↔ industry)
+- Building entity associations (entity  topic, entity  industry)
 - Resolving entity disambiguation issues (your entity confused with another)
 - Strengthening entity signals for AI citation
 - After launching a new brand, product, or organization
@@ -149,11 +149,11 @@ Establish the entity's current state across all systems.
 
 | Platform | Status | Details |
 |----------|--------|---------|
-| Google Knowledge Panel | ✅ Present / ❌ Absent / ⚠️ Incorrect | [details] |
-| Wikidata | ✅ Listed / ❌ Not listed | [QID if exists] |
-| Wikipedia | ✅ Article / ⚠️ Mentioned only / ❌ Absent | [notability assessment] |
-| Google Knowledge Graph API | ✅ Entity found / ❌ Not found | [entity ID, types, score] |
-| Schema.org on site | ✅ Complete / ⚠️ Partial / ❌ Missing | [Organization/Person/Product schema] |
+| Google Knowledge Panel |  Present /  Absent /  Incorrect | [details] |
+| Wikidata |  Listed /  Not listed | [QID if exists] |
+| Wikipedia |  Article /  Mentioned only /  Absent | [notability assessment] |
+| Google Knowledge Graph API |  Entity found /  Not found | [entity ID, types, score] |
+| Schema.org on site |  Complete /  Partial /  Missing | [Organization/Person/Product schema] |
 
 #### AI Entity Resolution Test
 
@@ -167,10 +167,10 @@ Test how AI systems identify this entity by querying:
 
 | AI System | Recognizes Entity? | Description Accuracy | Cites Entity's Content? |
 |-----------|-------------------|---------------------|------------------------|
-| ChatGPT | ✅ / ⚠️ / ❌ | [accuracy notes] | [yes/no/partially] |
-| Claude | ✅ / ⚠️ / ❌ | [accuracy notes] | [yes/no/partially] |
-| Perplexity | ✅ / ⚠️ / ❌ | [accuracy notes] | [yes/no/partially] |
-| Google AI Overview | ✅ / ⚠️ / ❌ | [accuracy notes] | [yes/no/partially] |
+| ChatGPT |  /  /  | [accuracy notes] | [yes/no/partially] |
+| Claude |  /  /  | [accuracy notes] | [yes/no/partially] |
+| Perplexity |  /  /  | [accuracy notes] | [yes/no/partially] |
+| Google AI Overview |  /  /  | [accuracy notes] | [yes/no/partially] |
 ```
 
 ### Step 2: Entity Signal Audit
@@ -184,62 +184,62 @@ Evaluate entity signals across 6 categories. For the detailed 47-signal checklis
 
 | Signal | Status | Action Needed |
 |--------|--------|--------------|
-| Organization/Person schema on homepage | ✅ / ❌ | [action] |
-| sameAs links to authoritative profiles | ✅ / ❌ | [action] |
-| logo, foundingDate, founder properties | ✅ / ❌ | [action] |
-| Consistent @id across pages | ✅ / ❌ | [action] |
-| Product/Service schema on relevant pages | ✅ / ❌ | [action] |
-| Author schema with sameAs on articles | ✅ / ❌ | [action] |
+| Organization/Person schema on homepage |  /  | [action] |
+| sameAs links to authoritative profiles |  /  | [action] |
+| logo, foundingDate, founder properties |  /  | [action] |
+| Consistent @id across pages |  /  | [action] |
+| Product/Service schema on relevant pages |  /  | [action] |
+| Author schema with sameAs on articles |  /  | [action] |
 
 #### 2. Knowledge Base Signals
 
 | Signal | Status | Action Needed |
 |--------|--------|--------------|
-| Wikidata entry with complete properties | ✅ / ❌ | [action] |
-| Wikipedia article (or notability path) | ✅ / ❌ | [action] |
-| CrunchBase profile (organizations) | ✅ / ❌ | [action] |
-| Industry directory listings | ✅ / ❌ | [action] |
-| Government/official registries | ✅ / ❌ | [action] |
+| Wikidata entry with complete properties |  /  | [action] |
+| Wikipedia article (or notability path) |  /  | [action] |
+| CrunchBase profile (organizations) |  /  | [action] |
+| Industry directory listings |  /  | [action] |
+| Government/official registries |  /  | [action] |
 
 #### 3. Consistent NAP+E Signals (Name, Address, Phone + Entity)
 
 | Signal | Status | Action Needed |
 |--------|--------|--------------|
-| Consistent entity name across all platforms | ✅ / ❌ | [action] |
-| Same description/tagline everywhere | ✅ / ❌ | [action] |
-| Matching logos and visual identity | ✅ / ❌ | [action] |
-| Social profiles all linked bidirectionally | ✅ / ❌ | [action] |
-| Contact info consistent across directories | ✅ / ❌ | [action] |
+| Consistent entity name across all platforms |  /  | [action] |
+| Same description/tagline everywhere |  /  | [action] |
+| Matching logos and visual identity |  /  | [action] |
+| Social profiles all linked bidirectionally |  /  | [action] |
+| Contact info consistent across directories |  /  | [action] |
 
 #### 4. Content-Based Entity Signals
 
 | Signal | Status | Action Needed |
 |--------|--------|--------------|
-| About page with entity-rich structured content | ✅ / ❌ | [action] |
-| Author pages with credentials and sameAs | ✅ / ❌ | [action] |
-| Topical authority (content depth in target topics) | ✅ / ❌ | [action] |
-| Entity mentions in content (natural co-occurrence) | ✅ / ❌ | [action] |
-| Branded anchor text in backlinks | ✅ / ❌ | [action] |
+| About page with entity-rich structured content |  /  | [action] |
+| Author pages with credentials and sameAs |  /  | [action] |
+| Topical authority (content depth in target topics) |  /  | [action] |
+| Entity mentions in content (natural co-occurrence) |  /  | [action] |
+| Branded anchor text in backlinks |  /  | [action] |
 
 #### 5. Third-Party Entity Signals
 
 | Signal | Status | Action Needed |
 |--------|--------|--------------|
-| Mentions on authoritative sites (news, industry) | ✅ / ❌ | [action] |
-| Co-citation with established entities | ✅ / ❌ | [action] |
-| Reviews and ratings on third-party platforms | ✅ / ❌ | [action] |
-| Speaking engagements, awards, publications | ✅ / ❌ | [action] |
-| Press coverage with entity name | ✅ / ❌ | [action] |
+| Mentions on authoritative sites (news, industry) |  /  | [action] |
+| Co-citation with established entities |  /  | [action] |
+| Reviews and ratings on third-party platforms |  /  | [action] |
+| Speaking engagements, awards, publications |  /  | [action] |
+| Press coverage with entity name |  /  | [action] |
 
 #### 6. AI-Specific Entity Signals
 
 | Signal | Status | Action Needed |
 |--------|--------|--------------|
-| Clear entity definition in opening paragraphs | ✅ / ❌ | [action] |
-| Unambiguous entity name (or disambiguation strategy) | ✅ / ❌ | [action] |
-| Factual claims about entity are verifiable | ✅ / ❌ | [action] |
-| Entity appears in AI training data sources | ✅ / ❌ | [action] |
-| Entity's content is crawlable by AI systems | ✅ / ❌ | [action] |
+| Clear entity definition in opening paragraphs |  /  | [action] |
+| Unambiguous entity name (or disambiguation strategy) |  /  | [action] |
+| Factual claims about entity are verifiable |  /  | [action] |
+| Entity appears in AI training data sources |  /  | [action] |
+| Entity's content is crawlable by AI systems |  /  | [action] |
 ```
 
 ### Step 3: Report & Action Plan
@@ -257,12 +257,12 @@ Evaluate entity signals across 6 categories. For the detailed 47-signal checklis
 
 | Category | Status | Key Findings |
 |----------|--------|-------------|
-| Structured Data | ✅ Strong / ⚠️ Gaps / ❌ Missing | [key findings] |
-| Knowledge Base | ✅ Strong / ⚠️ Gaps / ❌ Missing | [key findings] |
-| Consistency (NAP+E) | ✅ Strong / ⚠️ Gaps / ❌ Missing | [key findings] |
-| Content-Based | ✅ Strong / ⚠️ Gaps / ❌ Missing | [key findings] |
-| Third-Party | ✅ Strong / ⚠️ Gaps / ❌ Missing | [key findings] |
-| AI-Specific | ✅ Strong / ⚠️ Gaps / ❌ Missing | [key findings] |
+| Structured Data |  Strong /  Gaps /  Missing | [key findings] |
+| Knowledge Base |  Strong /  Gaps /  Missing | [key findings] |
+| Consistency (NAP+E) |  Strong /  Gaps /  Missing | [key findings] |
+| Content-Based |  Strong /  Gaps /  Missing | [key findings] |
+| Third-Party |  Strong /  Gaps /  Missing | [key findings] |
+| AI-Specific |  Strong /  Gaps /  Missing | [key findings] |
 
 ### Critical Issues
 
@@ -365,12 +365,12 @@ Queries tested with results reported by user:
 
 | Signal Category | Status | Key Findings |
 |-----------------|--------|--------------|
-| Knowledge Graph | ❌ Missing | No Wikidata entry exists; no Google Knowledge Panel triggers for branded queries |
-| Structured Data | ⚠️ Partial | Organization schema present on homepage with name, url, and logo; missing Person schema for CEO and leadership team; no sameAs links to external profiles |
-| Web Presence | ✅ Strong | Consistent NAP across LinkedIn, Twitter/X, G2, and Crunchbase; social profiles link back to cloudmetrics.io; branded search returns owned properties in top 5 |
-| Content-Based | ⚠️ Partial | About page exists but opens with marketing copy rather than an entity-defining statement; no dedicated author pages for leadership |
-| Third-Party | ⚠️ Partial | Listed on G2 and Crunchbase; 2 industry publication mentions found; no awards or analyst coverage |
-| AI-Specific | ❌ Weak | AI systems have only surface-level awareness; entity definition is not quotable from any authoritative source |
+| Knowledge Graph |  Missing | No Wikidata entry exists; no Google Knowledge Panel triggers for branded queries |
+| Structured Data |  Partial | Organization schema present on homepage with name, url, and logo; missing Person schema for CEO and leadership team; no sameAs links to external profiles |
+| Web Presence |  Strong | Consistent NAP across LinkedIn, Twitter/X, G2, and Crunchbase; social profiles link back to cloudmetrics.io; branded search returns owned properties in top 5 |
+| Content-Based |  Partial | About page exists but opens with marketing copy rather than an entity-defining statement; no dedicated author pages for leadership |
+| Third-Party |  Partial | Listed on G2 and Crunchbase; 2 industry publication mentions found; no awards or analyst coverage |
+| AI-Specific |  Weak | AI systems have only surface-level awareness; entity definition is not quotable from any authoritative source |
 
 ### Top 3 Priority Actions
 

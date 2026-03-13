@@ -75,7 +75,7 @@ async function main() {
       
       console.log(`Adding attendees: ${resolved.map(id => getDisplayNameSync(id)).join(', ')}`);
       const result = await addEventAttendees(calendarId, eventId, resolved);
-      console.log('✅ Attendees added successfully!');
+      console.log(' Attendees added successfully!');
       console.log(`Updated attendees: ${(result.attendees || []).map(a => a.display_name).join(', ')}`);
     }
     
@@ -94,11 +94,11 @@ async function main() {
       
       console.log(`Removing attendees: ${resolved.map(id => getDisplayNameSync(id)).join(', ')}`);
       await removeEventAttendees(calendarId, eventId, resolved);
-      console.log('✅ Attendees removed successfully!');
+      console.log(' Attendees removed successfully!');
     }
     
   } catch (error) {
-    console.error('❌ Failed:', error.message);
+    console.error(' Failed:', error.message);
     if (error.larkResponse) {
       console.error('Lark response:', JSON.stringify(error.larkResponse, null, 2));
     }

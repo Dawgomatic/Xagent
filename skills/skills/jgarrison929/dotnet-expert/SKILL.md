@@ -477,19 +477,19 @@ dotnet ef migrations script -p src/Users.Infrastructure -s src/Api -o migrations
 ### Query Optimization
 
 ```csharp
-// ❌ BAD: N+1 queries
+//  BAD: N+1 queries
 var users = await _db.Users.ToListAsync(ct);
 foreach (var user in users)
 {
     var orders = await _db.Orders.Where(o => o.UserId == user.Id).ToListAsync(ct);
 }
 
-// ✅ GOOD: Eager loading
+//  GOOD: Eager loading
 var users = await _db.Users
     .Include(u => u.Orders)
     .ToListAsync(ct);
 
-// ✅ BEST: Projection (only load what you need)
+//  BEST: Projection (only load what you need)
 var users = await _db.Users
     .AsNoTracking()
     .Select(u => new UserResponse
@@ -635,13 +635,13 @@ public enum OrderStatus { Pending, Submitted, Processing, Shipped, Delivered, Ca
 
 ## Anti-Patterns to Avoid
 
-1. ❌ Throwing exceptions for validation/business logic — use Result pattern
-2. ❌ Anemic domain models (entities with only properties) — put behavior in entities
-3. ❌ Fat controllers/endpoints — delegate to MediatR handlers
-4. ❌ `.Result` or `.Wait()` on async calls — async all the way
-5. ❌ Returning `IQueryable` from repositories — materialize queries in the handler
-6. ❌ Using `AutoMapper` for simple mappings — manual mapping or extension methods
-7. ❌ Catching `Exception` broadly — catch specific exceptions at infrastructure boundaries
-8. ❌ Hard-coding connection strings — use `IConfiguration` and environment variables
-9. ❌ Missing `CancellationToken` — pass it through the entire call chain
-10. ❌ Using `DbContext` without `AsNoTracking()` for read queries
+1.  Throwing exceptions for validation/business logic — use Result pattern
+2.  Anemic domain models (entities with only properties) — put behavior in entities
+3.  Fat controllers/endpoints — delegate to MediatR handlers
+4.  `.Result` or `.Wait()` on async calls — async all the way
+5.  Returning `IQueryable` from repositories — materialize queries in the handler
+6.  Using `AutoMapper` for simple mappings — manual mapping or extension methods
+7.  Catching `Exception` broadly — catch specific exceptions at infrastructure boundaries
+8.  Hard-coding connection strings — use `IConfiguration` and environment variables
+9.  Missing `CancellationToken` — pass it through the entire call chain
+10.  Using `DbContext` without `AsNoTracking()` for read queries

@@ -8,11 +8,11 @@
 
 **Ghost's native snippet feature** allows authors to save reusable content blocks in the Ghost editor:
 
-- 📝 **Create once, reuse everywhere** - Save frequently-used content (signatures, CTAs, disclosures)
-- 🎨 **Any content type** - Bookmarks, callouts, paragraphs, images, or any Lexical cards
-- 📋 **Named and organized** - Give snippets descriptive names ("Signature", "Newsletter CTA", "Affiliate Disclosure")
-- 🖱️ **Easy insertion** - Insert via Ghost editor UI (type `/` and select snippet)
-- 💾 **Stored in Ghost database** - Part of your Ghost site, accessible to all authors
+-  **Create once, reuse everywhere** - Save frequently-used content (signatures, CTAs, disclosures)
+-  **Any content type** - Bookmarks, callouts, paragraphs, images, or any Lexical cards
+-  **Named and organized** - Give snippets descriptive names ("Signature", "Newsletter CTA", "Affiliate Disclosure")
+-  **Easy insertion** - Insert via Ghost editor UI (type `/` and select snippet)
+-  **Stored in Ghost database** - Part of your Ghost site, accessible to all authors
 
 **Example Ghost snippets:**
 - "Signature" - Author bio with social links
@@ -62,10 +62,10 @@ GET /ghost/api/admin/snippets/
 
 **What this means:**
 
-❌ **Cannot list snippets** - Can't see what snippets exist  
-❌ **Cannot fetch snippet content** - Can't get the Lexical cards  
-❌ **Cannot insert by reference** - Can't say "insert snippet 'Signature'"  
-❌ **Cannot discover author's snippets** - If you have 12 snippets in Ghost, we can't access them programmatically  
+ **Cannot list snippets** - Can't see what snippets exist  
+ **Cannot fetch snippet content** - Can't get the Lexical cards  
+ **Cannot insert by reference** - Can't say "insert snippet 'Signature'"  
+ **Cannot discover author's snippets** - If you have 12 snippets in Ghost, we can't access them programmatically  
 
 **Why this limitation exists:**
 
@@ -83,7 +83,7 @@ If you have existing snippets in Ghost (e.g., "Signature", "Book Insert", "Newsl
 
 ---
 
-## 🔒 Security: External Storage
+##  Security: External Storage
 
 **Why snippets are stored outside the repository:**
 
@@ -129,10 +129,10 @@ This directory provides a **local snippet library** that replicates Ghost's snip
 4. **Version control** via git (bonus feature Ghost doesn't have!)
 
 **Functionally equivalent to Ghost snippets:**
-- ✅ Reusable content blocks
-- ✅ Stored as Lexical card arrays
-- ✅ Copied into posts (not referenced)
-- ✅ Same card types Ghost uses
+-  Reusable content blocks
+-  Stored as Lexical card arrays
+-  Copied into posts (not referenced)
+-  Same card types Ghost uses
 
 **Key difference:**
 - Ghost snippets: Stored in Ghost database, accessible via editor UI
@@ -180,12 +180,12 @@ SNIPPET: book-review-header
 ```
 
 **The extractor will:**
-- ✅ Parse the post Lexical JSON
-- ✅ Find each `SNIPPET: name` marker
-- ✅ Extract all cards until the next marker
-- ✅ Save each snippet as `library/snippet-name.json`
-- ✅ Preserve exact Lexical card structure
-- ✅ Work with any card types (bookmarks, callouts, buttons, etc.)
+-  Parse the post Lexical JSON
+-  Find each `SNIPPET: name` marker
+-  Extract all cards until the next marker
+-  Save each snippet as `library/snippet-name.json`
+-  Preserve exact Lexical card structure
+-  Work with any card types (bookmarks, callouts, buttons, etc.)
 
 **Extractor commands:**
 
@@ -217,11 +217,11 @@ node scripts/snippet-extractor.js --help
 5. Delete draft (or keep for reference)
 
 **After extraction:**
-- ✅ All snippets in `library/`
-- ✅ Programmatic access
-- ✅ Git version control
-- ✅ Use in automated post creation
-- ⚠️ Must re-extract if Ghost snippets change
+-  All snippets in `library/`
+-  Programmatic access
+-  Git version control
+-  Use in automated post creation
+-  Must re-extract if Ghost snippets change
 
 #### **Manual Extraction (Alternative)**
 
@@ -260,7 +260,7 @@ ghost-cms-skill/
 └── snippets-config.json         # Library location configuration
 ```
 
-**🔒 Security Note:**  
+** Security Note:**  
 Snippets are stored **OUTSIDE the repository** by default (`~/.local/share/ghost-snippets/`) to prevent accidental git commits and isolate user content from source code. This is a defense-in-depth security measure.
 
 ## Usage
@@ -366,8 +366,8 @@ Snippets are **Lexical card arrays** - JSON arrays of Lexical card objects.
   {
     "type": "callout",
     "version": 1,
-    "calloutText": "<p><span>💡 Pro Tip</span></p>",
-    "calloutEmoji": "💡",
+    "calloutText": "<p><span> Pro Tip</span></p>",
+    "calloutEmoji": "",
     "backgroundColor": "blue"
   },
   {
@@ -400,8 +400,8 @@ curl "${GHOST_API_URL}/ghost/api/admin/posts/${POST_ID}/?formats=lexical" \
 [
   {
     "type": "callout",
-    "calloutText": "<p><span>📧 Enjoying this content?</span></p>",
-    "calloutEmoji": "📧",
+    "calloutText": "<p><span> Enjoying this content?</span></p>",
+    "calloutEmoji": "",
     "backgroundColor": "blue"
   },
   {
@@ -420,7 +420,7 @@ curl "${GHOST_API_URL}/ghost/api/admin/posts/${POST_ID}/?formats=lexical" \
   {
     "type": "callout",
     "calloutText": "<p><span>Disclosure: This post may contain affiliate links.</span></p>",
-    "calloutEmoji": "ℹ️",
+    "calloutEmoji": "",
     "backgroundColor": "grey"
   }
 ]
@@ -451,8 +451,8 @@ curl "${GHOST_API_URL}/ghost/api/admin/posts/${POST_ID}/?formats=lexical" \
 [
   {
     "type": "callout",
-    "calloutText": "<p><span>📋 Table of Contents</span></p>",
-    "calloutEmoji": "📋",
+    "calloutText": "<p><span> Table of Contents</span></p>",
+    "calloutEmoji": "",
     "backgroundColor": "white"
   }
 ]
@@ -461,9 +461,9 @@ curl "${GHOST_API_URL}/ghost/api/admin/posts/${POST_ID}/?formats=lexical" \
 ## Best Practices
 
 **1. Use Descriptive Names**
-- ✅ `disclosure-affiliate.json`
-- ✅ `cta-newsletter-footer.json`
-- ❌ `snippet1.json`
+-  `disclosure-affiliate.json`
+-  `cta-newsletter-footer.json`
+-  `snippet1.json`
 
 **2. Include Comments in Lexical**
 ```json

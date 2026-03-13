@@ -18,37 +18,37 @@ MISSION_DIR = Path(WORKSPACE) / "avengers-missions"
 # 에이전트 타입 정의
 AGENT_TYPES = {
     "researcher": {
-        "emoji": "🔬",
+        "emoji": "",
         "model": "sonnet",
         "timeout": 1800,
         "keywords": ["조사", "리서치", "검색", "수집", "분석"]
     },
     "analyst": {
-        "emoji": "🔍",
+        "emoji": "",
         "model": "opus",
         "timeout": 1200,
         "keywords": ["분석", "패턴", "인사이트", "평가"]
     },
     "writer": {
-        "emoji": "🖊️",
+        "emoji": "",
         "model": "sonnet",
         "timeout": 900,
         "keywords": ["작성", "문서", "리포트", "콘텐츠", "글"]
     },
     "coder": {
-        "emoji": "💻",
+        "emoji": "",
         "model": "opus",
         "timeout": 2400,
         "keywords": ["코드", "개발", "구현", "API", "프로그래밍"]
     },
     "reviewer": {
-        "emoji": "✅",
+        "emoji": "",
         "model": "opus",
         "timeout": 600,
         "keywords": ["검토", "리뷰", "피드백", "확인"]
     },
     "integrator": {
-        "emoji": "🔧",
+        "emoji": "",
         "model": "sonnet",
         "timeout": 900,
         "keywords": ["통합", "병합", "조합", "최종"]
@@ -132,7 +132,7 @@ def generate_spawn_command(agent: dict, mission_path: str) -> dict:
     """sessions_spawn 호출용 파라미터 생성"""
     
     prompt = f"""
-# 🦸 Avengers Mission
+#  Avengers Mission
 
 ## 당신의 역할
 {agent['emoji']} {agent['type'].upper()} 에이전트
@@ -167,7 +167,7 @@ def generate_send_command(agent: dict, existing_agent_id: str) -> dict:
     """sessions_send 호출용 파라미터 생성 (기존 에이전트용)"""
     
     message = f"""
-# 🦸 Avengers Mission 요청
+#  Avengers Mission 요청
 
 ## 태스크
 {agent['description']}
@@ -265,23 +265,23 @@ def print_plan_summary(plan_path: str):
         plan = json.load(f)
     
     print("\n" + "="*60)
-    print("🦸 AVENGERS ASSEMBLE - 실행 계획")
+    print(" AVENGERS ASSEMBLE - 실행 계획")
     print("="*60)
     print(f"미션 ID: {plan['mission_id']}")
     print(f"총 에이전트: {plan['total_agents']}명")
     print()
     
     for phase in plan["phases"]:
-        parallel_tag = "⚡ 병렬" if phase["parallel"] else "➡️ 순차"
+        parallel_tag = " 병렬" if phase["parallel"] else " 순차"
         print(f"Phase {phase['phase']} ({parallel_tag}):")
         for agent in phase["agents"]:
-            mode_icon = "🔶" if agent["mode"] == "spawn" else "🔷"
+            mode_icon = "" if agent["mode"] == "spawn" else ""
             print(f"  {agent['emoji']} {agent['id']}: {agent['description']}")
         print()
     
     print("="*60)
-    print(f"📄 상세 계획: {plan_path}")
-    print("🚀 실행하려면: python3 scripts/execute.py --mission {mission_id}")
+    print(f" 상세 계획: {plan_path}")
+    print(" 실행하려면: python3 scripts/execute.py --mission {mission_id}")
     print("="*60)
 
 
@@ -302,7 +302,7 @@ def main():
         subtasks = data.get("subtasks", [])
         
     elif args.task:
-        print("⚠️  태스크만 제공됨. 서브태스크는 OpenClaw 세션에서 분해 필요.")
+        print("  태스크만 제공됨. 서브태스크는 OpenClaw 세션에서 분해 필요.")
         task = args.task
         subtasks = []
         
@@ -314,7 +314,7 @@ def main():
     
     # 미션 생성
     mission = create_mission(task)
-    print(f"📁 미션 생성: {mission['id']}")
+    print(f" 미션 생성: {mission['id']}")
     
     if subtasks:
         # 에이전트 설정 생성
@@ -329,7 +329,7 @@ def main():
         # 요약 출력
         print_plan_summary(plan_path)
     else:
-        print(f"\n📝 서브태스크 정의 필요:")
+        print(f"\n 서브태스크 정의 필요:")
         print(f"   {mission['path']}/subtasks.json 생성 후")
         print(f"   python3 assemble.py --subtasks {mission['path']}/subtasks.json")
 

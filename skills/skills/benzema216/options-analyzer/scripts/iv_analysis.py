@@ -176,19 +176,19 @@ def format_markdown(data: dict) -> str:
     lines.append(f"\n**当前价格**: ${data['spot']}")
     lines.append(f"**ATM 行权价**: ${data['atm_strike']} (到期: {data['expiry']})")
     
-    lines.append("\n## 📊 IV 指标")
+    lines.append("\n##  IV 指标")
     lines.append("| 指标 | 值 | 说明 |")
     lines.append("|------|-----|------|")
     lines.append(f"| **ATM IV** | {data['atm_iv']:.1f}% | 当前隐含波动率 |")
     
     if data['iv_rank'] is not None:
-        rank_emoji = "🔴" if data['iv_rank'] >= 70 else "🟢" if data['iv_rank'] <= 30 else "🟡"
+        rank_emoji = "" if data['iv_rank'] >= 70 else "" if data['iv_rank'] <= 30 else ""
         lines.append(f"| **IV Rank** | {data['iv_rank']:.1f}% {rank_emoji} | 当前IV在52周的位置 |")
     
     if data['iv_percentile'] is not None:
         lines.append(f"| **IV Percentile** | {data['iv_percentile']:.1f}% | 超过多少历史数据 |")
     
-    lines.append("\n## 📈 历史波动率")
+    lines.append("\n##  历史波动率")
     lines.append("| 指标 | 值 |")
     lines.append("|------|-----|")
     if data['hv_20']:
@@ -199,14 +199,14 @@ def format_markdown(data: dict) -> str:
         premium_sign = "+" if data['iv_hv_premium'] > 0 else ""
         lines.append(f"| **IV-HV Premium** | {premium_sign}{data['iv_hv_premium']:.1f}% |")
     
-    lines.append("\n## 📉 52周 IV 范围")
+    lines.append("\n##  52周 IV 范围")
     if data['iv_52w_high'] and data['iv_52w_low']:
         lines.append(f"- **高**: {data['iv_52w_high']:.1f}%")
         lines.append(f"- **低**: {data['iv_52w_low']:.1f}%")
         lines.append(f"- **当前**: {data['atm_iv']:.1f}%")
     
-    lines.append(f"\n## 💡 策略建议")
-    env_emoji = {"HIGH_IV": "🔴", "LOW_IV": "🟢", "NORMAL_IV": "🟡"}.get(data['iv_environment'], "⚪")
+    lines.append(f"\n##  策略建议")
+    env_emoji = {"HIGH_IV": "", "LOW_IV": "", "NORMAL_IV": ""}.get(data['iv_environment'], "")
     lines.append(f"\n{env_emoji} **{data['iv_environment']}**: {data['iv_advice']}")
     
     return '\n'.join(lines)
@@ -228,7 +228,7 @@ def main():
             print(format_markdown(data))
             
     except Exception as e:
-        print(f"❌ 错误: {e}", file=sys.stderr)
+        print(f" 错误: {e}", file=sys.stderr)
         sys.exit(1)
 
 

@@ -31,13 +31,13 @@ def send_task_completion(task_name, details, recipient):
         inbox_id="spike-assistant@agentmail.to",
         to=recipient,
         subject=f"Task Completed: {task_name}",
-        text=f"Hello! I've completed the task: {task_name}\n\nDetails:\n{details}\n\nBest regards,\nSpike 🦝",
+        text=f"Hello! I've completed the task: {task_name}\n\nDetails:\n{details}\n\nBest regards,\nSpike ",
         html=f"""
         <p>Hello!</p>
         <p>I've completed the task: <strong>{task_name}</strong></p>
         <h3>Details:</h3>
         <p>{details.replace(chr(10), '<br>')}</p>
-        <p>Best regards,<br>Spike 🦝</p>
+        <p>Best regards,<br>Spike </p>
         """
     )
 
@@ -428,13 +428,13 @@ def send_system_alert(alert_type, message, severity='info', recipients=None):
         recipients = ['admin@company.com', 'ops@company.com']
     
     severity_emoji = {
-        'critical': '🚨',
-        'warning': '⚠️',
-        'info': 'ℹ️',
-        'success': '✅'
+        'critical': '',
+        'warning': '',
+        'info': '',
+        'success': ''
     }
     
-    emoji = severity_emoji.get(severity, 'ℹ️')
+    emoji = severity_emoji.get(severity, '')
     
     client.inboxes.messages.send(
         inbox_id="alerts@agentmail.to",

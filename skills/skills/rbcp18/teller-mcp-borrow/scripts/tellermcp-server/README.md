@@ -4,12 +4,12 @@ An MCP (Model Context Protocol) server that lets agents pull Teller delta-neutra
 
 ## Features
 
-- 🔍 **Delta-neutral scanner** – surfaces opportunities filtered by chain, asset, minimum net APR, and hard limits.
-- 🏦 **Borrow pool discovery** – lists every active Teller lending pool with optional chain/token filters.
-- 📐 **Per-wallet borrow terms** – computes LTV, available principal, and max borrowable USD for any wallet/pool pairing.
-- 🧾 **Borrow transaction builder** – returns the full set of encoded transactions (approvals + borrow call) ready to submit on-chain.
-- 📊 **Loan portfolio view** – fetches all Teller loans tied to a wallet + chain.
-- 💸 **Repay helper** – builds repayment approvals + repay transactions for full or partial paydowns.
+-  **Delta-neutral scanner** – surfaces opportunities filtered by chain, asset, minimum net APR, and hard limits.
+-  **Borrow pool discovery** – lists every active Teller lending pool with optional chain/token filters.
+-  **Per-wallet borrow terms** – computes LTV, available principal, and max borrowable USD for any wallet/pool pairing.
+-  **Borrow transaction builder** – returns the full set of encoded transactions (approvals + borrow call) ready to submit on-chain.
+-  **Loan portfolio view** – fetches all Teller loans tied to a wallet + chain.
+-  **Repay helper** – builds repayment approvals + repay transactions for full or partial paydowns.
 
 Each tool returns a short text summary plus structured JSON under `structuredContent.payload`, so consuming agents get machine-usable data without extra parsing.
 

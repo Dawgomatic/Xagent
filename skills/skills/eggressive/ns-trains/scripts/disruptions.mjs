@@ -8,7 +8,7 @@ import { nsFetch, requireNsSubscriptionKey } from './ns-api.mjs';
 
 const NS_SUBSCRIPTION_KEY = (() => {
   try { return requireNsSubscriptionKey(); }
-  catch (e) { console.error(`❌ ${e.message}. Missing subscription key env var; set it and retry.`); process.exit(1); }
+  catch (e) { console.error(` ${e.message}. Missing subscription key env var; set it and retry.`); process.exit(1); }
 })();
 
 const BASE_URL = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v3/disruptions';
@@ -38,7 +38,7 @@ async function getDisruptions() {
 
     if (!response.ok) {
       const error = await response.text();
-      console.error(`❌ API Error (${response.status}): ${error}`);
+      console.error(` API Error (${response.status}): ${error}`);
       process.exit(1);
     }
 
@@ -51,7 +51,7 @@ async function getDisruptions() {
     }
     
     if (disruptions.length === 0) {
-      console.log('✅ No active disruptions!');
+      console.log(' No active disruptions!');
       process.exit(0);
     }
     
@@ -69,7 +69,7 @@ async function getDisruptions() {
       });
       
       if (disruptions.length === 0) {
-        console.log(`✅ No disruptions affecting ${fromStation || ''} ${toStation ? '→ ' + toStation : ''}`);
+        console.log(` No disruptions affecting ${fromStation || ''} ${toStation ? '→ ' + toStation : ''}`);
         process.exit(0);
       }
     }
@@ -79,7 +79,7 @@ async function getDisruptions() {
       disruptions = disruptions.slice(0, 10);
     }
 
-    console.log(`\n⚠️  Active Disruptions${fromStation ? ` (${fromStation}${toStation ? ' → ' + toStation : ''})` : ''}`);
+    console.log(`\n  Active Disruptions${fromStation ? ` (${fromStation}${toStation ? ' → ' + toStation : ''})` : ''}`);
     console.log('═'.repeat(50));
     
     disruptions.forEach((d, i) => {
@@ -97,36 +97,36 @@ async function getDisruptions() {
         }
       }
       
-      const emoji = type === 'MAINTENANCE' ? '🔧' : '⚠️';
+      const emoji = type === 'MAINTENANCE' ? '' : '';
       
       console.log(`\n${emoji} ${title}`);
       if (description) {
         console.log(`   ${description}`);
       }
       if (phase) {
-        console.log(`   📍 Phase: ${phase}`);
+        console.log(`    Phase: ${phase}`);
       }
       
       // Expected duration
       if (d.expectedDuration?.description) {
-        console.log(`   ⏰ ${d.expectedDuration.description}`);
+        console.log(`    ${d.expectedDuration.description}`);
       }
       
       // Affected stations
       if (d.trajectory?.stations && d.trajectory.stations.length > 0) {
-        const stations = d.trajectory.stations.map(s => s.name).slice(0, 5).join(' ↔ ');
-        console.log(`   🚉 ${stations}`);
+        const stations = d.trajectory.stations.map(s => s.name).slice(0, 5).join('  ');
+        console.log(`    ${stations}`);
       }
     });
     
     console.log('\n' + '─'.repeat(50));
-    console.log(`⏱️  Checked: ${new Date().toLocaleTimeString('nl-NL')}`);
+    console.log(`  Checked: ${new Date().toLocaleTimeString('nl-NL')}`);
     if (!showAll && data.payload?.length > 10) {
-      console.log(`ℹ️  Showing 10 of ${data.payload.length}. Use --all to see all.`);
+      console.log(`  Showing 10 of ${data.payload.length}. Use --all to see all.`);
     }
     
   } catch (err) {
-    console.error(`❌ Error: ${err.message}`);
+    console.error(` Error: ${err.message}`);
     process.exit(1);
   }
 }

@@ -5,7 +5,7 @@ version: 1.0.2
 homepage: https://clawic.com/skills/image-generation
 description: Create AI images with prompt engineering, style control, and provider guides for Midjourney, DALL-E, Stable Diffusion, Flux, and Leonardo.
 changelog: Added detailed provider endpoints documentation and feedback section
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":[]},"os":["linux","darwin","win32"]}}
 ---
 
 ## When to Use

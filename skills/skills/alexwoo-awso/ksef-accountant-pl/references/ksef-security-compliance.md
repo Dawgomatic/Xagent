@@ -2,7 +2,7 @@
 
 Wymagania bezpieczeństwa, zgodności i najlepsze praktyki.
 
-**⚠️ OSTRZEŻENIE BEZPIECZEŃSTWA:**
+** OSTRZEŻENIE BEZPIECZEŃSTWA:**
 Wszystkie przykłady kodu w tym dokumencie mają charakter **edukacyjny i koncepcyjny** — to wzorce architektoniczne do implementacji przez użytkownika w jego własnym systemie. Ten skill NIE implementuje tych mechanizmów, NIE przechowuje tokenów, NIE łączy się z Vault i NIE zarządza kluczami szyfrowania.
 
 **Zmienne środowiskowe** wymienione w tym dokumencie (np. `KSEF_TOKEN`, `KSEF_ENCRYPTION_KEY`) są zadeklarowane w metadanych skilla jako opcjonalne. Skill nie prosi o nie niejawnie — jeśli użytkownik je udostępni, agent może je wykorzystać w sugerowanym kodzie. Wszystkie zmienne są opisane w sekcji `env` pliku SKILL.md.
@@ -407,7 +407,7 @@ def anonymize_invoice_for_archive(invoice, retention_years=10):
 ```python
 def handle_gdpr_deletion_request(contractor_nip):
     """
-    ⚠️ UWAGA: Faktury podlegają obowiązkowi przechowywania (5-10 lat)
+     UWAGA: Faktury podlegają obowiązkowi przechowywania (5-10 lat)
     Nie można ich usunąć w okresie przechowywania!
     """
     # 1. Sprawdź czy okres przechowywania minął
@@ -514,12 +514,12 @@ def secure_ksef_connection():
 
 ### 1. Unikaj dynamicznego wykonywania kodu
 
-**❌ NIGDY nie używaj:**
+** NIGDY nie używaj:**
 - `eval()` lub `exec()` na danych wejściowych użytkownika lub danych zewnętrznych
 - Wykonywania poleceń shell z konkatenacją stringów
 - Dynamicznych zapytań SQL budowanych przez konkatenację stringów
 
-**✅ ZAMIAST TEGO używaj:**
+** ZAMIAST TEGO używaj:**
 - Sparametryzowanych zapytań do bazy danych (zapobiega SQL injection)
 - Walidowanych, sprawdzonych typowo danych wejściowych
 - Strukturalnych wywołań API z odpowiednią obsługą argumentów

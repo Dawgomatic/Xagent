@@ -49,7 +49,7 @@ function buildProxy(country = 'ro') {
   const password = process.env.PROXY_PASSWORD || PROXY_PASS;
 
   if (!username || !password) {
-    console.warn('⚠️  No proxy credentials set. Get them at: https://humanbrowser.dev');
+    console.warn('  No proxy credentials set. Get them at: https://humanbrowser.dev');
     console.warn('    Set PROXY_USER and PROXY_PASS in your .env file.');
     return null;
   }
@@ -233,16 +233,16 @@ module.exports = { launchHuman, humanClick, humanMouseMove, humanType, humanScro
 // ─── QUICK TEST ───────────────────────────────────────────────────────────────
 if (require.main === module) {
   const country = process.argv[2] || 'ro';
-  console.log(`🧪 Testing Human Browser — country: ${country.toUpperCase()}\n`);
+  console.log(` Testing Human Browser — country: ${country.toUpperCase()}\n`);
   (async () => {
     const { browser, page } = await launchHuman({ country, mobile: true });
     await page.goto('https://ipinfo.io/json', { waitUntil: 'domcontentloaded', timeout: 30000 });
     const info = JSON.parse(await page.textContent('body'));
-    console.log(`✅ IP:      ${info.ip}`);
-    console.log(`✅ Country: ${info.country} (${info.city})`);
-    console.log(`✅ Org:     ${info.org}`);
-    console.log(`✅ TZ:      ${info.timezone}`);
+    console.log(` IP:      ${info.ip}`);
+    console.log(` Country: ${info.country} (${info.city})`);
+    console.log(` Org:     ${info.org}`);
+    console.log(` TZ:      ${info.timezone}`);
     await browser.close();
-    console.log('\n🎉 Human Browser is ready.');
+    console.log('\n Human Browser is ready.');
   })().catch(console.error);
 }

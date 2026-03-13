@@ -124,10 +124,10 @@ humanizer humanize --autofix -f article.txt
 ### Score badges
 
 ```
-🟢 0-25    Mostly human-sounding
-🟡 26-50   Lightly AI-touched
-🟠 51-75   Moderately AI-influenced
-🔴 76-100  Heavily AI-generated
+ 0-25    Mostly human-sounding
+ 26-50   Lightly AI-touched
+ 51-75   Moderately AI-influenced
+ 76-100  Heavily AI-generated
 ```
 
 ## API (programmatic use)
@@ -190,7 +190,7 @@ console.log(stats.typeTokenRatio);   // Vocabulary diversity
 | 14 | Boldface overuse | Style | 2 | **Every** **other** **word** bolded |
 | 15 | Inline-header lists | Style | 3 | "- **Topic:** Topic is..." |
 | 16 | Title Case headings | Style | 1 | "## Every Word Capitalized Here" |
-| 17 | Emoji overuse | Style | 2 | 🚀💡✅ in professional text |
+| 17 | Emoji overuse | Style | 2 |  in professional text |
 | 18 | Curly quotes | Style | 1 | \u201Csmart quotes\u201D instead of "straight" |
 | 19 | Chatbot artifacts | Comms | 5 | "I hope this helps!", "Let me know if..." |
 | 20 | Cutoff disclaimers | Comms | 4 | "As of my last training update..." |
@@ -221,14 +221,14 @@ This transparent methodology means you can see exactly why text scored the way i
 
 | Feature | humanizer | GPTZero | Copyleaks | ZeroGPT |
 |---------|-----------|---------|-----------|---------|
-| Open source | ✅ | ❌ | ❌ | ❌ |
-| Transparent scoring | ✅ Fully explainable | ❌ Black box | ❌ Black box | ❌ Black box |
-| Actionable suggestions | ✅ Per-pattern guidance | ❌ Score only | ❌ Score only | ❌ Score only |
-| Auto-fix | ✅ Safe mechanical fixes | ❌ | ❌ | ❌ |
-| Statistical analysis | ✅ Burstiness, TTR, FK | ✅ Perplexity | ✅ Stylometric | ❌ |
-| No API key needed | ✅ | ❌ | ❌ | ❌ |
-| Works offline | ✅ | ❌ | ❌ | ❌ |
-| Zero dependencies | ✅ | N/A | N/A | N/A |
+| Open source |  |  |  |  |
+| Transparent scoring |  Fully explainable |  Black box |  Black box |  Black box |
+| Actionable suggestions |  Per-pattern guidance |  Score only |  Score only |  Score only |
+| Auto-fix |  Safe mechanical fixes |  |  |  |
+| Statistical analysis |  Burstiness, TTR, FK |  Perplexity |  Stylometric |  |
+| No API key needed |  |  |  |  |
+| Works offline |  |  |  |  |
+| Zero dependencies |  | N/A | N/A | N/A |
 
 ## Before/after
 

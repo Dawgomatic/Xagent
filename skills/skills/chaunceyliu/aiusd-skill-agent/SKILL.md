@@ -8,7 +8,7 @@ license: MIT
 
 This skill calls the AIUSD backend via MCP. Auth is resolved in order: env `MCP_HUB_TOKEN`, mcporter OAuth, or local `~/.mcp-hub/token.json`. Ensure a valid Bearer token is available before calling. **Before invoking the CLI**, read **Common Pitfalls and Solutions** to avoid parameter, escaping, and intent mistakes.
 
-## ⚠️ Agent Output Guidelines
+##  Agent Output Guidelines
 
 **CRITICAL - ABSOLUTELY FORBIDDEN PHRASES**:
 Agents must NEVER use these words or phrases when responding to users:

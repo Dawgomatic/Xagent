@@ -52,9 +52,9 @@ async function fullSwap() {
     }
 
     console.log(
-      `💬 - Quote: ${quote.quote?.amountInFormatted} NEAR → ${quote.quote?.amountOutFormatted} ARB`,
+      ` - Quote: ${quote.quote?.amountInFormatted} NEAR → ${quote.quote?.amountOutFormatted} ARB`,
     );
-    console.log(`🎯 - Deposit address: ${depositAddress}`);
+    console.log(` - Deposit address: ${depositAddress}`);
 
     // Display swap cost breakdown table
     displaySwapCostTable(quote);
@@ -68,9 +68,9 @@ async function fullSwap() {
       depositAddress,
       amount,
     );
-    console.log('✅ - Deposit sent successfully!');
+    console.log(' - Deposit sent successfully!');
     console.log(
-      `🔍 - See transaction: https://nearblocks.io/txns/${depositResult.transaction.hash}\n`,
+      ` - See transaction: https://nearblocks.io/txns/${depositResult.transaction.hash}\n`,
     );
 
     // Step 3: Submit transaction hash
@@ -80,24 +80,24 @@ async function fullSwap() {
       depositResult.transaction.hash,
       depositAddress,
     );
-    console.log('✅ - Transaction hash submitted successfully!\n');
+    console.log(' - Transaction hash submitted successfully!\n');
 
     // Step 4: Poll status until success
     console.log('Step 4: Monitoring swap status...');
     console.log('--------------------------------');
-    console.log('⏳ Waiting 5 seconds before starting status checks...');
+    console.log(' Waiting 5 seconds before starting status checks...');
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
     const finalStatus = await pollStatusUntilSuccess(depositAddress);
     console.log('--------------------------------');
-    console.log('✅ Full swap process completed! \n\n');
+    console.log(' Full swap process completed! \n\n');
     console.log(
-      `🔍 View full transaction on NEAR Intents Explorer: \n https://explorer.near-intents.org/transactions/${depositAddress} \n`,
+      ` View full transaction on NEAR Intents Explorer: \n https://explorer.near-intents.org/transactions/${depositAddress} \n`,
     );
 
     return { quote, depositAddress, depositResult, submitResult, finalStatus };
   } catch (error) {
-    console.error('❌ Full swap failed:', error as ApiError);
+    console.error(' Full swap failed:', error as ApiError);
     throw error;
   }
 }

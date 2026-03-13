@@ -29,7 +29,7 @@ docker_exec() {
 }
 
 cmd_status() {
-  echo "🔄 Recyclarr Status"
+  echo " Recyclarr Status"
   echo ""
 
   # Check if container exists and is running
@@ -37,7 +37,7 @@ cmd_status() {
   state=$(docker_exec inspect --format '{{.State.Status}}' "$CONTAINER" 2>/dev/null || echo "not_found")
 
   if [[ "$state" == "not_found" ]]; then
-    echo "  ❌ Container '${CONTAINER}' not found"
+    echo "   Container '${CONTAINER}' not found"
     echo "  Install: docker pull ghcr.io/recyclarr/recyclarr:latest"
     return
   fi
@@ -47,18 +47,18 @@ cmd_status() {
   # Check config
   local config_check
   if config_check=$(run_recyclarr config list 2>&1); then
-    echo "  Config: ✅ Valid"
+    echo "  Config:  Valid"
     echo "$config_check" | while read -r line; do
       echo "    ${line}"
     done
   else
-    echo "  Config: ⚠️  Not configured or invalid"
+    echo "  Config:   Not configured or invalid"
   fi
 }
 
 cmd_sync() {
   local target="${1:-}"
-  echo "🔄 Running Recyclarr Sync..."
+  echo " Running Recyclarr Sync..."
   echo ""
   if [[ -n "$target" ]]; then
     echo "Target: ${target}"
@@ -70,7 +70,7 @@ cmd_sync() {
 }
 
 cmd_list_profiles() {
-  echo "📋 TRaSH Guide Quality Profiles"
+  echo " TRaSH Guide Quality Profiles"
   echo ""
   echo "Radarr profiles:"
   run_recyclarr list custom-formats radarr 2>/dev/null | head -30
@@ -81,13 +81,13 @@ cmd_list_profiles() {
 
 cmd_list_qualities() {
   local app="${1:-radarr}"
-  echo "📋 Quality Definitions for ${app}"
+  echo " Quality Definitions for ${app}"
   echo ""
   run_recyclarr list qualities "${app}" 2>/dev/null
 }
 
 cmd_config() {
-  echo "📝 Recyclarr Configuration"
+  echo " Recyclarr Configuration"
   echo ""
   if [[ -n "$DOCKER_HOST_SSH" ]]; then
     ssh "$DOCKER_HOST_SSH" "cat ${DOCKER_CONFIG_BASE:-/volume1/docker}/recyclarr/recyclarr.yml 2>/dev/null || echo 'No config found'"
@@ -98,22 +98,22 @@ cmd_config() {
 
 cmd_logs() {
   local count="${1:-50}"
-  echo "📋 Recyclarr Logs (last ${count} lines)"
+  echo " Recyclarr Logs (last ${count} lines)"
   echo ""
   docker_exec logs --tail "$count" "$CONTAINER" 2>&1
 }
 
 cmd_create_config() {
-  echo "🔧 Creating Recyclarr Config Template"
+  echo " Creating Recyclarr Config Template"
   echo ""
   run_recyclarr config create 2>&1
   echo ""
-  echo "✅ Config template created. Edit it with your Sonarr/Radarr details."
+  echo " Config template created. Edit it with your Sonarr/Radarr details."
 }
 
 cmd_diff() {
   local target="${1:-}"
-  echo "🔍 Preview changes (dry run)..."
+  echo " Preview changes (dry run)..."
   echo ""
   if [[ -n "$target" ]]; then
     run_recyclarr sync --preview "${target}" 2>&1

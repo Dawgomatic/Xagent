@@ -2,7 +2,7 @@
 name: fosmvvm-fluent-datamodel-generator
 description: Generate Fluent DataModels for FOSMVVM server-side persistence. Scaffolds models, migrations, and tests for database-backed entities.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "🗄️", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM Fluent DataModel Generator

@@ -2,7 +2,7 @@
 
 description: Essential tools for IT MSP workflows – Azure/M365 audits, NPU monitoring, health checks.
 
-metadata: {"clawdbot":{"emoji":"🔧","os":["linux"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux"]}}
 
 ## Core Functions
 - msp-dashboard.py: Daily Azure/M365 status.

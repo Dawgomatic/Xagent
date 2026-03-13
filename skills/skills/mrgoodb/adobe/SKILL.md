@@ -1,7 +1,7 @@
 ---
 name: adobe
 description: Access Adobe Creative Cloud APIs - Photoshop, Lightroom, PDF Services, and Firefly AI. Automate creative workflows.
-metadata: {"clawdbot":{"emoji":"🎨","requires":{"env":["ADOBE_CLIENT_ID","ADOBE_ACCESS_TOKEN"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"env":["ADOBE_CLIENT_ID","ADOBE_ACCESS_TOKEN"]}}}
 ---
 
 # Adobe Creative Cloud

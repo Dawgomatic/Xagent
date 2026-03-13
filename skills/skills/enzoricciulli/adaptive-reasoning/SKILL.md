@@ -41,15 +41,15 @@ Score the request 0-10 on these dimensions:
 | Score | Action |
 |-------|--------|
 | ≤5 | Respond normally. No change. |
-| 6-7 | Enable reasoning silently. Add 🧠 at end of response. |
-| ≥8 | Enable reasoning. Add 🧠🔥 at end of response. |
+| 6-7 | Enable reasoning silently. Add  at end of response. |
+| ≥8 | Enable reasoning. Add  at end of response. |
 
 ### Visual Indicator
 
 Always append the reasoning icon at the **very end** of your response:
 
-- **Score 6-7:** `🧠` (thinking mode active)
-- **Score ≥8:** `🧠🔥` (deep thinking mode)
+- **Score 6-7:** `` (thinking mode active)
+- **Score ≥8:** `` (deep thinking mode)
 - **Score ≤5:** No icon (fast mode)
 
 ### How to Activate
@@ -82,11 +82,11 @@ After completing a complex task, optionally disable to save tokens on follow-ups
 
 **High complexity (score: 7)**
 > "Design a caching strategy for this API with these constraints..."
-→ Enable reasoning. Thoughtful response ends with: 🧠
+→ Enable reasoning. Thoughtful response ends with: 
 
 **Very high complexity (score: 9)**
 > "Debug why this distributed system has race conditions under load"
-→ Enable extended thinking. Deep analysis ends with: 🧠🔥
+→ Enable extended thinking. Deep analysis ends with: 
 
 ## Integration
 

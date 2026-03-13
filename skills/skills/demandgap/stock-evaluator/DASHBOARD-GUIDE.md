@@ -1,6 +1,6 @@
 # Quant-Style Dashboard Quick Reference (Enhanced)
 
-## ⚠️ DATA INTEGRITY REQUIREMENTS
+##  DATA INTEGRITY REQUIREMENTS
 
 **CRITICAL**: Every metric in the dashboard must come from a verified source.
 
@@ -75,7 +75,7 @@ React artifact with:
 ├─────────────────────────────────────────────────────┤
 │ ICHIMOKU CLOUD │                    │ MACD + RSI    │
 ├─────────────────────────────────────────────────────┤
-│ ▶ Key Notes (Expandable)                            │
+│  Key Notes (Expandable)                            │
 │   Bull Case | Bear Case | Entry/Exit Strategy       │
 └─────────────────────────────────────────────────────┘
 ```

@@ -20,12 +20,12 @@ TAUTULLI_KEY="${TAUTULLI_KEY:-}"
 PLEX_TOKEN="${PLEX_TOKEN:-}"
 
 if [[ -z "$HOST" ]]; then
-  echo "❌ Error: CLAWARR_HOST not set"
+  echo " Error: CLAWARR_HOST not set"
   exit 1
 fi
 
 if ! command -v jq &> /dev/null; then
-  echo "❌ Error: jq is required"
+  echo " Error: jq is required"
   exit 1
 fi
 
@@ -41,7 +41,7 @@ tautulli_api() {
   local params="$*"
   
   if [[ -z "$TAUTULLI_KEY" ]]; then
-    echo "❌ TAUTULLI_KEY not set"
+    echo " TAUTULLI_KEY not set"
     return 1
   fi
   
@@ -58,7 +58,7 @@ plex_api() {
   local endpoint=$1
   
   if [[ -z "$PLEX_TOKEN" ]]; then
-    echo "❌ PLEX_TOKEN not set"
+    echo " PLEX_TOKEN not set"
     return 1
   fi
   
@@ -68,7 +68,7 @@ plex_api() {
 
 # Command: activity (current streams)
 cmd_activity() {
-  echo "🎬 Current Activity"
+  echo " Current Activity"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local data
@@ -94,7 +94,7 @@ cmd_activity() {
 cmd_history() {
   local count="${1:-20}"
   
-  echo "📜 Watch History (Last $count)"
+  echo " Watch History (Last $count)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local data
@@ -114,12 +114,12 @@ cmd_most_watched() {
     month) time_range=30 ;;
     year)  time_range=365 ;;
     *)
-      echo "❌ Invalid period. Use: week, month, or year"
+      echo " Invalid period. Use: week, month, or year"
       exit 1
       ;;
   esac
   
-  echo "🏆 Most Watched (Last $period)"
+  echo " Most Watched (Last $period)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   # Movies
@@ -150,7 +150,7 @@ cmd_popular_genres() {
     year)  time_range=365 ;;
   esac
   
-  echo "🎭 Most Popular Genres (Last $period)"
+  echo " Most Popular Genres (Last $period)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   # Get history and extract genres
@@ -168,7 +168,7 @@ cmd_popular_genres() {
 
 # Command: peak hours
 cmd_peak_hours() {
-  echo "⏰ Peak Watching Hours"
+  echo " Peak Watching Hours"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local data
@@ -185,7 +185,7 @@ cmd_user_stats() {
   local user="${1:-}"
   
   if [[ -z "$user" ]]; then
-    echo "👥 All Users Activity Summary"
+    echo " All Users Activity Summary"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     local users
@@ -193,7 +193,7 @@ cmd_user_stats() {
     
     echo "$users" | jq -r '.response.data[] | "\(.friendly_name):\n  Total Plays: \(.plays)\n  Duration: \(.duration / 3600 | floor)h \(((.duration % 3600) / 60) | floor)m\n"'
   else
-    echo "👤 User Stats: $user"
+    echo " User Stats: $user"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     # Get user ID first
@@ -203,7 +203,7 @@ cmd_user_stats() {
     user_id=$(echo "$users" | jq -r ".response.data[] | select(.friendly_name == \"$user\") | .user_id")
     
     if [[ -z "$user_id" ]]; then
-      echo "❌ User not found: $user"
+      echo " User not found: $user"
       return 1
     fi
     
@@ -218,11 +218,11 @@ cmd_user_stats() {
 
 # Command: library stats
 cmd_library_stats() {
-  echo "📚 Plex Library Statistics"
+  echo " Plex Library Statistics"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   if [[ -z "$PLEX_TOKEN" ]]; then
-    echo "❌ PLEX_TOKEN not set"
+    echo " PLEX_TOKEN not set"
     return 1
   fi
   
@@ -246,7 +246,7 @@ cmd_library_stats() {
 cmd_recent_added() {
   local count="${1:-10}"
   
-  echo "🆕 Recently Added to Plex (Last $count)"
+  echo " Recently Added to Plex (Last $count)"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local data
@@ -259,7 +259,7 @@ cmd_recent_added() {
 
 # Command: play totals
 cmd_play_totals() {
-  echo "📊 Total Play Statistics"
+  echo " Total Play Statistics"
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   
   local stats
@@ -297,7 +297,7 @@ case "$COMMAND" in
   play-totals)     cmd_play_totals ;;
   help|--help|-h)  show_help ;;
   *)
-    echo "❌ Unknown command: $COMMAND"
+    echo " Unknown command: $COMMAND"
     echo "Run '$0 help' for usage"
     exit 1
     ;;

@@ -63,8 +63,8 @@ async function fetchAPI(url, retries = 3) {
 }
 
 async function main() {
-  console.log('🤖 Nad.fun Autonomous Trading - BONDING CURVE FOCUS');
-  console.log('⏰ Time:', new Date().toISOString());
+  console.log(' Nad.fun Autonomous Trading - BONDING CURVE FOCUS');
+  console.log(' Time:', new Date().toISOString());
   console.log('');
   
   const config = await loadConfig();
@@ -81,11 +81,11 @@ async function main() {
     transport: http(rpcUrl)
   });
   
-  console.log('📊 Wallet:', walletAddress);
+  console.log(' Wallet:', walletAddress);
   console.log('');
   
   // STEP 1: Check positions using check-pnl.js for proper P&L calculation
-  console.log('🔍 STEP 1: Checking positions for sell signals (+5% or -10%)...');
+  console.log(' STEP 1: Checking positions for sell signals (+5% or -10%)...');
   
   try {
     // Use check-pnl.js which properly reads entry price from positions_report.json
@@ -95,20 +95,20 @@ async function main() {
     const { stdout: pnlOutput } = await execAsync(checkPnlCmd);
     console.log(pnlOutput);
     
-    const sellMatches = pnlOutput.match(/✅ Sold \w+/g);
+    const sellMatches = pnlOutput.match(/ Sold \w+/g);
     const sellCount = sellMatches ? sellMatches.length : 0;
     if (sellCount > 0) {
-      console.log(`   ✅ ${sellCount} position(s) sold automatically.`);
+      console.log(`    ${sellCount} position(s) sold automatically.`);
     }
-    console.log(`   ✅ Position check complete`);
+    console.log(`    Position check complete`);
   } catch (error) {
-    console.log(`   ⚠️  ${error.message}`);
+    console.log(`     ${error.message}`);
   }
   
   console.log('');
   
   // STEP 2: Scan markets using multiple methods
-  console.log('🔍 STEP 2: Scanning markets for bonding curve tokens...');
+  console.log(' STEP 2: Scanning markets for bonding curve tokens...');
   
   const bondingTokens = new Map();
   
@@ -125,7 +125,7 @@ async function main() {
     
     console.log(`   Method 1 (New Events): ${bondingTokens.size} bonding tokens`);
   } catch (error) {
-    console.log(`   ⚠️  Method 1 failed`);
+    console.log(`     Method 1 failed`);
   }
   
   await new Promise(r => setTimeout(r, 2000));
@@ -149,13 +149,13 @@ async function main() {
     
     console.log(`   Method 2 (Creation Time): ${bondingTokens.size} total bonding tokens`);
   } catch (error) {
-    console.log(`   ⚠️  Method 2 failed`);
+    console.log(`     Method 2 failed`);
   }
   
   console.log('');
   
   // STEP 3: Analyze bonding tokens (LOWERED thresholds for early-stage)
-  console.log('🔍 STEP 3: Analyzing bonding curve tokens...');
+  console.log(' STEP 3: Analyzing bonding curve tokens...');
   console.log('   Using relaxed thresholds: liquidity ≥1 MON, holders ≥1');
   console.log('');
   
@@ -176,7 +176,7 @@ async function main() {
       
       // CRITICAL: Verify still on bonding curve
       if (isGraduated === true) {
-        console.log(`   ⚠️  Skipping ${tokenInfo.symbol}: graduated to DEX`);
+        console.log(`     Skipping ${tokenInfo.symbol}: graduated to DEX`);
         continue;
       }
       
@@ -239,25 +239,25 @@ async function main() {
   console.log('');
   
   // Print top 10
-  console.log('📊 TOP BONDING CURVE TOKENS:');
+  console.log(' TOP BONDING CURVE TOKENS:');
   for (const token of scoredTokens.slice(0, 10)) {
     console.log(`   ${token.symbol}: Score ${token.score} | ${token.liquidity.toFixed(0)} MON | ${token.holders}H | Vol ${token.volume.toFixed(0)} | ${token.percentChange >= 0 ? '+' : ''}${token.percentChange.toFixed(1)}%`);
   }
   console.log('');
   
   // STEP 4: Buy top 5 scoring ≥50
-  console.log('🔍 STEP 4: Executing buy orders (score ≥50, top 5)...');
+  console.log(' STEP 4: Executing buy orders (score ≥50, top 5)...');
   
   const buyTargets = scoredTokens.filter(t => t.score >= 50).slice(0, 5);
   
   if (buyTargets.length === 0) {
-    console.log('   ❌ No bonding curve tokens scored ≥50');
+    console.log('    No bonding curve tokens scored ≥50');
   } else {
     console.log(`   Buying ${buyTargets.length} tokens:`);
     console.log('');
     
     for (const target of buyTargets) {
-      console.log(`   💰 ${target.symbol} | Score ${target.score} | ${target.liquidity.toFixed(0)} MON liquidity`);
+      console.log(`    ${target.symbol} | Score ${target.score} | ${target.liquidity.toFixed(0)} MON liquidity`);
       
       const buyCmd = `cd "${scriptDir}" && NAD_PRIVATE_KEY=${privateKey} node buy-token.js ${target.address} 0.15 --slippage=300`;
       
@@ -269,10 +269,10 @@ async function main() {
         const balance = await checkTokenBalance(publicClient, target.address, walletAddress);
         
         if (balance > 0n) {
-          console.log(`   ✅ On-chain verified: ${(Number(balance) / 1e18).toFixed(2)} tokens`);
+          console.log(`    On-chain verified: ${(Number(balance) / 1e18).toFixed(2)} tokens`);
         }
       } catch (error) {
-        console.log(`   ❌ ${error.message}`);
+        console.log(`    ${error.message}`);
       }
       
       await new Promise(r => setTimeout(r, 3000));
@@ -282,7 +282,7 @@ async function main() {
   console.log('');
   
   // STEP 5: Final portfolio with P&L
-  console.log('📊 STEP 4: Final Portfolio');
+  console.log(' STEP 4: Final Portfolio');
   try {
     const finalPnlCmd = `cd "${scriptDir}" && node check-pnl.js`;
     const { stdout: finalOutput } = await execAsync(finalPnlCmd);
@@ -320,13 +320,13 @@ async function main() {
       console.log('   (Run check-pnl.js separately for detailed P&L)');
     }
   } catch (error) {
-    console.log(`   ⚠️  Could not generate final portfolio: ${error.message}`);
+    console.log(`     Could not generate final portfolio: ${error.message}`);
   }
   
   console.log('');
-  console.log('✅ Trading cycle complete!');
+  console.log(' Trading cycle complete!');
   console.log('');
-  console.log('📊 SUMMARY:');
+  console.log(' SUMMARY:');
   console.log(`   Wallet: ${walletAddress}`);
   console.log(`   Bonding tokens scanned: ${bondingTokens.size}`);
   console.log(`   Bonding tokens analyzed: ${scoredTokens.length}`);

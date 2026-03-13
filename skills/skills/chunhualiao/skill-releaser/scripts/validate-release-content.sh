@@ -20,8 +20,8 @@ fi
 ALL_PASS=true
 RESULTS=()
 
-pass() { RESULTS+=("  ✅ PASS — $1"); }
-fail() { RESULTS+=("  ❌ FAIL — $1"); ALL_PASS=false; }
+pass() { RESULTS+=("   PASS — $1"); }
+fail() { RESULTS+=("   FAIL — $1"); ALL_PASS=false; }
 
 # ── Check 1: No placeholder text ─────────────────────────────────────────────
 PLACEHOLDER_PATTERNS=('\{\{' 'TODO' 'FIXME' 'YOUR_')
@@ -95,9 +95,9 @@ echo "────────────────────────�
 echo ""
 
 if [[ "$ALL_PASS" == "true" ]]; then
-  echo "✅ PASS — release content is clean"
+  echo " PASS — release content is clean"
   exit 0
 else
-  echo "❌ FAIL — release content has issues (see above)"
+  echo " FAIL — release content has issues (see above)"
   exit 1
 fi

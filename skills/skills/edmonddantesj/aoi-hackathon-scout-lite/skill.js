@@ -88,8 +88,8 @@ function sources({ online, type }) {
 
   if (online) {
     const o = String(online).toLowerCase();
-    if (o === 'ok') items = items.filter(s => (s.online || '').includes('✅') || (s.online || '').includes('⚠️'));
-    if (o === 'good') items = items.filter(s => (s.online || '').includes('✅'));
+    if (o === 'ok') items = items.filter(s => (s.online || '').includes('') || (s.online || '').includes(''));
+    if (o === 'good') items = items.filter(s => (s.online || '').includes(''));
   }
 
   console.log(JSON.stringify({ __sdna__, kind: 'sources', registry: file, count: items.length, items }, null, 2));
@@ -139,7 +139,7 @@ function extractShortlistItems(text) {
 
     const isRejected = /rejected/i.test(status);
     const onlineEligible = /online/i.test(location) && !/offline/i.test(location);
-    const isHot = /🔥/.test(b) || /asap/i.test(String(deadlineHuman).toLowerCase());
+    const isHot = //.test(b) || /asap/i.test(String(deadlineHuman).toLowerCase());
 
     const d = parseDeadlineTs((deadlineIso || deadlineHuman).trim());
     const now = Date.now();

@@ -35,7 +35,7 @@ fi
 
 # Build notification message with VALUE analysis
 TOTAL=$(jq 'length' "$TOP5_FILE")
-MESSAGE="📚 **Twitter Reading List Ready!**
+MESSAGE=" **Twitter Reading List Ready!**
 
 **$TOTAL high-priority bookmarks** ranked by value to you:
 
@@ -97,8 +97,8 @@ def analyze_value(tweet):
 for b in bookmarks:
     value_statement = analyze_value(b)
     print(f"**{b['rank']}. @{b['author']}** (Score: {b['score']})")
-    print(f"💡 {value_statement}")
-    print(f"🔗 {b['url']}\n")
+    print(f" {value_statement}")
+    print(f" {b['url']}\n")
 
 PYEOF
 
@@ -107,7 +107,7 @@ cat /tmp/notification-preview.txt
 MESSAGE="$MESSAGE
 $(cat /tmp/notification-preview.txt)
 
-📄 Full analysis: \`$READING_LIST\`"
+ Full analysis: \`$READING_LIST\`"
 
 # Send based on channel
 case "$CHANNEL" in

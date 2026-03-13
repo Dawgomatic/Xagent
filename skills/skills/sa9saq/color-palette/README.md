@@ -1,14 +1,14 @@
-# 🎨 color-palette
+#  color-palette
 
 Generate color palettes and check WCAG accessibility.
 
 ## Features
 
-- 🌈 Generate palettes from color theory (complementary, analogous, triadic, etc.)
-- 🏢 Brand-aware palette suggestions
-- ♿ WCAG AA/AAA contrast ratio checking
-- 🎯 Fix suggestions for failing contrast pairs
-- 💻 Export as CSS custom properties or Tailwind config
+-  Generate palettes from color theory (complementary, analogous, triadic, etc.)
+-  Brand-aware palette suggestions
+-  WCAG AA/AAA contrast ratio checking
+-  Fix suggestions for failing contrast pairs
+-  Export as CSS custom properties or Tailwind config
 
 ## Usage Examples
 

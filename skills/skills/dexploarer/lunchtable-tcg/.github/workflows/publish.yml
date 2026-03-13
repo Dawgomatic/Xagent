@@ -82,11 +82,11 @@ jobs:
       - name: Notify success
         if: success()
         run: |
-          echo "✅ Successfully published to ClawHub!"
+          echo " Successfully published to ClawHub!"
           echo "View at: https://clawhub.com/skills/lunchtable/lunchtable-tcg"
 
       - name: Notify failure
         if: failure()
         run: |
-          echo "❌ Publication failed. Check logs above."
+          echo " Publication failed. Check logs above."
           exit 1

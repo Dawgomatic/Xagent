@@ -54,10 +54,10 @@ python3 /root/clawd/skills/memory-baidu-embedding-db/memory_baidu_embedding_db.p
 
 ## 验证
 新系统已通过以下验证：
-- ✅ 功能完整性测试
-- ✅ 性能基准测试  
-- ✅ API安全性测试
-- ✅ 数据一致性验证
+-  功能完整性测试
+-  性能基准测试  
+-  API安全性测试
+-  数据一致性验证
 
 ## 结论
 通过使用memory-baidu-embedding-db替代memory-lancedb，我们不仅实现了黑名单功能，还提升了系统整体安全性和性能。

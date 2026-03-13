@@ -147,7 +147,7 @@ def is_important(from_addr, subject):
 
 def main():
     if not CONFIG['user'] or not CONFIG['password']:
-        print("❌ Missing credentials. Set PROTONMAIL_USER and PROTONMAIL_PASS")
+        print(" Missing credentials. Set PROTONMAIL_USER and PROTONMAIL_PASS")
         return 1
     
     imap = imaplib.IMAP4(CONFIG['host'], CONFIG['port'])
@@ -200,13 +200,13 @@ def main():
     imap.logout()
     
     # Output summary
-    print(f"📬 **ProtonMail Daily Digest**")
+    print(f" **ProtonMail Daily Digest**")
     print(f"")
-    print(f"📊 **Stats:** {total_unread} unread emails total")
+    print(f" **Stats:** {total_unread} unread emails total")
     print(f"")
     
     if important_emails:
-        print(f"⭐ **{len(important_emails)} important emails (last 24h):**")
+        print(f" **{len(important_emails)} important emails (last 24h):**")
         print(f"")
         for email in important_emails:
             print(f"• **{email['subject']}**")
@@ -214,7 +214,7 @@ def main():
             print(f"  ({email['reason']})")
             print(f"")
     else:
-        print(f"✅ No important emails in the last 24h.")
+        print(f" No important emails in the last 24h.")
     
     return len(important_emails)
 

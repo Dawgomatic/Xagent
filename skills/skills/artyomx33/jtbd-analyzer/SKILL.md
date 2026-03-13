@@ -35,9 +35,9 @@ PRODUCT: [What you're analyzing]
 For [User Type]:
 JOB: "When [situation], I want [motivation], so I can [outcome]"
 
-📋 FUNCTIONAL: [Task to accomplish]
-💜 EMOTIONAL: [Feeling desired]
-👥 SOCIAL: [Perception desired]
+ FUNCTIONAL: [Task to accomplish]
+ EMOTIONAL: [Feeling desired]
+ SOCIAL: [Perception desired]
 
 ALTERNATIVES: [What else could do this job?]
 UNDERSERVED: [What part isn't done well?]

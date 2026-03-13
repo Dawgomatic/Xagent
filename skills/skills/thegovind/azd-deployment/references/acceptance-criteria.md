@@ -8,7 +8,7 @@
 
 ## 1. azure.yaml Configuration
 
-### 1.1 ✅ CORRECT: Basic Service Configuration
+### 1.1  CORRECT: Basic Service Configuration
 
 ```yaml
 name: my-app
@@ -22,7 +22,7 @@ services:
       remoteBuild: true
 ```
 
-### 1.2 ✅ CORRECT: Full Configuration with Hooks
+### 1.2  CORRECT: Full Configuration with Hooks
 
 ```yaml
 name: my-app
@@ -72,7 +72,7 @@ hooks:
       echo "Frontend: ${SERVICE_FRONTEND_URI}"
 ```
 
-### 1.3 ❌ INCORRECT: Missing remoteBuild
+### 1.3  INCORRECT: Missing remoteBuild
 
 ```yaml
 # WRONG - Missing remoteBuild: true causes issues on ARM Macs
@@ -85,7 +85,7 @@ services:
       path: ./Dockerfile
 ```
 
-### 1.4 ❌ INCORRECT: Wrong host type
+### 1.4  INCORRECT: Wrong host type
 
 ```yaml
 # WRONG - Using appservice instead of containerapp
@@ -99,7 +99,7 @@ services:
 
 ## 2. Bicep Infrastructure Patterns
 
-### 2.1 ✅ CORRECT: Container App Module
+### 2.1  CORRECT: Container App Module
 
 ```bicep
 resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
@@ -145,7 +145,7 @@ output uri string = 'https://${containerApp.properties.configuration.ingress.fqd
 output principalId string = containerApp.identity.principalId
 ```
 
-### 2.2 ✅ CORRECT: Parameter Injection from Environment
+### 2.2  CORRECT: Parameter Injection from Environment
 
 ```json
 {
@@ -159,7 +159,7 @@ output principalId string = containerApp.identity.principalId
 }
 ```
 
-### 2.3 ✅ CORRECT: azd Service Tag for Discovery
+### 2.3  CORRECT: azd Service Tag for Discovery
 
 ```bicep
 tags: {
@@ -167,7 +167,7 @@ tags: {
 }
 ```
 
-### 2.4 ❌ INCORRECT: Missing azd-service-name Tag
+### 2.4  INCORRECT: Missing azd-service-name Tag
 
 ```bicep
 // WRONG - Missing the required tag for azd
@@ -177,7 +177,7 @@ tags: {
 // azd won't be able to find this Container App
 ```
 
-### 2.5 ❌ INCORRECT: Hardcoded Values
+### 2.5  INCORRECT: Hardcoded Values
 
 ```bicep
 // WRONG - Hardcoded location
@@ -196,7 +196,7 @@ env: [
 
 ## 3. Environment Variable Management
 
-### 3.1 ✅ CORRECT: Using azd env set
+### 3.1  CORRECT: Using azd env set
 
 ```bash
 # Set environment variables for deployment
@@ -204,7 +204,7 @@ azd env set AZURE_OPENAI_ENDPOINT "https://my-openai.openai.azure.com"
 azd env set AZURE_SEARCH_ENDPOINT "https://my-search.search.windows.net"
 ```
 
-### 3.2 ✅ CORRECT: Bicep Output to Environment
+### 3.2  CORRECT: Bicep Output to Environment
 
 ```bicep
 // Outputs auto-populate .azure/<env>/.env
@@ -213,7 +213,7 @@ output SERVICE_BACKEND_URI string = backend.outputs.uri
 output BACKEND_PRINCIPAL_ID string = backend.outputs.principalId
 ```
 
-### 3.3 ❌ INCORRECT: Editing .azure/<env>/.env Manually
+### 3.3  INCORRECT: Editing .azure/<env>/.env Manually
 
 ```bash
 # WRONG - Never manually edit azd-managed files
@@ -225,7 +225,7 @@ echo "MY_VAR=value" >> .azure/dev/.env
 
 ## 4. Deployment Commands
 
-### 4.1 ✅ CORRECT: Full Deployment Flow
+### 4.1  CORRECT: Full Deployment Flow
 
 ```bash
 # Initialize project
@@ -240,14 +240,14 @@ azd env set AZURE_OPENAI_ENDPOINT "https://..."
 azd up
 ```
 
-### 4.2 ✅ CORRECT: Deploy Single Service
+### 4.2  CORRECT: Deploy Single Service
 
 ```bash
 # Deploy only the backend service
 azd deploy --service backend
 ```
 
-### 4.3 ✅ CORRECT: Separate Provision and Deploy
+### 4.3  CORRECT: Separate Provision and Deploy
 
 ```bash
 # Infrastructure only
@@ -257,7 +257,7 @@ azd provision
 azd deploy
 ```
 
-### 4.4 ❌ INCORRECT: Using az CLI Instead of azd
+### 4.4  INCORRECT: Using az CLI Instead of azd
 
 ```bash
 # WRONG - Don't mix az and azd for container app deployment
@@ -269,7 +269,7 @@ az containerapp up --name my-app
 
 ## 5. Hooks and Post-Deployment
 
-### 5.1 ✅ CORRECT: Post-Provision RBAC Assignment
+### 5.1  CORRECT: Post-Provision RBAC Assignment
 
 ```yaml
 hooks:
@@ -286,7 +286,7 @@ hooks:
         --scope "$OPENAI_RESOURCE_ID" 2>/dev/null || true
 ```
 
-### 5.2 ✅ CORRECT: Hook Error Handling
+### 5.2  CORRECT: Hook Error Handling
 
 ```yaml
 hooks:
@@ -297,7 +297,7 @@ hooks:
       az role assignment create ... 2>/dev/null || true
 ```
 
-### 5.3 ❌ INCORRECT: Missing Error Suppression
+### 5.3  INCORRECT: Missing Error Suppression
 
 ```yaml
 # WRONG - RBAC "already exists" errors will fail the deployment
@@ -316,7 +316,7 @@ hooks:
 
 ## 6. Container Apps Service Discovery
 
-### 6.1 ✅ CORRECT: Internal Service Communication
+### 6.1  CORRECT: Internal Service Communication
 
 ```bicep
 // In frontend env vars, reference backend via internal DNS
@@ -328,7 +328,7 @@ env: [
 ]
 ```
 
-### 6.2 ❌ INCORRECT: Using External URL for Internal Communication
+### 6.2  INCORRECT: Using External URL for Internal Communication
 
 ```bicep
 // WRONG - Using external URL for service-to-service communication
@@ -344,7 +344,7 @@ env: [
 
 ## 7. Project Structure
 
-### 7.1 ✅ CORRECT: Standard azd Project Structure
+### 7.1  CORRECT: Standard azd Project Structure
 
 ```
 project/
@@ -365,7 +365,7 @@ project/
         └── Dockerfile
 ```
 
-### 7.2 ❌ INCORRECT: Missing infra Directory
+### 7.2  INCORRECT: Missing infra Directory
 
 ```
 # WRONG - Missing infrastructure definition
@@ -381,7 +381,7 @@ project/
 
 ## 8. Managed Identity Configuration
 
-### 8.1 ✅ CORRECT: System-Assigned Identity
+### 8.1  CORRECT: System-Assigned Identity
 
 ```bicep
 resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
@@ -394,7 +394,7 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
 output principalId string = containerApp.identity.principalId
 ```
 
-### 8.2 ✅ CORRECT: ACR Pull with Managed Identity
+### 8.2  CORRECT: ACR Pull with Managed Identity
 
 ```bicep
 configuration: {
@@ -407,7 +407,7 @@ configuration: {
 }
 ```
 
-### 8.3 ❌ INCORRECT: Using Admin Credentials for ACR
+### 8.3  INCORRECT: Using Admin Credentials for ACR
 
 ```bicep
 // WRONG - Don't use admin credentials

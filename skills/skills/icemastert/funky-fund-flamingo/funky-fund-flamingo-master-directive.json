@@ -77,7 +77,7 @@
         "id": "report",
         "required": true,
         "tool": "message",
-        "title_template": "🧬 Evolution Cycle #{{cycle_id}}",
+        "title_template": " Evolution Cycle #{{cycle_id}}",
         "status_enum": [
           "SUCCESS",
           "BLOCKED",

@@ -34,7 +34,7 @@ function fetchBookmarks() {
  * Main fetch function
  */
 function main() {
-  console.log('🔍 Fetching bookmarks from X...');
+  console.log(' Fetching bookmarks from X...');
   
   const bookmarks = fetchBookmarks();
   if (bookmarks.length === 0) {

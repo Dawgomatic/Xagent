@@ -4,11 +4,11 @@ Comprehensive server health monitoring for OpenClaw.
 
 ## Features
 
-✅ System stats (CPU, RAM, Disk, Uptime)  
-✅ Top processes by CPU/RAM  
-✅ OpenClaw Gateway status & model config  
-✅ Services status (Docker, PostgreSQL, etc.)  
-✅ Multiple output formats (standard, JSON, alerts-only)  
+ System stats (CPU, RAM, Disk, Uptime)  
+ Top processes by CPU/RAM  
+ OpenClaw Gateway status & model config  
+ Services status (Docker, PostgreSQL, etc.)  
+ Multiple output formats (standard, JSON, alerts-only)  
 
 ## Usage
 
@@ -29,34 +29,34 @@ Comprehensive server health monitoring for OpenClaw.
 ## Example Output
 
 ```
-🖥️ SERVER HEALTH
+ SERVER HEALTH
 ━━━━━━━━━━━━━━━━━━━━
 
-💻 SYSTEM
+ SYSTEM
 CPU: ████░░░░░░ 42% (Load: 1.2, 0.8, 0.5)
 RAM: ██████░░░░ 1.4GB/8GB (18%)
 DISK: ████░░░░░░ 45GB/100GB (45%)
-UP: ⏱️ 5d 3h
+UP:  5d 3h
 
-🔄 TOP PROCESSES
+ TOP PROCESSES
 node         35%    450MB
 postgres     12%    280MB
 openclaw      8%    180MB
 
-⚡ OPENCLAW GATEWAY
-Status: ✅ Running (PID: 1639125)
+ OPENCLAW GATEWAY
+Status:  Running (PID: 1639125)
 Uptime: 2d 5h | Port: 18789 | v2026.2.6-3
 
-🤖 MODEL CONFIG
+ MODEL CONFIG
 Primary: claude-sonnet-4-5
 Fallbacks: glm-4.7 → copilot-sonnet → opus-4-5
 
-📊 SESSIONS
+ SESSIONS
 Active: 3
 
-🐳 SERVICES
-Docker: ✅ 8 containers
-PostgreSQL: ✅ Running
+ SERVICES
+Docker:  8 containers
+PostgreSQL:  Running
 ```
 
 ## Requirements

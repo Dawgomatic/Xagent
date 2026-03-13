@@ -78,11 +78,11 @@ function formatEvent(event) {
   let output = `${timeStr} | ${event.subject}`;
   
   if (event.location?.displayName) {
-    output += ` | 📍 ${event.location.displayName}`;
+    output += ` |  ${event.location.displayName}`;
   }
   
   if (event.organizer?.emailAddress?.name) {
-    output += ` | 👤 ${event.organizer.emailAddress.name}`;
+    output += ` |  ${event.organizer.emailAddress.name}`;
   }
   
   if (event.attendees && event.attendees.length > 0) {
@@ -109,11 +109,11 @@ async function getToday(accountName = null) {
   const events = await getEvents(startOfDay, endOfDay, accountName);
   
   if (events.length === 0) {
-    console.log('📅 No events scheduled for today');
+    console.log(' No events scheduled for today');
     return;
   }
   
-  console.log(`📅 Today's Calendar (${now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })})\n`);
+  console.log(` Today's Calendar (${now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })})\n`);
   
   events.forEach(event => {
     console.log(formatEvent(event));
@@ -134,11 +134,11 @@ async function getWeek(accountName = null) {
   const events = await getEvents(startOfWeek, endOfWeek, accountName);
   
   if (events.length === 0) {
-    console.log('📅 No events scheduled this week');
+    console.log(' No events scheduled this week');
     return;
   }
   
-  console.log(`📅 This Week's Calendar\n`);
+  console.log(` This Week's Calendar\n`);
   
   let currentDay = null;
   events.forEach(event => {
@@ -165,12 +165,12 @@ if (require.main === module) {
   
   if (command === 'today') {
     getToday(accountName).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else if (command === 'week') {
     getWeek(accountName).catch(err => {
-      console.error('❌ Error:', err.message);
+      console.error(' Error:', err.message);
       process.exit(1);
     });
   } else {

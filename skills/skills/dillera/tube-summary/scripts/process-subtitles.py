@@ -120,7 +120,7 @@ def get_notable_moments(subtitles):
 def format_output(subtitles, vtt_file):
     """Format and print the analysis"""
     if not subtitles:
-        print("❌ No subtitles found in the file.")
+        print(" No subtitles found in the file.")
         return
     
     topics = extract_key_topics(subtitles)
@@ -129,15 +129,15 @@ def format_output(subtitles, vtt_file):
     notable = get_notable_moments(subtitles)
     
     print("\n" + "="*70)
-    print("📊 VIDEO SUBTITLE ANALYSIS")
+    print(" VIDEO SUBTITLE ANALYSIS")
     print("="*70)
     
-    print(f"\n📁 File: {Path(vtt_file).name}")
-    print(f"⏱️  Total Duration: {subtitles[-1]['time'] if subtitles else 'N/A'}")
-    print(f"📝 Total Subtitle Lines: {len(subtitles)}")
+    print(f"\n File: {Path(vtt_file).name}")
+    print(f"  Total Duration: {subtitles[-1]['time'] if subtitles else 'N/A'}")
+    print(f" Total Subtitle Lines: {len(subtitles)}")
     
     print("\n" + "-"*70)
-    print("🔑 KEY TOPICS")
+    print(" KEY TOPICS")
     print("-"*70)
     if topics:
         for i, topic in enumerate(topics[:10], 1):
@@ -146,12 +146,12 @@ def format_output(subtitles, vtt_file):
         print("  No topics extracted")
     
     print("\n" + "-"*70)
-    print("📄 SUMMARY")
+    print(" SUMMARY")
     print("-"*70)
     print(f"\n{summary}\n")
     
     print("-"*70)
-    print("💬 KEY QUOTES")
+    print(" KEY QUOTES")
     print("-"*70)
     if quotes:
         for i, quote in enumerate(quotes, 1):
@@ -166,7 +166,7 @@ def format_output(subtitles, vtt_file):
         print("  No notable quotes found")
     
     print("\n" + "-"*70)
-    print("⭐ NOTABLE MOMENTS")
+    print(" NOTABLE MOMENTS")
     print("-"*70)
     if notable:
         for moment in notable:
@@ -187,17 +187,17 @@ def main():
     vtt_file = sys.argv[1]
     
     if not Path(vtt_file).exists():
-        print(f"❌ File not found: {vtt_file}")
+        print(f" File not found: {vtt_file}")
         sys.exit(1)
     
     if not vtt_file.endswith('.vtt'):
-        print("⚠️  Warning: File does not end in .vtt, but attempting to parse...")
+        print("  Warning: File does not end in .vtt, but attempting to parse...")
     
     try:
         subtitles = parse_vtt(vtt_file)
         format_output(subtitles, vtt_file)
     except Exception as e:
-        print(f"❌ Error processing subtitles: {e}")
+        print(f" Error processing subtitles: {e}")
         sys.exit(1)
 
 if __name__ == '__main__':

@@ -38,8 +38,8 @@ Highest level, required for specialized contexts but not recommended as general 
 
 #### Don't Rely on Color Alone
 ```
-❌ Bad: "Click the green button to continue"
-✅ Good: "Click the 'Continue' button (green) to proceed"
+ Bad: "Click the green button to continue"
+ Good: "Click the 'Continue' button (green) to proceed"
 ```
 
 - Use icons, text labels, or patterns alongside color
@@ -113,8 +113,8 @@ Highest level, required for specialized contexts but not recommended as general 
 
 #### Error Handling
 ```
-❌ Bad: Red border with no explanation
-✅ Good: "Email address is required" with clear visual indicator
+ Bad: Red border with no explanation
+ Good: "Email address is required" with clear visual indicator
 ```
 
 - **Specific error messages**: Explain what's wrong and how to fix it
@@ -150,8 +150,8 @@ H1 - Page title (one per page)
 
 #### Link Text Guidelines
 ```
-❌ Bad: "Click here for more information"
-✅ Good: "Read our complete accessibility guide"
+ Bad: "Click here for more information"
+ Good: "Read our complete accessibility guide"
 ```
 
 - **Descriptive link text**: Explains where the link leads
@@ -185,11 +185,11 @@ H1 - Page title (one per page)
 
 #### Alt Text Examples
 ```
-❌ Bad: alt="image"
-❌ Bad: alt="photo.jpg"  
-✅ Good: alt="Bar chart showing 40% increase in sales"
-✅ Good: alt="Submit form" (for submit button image)
-✅ Good: alt="" (for purely decorative images)
+ Bad: alt="image"
+ Bad: alt="photo.jpg"  
+ Good: alt="Bar chart showing 40% increase in sales"
+ Good: alt="Submit form" (for submit button image)
+ Good: alt="" (for purely decorative images)
 ```
 
 ### Video and Audio

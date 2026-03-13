@@ -5,7 +5,7 @@
 - **New role, same company** — Political. Requires internal champion
 - **New role, new company** — Hardest. Need bridge story
 - **New industry** — Skills transfer, but context doesn't
-- **Track change** (IC↔Manager) — Different game entirely
+- **Track change** (ICManager) — Different game entirely
 
 ## The Bridge Story Problem
 When experience doesn't match target role directly:

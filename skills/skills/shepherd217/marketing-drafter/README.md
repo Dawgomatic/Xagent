@@ -46,16 +46,16 @@ console.log(emails);
 ```
 
 ## Features
-✅ Multi-channel content generation
-✅ Brand voice consistency
-✅ A/B testing variants
-✅ Batch processing
-✅ Template-based generation
-✅ Image caption generation
-✅ SEO-optimized copy
-✅ Tone customization
-✅ Plagiarism-free guarantee
-✅ Performance scoring (predicted CTR)
+ Multi-channel content generation
+ Brand voice consistency
+ A/B testing variants
+ Batch processing
+ Template-based generation
+ Image caption generation
+ SEO-optimized copy
+ Tone customization
+ Plagiarism-free guarantee
+ Performance scoring (predicted CTR)
 
 ## Installation
 
@@ -127,7 +127,7 @@ const posts = await drafter.generateSocialPosts({
 });
 
 // posts[0].platform === 'twitter'
-// posts[0].content === "🧠 AI is killing the 9-to-5 and I'm here for it..."
+// posts[0].content === " AI is killing the 9-to-5 and I'm here for it..."
 ```
 
 ### Ad Copy Generation
@@ -216,8 +216,8 @@ Generate ad copy.
 → Set `brandGuide` in config with your voice guidelines
 
 ## Support
-📧 support@midas-skills.com
-🔗 Docs: https://docs.midas-skills.com/marketing-drafter
+ support@midas-skills.com
+ Docs: https://docs.midas-skills.com/marketing-drafter
 
 ---
 

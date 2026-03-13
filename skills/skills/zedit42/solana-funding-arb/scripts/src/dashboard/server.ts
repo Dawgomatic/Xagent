@@ -441,7 +441,7 @@ function getDashboardHTML(): string {
   <div class="refresh-indicator" id="status">Connecting...</div>
   
   <header>
-    <h1>⚡ SolArb</h1>
+    <h1> SolArb</h1>
     <p>Funding Rate Arbitrage Agent for Solana</p>
   </header>
   
@@ -452,7 +452,7 @@ function getDashboardHTML(): string {
     text-align: center;
     font-weight: bold;
   ">
-    ⚠️ DEMO MODE - Mock Data | 
+     DEMO MODE - Mock Data | 
     <span style="font-weight:normal">Connect wallet for live trading →</span>
     <button id="connect-wallet" style="
       background: #fff;
@@ -463,7 +463,7 @@ function getDashboardHTML(): string {
       margin-left: 15px;
       cursor: pointer;
       font-weight: bold;
-    ">🔗 Connect Wallet</button>
+    "> Connect Wallet</button>
   </div>
   
   <div class="container">
@@ -487,13 +487,13 @@ function getDashboardHTML(): string {
     </div>
     
     <div class="section">
-      <h2>🔥 Cross-Protocol Arbitrage</h2>
+      <h2> Cross-Protocol Arbitrage</h2>
       <div id="arb-loading">Finding arbitrage opportunities...</div>
       <div id="arb-cards" style="display:none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;"></div>
     </div>
 
     <div class="section">
-      <h2>🎯 Funding Rate Opportunities</h2>
+      <h2> Funding Rate Opportunities</h2>
       <div id="loading">Loading funding rates...</div>
       <table id="rates-table" style="display:none;">
         <thead>
@@ -524,12 +524,12 @@ function getDashboardHTML(): string {
     const statusEl = document.getElementById('status');
     
     ws.onopen = () => {
-      statusEl.textContent = '🟢 Live';
+      statusEl.textContent = ' Live';
       statusEl.className = 'refresh-indicator connected';
     };
     
     ws.onclose = () => {
-      statusEl.textContent = '🔴 Disconnected';
+      statusEl.textContent = ' Disconnected';
       statusEl.className = 'refresh-indicator disconnected';
     };
     
@@ -603,11 +603,11 @@ function getDashboardHTML(): string {
                   <span class="apy">\${opp.netApy.toFixed(0)}% APY</span>
                 </h3>
                 <div class="leg long">
-                  <strong>📈 LONG</strong> on \${opp.longProtocol}<br>
+                  <strong> LONG</strong> on \${opp.longProtocol}<br>
                   <small>\${opp.longMarket} @ \${(opp.longRate * 100).toFixed(4)}%/hr</small>
                 </div>
                 <div class="leg short">
-                  <strong>📉 SHORT</strong> on \${opp.shortProtocol}<br>
+                  <strong> SHORT</strong> on \${opp.shortProtocol}<br>
                   <small>\${opp.shortMarket} @ \${(opp.shortRate * 100).toFixed(4)}%/hr</small>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-top:15px;">
@@ -615,7 +615,7 @@ function getDashboardHTML(): string {
                   <span class="risk \${opp.riskLevel}">\${opp.riskLevel.toUpperCase()}</span>
                 </div>
                 <button class="execute-btn" onclick="executeArb('\${opp.asset}', '\${opp.longProtocol}', '\${opp.shortProtocol}')" \${!window.walletConnected ? 'disabled' : ''}>
-                  \${window.walletConnected ? '⚡ Execute Trade' : '🔒 Connect Wallet First'}
+                  \${window.walletConnected ? ' Execute Trade' : ' Connect Wallet First'}
                 </button>
               </div>
             \`).join('');
@@ -663,7 +663,7 @@ function getDashboardHTML(): string {
         
         closeModal();
         document.getElementById('mock-banner').innerHTML = \`
-          ✅ Connected: \${window.walletAddress.slice(0,4)}...\${window.walletAddress.slice(-4)} | 
+           Connected: \${window.walletAddress.slice(0,4)}...\${window.walletAddress.slice(-4)} | 
           <span style="color:#00ff88">Live Trading Enabled</span>
           <button onclick="disconnectWallet()" style="
             background: #ff4444;
@@ -701,7 +701,7 @@ function getDashboardHTML(): string {
       
       if (confirmed) {
         // TODO: Integrate with actual protocol SDKs
-        alert(\`🚧 Coming Soon!\\n\\nThis will:\\n1. Open LONG \${asset} on \${longProtocol}\\n2. Open SHORT \${asset} on \${shortProtocol}\\n\\nSDK integration in progress...\`);
+        alert(\` Coming Soon!\\n\\nThis will:\\n1. Open LONG \${asset} on \${longProtocol}\\n2. Open SHORT \${asset} on \${shortProtocol}\\n\\nSDK integration in progress...\`);
       }
     }
   </script>

@@ -35,20 +35,20 @@ function addContact(name, url, token, description = '') {
   const contacts = loadContacts();
   contacts[name] = { url, token, description, addedAt: new Date().toISOString() };
   saveContacts(contacts);
-  console.log(`✅ 연락처 추가: ${name} (${url})`);
+  console.log(` 연락처 추가: ${name} (${url})`);
 }
 
 function listContacts() {
   const contacts = loadContacts();
   const entries = Object.entries(contacts);
   if (entries.length === 0) {
-    console.log('📭 등록된 연락처 없음');
+    console.log(' 등록된 연락처 없음');
     console.log('추가: node messenger.js contacts add --name <이름> --url <gateway-url> --token <토큰>');
     return;
   }
-  console.log(`📋 연락처 (${entries.length}개)\n`);
+  console.log(` 연락처 (${entries.length}개)\n`);
   for (const [name, info] of entries) {
-    console.log(`  👤 ${name}`);
+    console.log(`   ${name}`);
     console.log(`     URL: ${info.url}`);
     console.log(`     설명: ${info.description || '-'}`);
     console.log(`     추가일: ${info.addedAt || '-'}`);
@@ -59,12 +59,12 @@ function listContacts() {
 function removeContact(name) {
   const contacts = loadContacts();
   if (!contacts[name]) {
-    console.log(`❌ 연락처 '${name}' 없음`);
+    console.log(` 연락처 '${name}' 없음`);
     return;
   }
   delete contacts[name];
   saveContacts(contacts);
-  console.log(`✅ 연락처 삭제: ${name}`);
+  console.log(` 연락처 삭제: ${name}`);
 }
 
 // ═══════════════════════════════════════
@@ -76,7 +76,7 @@ async function sendMessage(targetUrl, token, message, from = 'unknown') {
     const wsUrl = targetUrl.replace(/^http/, 'ws');
     const fullUrl = `${wsUrl}?token=${encodeURIComponent(token)}`;
     
-    console.log(`📤 전송 중: ${targetUrl}`);
+    console.log(` 전송 중: ${targetUrl}`);
     console.log(`   From: ${from}`);
     console.log(`   Message: ${message.slice(0, 100)}${message.length > 100 ? '...' : ''}`);
     
@@ -110,7 +110,7 @@ async function sendMessage(targetUrl, token, message, from = 'unknown') {
           responded = true;
           clearTimeout(timeout);
           ws.close();
-          console.log('✅ 전송 완료');
+          console.log(' 전송 완료');
           resolve(true);
         }
       }, 1000);
@@ -120,7 +120,7 @@ async function sendMessage(targetUrl, token, message, from = 'unknown') {
       if (!responded) {
         responded = true;
         clearTimeout(timeout);
-        console.log(`❌ 연결 실패: ${err.message}`);
+        console.log(` 연결 실패: ${err.message}`);
         reject(err);
       }
     });
@@ -138,7 +138,7 @@ async function sendMessage(targetUrl, token, message, from = 'unknown') {
 async function sendToContact(name, message, from) {
   const contacts = loadContacts();
   if (!contacts[name]) {
-    console.log(`❌ 연락처 '${name}' 없음`);
+    console.log(` 연락처 '${name}' 없음`);
     console.log('등록된 연락처:');
     listContacts();
     return;
@@ -163,7 +163,7 @@ function startListener(port = 19900) {
           const msg = JSON.parse(body);
           msg.receivedAt = new Date().toISOString();
           messages.push(msg);
-          console.log(`\n📨 새 메시지!`);
+          console.log(`\n 새 메시지!`);
           console.log(`   From: ${msg.from || 'unknown'}`);
           console.log(`   Message: ${msg.message}`);
           console.log(`   Time: ${msg.receivedAt}`);
@@ -187,7 +187,7 @@ function startListener(port = 19900) {
   });
   
   server.listen(port, () => {
-    console.log(`👂 메시지 수신 대기 중: http://localhost:${port}`);
+    console.log(` 메시지 수신 대기 중: http://localhost:${port}`);
     console.log(`   POST /message — 메시지 수신`);
     console.log(`   GET /messages — 수신 내역`);
     console.log(`   GET /health — 상태 확인`);
@@ -201,14 +201,14 @@ function startListener(port = 19900) {
 async function ping(targetUrl) {
   return new Promise((resolve) => {
     const wsUrl = targetUrl.replace(/^http/, 'ws');
-    console.log(`🏓 핑: ${targetUrl}`);
+    console.log(` 핑: ${targetUrl}`);
     
     const ws = new WebSocket(wsUrl);
     const start = Date.now();
     
     const timeout = setTimeout(() => {
       ws.close();
-      console.log('❌ 타임아웃 (5초)');
+      console.log(' 타임아웃 (5초)');
       resolve(false);
     }, 5000);
     
@@ -216,13 +216,13 @@ async function ping(targetUrl) {
       const ms = Date.now() - start;
       clearTimeout(timeout);
       ws.close();
-      console.log(`✅ 응답: ${ms}ms`);
+      console.log(` 응답: ${ms}ms`);
       resolve(true);
     });
     
     ws.on('error', (err) => {
       clearTimeout(timeout);
-      console.log(`❌ 연결 실패: ${err.message}`);
+      console.log(` 연결 실패: ${err.message}`);
       resolve(false);
     });
   });
@@ -251,7 +251,7 @@ function getArg(flag) {
       const from = getArg('--from') || 'Tames';
       
       if (!message) {
-        console.log('❌ --message 필수');
+        console.log(' --message 필수');
         break;
       }
       
@@ -260,7 +260,7 @@ function getArg(flag) {
       } else if (url && token) {
         await sendMessage(url, token, message, from);
       } else {
-        console.log('❌ --to <연락처이름> 또는 --url <url> --token <token> 필요');
+        console.log(' --to <연락처이름> 또는 --url <url> --token <token> 필요');
       }
       break;
     }
@@ -273,7 +273,7 @@ function getArg(flag) {
           const token = getArg('--token');
           const desc = getArg('--desc') || '';
           if (!name || !url || !token) {
-            console.log('❌ --name, --url, --token 모두 필요');
+            console.log(' --name, --url, --token 모두 필요');
             break;
           }
           addContact(name, url, token, desc);
@@ -281,7 +281,7 @@ function getArg(flag) {
         }
         case 'remove': {
           const name = getArg('--name');
-          if (!name) { console.log('❌ --name 필요'); break; }
+          if (!name) { console.log(' --name 필요'); break; }
           removeContact(name);
           break;
         }
@@ -307,19 +307,19 @@ function getArg(flag) {
         if (contacts[name]) {
           await ping(contacts[name].url);
         } else {
-          console.log(`❌ 연락처 '${name}' 없음`);
+          console.log(` 연락처 '${name}' 없음`);
         }
       } else if (url) {
         await ping(url);
       } else {
-        console.log('❌ --url 또는 --to 필요');
+        console.log(' --url 또는 --to 필요');
       }
       break;
     }
     
     default:
       console.log(`
-📬 OpenClaw Messenger — 다른 OpenClaw에게 메시지 보내기
+ OpenClaw Messenger — 다른 OpenClaw에게 메시지 보내기
 
 사용법:
   node messenger.js send --to <연락처> --message "안녕!"
@@ -333,6 +333,6 @@ function getArg(flag) {
 `);
   }
 })().catch(e => {
-  console.error(`❌ 오류: ${e.message}`);
+  console.error(` 오류: ${e.message}`);
   process.exit(1);
 });

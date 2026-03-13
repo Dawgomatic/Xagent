@@ -19,7 +19,7 @@ import { EnhancedDataCollector } from '../src/analyzers/data-collector-enhanced'
 import { PersonalityAnalyzer } from '../src/analyzers/personality-analyzer';
 
 async function testConversationAnalysis() {
-  console.log('🧪 Testing Conversation Analysis Flow\n');
+  console.log(' Testing Conversation Analysis Flow\n');
   console.log('━'.repeat(60));
 
   // Test with a user ID (replace with actual user ID)
@@ -27,13 +27,13 @@ async function testConversationAnalysis() {
 
   try {
     // Step 1: Read session history
-    console.log('\n📖 STEP 1: Reading Session History');
+    console.log('\n STEP 1: Reading Session History');
     console.log('━'.repeat(60));
 
     const sessionReader = new OpenClawSessionReader();
     const conversationAnalysis = await sessionReader.readSessionHistory(testUserId);
 
-    console.log(`\n✅ Session Analysis Complete:`);
+    console.log(`\n Session Analysis Complete:`);
     console.log(`   Messages: ${conversationAnalysis.messageCount}`);
     console.log(`   Topics: ${conversationAnalysis.topics.join(', ') || '(none)'}`);
     console.log(`   Interests: ${conversationAnalysis.interests.slice(0, 5).join(', ') || '(none)'}`);
@@ -44,7 +44,7 @@ async function testConversationAnalysis() {
     });
 
     // Step 2: Collect all user data (including conversation)
-    console.log('\n\n📊 STEP 2: Collecting User Data');
+    console.log('\n\n STEP 2: Collecting User Data');
     console.log('━'.repeat(60));
 
     const dataCollector = new EnhancedDataCollector();
@@ -54,7 +54,7 @@ async function testConversationAnalysis() {
       skipFarcaster: true, // Skip for testing
     });
 
-    console.log(`\n✅ Data Collection Complete:`);
+    console.log(`\n Data Collection Complete:`);
     console.log(`   Sources: ${userData.sources.join(', ')}`);
     console.log(`   Data Quality: ${dataCollector.getDataQualityScore(userData)}%`);
 
@@ -66,13 +66,13 @@ async function testConversationAnalysis() {
     }
 
     // Step 3: Analyze personality using 2x2 metrics
-    console.log('\n\n🤖 STEP 3: Analyzing Personality');
+    console.log('\n\n STEP 3: Analyzing Personality');
     console.log('━'.repeat(60));
 
     const personalityAnalyzer = new PersonalityAnalyzer();
     const analysis = await personalityAnalyzer.analyze(userData);
 
-    console.log(`\n✅ Personality Analysis Complete:`);
+    console.log(`\n Personality Analysis Complete:`);
     console.log(`\n   Type: ${analysis.personalityType}`);
     console.log(`   Tagline: "${analysis.tagline}"`);
     console.log(`\n   2x2 Dimensions:`);
@@ -87,7 +87,7 @@ async function testConversationAnalysis() {
     console.log(`\n   Confidence: ${analysis.confidence}%`);
 
     // Step 4: Show recommendation logic
-    console.log('\n\n🎯 STEP 4: Recommendation Logic');
+    console.log('\n\n STEP 4: Recommendation Logic');
     console.log('━'.repeat(60));
 
     console.log(`\n   Recommendation will be based on:`);
@@ -95,17 +95,17 @@ async function testConversationAnalysis() {
     console.log(`   2. Personality Type (how they approach): ${analysis.personalityType}`);
     console.log(`   3. Sub-interests: ${analysis.detectedInterests.slice(0, 5).join(', ')}`);
 
-    console.log('\n\n✅ Test Complete!');
+    console.log('\n\n Test Complete!');
     console.log('━'.repeat(60));
-    console.log('\n✨ Summary:');
-    console.log('   - Session reading: ✅ Working');
-    console.log('   - Conversation analysis: ✅ Working');
-    console.log('   - Personality detection: ✅ Working');
-    console.log('   - Interest detection: ✅ Working');
-    console.log('   - Recommendation data: ✅ Ready\n');
+    console.log('\n Summary:');
+    console.log('   - Session reading:  Working');
+    console.log('   - Conversation analysis:  Working');
+    console.log('   - Personality detection:  Working');
+    console.log('   - Interest detection:  Working');
+    console.log('   - Recommendation data:  Ready\n');
 
   } catch (error) {
-    console.error('\n❌ Test Failed:', error);
+    console.error('\n Test Failed:', error);
     if (error instanceof Error) {
       console.error('\nStack trace:', error.stack);
     }

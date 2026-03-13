@@ -10,11 +10,11 @@ def list_tools():
     with open(reference_path, 'r') as f:
         lines = f.readlines()
         
-    print("📋 Menu de Instalação - Setup Automatik:")
+    print(" Menu de Instalação - Setup Automatik:")
     for line in lines:
         line = line.strip()
         if line.startswith('## '):
-            print(f"\n📂 {line[3:]}")
+            print(f"\n {line[3:]}")
         elif line.startswith('- **'):
             # Formato esperado: - **Tool Name**: Description
             try:

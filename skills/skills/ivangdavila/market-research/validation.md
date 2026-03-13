@@ -6,10 +6,10 @@
 
 Avoid leading questions. Get facts about past behavior, not future intentions.
 
-❌ "Would you use an app that does X?"
-✅ "How do you currently solve X?"
-✅ "What happened last time you faced this problem?"
-✅ "How much time/money did that cost you?"
+ "Would you use an app that does X?"
+ "How do you currently solve X?"
+ "What happened last time you faced this problem?"
+ "How much time/money did that cost you?"
 
 ### Jobs-to-be-Done Framework
 
@@ -37,11 +37,11 @@ Example: "When I'm preparing for a board meeting, I want to quickly assess compe
 
 | Signal | Weight |
 |--------|--------|
-| Customer gives you money (prepayment, LOI) | ⭐⭐⭐⭐⭐ |
-| Customer spends significant time helping you | ⭐⭐⭐⭐ |
-| Customer introduces you to others with same problem | ⭐⭐⭐⭐ |
-| Customer describes workarounds they've built | ⭐⭐⭐ |
-| Customer articulates the problem in your words | ⭐⭐⭐ |
+| Customer gives you money (prepayment, LOI) |  |
+| Customer spends significant time helping you |  |
+| Customer introduces you to others with same problem |  |
+| Customer describes workarounds they've built |  |
+| Customer articulates the problem in your words |  |
 
 ### Weak Signals (Keep Digging)
 

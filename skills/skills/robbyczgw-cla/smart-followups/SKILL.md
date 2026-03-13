@@ -30,7 +30,7 @@ channels:
 
 Generate contextual follow-up suggestions for OpenClaw conversations.
 
-## 🚀 Slash Command (New in v2.1.0!)
+##  Slash Command (New in v2.1.0!)
 
 **Primary command:**
 ```
@@ -45,9 +45,9 @@ Generate contextual follow-up suggestions for OpenClaw conversations.
 
 When you type `/followups`, I'll generate 3 contextual follow-up questions based on our conversation:
 
-1. ⚡ **Quick** — Clarification or immediate next step
-2. 🧠 **Deep Dive** — Technical depth or detailed exploration
-3. 🔗 **Related** — Connected topic or broader context
+1.  **Quick** — Clarification or immediate next step
+2.  **Deep Dive** — Technical depth or detailed exploration
+3.  **Related** — Connected topic or broader context
 
 ---
 
@@ -55,8 +55,8 @@ When you type `/followups`, I'll generate 3 contextual follow-up questions based
 
 | Method | Example | Recommended |
 |--------|---------|-------------|
-| `/followups` | Just type it! | ✅ Yes |
-| `/fu` | Short alias | ✅ Yes |
+| `/followups` | Just type it! |  Yes |
+| `/fu` | Short alias |  Yes |
 | Natural language | "give me suggestions" | Works too |
 | After any answer | "what should I ask next?" | Works too |
 
@@ -70,10 +70,10 @@ Bot: Docker is a containerization platform...
 
 You: /followups
 
-Bot: 💡 What would you like to explore next?
-[⚡ How do I install Docker?]
-[🧠 Explain container architecture]
-[🔗 Docker vs Kubernetes?]
+Bot:  What would you like to explore next?
+[ How do I install Docker?]
+[ Explain container architecture]
+[ Docker vs Kubernetes?]
 ```
 
 **On button channels (Telegram/Discord/Slack):** Tap a button to ask that question.
@@ -86,9 +86,9 @@ Each generation produces 3 suggestions:
 
 | Category | Emoji | Purpose |
 |----------|-------|---------|
-| **Quick** | ⚡ | Clarifications, definitions, immediate next steps |
-| **Deep Dive** | 🧠 | Technical depth, advanced concepts, thorough exploration |
-| **Related** | 🔗 | Connected topics, broader context, alternatives |
+| **Quick** |  | Clarifications, definitions, immediate next steps |
+| **Deep Dive** |  | Technical depth, advanced concepts, thorough exploration |
+| **Related** |  | Connected topics, broader context, alternatives |
 
 ## Authentication
 

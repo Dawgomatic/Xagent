@@ -5,7 +5,7 @@
 > **Description**: File-based multi-agent workflow framework. Core: JSON tickets + Markdown knowledge (no Python required). Optional: Python helpers in `lib/` for badge generation. Integrates with OpenClaw QMD for semantic search.
 > 
 > **Note**: Legacy FIS 3.1 components (memory_manager, skill_registry, etc.) are preserved in GitHub repo history but not included in this release. See repo for historical reference.  
-> **Status**: ✅ Stable — Simplified architecture with QMD integration
+> **Status**:  Stable — Simplified architecture with QMD integration
 
 ---
 
@@ -51,18 +51,18 @@
 
 ```
 fis-hub/                    # Your shared hub
-├── 📁 tickets/                      # Task workflow (FIS core)
+├──  tickets/                      # Task workflow (FIS core)
 │   ├── active/                      # Active tasks (JSON files)
 │   └── completed/                   # Archived tasks
-├── 📁 knowledge/                    # Shared knowledge (QMD-indexed)
+├──  knowledge/                    # Shared knowledge (QMD-indexed)
 │   ├── cybermao/                    # System knowledge
 │   ├── fis/                         # FIS documentation
 │   └── your-domain/                 # Your domain knowledge
-├── 📁 results/                      # Research outputs
-├── 📁 archive/                      # Archived old versions
+├──  results/                      # Research outputs
+├──  archive/                      # Archived old versions
 │   ├── fis3.1-full/                 # Complete 3.1 backup
 │   └── fis3.1-legacy/               # Legacy files
-└── 📁 .fis3.1/                      # Light configuration
+└──  .fis3.1/                      # Light configuration
     └── notifications.json           # Event notifications
 ```
 
@@ -346,19 +346,19 @@ If you have FIS 3.1 components:
 ├── QUICK_REFERENCE.md          # Quick command reference
 ├── AGENT_GUIDE.md              # Agent usage guide
 ├── lib/                        # Tools (not core)
-│   ├── badge_generator_v7.py   # ✅ Kept: Badge generation
-│   ├── fis_lifecycle.py        # ✅ Kept: Lifecycle helpers
-│   ├── fis_subagent_tool.py    # ✅ Kept: CLI helper
-│   ├── memory_manager.py       # ❌ Deprecated (QMD replaces)
-│   ├── skill_registry.py       # ❌ Deprecated (QMD replaces)
-│   └── deadlock_detector.py    # ❌ Deprecated
+│   ├── badge_generator_v7.py   #  Kept: Badge generation
+│   ├── fis_lifecycle.py        #  Kept: Lifecycle helpers
+│   ├── fis_subagent_tool.py    #  Kept: CLI helper
+│   ├── memory_manager.py       #  Deprecated (QMD replaces)
+│   ├── skill_registry.py       #  Deprecated (QMD replaces)
+│   └── deadlock_detector.py    #  Deprecated
 └── examples/                   # Usage examples
 ```
 
 ---
 
 *FIS 3.2.0-lite — Minimal workflow, maximal clarity*  
-*Designed by CyberMao 🐱⚡*
+*Designed by CyberMao *
 
 ---
 

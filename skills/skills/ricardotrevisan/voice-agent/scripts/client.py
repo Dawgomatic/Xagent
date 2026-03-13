@@ -13,17 +13,17 @@ def check_health():
         with urllib.request.urlopen(f"{API_URL}/health", timeout=2) as response:
             if response.status == 200:
                 data = json.loads(response.read().decode())
-                print(f"✅ Voice Agent API is UP ({data})")
+                print(f" Voice Agent API is UP ({data})")
                 return True
             else:
-                print(f"❌ Voice Agent API returned status {response.status}")
+                print(f" Voice Agent API returned status {response.status}")
                 return False
     except urllib.error.URLError:
-        print("❌ Could not connect to Voice Agent API (localhost:8000). Is the Docker container running?")
+        print(" Could not connect to Voice Agent API (localhost:8000). Is the Docker container running?")
         print("Ensure your Voice Agent backend service is running and reachable.")
         return False
     except Exception as e:
-        print(f"❌ Health check error: {e}")
+        print(f" Health check error: {e}")
         return False
 
 # --- LIVE TOOLS REMOVED ---
@@ -33,11 +33,11 @@ def check_health():
 
 def transcribe(filename):
     if not os.path.exists(filename):
-        print(f"❌ File not found: {filename}")
+        print(f" File not found: {filename}")
         return
 
     try:
-        print(f"📤 Transcribing {filename}...")
+        print(f" Transcribing {filename}...")
         
         # Multipart upload using standard library
         boundary = uuid.uuid4().hex
@@ -57,16 +57,16 @@ def transcribe(filename):
             if response.status == 200:
                 resp_data = json.loads(response.read().decode())
                 text = resp_data.get("text", "")
-                print(f"📝 Transcription: \"{text}\"")
+                print(f" Transcription: \"{text}\"")
             else:
-                print(f"❌ API Error: {response.read().decode()}")
+                print(f" API Error: {response.read().decode()}")
 
     except Exception as e:
-        print(f"❌ Error transcribing: {e}")
+        print(f" Error transcribing: {e}")
 
 def synthesize(text, output_file):
     if not text:
-        print("❌ No text provided.")
+        print(" No text provided.")
         return
 
     try:
@@ -81,7 +81,7 @@ def synthesize(text, output_file):
         elif ext == ".mp3":
             fmt = "mp3"
         
-        print(f"🗣️  Synthesizing to {output_file} (format: {fmt})...")
+        print(f"  Synthesizing to {output_file} (format: {fmt})...")
         
         headers = {'Content-Type': 'application/json'}
         data = json.dumps({"text": text, "format": fmt}).encode('utf-8')
@@ -96,10 +96,10 @@ def synthesize(text, output_file):
                         break
                     f.write(chunk)
                 
-        print(f"✅ Audio saved to {output_file}")
+        print(f" Audio saved to {output_file}")
 
     except Exception as e:
-        print(f"❌ Error synthesizing: {e}")
+        print(f" Error synthesizing: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="Voice Agent Skill Client")

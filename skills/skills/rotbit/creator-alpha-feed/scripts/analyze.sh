@@ -29,7 +29,7 @@ log() {
 
 # 检查原始数据是否存在
 if [[ ! -f "$RAW_JSON" ]]; then
-    echo "❌ 错误: 未找到原始数据文件 $RAW_JSON"
+    echo " 错误: 未找到原始数据文件 $RAW_JSON"
     echo "请先运行 collect.sh 收集数据"
     exit 1
 fi
@@ -144,13 +144,13 @@ cat > "$OUTPUT_MD" << EOF
 
 ---
 
-## 🏆 Top 推荐
+##  Top 推荐
 
 *分析完成后将显示推荐内容*
 
 ---
 
-## 📋 分析说明
+##  分析说明
 
 此文件由AI自动分析生成。要查看分析结果，请：
 
@@ -173,10 +173,10 @@ log "输出模板已生成: $OUTPUT_MD"
 log "========== 准备完成，等待AI分析 =========="
 
 echo ""
-echo "✅ 分析准备完成!"
-echo "📁 输出目录: $FILTERED_DIR"
-echo "📄 分析任务: $FILTERED_DIR/analysis-task.md"
-echo "📊 待分析内容: $TOTAL_RAW 条"
+echo " 分析准备完成!"
+echo " 输出目录: $FILTERED_DIR"
+echo " 分析任务: $FILTERED_DIR/analysis-task.md"
+echo " 待分析内容: $TOTAL_RAW 条"
 echo ""
 echo "下一步: 使用 OpenClaw 的 sessions_spawn 工具执行AI分析"
 echo "  或运行: openclaw agent --message \"分析 $FILTERED_DIR/analysis-task.md 并输出到 $OUTPUT_MD\""

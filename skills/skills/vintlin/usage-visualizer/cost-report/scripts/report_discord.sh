@@ -21,7 +21,7 @@ else
   DATE=$(date +%Y-%m-%d)
 fi
 
-echo -e "\n📌 Kimi 模型错误详情:"
+echo -e "\n Kimi 模型错误详情:"
 cd ~/.openclaw/agents/main/sessions && 
 for f in *.jsonl; do
   grep -a "\"timestamp\":\"$DATE" "$f" 2>/dev/null | 

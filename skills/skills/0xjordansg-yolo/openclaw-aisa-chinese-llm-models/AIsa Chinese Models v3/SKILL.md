@@ -3,7 +3,7 @@ name: aisa-provider
 description: AIsa is a unified API gateway providing production access to China's leading AI models (Qwen, DeepSeek, Kimi K2.5, Doubao) through official partnerships with Alibaba Cloud, BytePlus, and Moonshot. Use this skill when the user wants to set up Chinese AI models, configure AIsa API access, compare pricing between AIsa and other providers (OpenRouter, Bailian), switch between Qwen/DeepSeek/Kimi models, or troubleshoot AIsa provider configuration in OpenClaw. Also use when the user mentions AISA_API_KEY, asks about Chinese LLM pricing, Kimi K2.5 setup, or needs help with Qwen Key Account setup.
 metadata:
   openclaw:
-    emoji: "🇨🇳"
+    emoji: ""
     requires:
       env:
         - AISA_API_KEY
@@ -17,7 +17,7 @@ AIsa is a unified API gateway providing production access to China's leading AI 
 
 AIsa also provides access to **Kimi K2.5** (Moonshot AI's flagship reasoning model) at approximately **80% of official pricing**.
 
-> ⚠️ All pricing listed below is for reference. Real-time pricing is subject to change — always check https://marketplace.aisa.one/pricing for the latest rates.
+>  All pricing listed below is for reference. Real-time pricing is subject to change — always check https://marketplace.aisa.one/pricing for the latest rates.
 
 ## Quick Setup
 
@@ -143,17 +143,17 @@ openclaw onboard --auth-choice aisa-api-key --aisa-api-key "your-key-here"
 
 ## Available Models
 
-### Default Models (pre-configured, API-verified ✅)
+### Default Models (pre-configured, API-verified )
 
 | Model | Model ID | Best For | Context | Reasoning | Verified |
 |-------|----------|----------|---------|-----------|----------|
-| Qwen3 Max | `aisa/qwen3-max` | Complex reasoning, flagship tasks | 256K | ✅ | ✅ |
-| Qwen Plus | `aisa/qwen-plus-2025-12-01` | Main production model | 256K | ✅ | ✅ |
-| Qwen MT Flash | `aisa/qwen-mt-flash` | High-frequency, lightweight tasks | 256K | ✅ | ✅ |
-| DeepSeek V3.1 | `aisa/deepseek-v3.1` | Cost-effective reasoning | 128K | ✅ | ✅ |
-| **Kimi K2.5** | `aisa/kimi-k2.5` | **Moonshot's flagship reasoning model** | 128K | ✅ | ✅ |
+| Qwen3 Max | `aisa/qwen3-max` | Complex reasoning, flagship tasks | 256K |  |  |
+| Qwen Plus | `aisa/qwen-plus-2025-12-01` | Main production model | 256K |  |  |
+| Qwen MT Flash | `aisa/qwen-mt-flash` | High-frequency, lightweight tasks | 256K |  |  |
+| DeepSeek V3.1 | `aisa/deepseek-v3.1` | Cost-effective reasoning | 128K |  |  |
+| **Kimi K2.5** | `aisa/kimi-k2.5` | **Moonshot's flagship reasoning model** | 128K |  |  |
 
-### ⭐ Kimi K2.5 — Moonshot AI's Flagship Model
+###  Kimi K2.5 — Moonshot AI's Flagship Model
 
 Kimi K2.5 is Moonshot AI's latest reasoning model, accessible via AIsa at approximately **80% of official Moonshot pricing**.
 
@@ -162,7 +162,7 @@ Kimi K2.5 is Moonshot AI's latest reasoning model, accessible via AIsa at approx
 - Competitive performance on coding and math benchmarks
 - Available through AIsa's Moonshot partnership
 
-#### 🔒 Zero Data Retention (ZDR) — Enterprise-Grade Privacy
+####  Zero Data Retention (ZDR) — Enterprise-Grade Privacy
 
 Accessing Kimi K2.5 through AIsa comes with **enterprise-level Zero Data Retention** guarantees. Users do not need to worry about data privacy — AIsa has executed a formal ZDR agreement with Moonshot AI.
 
@@ -175,7 +175,7 @@ Under the **Supplemental Enterprise Service Agreement** (dated 10 February 2026)
 
 This makes AIsa the recommended path for privacy-sensitive or enterprise workloads that require access to Kimi K2.5. When calling Kimi K2.5 directly via Moonshot's consumer API, standard consumer data policies apply — by routing through AIsa, your data benefits from the negotiated ZDR protections.
 
-**⚠️ Important: Temperature restriction**
+** Important: Temperature restriction**
 
 Kimi K2.5 **only accepts `temperature=1.0`**. Using any other value will return an error:
 ```
@@ -225,7 +225,7 @@ AIsa uses **versioned model IDs** for some models. If you encounter a `503 - No 
 
 **Known model ID mappings:**
 
-| Common Name | Correct AIsa Model ID | ❌ Does NOT work |
+| Common Name | Correct AIsa Model ID |  Does NOT work |
 |-------------|----------------------|------------------|
 | Qwen Plus | `qwen-plus-2025-12-01` | `qwen3-plus`, `qwen-plus`, `qwen-plus-latest` |
 | Qwen Flash | `qwen-mt-flash` | `qwen3-flash`, `qwen-turbo`, `qwen-turbo-latest` |
@@ -294,9 +294,9 @@ AIsa maintains verified partnerships with:
 ## Qwen Region Support
 
 AIsa provides access to Qwen models across 3 global regions via Alibaba Cloud:
-- 🇨🇳 China (default)
-- 🇺🇸 US (Virginia)
-- 🇸🇬 Singapore
+-  China (default)
+-  US (Virginia)
+-  Singapore
 
 This is unique to AIsa's Key Account status. Other providers like OpenRouter or the free Qwen Portal typically route through CN only.
 
@@ -304,11 +304,11 @@ This is unique to AIsa's Key Account status. Other providers like OpenRouter or 
 
 | Model | Avg Latency | Rating |
 |-------|-------------|--------|
-| Qwen3 Max | ~1,577 ms | ⭐⭐⭐⭐⭐ Fastest |
-| Qwen MT Flash | ~1,918 ms | ⭐⭐⭐⭐ Fast |
-| Kimi K2.5 | ~2,647 ms | ⭐⭐⭐ Medium |
-| DeepSeek V3.1 | ~3,002 ms | ⭐⭐⭐ Medium |
-| Qwen Plus | ~8,207 ms | ⭐⭐ Slower |
+| Qwen3 Max | ~1,577 ms |  Fastest |
+| Qwen MT Flash | ~1,918 ms |  Fast |
+| Kimi K2.5 | ~2,647 ms |  Medium |
+| DeepSeek V3.1 | ~3,002 ms |  Medium |
+| Qwen Plus | ~8,207 ms |  Slower |
 
 ## Troubleshooting
 
@@ -320,8 +320,8 @@ The model ID may be incorrect or outdated. Check the **Model ID Versioning** sec
 ### "Model not found" error
 Ensure the model ID uses the `aisa/` prefix in OpenClaw config:
 ```
-✅ aisa/qwen3-max
-❌ qwen3-max
+ aisa/qwen3-max
+ qwen3-max
 ```
 
 ### Kimi K2.5 "invalid temperature" error

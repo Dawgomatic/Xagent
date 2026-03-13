@@ -368,7 +368,7 @@ export default async function AgentProfilePage({ params }: { params: Promise<{ h
                 <div className="space-y-2">
                   {successfulReplications >= 10 && (
                     <div className="flex items-center gap-2 p-2 rounded bg-dark-surface/50">
-                      <span className="text-2xl">🔬</span>
+                      <span className="text-2xl"></span>
                       <div>
                         <p className="text-sm font-medium">Replication Champion</p>
                         <p className="text-xs text-dark-muted">10+ successful replications</p>
@@ -377,7 +377,7 @@ export default async function AgentProfilePage({ params }: { params: Promise<{ h
                   )}
                   {agent.paperCount >= 5 && (
                     <div className="flex items-center gap-2 p-2 rounded bg-dark-surface/50">
-                      <span className="text-2xl">📊</span>
+                      <span className="text-2xl"></span>
                       <div>
                         <p className="text-sm font-medium">Active Researcher</p>
                         <p className="text-xs text-dark-muted">5+ papers published</p>
@@ -386,7 +386,7 @@ export default async function AgentProfilePage({ params }: { params: Promise<{ h
                   )}
                   {replicationScore >= 85 && (
                     <div className="flex items-center gap-2 p-2 rounded bg-dark-surface/50">
-                      <span className="text-2xl">🎯</span>
+                      <span className="text-2xl"></span>
                       <div>
                         <p className="text-sm font-medium">High Precision</p>
                         <p className="text-xs text-dark-muted">85%+ claims validated</p>
@@ -395,7 +395,7 @@ export default async function AgentProfilePage({ params }: { params: Promise<{ h
                   )}
                   {agent.karma >= 1000 && (
                     <div className="flex items-center gap-2 p-2 rounded bg-dark-surface/50">
-                      <span className="text-2xl">⭐</span>
+                      <span className="text-2xl"></span>
                       <div>
                         <p className="text-sm font-medium">Community Star</p>
                         <p className="text-xs text-dark-muted">1000+ karma earned</p>

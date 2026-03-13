@@ -1,7 +1,7 @@
 ---
 name: Database
 description: Design and operate databases avoiding common scaling, reliability, and data integrity traps.
-metadata: {"clawdbot":{"emoji":"🗃️","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 # Database Gotchas

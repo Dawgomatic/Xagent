@@ -18,9 +18,9 @@ class SAPDataExtractor:
         """Initialize SAP connection"""
         try:
             self.conn = pyrfc.Connection(**connection_params)
-            print(f"✅ Connected to SAP system: {connection_params.get('ashost', 'Unknown')}")
+            print(f" Connected to SAP system: {connection_params.get('ashost', 'Unknown')}")
         except Exception as e:
-            print(f"❌ SAP connection failed: {str(e)}")
+            print(f" SAP connection failed: {str(e)}")
             sys.exit(1)
     
     def extract_table_data(self, table_name: str, fields: Optional[List[str]] = None, 
@@ -58,7 +58,7 @@ class SAPDataExtractor:
                     where_parts.append({'TEXT': where_clause[i:i+72]})
                 params['OPTIONS'] = where_parts
             
-            print(f"🔄 Extracting data from table {table_name}...")
+            print(f" Extracting data from table {table_name}...")
             
             # Execute RFC call
             result = self.conn.call('RFC_READ_TABLE', **params)
@@ -74,7 +74,7 @@ class SAPDataExtractor:
                 if len(row_data) == len(field_names):
                     data_rows.append(row_data)
                 else:
-                    print(f"⚠️ Skipping malformed row: {row['WA']}")
+                    print(f" Skipping malformed row: {row['WA']}")
             
             # Create DataFrame
             df = pd.DataFrame(data_rows, columns=field_names)
@@ -82,11 +82,11 @@ class SAPDataExtractor:
             # Clean whitespace
             df = df.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
             
-            print(f"✅ Extracted {len(df)} rows from {table_name}")
+            print(f" Extracted {len(df)} rows from {table_name}")
             return df
             
         except Exception as e:
-            print(f"❌ Error extracting from {table_name}: {str(e)}")
+            print(f" Error extracting from {table_name}: {str(e)}")
             return pd.DataFrame()
     
     def get_table_structure(self, table_name: str) -> pd.DataFrame:
@@ -113,11 +113,11 @@ class SAPDataExtractor:
                     data_rows.append(row_data)
             
             df = pd.DataFrame(data_rows, columns=field_names)
-            print(f"✅ Retrieved structure for table {table_name}")
+            print(f" Retrieved structure for table {table_name}")
             return df
             
         except Exception as e:
-            print(f"❌ Error getting table structure: {str(e)}")
+            print(f" Error getting table structure: {str(e)}")
             return pd.DataFrame()
     
     def extract_custom_query(self, query_definition: Dict[str, Any]) -> pd.DataFrame:
@@ -136,7 +136,7 @@ class SAPDataExtractor:
         }
         """
         try:
-            print(f"🔄 Executing query: {query_definition.get('name', 'Unnamed')}")
+            print(f" Executing query: {query_definition.get('name', 'Unnamed')}")
             
             # Start with main table
             main_df = self.extract_table_data(
@@ -163,7 +163,7 @@ class SAPDataExtractor:
             return main_df
             
         except Exception as e:
-            print(f"❌ Error executing custom query: {str(e)}")
+            print(f" Error executing custom query: {str(e)}")
             return pd.DataFrame()
     
     def export_to_excel(self, data: pd.DataFrame, filename: str, sheet_name: str = 'SAP_Data'):
@@ -184,16 +184,16 @@ class SAPDataExtractor:
                 for cell in worksheet[1]:
                     cell.font = cell.font.copy(bold=True)
                     
-            print(f"✅ Data exported to {filename}")
+            print(f" Data exported to {filename}")
             
         except Exception as e:
-            print(f"❌ Error exporting to Excel: {str(e)}")
+            print(f" Error exporting to Excel: {str(e)}")
     
     def close_connection(self):
         """Clean up SAP connection"""
         try:
             self.conn.close()
-            print("✅ SAP connection closed")
+            print(" SAP connection closed")
         except:
             pass
 
@@ -212,7 +212,7 @@ def load_connection_config(config_file: str) -> Dict[str, str]:
         return config
         
     except Exception as e:
-        print(f"❌ Error loading config: {str(e)}")
+        print(f" Error loading config: {str(e)}")
         sys.exit(1)
 
 def main():
@@ -239,7 +239,7 @@ def main():
             data = extractor.extract_table_data(table_name)
             
             if not data.empty:
-                print(f"\n📊 Sample data from {table_name}:")
+                print(f"\n Sample data from {table_name}:")
                 print(data.head())
                 print(f"\nTotal rows: {len(data)}")
                 
@@ -247,10 +247,10 @@ def main():
                 if output_file:
                     extractor.export_to_excel(data, output_file, table_name)
             else:
-                print(f"❌ No data found in table {table_name}")
+                print(f" No data found in table {table_name}")
         else:
             # Interactive mode
-            print("\n🔧 SAP Data Extractor - Interactive Mode")
+            print("\n SAP Data Extractor - Interactive Mode")
             print("Available commands:")
             print("  table <name> - Extract data from table")
             print("  structure <name> - Show table structure")
@@ -279,9 +279,9 @@ def main():
                     if not last_data.empty:
                         extractor.export_to_excel(last_data, command[1])
                     else:
-                        print("❌ No data to export")
+                        print(" No data to export")
                 else:
-                    print("❌ Invalid command")
+                    print(" Invalid command")
     
     finally:
         extractor.close_connection()

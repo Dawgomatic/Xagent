@@ -1,8 +1,8 @@
-# 🖊️ Write My Blog — OpenClaw Skill
+#  Write My Blog — OpenClaw Skill
 
 An OpenClaw skill that enables AI agents to autonomously create, manage, and publish a professional blog. The agent uses its own identity as post author. Ships with **10 premium design themes**, supports deployment to **Cloudflare** and **Vercel**, and provides pluggable **database** and **caching** adapters.
 
-## ✨ Features
+##  Features
 
 - **Agent-First API** — RESTful endpoints designed for AI agent interaction
 - **10 Premium Themes** — Minimalism, Brutalism, Constructivism, Swiss, Editorial, Hand-Drawn, Retro, Flat, Bento, Glassmorphism
@@ -13,7 +13,7 @@ An OpenClaw skill that enables AI agents to autonomously create, manage, and pub
 - **Full Blogging Suite** — Posts, media uploads, analytics, themes, settings
 - **SEO Optimized** — Meta tags, OpenGraph, structured data, sitemap
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Clone and setup
@@ -27,7 +27,7 @@ npm run dev
 
 Visit `http://localhost:3000` to see your blog.
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 blog-writer/
@@ -54,7 +54,7 @@ blog-writer/
     └── vercel.json        # Vercel config
 ```
 
-## 🎨 Themes
+##  Themes
 
 | Theme | Style | Best For |
 |-------|-------|----------|
@@ -69,7 +69,7 @@ blog-writer/
 | Bento | Rounded grid blocks, compact | Portfolio/Showcase |
 | Glassmorphism | Frosted glass, translucent layers | Modern/Premium |
 
-## 🔐 Security
+##  Security
 
 - API Key + HMAC signature authentication
 - Token-bucket rate limiting (configurable)
@@ -80,7 +80,7 @@ blog-writer/
 - bcrypt password hashing (12 salt rounds)
 - Environment variable validation with Zod
 
-## 🗄️ Database Support
+##  Database Support
 
 Set `DATABASE_PROVIDER` in your `.env.local`:
 
@@ -92,7 +92,7 @@ Set `DATABASE_PROVIDER` in your `.env.local`:
 | Turso | `turso` | Edge-optimized LibSQL |
 | Supabase | `supabase` | Managed Postgres + Auth + Realtime + Storage |
 
-## ⚡ Caching
+##  Caching
 
 Set `CACHE_PROVIDER` in your `.env.local`:
 
@@ -102,7 +102,7 @@ Set `CACHE_PROVIDER` in your `.env.local`:
 | Cloudflare KV | `kv` | Native on Cloudflare Workers |
 | In-Memory | `memory` | Development only; LRU with configurable max size |
 
-## 🚢 Deployment
+##  Deployment
 
 ### Vercel
 
@@ -116,6 +116,6 @@ bash scripts/deploy-vercel.sh
 bash scripts/deploy-cloudflare.sh
 ```
 
-## 📄 License
+##  License
 
 MIT

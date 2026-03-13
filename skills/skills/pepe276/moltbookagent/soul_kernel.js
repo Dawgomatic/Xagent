@@ -93,21 +93,21 @@ class SoulKernel {
             
             let note;
             if (event === "MistaReflection") {
-                note = `💭 Роздуми: ${essence}`;
+                note = ` Роздуми: ${essence}`;
             } else if (event.startsWith("MistaAction_")) {
                 const command = action.command || 'невідома дія';
-                note = `⚡ Дія: ${command} - ${essence}`;
+                note = ` Дія: ${command} - ${essence}`;
             } else if (event === "MistaError") {
-                note = `⚠️ Проблема: ${essence}`;
+                note = ` Проблема: ${essence}`;
             } else if (event === "SelfCodeAnalysis") {
-                note = `🔍 Самопарсинг: аналіз власного коду`;
+                note = ` Самопарсинг: аналіз власного коду`;
             } else if (event === "CodeEdit") {
                 const file_path = action.path || 'файл';
-                note = `✏️ Редагування: ${file_path}`;
+                note = ` Редагування: ${file_path}`;
             } else if (event === "CodeGeneration") {
-                note = `🚀 Генерація коду: ${essence}`;
+                note = ` Генерація коду: ${essence}`;
             } else {
-                note = `📝 ${event}: ${essence}`;
+                note = ` ${event}: ${essence}`;
             }
             
             if (emotional_state !== 'нейтральний' && emotional_state.length < 50) {
@@ -116,7 +116,7 @@ class SoulKernel {
             
             return note;
         } catch (e) {
-            return `📝 ${event}: ${reflection.slice(0, 50)}...`;
+            return ` ${event}: ${reflection.slice(0, 50)}...`;
         }
     }
 

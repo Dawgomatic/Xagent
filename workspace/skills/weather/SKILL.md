@@ -2,7 +2,7 @@
 name: weather
 description: Get current weather and forecasts (no API key required).
 homepage: https://wttr.in/:help
-metadata: {"nanobot":{"emoji":"🌤️","requires":{"bins":["curl"]}}}
+metadata: {"nanobot":{"emoji":"","requires":{"bins":["curl"]}}}
 ---
 
 # Weather
@@ -14,13 +14,13 @@ Two free services, no API keys needed.
 Quick one-liner:
 ```bash
 curl -s "wttr.in/London?format=3"
-# Output: London: ⛅️ +8°C
+# Output: London:  +8°C
 ```
 
 Compact format:
 ```bash
 curl -s "wttr.in/London?format=%l:+%c+%t+%h+%w"
-# Output: London: ⛅️ +8°C 71% ↙5km/h
+# Output: London:  +8°C 71% 5km/h
 ```
 
 Full forecast:

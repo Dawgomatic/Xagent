@@ -17,28 +17,28 @@ EvidenceOps is a forensic-grade evidence management system for OpenClaw, providi
 
 1. INTAKE
    ┌──────────┐    ┌──────────────┐    ┌─────────────┐
-   │  Media   │───▶│   Staging    │───▶│  Calculate  │
+   │  Media   │───│   Staging    │───│  Calculate  │
    │  Input   │    │  (read-only) │    │  SHA-256    │
    └──────────┘    └──────────────┘    └─────────────┘
                                               │
                                               ▼
 2. METADATA EXTRACTION                   ┌─────────────┐
    ┌──────────┐    ┌──────────────┐     │  Manifest   │
-   │  EXIF/   │───▶│  Metadata    │────▶│  Update     │
+   │  EXIF/   │───│  Metadata    │────│  Update     │
    │  Media   │    │  (JSON)      │     │             │
    └──────────┘    └──────────────┘     └─────────────┘
                                               │
                                               ▼
 3. DERIVATIVES GENERATION                ┌─────────────┐
    ┌──────────┐    ┌──────────────┐     │  Vault      │
-   │ Thumbnail│    │  Transcript  │────▶│  Ingest     │
+   │ Thumbnail│    │  Transcript  │────│  Ingest     │
    │  OCR     │    │  Preview     │     │             │
    └──────────┘    └──────────────┘     └─────────────┘
                                               │
                                               ▼
 4. VAULT STORAGE                         ┌─────────────┐
    ┌──────────┐    ┌──────────────┐     │  Receipt    │
-   │ Original │    │  Audit Log   │────▶│  Return     │
+   │ Original │    │  Audit Log   │────│  Return     │
    │ (locked) │    │  (JSONL)     │     │             │
    └──────────┘    └──────────────┘     └─────────────┘
 ```

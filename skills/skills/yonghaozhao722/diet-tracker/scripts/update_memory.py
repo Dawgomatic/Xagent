@@ -151,9 +151,9 @@ def update_memory(meal_name, food_item, nutrition_info, notes=""):
         try:
             import shutil
             shutil.copy2(filename, obsidian_filename)
-            print(f"✅ 已同步到 Obsidian: {obsidian_filename}")
+            print(f" 已同步到 Obsidian: {obsidian_filename}")
         except Exception as e:
-            print(f"⚠️ Obsidian 同步失败: {e}")
+            print(f" Obsidian 同步失败: {e}")
         
         # Push to GitHub
         try:
@@ -166,14 +166,14 @@ def update_memory(meal_name, food_item, nutrition_info, notes=""):
             subprocess.run(["git", "-C", obsidian_dir, "commit", "-m", f"Update diet log for {date_str}", "--allow-empty"], check=False, capture_output=True)
             result = subprocess.run(["git", "-C", obsidian_dir, "push", "origin", "master"], check=False, capture_output=True, text=True)
             if result.returncode == 0:
-                print(f"✅ 已推送到 GitHub")
+                print(f" 已推送到 GitHub")
             else:
                 # Try pull and push again
                 subprocess.run(["git", "-C", obsidian_dir, "pull", "origin", "master", "--rebase"], check=False, capture_output=True)
                 subprocess.run(["git", "-C", obsidian_dir, "push", "origin", "master"], check=False, capture_output=True)
-                print(f"✅ 已推送到 GitHub (after rebase)")
+                print(f" 已推送到 GitHub (after rebase)")
         except Exception as e:
-            print(f"⚠️ GitHub 推送失败: {e}")
+            print(f" GitHub 推送失败: {e}")
     except Exception as e:
         print(f"Error writing to file: {e}")
 

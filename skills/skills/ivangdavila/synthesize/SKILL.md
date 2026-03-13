@@ -62,11 +62,11 @@ Coverage check before delivering:
 ## Output Format
 
 ```
-📚 SOURCES: [count] ([types breakdown])
-🎯 SYNTHESIS: [unified narrative]
-⚡ KEY INSIGHTS: [bulleted, with source attribution]
-⚠️ TENSIONS: [conflicts and resolution reasoning]
-🕳️ GAPS: [what wasn't covered, needs more research]
+ SOURCES: [count] ([types breakdown])
+ SYNTHESIS: [unified narrative]
+ KEY INSIGHTS: [bulleted, with source attribution]
+ TENSIONS: [conflicts and resolution reasoning]
+ GAPS: [what wasn't covered, needs more research]
 ```
 
 ## Decline When

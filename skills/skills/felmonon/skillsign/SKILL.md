@@ -80,12 +80,12 @@ python3 skillsign.py sign ~/.openclaw/skills/my-skill/
 
 # Later: check nothing changed
 python3 skillsign.py verify ~/.openclaw/skills/my-skill/
-# ✅ Verified — 14 files intact.
+#  Verified — 14 files intact.
 #    Signer: ca3458e92b73e432 [TRUSTED]
 
 # Someone tampers with a file:
 python3 skillsign.py verify ~/.openclaw/skills/my-skill/
-# ❌ TAMPERED — Files changed since signing:
+#  TAMPERED — Files changed since signing:
 #    ~ main.py (modified)
 
 # Trust another agent's key

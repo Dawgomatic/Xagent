@@ -45,16 +45,16 @@ Collect all reviewer outputs:
 
 | Reviewer | Verdict | Key Finding |
 |----------|---------|-------------|
-| Structure | ✅/⚠️/❌ | [summary] |
-| Safety | ✅/⚠️/❌ | [summary] |
-| Usefulness | ✅/⚠️/❌ | [summary] |
-| Domain | ✅/⚠️/❌ | [summary] |
+| Structure | // | [summary] |
+| Safety | // | [summary] |
+| Usefulness | // | [summary] |
+| Domain | // | [summary] |
 
 ## Final Recommendation
 
-- **All ✅** → Recommend
-- **Any ❌** → Don't recommend (explain why)
-- **Mixed ⚠️** → Present concerns, let user decide
+- **All ** → Recommend
+- **Any ** → Don't recommend (explain why)
+- **Mixed ** → Present concerns, let user decide
 
 ## Handling Conflicts
 

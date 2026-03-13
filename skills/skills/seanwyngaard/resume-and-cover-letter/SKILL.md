@@ -52,19 +52,19 @@ Compare candidate experience against job requirements:
 ```
 KEYWORD MATCH REPORT
 ═══════════════════
-✅ Matched (use these prominently):
+ Matched (use these prominently):
    - React (mentioned 3x in JD, candidate has 4 years)
    - TypeScript (required, candidate proficient)
    - REST APIs (mentioned 2x, candidate built several)
 
-⚠️ Partial Match (reframe experience):
+ Partial Match (reframe experience):
    - GraphQL (required, candidate has basic experience)
    - CI/CD (mentioned, candidate has "deployment automation" experience)
 
-❌ Gap (address in cover letter):
+ Gap (address in cover letter):
    - Kubernetes (nice-to-have, candidate hasn't used directly)
 
-📊 Overall Match: 78%
+ Overall Match: 78%
 ```
 
 ### Step 4: Generate Resume

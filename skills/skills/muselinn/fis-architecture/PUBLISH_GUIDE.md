@@ -8,10 +8,10 @@
 
 | Item | Status |
 |------|--------|
-| Git repository | ✅ Initialized |
-| GitHub remote | ✅ Connected (MuseLinn/fis-architecture) |
-| Files updated | ✅ FIS 3.2 documentation |
-| Deprecated archived | ✅ Old components moved to `archive/deprecated/` |
+| Git repository |  Initialized |
+| GitHub remote |  Connected (MuseLinn/fis-architecture) |
+| Files updated |  FIS 3.2 documentation |
+| Deprecated archived |  Old components moved to `archive/deprecated/` |
 
 ---
 
@@ -22,38 +22,38 @@ fis-architecture/
 ├── .gitignore              # Git ignore rules
 ├── skill.json              # Skill metadata
 ├── README.md               # Project homepage
-├── SKILL.md                # Full documentation (⭐ updated to 3.2)
-├── QUICK_REFERENCE.md      # Quick command reference (⭐ updated)
-├── AGENT_GUIDE.md          # Agent usage guide (⭐ updated)
-├── CONFIGURATION.md        # Configuration guide (⭐ updated)
-├── POST_INSTALL.md         # Post-install setup (⭐ updated)
-├── INSTALL_CHECKLIST.md    # Installation checklist (⭐ updated)
-├── OPENCLAW_COMPATIBILITY.md # Compatibility notes (⭐ updated)
+├── SKILL.md                # Full documentation ( updated to 3.2)
+├── QUICK_REFERENCE.md      # Quick command reference ( updated)
+├── AGENT_GUIDE.md          # Agent usage guide ( updated)
+├── CONFIGURATION.md        # Configuration guide ( updated)
+├── POST_INSTALL.md         # Post-install setup ( updated)
+├── INSTALL_CHECKLIST.md    # Installation checklist ( updated)
+├── OPENCLAW_COMPATIBILITY.md # Compatibility notes ( updated)
 ├── PUBLISH_GUIDE.md        # This file
 ├── REVIEW.md               # Review notes
 ├── package.json            # ClawHub metadata
 ├── lib/                    # Tools
-│   ├── badge_generator_v7.py      # ✅ Badge generation (kept)
-│   ├── badge_generator.py         # ✅ Legacy badge gen
-│   ├── badge_generator_ascii.py   # ✅ ASCII badge gen
-│   ├── badge_image_pil.py         # ✅ PIL utilities
-│   ├── badge_template.html        # ✅ HTML template
-│   ├── fis_lifecycle.py           # ✅ Lifecycle helpers
-│   ├── fis_subagent_tool.py       # ✅ CLI helper
-│   ├── multi_worker_demo.py       # ✅ Demo script
-│   ├── task_router.py             # ✅ Task routing
-│   └── fis_config.py              # ✅ Config utilities
+│   ├── badge_generator_v7.py      #  Badge generation (kept)
+│   ├── badge_generator.py         #  Legacy badge gen
+│   ├── badge_generator_ascii.py   #  ASCII badge gen
+│   ├── badge_image_pil.py         #  PIL utilities
+│   ├── badge_template.html        #  HTML template
+│   ├── fis_lifecycle.py           #  Lifecycle helpers
+│   ├── fis_subagent_tool.py       #  CLI helper
+│   ├── multi_worker_demo.py       #  Demo script
+│   ├── task_router.py             #  Task routing
+│   └── fis_config.py              #  Config utilities
 ├── archive/                # Archived components
-│   └── deprecated/         # ⭐ FIS 3.1 deprecated files
+│   └── deprecated/         #  FIS 3.1 deprecated files
 │       ├── README.md       # Migration guide
 │       ├── memory_manager.py
 │       ├── skill_registry.py
 │       ├── deadlock_detector.py
 │       └── subagent_lifecycle.py
 └── examples/               # Usage examples
-    ├── init_fis31.py       # ⚠️ Legacy init (3.1 only)
-    ├── subagent_pipeline.py # ⚠️ Legacy pipeline
-    └── generate_badges.py  # ✅ Badge generation demo
+    ├── init_fis31.py       #  Legacy init (3.1 only)
+    ├── subagent_pipeline.py #  Legacy pipeline
+    └── generate_badges.py  #  Badge generation demo
 ```
 
 ---
@@ -220,4 +220,4 @@ python3 badge_generator_v7.py
 
 ---
 
-*Ready to publish 🚀*
+*Ready to publish *

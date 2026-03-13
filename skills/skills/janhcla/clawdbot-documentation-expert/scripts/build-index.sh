@@ -9,7 +9,7 @@ DOCS_DIR="${INDEX_DIR}/docs"
 mkdir -p "$DOCS_DIR"
 
 fetch_all() {
-    echo "📥 Fetching all documentation..."
+    echo " Fetching all documentation..."
     
     local urls=$("$SCRIPT_DIR/cache.sh" urls)
     local total=$(echo "$urls" | wc -l | tr -d ' ')
@@ -54,7 +54,7 @@ fetch_all() {
     done
     
     echo ""
-    echo "✅ Fetched docs to: $DOCS_DIR"
+    echo " Fetched docs to: $DOCS_DIR"
     echo "Total files: $(ls -1 "$DOCS_DIR" | wc -l | tr -d ' ')"
 }
 
@@ -67,9 +67,9 @@ build_qmd_index() {
         exit 1
     fi
     
-    echo "🔨 Building qmd index..."
+    echo " Building qmd index..."
     qmd index "$DOCS_DIR"
-    echo "✅ Index built. Search with: qmd query 'your question'"
+    echo " Index built. Search with: qmd query 'your question'"
 }
 
 search() {
@@ -85,7 +85,7 @@ search() {
     else
         echo "Falling back to grep search..."
         grep -ril "$query" "$DOCS_DIR" | head -20 | while read -r file; do
-            echo "📄 $(basename "$file" .md | tr '_' '/')"
+            echo " $(basename "$file" .md | tr '_' '/')"
             grep -i "$query" "$file" | head -2 | sed 's/^/   /'
             echo ""
         done
@@ -93,7 +93,7 @@ search() {
 }
 
 status() {
-    echo "📊 Index Status:"
+    echo " Index Status:"
     echo "  Docs dir: $DOCS_DIR"
     if [ -d "$DOCS_DIR" ]; then
         echo "  Files: $(ls -1 "$DOCS_DIR" 2>/dev/null | wc -l | tr -d ' ')"

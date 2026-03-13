@@ -3,7 +3,7 @@
 
 SITEMAP_URL="https://docs.clawd.bot/sitemap.xml"
 
-echo "📚 Clawdbot Documentation Structure"
+echo " Clawdbot Documentation Structure"
 echo "===================================="
 echo ""
 
@@ -25,20 +25,20 @@ print_category() {
 }
 
 # Print each category
-print_category "Getting Started" "🚀" "/start/"
-print_category "Gateway & Operations" "🔧" "/gateway/"
-print_category "Providers" "💬" "/providers/"
-print_category "Core Concepts" "🧠" "/concepts/"
-print_category "Tools" "🛠️" "/tools/"
-print_category "Automation" "⚡" "/automation/"
-print_category "CLI" "💻" "/cli/"
-print_category "Platforms" "📱" "/platforms/"
-print_category "Nodes" "📡" "/nodes/"
-print_category "Web" "🌐" "/web/"
-print_category "Install" "📦" "/install/"
-print_category "Reference" "📚" "/reference/"
-print_category "Experiments" "🧪" "/experiments/"
+print_category "Getting Started" "" "/start/"
+print_category "Gateway & Operations" "" "/gateway/"
+print_category "Providers" "" "/providers/"
+print_category "Core Concepts" "" "/concepts/"
+print_category "Tools" "" "/tools/"
+print_category "Automation" "" "/automation/"
+print_category "CLI" "" "/cli/"
+print_category "Platforms" "" "/platforms/"
+print_category "Nodes" "" "/nodes/"
+print_category "Web" "" "/web/"
+print_category "Install" "" "/install/"
+print_category "Reference" "" "/reference/"
+print_category "Experiments" "" "/experiments/"
 
 # Count total docs
 TOTAL=$(echo "$URLS" | wc -l | tr -d ' ')
-echo "📊 Total documentation pages: $TOTAL"
+echo " Total documentation pages: $TOTAL"

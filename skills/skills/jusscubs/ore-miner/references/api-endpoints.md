@@ -9,7 +9,7 @@ All authenticated endpoints require: `x-api-key: rsk_...` header
 
 ## Account
 
-### GET /account/me ✅
+### GET /account/me 
 Get account info including wallet address and deposit instructions.
 
 **Response:**
@@ -34,7 +34,7 @@ Get account info including wallet address and deposit instructions.
 
 ## Wallet
 
-### GET /wallet/balances?wallet=ADDRESS ✅
+### GET /wallet/balances?wallet=ADDRESS 
 Get all token balances. **Requires `wallet` query parameter.**
 
 **Response:**
@@ -52,13 +52,13 @@ Get all token balances. **Requires `wallet` query parameter.**
 }
 ```
 
-> ⚠️ The old endpoint `/wallet/balance` (no 's', no wallet param) does NOT exist.
+>  The old endpoint `/wallet/balance` (no 's', no wallet param) does NOT exist.
 
 ---
 
 ## Mining
 
-### POST /mining/start ✅
+### POST /mining/start 
 Start a new mining session.
 
 **Required fields:** `wallet_address`, `sol_amount`, `num_squares`
@@ -76,7 +76,7 @@ Start a new mining session.
 }
 ```
 
-> ⚠️ `wallet_address` is **required** — omitting it returns `{"error":"Missing required fields"}`
+>  `wallet_address` is **required** — omitting it returns `{"error":"Missing required fields"}`
 
 **Response:**
 ```json
@@ -90,7 +90,7 @@ Start a new mining session.
 }
 ```
 
-### POST /mining/start-strategy ✅
+### POST /mining/start-strategy 
 Start mining using a saved strategy. **Requires `strategy_id`.**
 
 ```json
@@ -99,7 +99,7 @@ Start mining using a saved strategy. **Requires `strategy_id`.**
 }
 ```
 
-### POST /mining/stop ✅
+### POST /mining/stop 
 Stop the active mining session.
 
 **Response:** `{"success": true}`
@@ -107,7 +107,7 @@ Stop the active mining session.
 ### POST /mining/reload-session
 Reload/restart a session. **Requires `session_id` in body.**
 
-### GET /mining/session ✅
+### GET /mining/session 
 Get current active session status.
 
 **Response (active):**
@@ -128,7 +128,7 @@ Get current active session status.
 
 **Response (inactive):** `{"hasActiveSession": false}`
 
-### GET /mining/session-rounds?session_id=ID ✅
+### GET /mining/session-rounds?session_id=ID 
 Get round-by-round results. **Requires `session_id` query parameter.**
 
 **Response:**
@@ -148,10 +148,10 @@ Get round-by-round results. **Requires `session_id` query parameter.**
 }
 ```
 
-### GET /mining/history?limit=N ✅
+### GET /mining/history?limit=N 
 Get historical mining round data. Default limit: 20.
 
-### GET /mining/last-config ✅
+### GET /mining/last-config 
 Get the last mining configuration used.
 
 **Response:**
@@ -175,7 +175,7 @@ Get details for a specific round. Returns `{"deployed": false}` if user didn't p
 
 ## Rounds
 
-### GET /rounds/current ✅ (No auth required)
+### GET /rounds/current  (No auth required)
 Get current active round information.
 
 **Response:**
@@ -194,7 +194,7 @@ Get current active round information.
 
 ## Strategies
 
-### GET /auto-strategies ✅
+### GET /auto-strategies 
 List all saved strategies.
 
 ### POST /auto-strategies
@@ -223,7 +223,7 @@ Delete a strategy.
 
 ## DCA / Limit Orders
 
-### GET /auto-swap-orders ✅
+### GET /auto-swap-orders 
 List active orders.
 
 ### POST /auto-swap-orders
@@ -239,7 +239,7 @@ Create a DCA or limit order.
 
 ## Staking
 
-### GET /staking/info?wallet=ADDRESS ✅
+### GET /staking/info?wallet=ADDRESS 
 Get stake info. **Requires `wallet` query parameter.**
 
 **Response:**
@@ -260,7 +260,7 @@ Get stake info. **Requires `wallet` query parameter.**
 
 ## Rewards
 
-### GET /rewards?wallet=ADDRESS ✅
+### GET /rewards?wallet=ADDRESS 
 Get mining rewards summary. **Requires `wallet` query parameter.**
 
 **Response:**
@@ -280,7 +280,7 @@ Get mining rewards summary. **Requires `wallet` query parameter.**
 
 ## Tile Presets
 
-### GET /tile-presets ✅
+### GET /tile-presets 
 List saved tile presets.
 
 ### POST /tile-presets
@@ -290,7 +290,7 @@ Save a new preset. `{"name":"Diagonal","tile_ids":[0,6,12,18,24]}`
 
 ## Public Endpoints (No Auth)
 
-### GET /refinore-apr ✅
+### GET /refinore-apr 
 Current staking APR.
 
 **Response:** `{"success":true,"apr":113.21,"asOf":"2026-02-04T18:16:13.830Z"}`

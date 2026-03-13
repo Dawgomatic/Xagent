@@ -38,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2026-01-20
 
-### 🎉 Initial Release
+###  Initial Release
 
 #### Added
 - **CLI Tool** (`cli/followups-cli.js`)
@@ -63,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Features**
   - 3 contextual suggestions per generation (1 per category)
-  - 3 categories: Quick (⚡), Deep Dive (🧠), Related (🔗)
+  - 3 categories: Quick (), Deep Dive (), Related ()
   - Mobile-optimized UI (3 buttons = no scrolling on Telegram)
   - Context-aware analysis of last 1-3 exchanges
   - Sub-second latency with Claude Haiku

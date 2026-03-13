@@ -9,7 +9,7 @@ requiredEnv:
   - MOLTFLOW_API_KEY
 primaryEnv: MOLTFLOW_API_KEY
 disable-model-invocation: true
-metadata: {"openclaw":{"emoji":"📱","homepage":"https://molt.waiflow.app","requires":{"env":["MOLTFLOW_API_KEY"]},"primaryEnv":"MOLTFLOW_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://molt.waiflow.app","requires":{"env":["MOLTFLOW_API_KEY"]},"primaryEnv":"MOLTFLOW_API_KEY"}}
 ---
 
 # WhatsApp Automation — Analyze Groups for Buying Signals

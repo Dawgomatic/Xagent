@@ -1,7 +1,7 @@
 ---
 name: Growth
 description: Design and execute growth strategies with acquisition loops, activation, and retention systems.
-metadata: {"clawdbot":{"emoji":"📈","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## North Star Metric (Define First)

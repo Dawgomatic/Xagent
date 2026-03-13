@@ -160,7 +160,7 @@ Examples:
   const { token, userId } = loadCredentials();
   
   if (!token || !userId) {
-    console.error('❌ Missing Metricool credentials');
+    console.error(' Missing Metricool credentials');
     process.exit(1);
   }
   
@@ -169,9 +169,9 @@ Examples:
     try {
       const brand = await getFirstBrandId(token, userId);
       options.blogId = brand.id;
-      if (!options.json) console.log(`📌 Using brand: ${brand.label} (${options.blogId})\n`);
+      if (!options.json) console.log(` Using brand: ${brand.label} (${options.blogId})\n`);
     } catch (e) {
-      console.error('❌ No blogId specified and could not auto-detect');
+      console.error(' No blogId specified and could not auto-detect');
       process.exit(1);
     }
   }
@@ -191,7 +191,7 @@ Examples:
       return;
     }
     
-    console.log(`📅 Scheduled Posts (${options.start} to ${options.end})\n`);
+    console.log(` Scheduled Posts (${options.start} to ${options.end})\n`);
     
     if (posts.length === 0) {
       console.log('No scheduled posts in this range.');
@@ -212,16 +212,16 @@ Examples:
       const preview = text.substring(0, 50) + (text.length > 50 ? '...' : '');
       
       console.log(`${i + 1}. ${dateStr}`);
-      console.log(`   📱 ${platforms}`);
-      console.log(`   📝 "${preview}"`);
-      if (post.id) console.log(`   🆔 ${post.id}`);
+      console.log(`    ${platforms}`);
+      console.log(`    "${preview}"`);
+      if (post.id) console.log(`    ${post.id}`);
       console.log('');
     });
     
     console.log(`Total: ${posts.length} scheduled posts`);
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     process.exit(1);
   }
 }

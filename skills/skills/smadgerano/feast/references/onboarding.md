@@ -151,7 +151,7 @@ payload:
   message: |
     Send a Feast notification.
     
-    **Title:** 🍽️ Feast
+    **Title:**  Feast
     **Body:** [specific message for this reminder]
     
     **Delivery Instructions:**

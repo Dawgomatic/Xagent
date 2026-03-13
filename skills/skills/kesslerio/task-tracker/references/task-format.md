@@ -32,11 +32,11 @@
 
 | Section | Emoji | Criteria |
 |---------|-------|----------|
-| High Priority | 🔴 | Blocking others, critical deadline, revenue impact |
-| Medium Priority | 🟡 | Important but not urgent, reviews/feedback |
-| Delegated/Waiting | 🟢 | Someone else owns, monitoring only |
-| Upcoming | 📅 | Future deadlines, scheduled events |
-| Done | ✅ | Completed (pending archive) |
+| High Priority |  | Blocking others, critical deadline, revenue impact |
+| Medium Priority |  | Important but not urgent, reviews/feedback |
+| Delegated/Waiting |  | Someone else owns, monitoring only |
+| Upcoming |  | Future deadlines, scheduled events |
+| Done |  | Completed (pending archive) |
 
 ## Status Definitions
 

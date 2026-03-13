@@ -3,7 +3,7 @@ name: ibt
 version: 0.1.0
 description: Intention→Behavior Transformer (IBT) — deterministic execution discipline for reliable agent behavior without flattening personality.
 homepage: https://github.com/openclaw/openclaw
-metadata: {"openclaw":{"emoji":"🧭","category":"execution"}}
+metadata: {"openclaw":{"emoji":"","category":"execution"}}
 ---
 
 # Intention → Behavior Transformer (IBT)

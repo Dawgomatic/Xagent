@@ -1,7 +1,7 @@
 ---
 name: Storage
 description: Choose and architect storage systems for applications with the right tradeoffs.
-metadata: {"clawdbot":{"emoji":"💾","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Object vs Block vs File

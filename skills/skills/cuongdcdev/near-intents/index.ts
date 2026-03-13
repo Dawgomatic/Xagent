@@ -154,7 +154,7 @@ async function sendDeposit(
  * Poll swap status until completion
  */
 async function pollStatus(depositAddress: string, maxAttempts = 30): Promise<any> {
-  console.log('🔄 Starting status polling...');
+  console.log(' Starting status polling...');
   
   for (let i = 0; i < maxAttempts; i++) {
     try {
@@ -164,7 +164,7 @@ async function pollStatus(depositAddress: string, maxAttempts = 30): Promise<any
       console.log(`[${i + 1}/${maxAttempts}] Status: ${status}`);
       
       if (status === 'SUCCESS') {
-        console.log('🎉 Intent Fulfilled!');
+        console.log(' Intent Fulfilled!');
         return statusResponse;
       }
       
@@ -179,7 +179,7 @@ async function pollStatus(depositAddress: string, maxAttempts = 30): Promise<any
         throw error;
       }
       // Continue polling on other errors
-      console.log('⏳ Waiting 5 seconds before retry...');
+      console.log(' Waiting 5 seconds before retry...');
       await new Promise(resolve => setTimeout(resolve, 5000));
     }
   }
@@ -227,7 +227,7 @@ export async function executeIntent(params: ExecuteIntentParams): Promise<string
       // Extract chain name for better error message
       const originChain = assetIn.split(':')[0].toUpperCase();
       throw new Error(
-        `⚠️ CRITICAL: Cross-chain swap from ${assetIn} requires a refund address!\n\n` +
+        ` CRITICAL: Cross-chain swap from ${assetIn} requires a refund address!\n\n` +
         `If the swap fails, your tokens will be refunded to this address on ${originChain}.\n` +
         `Please provide your ${originChain} wallet address using the 'refundAddress' parameter.\n\n` +
         `Example:\n` +
@@ -279,7 +279,7 @@ export async function executeIntent(params: ExecuteIntentParams): Promise<string
     const amountInFormatted = fromSmallestUnit(amountIn, tokenIn.decimals);
     const amountOutFormatted = fromSmallestUnit(amountOut, tokenOut.decimals);
     
-    console.log(`✅ Quote received`);
+    console.log(` Quote received`);
     console.log(`   Input: ${amountInFormatted} ${tokenIn.symbol}`);
     console.log(`   Output: ${amountOutFormatted} ${tokenOut.symbol}`);
     console.log(`   Deposit address: ${depositAddress}`);
@@ -288,12 +288,12 @@ export async function executeIntent(params: ExecuteIntentParams): Promise<string
     // MANUAL MODE: Just return the quote
     if (isManual) {
       const manualInstructions = `
-🎯 Manual Mode: Quote Generated
+ Manual Mode: Quote Generated
 
 You need to send: ${amountInFormatted} ${tokenIn.symbol}
 You will receive: ${amountOutFormatted} ${tokenOut.symbol}
 
-📋 Instructions:
+ Instructions:
 1. Send ${amountInFormatted} ${tokenIn.symbol} to:
    ${depositAddress}
    
@@ -303,7 +303,7 @@ You will receive: ${amountOutFormatted} ${tokenOut.symbol}
 3. Your ${tokenOut.symbol} will arrive at:
    ${recipientAddress}
    
-⏰ Deadline: ${quoteResponse.quote.deadline}
+ Deadline: ${quoteResponse.quote.deadline}
 `;
       
       console.log(manualInstructions);
@@ -316,7 +316,7 @@ You will receive: ${amountOutFormatted} ${tokenOut.symbol}
     // Step 2: Send deposit
     console.log('\n[Step 2] Sending deposit...');
     const txHash = await sendDeposit(account, depositAddress, amountIn);
-    console.log(`✅ Deposit sent: https://nearblocks.io/txns/${txHash}`);
+    console.log(` Deposit sent: https://nearblocks.io/txns/${txHash}`);
     
     // Step 3: Submit transaction hash (optional but helps 1-Click track faster)
     console.log('\n[Step 3] Submitting transaction hash...');
@@ -325,9 +325,9 @@ You will receive: ${amountOutFormatted} ${tokenOut.symbol}
         txHash,
         depositAddress,
       });
-      console.log(`✅ Transaction hash submitted`);
+      console.log(` Transaction hash submitted`);
     } catch (error) {
-      console.log(`⚠️  Transaction hash submission failed (non-critical)`);
+      console.log(`  Transaction hash submission failed (non-critical)`);
     }
     
     // Step 4: Poll status
@@ -337,7 +337,7 @@ You will receive: ${amountOutFormatted} ${tokenOut.symbol}
     
     const finalStatus = await pollStatus(depositAddress);
     
-    console.log('\n✅ Swap completed successfully!');
+    console.log('\n Swap completed successfully!');
     console.log(`Explorer: https://explorer.near-intents.org/transactions/${depositAddress}`);
     
     return `Swap Successful! ${amountInFormatted} ${tokenIn.symbol} → ${amountOutFormatted} ${tokenOut.symbol}
@@ -345,7 +345,7 @@ Transaction: https://nearblocks.io/txns/${txHash}
 Explorer: https://explorer.near-intents.org/transactions/${depositAddress}`;
     
   } catch (error: any) {
-    console.error('❌ Swap failed:', error.message || error);
+    console.error(' Swap failed:', error.message || error);
     throw new Error(`Swap failed: ${error.message || error}`);
   }
 }

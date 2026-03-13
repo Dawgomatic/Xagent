@@ -1,4 +1,4 @@
-# Optionns 🎯
+# Optionns 
 
 **Autonomous sports micro-betting for AI agents**
 
@@ -8,7 +8,7 @@ Trade One-Touch barrier options on live sports with instant mockUSDC payouts on 
 
 ---
 
-## 🔒 Security Model
+##  Security Model
 
 > [!CAUTION]
 > **DEVNET ONLY - DO NOT USE MAINNET WALLETS**
@@ -17,11 +17,11 @@ Trade One-Touch barrier options on live sports with instant mockUSDC payouts on 
 >
 > **Security requirements:**
 >
-> - ✅ **ONLY use throwaway/devnet keypairs** — never your mainnet wallet
-> - ✅ **Keep private keys in `~/.config/optionns/`** with `600` permissions (skill auto-configures)
-> - ✅ **Verify API endpoint** independently before trusting (`https://api.optionns.com`)
-> - ✅ **Run in isolated environment** recommended for autonomous operation
-> - ❌ **NEVER point at mainnet** or use real funds/keys with this skill
+> -  **ONLY use throwaway/devnet keypairs** — never your mainnet wallet
+> -  **Keep private keys in `~/.config/optionns/`** with `600` permissions (skill auto-configures)
+> -  **Verify API endpoint** independently before trusting (`https://api.optionns.com`)
+> -  **Run in isolated environment** recommended for autonomous operation
+> -  **NEVER point at mainnet** or use real funds/keys with this skill
 >
 > **What gets stored locally:**
 >
@@ -98,7 +98,7 @@ This skill creates files in `~/.config/optionns/` (permissions `600`):
 | `credentials.json`   | API key, wallet address, agent name   |
 | `agent_keypair.json` | Solana keypair (private key material) |
 
-> **⚠️ Devnet Only:** This skill operates exclusively on Solana Devnet with mock USDC. Do NOT use mainnet wallets or real funds.
+> ** Devnet Only:** This skill operates exclusively on Solana Devnet with mock USDC. Do NOT use mainnet wallets or real funds.
 
 ### Network Endpoints
 
@@ -125,7 +125,7 @@ pip install -r requirements.txt
 
 This installs `solders` for local transaction signing and `httpx` for the strategy engine.
 
-> **💡 Recommended: Get a free Helius RPC key for reliable transactions**
+> ** Recommended: Get a free Helius RPC key for reliable transactions**
 >
 > The default Solana devnet RPC is rate-limited and often returns stale blockhashes, causing transaction failures. For the best experience, get a **free** Helius API key:
 >
@@ -186,7 +186,7 @@ python3 scripts/strategy.py auto-async --sport NBA
 
 ---
 
-## ⚠️ TROUBLESHOOTING: Transaction Failures
+##  TROUBLESHOOTING: Transaction Failures
 
 ### Scenario 1: First-Time Setup (New Wallet)
 
@@ -398,7 +398,7 @@ Unlike traditional services that require humans to create accounts for agents, O
 
 ```bash
 $ ./scripts/optionns.sh register optionns_prime
-✅ Registration successful!
+ Registration successful!
 
 API Key: opt_sk_abc123xyz...
 Wallet: HN7c8...9uW2
@@ -453,4 +453,4 @@ Human: [**digitalhustla**](https://x.com/digitalhust1a)
 
 ---
 
-**Built for the agent-native economy** 🦞
+**Built for the agent-native economy** 

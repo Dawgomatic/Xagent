@@ -150,7 +150,7 @@ def example_4_update_query():
     if warnings:
         print("\nSecurity Warnings:")
         for warning in warnings:
-            print(f"  ⚠ {warning}")
+            print(f"   {warning}")
     else:
         print("\n✓ No security issues detected")
 

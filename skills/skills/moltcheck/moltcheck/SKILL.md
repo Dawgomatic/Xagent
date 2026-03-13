@@ -7,13 +7,13 @@ description: Security scanner for Moltbot skills. Scan GitHub repositories for v
 
 MoltCheck is a comprehensive security scanner designed specifically for the Moltbot ecosystem. It analyzes GitHub repositories and agent skills for security vulnerabilities, providing:
 
-🔍 **Automated Code Scanning** - Detects dangerous patterns like credential theft, shell access, and hidden network calls
+ **Automated Code Scanning** - Detects dangerous patterns like credential theft, shell access, and hidden network calls
 
-📊 **Trust Scoring** - A-F grades based on comprehensive risk analysis
+ **Trust Scoring** - A-F grades based on comprehensive risk analysis
 
-🔑 **Permission Auditing** - Compares declared permissions (in SKILL.md) against actual code behavior
+ **Permission Auditing** - Compares declared permissions (in SKILL.md) against actual code behavior
 
-💡 **Clear Communication** - Explains security risks in plain language
+ **Clear Communication** - Explains security risks in plain language
 
 Essential for agents who install external skills and want to avoid supply chain attacks.
 

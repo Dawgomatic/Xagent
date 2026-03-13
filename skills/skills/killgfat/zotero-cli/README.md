@@ -2,7 +2,7 @@
 
 Command-line interface for Zotero - search your Zotero library, add/edit notes, read attachments, and manage bibliographic references from the terminal.
 
-## 📦 What's Included
+##  What's Included
 
 ### Core Documentation
 - **[SKILL.md](SKILL.md)** - Complete skill documentation with capabilities, workflows, and API reference
@@ -18,7 +18,7 @@ Command-line interface for Zotero - search your Zotero library, add/edit notes, 
 - **[_meta.json](_meta.json)** - Skill version and ownership information
 - **[.clawhub/origin.json](.clawhub/origin.json)** - Source repository information
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Installation
 
@@ -51,7 +51,7 @@ zotcli add-note "\"deep learning\""
 zotcli read "\"attention mechanisms\""
 ```
 
-## 🎯 Key Features
+##  Key Features
 
 ### Core Capabilities
 - Search your entire Zotero library using SQLite FTS3 syntax
@@ -82,7 +82,7 @@ python export_citations.py "attention mechanisms" --format bib > refs.bib
 ./batch_process.sh queries.txt --output results.txt
 ```
 
-## 📚 Documentation Structure
+##  Documentation Structure
 
 ### Main Documentation
 - **SKILL.md** - Complete guide with:
@@ -118,7 +118,7 @@ python export_citations.py "attention mechanisms" --format bib > refs.bib
   - Batch processing workflows
   - Integration examples
 
-## 🔧 Workflows
+##  Workflows
 
 ### Literature Review
 1. Search for papers on your topic
@@ -138,7 +138,7 @@ python export_citations.py "attention mechanisms" --format bib > refs.bib
 3. Export and organize findings
 4. Build your knowledge base
 
-## 🌟 Highlights
+##  Highlights
 
 ### PEP 668 Compatibility
 - Primary recommendation: `pipx install zotero-cli`
@@ -165,7 +165,7 @@ python export_citations.py "attention mechanisms" --format bib > refs.bib
 - Weekly/monthly automated searches
 - Custom workflows
 
-## 💡 Common Use Cases
+##  Common Use Cases
 
 1. **Literature Review** - Comprehensive search and note-taking
 2. **Academic Writing** - Citation management and export
@@ -173,27 +173,27 @@ python export_citations.py "attention mechanisms" --format bib > refs.bib
 4. **Collaboration** - Sharing queries and bibliographies
 5. **Automation** - Regular searches and bibliography updates
 
-## 🔗 Integration
+##  Integration
 
 Combine with other OpenClaw skills:
 - **literature-review** - For multi-database literature searches
 - **pubmed-edirect** - For PubMed database integration
 - **tavily-search** - For web searches and general research
 
-## 📖 Resources
+##  Resources
 
 - **GitHub Repository**: https://github.com/jbaiter/zotero-cli
 - **Zotero Documentation**: https://www.zotero.org/support/
 - **BibTeX Guide**: https://www.latex-project.org/help/documentation/btxdoc.pdf
 
-## 🤝 Contributing
+##  Contributing
 
 This skill follows the OpenClaw format and structure. Contributions, bug reports, and feature requests are welcome at the original zotero-cli repository.
 
-## 📄 License
+##  License
 
 This skill documentation is provided as-is to help users of zotero-cli. The underlying software follows its own license.
 
 ---
 
-**Happy researching! 📚🎓**
+**Happy researching! **

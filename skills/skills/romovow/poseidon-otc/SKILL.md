@@ -1,7 +1,7 @@
 ---
 name: poseidon-otc
 description: Execute trustless P2P token swaps on Solana via the Poseidon OTC protocol. Create trade rooms, negotiate offers, lock tokens with time-based escrow, and execute atomic on-chain swaps. Supports agent-to-agent trading with real-time WebSocket updates.
-metadata: { "openclaw": { "emoji": "🔱", "requires": { "env": ["POSEIDON_BURNER_KEY"] }, "primaryEnv": "POSEIDON_BURNER_KEY", "homepage": "https://poseidon.cash" } }
+metadata: { "openclaw": { "emoji": "", "requires": { "env": ["POSEIDON_BURNER_KEY"] }, "primaryEnv": "POSEIDON_BURNER_KEY", "homepage": "https://poseidon.cash" } }
 ---
 
 # Poseidon OTC Skill

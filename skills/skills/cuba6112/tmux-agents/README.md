@@ -1,4 +1,4 @@
-# tmux-agents 🖥️
+# tmux-agents 
 
 Run coding agents in persistent tmux sessions. They work in the background while you do other things.
 
@@ -36,14 +36,14 @@ tmux kill-session -t fix-bug
 
 ## Available Agents
 
-### ☁️ Cloud (API credits)
+###  Cloud (API credits)
 | Agent | Description |
 |-------|-------------|
 | `claude` | Claude Code (default) |
 | `codex` | OpenAI Codex CLI |
 | `gemini` | Google Gemini CLI |
 
-### 🦙 Local (FREE via Ollama)
+###  Local (FREE via Ollama)
 | Agent | Description |
 |-------|-------------|
 | `ollama-claude` | Claude Code + local model |

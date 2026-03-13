@@ -15,11 +15,11 @@ CHAIN="${4:-base}"
 FROM_TOKEN="${5:-0x0000000000000000000000000000000000000000}"
 
 if [ -z "$PRIVATE_KEY" ]; then
-  echo "❌ PRIVATE_KEY environment variable is required"
+  echo " PRIVATE_KEY environment variable is required"
   exit 1
 fi
 
-echo "🔄 Getting swap quote: ${AMOUNT} tokens → token on ${CHAIN}..."
+echo " Getting swap quote: ${AMOUNT} tokens → token on ${CHAIN}..."
 
 # Get swap quote via mcporter
 QUOTE=$(mcporter call opensea.get_token_swap_quote --args "{
@@ -32,7 +32,7 @@ QUOTE=$(mcporter call opensea.get_token_swap_quote --args "{
 }" --output raw 2>&1)
 
 if echo "$QUOTE" | grep -q "error"; then
-  echo "❌ Failed to get quote: $QUOTE"
+  echo " Failed to get quote: $QUOTE"
   exit 1
 fi
 
@@ -66,12 +66,12 @@ try {
 const txData = quote.swap.actions[0].transactionSubmissionData;
 const toSymbol = quote.swapQuote.swapRoutes[0].toAsset.symbol;
 
-console.log('📊 Quote received');
+console.log(' Quote received');
 console.log('   To:', txData.to);
 console.log('   Value:', txData.value, 'wei');
 console.log('   Token:', toSymbol);
 
-console.log('📤 Sending transaction...');
+console.log(' Sending transaction...');
 
 const hash = await wallet.sendTransaction({
   to: txData.to,
@@ -80,9 +80,9 @@ const hash = await wallet.sendTransaction({
 });
 
 console.log('TX: https://basescan.org/tx/' + hash);
-console.log('⏳ Waiting for confirmation...');
+console.log(' Waiting for confirmation...');
 
 const receipt = await pub.waitForTransactionReceipt({ hash });
-console.log(receipt.status === 'success' ? '✅ Swap complete!' : '❌ Swap failed');
+console.log(receipt.status === 'success' ? ' Swap complete!' : ' Swap failed');
 console.log('Gas used:', receipt.gasUsed.toString());
 "

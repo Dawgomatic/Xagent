@@ -20,24 +20,24 @@ async function financeOverview() {
         const summary = summaryR.status === 'fulfilled' ? summaryR.value.data : null;
         const accounts = accountsR.status === 'fulfilled' ? (Array.isArray(accountsR.value.data) ? accountsR.value.data : accountsR.value.data?.accounts || []) : [];
 
-        console.log('💰 *Finance Overview*\n');
+        console.log(' *Finance Overview*\n');
 
         if (summary) {
             console.log(`   Total Balance: ${formatRupiah(summary.totalBalance || summary.total_balance || 0)}`);
             console.log(`   Income this month: ${formatRupiah(summary.monthlyIncome || summary.monthly_income || 0)}`);
             console.log(`   Expense this month: ${formatRupiah(summary.monthlyExpense || summary.monthly_expense || 0)}`);
             const net = (summary.monthlyIncome || summary.monthly_income || 0) - (summary.monthlyExpense || summary.monthly_expense || 0);
-            console.log(`   Net: ${formatRupiah(net)} ${net >= 0 ? '📈' : '📉'}`);
+            console.log(`   Net: ${formatRupiah(net)} ${net >= 0 ? '' : ''}`);
         }
 
         if (accounts.length > 0) {
-            console.log('\n🏦 *Accounts*');
+            console.log('\n *Accounts*');
             accounts.forEach(a => {
                 console.log(`   ${a.name}: ${formatRupiah(a.balance || 0)}`);
             });
         }
     } catch (err) {
-        console.error('❌', err.message);
+        console.error('', err.message);
     }
 }
 

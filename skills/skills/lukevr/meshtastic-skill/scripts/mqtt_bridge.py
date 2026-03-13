@@ -90,7 +90,7 @@ def on_mesh_receive(packet, interface):
         sender = packet.get('fromId', 'unknown')
         
         if text:
-            log.info(f"📻 RF [{sender}]: {text}")
+            log.info(f" RF [{sender}]: {text}")
             # Log to messages file
             with open('/tmp/mesh_messages.txt', 'a') as f:
                 f.write(f"{datetime.utcnow().isoformat()}|RF|{sender}|local|{text}\n")
@@ -155,7 +155,7 @@ def on_global_message(client, userdata, msg):
         if text and isinstance(text, str) and len(text) > 1:
             channel = topic.split('/')[-2] if '/' in topic else 'unknown'
             dist = get_distance_str(sender)
-            log.info(f"💬 [{channel}] {sender} ({dist}): {text}")
+            log.info(f" [{channel}] {sender} ({dist}): {text}")
             
             with open('/tmp/mesh_messages.txt', 'a') as f:
                 f.write(f"{datetime.utcnow().isoformat()}|{channel}|{sender}|{dist}|{text}\n")
@@ -186,7 +186,7 @@ def publish_map_report():
     global mesh_interface, mqtt_map, MAP_ENABLED
     
     if not MAP_ENABLED:
-        log.info("📍 Map report skipped (disabled)")
+        log.info(" Map report skipped (disabled)")
         return
     
     if not mesh_interface or not mqtt_map:
@@ -238,7 +238,7 @@ def publish_map_report():
         envelope.gateway_id = f"!{node_num:08x}"
         
         mqtt_map.publish("msh/EU_868/2/map/", envelope.SerializeToString(), retain=False)
-        log.info(f"📍 Map report: {lat_fuzzy:.2f}, {lon_fuzzy:.2f}")
+        log.info(f" Map report: {lat_fuzzy:.2f}, {lon_fuzzy:.2f}")
         
     except Exception as e:
         log.error(f"Map report error: {e}")
@@ -266,7 +266,7 @@ def handle_socket_client(conn, addr):
             text = cmd.get('text', '')
             if text and mesh_interface:
                 mesh_interface.sendText(text)
-                log.info(f"📤 Sent: {text}")
+                log.info(f" Sent: {text}")
                 response = {"ok": True, "sent": text}
             else:
                 response = {"ok": False, "error": "no text or no mesh"}
@@ -303,7 +303,7 @@ def handle_socket_client(conn, addr):
                 MAP_ENABLED = not MAP_ENABLED
             else:
                 MAP_ENABLED = bool(enable)
-            log.info(f"📍 Map reporting: {'ON' if MAP_ENABLED else 'OFF'}")
+            log.info(f" Map reporting: {'ON' if MAP_ENABLED else 'OFF'}")
             response = {"ok": True, "map_enabled": MAP_ENABLED}
         
         elif action == 'map_now':
@@ -396,7 +396,7 @@ def main():
     log.info("✓ Map reporter enabled (every 5 min)")
     
     log.info("")
-    log.info("🌉 Bridge v2 running!")
+    log.info(" Bridge v2 running!")
     log.info("")
     
     try:

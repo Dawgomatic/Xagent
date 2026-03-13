@@ -124,11 +124,11 @@ def generate_exploration_strategy(
     needs_safety_stop = requires_safety_stop(test_case)
     
     if is_workflow:
-        print(f"  🔄 Detected workflow type: {workflow_type}")
+        print(f"   Detected workflow type: {workflow_type}")
     if needs_safety_stop:
-        print(f"  ⚠️  Safety stop required - will not complete final action")
+        print(f"    Safety stop required - will not complete final action")
     if cookbook:
-        print(f"  📖 Using cookbook guidance for prompts")
+        print(f"   Using cookbook guidance for prompts")
     
     strategy = []
     
@@ -213,7 +213,7 @@ def generate_exploration_strategy(
                     "step_name": "verify_checkout_accessible",
                     "action_type": "query",
                     "prompt": "Is there a 'Continue to Payment', 'Checkout', or 'Complete Booking' button visible?",
-                    "expected_outcome": "⚠️ SAFETY STOP: Checkout accessible but NOT clicked",
+                    "expected_outcome": " SAFETY STOP: Checkout accessible but NOT clicked",
                     "fallback_prompts": [],
                     "is_safety_stop": True
                 }
@@ -282,7 +282,7 @@ def generate_exploration_strategy(
                     "step_name": "verify_payment_page",
                     "action_type": "query",
                     "prompt": "Is there a payment method section, credit card form, or 'Complete Purchase' button visible?",
-                    "expected_outcome": "⚠️ SAFETY STOP: Payment page accessible but NO PURCHASE MADE",
+                    "expected_outcome": " SAFETY STOP: Payment page accessible but NO PURCHASE MADE",
                     "fallback_prompts": [],
                     "is_safety_stop": True
                 }
@@ -319,7 +319,7 @@ def generate_exploration_strategy(
                     "step_name": "verify_post_button",
                     "action_type": "query",
                     "prompt": "Is there a 'Post', 'Publish', 'Share', or 'Tweet' button visible to complete posting?",
-                    "expected_outcome": "⚠️ SAFETY STOP: Post button accessible but NOT clicked",
+                    "expected_outcome": " SAFETY STOP: Post button accessible but NOT clicked",
                     "fallback_prompts": [],
                     "is_safety_stop": True
                 }
@@ -353,7 +353,7 @@ def generate_exploration_strategy(
                     "step_name": "verify_submit_button",
                     "action_type": "query",
                     "prompt": "Is there a 'Create Account', 'Sign Up', or 'Register' button to submit the form?",
-                    "expected_outcome": "⚠️ SAFETY STOP: Submit button accessible but NOT clicked",
+                    "expected_outcome": " SAFETY STOP: Submit button accessible but NOT clicked",
                     "fallback_prompts": [],
                     "is_safety_stop": True
                 }
@@ -383,7 +383,7 @@ def generate_exploration_strategy(
                     "step_name": "verify_submit_accessible",
                     "action_type": "query",
                     "prompt": "Is there a 'Submit', 'Send', or 'Contact Us' button visible to complete submission?",
-                    "expected_outcome": "⚠️ SAFETY STOP: Submit button accessible but NOT clicked",
+                    "expected_outcome": " SAFETY STOP: Submit button accessible but NOT clicked",
                     "fallback_prompts": [],
                     "is_safety_stop": True
                 }

@@ -129,7 +129,7 @@ restore context [level]
 
 **示例输出**：
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
 状态：Hermes Plan 进行中（数据管道完成，待测试）
 ```
@@ -144,11 +144,11 @@ restore context [level]
 
 **示例输出**：
 ```
-✅ 上下文已恢复
+ 上下文已恢复
 
 当前活跃项目：
-1. 🏛️ Hermes Plan - 数据分析助手（进度：80%）
-2. 🌐 Akasha Plan - 自主新闻系统（进度：45%）
+1.  Hermes Plan - 数据分析助手（进度：80%）
+2.  Akasha Plan - 自主新闻系统（进度：45%）
 
 待办任务：
 - [高] 编写数据管道测试用例
@@ -172,17 +172,17 @@ restore context [level]
 
 **示例输出**：
 ```
-✅ 上下文已恢复（完整模式）
+ 上下文已恢复（完整模式）
 
 ═══════════════════════════════════════
-📊 会话概览
+ 会话概览
 ═══════════════════════════════════════
 当前会话：#2026-02-06-main
 活跃 Isolated Sessions：3个
 最后活动：2小时前
 
 ═══════════════════════════════════════
-🎯 核心项目状态
+ 核心项目状态
 ═══════════════════════════════════════
 1. Hermes Plan（进行中）- 进度：80%
 2. Akasha Plan（待恢复）- 进度：45%
@@ -364,12 +364,12 @@ python restore_context.py --auto --level detailed
 ### 标准消息格式
 
 ```markdown
-✅ **上下文已恢复** [级别标识]
+ **上下文已恢复** [级别标识]
 
 [主要内容块]
 
 ---
-💡 **操作建议**
+ **操作建议**
 • 建议操作 1
 • 建议操作 2
 ```
@@ -377,18 +377,18 @@ python restore_context.py --auto --level detailed
 ### Normal 级别统一输出格式
 
 ```
-✅ **上下文已恢复**
+ **上下文已恢复**
 
-📊 **压缩信息:**
+ **压缩信息:**
 - 原始消息: {original_count}
 - 压缩后: {compressed_count}
 - 压缩率: {compression_ratio}%
 
-🔄 **最近操作:**
+ **最近操作:**
 - 操作1
 - 操作2
 
-🚀 **项目:**
+ **项目:**
 - **项目名称** - 描述
 ```
 
@@ -595,14 +595,14 @@ python restore_context.py --timeline --period weekly --days 30
 
 **输出示例（weekly）：**
 ```
-📅 Week 6 (Feb 2-8)
-├── ✅ 完成数据管道测试
-├── ✅ 部署新功能到生产环境
-└── 🚀 项目: Hermes Plan, Akasha Plan
+ Week 6 (Feb 2-8)
+├──  完成数据管道测试
+├──  部署新功能到生产环境
+└──  项目: Hermes Plan, Akasha Plan
 
-📅 Week 5 (Jan 26 - Feb 1)
-├── ✅ 启动 Akasha UI 改进
-└── 🚀 项目: Hermes Plan
+ Week 5 (Jan 26 - Feb 1)
+├──  启动 Akasha UI 改进
+└──  项目: Hermes Plan
 ```
 
 #### 2. `--filter` 内容过滤
@@ -751,8 +751,8 @@ python restore_context.py --install-cron --cron-interval 10
 
 输出示例：
 ```
-✅ Cron script created: /home/athur/.openclaw/workspace/skills/context-restore/scripts/auto_context_monitor.sh
-ℹ️  To install, run:
+ Cron script created: /home/athur/.openclaw/workspace/skills/context-restore/scripts/auto_context_monitor.sh
+  To install, run:
   echo "*/5 * * * * /home/athur/.openclaw/workspace/skills/context-restore/scripts/auto_context_monitor.sh >> /var/log/context_monitor.log 2>&1" >> ~/.crontab
   crontab ~/.crontab
 ```

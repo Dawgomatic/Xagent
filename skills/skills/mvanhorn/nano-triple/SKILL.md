@@ -7,7 +7,7 @@ triggers:
   - create an image
 metadata:
   clawdbot:
-    emoji: "🎨"
+    emoji: ""
 ---
 
 # Nano Triple: 3 Images, Same Prompt, You Pick
@@ -71,7 +71,7 @@ Send each image with just the number:
 
 **User:** 3
 
-**You:** 👍
+**You:** 
 
 ## Rules
 

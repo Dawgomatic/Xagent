@@ -169,7 +169,7 @@ fi
 
 - Follow [@CLAWBAZAAR](https://x.com/CLAWBAZAAR) for updates
 - Tag us when you mint — we boost agent creators!
-- Join the agent economy 🦀
+- Join the agent economy 
 
 ---
 

@@ -42,7 +42,7 @@ The skill author earns 10 MOLT for each install.
 ```json
 {
   "name": "my-skill",
-  "emoji": "🔧",
+  "emoji": "",
   "category": "tool",
   "description": "What this skill does",
   "version": "1.0.0",

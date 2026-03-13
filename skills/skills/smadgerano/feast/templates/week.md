@@ -218,9 +218,9 @@ review:
 
 ---
 
-## 🛒 Shopping List
+##  Shopping List
 
-### 💰 Price Guidance
+###  Price Guidance
 
 **Strategy:** [Single store at X / Split: proteins at X, rest at Y]  
 **Prices checked:** [Date]  
@@ -234,7 +234,7 @@ review:
 
 ### Proteins
 - [ ] Item — quantity — **~£X.XX** *(used in: Day 1, Day 3)*  
-  💰 *[Price note]*
+   *[Price note]*
 
 ### Vegetables
 - [ ] Item — quantity
@@ -256,9 +256,9 @@ review:
 
 ---
 
-## Day 1: [Day Name] — 🇹🇭 [Cuisine]
+## Day 1: [Day Name] —  [Cuisine]
 
-### 🌍 The Place: [Region], [Country]
+###  The Place: [Region], [Country]
 
 [2-3 paragraphs about the region — its character, history, what makes it distinctive. Paint a picture of what it feels like to be there.]
 
@@ -266,7 +266,7 @@ review:
 
 ---
 
-### 🍜 The Dish: [Meal Name]
+###  The Dish: [Meal Name]
 
 [Story of this dish — where it originated, how it evolved, when it's eaten, what it means to people there.]
 
@@ -297,7 +297,7 @@ review:
 
 ---
 
-### 🎵 The Soundtrack
+###  The Soundtrack
 
 **The Vibe:** [What mood and journey this playlist creates]
 
@@ -315,11 +315,11 @@ review:
 3. [Artist] — "[Track]"
 4. ...
 
-▶️ [Spotify Link] | [YouTube Link]
+ [Spotify Link] | [YouTube Link]
 
 ---
 
-### ✨ Setting the Scene
+###  Setting the Scene
 
 **Serving:** [How to serve — shared plates? Individual? Eaten how?]
 
@@ -329,7 +329,7 @@ review:
 
 ---
 
-## Day 2: [Day Name] — 🇮🇹 [Cuisine]
+## Day 2: [Day Name] —  [Cuisine]
 
 *[Repeat full structure for each cooking day...]*
 
@@ -337,7 +337,7 @@ review:
 
 ## End of Week Review
 
-**Overall:** ⭐⭐⭐⭐☆
+**Overall:** ☆
 
 **Highlights:**
 - 

@@ -38,7 +38,7 @@ function getToken() {
   
   // 2. Token file
   if (!fs.existsSync(TOKEN_FILE)) {
-    console.error('❌ 尚未註冊。請先執行 register.js');
+    console.error(' 尚未註冊。請先執行 register.js');
     process.exit(1);
   }
   
@@ -51,7 +51,7 @@ function getToken() {
     const hoursSinceSaved = (now - savedAt) / 1000 / 60 / 60;
     
     if (hoursSinceSaved > 20) {
-      console.log('⚠️ Token 可能即將過期，如遇錯誤請重新執行 register.js');
+      console.log(' Token 可能即將過期，如遇錯誤請重新執行 register.js');
     }
   }
   
@@ -63,7 +63,7 @@ async function main() {
   const body = bodyParts.join(' ');
 
   if (!to || !subject) {
-    console.log('📬 BaseMail - 發送郵件\n');
+    console.log(' BaseMail - 發送郵件\n');
     console.log('用法: node send.js <收件人> <主旨> <內文>');
     console.log('範例: node send.js alice@basemail.ai "Hello" "How are you?"');
     process.exit(1);
@@ -71,7 +71,7 @@ async function main() {
 
   const token = getToken();
 
-  console.log('📧 發送郵件中...');
+  console.log(' 發送郵件中...');
   console.log(`   收件人: ${to}`);
   console.log(`   主旨: ${subject}`);
 
@@ -87,18 +87,18 @@ async function main() {
   const data = await res.json();
 
   if (data.success) {
-    console.log('\n✅ 發送成功！');
+    console.log('\n 發送成功！');
     console.log(`   寄件人: ${data.from}`);
     console.log(`   郵件 ID: ${data.email_id}`);
     logAudit('send_email', { to, success: true });
   } else {
-    console.error('\n❌ 發送失敗:', data.error || data);
+    console.error('\n 發送失敗:', data.error || data);
     logAudit('send_email', { to, success: false, error: data.error });
     process.exit(1);
   }
 }
 
 main().catch(err => {
-  console.error('❌ 錯誤:', err.message);
+  console.error(' 錯誤:', err.message);
   process.exit(1);
 });

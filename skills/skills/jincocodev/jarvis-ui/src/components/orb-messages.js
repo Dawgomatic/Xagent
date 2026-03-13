@@ -175,7 +175,7 @@ export function initOrbMessages(screenPosFn) {
 // Demo
 const demoMessages = [
   'HEARTBEAT OK',
-  '爸，早安 ☀️',
+  '爸，早安 ',
   'MEMORY.MD UPDATED',
   'NEW EMAIL: 3 UNREAD',
   'CALENDAR: 會議 14:00',

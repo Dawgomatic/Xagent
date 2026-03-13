@@ -190,30 +190,30 @@ def create_project(name: str, language: str = "python", path: str = "."):
     prd_file = project_path / "PRD.json"
     with open(prd_file, 'w') as f:
         json.dump(prd, f, indent=2)
-    print(f"✅ Created {prd_file}")
+    print(f" Created {prd_file}")
     
     # Write ralph.config.json
     config_file = project_path / "ralph.config.json"
     with open(config_file, 'w') as f:
         json.dump(config, f, indent=2)
-    print(f"✅ Created {config_file}")
+    print(f" Created {config_file}")
     
     # Write .gitignore
     gitignore_file = project_path / ".gitignore"
     gitignore_content = GITIGNORE_TEMPLATES.get(language, "# Add patterns here\n")
     with open(gitignore_file, 'w') as f:
         f.write(gitignore_content)
-    print(f"✅ Created {gitignore_file}")
+    print(f" Created {gitignore_file}")
     
     # Write .env.example
     env_file = project_path / ".env.example"
     with open(env_file, 'w') as f:
         f.write("# Copy this to .env and fill in your values\n")
         f.write(f"# {name.upper()} Environment Variables\n")
-    print(f"✅ Created {env_file}")
+    print(f" Created {env_file}")
     
-    print(f"\n🎉 Ralph project '{name}' initialized!")
-    print(f"📁 Location: {project_path.resolve()}")
+    print(f"\n Ralph project '{name}' initialized!")
+    print(f" Location: {project_path.resolve()}")
     print(f"\nNext steps:")
     print(f"  1. cd {path}")
     print(f"  2. Edit PRD.json to add your project tasks")

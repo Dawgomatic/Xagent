@@ -60,12 +60,12 @@ Six letters historically changed sound with dagesh. In **modern Hebrew**, only t
 
 | Letter | With dagesh (hard) | Without dagesh (soft) | Audible in modern Hebrew? |
 |--------|-------------------|----------------------|--------------------------|
-| בּ | B | V (ב) | ✅ Yes |
-| גּ | G | Gh (ג) | ❌ No (both G) |
-| דּ | D | Dh (ד) | ❌ No (both D) |
-| כּ | K | Kh (כ) | ✅ Yes |
-| פּ | P | F (פ) | ✅ Yes |
-| תּ | T | Th (ת) | ❌ No (both T) |
+| בּ | B | V (ב) |  Yes |
+| גּ | G | Gh (ג) |  No (both G) |
+| דּ | D | Dh (ד) |  No (both D) |
+| כּ | K | Kh (כ) |  Yes |
+| פּ | P | F (פ) |  Yes |
+| תּ | T | Th (ת) |  No (both T) |
 
 **For TTS purposes, only בכ"פ matter** (B/V, K/Kh, P/F).
 
@@ -155,7 +155,7 @@ Hebrew has 7 verb patterns. **This is the hardest part** — if unsure of the bi
 | Past 3ms | הֻקְטַל | הֻסְבַּר (was explained), הֻזְמַן (was invited) |
 | Present ms | מֻקְטָל | מֻסְבָּר (is explained), מֻזְמָן (is invited) |
 
-### ⚠️ Common Verb Confusions
+###  Common Verb Confusions
 
 | Word | Wrong | Right | Why |
 |------|-------|-------|-----|

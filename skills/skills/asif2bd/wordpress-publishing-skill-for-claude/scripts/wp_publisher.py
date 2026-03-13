@@ -872,7 +872,7 @@ Examples:
         
         if args.test:
             user = wp.test_connection()
-            print(f"✅ Connected successfully!")
+            print(f" Connected successfully!")
             print(f"   User: {user.get('name')}")
             roles = user.get('roles', ['unknown'])
             print(f"   Role: {roles[0] if roles else 'unknown'}")
@@ -898,7 +898,7 @@ Examples:
         
         elif args.publish:
             if not args.title:
-                print("❌ Error: --title required for publishing")
+                print(" Error: --title required for publishing")
                 return 1
             
             with open(args.publish, 'r', encoding='utf-8') as f:
@@ -915,7 +915,7 @@ Examples:
                 slug=args.slug
             )
             
-            print(f"✅ Post created successfully!")
+            print(f" Post created successfully!")
             print(f"   Post ID: {result['post_id']}")
             print(f"   Status: {result['status']}")
             print(f"   Preview: {result['preview_url']}")
@@ -933,22 +933,22 @@ Examples:
         return 0
         
     except AuthenticationError as e:
-        print(f"❌ Authentication failed:\n{e}")
+        print(f" Authentication failed:\n{e}")
         return 1
     except PermissionError as e:
-        print(f"❌ Permission denied: {e}")
+        print(f" Permission denied: {e}")
         return 1
     except NotFoundError as e:
-        print(f"❌ Not found: {e}")
+        print(f" Not found: {e}")
         return 1
     except APIError as e:
-        print(f"❌ API error: {e}")
+        print(f" API error: {e}")
         return 1
     except FileNotFoundError as e:
-        print(f"❌ File not found: {e}")
+        print(f" File not found: {e}")
         return 1
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return 1
 
 

@@ -4,12 +4,12 @@ Check your Claude Code OAuth API usage limits directly from Clawdbot.
 
 ## Features
 
-- 📊 Session (5-hour) and Weekly (7-day) utilization tracking
-- 🎨 Beautiful progress bars with color-coded status indicators
-- ⚡ Smart caching (60s default) to avoid API spam
-- 📤 JSON output for scripting
-- 🦞 Telegram-friendly formatting
-- 🔔 **NEW v1.1.0**: Automated monitoring with reset notifications
+-  Session (5-hour) and Weekly (7-day) utilization tracking
+-  Beautiful progress bars with color-coded status indicators
+-  Smart caching (60s default) to avoid API spam
+-  JSON output for scripting
+-  Telegram-friendly formatting
+-  **NEW v1.1.0**: Automated monitoring with reset notifications
 
 ## Quick Test
 
@@ -21,12 +21,12 @@ cd /Users/ali/clawd/skills/claude-code-usage
 ## Example Output
 
 ```
-🦞 Claude Code Usage
+ Claude Code Usage
 
-⏱️  Session (5h): 🟢 █░░░░░░░░░ 18%
+  Session (5h):  █░░░░░░░░░ 18%
    Resets in: 2h 48m
 
-📅 Weekly (7d): 🟢 ░░░░░░░░░░ 2%
+ Weekly (7d):  ░░░░░░░░░░ 2%
    Resets in: 6d 21h
 ```
 
@@ -83,4 +83,4 @@ clawdhub publish claude-code-usage \
 
 ## Author
 
-Created for Clawdbot by RZA 🦞
+Created for Clawdbot by RZA 

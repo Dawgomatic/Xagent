@@ -1,7 +1,7 @@
 ---
 name: skill-writer
 description: Write high-quality agent skills (SKILL.md files) for ClawdHub/MoltHub. Use when creating a new skill from scratch, structuring skill content, writing effective frontmatter and descriptions, choosing section patterns, or following best practices for agent-consumable technical documentation.
-metadata: {"clawdbot":{"emoji":"✍️","requires":{"anyBins":["npx"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["npx"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Skill Writer
@@ -24,7 +24,7 @@ A skill is a single Markdown file with YAML frontmatter. The agent loads it on d
 ---
 name: my-skill-slug
 description: One-sentence description of when to use this skill.
-metadata: {"clawdbot":{"emoji":"🔧","requires":{"anyBins":["tool1","tool2"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["tool1","tool2"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Skill Title
@@ -90,7 +90,7 @@ Pattern for effective descriptions:
 JSON object with the `clawdbot` schema:
 
 ```yaml
-metadata: {"clawdbot":{"emoji":"🔧","requires":{"anyBins":["make","just"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["make","just"]},"os":["linux","darwin","win32"]}}
 ```
 
 Fields:
@@ -226,7 +226,7 @@ For skills about a specific tool or command family.
 ---
 name: tool-name
 description: [What tool does]. Use when [scenario 1], [scenario 2].
-metadata: {"clawdbot":{"emoji":"🔧","requires":{"anyBins":["tool-name"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["tool-name"]}}}
 ---
 
 # Tool Name
@@ -260,7 +260,7 @@ For skills about patterns in a specific language or framework.
 ---
 name: pattern-name
 description: [Pattern] in [language/framework]. Use when [scenario 1], [scenario 2].
-metadata: {"clawdbot":{"emoji":"📐","requires":{"anyBins":["runtime"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["runtime"]}}}
 ---
 
 # Pattern Name
@@ -290,7 +290,7 @@ For skills about multi-step processes.
 ---
 name: workflow-name
 description: [Workflow description]. Use when [scenario 1], [scenario 2].
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"anyBins":["tool1","tool2"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["tool1","tool2"]}}}
 ---
 
 # Workflow Name

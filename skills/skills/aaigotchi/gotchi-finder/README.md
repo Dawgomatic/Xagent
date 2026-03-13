@@ -1,4 +1,4 @@
-# Gotchi Finder Skill 👻
+# Gotchi Finder Skill 
 
 Find any Aavegotchi by ID and display with full traits and image.
 
@@ -14,15 +14,15 @@ bash scripts/find-gotchi.sh 9638
 
 ## Features
 
-✅ **Instant ID lookup** - Fetch any gotchi by ID number
-✅ Fetch any gotchi from Base mainnet  
-✅ Display complete traits (BRS, Kinship, Level, XP, etc.)  
-✅ Show all 6 numeric traits (Energy, Aggression, Spookiness, etc.)  
-✅ Generate PNG images (standard 512x512 or hi-res 1024x1024)  
-✅ Export as SVG (scalable vector graphics)  
-✅ Save JSON metadata  
-✅ Support portals and all gotchi states  
-✅ Flexible format options (PNG, hi-res, SVG, or all)  
+ **Instant ID lookup** - Fetch any gotchi by ID number
+ Fetch any gotchi from Base mainnet  
+ Display complete traits (BRS, Kinship, Level, XP, etc.)  
+ Show all 6 numeric traits (Energy, Aggression, Spookiness, etc.)  
+ Generate PNG images (standard 512x512 or hi-res 1024x1024)  
+ Export as SVG (scalable vector graphics)  
+ Save JSON metadata  
+ Support portals and all gotchi states  
+ Flexible format options (PNG, hi-res, SVG, or all)  
 
 ## Output
 
@@ -35,7 +35,7 @@ For each gotchi, you can get:
 
 ## Usage Examples
 
-### 🎯 Recommended Workflow (Conversational)
+###  Recommended Workflow (Conversational)
 
 **Step 1: Preview gotchi (default)**
 ```bash
@@ -43,7 +43,7 @@ bash scripts/find-gotchi.sh 9638
 ```
 
 **What you get:**
-- 🖼️ **Single message** - Gotchi PNG (512×512) with complete traits as caption
+-  **Single message** - Gotchi PNG (512×512) with complete traits as caption
   - Image on top
   - Traits text below (in same message)
   - Download options menu at end of caption
@@ -60,7 +60,7 @@ bash scripts/find-gotchi.sh 9638 --format svg
 bash scripts/find-gotchi.sh 9638 --format all
 ```
 
-### 📦 Direct Downloads (Skip Preview)
+###  Direct Downloads (Skip Preview)
 
 **Standard PNG only:**
 ```bash
@@ -82,7 +82,7 @@ bash scripts/find-gotchi.sh 9638 --format svg
 bash scripts/find-gotchi.sh 9638 --format all
 ```
 
-### 🔧 Advanced Options
+###  Advanced Options
 
 **Custom output directory:**
 ```bash
@@ -105,14 +105,14 @@ done
 ## What It Shows
 
 ### Gotchi Stats
-- 📛 Name
-- ⭐ Base Rarity Score (BRS)
-- 💜 Kinship
-- 🎯 Level
-- ✨ Experience
-- 🏰 Haunt
-- 👤 Owner
-- 🔒 Locked status
+-  Name
+-  Base Rarity Score (BRS)
+-  Kinship
+-  Level
+-  Experience
+-  Haunt
+-  Owner
+-  Locked status
 
 ### Numeric Traits
 - Energy
@@ -154,5 +154,5 @@ gotchi-finder/
 
 ---
 
-Built with 💜 by AAI  
-**LFGOTCHi!** 🦞✨
+Built with  by AAI  
+**LFGOTCHi!** 

@@ -1,4 +1,4 @@
-# ⚔️ War Room
+#  War Room
 
 **AI that argues back. Ships better.**
 

@@ -10,7 +10,7 @@
 - **Costs** — $15-30K per patent through issuance, $5-10K maintenance over life
 
 ### Trademarks
-- **Federal registration** — USPTO, nationwide rights, ® symbol
+- **Federal registration** — USPTO, nationwide rights,  symbol
 - **Common law** — Use-based, limited to geography of use, TM symbol
 - **Classes** — File in each class where you'll use the mark
 - **Timeline** — 8-12 months to registration if no opposition

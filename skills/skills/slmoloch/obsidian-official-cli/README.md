@@ -2,7 +2,7 @@
 
 An OpenClaw skill for working with Obsidian vaults using the **official Obsidian CLI (v1.12+)** - not third-party tools, but Obsidian's own built-in command-line interface with full feature support.
 
-## ✨ Official CLI Features
+##  Official CLI Features
 
 **This skill uses Obsidian's official CLI** - not third-party integrations - giving you access to **all Obsidian features** from the terminal:
 
@@ -18,14 +18,14 @@ An OpenClaw skill for working with Obsidian vaults using the **official Obsidian
 - **Developer Tools**: Console debugging, DOM inspection, screenshots, mobile emulation
 - **TUI Mode**: Interactive terminal UI with autocomplete, history, and command palette access
 
-## 📋 Requirements
+##  Requirements
 
 - **Obsidian 1.12+** with early access (insider builds)
 - **Catalyst license** (required for official CLI access)
 - **Official CLI enabled** in Obsidian: Settings → General → Command line interface → Enable
 - **Obsidian running** (CLI connects to the live Obsidian app for full feature access)
 
-## 🚀 Installation
+##  Installation
 
 1. Download the skill file: [`obsidian-official-cli.skill`](obsidian-official-cli.skill)
 2. Install via OpenClaw CLI:
@@ -33,7 +33,7 @@ An OpenClaw skill for working with Obsidian vaults using the **official Obsidian
    openclaw skills install obsidian-official-cli.skill
    ```
 
-## 💡 Usage Examples
+##  Usage Examples
 
 Once installed, the skill will automatically trigger when you mention Obsidian operations:
 
@@ -45,7 +45,7 @@ Once installed, the skill will automatically trigger when you mention Obsidian o
 - "Take a screenshot of my current Obsidian workspace"
 - "Show me all orphaned notes in my vault graph"
 
-## 🛠️ Obsidian CLI Setup
+##  Obsidian CLI Setup
 
 1. **Upgrade to Obsidian 1.12+**: Get early access via insider builds
 2. **Enable CLI**: Settings → General → Command line interface → Enable
@@ -55,7 +55,7 @@ Once installed, the skill will automatically trigger when you mention Obsidian o
 
 **Note**: Obsidian must be running for CLI commands to work.
 
-## 🔧 Official CLI Command Coverage
+##  Official CLI Command Coverage
 
 **Complete access to Obsidian's official CLI** - every command from the native interface:
 
@@ -88,7 +88,7 @@ Once installed, the skill will automatically trigger when you mention Obsidian o
 - **Command Palette**: Execute any registered Obsidian command by ID
 - **Mobile Emulation**: Test mobile layouts and responsive behavior
 
-## 🎮 TUI Mode
+##  TUI Mode
 
 The skill supports Obsidian's interactive Terminal UI mode with:
 - Command autocomplete
@@ -96,7 +96,7 @@ The skill supports Obsidian's interactive Terminal UI mode with:
 - Keyboard shortcuts
 - Multi-command sessions
 
-## 📚 Documentation
+##  Documentation
 
 The skill includes comprehensive documentation covering:
 - Command syntax and parameters
@@ -105,7 +105,7 @@ The skill includes comprehensive documentation covering:
 - Platform-specific setup instructions
 - Troubleshooting guides
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 obsidian-official-cli-skill/
@@ -117,7 +117,7 @@ obsidian-official-cli-skill/
 └── .gitignore                      # Git ignore rules
 ```
 
-## 🚀 Installation
+##  Installation
 
 Download the skill file from the [releases page](https://github.com/slmoloch/obsidian-official-cli-skill/releases) and install:
 
@@ -126,7 +126,7 @@ Download the skill file from the [releases page](https://github.com/slmoloch/obs
 openclaw skills install obsidian-official-cli.skill
 ```
 
-## 🛠️ Development
+##  Development
 
 **For Developers:**
 - `SKILL.md` contains the complete skill implementation
@@ -134,7 +134,7 @@ openclaw skills install obsidian-official-cli.skill
 - Rebuild with `openclaw skills build` after changes
 - Test locally before submitting changes
 
-## 🤝 Contributing
+##  Contributing
 
 Found an issue or want to improve the skill? 
 
@@ -144,11 +144,11 @@ Found an issue or want to improve the skill?
 4. Test your changes locally
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 MIT License - feel free to modify and redistribute.
 
-## 🔗 Links
+##  Links
 
 - [Obsidian Official CLI Documentation](https://help.obsidian.md/cli)
 - [OpenClaw Documentation](https://docs.openclaw.ai)
@@ -156,4 +156,4 @@ MIT License - feel free to modify and redistribute.
 
 ---
 
-**Built for OpenClaw** 🦞 | **Supports Obsidian CLI v1.12+** 📝
+**Built for OpenClaw**  | **Supports Obsidian CLI v1.12+** 

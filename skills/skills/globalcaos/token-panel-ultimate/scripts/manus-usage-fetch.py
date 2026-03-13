@@ -169,7 +169,7 @@ def main():
     elif args.update:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(json.dumps(usage, indent=2) + "\n")
-        print(f"✔ Updated {output_path}")
+        print(f" Updated {output_path}")
         # Print summary
         c = usage["credits"]
         d = c["daily_refresh"]

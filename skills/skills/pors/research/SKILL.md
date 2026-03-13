@@ -2,7 +2,7 @@
 name: research
 description: Deep research via Gemini CLI — runs in background sub-agent so you don't burn your Claude tokens.
 homepage: https://github.com/google/gemini-cli
-metadata: {"clawdbot":{"emoji":"🔬","requires":{"bins":["gemini"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gemini"]}}}
 ---
 
 # Research Skill
@@ -63,7 +63,7 @@ Be thorough (aim for 500+ lines). Include specific examples and citations.
 
 IMPORTANT - When research is complete:
 1. Send a wake event to notify the main agent immediately:
-   cron(action: 'wake', text: '🔬 Research complete: [TOPIC]. Key findings: [2-3 bullet points]. Full report: ~/clawd/research/[slug]/research.md', mode: 'now')
+   cron(action: 'wake', text: ' Research complete: [TOPIC]. Key findings: [2-3 bullet points]. Full report: ~/clawd/research/[slug]/research.md', mode: 'now')
 2. When asked to produce an announce message, reply exactly: ANNOUNCE_SKIP",
   label: "research-[slug]"
 )

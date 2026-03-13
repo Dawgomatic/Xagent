@@ -900,7 +900,7 @@ def main():
         
         if assessment['blocking_issues']:
             output_lines.extend([
-                "## 🚫 Blocking Issues",
+                "##  Blocking Issues",
                 ""
             ])
             for issue in assessment['blocking_issues']:
@@ -909,7 +909,7 @@ def main():
         
         if assessment['warnings']:
             output_lines.extend([
-                "## ⚠️ Warnings",
+                "##  Warnings",
                 ""
             ])
             for warning in assessment['warnings']:
@@ -941,7 +941,7 @@ def main():
                     output_lines.append(f"### {current_category}")
                     output_lines.append("")
                 
-                status_icon = "✅" if item['status'] == 'ready' else "❌" if item['status'] == 'failed' else "⏳"
+                status_icon = "" if item['status'] == 'ready' else "" if item['status'] == 'failed' else ""
                 output_lines.append(f"- {status_icon} {item['item']}")
             output_lines.append("")
         
@@ -960,19 +960,19 @@ def main():
         if assessment['blocking_issues']:
             output_lines.extend(["BLOCKING ISSUES:", ""])
             for issue in assessment['blocking_issues']:
-                output_lines.append(f"  ❌ {issue}")
+                output_lines.append(f"   {issue}")
             output_lines.append("")
         
         if assessment['warnings']:
             output_lines.extend(["WARNINGS:", ""])
             for warning in assessment['warnings']:
-                output_lines.append(f"  ⚠️  {warning}")
+                output_lines.append(f"    {warning}")
             output_lines.append("")
         
         if assessment['recommendations']:
             output_lines.extend(["RECOMMENDATIONS:", ""])
             for rec in assessment['recommendations']:
-                output_lines.append(f"  💡 {rec}")
+                output_lines.append(f"   {rec}")
             output_lines.append("")
         
         # Summary stats

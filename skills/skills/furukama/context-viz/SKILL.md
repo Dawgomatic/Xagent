@@ -31,21 +31,21 @@ Then call `session_status` to get the actual context usage from OpenClaw.
 Use a monospace block with bar chart. Adapt the bar lengths proportionally.
 
 ```
-📊 Context Usage
+ Context Usage
 <model> • <used>k/<total>k tokens (<pct>%)
 
 Component                    Tokens    %     
 ─────────────────────────────────────────────
-⚙️  System prompt + tools    ~Xk      X%    ░░
-📋  AGENTS.md                ~Xk      X%    ░
-👻  SOUL.md                  ~Xk      X%    
-👤  USER.md                  ~Xk      X%    
-🔧  TOOLS.md                 ~Xk      X%    ░
-💓  HEARTBEAT.md             ~Xk      X%    
-🧠  MEMORY.md                ~Xk      X%    ░
-🪪  IDENTITY.md              ~Xk      X%    
-💬  Messages                 ~Xk      X%    ░░░░░░░░░░░░
-📭  Free space               ~Xk      X%    ░░░░░
+  System prompt + tools    ~Xk      X%    ░░
+  AGENTS.md                ~Xk      X%    ░
+  SOUL.md                  ~Xk      X%    
+  USER.md                  ~Xk      X%    
+  TOOLS.md                 ~Xk      X%    ░
+  HEARTBEAT.md             ~Xk      X%    
+  MEMORY.md                ~Xk      X%    ░
+  IDENTITY.md              ~Xk      X%    
+  Messages                 ~Xk      X%    ░░░░░░░░░░░░
+  Free space               ~Xk      X%    ░░░░░
 ─────────────────────────────────────────────
 ```
 
@@ -56,14 +56,14 @@ Use ░ blocks: 1 block per ~2% of total context. Round to nearest block.
 Below the context chart, add a **Memory on Disk** section showing what's stored in `memory/` — grouped by category. These files are NOT loaded into context but represent the agent's total knowledge base.
 
 ```
-💾 Memory on Disk (not in context)
+ Memory on Disk (not in context)
 Category                     Files  Tokens   Size
 ──────────────────────────────────────────────────
-📰  chinese-ai-digests        12    ~23k     92KB
-📁  other                     11    ~12k     46KB
-📅  daily-notes                9    ~5k      17KB
-🗃️  zettelkasten               8    ~4k      15KB
-💼  linkedin                   2    ~1k       5KB
+  chinese-ai-digests        12    ~23k     92KB
+  other                     11    ~12k     46KB
+  daily-notes                9    ~5k      17KB
+  zettelkasten               8    ~4k      15KB
+  linkedin                   2    ~1k       5KB
 ──────────────────────────────────────────────────
      Total:                   42    ~44k    177KB
 ```

@@ -1,7 +1,7 @@
 ---
 name: PocketBase
 description: Build backends with PocketBase collections, auth, and realtime.
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["pocketbase"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["pocketbase"]},"os":["linux","darwin","win32"]}}
 ---
 
 ## SDK Basics

@@ -65,10 +65,10 @@ node skills/dingtalk-push/send.js -m "错误" --type error --all
 
 | 类型 | Emoji | 适用场景 |
 |------|-------|----------|
-| info | ℹ️ | 普通通知 |
-| success | ✅ | 成功完成任务 |
-| warning | ⚠️ | 警告、需要关注 |
-| error | ❌ | 错误、异常 |
+| info |  | 普通通知 |
+| success |  | 成功完成任务 |
+| warning |  | 警告、需要关注 |
+| error |  | 错误、异常 |
 
 ## 输出
 

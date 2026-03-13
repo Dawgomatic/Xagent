@@ -2,7 +2,7 @@
 name: "bim-cost-estimation-cwicr"
 description: "Automated cost estimation from BIM models using DDC CWICR database with 55,719 work items. AI classification + vector search for accurate pricing."
 homepage: "https://datadrivenconstruction.io"
-metadata: {"openclaw":{"emoji":"🏗️","os":["darwin","linux","win32"],"homepage":"https://datadrivenconstruction.io","requires":{"bins":["python3"],"env":["OPENAI_API_KEY","QDRANT_URL"]},"primaryEnv":"OPENAI_API_KEY"}}
+metadata: {"openclaw":{"emoji":"","os":["darwin","linux","win32"],"homepage":"https://datadrivenconstruction.io","requires":{"bins":["python3"],"env":["OPENAI_API_KEY","QDRANT_URL"]},"primaryEnv":"OPENAI_API_KEY"}}
 ---
 
 # BIM Cost Estimation with DDC CWICR

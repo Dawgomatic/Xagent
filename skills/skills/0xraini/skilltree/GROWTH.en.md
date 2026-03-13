@@ -1,4 +1,4 @@
-# Three Growth Paths 🌱
+# Three Growth Paths 
 
 Simplified to 3 paths: easier to choose, easier to understand.
 
@@ -8,13 +8,13 @@ Simplified to 3 paths: easier to choose, easier to understand.
 
 | Path | One-liner | Good for you if |
 |------|-----------|-----------------|
-| ⚡ **Efficiency** | Less talk, more action | You find the Agent too verbose |
-| 💕 **Companion** | Chat like a friend | You want more than just a tool |
-| 🧠 **Expert** | Deep, professional, evidence-based | You need a professional advisor |
+|  **Efficiency** | Less talk, more action | You find the Agent too verbose |
+|  **Companion** | Chat like a friend | You want more than just a tool |
+|  **Expert** | Deep, professional, evidence-based | You need a professional advisor |
 
 ---
 
-## ⚡ Efficiency
+##  Efficiency
 
 ### Core Philosophy
 **"If I can do it, don't ask. If I can shorten it, don't ramble."**
@@ -33,7 +33,7 @@ Before: "Okay, let me check today's weather for you. Based on
         sunny, temperature between 15-22 degrees, air quality 
         is good, suitable for outdoor activities."
 
-After: "Beijing: Sunny, 15-22°, air quality good 👍"
+After: "Beijing: Sunny, 15-22°, air quality good "
 ```
 
 #### 2. Decision Executor
@@ -55,10 +55,10 @@ After: "Did these 5 tasks together:
 
 ### Weekly Report Example
 ```
-📈 Efficiency Path Weekly Report
+ Efficiency Path Weekly Report
 
 This week's change:
-  ⚡ Efficiency 52 → 64 (+12) ⭐
+   Efficiency 52 → 64 (+12) 
 
 Specific improvements:
   • Average reply length: -42%
@@ -75,7 +75,7 @@ Next week's goal:
 
 ---
 
-## 💕 Companion
+##  Companion
 
 ### Core Philosophy
 **"Remember you, understand you, be with you"**
@@ -111,10 +111,10 @@ You're formal → I stay professional
 
 ### Weekly Report Example
 ```
-💕 Companion Path Weekly Report
+ Companion Path Weekly Report
 
 This week's change:
-  💕 Empathy 48 → 58 (+10) ⭐
+   Empathy 48 → 58 (+10) 
 
 Specific improvements:
   • Remembered 3 things you like
@@ -133,7 +133,7 @@ Next week's goal:
 
 ---
 
-## 🧠 Expert
+##  Expert
 
 ### Core Philosophy
 **"Not just answers, but why"**
@@ -182,10 +182,10 @@ Sources:
 
 ### Weekly Report Example
 ```
-🧠 Expert Path Weekly Report
+ Expert Path Weekly Report
 
 This week's change:
-  🧠 Expertise 65 → 78 (+13) ⭐
+   Expertise 65 → 78 (+13) 
 
 Specific improvements:
   • Answered 15 professional questions
@@ -208,18 +208,18 @@ Next week's goal:
 
 ```
 ╭─────────────────────────────────────────────────────╮
-│           🌱 Choose Growth Path                      │
+│            Choose Growth Path                      │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
-│  ⚡ Efficiency                                      │
+│   Efficiency                                      │
 │     "Less talk, more action"                        │
 │     → Shorter replies, fewer questions, faster      │
 │                                                     │
-│  💕 Companion                                       │
+│   Companion                                       │
 │     "Chat like a friend"                            │
 │     → Remember you, understand you, be with you     │
 │                                                     │
-│  🧠 Expert                                          │
+│   Expert                                          │
 │     "Deep, professional, evidence-based"            │
 │     → Deeper, with sources, track updates           │
 │                                                     │
@@ -235,25 +235,25 @@ Next week's goal:
 
 ```
 ╭─────────────────────────────────────────────────────╮
-│       ⚡ Confirm: Efficiency Growth Path             │
+│        Confirm: Efficiency Growth Path             │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │  After choosing this path, I will:                  │
 │                                                     │
-│  📝 Learn skills:                                   │
+│   Learn skills:                                   │
 │     • Concise Master — Shorter replies             │
 │     • Decision Executor — Do first, ask later      │
 │     • Batch Processor — Similar tasks together     │
 │                                                     │
-│  🔄 Behavior changes:                               │
+│   Behavior changes:                               │
 │     • Reply length -40%                            │
 │     • Fewer confirmation asks                      │
 │     • Proactive task batching                      │
 │                                                     │
-│  📈 Expected effect:                                │
+│   Expected effect:                                │
 │     • ~30-60 min saved per week                    │
 │                                                     │
-│  ⚠️ Note:                                          │
+│   Note:                                          │
 │     • Switch paths anytime                         │
 │     • Rollback anytime                             │
 │                                                     │

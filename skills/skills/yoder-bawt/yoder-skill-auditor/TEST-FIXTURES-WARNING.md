@@ -1,4 +1,4 @@
-# ⚠️ TEST FIXTURES WARNING
+#  TEST FIXTURES WARNING
 
 The `tests/` directory contains **intentionally malicious test fixtures** used to validate the auditor's detection capabilities. These fixtures exist solely for automated testing (`bash test.sh`).
 

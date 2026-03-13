@@ -1,4 +1,4 @@
-# 🧭 Model Router for OpenClaw
+#  Model Router for OpenClaw
 
 Intelligent model routing — Sonnet 4.6 for everyday work, Opus for the hard stuff. Faster responses, fewer rate limits, your Claude sub lasts longer.
 

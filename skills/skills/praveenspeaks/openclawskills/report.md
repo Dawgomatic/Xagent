@@ -39,7 +39,7 @@ description: >
 metadata:
   {
     "openclaw": {
-      "emoji": "🎬"
+      "emoji": ""
     }
   }
 ---
@@ -102,7 +102,7 @@ Bundled skills that need external tools declare them in frontmatter:
 metadata:
   {
     "openclaw": {
-      "emoji": "🍌",
+      "emoji": "",
       "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"] },
       "primaryEnv": "GEMINI_API_KEY",
       "install": [
@@ -159,7 +159,7 @@ description: >
 metadata:
   {
     "openclaw": {
-      "emoji": "🎬"
+      "emoji": ""
     }
   }
 ---

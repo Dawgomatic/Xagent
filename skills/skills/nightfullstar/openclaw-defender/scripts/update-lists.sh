@@ -59,10 +59,10 @@ fi
 for name in network-whitelist.example safe-commands.example rag-allowlist.example; do
   URL="$BASE_URL/references/$name"
   if command -v curl >/dev/null 2>&1; then
-    curl -sSfL -o /dev/null "$URL" 2>/dev/null && echo "  ℹ  Optional: $name available at $URL (copy to workspace root as .defender-* if needed)"
+    curl -sSfL -o /dev/null "$URL" 2>/dev/null && echo "    Optional: $name available at $URL (copy to workspace root as .defender-* if needed)"
   fi
 done
 
 echo ""
-echo "✅ Lists updated. Re-audit skills to use new blocklist: audit-skills.sh /path/to/skill"
+echo " Lists updated. Re-audit skills to use new blocklist: audit-skills.sh /path/to/skill"
 echo "   To use a different source next time: OPENCLAW_DEFENDER_LISTS_URL=<base_url> $0"

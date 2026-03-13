@@ -182,7 +182,7 @@ def get_option_chain(symbol, expiration_date=None, account_id=None):
             if not options:
                 return
 
-            emoji = "📈" if option_type == "CALLS" else "📉"
+            emoji = "" if option_type == "CALLS" else ""
             print(f"\n{emoji} {option_type}")
             print("-" * 120)
             print(f"  {'OSI Symbol':<25} {'Strike':>10} {'Bid':>10} {'BidSz':>8} {'Ask':>10} {'AskSz':>8} {'Last':>10} {'Volume':>10} {'OI':>10}")

@@ -9,9 +9,9 @@ RED='\033[0;31m'
 RESET='\033[0m'
 
 info()  { echo -e "${BOLD}→${RESET} $*"; }
-ok()    { echo -e "${GREEN}✔${RESET} $*"; }
-warn()  { echo -e "${YELLOW}⚠${RESET} $*"; }
-fail()  { echo -e "${RED}✖${RESET} $*"; }
+ok()    { echo -e "${GREEN}${RESET} $*"; }
+warn()  { echo -e "${YELLOW}${RESET} $*"; }
+fail()  { echo -e "${RED}${RESET} $*"; }
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
@@ -221,4 +221,4 @@ echo "  4. The performance routine hooks (pre-game briefing, tool"
 echo "     discipline, output compression, after-action review) will"
 echo "     activate automatically once enabled in your OpenClaw config."
 echo ""
-echo -e "${GREEN}You're all set. Happy remembering.${RESET} ⚡"
+echo -e "${GREEN}You're all set. Happy remembering.${RESET} "

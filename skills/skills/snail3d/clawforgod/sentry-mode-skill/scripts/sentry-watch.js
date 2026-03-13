@@ -39,14 +39,14 @@ class SentryWatch {
       alertCount: 0,
       lastAlert: null,
     });
-    console.log(`✅ BOLO Added: "${description}"`);
+    console.log(` BOLO Added: "${description}"`);
   }
 
   /**
    * List all active BOLOs
    */
   listBolos() {
-    console.log('\n📋 ACTIVE BOLOs:');
+    console.log('\n ACTIVE BOLOs:');
     console.log('─'.repeat(60));
     this.boloDescriptions.forEach((bolo, idx) => {
       console.log(
@@ -70,7 +70,7 @@ class SentryWatch {
    */
   async startWatching() {
     if (this.watching) {
-      console.log('⚠️ Already watching');
+      console.log(' Already watching');
       return;
     }
 
@@ -81,21 +81,21 @@ class SentryWatch {
       fs.mkdirSync(this.tempDir, { recursive: true });
     }
 
-    console.log(`\n👀 SENTRY WATCH MODE ACTIVATED`);
-    console.log(`⏱️ Check interval: ${this.checkInterval}ms`);
-    console.log(`🔍 Motion threshold: ${(this.motionThreshold * 100).toFixed(1)}%`);
-    console.log(`⏰ Alert cooldown: ${Math.round(this.alertCooldown / 1000)}s`);
-    console.log(`📌 Active BOLOs: ${this.boloDescriptions.length}\n`);
+    console.log(`\n SENTRY WATCH MODE ACTIVATED`);
+    console.log(` Check interval: ${this.checkInterval}ms`);
+    console.log(` Motion threshold: ${(this.motionThreshold * 100).toFixed(1)}%`);
+    console.log(` Alert cooldown: ${Math.round(this.alertCooldown / 1000)}s`);
+    console.log(` Active BOLOs: ${this.boloDescriptions.length}\n`);
 
     this.listBolos();
 
     // Start monitoring loop
-    console.log('🎥 Starting continuous monitoring...\n');
+    console.log(' Starting continuous monitoring...\n');
     this.monitorLoop();
 
     // Handle graceful shutdown
     process.on('SIGINT', () => {
-      console.log('\n\n🛑 Stopping Sentry Watch Mode...');
+      console.log('\n\n Stopping Sentry Watch Mode...');
       this.stopWatching();
       process.exit(0);
     });
@@ -119,7 +119,7 @@ class SentryWatch {
 
         if (motionScore > this.motionThreshold) {
           console.log(
-            `🎬 MOTION DETECTED (${(motionScore * 100).toFixed(1)}%)`
+            ` MOTION DETECTED (${(motionScore * 100).toFixed(1)}%)`
           );
 
           // Analyze frame
@@ -131,7 +131,7 @@ class SentryWatch {
 
         this.previousFrame = frame;
       } catch (error) {
-        console.error(`⚠️ Monitor loop error: ${error.message}`);
+        console.error(` Monitor loop error: ${error.message}`);
       }
 
       await this.sleep(this.checkInterval);
@@ -286,12 +286,12 @@ class SentryWatch {
     const timestamp = new Date().toLocaleString();
 
     console.log('\n' + '!'.repeat(60));
-    console.log('🚨 BOLO ALERT!');
+    console.log(' BOLO ALERT!');
     console.log('!'.repeat(60));
-    console.log(`\n📌 BOLO: ${bolo.description}`);
-    console.log(`⏰ Time: ${timestamp}`);
-    console.log(`📸 Frame: ${path.basename(frameFile)}`);
-    console.log(`\n👤 Detected: ${JSON.stringify(analysis.detected, null, 2)}`);
+    console.log(`\n BOLO: ${bolo.description}`);
+    console.log(` Time: ${timestamp}`);
+    console.log(` Frame: ${path.basename(frameFile)}`);
+    console.log(`\n Detected: ${JSON.stringify(analysis.detected, null, 2)}`);
     console.log('\n' + '!'.repeat(60) + '\n');
 
     // Update BOLO stats
@@ -312,7 +312,7 @@ class SentryWatch {
     this.watching = false;
     this.cleanup();
 
-    console.log('\n📊 WATCH SESSION SUMMARY:');
+    console.log('\n WATCH SESSION SUMMARY:');
     console.log('─'.repeat(60));
     this.boloDescriptions.forEach((bolo, idx) => {
       console.log(`${idx + 1}. ${bolo.description}`);
@@ -329,7 +329,7 @@ class SentryWatch {
       try {
         execSync(`rm -rf "${this.tempDir}"`);
       } catch (error) {
-        console.warn(`⚠️ Cleanup failed: ${error.message}`);
+        console.warn(` Cleanup failed: ${error.message}`);
       }
     }
   }
@@ -399,12 +399,12 @@ async function main() {
       terminal: false,
     });
 
-    console.log('📌 Enter BOLO descriptions (one per line, ctrl+D to start watching):\n');
+    console.log(' Enter BOLO descriptions (one per line, ctrl+D to start watching):\n');
 
     rl.on('line', (line) => {
       if (line.trim()) {
         bolos.push(line);
-        console.log(`✅ Added: "${line}"`);
+        console.log(` Added: "${line}"`);
       }
     });
 

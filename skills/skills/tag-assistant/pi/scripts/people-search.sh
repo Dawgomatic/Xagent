@@ -18,36 +18,36 @@ echo ""
 # TruePeopleSearch (actually free, good results)
 TPS_URL="https://www.truepeoplesearch.com/results?name=${FIRST}%20${LAST}"
 [ -n "$STATE" ] && TPS_URL="${TPS_URL}&citystatezip=${CITY:+${CITY}%20}${STATE}"
-echo "🔍 TruePeopleSearch: $TPS_URL"
+echo " TruePeopleSearch: $TPS_URL"
 
 # FastPeopleSearch (free)
 FPS_URL="https://www.fastpeoplesearch.com/name/${FIRST}-${LAST}"
 [ -n "$STATE" ] && FPS_URL="${FPS_URL}_${STATE}"
-echo "🔍 FastPeopleSearch: $FPS_URL"
+echo " FastPeopleSearch: $FPS_URL"
 
 # Spokeo
 SPOKEO_URL="https://www.spokeo.com/${FIRST}-${LAST}"
 [ -n "$STATE" ] && SPOKEO_URL="${SPOKEO_URL}/${STATE}"
 [ -n "$CITY" ] && SPOKEO_URL="${SPOKEO_URL}/${CITY}"
-echo "🔍 Spokeo: $SPOKEO_URL"
+echo " Spokeo: $SPOKEO_URL"
 
 # WhitePages
 WP_URL="https://www.whitepages.com/name/${FIRST}-${LAST}"
 [ -n "$STATE" ] && WP_URL="${WP_URL}/${STATE}"
-echo "🔍 WhitePages: $WP_URL"
+echo " WhitePages: $WP_URL"
 
 # ClustrMaps
 CM_URL="https://clustrmaps.com/persons/${FIRST}-${LAST}"
-echo "🔍 ClustrMaps: $CM_URL"
+echo " ClustrMaps: $CM_URL"
 
 # CourtListener (federal courts)
 CL_URL="https://www.courtlistener.com/?q=%22${FIRST}+${LAST}%22&type=r"
-echo "🔍 CourtListener: $CL_URL"
+echo " CourtListener: $CL_URL"
 
 # FEC (political donations)
 FEC_URL="https://www.fec.gov/data/receipts/individual-contributions/?contributor_name=${FIRST}+${LAST}"
 [ -n "$STATE" ] && FEC_URL="${FEC_URL}&contributor_state=${STATE}"
-echo "🔍 FEC Contributions: $FEC_URL"
+echo " FEC Contributions: $FEC_URL"
 
 echo ""
 echo "Note: Most of these are JS-rendered. Use browser tool or web_search"

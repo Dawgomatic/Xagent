@@ -5,7 +5,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 
 ---
 
-## 🔴 BLOCKERS
+##  BLOCKERS
 
 ### Accesibilidad (A11y) Crítica
 - Imágenes sin atributo alt (o alt vacío sin justificación)
@@ -16,13 +16,13 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - autofocus en elementos que no son el propósito principal de la página
 - tabindex con valores positivos (rompe el orden natural de navegación)
 
-❌ Mal:
+ Mal:
   <img src="logo.png">
   <input type="email" placeholder="Email">
   <div onclick="submit()">Enviar</div>
   <span class="icon-close" onclick="close()"></span>
 
-✅ Bien:
+ Bien:
   <img src="logo.png" alt="Logo de la empresa">
   <img src="decorative-line.png" alt=""> <!-- Decorativa: alt vacío es correcto -->
 
@@ -41,7 +41,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Usar tablas para layout en lugar de datos tabulares
 - Formularios sin action o method definidos cuando es relevante
 
-❌ Mal:
+ Mal:
   <table>
     <tr>
       <td class="sidebar">...</td>
@@ -52,7 +52,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
   <h1>Título</h1>
   <h3>Subtítulo</h3> <!-- Saltó h2 -->
 
-✅ Bien:
+ Bien:
   <div class="layout">
     <aside class="sidebar">...</aside>
     <main class="content">...</main>
@@ -67,7 +67,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - z-index con valores arbitrarios altos: 9999, 999999
 - overflow: hidden en body o html que rompe scroll de la página
 
-❌ Mal:
+ Mal:
   .card {
     color: red !important;
     z-index: 9999;
@@ -75,7 +75,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 
   <div style="display:flex;justify-content:space-between;align-items:center;padding:20px;margin:10px;background:#f5f5f5;border-radius:8px;">
 
-✅ Bien:
+ Bien:
   /* Escala de z-index documentada */
   :root {
     --z-dropdown: 100;
@@ -98,17 +98,17 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Iframes sin sandbox attribute para contenido externo
 - Formularios que envían datos sensibles sin HTTPS (action="http://...")
 
-❌ Mal:
+ Mal:
   <a href="https://external.com" target="_blank">Visitar</a>
   <iframe src="https://external-widget.com/embed"></iframe>
 
-✅ Bien:
+ Bien:
   <a href="https://external.com" target="_blank" rel="noopener noreferrer">Visitar</a>
   <iframe src="https://external-widget.com/embed" sandbox="allow-scripts allow-same-origin"></iframe>
 
 ---
 
-## 🟡 WARNINGS
+##  WARNINGS
 
 ### HTML Semántico
 - No usar elementos semánticos cuando corresponde:
@@ -118,7 +118,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Usar <div> para todo cuando existe un elemento semántico apropiado
 - Listas de navegación sin <nav> y sin <ul>/<ol>
 
-❌ Mal:
+ Mal:
   <div class="header">
     <div class="nav">
       <div class="nav-item"><a href="/">Home</a></div>
@@ -132,9 +132,9 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
       <div class="content">Contenido...</div>
     </div>
   </div>
-  <div class="footer">© 2026</div>
+  <div class="footer"> 2026</div>
 
-✅ Bien:
+ Bien:
   <header>
     <nav aria-label="Navegación principal">
       <ul>
@@ -149,7 +149,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
       <p>Contenido...</p>
     </article>
   </main>
-  <footer>© 2026</footer>
+  <footer> 2026</footer>
 
 ### Accesibilidad Intermedia
 - Contraste insuficiente entre texto y fondo (mínimo 4.5:1 para texto normal, 3:1 para grande)
@@ -158,12 +158,12 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Contenido que desaparece o aparece sin aviso a screen readers
 - Formularios sin mensajes de error asociados al campo
 
-❌ Mal:
+ Mal:
   .spinner {
     animation: spin 1s linear infinite;
   }
 
-✅ Bien:
+ Bien:
   .spinner {
     animation: spin 1s linear infinite;
   }
@@ -174,7 +174,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
     }
   }
 
-✅ Error accesible en formulario:
+ Error accesible en formulario:
   <label for="email">Email</label>
   <input type="email" id="email" aria-describedby="email-error" aria-invalid="true">
   <span id="email-error" role="alert">Por favor ingresa un email válido</span>
@@ -185,7 +185,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Media queries con valores de px hardcodeados sin lógica clara de breakpoints
 - Usar position: absolute/fixed sin considerar el contexto de stacking
 
-❌ Mal:
+ Mal:
   .container {
     width: 1200px;
     margin: 0 auto;
@@ -201,7 +201,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
     width: 900px;
   }
 
-✅ Bien:
+ Bien:
   .container {
     max-width: 1200px;
     width: 100%;
@@ -228,10 +228,10 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Imágenes sin max-width: 100% que rompen el layout en móvil
 - No testear en diferentes tamaños de pantalla
 
-✅ Siempre incluir:
+ Siempre incluir:
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-✅ Imágenes responsivas:
+ Imágenes responsivas:
   img {
     max-width: 100%;
     height: auto;
@@ -252,7 +252,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Animaciones de propiedades que causan layout/paint: width, height, top, left
 - No usar will-change con moderación (solo donde realmente se necesita)
 
-❌ Mal:
+ Mal:
   @import url('fonts.css'); /* Bloquea render */
 
   body div.container main article .content p span.highlight {
@@ -263,7 +263,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
     transition: width 0.3s, height 0.3s, top 0.3s;
   }
 
-✅ Bien:
+ Bien:
   /* En HTML: <link rel="stylesheet" href="fonts.css"> */
 
   .highlight {
@@ -282,14 +282,14 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 
 ---
 
-## 🔵 SUGGESTIONS
+##  SUGGESTIONS
 
 ### Custom Properties (CSS Variables)
 - Usar CSS custom properties para valores reutilizables: colores, spacing, typography
 - Definir un sistema de design tokens consistente
 - Usar variables para theming (dark mode, etc.)
 
-✅ Sistema de tokens recomendado:
+ Sistema de tokens recomendado:
   :root {
     /* Colores */
     --color-primary: #2563eb;
@@ -342,7 +342,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Si se usa BEM: Block__Element--Modifier
 - Evitar mezclar metodologías en el mismo proyecto
 
-✅ Ejemplo BEM:
+ Ejemplo BEM:
   .card {}
   .card__header {}
   .card__body {}
@@ -352,7 +352,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
   .card__header--sticky {}
 
 ### Formularios Accesibles Completos
-✅ Ejemplo de formulario bien estructurado:
+ Ejemplo de formulario bien estructurado:
   <form novalidate>
     <fieldset>
       <legend>Información Personal</legend>
@@ -394,7 +394,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Usar clamp() para fluid typography y spacing
 - Usar aspect-ratio para mantener proporciones
 
-✅ Ejemplos:
+ Ejemplos:
   /* Fluid typography */
   h1 {
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -427,7 +427,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 
 ---
 
-## 💡 NITS
+##  NITS
 
 ### HTML
 - Atributos booleanos sin valor: usar "required" no "required='true'"
@@ -452,7 +452,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Agrupar media queries junto al componente que modifican, no al final del archivo
 - Usar nesting nativo de CSS o de preprocesador con moderación (máximo 3 niveles)
 
-❌ Mal:
+ Mal:
   .nav {
     .list {
       .item {
@@ -465,7 +465,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
     }
   }
 
-✅ Bien:
+ Bien:
   .nav-link {
     color: var(--color-text);
 
@@ -485,7 +485,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
 - Usar loading="lazy" en imágenes que no están en el viewport inicial
 - Usar <picture> con formatos modernos (WebP, AVIF) con fallback
 
-✅ Ejemplo de head completo:
+ Ejemplo de head completo:
   <!DOCTYPE html>
   <html lang="es">
   <head>
@@ -497,7 +497,7 @@ Aplica a archivos con extensión: .css, .scss, .sass, .less, .html, .htm, .vue, 
     <link rel="stylesheet" href="/styles.css">
   </head>
 
-✅ Imágenes optimizadas:
+ Imágenes optimizadas:
   <picture>
     <source srcset="photo.avif" type="image/avif">
     <source srcset="photo.webp" type="image/webp">

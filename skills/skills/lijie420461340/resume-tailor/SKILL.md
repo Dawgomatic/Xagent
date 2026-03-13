@@ -185,7 +185,7 @@ I'll provide:
 ### Job Requirements Match
 | Requirement | Your Match | Gap? |
 |-------------|-----------|------|
-| [Key skill] | [Your experience] | ✅/⚠️ |
+| [Key skill] | [Your experience] | / |
 
 ### Keyword Optimization
 **Add these keywords:** [list]
@@ -231,10 +231,10 @@ I'll provide:
 **Me**: After analyzing the job posting, here's what I found:
 
 **Key Requirements:**
-1. 5+ years Python experience ✅ (you have 6 years)
-2. AWS expertise ⚠️ (mentioned briefly - let's expand)
-3. Team leadership ✅ (managed 3 engineers)
-4. Microservices ⚠️ (not mentioned - do you have experience?)
+1. 5+ years Python experience  (you have 6 years)
+2. AWS expertise  (mentioned briefly - let's expand)
+3. Team leadership  (managed 3 engineers)
+4. Microservices  (not mentioned - do you have experience?)
 
 **Recommended Changes:**
 1. Add "AWS" to skills section with specific services

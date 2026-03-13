@@ -195,14 +195,14 @@ export default function register(api: PluginApi) {
     handler: async (ctx: { args?: string }) => {
       const query = ctx.args?.trim();
       if (!query) {
-        return { text: '⚠️ Usage: /recall <search query>' };
+        return { text: ' Usage: /recall <search query>' };
       }
 
       try {
         const results = runRecall(query, { limit: defaultLimit, publicOnly });
-        return { text: `🧠 **Recall Results**\n\n${results}` };
+        return { text: ` **Recall Results**\n\n${results}` };
       } catch (err: any) {
-        return { text: `❌ Recall failed: ${err.message}` };
+        return { text: ` Recall failed: ${err.message}` };
       }
     },
   });
@@ -220,9 +220,9 @@ export default function register(api: PluginApi) {
       try {
         const indexPath = path.join(BIN_PATH, 'index-digests');
         const output = execSync(indexPath, { encoding: 'utf8', timeout: 120000 });
-        return { text: `🔄 **Memory Indexed**\n\n${output}` };
+        return { text: ` **Memory Indexed**\n\n${output}` };
       } catch (err: any) {
-        return { text: `❌ Index failed: ${err.message}` };
+        return { text: ` Index failed: ${err.message}` };
       }
     },
   });

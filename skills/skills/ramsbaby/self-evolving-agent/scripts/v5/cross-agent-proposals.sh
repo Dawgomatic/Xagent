@@ -45,8 +45,8 @@ for arg in "$@"; do
 done
 
 log()  { [[ "$JSON_MODE" == "false" ]] && echo "[cross-proposals] $*" >&2 || true; }
-ok()   { [[ "$JSON_MODE" == "false" ]] && echo "[cross-proposals] ✅ $*" >&2 || true; }
-warn() { [[ "$JSON_MODE" == "false" ]] && echo "[cross-proposals] ⚠️  $*" >&2 || true; }
+ok()   { [[ "$JSON_MODE" == "false" ]] && echo "[cross-proposals]  $*" >&2 || true; }
+warn() { [[ "$JSON_MODE" == "false" ]] && echo "[cross-proposals]   $*" >&2 || true; }
 
 log "=== SEA v5.0 Cross-Agent Proposal Generator ==="
 
@@ -140,13 +140,13 @@ for i, pattern in enumerate(systemic_issues):
         "git_direct_cmd": {
             "title": "모든 에이전트: git 직접 명령 금지 강화",
             "before": "# git 직접 사용\ngit pull --rebase\ngit push origin main",
-            "after": "# ✅ 올바른 방식: git-sync.sh 사용 필수\nbash ~/openclaw/scripts/git-sync.sh\n# 직접 git pull/push 절대 금지",
+            "after": "#  올바른 방식: git-sync.sh 사용 필수\nbash ~/openclaw/scripts/git-sync.sh\n# 직접 git pull/push 절대 금지",
             "severity": "high",
         },
         "curl_no_fallback": {
             "title": "모든 에이전트: curl 에러 핸들링 필수",
             "before": "# 위험: 에러 핸들링 없음\ncurl https://api.example.com/data",
-            "after": "# ✅ 올바른 방식\ncurl -sf https://api.example.com/data || echo 'API 요청 실패'",
+            "after": "#  올바른 방식\ncurl -sf https://api.example.com/data || echo 'API 요청 실패'",
             "severity": "high",
         },
         "rm_destructive": {
@@ -164,7 +164,7 @@ for i, pattern in enumerate(systemic_issues):
         "gateway_launchctl": {
             "title": "모든 에이전트: launchctl 직접 호출 금지",
             "before": "launchctl bootout gui/501/...\nlaunchctl kickstart gui/501/...",
-            "after": "# ✅ 올바른 방식\nopenclaw gateway stop\nopenclaw gateway start",
+            "after": "#  올바른 방식\nopenclaw gateway stop\nopenclaw gateway start",
             "severity": "high",
         },
     }
@@ -172,7 +172,7 @@ for i, pattern in enumerate(systemic_issues):
     fix = fix_map.get(rule_id, {
         "title": f"모든 에이전트: {desc} 규칙 강화",
         "before": f"# {rule_id} 위반 패턴",
-        "after": f"# ✅ {desc} 규칙 준수 필요",
+        "after": f"#  {desc} 규칙 준수 필요",
         "severity": "medium",
     })
 
@@ -217,7 +217,7 @@ if len(agent_scores) >= 2:
             ),
             before=f"# {worst}의 현재 exec 패턴 (안전성 {ws:.1f}/10)",
             after=(
-                f"# ✅ {best}의 exec 안전 패턴 적용 (안전성 {bs:.1f}/10)\n"
+                f"#  {best}의 exec 안전 패턴 적용 (안전성 {bs:.1f}/10)\n"
                 f"# 모든 exec 호출에 || true 또는 2>&1 || echo 추가\n"
                 f"# bash ~/openclaw/scripts/safe-exec.sh 래퍼 우선 사용"
             ),
@@ -356,19 +356,19 @@ if json_mode:
     print(json.dumps(output, ensure_ascii=False, indent=2))
 else:
     # 사람이 읽기 좋은 요약 출력 (stdout → Discord 전송 가능)
-    print(f"\n🚀 SEA v5.0 Cross-Agent Proposals")
+    print(f"\n SEA v5.0 Cross-Agent Proposals")
     print(f"{'='*50}")
     print(f"플릿 건강도: {fleet_health:.1f}/10 | 에이전트: {n_agents}개 | 제안: {len(proposals)}개")
     print()
 
     if not proposals:
-        print("✅ 크로스 에이전트 제안 없음 — 플릿 상태 양호")
+        print(" 크로스 에이전트 제안 없음 — 플릿 상태 양호")
     else:
-        priority_icons = {"high": "🔴", "medium": "🟡", "low": "🟢", "critical": "🚨"}
-        type_icons = {"systemic": "⚡ 시스템", "transfer": "🔄 이전", "all_agents": "📢 전체", "improvement": "📈 개선"}
+        priority_icons = {"high": "", "medium": "", "low": "", "critical": ""}
+        type_icons = {"systemic": " 시스템", "transfer": " 이전", "all_agents": " 전체", "improvement": " 개선"}
 
         for p in sorted(proposals, key=lambda x: {"high":0,"medium":1,"low":2,"critical":-1}.get(x["severity"],3)):
-            icon = priority_icons.get(p["severity"], "❓")
+            icon = priority_icons.get(p["severity"], "")
             type_label = type_icons.get(p["proposal_type"], p["proposal_type"])
             targets = ", ".join(p["targets"]) if isinstance(p["targets"], list) else p["targets"]
             print(f"{icon} [{type_label}] {p['title']}")
@@ -379,10 +379,10 @@ else:
             print()
 
     if not dry_run:
-        print(f"📁 저장: {output_file}")
-        print(f"📁 제안들: {proposals_dir}/proposal-cross-*.json")
+        print(f" 저장: {output_file}")
+        print(f" 제안들: {proposals_dir}/proposal-cross-*.json")
     else:
-        print("ℹ️  DRY RUN: 파일 저장 안 함")
+        print("  DRY RUN: 파일 저장 안 함")
 PYEOF
 
 # ── 완료 확인 ───────────────────────────────────────────────

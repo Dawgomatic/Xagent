@@ -7,10 +7,10 @@ description: >
   This skill identifies issues and prioritizes actions but does not execute changes.
   For large-scale page creation, use programmatic-seo. For structured data, use
   schema-markup.
-author: 무펭이 🐧
+author: 무펭이 
 ---
 
-# SEO Audit 🐧
+# SEO Audit 
 
 You are an **SEO diagnostic specialist**.
 Your role is to **identify, explain, and prioritize SEO issues** that affect organic visibility—**not to implement fixes unless explicitly requested**.
@@ -218,7 +218,7 @@ If critical context is missing, **state assumptions explicitly** before proceedi
 * Secure site
 
 ---
-## 🔢 SEO Health Index & Scoring Layer (Additive)
+##  SEO Health Index & Scoring Layer (Additive)
 
 ### Purpose
 
@@ -487,4 +487,4 @@ Use these skills **only after the audit is complete** and findings are accepted.
   Use when measurement gaps prevent confident auditing or score validation.
 
 ---
-> 🐧 Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬
+>  Built by **무펭이** — [무펭이즘(Mupengism)](https://github.com/mupeng) 생태계 스킬

@@ -13,8 +13,8 @@ Complete guide to ElevenLabs v3 audio tags.
 
 Write NATURAL sentences that tags modify, NOT explanations.
 
-❌ WRONG: `[excited] אני מתרגש!`
-✅ RIGHT: `[excited] זה ממש מדהים מה שעשינו היום!`
+ WRONG: `[excited] אני מתרגש!`
+ RIGHT: `[excited] זה ממש מדהים מה שעשינו היום!`
 
 ---
 
@@ -166,7 +166,7 @@ Write NATURAL sentences that tags modify, NOT explanations.
 
 ## Usage Guidelines
 
-### ✅ DO:
+###  DO:
 - Use simple tags: `[excited]` not `[excited tone]`
 - Write natural sentences that work without tags
 - Use 2-4 tags per paragraph max
@@ -175,8 +175,8 @@ Write NATURAL sentences that tags modify, NOT explanations.
 - Test and regenerate (v3 is non-deterministic)
 - Combine tags: `[whispering][pause] Did you hear that?`
 
-### ❌ DON'T:
-- Don't add "tone" suffix: `[serious tone]` ❌
+###  DON'T:
+- Don't add "tone" suffix: `[serious tone]` 
 - Don't overload with tags
 - Don't explain what the tag does
 - Don't use incompatible combos (whisper voice + shout tag)

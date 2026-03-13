@@ -119,7 +119,7 @@ async function buildIndex(docsPath, indexPath, options = {}) {
       
     } catch (e) {
       errors++;
-      console.error(`  ❌ ${relPath}: ${e.message}`);
+      console.error(`   ${relPath}: ${e.message}`);
     }
   }
   

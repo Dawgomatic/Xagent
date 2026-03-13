@@ -61,7 +61,7 @@ Copy to `~/food-delivery/restaurants.md`:
 
 ## [Restaurant Name]
 - Platform: Uber Eats / DoorDash / etc
-- Rating: ⭐⭐⭐⭐⭐ (1-5)
+- Rating:  (1-5)
 - Cuisine: [type]
 - Price: $ / $$ / $$$ / $$$$
 - Delivery: fast / average / slow
@@ -87,8 +87,8 @@ Copy to `~/food-delivery/orders.md`:
 
 | Date | Restaurant | Cuisine | Rating |
 |------|------------|---------|--------|
-| 2024-01-15 | Thai Palace | Thai | ⭐⭐⭐⭐ |
-| 2024-01-14 | Pizza Place | Italian | ⭐⭐⭐ |
+| 2024-01-15 | Thai Palace | Thai |  |
+| 2024-01-14 | Pizza Place | Italian |  |
 | ... | ... | ... | ... |
 
 ## Variety Notes

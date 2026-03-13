@@ -4,7 +4,7 @@
 
 | Channel | Config Key | Auth Method | Easiest Setup |
 |---------|------------|-------------|---------------|
-| Telegram | `channels.telegram` | Bot token | ⭐ Recommended first |
+| Telegram | `channels.telegram` | Bot token |  Recommended first |
 | WhatsApp | `channels.whatsapp` | QR pairing | Good for personal |
 | Discord | `plugins.entries.discord` | Bot token | Good for communities |
 | Slack | `plugins.entries.slack` | OAuth | Good for work |
@@ -39,7 +39,7 @@
 **Get your user ID:** Message @userinfobot
 
 **dmPolicy options:**
-- `pairing` — Unknown senders get a code, approve with CLI ⭐
+- `pairing` — Unknown senders get a code, approve with CLI 
 - `allowlist` — Only allowFrom users can message
 - `open` — Anyone can message (requires `"*"` in allowFrom)
 - `disabled` — No DMs accepted

@@ -20,17 +20,17 @@ const NOTIFY_TARGET = process.env.OPENCLAW_NOTIFY_TARGET || '';
  */
 export function notifyUser(message) {
   if (!NOTIFY_TARGET) {
-    console.warn('⚠️ OPENCLAW_NOTIFY_TARGET not set in .env. Skipping notification.');
+    console.warn(' OPENCLAW_NOTIFY_TARGET not set in .env. Skipping notification.');
     return Promise.resolve(false);
   }
   return new Promise((resolve) => {
     const args = ['message', 'send', '--channel', NOTIFY_CHANNEL, '--target', NOTIFY_TARGET, '--message', message];
     execFile(OPENCLAW_BIN, args, { timeout: 30000 }, (err) => {
       if (err) {
-        console.error('❌ Failed to notify:', err.message);
+        console.error(' Failed to notify:', err.message);
         resolve(false);
       } else {
-        console.log('✅ Notification sent');
+        console.log(' Notification sent');
         resolve(true);
       }
     });
@@ -48,7 +48,7 @@ function runOpenclaw(message, timeout = OPENCLAW_TIMEOUT) {
     const args = ['agent', '--local', '--json', '--session-id', 'rtms-meeting-assistant', '--message', message];
     execFile(OPENCLAW_BIN, args, { timeout, maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
       if (err) {
-        console.error('❌ OpenClaw error:', err.message);
+        console.error(' OpenClaw error:', err.message);
         if (stderr) console.error('stderr:', stderr);
         return reject(err);
       }
@@ -87,14 +87,14 @@ export async function chatWithClawdbot(message, _model = '', images = [], isRetr
       fullMessage += `\n\n[Note: ${images.length} image(s) were captured from screen share but cannot be passed directly. Please analyze based on the text/transcript content provided.]`;
     }
 
-    console.log('🤖 Sending to OpenClaw agent...');
+    console.log(' Sending to OpenClaw agent...');
     const response = await runOpenclaw(fullMessage);
     return response;
   } catch (err) {
-    console.error('❌ Error with OpenClaw:', err.message);
+    console.error(' Error with OpenClaw:', err.message);
 
     if (!isRetry) {
-      console.log('🔄 Retrying OpenClaw...');
+      console.log(' Retrying OpenClaw...');
       return await chatWithClawdbot(message, _model, images, true);
     }
 
@@ -109,10 +109,10 @@ export async function chatWithClawdbot(message, _model = '', images = [], isRetr
  */
 export async function chatWithClawdbotFast(message) {
   try {
-    console.log('🤖 Sending to OpenClaw agent (fast)...');
+    console.log(' Sending to OpenClaw agent (fast)...');
     return await runOpenclaw(message);
   } catch (err) {
-    console.error('❌ Error with OpenClaw:', err.message);
+    console.error(' Error with OpenClaw:', err.message);
     throw err;
   }
 }
@@ -127,7 +127,7 @@ export async function generateDialogSuggestions(transcript) {
      const dialogPromptTemplate = readFileSync(join(__dirname, 'query_prompt_dialog_suggestions.md'), 'utf-8');
     const filledPrompt = dialogPromptTemplate.replace(/\{\{meeting_transcript\}\}/g, transcript);
 
-    console.log('🗣️ Generating dialog suggestions via OpenClaw...');
+    console.log(' Generating dialog suggestions via OpenClaw...');
     const response = await runOpenclaw(filledPrompt);
 
     const suggestions = response
@@ -135,10 +135,10 @@ export async function generateDialogSuggestions(transcript) {
       .map(line => line.trim())
       .filter(line => line.length > 0 && !line.startsWith('Response:') && !line.startsWith('Only return'));
 
-    console.log(`✅ Generated ${suggestions.length} dialog suggestions`);
+    console.log(` Generated ${suggestions.length} dialog suggestions`);
     return suggestions.slice(0, 4);
   } catch (err) {
-    console.error('❌ Error generating dialog suggestions:', err.message);
+    console.error(' Error generating dialog suggestions:', err.message);
     return [
       "Continue exploring the key points raised so far",
       "Invite participants to share their perspectives",
@@ -158,7 +158,7 @@ export async function analyzeSentiment(transcript) {
      const sentimentPromptTemplate = readFileSync(join(__dirname, 'query_prompt_sentiment_analysis.md'), 'utf-8');
     const filledPrompt = sentimentPromptTemplate.replace(/\{\{meeting_transcript\}\}/g, transcript);
 
-    console.log('😊 Analyzing sentiment via OpenClaw...');
+    console.log(' Analyzing sentiment via OpenClaw...');
     const response = await runOpenclaw(filledPrompt);
 
     let jsonContent = response.trim();
@@ -170,14 +170,14 @@ export async function analyzeSentiment(transcript) {
 
     try {
       const sentimentData = JSON.parse(jsonContent);
-      console.log('✅ Sentiment analysis completed:', Object.keys(sentimentData).length, 'users analyzed');
+      console.log(' Sentiment analysis completed:', Object.keys(sentimentData).length, 'users analyzed');
       return sentimentData;
     } catch (parseError) {
-      console.error('❌ Error parsing sentiment JSON:', parseError.message);
+      console.error(' Error parsing sentiment JSON:', parseError.message);
       return {};
     }
   } catch (err) {
-    console.error('❌ Error analyzing sentiment:', err.message);
+    console.error(' Error analyzing sentiment:', err.message);
     return {};
   }
 }
@@ -203,13 +203,13 @@ export async function generateRealTimeSummary(transcript, meetingEvents = '', im
       .replace(/\{\{stream_id\}\}/g, streamId)
       .replace(/\{\{TODAYDATE\}\}/g, todayDate);
 
-    console.log('📝 Generating real-time summary via OpenClaw...');
+    console.log(' Generating real-time summary via OpenClaw...');
     const response = await chatWithClawdbot(filledPrompt, '', imageBase64Array);
 
-    console.log('✅ Real-time summary generated');
+    console.log(' Real-time summary generated');
     return response;
   } catch (err) {
-    console.error('❌ Error generating real-time summary:', err.message);
+    console.error(' Error generating real-time summary:', err.message);
     return 'Unable to generate summary at this time. Meeting in progress...';
   }
 }
@@ -227,13 +227,13 @@ export async function queryCurrentMeeting(transcript, userQuery) {
       .replace(/\{\{meeting_transcript\}\}/g, transcript)
       .replace(/\{\{user_query\}\}/g, userQuery);
 
-    console.log('🔍 Querying current meeting via OpenClaw...');
+    console.log(' Querying current meeting via OpenClaw...');
     const response = await runOpenclaw(filledPrompt);
 
-    console.log('✅ Meeting query answered');
+    console.log(' Meeting query answered');
     return response;
   } catch (err) {
-    console.error('❌ Error querying current meeting:', err.message);
+    console.error(' Error querying current meeting:', err.message);
     return 'I apologize, but I was unable to analyze the current meeting transcript. Please try again later.';
   }
 }

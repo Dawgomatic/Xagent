@@ -17,11 +17,11 @@ const path = require('path');
 
 // Risk levels
 const RISK_LEVELS = {
-  CRITICAL: { score: 100, emoji: '🔴', label: 'CRITICAL' },
-  HIGH: { score: 75, emoji: '🟠', label: 'HIGH' },
-  MEDIUM: { score: 50, emoji: '🟡', label: 'MEDIUM' },
-  LOW: { score: 25, emoji: '🟢', label: 'LOW' },
-  INFO: { score: 0, emoji: 'ℹ️', label: 'INFO' }
+  CRITICAL: { score: 100, emoji: '', label: 'CRITICAL' },
+  HIGH: { score: 75, emoji: '', label: 'HIGH' },
+  MEDIUM: { score: 50, emoji: '', label: 'MEDIUM' },
+  LOW: { score: 25, emoji: '', label: 'LOW' },
+  INFO: { score: 0, emoji: '', label: 'INFO' }
 };
 
 // Security patterns to detect
@@ -412,11 +412,11 @@ class SecurityScanner {
    */
   generateRecommendation(riskLevel) {
     const recommendations = {
-      CRITICAL: '❌ DO NOT INSTALL - This skill has critical security issues that pose significant risk to your system.',
-      HIGH: '⚠️ NOT RECOMMENDED - This skill has serious security concerns. Only install if you fully trust the author and have reviewed the code.',
-      MEDIUM: '⚠️ CAUTION - This skill has some security concerns. Review the findings and consider contacting the author for improvements.',
-      LOW: '✅ LIKELY SAFE - Minor issues detected. Review findings but generally safe to install from trusted sources.',
-      INFO: '✅ SAFE - No security issues detected. This skill appears safe to install.',
+      CRITICAL: ' DO NOT INSTALL - This skill has critical security issues that pose significant risk to your system.',
+      HIGH: ' NOT RECOMMENDED - This skill has serious security concerns. Only install if you fully trust the author and have reviewed the code.',
+      MEDIUM: ' CAUTION - This skill has some security concerns. Review the findings and consider contacting the author for improvements.',
+      LOW: ' LIKELY SAFE - Minor issues detected. Review findings but generally safe to install from trusted sources.',
+      INFO: ' SAFE - No security issues detected. This skill appears safe to install.',
     };
 
     return recommendations[riskLevel];
@@ -457,7 +457,7 @@ class SecurityScanner {
           report += `   Example: ${finding.matches[0].substring(0, 60)}${finding.matches[0].length > 60 ? '...' : ''}\n`;
         }
         
-        report += `   ⚠️  ${finding.recommendation}\n\n`;
+        report += `     ${finding.recommendation}\n\n`;
       });
 
       report += '─────────────── SUMMARY ─────────────────\n\n';
@@ -467,7 +467,7 @@ class SecurityScanner {
       report += `  ${RISK_LEVELS.MEDIUM.emoji} Medium: ${scanResult.summary.medium}\n`;
       report += `  ${RISK_LEVELS.LOW.emoji} Low: ${scanResult.summary.low}\n\n`;
     } else {
-      report += '✅ No security issues detected!\n\n';
+      report += ' No security issues detected!\n\n';
     }
 
     report += '─────────────── RECOMMENDATION ──────────────\n\n';

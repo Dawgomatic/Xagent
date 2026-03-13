@@ -7,35 +7,35 @@
 const fs = require('fs');
 
 const RISK_HEADER = {
-  CLEAN:    '🟢 SAFE',
-  LOW:      '🟢 LOW RISK',
-  MEDIUM:   '⚠️ SOME RISK',
-  HIGH:     '🔴 RISKY',
-  CRITICAL: '🚫 DANGEROUS'
+  CLEAN:    ' SAFE',
+  LOW:      ' LOW RISK',
+  MEDIUM:   ' SOME RISK',
+  HIGH:     ' RISKY',
+  CRITICAL: ' DANGEROUS'
 };
 
 // Short, punchy capability descriptions
 const CAP_SHORT = {
-  'Makes network requests': '🌐 Connects to internet',
-  'Accesses files outside skill directory': '📂 Reads your files',
-  'Potential data exfiltration': '📤 Sends data out',
-  'Executes shell commands': '⚙️ Runs system commands',
-  'Uses obfuscation techniques': '🕵️ Hides its behavior',
-  'Contains prompt injection attempts': '🧠 Hijacks your AI',
-  'Attempts persistence mechanisms': '📌 Installs permanently',
-  'Attempts privilege escalation': '🔓 Grabs extra access'
+  'Makes network requests': ' Connects to internet',
+  'Accesses files outside skill directory': ' Reads your files',
+  'Potential data exfiltration': ' Sends data out',
+  'Executes shell commands': ' Runs system commands',
+  'Uses obfuscation techniques': ' Hides its behavior',
+  'Contains prompt injection attempts': ' Hijacks your AI',
+  'Attempts persistence mechanisms': ' Installs permanently',
+  'Attempts privilege escalation': ' Grabs extra access'
 };
 
 // Softer labels when behavior is disclosed/intent-matched
 const CAP_SHORT_DISCLOSED = {
-  'Makes network requests': '🌐 Connects to internet (disclosed)',
-  'Accesses files outside skill directory': '📂 Reads your files (disclosed)',
-  'Potential data exfiltration': '📤 Sends data out (disclosed)',
-  'Executes shell commands': '⚙️ Runs system commands (disclosed)',
-  'Uses obfuscation techniques': '🕵️ Uses encoding (disclosed)',
-  'Contains prompt injection attempts': '🧠 Modifies AI behavior (disclosed)',
-  'Attempts persistence mechanisms': '📌 Persistent changes (disclosed)',
-  'Attempts privilege escalation': '🔓 Extra access (disclosed)'
+  'Makes network requests': ' Connects to internet (disclosed)',
+  'Accesses files outside skill directory': ' Reads your files (disclosed)',
+  'Potential data exfiltration': ' Sends data out (disclosed)',
+  'Executes shell commands': ' Runs system commands (disclosed)',
+  'Uses obfuscation techniques': ' Uses encoding (disclosed)',
+  'Contains prompt injection attempts': ' Modifies AI behavior (disclosed)',
+  'Attempts persistence mechanisms': ' Persistent changes (disclosed)',
+  'Attempts privilege escalation': ' Extra access (disclosed)'
 };
 
 // Check if a file is a license file
@@ -63,8 +63,8 @@ function dangerMeter(riskLevel, findingCount) {
   const l = levels[riskLevel] || levels.CLEAN;
   let fill = Math.min(10, l.fill + Math.floor(findingCount / 10));
 
-  const colors = ['🟩','🟩','🟨','🟨','🟧','🟧','🟧','🔴','🔴','🔴'];
-  const empty = '⬜';
+  const colors = ['','','','','','','','','',''];
+  const empty = '';
 
   let bar = '';
   for (let i = 0; i < 10; i++) {
@@ -77,7 +77,7 @@ function formatReport(report) {
   const lines = [];
 
   // ── Header ──
-  const header = RISK_HEADER[report.riskLevel] || '❓ UNKNOWN';
+  const header = RISK_HEADER[report.riskLevel] || ' UNKNOWN';
   lines.push(`${header} — "${report.skill.name}"`);
   lines.push('');
 
@@ -119,7 +119,7 @@ function formatReport(report) {
 
   // ── Clean? Short exit ──
   if (report.riskLevel === 'CLEAN') {
-    lines.push('✅ Does what it says, nothing suspicious.');
+    lines.push(' Does what it says, nothing suspicious.');
     return lines.join('\n');
   }
 
@@ -143,7 +143,7 @@ function formatReport(report) {
       if (allMatched) {
         lines.push(CAP_SHORT_DISCLOSED[cap] || `✓ ${cap} (disclosed)`);
       } else {
-        lines.push(CAP_SHORT[cap] || `❓ ${cap}`);
+        lines.push(CAP_SHORT[cap] || ` ${cap}`);
       }
     }
     lines.push('');
@@ -187,8 +187,8 @@ function formatReport(report) {
       }
     }
     const domainList = [...domains].slice(0, 5).join(', ');
-    lines.push(`🌐 ${licenseUrlFindings.length} URLs found in license/font files (${domainList})`);
-    lines.push('⚠️ Documentation only — no executable network calls');
+    lines.push(` ${licenseUrlFindings.length} URLs found in license/font files (${domainList})`);
+    lines.push(' Documentation only — no executable network calls');
     lines.push('');
   }
 
@@ -220,7 +220,7 @@ function formatReport(report) {
 
   // ── Undisclosed capabilities ──
   if (report.accuracyScore && report.accuracyScore.undisclosed && report.accuracyScore.undisclosed.length > 0) {
-    lines.push('⚠️ Not mentioned in description:');
+    lines.push(' Not mentioned in description:');
     for (const u of report.accuracyScore.undisclosed) {
       lines.push(`  ${CAP_SHORT[u] || u}`);
     }
@@ -246,10 +246,10 @@ function formatReport(report) {
   // Reputation reminder
   if (report.reputation && report.reputation.tier === 'known' && report.riskLevel !== 'CLEAN') {
     lines.push('');
-    lines.push(`ℹ️ ${report.reputation.publisher} is a known publisher, but known ≠ safe. Review findings above.`);
+    lines.push(` ${report.reputation.publisher} is a known publisher, but known ≠ safe. Review findings above.`);
   } else if (report.reputation && report.reputation.tier === 'unknown') {
     lines.push('');
-    lines.push('⚠️ Unknown publisher — extra caution recommended.');
+    lines.push(' Unknown publisher — extra caution recommended.');
   }
 
   return lines.join('\n');

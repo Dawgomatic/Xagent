@@ -5,7 +5,7 @@
 set -e
 
 if [ -z "$CANVA_CLIENT_ID" ] || [ -z "$CANVA_CLIENT_SECRET" ]; then
-    echo "❌ Error: Set CANVA_CLIENT_ID and CANVA_CLIENT_SECRET environment variables"
+    echo " Error: Set CANVA_CLIENT_ID and CANVA_CLIENT_SECRET environment variables"
     exit 1
 fi
 
@@ -17,7 +17,7 @@ if [ -f "$TOKEN_FILE" ]; then
     REFRESH_TOKEN=$(jq -r '.refresh_token // empty' "$TOKEN_FILE" 2>/dev/null)
     
     if [ -n "$REFRESH_TOKEN" ]; then
-        echo "🔄 Refreshing access token..."
+        echo " Refreshing access token..."
         
         RESPONSE=$(curl -s -X POST "https://api.canva.com/rest/v1/oauth/token" \
             -H "Content-Type: application/x-www-form-urlencoded" \
@@ -28,11 +28,11 @@ if [ -f "$TOKEN_FILE" ]; then
         
         if echo "$RESPONSE" | jq -e '.access_token' > /dev/null 2>&1; then
             echo "$RESPONSE" > "$TOKEN_FILE"
-            echo "✅ Token refreshed successfully!"
+            echo " Token refreshed successfully!"
             echo "Access token saved to: $TOKEN_FILE"
             exit 0
         else
-            echo "⚠️ Refresh failed, need to re-authenticate"
+            echo " Refresh failed, need to re-authenticate"
         fi
     fi
 fi
@@ -46,7 +46,7 @@ STATE=$(openssl rand -hex 16)
 AUTH_URL="https://www.canva.com/api/oauth/authorize?client_id=$CANVA_CLIENT_ID&redirect_uri=$REDIRECT_URI&response_type=code&scope=$SCOPES_ENCODED&state=$STATE"
 
 echo ""
-echo "🎨 Canva Authentication"
+echo " Canva Authentication"
 echo "======================="
 echo ""
 echo "1. Open this URL in your browser:"
@@ -61,12 +61,12 @@ echo ""
 read -p "4. Paste the code here: " AUTH_CODE
 
 if [ -z "$AUTH_CODE" ]; then
-    echo "❌ No code provided"
+    echo " No code provided"
     exit 1
 fi
 
 echo ""
-echo "🔄 Exchanging code for tokens..."
+echo " Exchanging code for tokens..."
 
 RESPONSE=$(curl -s -X POST "https://api.canva.com/rest/v1/oauth/token" \
     -H "Content-Type: application/x-www-form-urlencoded" \
@@ -80,12 +80,12 @@ if echo "$RESPONSE" | jq -e '.access_token' > /dev/null 2>&1; then
     echo "$RESPONSE" > "$TOKEN_FILE"
     chmod 600 "$TOKEN_FILE"
     echo ""
-    echo "✅ Authentication successful!"
+    echo " Authentication successful!"
     echo "Tokens saved to: $TOKEN_FILE"
     echo ""
     echo "You can now use the Canva API!"
 else
-    echo "❌ Authentication failed:"
+    echo " Authentication failed:"
     echo "$RESPONSE" | jq .
     exit 1
 fi

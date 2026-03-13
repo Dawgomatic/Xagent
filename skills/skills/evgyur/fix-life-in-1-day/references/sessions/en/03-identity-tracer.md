@@ -144,7 +144,7 @@ The intervention happens between steps 6 and 7. Before defense, after crystalliz
 ## Summary Template
 
 ```
-✅ **Session 3 Complete: The Identity Construction Tracer**
+ **Session 3 Complete: The Identity Construction Tracer**
 
 **Limiting Identity:**
 "{from 1.1}"
@@ -169,5 +169,5 @@ The intervention happens between steps 6 and 7. Before defense, after crystalliz
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ready for Session 4: The Lifestyle-Outcome Alignment Auditor?
-[▶️ Continue] [⏸ Take a Break]
+[ Continue] [ Take a Break]
 ```

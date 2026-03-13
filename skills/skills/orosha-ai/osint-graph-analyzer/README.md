@@ -1,4 +1,4 @@
-# OSINT Graph Analyzer 🕵️
+# OSINT Graph Analyzer 
 
 Build knowledge graphs from OSINT data and discover hidden patterns.
 
@@ -26,10 +26,10 @@ python3 scripts/osint-graph.py --export graph.json
 
 ## Features
 
-✅ **Ingestion** — CSV, JSON, direct API  
-✅ **Algorithms** — Community detection, centrality, path analysis  
-✅ **Visualization** — JSON export for D3.js/Cytoscape  
-✅ **Local-only** — No external API calls  
+ **Ingestion** — CSV, JSON, direct API  
+ **Algorithms** — Community detection, centrality, path analysis  
+ **Visualization** — JSON export for D3.js/Cytoscape  
+ **Local-only** — No external API calls  
 
 ## Use Cases
 

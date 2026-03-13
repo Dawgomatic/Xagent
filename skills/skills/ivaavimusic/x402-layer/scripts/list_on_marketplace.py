@@ -89,12 +89,12 @@ def list_endpoint(slug: str, api_key: str, category: str = None, description: st
     if response.status_code in [200, 201]:
         result = response.json()
         if result.get("success"):
-            print(f"\\n✅ Endpoint '{slug}' is now listed on marketplace!")
+            print(f"\\n Endpoint '{slug}' is now listed on marketplace!")
         else:
-            print(f"\\n⚠️ {result.get('message', 'Operation completed')}")
+            print(f"\\n {result.get('message', 'Operation completed')}")
         return result
     else:
-        print(f"\\n❌ Error: {response.status_code} - {response.text}")
+        print(f"\\n Error: {response.status_code} - {response.text}")
         return {"error": response.text}
 
 def unlist_endpoint(slug: str, api_key: str) -> dict:
@@ -113,10 +113,10 @@ def unlist_endpoint(slug: str, api_key: str) -> dict:
     if response.status_code == 200:
         result = response.json()
         if result.get("success"):
-            print(f"\\n✅ Endpoint '{slug}' removed from marketplace")
+            print(f"\\n Endpoint '{slug}' removed from marketplace")
         return result
     else:
-        print(f"\\n❌ Error: {response.status_code} - {response.text}")
+        print(f"\\n Error: {response.status_code} - {response.text}")
         return {"error": response.text}
 
 def main():

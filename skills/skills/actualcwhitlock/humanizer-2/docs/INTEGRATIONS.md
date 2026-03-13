@@ -127,7 +127,7 @@ Response:
 ```json
 {
   "score": 62,
-  "badge": "🟠",
+  "badge": "",
   "interpretation": "Moderately AI-influenced"
 }
 ```

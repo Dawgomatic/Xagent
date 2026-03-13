@@ -1,7 +1,7 @@
 ---
 name: google-cloud
 description: Manage Google Cloud resources via gcloud CLI. Compute, storage, and cloud functions.
-metadata: {"clawdbot":{"emoji":"☁️","requires":{"bins":["gcloud"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["gcloud"]}}}
 ---
 # Google Cloud Platform
 Cloud infrastructure and services.

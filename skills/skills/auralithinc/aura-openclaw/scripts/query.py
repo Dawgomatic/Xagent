@@ -23,13 +23,13 @@ def query_aura_file(aura_file, query):
     try:
         from aura.rag import AuraRAGLoader
     except ImportError:
-        print("❌ aura-core not installed. Run: pip install auralith-aura")
+        print(" aura-core not installed. Run: pip install auralith-aura")
         sys.exit(1)
 
     loader = AuraRAGLoader(aura_file)
 
-    print(f"🔍 Searching '{aura_file}' for: {query}")
-    print(f"📦 Archive contains {len(loader)} documents")
+    print(f" Searching '{aura_file}' for: {query}")
+    print(f" Archive contains {len(loader)} documents")
     print("-" * 60)
 
     query_lower = query.lower()
@@ -53,10 +53,10 @@ def query_aura_file(aura_file, query):
     for i, (score, doc_id, text, meta) in enumerate(results[:5], 1):
         source = meta.get("source", doc_id)
         preview = text[:300].replace("\n", " ").strip()
-        print(f"\n📄 [{i}] {source} (relevance: {score})")
+        print(f"\n [{i}] {source} (relevance: {score})")
         print(f"   {preview}...")
 
-    print(f"\n✅ Found {len(results)} matching documents (showing top 5)")
+    print(f"\n Found {len(results)} matching documents (showing top 5)")
     loader.close()
 
 
@@ -65,14 +65,14 @@ def query_memory(query, namespace=None, top_k=5):
     try:
         from aura.memory import AuraMemoryOS
     except ImportError:
-        print("❌ aura-core not installed. Run: pip install auralith-aura")
+        print(" aura-core not installed. Run: pip install auralith-aura")
         sys.exit(1)
 
     memory = AuraMemoryOS()
     results = memory.query(query, namespace=namespace, top_k=top_k)
 
     if results:
-        print(f"🔍 Found {len(results)} memory result(s):\n")
+        print(f" Found {len(results)} memory result(s):\n")
         for i, r in enumerate(results, 1):
             print(f"  {i}. [{r['namespace']}] (score: {r['score']:.2f})")
             print(f"     {r['content'][:200]}...")

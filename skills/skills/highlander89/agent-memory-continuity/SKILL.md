@@ -2,10 +2,10 @@
 name: agent-memory-continuity
 description: Solve the "agent forgot everything" problem with search-first protocol, automated memory sync, and context preservation. No more conversation restarts!
 homepage: https://sapconet.co.za
-metadata: {"clawhub": {"emoji": "🧠", "tags": ["memory", "continuity", "agent-management", "enterprise"], "author": "SAPCONET", "version": "1.0.0"}}
+metadata: {"clawhub": {"emoji": "", "tags": ["memory", "continuity", "agent-management", "enterprise"], "author": "SAPCONET", "version": "1.0.0"}}
 ---
 
-# Agent Memory Continuity 🧠
+# Agent Memory Continuity 
 
 ## The Problem
 Does your OpenClaw agent suffer from "conversation amnesia"? Starting fresh every session? Forgetting previous discussions, decisions, and context? You're not alone - this is the #1 frustration with AI agents.
@@ -14,10 +14,10 @@ Does your OpenClaw agent suffer from "conversation amnesia"? Starting fresh ever
 **Agent Memory Continuity** solves fragmented conversations through a battle-tested **search-first protocol** that ensures agents never forget previous context.
 
 ## Why This Skill?
-- ✅ **Solves universal pain point** - Every OpenClaw user faces memory issues
-- ✅ **Battle-tested solution** - Proven in production environment
-- ✅ **Immediate impact** - No more "agent broke and forgot everything"
-- ✅ **Enterprise-grade** - Professional memory management system
+-  **Solves universal pain point** - Every OpenClaw user faces memory issues
+-  **Battle-tested solution** - Proven in production environment
+-  **Immediate impact** - No more "agent broke and forgot everything"
+-  **Enterprise-grade** - Professional memory management system
 
 ## Use When
 - Agent conversations keep "starting fresh"
@@ -33,22 +33,22 @@ Does your OpenClaw agent suffer from "conversation amnesia"? Starting fresh ever
 
 ## Features
 
-### 🔍 Search-First Protocol
+###  Search-First Protocol
 - Mandatory memory search before responding to ongoing topics
 - Red flag detection for conversation continuity breaks
 - Automatic context reconstruction from memory files
 
-### 📝 Automated Memory Sync
+###  Automated Memory Sync
 - 6-hourly memory context synchronization
 - Daily memory file creation and updates
 - Cross-referencing of ongoing projects and conversations
 
-### 🧠 Context Preservation
+###  Context Preservation
 - Daily memory logging discipline
 - Persistent insight tracking
 - Conversation thread continuity maintenance
 
-### 🚨 Break Detection
+###  Break Detection
 - Identifies when agent "forgets" previous context
 - Automatic recovery through memory search
 - User frustration prevention system
@@ -158,16 +158,16 @@ agent-memory-continuity/
 ## Real-World Results
 
 **Before Agent Memory Continuity:**
-- ❌ "Billy broke and forgot everything" 
-- ❌ Constant conversation restarts
-- ❌ Lost context and decisions
-- ❌ User frustration and lost productivity
+-  "Billy broke and forgot everything" 
+-  Constant conversation restarts
+-  Lost context and decisions
+-  User frustration and lost productivity
 
 **After Agent Memory Continuity:**
-- ✅ Perfect conversation continuity
-- ✅ Context preserved across sessions  
-- ✅ Decisions and discussions remembered
-- ✅ User satisfaction and trust restored
+-  Perfect conversation continuity
+-  Context preserved across sessions  
+-  Decisions and discussions remembered
+-  User satisfaction and trust restored
 
 ## Enterprise Features
 

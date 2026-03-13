@@ -221,17 +221,17 @@ program
   .description('Scan local books and Chrome bookmarks')
   .option('-l, --limit <number>', 'Maximum files to scan', '50')
   .action((options) => {
-    console.log('🔍 VibeMate scanning...\n');
+    console.log(' VibeMate scanning...\n');
     
     const limit = parseInt(options.limit);
     
-    console.log('📁 Scanning local books:');
+    console.log(' Scanning local books:');
     console.log('   Paths: ~/Documents, ~/Downloads');
     console.log(`   Formats: ${BOOK_EXTENSIONS.join(', ')}`);
     const localBooks = scanMultipleDirectories(DEFAULT_SCAN_PATHS, BOOK_EXTENSIONS, limit);
     console.log(`   Found ${localBooks.length} books\n`);
     
-    console.log('🌐 Scanning Chrome bookmarks...');
+    console.log(' Scanning Chrome bookmarks...');
     console.log('   Platforms: AO3, Wattpad, Royal Road, FanFiction.net,');
     console.log('              Goodreads, Amazon, Douban, Reddit');
     const webFiction = readChromeBookmarks();
@@ -258,8 +258,8 @@ program
     const outputPath = path.join(process.cwd(), 'vibemate_profile.json');
     fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
     
-    console.log('✅ Scan complete!');
-    console.log(`📄 Results saved to: ${outputPath}`);
+    console.log(' Scan complete!');
+    console.log(` Results saved to: ${outputPath}`);
   });
 
 program
@@ -271,7 +271,7 @@ program
     const profilePath = path.join(process.cwd(), 'vibemate_profile.json');
     
     if (!fs.existsSync(profilePath)) {
-      console.log('❌ Please run "vibemate scan" first');
+      console.log(' Please run "vibemate scan" first');
       return;
     }
     
@@ -281,7 +281,7 @@ program
     const vibes = options.vibes ? options.vibes.split(',').map(v => v.trim()) : [];
     const interests = options.interests ? options.interests.split(',').map(i => i.trim()) : [];
     
-    console.log('📤 Uploading profile to VibeMate server...\n');
+    console.log(' Uploading profile to VibeMate server...\n');
     console.log(`   User ID: ${userId}`);
     console.log(`   Books: ${profile.local_books.length}`);
     console.log(`   Bookmarks: ${profile.web_fiction.length}`);
@@ -295,10 +295,10 @@ program
         interests: interests
       });
       
-      console.log('\n✅ Upload successful!');
-      console.log(`📊 Total users: ${result.total_profiles}`);
+      console.log('\n Upload successful!');
+      console.log(` Total users: ${result.total_profiles}`);
     } catch (err) {
-      console.log('\n❌ Upload failed:', err.message);
+      console.log('\n Upload failed:', err.message);
     }
   });
 
@@ -308,18 +308,18 @@ program
   .action(async () => {
     const userId = getUserId();
     
-    console.log('🔍 Finding reading buddies...\n');
+    console.log(' Finding reading buddies...\n');
     
     try {
       const result = await getData(`${SERVER_URL}/api/match?user_id=${userId}`);
       
       if (result.error) {
-        console.log('❌', result.error);
+        console.log('', result.error);
         return;
       }
       
-      console.log(`📚 Your vibes: ${result.your_vibes.join(', ') || 'Not set'}`);
-      console.log(`🎯 Your interests: ${result.your_interests.join(', ') || 'Not set'}`);
+      console.log(` Your vibes: ${result.your_vibes.join(', ') || 'Not set'}`);
+      console.log(` Your interests: ${result.your_interests.join(', ') || 'Not set'}`);
       console.log('\n' + result.message + '\n');
       
       if (result.matches.length > 0) {
@@ -334,7 +334,7 @@ program
         });
       }
     } catch (err) {
-      console.log('❌ Match failed:', err.message);
+      console.log(' Match failed:', err.message);
     }
   });
 
@@ -347,10 +347,10 @@ program
     
     if (fs.existsSync(configPath)) {
       const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-      console.log(`🆔 Your VibeMate ID: ${userId}`);
-      console.log(`📍 Config location: ${configPath}`);
+      console.log(` Your VibeMate ID: ${userId}`);
+      console.log(` Config location: ${configPath}`);
     } else {
-      console.log(`🆔 Your VibeMate ID: ${userId}`);
+      console.log(` Your VibeMate ID: ${userId}`);
     }
   });
 

@@ -1,4 +1,4 @@
-# 🛡️ AfrexAI Compliance & Audit Readiness Engine
+#  AfrexAI Compliance & Audit Readiness Engine
 
 Your AI compliance officer. Takes startups and scale-ups from zero to audit-ready across SOC 2, ISO 27001, GDPR, HIPAA, and PCI DSS — without expensive consultants.
 
@@ -38,18 +38,18 @@ Tell your agent:
 - **CTOs/CISOs** building a compliance program from scratch
 - **Founders** who can't afford $50K+ compliance consultants yet
 
-## ⚡ Level Up
+##  Level Up
 
 This free skill covers frameworks and methodology. For industry-specific compliance playbooks with pre-built policies, vendor templates, and audit-ready evidence packs:
 
-- 🏥 [Healthcare AI Context Pack](https://afrexai-cto.github.io/context-packs/) — HIPAA-specific compliance + AI governance
-- 💻 [SaaS AI Context Pack](https://afrexai-cto.github.io/context-packs/) — SOC 2 fast-track + SaaS security
-- 💰 [Fintech AI Context Pack](https://afrexai-cto.github.io/context-packs/) — PCI DSS + FinTech regulatory compliance
-- ⚖️ [Legal AI Context Pack](https://afrexai-cto.github.io/context-packs/) — Contract compliance + regulatory frameworks
+-  [Healthcare AI Context Pack](https://afrexai-cto.github.io/context-packs/) — HIPAA-specific compliance + AI governance
+-  [SaaS AI Context Pack](https://afrexai-cto.github.io/context-packs/) — SOC 2 fast-track + SaaS security
+-  [Fintech AI Context Pack](https://afrexai-cto.github.io/context-packs/) — PCI DSS + FinTech regulatory compliance
+-  [Legal AI Context Pack](https://afrexai-cto.github.io/context-packs/) — Contract compliance + regulatory frameworks
 
 **$47 per pack** — includes 5 specialized context files with 50,000+ words of domain expertise.
 
-## 🔗 More Free Skills by AfrexAI
+##  More Free Skills by AfrexAI
 
 - [`afrexai-risk-management`](https://clawhub.com/skill/afrexai-risk-management) — Enterprise risk management system
 - [`afrexai-contract-review`](https://clawhub.com/skill/afrexai-contract-review) — Contract review & negotiation

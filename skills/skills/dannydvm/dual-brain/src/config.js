@@ -76,7 +76,7 @@ function ask(question) {
 }
 
 async function interactiveSetup() {
-  console.log('\n🧠 Dual-Brain Setup\n');
+  console.log('\n Dual-Brain Setup\n');
   console.log('Choose your secondary LLM provider:\n');
 
   const providerKeys = Object.keys(PROVIDERS);
@@ -93,7 +93,7 @@ async function interactiveSetup() {
   if (providerInfo.needsKey) {
     apiKey = await ask(`API key for ${providerInfo.name}: `);
     if (!apiKey) {
-      console.log('⚠️  No API key provided. You can add it later in ~/.dual-brain/config.json');
+      console.log('  No API key provided. You can add it later in ~/.dual-brain/config.json');
     }
   }
 
@@ -104,7 +104,7 @@ async function interactiveSetup() {
   const config = { ...DEFAULTS, provider, model, apiKey, ownerIds };
   save(config);
 
-  console.log(`\n✅ Config saved to ${CONFIG_FILE}`);
+  console.log(`\n Config saved to ${CONFIG_FILE}`);
   console.log(`   Provider: ${providerInfo.name}`);
   console.log(`   Model: ${model}`);
   console.log(`\nNext: dual-brain start (foreground) or dual-brain install-daemon (background service)`);

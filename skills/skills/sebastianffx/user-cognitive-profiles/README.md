@@ -1,6 +1,6 @@
 # User Cognitive Profiles
 
-🤖🤝🧠 Discover your communication patterns with AI
+ Discover your communication patterns with AI
 
 ## Overview
 

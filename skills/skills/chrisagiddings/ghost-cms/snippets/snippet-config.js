@@ -90,7 +90,7 @@ export function getExamplesPath() {
 export function initializeLibrary(libraryPath) {
   if (!fs.existsSync(libraryPath)) {
     fs.mkdirSync(libraryPath, { recursive: true, mode: 0o700 }); // Owner-only permissions
-    console.log(`✅ Created snippet library: ${libraryPath}`);
+    console.log(` Created snippet library: ${libraryPath}`);
   }
 }
 
@@ -113,7 +113,7 @@ export function saveConfig(libraryPath) {
   };
   
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2), { mode: 0o600 });
-  console.log(`✅ Saved snippet config: ${configPath}`);
+  console.log(` Saved snippet config: ${configPath}`);
 }
 
 /**
@@ -150,7 +150,7 @@ export function migrateSnippets(newLibraryPath) {
     return 0;
   }
   
-  console.log(`\n📦 Found ${oldInfo.count} snippets in old location`);
+  console.log(`\n Found ${oldInfo.count} snippets in old location`);
   console.log(`   Migrating to: ${newLibraryPath}\n`);
   
   initializeLibrary(newLibraryPath);
@@ -164,14 +164,14 @@ export function migrateSnippets(newLibraryPath) {
       // Copy file
       fs.copyFileSync(oldPath, newPath);
       fs.chmodSync(newPath, 0o600); // Owner-only permissions
-      console.log(`   ✅ Migrated: ${file}`);
+      console.log(`    Migrated: ${file}`);
       migrated++;
     } catch (err) {
-      console.error(`   ❌ Failed to migrate ${file}: ${err.message}`);
+      console.error(`    Failed to migrate ${file}: ${err.message}`);
     }
   }
   
-  console.log(`\n✅ Migrated ${migrated} snippets`);
+  console.log(`\n Migrated ${migrated} snippets`);
   console.log(`   Old location: ${oldInfo.path}`);
   console.log(`   New location: ${newLibraryPath}\n`);
   
@@ -199,16 +199,16 @@ export async function setupWizard() {
   const oldInfo = checkOldLibrary();
   
   if (oldInfo.exists) {
-    console.log(`⚠️  Found ${oldInfo.count} snippets in old location (inside repository)`);
+    console.log(`  Found ${oldInfo.count} snippets in old location (inside repository)`);
     console.log(`   ${oldInfo.path}\n`);
-    console.log('🔒 For better security, snippets should be stored OUTSIDE the repository.');
+    console.log(' For better security, snippets should be stored OUTSIDE the repository.');
     console.log('   This prevents accidental commits and keeps your content isolated.\n');
   } else {
-    console.log('🔒 Snippets will be stored OUTSIDE the repository for security.');
+    console.log(' Snippets will be stored OUTSIDE the repository for security.');
     console.log('   This prevents accidental commits and keeps your content isolated.\n');
   }
   
-  console.log(`📁 Recommended location:\n   ${defaultPath}\n`);
+  console.log(` Recommended location:\n   ${defaultPath}\n`);
   
   const answer = await question('Use recommended location? (Y/n): ');
   
@@ -237,7 +237,7 @@ export async function setupWizard() {
     const migrated = migrateSnippets(libraryPath);
     
     if (migrated > 0) {
-      console.log('💡 Old snippets have been copied (not moved).');
+      console.log(' Old snippets have been copied (not moved).');
       console.log('   You can manually delete the old files when ready:\n');
       console.log(`   rm ${oldInfo.path}/*.json\n`);
     }
@@ -246,10 +246,10 @@ export async function setupWizard() {
   // Save configuration
   saveConfig(libraryPath);
   
-  console.log('✅ Snippet library configured!\n');
-  console.log(`📂 Location: ${libraryPath}`);
-  console.log(`⚙️  Config:   ${getConfigPath()}\n`);
-  console.log('💡 To change location later:');
+  console.log(' Snippet library configured!\n');
+  console.log(` Location: ${libraryPath}`);
+  console.log(`  Config:   ${getConfigPath()}\n`);
+  console.log(' To change location later:');
   console.log(`   export GHOST_SNIPPETS_DIR="/path/to/snippets"\n`);
   
   return libraryPath;

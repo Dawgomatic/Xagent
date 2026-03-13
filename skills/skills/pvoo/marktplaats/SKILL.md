@@ -2,7 +2,7 @@
 name: marktplaats
 description: Search Marktplaats.nl classifieds across all categories with filtering support.
 homepage: https://www.marktplaats.nl
-metadata: {"clawdbot":{"emoji":"🇳🇱","requires":{"bins":["node"]}}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]}}}
 ---
 
 # Marktplaats Skill

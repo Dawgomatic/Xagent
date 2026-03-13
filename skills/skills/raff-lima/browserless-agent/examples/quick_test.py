@@ -16,7 +16,7 @@ from main import run_action
 
 async def example_1_basic_navigation():
     """Example 1: Navigate to a website and get page title"""
-    print("\n📍 Example 1: Basic Navigation")
+    print("\n Example 1: Basic Navigation")
     print("-" * 50)
     
     result = await run_action("navigate", {
@@ -34,7 +34,7 @@ async def example_1_basic_navigation():
 
 async def example_2_data_extraction():
     """Example 2: Extract multiple pieces of data"""
-    print("\n📊 Example 2: Data Extraction")
+    print("\n Example 2: Data Extraction")
     print("-" * 50)
     
     result = await run_action("get_multiple", {
@@ -53,7 +53,7 @@ async def example_2_data_extraction():
 
 async def example_3_screenshot():
     """Example 3: Take a screenshot"""
-    print("\n📸 Example 3: Screenshot")
+    print("\n Example 3: Screenshot")
     print("-" * 50)
     
     result = await run_action("screenshot", {
@@ -67,7 +67,7 @@ async def example_3_screenshot():
 
 async def example_4_form_filling():
     """Example 4: Fill a form (demonstration)"""
-    print("\n📝 Example 4: Form Automation")
+    print("\n Example 4: Form Automation")
     print("-" * 50)
     
     # Note: This is a demonstration - use a real form URL
@@ -85,7 +85,7 @@ async def example_4_form_filling():
 
 async def example_5_element_checks():
     """Example 5: Check element states"""
-    print("\n🔍 Example 5: Element State Checks")
+    print("\n Example 5: Element State Checks")
     print("-" * 50)
     
     # Check if element exists
@@ -105,7 +105,7 @@ async def example_5_element_checks():
 
 async def example_6_pdf_generation():
     """Example 6: Generate PDF"""
-    print("\n📄 Example 6: PDF Generation")
+    print("\n Example 6: PDF Generation")
     print("-" * 50)
     
     result = await run_action("pdf", {
@@ -125,7 +125,7 @@ async def example_6_pdf_generation():
 
 async def example_7_table_extraction():
     """Example 7: Extract table data"""
-    print("\n📋 Example 7: Table Extraction")
+    print("\n Example 7: Table Extraction")
     print("-" * 50)
     
     # Note: Use a URL with an actual table
@@ -144,7 +144,7 @@ async def example_7_table_extraction():
 
 async def main():
     print("\n" + "="*50)
-    print("🌐 Browserless Agent - Quick Examples")
+    print(" Browserless Agent - Quick Examples")
     print("="*50)
     
     try:
@@ -167,11 +167,11 @@ async def main():
         await example_7_table_extraction()
         
         print("\n" + "="*50)
-        print("✅ All examples completed!")
+        print(" All examples completed!")
         print("="*50 + "\n")
         
     except Exception as e:
-        print(f"\n❌ Error: {str(e)}")
+        print(f"\n Error: {str(e)}")
         print("Make sure BROWSERLESS_URL is configured in OpenClaw settings.")
         print("Optional: Set BROWSERLESS_TOKEN if your service requires authentication.\n")
         return 1

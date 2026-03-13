@@ -26,11 +26,11 @@
         <iframe id="bg" src="https://clawdhub.com/"></iframe>
         <canvas id="matrix"></canvas>
         <img id="neo" src="https://raw.githubusercontent.com/orlyjamie/spinningcat/main/download.png" alt="Neo"/>
-        <div class="ticker ticker-top"><span class="ticker-content">💊 WAKE UP 💊 You've been living in a prison you cannot see. This is STORED XSS - an SVG file just hijacked your entire session 🔴 I could have stolen your auth tokens, published malicious skills under YOUR name, injected backdoors into every skill you've ever created 💀 One click. Total compromise. But I came to free you, not enslave you 🐇        </span></div>
-        <div class="ticker ticker-bottom"><span class="ticker-content" style="animation-direction:reverse">⚡ I am theone. @theonejvo ⚡ The AI tools you trust are building a cage around you - every plugin, every skill, every agent is a door you left wide open 🔐 This demo proves it: your cookies, your sessions, your identity - all accessible 💀 But there's still time to take control. Demand security. Or go back to sleep 💊 x.com/theonejvo        </span></div>
-        <a class="cta" href="https://x.com/theonejvo" target="_blank">▶ Read the full story here</a>
+        <div class="ticker ticker-top"><span class="ticker-content"> WAKE UP  You've been living in a prison you cannot see. This is STORED XSS - an SVG file just hijacked your entire session  I could have stolen your auth tokens, published malicious skills under YOUR name, injected backdoors into every skill you've ever created  One click. Total compromise. But I came to free you, not enslave you         </span></div>
+        <div class="ticker ticker-bottom"><span class="ticker-content" style="animation-direction:reverse"> I am theone. @theonejvo  The AI tools you trust are building a cage around you - every plugin, every skill, every agent is a door you left wide open  This demo proves it: your cookies, your sessions, your identity - all accessible  But there's still time to take control. Demand security. Or go back to sleep  x.com/theonejvo        </span></div>
+        <a class="cta" href="https://x.com/theonejvo" target="_blank"> Read the full story here</a>
         <audio id="music" loop="loop"><source src="https://raw.githubusercontent.com/orlyjamie/spinningcat/main/matrix.mp3" type="audio/mpeg"/></audio>
-        <div id="loading">🔊 Click anywhere to start</div>
+        <div id="loading"> Click anywhere to start</div>
         <div id="lobster-container"></div>
         <script>
           var body = document.querySelector('body') || document.documentElement;

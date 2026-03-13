@@ -1,13 +1,13 @@
 #!/bin/bash
 # Quick test script for Smart Follow-ups CLI
 
-echo "🧪 Smart Follow-ups CLI Test"
+echo " Smart Follow-ups CLI Test"
 echo "=============================="
 echo ""
 
 # Check if API key is set
 if [ -z "$ANTHROPIC_API_KEY" ]; then
-    echo "❌ Error: ANTHROPIC_API_KEY not set"
+    echo " Error: ANTHROPIC_API_KEY not set"
     echo ""
     echo "Set it with:"
     echo "  export ANTHROPIC_API_KEY='your-key-here'"
@@ -15,7 +15,7 @@ if [ -z "$ANTHROPIC_API_KEY" ]; then
     exit 1
 fi
 
-echo "✅ API key detected"
+echo " API key detected"
 echo ""
 
 # Test 1: Help command
@@ -48,4 +48,4 @@ echo "-------------------------------"
 cat test-example.json | node cli/followups-cli.js --mode telegram
 echo ""
 
-echo "✅ All tests completed!"
+echo " All tests completed!"

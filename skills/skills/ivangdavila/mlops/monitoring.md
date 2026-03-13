@@ -25,10 +25,10 @@
 ## Observability Gaps
 
 **What agents typically miss:**
-- ❌ Only monitors latency/uptime, ignores model metrics
-- ❌ No correlation between degradation and data pipeline changes
-- ❌ Logs predictions but no samples for debugging
-- ❌ Ignores fairness/bias monitoring in production
+-  Only monitors latency/uptime, ignores model metrics
+-  No correlation between degradation and data pipeline changes
+-  Logs predictions but no samples for debugging
+-  Ignores fairness/bias monitoring in production
 
 **What to monitor:**
 - Prediction distribution (histogram over time)

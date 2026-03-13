@@ -34,7 +34,7 @@ node render_report.mjs --audit mock-audit.json --deep mock-deep.json --label "No
 - 2 critical findings shown
 - 2 warning findings shown
 
-**Result:** ✅ PASSED
+**Result:**  PASSED
 - Summary showed: 1 critical · 1 warn
 - All findings displayed in critical/warn section
 - Skill names displayed: [clawsec-suite], [example-skill]
@@ -52,17 +52,17 @@ node render_report.mjs --audit mock-audit.json --deep mock-deep.json \
 - Suppression reason and date displayed
 - Non-suppressed findings remain in active section
 
-**Result:** ✅ PASSED
+**Result:**  PASSED
 
 **Verification Points:**
-1. ✅ INFO-SUPPRESSED section present
-2. ✅ Suppression reason displayed: "First-party security tooling, reviewed 2026-02-16"
-3. ✅ Suppression date displayed: "2026-02-16"
-4. ✅ clawsec-suite finding suppressed and shown with [clawsec-suite] label
-5. ✅ openclaw-audit-watchdog finding suppressed and shown with [openclaw-audit-watchdog] label
-6. ✅ Non-suppressed findings still present: [example-skill] permission warning
-7. ✅ Critical count reduced to 0 (was 1, now suppressed)
-8. ✅ Warning count remains 1 (non-suppressed finding)
+1.  INFO-SUPPRESSED section present
+2.  Suppression reason displayed: "First-party security tooling, reviewed 2026-02-16"
+3.  Suppression date displayed: "2026-02-16"
+4.  clawsec-suite finding suppressed and shown with [clawsec-suite] label
+5.  openclaw-audit-watchdog finding suppressed and shown with [openclaw-audit-watchdog] label
+6.  Non-suppressed findings still present: [example-skill] permission warning
+7.  Critical count reduced to 0 (was 1, now suppressed)
+8.  Warning count remains 1 (non-suppressed finding)
 
 ## Sample Output
 
@@ -98,7 +98,7 @@ INFO-SUPPRESSED:
 
 ## Key Findings
 
-### ✅ Successes
+###  Successes
 1. **Config Loading**: Suppression config loaded successfully from custom path
 2. **Matching Logic**: Findings correctly matched by BOTH checkId AND skill name
 3. **Filtering**: Suppressed findings excluded from critical/warning counts
@@ -107,7 +107,7 @@ INFO-SUPPRESSED:
 6. **Backward Compatibility**: Running without config works identically to before
 7. **Skill Name Display**: Skill names now displayed in both active and suppressed sections
 
-### 🔧 Improvements Made During Testing
+###  Improvements Made During Testing
 1. **Bug Fix**: Added --config flag passthrough in run_audit_and_format.sh
    - Script was accepting --config but not passing it to render_report.mjs
    - Fixed by building RENDER_ARGS array with conditional --config inclusion
@@ -129,7 +129,7 @@ Created `run-e2e-test.mjs` script for automated E2E validation with 8 verificati
 - Summary count accuracy
 
 ## Conclusion
-✅ **All E2E tests PASSED**
+ **All E2E tests PASSED**
 
 The suppression mechanism is working correctly end-to-end:
 - Configuration loads from custom paths
@@ -140,6 +140,6 @@ The suppression mechanism is working correctly end-to-end:
 - Skill names provide clear context for all findings
 
 ## Next Steps
-1. ✅ Integration tests verified (10/10 passing)
-2. ✅ E2E test completed and documented
-3. ⏭️ Proceed to documentation phase (Phase 5)
+1.  Integration tests verified (10/10 passing)
+2.  E2E test completed and documented
+3.  Proceed to documentation phase (Phase 5)

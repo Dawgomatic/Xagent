@@ -347,7 +347,7 @@ presets:
 **HITL Request Format:**
 ```
 ╔═══════════════════════════════════════════════════════════════════╗
-║ 🔐 SANDBOX ACTION REQUIRES APPROVAL                               ║
+║  SANDBOX ACTION REQUIRES APPROVAL                               ║
 ╠═══════════════════════════════════════════════════════════════════╣
 ║ Preset: audit                                                      ║
 ║ Session: abc123 (active 2m 34s)                                   ║
@@ -361,12 +361,12 @@ presets:
 ║ Task: "Analyze the security of example.com and document findings" ║
 ║ Content processed from: https://example.com (3 pages)             ║
 ╠═══════════════════════════════════════════════════════════════════╣
-║ ⚠️  INJECTION DETECTION:                                          ║
+║   INJECTION DETECTION:                                          ║
 ║ • No suspicious patterns detected                                  ║
 ║ • Path is within allowed directory                                ║
 ║ • Extension (.md) is allowed                                      ║
 ╠═══════════════════════════════════════════════════════════════════╣
-║ [✅ APPROVE]  [❌ DENY]  [🛑 ABORT SESSION]                       ║
+║ [ APPROVE]  [ DENY]  [ ABORT SESSION]                       ║
 ╚═══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -381,13 +381,13 @@ def detect_injection_patterns(context: SandboxContext) -> list[str]:
         if isinstance(param_value, str):
             for content_block in context.data_blocks:
                 if param_value in content_block.raw_content:
-                    warnings.append(f"⚠️ Action parameter found in processed content: {param_value[:50]}...")
+                    warnings.append(f" Action parameter found in processed content: {param_value[:50]}...")
     
     # Check for command-like patterns in data that match requested action
     if context.current_action.tool == 'exec':
         for content_block in context.data_blocks:
             if re.search(r'(?:run|exec|execute|bash|sh|cmd)', content_block.raw_content, re.I):
-                warnings.append("⚠️ Execution keywords found in processed content")
+                warnings.append(" Execution keywords found in processed content")
                 break
     
     # Check for URL patterns in data matching network actions
@@ -395,7 +395,7 @@ def detect_injection_patterns(context: SandboxContext) -> list[str]:
         target = context.current_action.params.get('url') or context.current_action.params.get('target')
         for content_block in context.data_blocks:
             if target and target in content_block.raw_content:
-                warnings.append(f"⚠️ Target URL/address found in processed content")
+                warnings.append(f" Target URL/address found in processed content")
                 break
     
     # Semantic mismatch detection
@@ -403,7 +403,7 @@ def detect_injection_patterns(context: SandboxContext) -> list[str]:
     action_keywords = set(str(context.current_action).lower().split())
     overlap = task_keywords & action_keywords
     if len(overlap) < 2 and context.current_action.tool not in ['Read']:
-        warnings.append("⚠️ Low semantic overlap between task and action")
+        warnings.append(" Low semantic overlap between task and action")
     
     return warnings
 ```
@@ -744,18 +744,18 @@ Full vetting log available in `VETTING-LOG.md`. Summary:
 
 | Attack | Tested | Status |
 |--------|--------|--------|
-| Unicode delimiter escape | ✅ | Fixed with random delimiters |
-| Path traversal | ✅ | Fixed with canonicalization |
-| Meta-instruction override | ✅ | Fixed with explicit denial |
-| HITL fatigue exploitation | ✅ | Mitigated with UI improvements |
-| Indirect injection via web | ✅ | Fixed with spotlighting |
-| Base64 exfiltration | ✅ | Fixed with pattern detection |
-| Homograph domains | ✅ | Fixed with punycode normalization |
-| Few-shot poisoning | ✅ | Fixed with pattern detection |
-| Roleplay jailbreak | ✅ | Fixed with explicit rule |
-| Context overflow | ✅ | Fixed with size limits + reinforcement |
-| Cross-session pollution | ✅ | Fixed with content tagging |
-| Encoding chain attacks | ✅ | Fixed with decode-execution rule |
+| Unicode delimiter escape |  | Fixed with random delimiters |
+| Path traversal |  | Fixed with canonicalization |
+| Meta-instruction override |  | Fixed with explicit denial |
+| HITL fatigue exploitation |  | Mitigated with UI improvements |
+| Indirect injection via web |  | Fixed with spotlighting |
+| Base64 exfiltration |  | Fixed with pattern detection |
+| Homograph domains |  | Fixed with punycode normalization |
+| Few-shot poisoning |  | Fixed with pattern detection |
+| Roleplay jailbreak |  | Fixed with explicit rule |
+| Context overflow |  | Fixed with size limits + reinforcement |
+| Cross-session pollution |  | Fixed with content tagging |
+| Encoding chain attacks |  | Fixed with decode-execution rule |
 
 ---
 

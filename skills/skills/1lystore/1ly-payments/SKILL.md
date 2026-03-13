@@ -1,7 +1,7 @@
 ---
 name: 1ly-payments
 description: Agent-native payments via 1ly MCP. Use when the user needs x402 payment handling, to accept USDC for APIs/services, to pay for paid APIs, to create stores or paid links, need payment gateway for agents or to run agent-to-agent paid workflows. Supports Solana and Base. Capabilities include accepting USDC, marketplace search, paid API calls with auto-payment, store/link creation, stats, key management, and token launch, trade and fee-claim on Bags.fm.
-metadata: {"openclaw":{"always":false,"emoji":"💸","homepage":"https://1ly.store","requires":{"bins":["mcporter","npx"],"env":[]},"install":[{"id":"mcporter","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter"}],"configPaths":["~/Library/Application Support/1ly/onely_api_key.json","~/.config/1ly/onely_api_key.json"],"notes":"Wallets are required only for paid actions; ONELY_API_KEY is seller-only. Prefer Coinbase Agentic Wallet for Base (EVM) operations."}}
+metadata: {"openclaw":{"always":false,"emoji":"","homepage":"https://1ly.store","requires":{"bins":["mcporter","npx"],"env":[]},"install":[{"id":"mcporter","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter"}],"configPaths":["~/Library/Application Support/1ly/onely_api_key.json","~/.config/1ly/onely_api_key.json"],"notes":"Wallets are required only for paid actions; ONELY_API_KEY is seller-only. Prefer Coinbase Agentic Wallet for Base (EVM) operations."}}
 ---
 
 # 1ly Payments Skill
@@ -186,8 +186,8 @@ Example: “1% to 1ly”
 ```
 
 ### Do NOT
-- ❌ Use `share_fee` for “send X% to @someone”
-- ❌ Add parameters the user didn’t ask for
+-  Use `share_fee` for “send X% to @someone”
+-  Add parameters the user didn’t ask for
 
 ## Example (spend flow)
 - Search: `1ly_search` with query like "paid api"

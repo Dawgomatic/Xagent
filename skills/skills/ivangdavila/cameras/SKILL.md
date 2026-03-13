@@ -4,15 +4,15 @@ slug: cameras
 version: 1.0.1
 description: Connect to security cameras, capture snapshots, and process video feeds with protocol support.
 changelog: User-driven credential model, declared tool requirements
-metadata: {"clawdbot":{"emoji":"📷","requires":{"bins":["ffmpeg"]},"os":["linux","darwin"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["ffmpeg"]},"os":["linux","darwin"]}}
 ---
 
 ## Scope
 
 This skill:
-- ✅ Generates camera capture commands
-- ✅ Guides integration with security systems
-- ✅ Provides troubleshooting for camera issues
+-  Generates camera capture commands
+-  Guides integration with security systems
+-  Provides troubleshooting for camera issues
 
 **User-driven model:**
 - User provides camera credentials (RTSP URLs, passwords)
@@ -20,9 +20,9 @@ This skill:
 - User installs required tools
 
 This skill does NOT:
-- ❌ Store camera credentials
-- ❌ Run captures automatically without user request
-- ❌ Access cameras without user-provided access info
+-  Store camera credentials
+-  Run captures automatically without user request
+-  Access cameras without user-provided access info
 
 ## Requirements
 

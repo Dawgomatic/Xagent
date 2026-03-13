@@ -178,7 +178,7 @@ def format_opportunity(opp: dict) -> str:
     ticker = m.get("ticker", "?")
     title = m.get("title", "Unknown")
     
-    line = f"📈 {ticker}: {title}\n"
+    line = f" {ticker}: {title}\n"
     line += f"   Side: {opp['side']} @ {opp['price']:.0f}¢\n"
     line += f"   Implied Prob: {opp['implied_prob']*100:.1f}%\n"
     line += f"   Potential Return: {opp['potential_return']*100:.1f}%\n"
@@ -194,7 +194,7 @@ def cmd_trending(args):
     # Sort by volume
     markets.sort(key=lambda x: x.get("volume") or 0, reverse=True)
     
-    print(f"📊 Top {len(markets)} Markets by Volume\n")
+    print(f" Top {len(markets)} Markets by Volume\n")
     for m in markets[:args.limit]:
         print(format_market(m, verbose=args.verbose))
         print()
@@ -207,7 +207,7 @@ def cmd_search(args):
         print(f"No markets found matching '{args.query}'")
         return
     
-    print(f"🔍 Found {len(markets)} markets matching '{args.query}'\n")
+    print(f" Found {len(markets)} markets matching '{args.query}'\n")
     for m in markets:
         print(format_market(m, verbose=args.verbose))
         print()
@@ -223,7 +223,7 @@ def cmd_market(args):
         
         # Get orderbook
         ob = get_orderbook(args.ticker, depth=5)
-        print("📖 Orderbook:")
+        print(" Orderbook:")
         
         bids = ob.get("orderbook", {}).get("yes", [])
         if bids:
@@ -239,7 +239,7 @@ def cmd_market(args):
 
 def cmd_opportunities(args):
     """Find high-certainty, high-payoff opportunities."""
-    print("🔎 Scanning for opportunities...\n")
+    print(" Scanning for opportunities...\n")
     
     opps = find_opportunities(
         min_certainty=args.certainty,
@@ -264,7 +264,7 @@ def cmd_events(args):
     result = get_events(status="open", limit=args.limit)
     events = result.get("events", [])
     
-    print(f"📅 {len(events)} Open Events\n")
+    print(f" {len(events)} Open Events\n")
     for e in events:
         ticker = e.get("event_ticker", "?")
         title = e.get("title", "Unknown")

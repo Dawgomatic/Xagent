@@ -1,7 +1,7 @@
 ---
 name: skill-reviewer
 description: Review and audit agent skills (SKILL.md files) for quality, correctness, and effectiveness. Use when evaluating a skill before publishing, reviewing someone else's skill, scoring skill quality, identifying defects in skill content, or improving an existing skill.
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"anyBins":["npx"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"anyBins":["npx"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Skill Reviewer

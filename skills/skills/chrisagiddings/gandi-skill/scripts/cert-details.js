@@ -21,7 +21,7 @@ if (args.length < 1) {
   console.error('Examples:');
   console.error('  node cert-details.js abc123-uuid');
   console.error('');
-  console.error('💡 To list all certificates:');
+  console.error(' To list all certificates:');
   console.error('   node list-certificates.js');
   process.exit(1);
 }
@@ -44,12 +44,12 @@ function formatDate(dateString) {
 // Main function
 async function main() {
   try {
-    console.log(`🔒 Fetching certificate details...`);
+    console.log(` Fetching certificate details...`);
     console.log('');
     
     const cert = await getCertificate(certId);
     
-    console.log('📋 Certificate Details:');
+    console.log(' Certificate Details:');
     console.log('');
     console.log('═'.repeat(70));
     
@@ -62,12 +62,12 @@ async function main() {
     
     if (cert.status) {
       const statusEmoji = {
-        'valid': '✅',
-        'pending': '⏳',
-        'expired': '❌',
-        'revoked': '🚫'
+        'valid': '',
+        'pending': '',
+        'expired': '',
+        'revoked': ''
       };
-      console.log(`Status: ${statusEmoji[cert.status] || '❓'} ${cert.status.toUpperCase()}`);
+      console.log(`Status: ${statusEmoji[cert.status] || ''} ${cert.status.toUpperCase()}`);
     }
     
     console.log('');
@@ -99,11 +99,11 @@ async function main() {
         const daysUntilExpiry = Math.ceil((validTo - now) / (1000 * 60 * 60 * 24));
         
         if (daysUntilExpiry < 0) {
-          console.log(`  ❌ EXPIRED ${Math.abs(daysUntilExpiry)} days ago`);
+          console.log(`   EXPIRED ${Math.abs(daysUntilExpiry)} days ago`);
         } else if (daysUntilExpiry < 30) {
-          console.log(`  ⚠️  Expires in ${daysUntilExpiry} days`);
+          console.log(`    Expires in ${daysUntilExpiry} days`);
         } else {
-          console.log(`  ✅ ${daysUntilExpiry} days remaining`);
+          console.log(`   ${daysUntilExpiry} days remaining`);
         }
       }
       console.log('');
@@ -119,7 +119,7 @@ async function main() {
     }
     
     if (cert.auto_renew !== undefined) {
-      console.log(`Auto-renewal: ${cert.auto_renew ? '✅ Enabled' : '❌ Disabled'}`);
+      console.log(`Auto-renewal: ${cert.auto_renew ? ' Enabled' : ' Disabled'}`);
     }
     
     if (cert.key_size) {
@@ -150,7 +150,7 @@ async function main() {
     
     // Actions
     console.log('');
-    console.log('💡 Actions:');
+    console.log(' Actions:');
     
     if (cert.status === 'valid') {
       console.log('   • Certificate is valid and active');
@@ -158,12 +158,12 @@ async function main() {
       console.log('   • Certificate is pending validation');
       console.log('   • Complete domain validation to issue certificate');
     } else if (cert.status === 'expired') {
-      console.log('   ⚠️  Certificate has expired!');
+      console.log('     Certificate has expired!');
       console.log('   • Request a new certificate: node request-certificate.js');
     }
     
   } catch (error) {
-    console.error('❌ Error:', error.message);
+    console.error(' Error:', error.message);
     
     if (error.statusCode === 401) {
       console.error('');
@@ -175,7 +175,7 @@ async function main() {
       console.error('');
       console.error('Certificate not found. Check the certificate ID.');
       console.error('');
-      console.error('💡 To list all certificates:');
+      console.error(' To list all certificates:');
       console.error('   node list-certificates.js');
     } else if (error.response) {
       console.error('API response:', JSON.stringify(error.response, null, 2));

@@ -2,7 +2,7 @@
 name: fosmvvm-serverrequest-generator
 description: Generate FOSMVVM ServerRequest types for CRUD operations and client-server communication. Scaffolds requests, response bodies, and typed error handling.
 homepage: https://github.com/foscomputerservices/FOSUtilities
-metadata: {"clawdbot": {"emoji": "🔌", "os": ["darwin", "linux"]}}
+metadata: {"clawdbot": {"emoji": "", "os": ["darwin", "linux"]}}
 ---
 
 # FOSMVVM ServerRequest Generator
@@ -38,23 +38,23 @@ Generate ServerRequest types for client-server communication.
 ### What You Must NEVER Do
 
 ```swift
-// ❌ WRONG - hardcoded URL
+//  WRONG - hardcoded URL
 let url = URL(string: "http://server/api/users/123")!
 var request = URLRequest(url: url)
 
-// ❌ WRONG - string path
+//  WRONG - string path
 try await client.get("/api/users/\(id)")
 
-// ❌ WRONG - manual JSON encoding
+//  WRONG - manual JSON encoding
 let json = try JSONEncoder().encode(body)
 request.httpBody = json
 ```
 
 ```javascript
-// ❌ WRONG - hardcoded fetch path
+//  WRONG - hardcoded fetch path
 fetch('/api/users/123')
 
-// ❌ WRONG - constructing URLs manually
+//  WRONG - constructing URLs manually
 fetch(`/api/ideas/${ideaId}/move`)
 ```
 
@@ -87,17 +87,17 @@ public extension SystemVersion {
 **Step 2: Use processRequest(mvvmEnv:) everywhere**
 
 ```swift
-// ✅ RIGHT - ServerRequest with MVVMEnvironment
+//  RIGHT - ServerRequest with MVVMEnvironment
 let request = UserShowRequest(query: .init(userId: id))
 try await request.processRequest(mvvmEnv: mvvmEnv)
 let user = request.responseBody
 
-// ✅ RIGHT - Create operation
+//  RIGHT - Create operation
 let createRequest = CreateIdeaRequest(requestBody: .init(content: content))
 try await createRequest.processRequest(mvvmEnv: mvvmEnv)
 let newId = createRequest.responseBody?.id
 
-// ✅ RIGHT - Update operation
+//  RIGHT - Update operation
 let updateRequest = MoveIdeaRequest(requestBody: .init(ideaId: id, newStatus: status))
 try await updateRequest.processRequest(mvvmEnv: mvvmEnv)
 ```
@@ -473,7 +473,7 @@ public final class CreateIdeaRequest: CreateRequest, @unchecked Sendable {
     public let requestBody: RequestBody?
     public var responseBody: ResponseBody?
 
-    // ✅ All subtypes nested inside the request
+    //  All subtypes nested inside the request
     public struct RequestBody: ServerRequestBody, ValidatableModel { ... }
     public struct ResponseBody: CreateResponseBody { ... }
     public struct ResponseError: ServerRequestError { ... }  // ← Nested, not top-level
@@ -615,7 +615,7 @@ do {
 
 **The anti-pattern (JavaScript brain):**
 ```swift
-// ❌ WRONG - treating typed errors as unknown
+//  WRONG - treating typed errors as unknown
 catch let error as ServerRequestError {
     // "How do I get the message? What properties does it have?"
     // This thinking is WRONG. You're not in a typeless world.
@@ -624,7 +624,7 @@ catch let error as ServerRequestError {
 
 **The pattern (Swift brain):**
 ```swift
-// ✅ RIGHT - you know the exact type
+//  RIGHT - you know the exact type
 catch let error as MoveIdeaRequest.ResponseError {
     switch error.code {
     case .ideaNotFound: // I know this exists
@@ -702,7 +702,7 @@ catch let error as ValidationError {
 See [fosmvvm-serverrequest-test-generator](../fosmvvm-serverrequest-test-generator/SKILL.md) for complete testing guidance.
 
 ```swift
-// ✅ RIGHT - tests the actual client code path
+//  RIGHT - tests the actual client code path
 let request = Update{Entity}Request(
     query: .init(entityId: id),
     requestBody: .init(name: "New Name")
@@ -710,7 +710,7 @@ let request = Update{Entity}Request(
 try await request.processRequest(mvvmEnv: testMvvmEnv)
 #expect(request.responseBody?.viewModel.name == "New Name")
 
-// ❌ WRONG - manual HTTP bypasses version negotiation
+//  WRONG - manual HTTP bypasses version negotiation
 try await app.sendRequest(.PATCH, "/entity/\(id)", body: json)
 ```
 

@@ -27,7 +27,7 @@ export class CalDAVClient {
       defaultAccountType: 'caldav',
     });
     
-    console.error('✅ Connected to Fastmail CalDAV');
+    console.error(' Connected to Fastmail CalDAV');
   }
   
   async getCalendars(): Promise<DAVCalendar[]> {

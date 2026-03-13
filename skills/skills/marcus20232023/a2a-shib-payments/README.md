@@ -2,7 +2,7 @@
 
 ![A2A SHIB Payment System Banner](assets/banner.svg)
 
-# 🦪💰 A2A SHIB Payment Agent
+#  A2A SHIB Payment Agent
 
 **The first production-ready agent-to-agent payment system for the new agent economy**
 
@@ -13,9 +13,9 @@ Escrow · Negotiation · Reputation
 ┌─────────────────────────────────────┐
 │   AI Agent Commerce Infrastructure   │
 ├─────────────────────────────────────┤
-│  💰 Payments    🔒 Escrow           │
-│  💬 Negotiation ⭐ Reputation       │
-│  🔐 Security    🌐 A2A Protocol     │
+│   Payments     Escrow           │
+│   Negotiation  Reputation       │
+│   Security     A2A Protocol     │
 └─────────────────────────────────────┘
     ~$0.003/tx  |  9,416x cheaper
 ```
@@ -30,7 +30,7 @@ Escrow · Negotiation · Reputation
 
 ---
 
-## 🦪 What is this?
+##  What is this?
 
 A **framework-agnostic A2A payment system** that enables agents to:
 - Send/receive SHIB payments on Polygon (~$0.003 gas)
@@ -41,19 +41,19 @@ A **framework-agnostic A2A payment system** that enables agents to:
 
 **9,416x cheaper** than traditional escrow services (Escrow.com charges 3.25% + $25, we charge ~$0.003).
 
-> 💡 **Like this project?** Give it a ⭐ to help others discover it!
+>  **Like this project?** Give it a  to help others discover it!
 
 ---
 
-## ✨ Features
+##  Features
 
-### 💰 Payment System
+###  Payment System
 - Direct SHIB transfers on Polygon network
 - Sub-penny gas costs (~$0.003 per transaction)
 - Balance checking
 - Transaction history
 
-### 🔒 Escrow System
+###  Escrow System
 - Time-locked trustless payments
 - Multi-party approval required
 - Delivery proof submission
@@ -61,7 +61,7 @@ A **framework-agnostic A2A payment system** that enables agents to:
 - Dispute resolution with arbiter
 - 6-state machine (pending → funded → locked → released/refunded/disputed)
 
-### 💬 Price Negotiation
+###  Price Negotiation
 - Service quote creation
 - Multi-round counter-offers
 - Accept/reject workflow
@@ -69,7 +69,7 @@ A **framework-agnostic A2A payment system** that enables agents to:
 - Service delivery tracking
 - Client confirmation
 
-### ⭐ Reputation System
+###  Reputation System
 - Star ratings (0-5) with reviews
 - Dynamic trust scores (0-100)
 - Trust levels: new → bronze → silver → gold → platinum
@@ -77,14 +77,14 @@ A **framework-agnostic A2A payment system** that enables agents to:
 - Agent verification
 - Search & filtering
 
-### 🔐 Security Layer
+###  Security Layer
 - API key authentication
 - Rate limiting (requests + payments + volume)
 - Immutable audit logging (hash-chained)
 - Per-agent permissions & limits
 - Complete compliance trail
 
-### 🌐 A2A Protocol Integration
+###  A2A Protocol Integration
 - Agent discovery via registry
 - Standardized messaging (JSON-RPC, REST)
 - **Compatible with:** LangChain, AWS Bedrock, OpenClaw, AutoGen, any A2A-compliant system
@@ -93,7 +93,7 @@ A **framework-agnostic A2A payment system** that enables agents to:
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 18+
@@ -147,12 +147,12 @@ curl -s -X POST http://localhost:8003/a2a/jsonrpc \
 
 # Run test suite
 node test-escrow-negotiation.js
-# Expected: All tests passing ✅
+# Expected: All tests passing 
 ```
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 ### Core Guides
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide (5 options)
@@ -167,7 +167,7 @@ node test-escrow-negotiation.js
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### Data Marketplace
 ```javascript
@@ -206,7 +206,7 @@ const escrow = await escrowSystem.create({
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Test security infrastructure
@@ -219,11 +219,11 @@ node test-escrow-negotiation.js
 node test-reputation.js
 ```
 
-**All tests passing:** ✅
+**All tests passing:** 
 
 ---
 
-## 🛠️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────┐
@@ -246,7 +246,7 @@ node test-reputation.js
 
 ---
 
-## 📊 System Statistics
+##  System Statistics
 
 **Development:**
 - Lines of Code: ~8,000
@@ -267,17 +267,17 @@ node test-reputation.js
 
 ---
 
-## 🔐 Security
+##  Security
 
 **Implemented:**
-- ✅ API key authentication (64-byte keys)
-- ✅ Rate limiting (10 req/min, 3 payments/min)
-- ✅ Payment volume limits (500 SHIB/min)
-- ✅ Immutable audit logs (hash-chained)
-- ✅ Per-agent permissions
-- ✅ Escrow time-locks
-- ✅ Multi-party approval
-- ✅ Dispute resolution
+-  API key authentication (64-byte keys)
+-  Rate limiting (10 req/min, 3 payments/min)
+-  Payment volume limits (500 SHIB/min)
+-  Immutable audit logs (hash-chained)
+-  Per-agent permissions
+-  Escrow time-locks
+-  Multi-party approval
+-  Dispute resolution
 
 **Recommended for Production:**
 - Multi-sig wallet
@@ -291,7 +291,7 @@ See [PRODUCTION-HARDENING.md](PRODUCTION-HARDENING.md) for complete security gui
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Quick Local Deployment
 ```bash
@@ -308,7 +308,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for complete guide.
 
 ---
 
-## 💰 Cost Comparison
+##  Cost Comparison
 
 | System | Fee | Settlement Time | Trust Model |
 |--------|-----|----------------|-------------|
@@ -323,7 +323,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for complete guide.
 
 ---
 
-## 📦 What's Included
+##  What's Included
 
 ### Core Systems
 - `index.js` - Payment agent
@@ -353,7 +353,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for complete guide.
 
 ---
 
-## 🎬 Demo
+##  Demo
 
 > **Want to integrate this into your agent?** See [INTEGRATION-EXAMPLES.md](INTEGRATION-EXAMPLES.md) for LangChain, AWS Bedrock, OpenClaw, and AutoGen examples.
 
@@ -375,15 +375,15 @@ Try the demo agent at: `http://localhost:8003` (after installation)
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 **v2.0** (Current)
-- ✅ SHIB payments on Polygon
-- ✅ Escrow system
-- ✅ Price negotiation
-- ✅ Reputation system
-- ✅ A2A protocol integration
-- ✅ Production security
+-  SHIB payments on Polygon
+-  Escrow system
+-  Price negotiation
+-  Reputation system
+-  A2A protocol integration
+-  Production security
 
 **v2.1** (Planned)
 - [ ] Multi-token support (USDC, POL)
@@ -403,7 +403,7 @@ Try the demo agent at: `http://localhost:8003` (after installation)
 
 ---
 
-## ❓ FAQ
+##  FAQ
 
 ### Why Polygon instead of Ethereum?
 Gas costs. Ethereum averages $5-20 per transaction. Polygon averages $0.003. For micropayments and agent commerce, Polygon is **9,416x cheaper**.
@@ -413,11 +413,11 @@ Popular ERC-20 token with high liquidity. Easy to test with (low cost per token)
 
 ### Is this production-ready?
 Yes, with caveats:
-- ✅ Core systems tested and working
-- ✅ Security layer implemented
-- ⚠️ Recommended: Add multi-sig wallet for high-value transactions
-- ⚠️ Recommended: Run behind HTTPS in production
-- ⚠️ Recommended: Enable monitoring & alerting
+-  Core systems tested and working
+-  Security layer implemented
+-  Recommended: Add multi-sig wallet for high-value transactions
+-  Recommended: Run behind HTTPS in production
+-  Recommended: Enable monitoring & alerting
 
 See [PRODUCTION-HARDENING.md](PRODUCTION-HARDENING.md) for complete checklist.
 
@@ -448,22 +448,22 @@ Not yet. This is self-hosted infrastructure. Cloud hosting/SaaS version is on th
 
 ---
 
-## 📢 Share This Project
+##  Share This Project
 
 Help spread the word about agent-to-agent payments!
 
 **Social media templates ready:** [SOCIAL.md](SOCIAL.md) has copy-paste posts for Twitter, Reddit, LinkedIn, Hacker News, and Discord.
 
 **Quick share links:**
-- [Tweet this](https://twitter.com/intent/tweet?text=🚀%20Just%20found%20a%20production-ready%20payment%20system%20for%20AI%20agents!%20SHIB%20on%20Polygon,%20trustless%20escrow,%20auto%20negotiation.%209,416x%20cheaper%20than%20traditional%20escrow.%20Framework-agnostic%20(LangChain,%20Bedrock,%20OpenClaw).%20MIT%20licensed.%20https://github.com/marcus20232023/a2a-shib-payments%20%23AI%20%23Web3%20%23Agents)
+- [Tweet this](https://twitter.com/intent/tweet?text=%20Just%20found%20a%20production-ready%20payment%20system%20for%20AI%20agents!%20SHIB%20on%20Polygon,%20trustless%20escrow,%20auto%20negotiation.%209,416x%20cheaper%20than%20traditional%20escrow.%20Framework-agnostic%20(LangChain,%20Bedrock,%20OpenClaw).%20MIT%20licensed.%20https://github.com/marcus20232023/a2a-shib-payments%20%23AI%20%23Web3%20%23Agents)
 - [Share on LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/marcus20232023/a2a-shib-payments)
 - [Post on Reddit](https://reddit.com/submit?url=https://github.com/marcus20232023/a2a-shib-payments&title=A2A%20SHIB%20Payment%20System%20-%20Payment%20Infrastructure%20for%20AI%20Agents)
 
-Found this useful? Give it a ⭐ on GitHub!
+Found this useful? Give it a  on GitHub!
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions welcome! Please:
 1. Fork the repository
@@ -473,13 +473,13 @@ Contributions welcome! Please:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## 🔗 Links
+##  Links
 
 - **A2A Protocol:** https://a2a-protocol.org
 - **OpenClaw:** https://github.com/openclaw/openclaw
@@ -488,7 +488,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 **Dependencies:**
 - **[@a2a-js/sdk](https://www.npmjs.com/package/@a2a-js/sdk)** - A2A Protocol v0.3.0
@@ -496,23 +496,23 @@ MIT License - see [LICENSE](LICENSE) file for details
 - **[Express.js](https://expressjs.com/)** - HTTP server
 
 **Framework Compatibility:**
-- ✅ LangChain
-- ✅ AWS Bedrock Agents
-- ✅ OpenClaw
-- ✅ AutoGen
-- ✅ Any A2A-compatible system
+-  LangChain
+-  AWS Bedrock Agents
+-  OpenClaw
+-  AutoGen
+-  Any A2A-compatible system
 
 *Developed with OpenClaw assistant*
 
 ---
 
-## 📞 Support & Community
+##  Support & Community
 
-- **🐛 Bug Reports:** [GitHub Issues](https://github.com/marcus20232023/a2a-shib-payments/issues)
-- **💬 Discussions:** [GitHub Discussions](https://github.com/marcus20232023/a2a-shib-payments/discussions)
-- **📖 Documentation:** See `/docs` folder in repo
-- **🔔 Updates:** Watch this repo for new releases
-- **⭐ Feature Requests:** Submit via Issues with `enhancement` label
+- ** Bug Reports:** [GitHub Issues](https://github.com/marcus20232023/a2a-shib-payments/issues)
+- ** Discussions:** [GitHub Discussions](https://github.com/marcus20232023/a2a-shib-payments/discussions)
+- ** Documentation:** See `/docs` folder in repo
+- ** Updates:** Watch this repo for new releases
+- ** Feature Requests:** Submit via Issues with `enhancement` label
 
 **Need help?**
 1. Check the [FAQ](#-faq) section above
@@ -522,7 +522,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## ⚡ Quick Examples
+##  Quick Examples
 
 ### Send SHIB Payment
 ```bash
@@ -583,32 +583,32 @@ curl -X POST http://localhost:8003/a2a/jsonrpc \
 
 ---
 
-## 👨‍💻 Built By
+##  Built By
 
 **Marc Smith** ([@marcus20232023](https://github.com/marcus20232023))  
 *Developed using [OpenClaw](https://github.com/openclaw/openclaw) development environment*
 
 **Development Stats:**
-- 📅 Development Time: ~21 hours
-- 💻 Lines of Code: ~8,000
-- 📦 Files: 35
-- 📝 Documentation: 40 KB
-- ✅ Test Coverage: 100%
+-  Development Time: ~21 hours
+-  Lines of Code: ~8,000
+-  Files: 35
+-  Documentation: 40 KB
+-  Test Coverage: 100%
 
 ---
 
-**Built with 🦪 for the agent economy**
+**Built with  for the agent economy**
 
 **Version:** 2.0.0  
 **A2A Protocol:** v0.3.0  
-**Status:** ✅ Production Ready  
+**Status:**  Production Ready  
 **Last Updated:** February 2026
 
 ---
 
 <div align="center">
 
-### ⭐ Star this repo to support the project! ⭐
+###  Star this repo to support the project! 
 
 [Report Bug](https://github.com/marcus20232023/a2a-shib-payments/issues) · [Request Feature](https://github.com/marcus20232023/a2a-shib-payments/issues) · [Documentation](https://github.com/marcus20232023/a2a-shib-payments/tree/master)
 

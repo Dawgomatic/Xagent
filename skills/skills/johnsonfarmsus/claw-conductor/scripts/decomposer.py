@@ -458,12 +458,12 @@ if __name__ == '__main__':
     try:
         tasks = decomposer.decompose(test_request)
 
-        print(f"\n✅ Decomposed into {len(tasks)} tasks:\n")
+        print(f"\n Decomposed into {len(tasks)} tasks:\n")
         for task in tasks:
             deps_str = f" (depends on: {', '.join(task['dependencies'])})" if task['dependencies'] else ""
             print(f"  {task['task_id']}: {task['description']}{deps_str}")
             print(f"           Category: {task['category']}, Complexity: {task['complexity']}\n")
 
     except Exception as e:
-        print(f"\n❌ Decomposition failed: {e}\n", file=sys.stderr)
+        print(f"\n Decomposition failed: {e}\n", file=sys.stderr)
         sys.exit(1)

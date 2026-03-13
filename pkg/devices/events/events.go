@@ -37,10 +37,10 @@ type DeviceEvent struct {
 }
 
 func (e *DeviceEvent) FormatMessage() string {
-	actionEmoji := "🔌"
+	actionEmoji := ""
 	actionText := "Connected"
 	if e.Action == ActionRemove {
-		actionEmoji = "🔌"
+		actionEmoji = ""
 		actionText = "Disconnected"
 	}
 

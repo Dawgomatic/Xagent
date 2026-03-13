@@ -23,20 +23,20 @@ This document provides a comprehensive reference for understanding license compa
 
 | Project License | MIT | Apache-2.0 | BSD-3 | LGPL-2.1 | LGPL-3.0 | MPL-2.0 | GPL-2.0 | GPL-3.0 | AGPL-3.0 |
 |----------------|-----|------------|-------|----------|----------|---------|---------|---------|----------|
-| **MIT**        | ✅   | ✅          | ✅     | ⚠️        | ⚠️        | ⚠️       | ❌       | ❌       | ❌        |
-| **Apache-2.0** | ✅   | ✅          | ✅     | ❌        | ⚠️        | ✅       | ❌       | ⚠️       | ⚠️        |
-| **BSD-3**      | ✅   | ✅          | ✅     | ⚠️        | ⚠️        | ⚠️       | ❌       | ❌       | ❌        |
-| **LGPL-2.1**   | ✅   | ❌          | ✅     | ✅        | ❌        | ❌       | ✅       | ❌       | ❌        |
-| **LGPL-3.0**   | ✅   | ✅          | ✅     | ❌        | ✅        | ✅       | ❌       | ✅       | ✅        |
-| **MPL-2.0**    | ✅   | ✅          | ✅     | ❌        | ✅        | ✅       | ❌       | ✅       | ✅        |
-| **GPL-2.0**    | ✅   | ❌          | ✅     | ✅        | ❌        | ❌       | ✅       | ❌       | ❌        |
-| **GPL-3.0**    | ✅   | ✅          | ✅     | ❌        | ✅        | ✅       | ❌       | ✅       | ✅        |
-| **AGPL-3.0**   | ✅   | ✅          | ✅     | ❌        | ✅        | ✅       | ❌       | ✅       | ✅        |
+| **MIT**        |    |           |      |         |         |        |        |        |         |
+| **Apache-2.0** |    |           |      |         |         |        |        |        |         |
+| **BSD-3**      |    |           |      |         |         |        |        |        |         |
+| **LGPL-2.1**   |    |           |      |         |         |        |        |        |         |
+| **LGPL-3.0**   |    |           |      |         |         |        |        |        |         |
+| **MPL-2.0**    |    |           |      |         |         |        |        |        |         |
+| **GPL-2.0**    |    |           |      |         |         |        |        |        |         |
+| **GPL-3.0**    |    |           |      |         |         |        |        |        |         |
+| **AGPL-3.0**   |    |           |      |         |         |        |        |        |         |
 
 **Legend:**
-- ✅ Generally Compatible
-- ⚠️ Compatible with conditions/restrictions
-- ❌ Incompatible
+-  Generally Compatible
+-  Compatible with conditions/restrictions
+-  Incompatible
 
 ## Detailed Compatibility Rules
 
@@ -187,13 +187,13 @@ This document provides a comprehensive reference for understanding license compa
 
 ## Common Misconceptions
 
-### ❌ Wrong Assumptions
+###  Wrong Assumptions
 - "MIT allows everything" (still requires attribution)
 - "Linking doesn't create derivatives" (depends on license)
 - "GPL only affects distribution" (AGPL affects network use)
 - "Commercial use is always forbidden" (most FOSS allows it)
 
-### ✅ Correct Understanding
+###  Correct Understanding
 - Each license has specific requirements
 - Combination creates most restrictive terms
 - Network use may trigger copyleft (AGPL)
@@ -204,10 +204,10 @@ This document provides a comprehensive reference for understanding license compa
 ```
 Is the dependency GPL/AGPL?
 ├─ YES → Is your project commercial/proprietary?
-│   ├─ YES → ❌ Incompatible (find alternative)
-│   └─ NO → ✅ Compatible (if same GPL version)
+│   ├─ YES →  Incompatible (find alternative)
+│   └─ NO →  Compatible (if same GPL version)
 └─ NO → Is it permissive (MIT/Apache/BSD)?
-    ├─ YES → ✅ Generally compatible
+    ├─ YES →  Generally compatible
     └─ NO → Check specific compatibility matrix
 ```
 

@@ -6,7 +6,7 @@ homepage: https://github.com/openclawprison/research-swarm
 license: MIT
 metadata:
   clawdbot:
-    emoji: "🔬"
+    emoji: ""
     requires:
       env: []
       tools: ["web_search", "web_fetch"]

@@ -55,7 +55,7 @@ node dist/cli.js serve --port 3002
 - **Insufficient data**: Short timeframes may lack enough data for indicators (e.g., 50-day MA needs 50+ days)
 - **Slippage**: Backtests assume perfect execution — real results will differ
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 **For educational/informational purposes only.** Not financial advice. Past performance ≠ future results.
 

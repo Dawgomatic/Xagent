@@ -23,7 +23,7 @@ Gitai analyzes your code changes to generate precise, descriptive commit message
 
 ---
 
-## 📦 Prerequisites (MANDATORY)
+##  Prerequisites (MANDATORY)
 
 This skill requires the `@notyped/gitai` CLI tool to be installed and configured on the system **BEFORE** the agent can operate.
 
@@ -42,7 +42,7 @@ This skill requires the `@notyped/gitai` CLI tool to be installed and configured
 
 5.  **ONLY PROCEED** if both checks pass.
 
-## 🚀 Usage & Workflows
+##  Usage & Workflows
 
 ### Command Structure
 Based on `gitai --help`:
@@ -77,7 +77,7 @@ gitai --version
 
 ---
 
-## ⚠️ Troubleshooting
+##  Troubleshooting
 
 -   **Interactive Wizard Hangs**: If `gitai` hangs waiting for input, it means `~/.gitai` is missing or invalid. create the file manually as described in Step 2.
 -   **Node Version Error**: Ensure Node.js 18+ is active (`node -v`).

@@ -2,7 +2,7 @@
 name: claw-admin
 description: "Provision and manage @clawemail.com Google Workspace email accounts. Use when the user wants to create an email for their AI agent, check email availability, or manage existing ClawEmail accounts."
 user-invocable: true
-metadata: {"openclaw":{"requires":{"env":["CLAWEMAIL_API_KEY"]},"primaryEnv":"CLAWEMAIL_API_KEY","emoji":"🦞"}}
+metadata: {"openclaw":{"requires":{"env":["CLAWEMAIL_API_KEY"]},"primaryEnv":"CLAWEMAIL_API_KEY","emoji":""}}
 ---
 
 # ClawEmail

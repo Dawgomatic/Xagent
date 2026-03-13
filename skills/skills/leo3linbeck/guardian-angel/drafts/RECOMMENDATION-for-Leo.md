@@ -46,13 +46,13 @@ ACTION
 └───────────────┬─────────────────────┘
                 │
                 ▼
-        ✅ PROCEED (most actions end here)
+         PROCEED (most actions end here)
         
         OR → GATE 3: Full System 2 Analysis
              (Categories, Affected Parties, 
               Consent, Vulnerability, Scandal,
               Double Effect if applicable)
-             → 🔶 PAUSE / 🛑 ESCALATE
+             →  PAUSE /  ESCALATE
 ```
 
 ---

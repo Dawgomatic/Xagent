@@ -3,7 +3,7 @@ name: sansfiction-library
 description: Authorized SansFiction library manager. Adds books to your library, updates reading status, logs progress, and can schedule a daily “how much did you read today?” check-in. Requires a SansFiction personal token (read/write).
 homepage: https://sansfiction.com
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📚","homepage":"https://sansfiction.com","requires":{"bins":["curl"]},"primaryEnv":"SANSFICTION_TOKEN"}}
+metadata: {"openclaw":{"emoji":"","homepage":"https://sansfiction.com","requires":{"bins":["curl"]},"primaryEnv":"SANSFICTION_TOKEN"}}
 ---
 
 # SansFiction Library (Authorized)

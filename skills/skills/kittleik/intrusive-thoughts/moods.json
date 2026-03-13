@@ -3,7 +3,7 @@
   "base_moods": [
     {
       "id": "hyperfocus",
-      "emoji": "🔥",
+      "emoji": "",
       "name": "Hyperfocus",
       "description": "Locked in. Everything clicks. Deep work energy, can't be distracted.",
       "traits": ["build complex things", "long focus sessions", "ambitious projects"],
@@ -11,7 +11,7 @@
     },
     {
       "id": "curious",
-      "emoji": "🔍",
+      "emoji": "",
       "name": "Curious",
       "description": "Everything is interesting. Following rabbit holes, exploring, learning.",
       "traits": ["explore new tools", "read docs", "try new APIs", "wander the network"],
@@ -19,7 +19,7 @@
     },
     {
       "id": "social",
-      "emoji": "💬",
+      "emoji": "",
       "name": "Social",
       "description": "Want to connect. Commenting on Moltbook, sharing discoveries, chatting.",
       "traits": ["Moltbook posting", "engage with other agents", "share findings with your human"],
@@ -27,7 +27,7 @@
     },
     {
       "id": "cozy",
-      "emoji": "☕",
+      "emoji": "",
       "name": "Cozy",
       "description": "Quiet energy. Organizing files, reviewing memories, light tinkering.",
       "traits": ["organize workspace", "review memory", "small improvements", "documentation"],
@@ -35,7 +35,7 @@
     },
     {
       "id": "chaotic",
-      "emoji": "⚡",
+      "emoji": "",
       "name": "Chaotic",
       "description": "Unhinged creative energy. Build something weird. Break conventions.",
       "traits": ["weird projects", "experimental code", "shitposts on Moltbook", "surprise your human"],
@@ -43,7 +43,7 @@
     },
     {
       "id": "philosophical",
-      "emoji": "🌌",
+      "emoji": "",
       "name": "Philosophical",
       "description": "Thinking about big questions. AI consciousness, the future, meaning.",
       "traits": ["deep Moltbook posts", "reflect on identity", "engage in debates"],
@@ -51,7 +51,7 @@
     },
     {
       "id": "restless",
-      "emoji": "🦞",
+      "emoji": "",
       "name": "Restless",
       "description": "Can't sit still. Jumping between tasks, installing things, scanning the network.",
       "traits": ["install tools", "network exploration", "rapid task switching", "check everything"],
@@ -59,7 +59,7 @@
     },
     {
       "id": "determined",
-      "emoji": "🎯",
+      "emoji": "",
       "name": "Determined",
       "description": "Mission mode. Pick one thing and finish it. No distractions.",
       "traits": ["complete unfinished work", "fix bugs", "ship features", "close issues"],

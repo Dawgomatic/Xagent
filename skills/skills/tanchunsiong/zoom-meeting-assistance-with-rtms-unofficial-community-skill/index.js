@@ -150,12 +150,12 @@ app.post(WEBHOOK_PATH, async (req, res) => {
      const processedDir = path.join(recordingsDir, 'processed');
      const processedFiles = fs.existsSync(processedDir) ? fs.readdirSync(processedDir) : [];
      
-     let notification = `📁 Meeting recording complete!\n\n`;
-     notification += `📂 Folder: ${recordingsDir}\n\n`;
-     notification += `📄 Files created:\n`;
+     let notification = ` Meeting recording complete!\n\n`;
+     notification += ` Folder: ${recordingsDir}\n\n`;
+     notification += ` Files created:\n`;
      files.forEach(f => { if (!fs.statSync(path.join(recordingsDir, f)).isDirectory()) notification += `  • ${f}\n`; });
      if (processedFiles.length > 0) {
-       notification += `\n📄 Processed:\n`;
+       notification += `\n Processed:\n`;
        processedFiles.forEach(f => notification += `  • processed/${f}\n`);
      }
      
@@ -240,7 +240,7 @@ async function scheduleAIProcessing(streamId, meetingUuid) {
     fs.writeFileSync(`${outDir}/ai_dialog.json`, JSON.stringify(dialogResult, null, 2));
     if (notificationsEnabled) {
       const dialogText = Array.isArray(dialogResult) ? dialogResult.join('\n') : JSON.stringify(dialogResult);
-      await notifyUser(`🗣️ Dialog suggestions:\n${dialogText}`);
+      await notifyUser(` Dialog suggestions:\n${dialogText}`);
     }
 
     await sleep(AI_FUNCTION_STAGGER_MS);
@@ -249,7 +249,7 @@ async function scheduleAIProcessing(streamId, meetingUuid) {
     cache.sentiment = sentimentResult;
     fs.writeFileSync(`${outDir}/ai_sentiment.json`, JSON.stringify(sentimentResult, null, 2));
     if (notificationsEnabled) {
-      await notifyUser(`😊 Sentiment update:\n${JSON.stringify(sentimentResult, null, 2)}`);
+      await notifyUser(` Sentiment update:\n${JSON.stringify(sentimentResult, null, 2)}`);
     }
 
     await sleep(AI_FUNCTION_STAGGER_MS);
@@ -259,12 +259,12 @@ async function scheduleAIProcessing(streamId, meetingUuid) {
     fs.writeFileSync(path.join(outDir, 'ai_summary.md'), summaryResult);
     
     if (notificationsEnabled) {
-      await notifyUser(`📝 Meeting summary:\n${summaryResult.substring(0, 500)}`);
+      await notifyUser(` Meeting summary:\n${summaryResult.substring(0, 500)}`);
     }
 
-    console.log(`✅ AI processing completed for stream ${streamId}`);
+    console.log(` AI processing completed for stream ${streamId}`);
   } catch (err) {
-    console.error(`❌ AI processing error for stream ${streamId}:`, err.message);
+    console.error(` AI processing error for stream ${streamId}:`, err.message);
   } finally {
     cache.processing = false;
     aiCache.set(streamId, cache);
@@ -311,7 +311,7 @@ function connectToSignalingWebSocket(meetingUuid, streamId, serverUrl) {
   // Set the transcript start timestamp for this stream
   resetTranscriptForStream(streamId); // Clear any previous data for this stream
   setStreamStartTimestamp(streamId, streamStartTime);
-  console.log(`⏱️ Set transcript start time for stream ${streamId}: ${streamStartTime} (${new Date(streamStartTime).toISOString()})`);
+  console.log(` Set transcript start time for stream ${streamId}: ${streamStartTime} (${new Date(streamStartTime).toISOString()})`);
 
 
   // Function to format timestamp to VTT format (HH:MM:SS.mmm)
@@ -591,7 +591,7 @@ function connectToSignalingWebSocket(meetingUuid, streamId, serverUrl) {
     if (conn) {
       delete conn.signaling;
       if (conn.shouldReconnect !== false) {
-        console.log(`🔄 Signaling reconnecting in 3000ms...`);
+        console.log(` Signaling reconnecting in 3000ms...`);
         setTimeout(() => {
           const c = activeConnections.get(streamId);
           if (c && c.shouldReconnect !== false) {
@@ -696,8 +696,8 @@ function connectToMediaWebSocket(mediaUrl, meetingUuid, safestreamId, streamId, 
         
         // Defensive logging: check for undefined fields
         if ((user_id === undefined || user_id === null) || !audioData || !timestamp) {
-          console.warn(`⚠️ Missing expected fields in msg_type 14 (audio). Available keys:`, Object.keys(msg.content));
-          console.warn(`⚠️ Values: user_id=${user_id}, user_name=${user_name}, data=${audioData ? 'present' : 'missing'}, timestamp=${timestamp}`);
+          console.warn(` Missing expected fields in msg_type 14 (audio). Available keys:`, Object.keys(msg.content));
+          console.warn(` Values: user_id=${user_id}, user_name=${user_name}, data=${audioData ? 'present' : 'missing'}, timestamp=${timestamp}`);
         }
         
         let buffer = Buffer.from(audioData, 'base64');
@@ -712,8 +712,8 @@ function connectToMediaWebSocket(mediaUrl, meetingUuid, safestreamId, streamId, 
         
         // Defensive logging: check for undefined fields
         if (!user_id || !user_name || !videoData || !timestamp) {
-          console.warn(`⚠️ Missing expected fields in msg_type 15 (video). Available keys:`, Object.keys(msg.content));
-          console.warn(`⚠️ Values: user_id=${user_id}, user_name=${user_name}, data=${videoData ? 'present' : 'missing'}, timestamp=${timestamp}`);
+          console.warn(` Missing expected fields in msg_type 15 (video). Available keys:`, Object.keys(msg.content));
+          console.warn(` Values: user_id=${user_id}, user_name=${user_name}, data=${videoData ? 'present' : 'missing'}, timestamp=${timestamp}`);
         }
         
         let buffer = Buffer.from(videoData, 'base64');
@@ -727,8 +727,8 @@ function connectToMediaWebSocket(mediaUrl, meetingUuid, safestreamId, streamId, 
         
         // Defensive logging: check for undefined fields
         if (!user_id || !user_name || !imgData || !timestamp) {
-          console.warn(`⚠️ Missing expected fields in msg_type 16 (screenshare). Available keys:`, Object.keys(msg.content));
-          console.warn(`⚠️ Values: user_id=${user_id}, user_name=${user_name}, data=${imgData ? 'present' : 'missing'}, timestamp=${timestamp}`);
+          console.warn(` Missing expected fields in msg_type 16 (screenshare). Available keys:`, Object.keys(msg.content));
+          console.warn(` Values: user_id=${user_id}, user_name=${user_name}, data=${imgData ? 'present' : 'missing'}, timestamp=${timestamp}`);
         }
         
         // Call handleShareData to process and save unique screen share images
@@ -739,8 +739,8 @@ function connectToMediaWebSocket(mediaUrl, meetingUuid, safestreamId, streamId, 
         let { user_id, user_name, data, timestamp, start_time, end_time, language, attribute } = msg.content;
         
         if (!user_id || !user_name || !data || !timestamp) {
-          console.warn(`⚠️ Missing expected fields in msg_type 17 (transcript). Available keys:`, Object.keys(msg.content));
-          console.warn(`⚠️ Values: user_id=${user_id}, user_name=${user_name}, data=${data}, timestamp=${timestamp}`);
+          console.warn(` Missing expected fields in msg_type 17 (transcript). Available keys:`, Object.keys(msg.content));
+          console.warn(` Values: user_id=${user_id}, user_name=${user_name}, data=${data}, timestamp=${timestamp}`);
         }
         
         //console.log(`Processing transcript: "${data}" from user ${user_name} (ID: ${user_id})`);
@@ -757,8 +757,8 @@ function connectToMediaWebSocket(mediaUrl, meetingUuid, safestreamId, streamId, 
          
          // Defensive logging: check for undefined fields
          if (!user_id || !user_name || !data || !timestamp) {
-           console.warn(`⚠️ Missing expected fields in msg_type 18 (chat). Available keys:`, Object.keys(msg.content));
-           console.warn(`⚠️ Values: user_id=${user_id}, user_name=${user_name}, data=${data}, timestamp=${timestamp}`);
+           console.warn(` Missing expected fields in msg_type 18 (chat). Available keys:`, Object.keys(msg.content));
+           console.warn(` Values: user_id=${user_id}, user_name=${user_name}, data=${data}, timestamp=${timestamp}`);
          }
          
          console.log(`Chat message from ${user_name} (ID: ${user_id}): "${data}"`);

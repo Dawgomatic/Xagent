@@ -19,7 +19,7 @@
 - Financial District
 
 ### Brooklyn
-- Brooklyn Heights ⭐ (safest in borough)
+- Brooklyn Heights  (safest in borough)
 - Park Slope
 - DUMBO
 - Carroll Gardens/Cobble Hill

@@ -79,7 +79,7 @@ This skill helps you:
 |-----------|-------|
 | **Position** | [Job Title] |
 | **Score** | [X]/100 |
-| **Recommendation** | 🟢 Interview / 🟡 Maybe / 🔴 Pass |
+| **Recommendation** |  Interview /  Maybe /  Pass |
 
 ## Candidate Profile
 - **Name**: [Full Name]
@@ -93,32 +93,32 @@ This skill helps you:
 ### Must-Have Requirements
 | Requirement | Met? | Evidence | Score |
 |-------------|------|----------|-------|
-| [5+ years Python] | ✅ | 7 years at 2 companies | 20/20 |
-| [AWS experience] | ✅ | AWS Certified, 3 years | 15/15 |
-| [Bachelor's CS] | ✅ | BS Computer Science, MIT | 10/10 |
-| [Team lead exp] | ⚠️ | Led 2-person team | 5/10 |
+| [5+ years Python] |  | 7 years at 2 companies | 20/20 |
+| [AWS experience] |  | AWS Certified, 3 years | 15/15 |
+| [Bachelor's CS] |  | BS Computer Science, MIT | 10/10 |
+| [Team lead exp] |  | Led 2-person team | 5/10 |
 
 **Must-Have Score**: [X]/[Total]
 
 ### Nice-to-Have
 | Requirement | Met? | Evidence | Bonus |
 |-------------|------|----------|-------|
-| [ML experience] | ✅ | Built recommendation system | +5 |
-| [Startup exp] | ✅ | 2 early-stage startups | +5 |
-| [Open source] | ❌ | Not mentioned | 0 |
+| [ML experience] |  | Built recommendation system | +5 |
+| [Startup exp] |  | 2 early-stage startups | +5 |
+| [Open source] |  | Not mentioned | 0 |
 
 **Nice-to-Have Bonus**: +[X] points
 
-## Strengths 💪
+## Strengths 
 1. [Strength 1 with evidence]
 2. [Strength 2 with evidence]
 3. [Strength 3 with evidence]
 
-## Concerns ⚠️
+## Concerns 
 1. [Concern 1 - question to ask in interview]
 2. [Concern 2 - what to verify]
 
-## Red Flags 🚩
+## Red Flags 
 - [If any - employment gaps, inconsistencies, etc.]
 
 ## Interview Questions
@@ -146,14 +146,14 @@ Based on this candidate's profile, consider asking:
 ## Summary
 | Category | Count | % |
 |----------|-------|---|
-| 🟢 Strong Interview | [X] | [%] |
-| 🟡 Phone Screen | [X] | [%] |
-| 🔵 Maybe/Hold | [X] | [%] |
-| 🔴 Not a Fit | [X] | [%] |
+|  Strong Interview | [X] | [%] |
+|  Phone Screen | [X] | [%] |
+|  Maybe/Hold | [X] | [%] |
+|  Not a Fit | [X] | [%] |
 
 ## Top Candidates
 
-### 🥇 Tier 1: Strong Interview (Score 80+)
+###  Tier 1: Strong Interview (Score 80+)
 
 | Rank | Name | Score | Key Strengths | Concerns |
 |------|------|-------|---------------|----------|
@@ -161,20 +161,20 @@ Based on this candidate's profile, consider asking:
 | 2 | [Name] | 88 | [Strengths] | [Concerns] |
 | 3 | [Name] | 85 | [Strengths] | [Concerns] |
 
-### 🥈 Tier 2: Phone Screen (Score 65-79)
+###  Tier 2: Phone Screen (Score 65-79)
 
 | Rank | Name | Score | Key Strengths | Gap to Address |
 |------|------|-------|---------------|----------------|
 | 4 | [Name] | 75 | [Strengths] | [Gap] |
 | 5 | [Name] | 72 | [Strengths] | [Gap] |
 
-### 🥉 Tier 3: Maybe/Hold (Score 50-64)
+###  Tier 3: Maybe/Hold (Score 50-64)
 
 | Name | Score | Reason for Hold |
 |------|-------|-----------------|
 | [Name] | 58 | [Reason] |
 
-### ❌ Not Proceeding (Score <50)
+###  Not Proceeding (Score <50)
 
 | Name | Score | Primary Reason |
 |------|-------|----------------|

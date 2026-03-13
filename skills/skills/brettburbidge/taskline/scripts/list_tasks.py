@@ -67,22 +67,22 @@ def format_task(task: Dict, show_details: bool = True) -> str:
     """Format a single task for display."""
     # Status emoji
     status_emoji = {
-        'not_started': '⚪',
-        'in_progress': '🔵', 
-        'waiting': '🟡',
-        'completed': '✅',
-        'cancelled': '❌'
+        'not_started': '',
+        'in_progress': '', 
+        'waiting': '',
+        'completed': '',
+        'cancelled': ''
     }
     
-    emoji = status_emoji.get(task['status'], '⚪')
+    emoji = status_emoji.get(task['status'], '')
     title = task['title']
     
     # Priority indicator
     priority_indicators = {
-        'urgent': '🔥',
-        'high': '🔺',
-        'medium': '🔸',
-        'low': '🔹'
+        'urgent': '',
+        'high': '',
+        'medium': '',
+        'low': ''
     }
     
     priority_str = ""
@@ -115,18 +115,18 @@ def format_summary(summary: Dict) -> str:
     """Format task summary for display."""
     total = summary.get('total', 0)
     if total == 0:
-        return "📋 No tasks found"
+        return " No tasks found"
     
     lines = [
-        f"📋 Task Summary ({total} total):",
-        f"   ⚪ Not started: {summary.get('not_started', 0)}",
-        f"   🔵 In progress: {summary.get('in_progress', 0)}",
-        f"   🟡 Waiting: {summary.get('waiting', 0)}",  
-        f"   ✅ Completed: {summary.get('completed', 0)}"
+        f" Task Summary ({total} total):",
+        f"    Not started: {summary.get('not_started', 0)}",
+        f"    In progress: {summary.get('in_progress', 0)}",
+        f"    Waiting: {summary.get('waiting', 0)}",  
+        f"    Completed: {summary.get('completed', 0)}"
     ]
     
     if summary.get('cancelled', 0) > 0:
-        lines.append(f"   ❌ Cancelled: {summary['cancelled']}")
+        lines.append(f"    Cancelled: {summary['cancelled']}")
     
     return "\n".join(lines)
 
@@ -160,9 +160,9 @@ if __name__ == "__main__":
         elif 'overdue' in request_text:
             tasks = get_overdue_tasks()
             if not tasks:
-                print("📋 No overdue tasks! 🎉")
+                print(" No overdue tasks! ")
             else:
-                print(f"⚠️  {len(tasks)} overdue task{'s' if len(tasks) != 1 else ''}:")
+                print(f"  {len(tasks)} overdue task{'s' if len(tasks) != 1 else ''}:")
                 for task in tasks:
                     print(format_task(task))
             sys.exit(0)
@@ -180,9 +180,9 @@ if __name__ == "__main__":
                 }
                 
                 if not tasks:
-                    print(f"📋 No {status_names[status_filter].lower()} tasks")
+                    print(f" No {status_names[status_filter].lower()} tasks")
                 else:
-                    print(f"📋 {status_names[status_filter]} tasks ({len(tasks)}):")
+                    print(f" {status_names[status_filter]} tasks ({len(tasks)}):")
                     for task in tasks:
                         print(format_task(task))
                 sys.exit(0)
@@ -190,9 +190,9 @@ if __name__ == "__main__":
     # Default: show all tasks
     tasks = get_tasks()
     if not tasks:
-        print("📋 No tasks found")
+        print(" No tasks found")
         print("\nTip: Create a task by saying 'Add task: [description]'")
     else:
-        print(f"📋 All tasks ({len(tasks)}):")
+        print(f" All tasks ({len(tasks)}):")
         for task in tasks:
             print(format_task(task))

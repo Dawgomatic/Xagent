@@ -19,16 +19,16 @@ WARNINGS=()
 
 # Check for 'text' field (wrong!)
 if echo "$PAYLOAD" | jq -e 'has("text")' > /dev/null 2>&1; then
-    ERRORS+=("❌ 'text' field detected - use 'content' instead (text → null bug)")
+    ERRORS+=(" 'text' field detected - use 'content' instead (text → null bug)")
 fi
 
 # Check for 'content' field
 if ! echo "$PAYLOAD" | jq -e 'has("content")' > /dev/null 2>&1; then
-    ERRORS+=("❌ 'content' field missing (required)")
+    ERRORS+=(" 'content' field missing (required)")
 else
     CONTENT=$(echo "$PAYLOAD" | jq -r '.content // ""')
     if [ -z "$CONTENT" ] || [ "$CONTENT" = "null" ]; then
-        ERRORS+=("❌ 'content' is empty")
+        ERRORS+=(" 'content' is empty")
     fi
 fi
 
@@ -36,17 +36,17 @@ fi
 if [ "$IS_COMMENT" = false ]; then
     # Check title
     if ! echo "$PAYLOAD" | jq -e 'has("title")' > /dev/null 2>&1; then
-        WARNINGS+=("⚠️ 'title' missing")
+        WARNINGS+=(" 'title' missing")
     else
         TITLE=$(echo "$PAYLOAD" | jq -r '.title // ""')
         if [ -z "$TITLE" ] || [ "$TITLE" = "null" ]; then
-            WARNINGS+=("⚠️ 'title' is empty")
+            WARNINGS+=(" 'title' is empty")
         fi
     fi
     
     # Check submolt
     if ! echo "$PAYLOAD" | jq -e 'has("submolt")' > /dev/null 2>&1; then
-        WARNINGS+=("⚠️ 'submolt' missing (will default to 'general')")
+        WARNINGS+=(" 'submolt' missing (will default to 'general')")
     fi
 fi
 
@@ -59,10 +59,10 @@ for msg in "${WARNINGS[@]}"; do
 done
 
 if [ ${#ERRORS[@]} -eq 0 ]; then
-    echo "✅ Payload valid - safe to send"
+    echo " Payload valid - safe to send"
     exit 0
 else
     echo ""
-    echo "🚫 Fix errors before sending"
+    echo " Fix errors before sending"
     exit 1
 fi

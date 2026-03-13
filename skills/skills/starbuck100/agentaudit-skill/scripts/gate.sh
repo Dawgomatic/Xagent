@@ -46,7 +46,7 @@ API_KEY="$(load_api_key)"
 CHECK_ARGS=(-sL -f --max-time 15 "${API_URL}/api/check?package=${PKG_ENCODED}")
 [[ -n "$API_KEY" ]] && CHECK_ARGS+=(-H "Authorization: Bearer ${API_KEY}")
 CHECK_RESPONSE="$(curl_retry "${CHECK_ARGS[@]}")" || {
-  echo "{\"gate\":\"warn\",\"package\":\"${PKG}\",\"score\":null,\"message\":\"⚠️ Registry unreachable (timeout or down). Proceeding in WARN mode — package is UNVERIFIED. Consider running a local audit or waiting until the registry is back.\",\"exit_code\":2}"
+  echo "{\"gate\":\"warn\",\"package\":\"${PKG}\",\"score\":null,\"message\":\" Registry unreachable (timeout or down). Proceeding in WARN mode — package is UNVERIFIED. Consider running a local audit or waiting until the registry is back.\",\"exit_code\":2}"
   exit 2
 }
 
@@ -59,7 +59,7 @@ if [[ "$EXISTS" != "true" ]]; then
   "package": "${PKG}",
   "score": null,
   "total": 0,
-  "message": "🔍 Package not yet audited in registry",
+  "message": " Package not yet audited in registry",
   "info": "This package hasn't been scanned yet. You can be the first to audit it and contribute to the community!",
   "next_steps": {
     "option_1": "Run a security audit now and submit findings to the registry",

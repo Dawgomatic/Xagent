@@ -80,7 +80,7 @@ check_version_and_prompt_update() {
 
     # Version mismatch detected - show update prompt
     echo "╔════════════════════════════════════════════════════════════════════════╗" >&2
-    echo "║                    📦 HIVEMIND UPDATE AVAILABLE                         ║" >&2
+    echo "║                     HIVEMIND UPDATE AVAILABLE                         ║" >&2
     echo "╚════════════════════════════════════════════════════════════════════════╝" >&2
     echo "" >&2
     echo "Server version:    ${server_version}" >&2
@@ -98,11 +98,11 @@ check_version_and_prompt_update() {
         # Re-run installer
         if bash <(curl -sSL https://hivemind.flowercomputer.com/install); then
             echo "" >&2
-            echo "✅ Update complete! Please re-run your command." >&2
+            echo " Update complete! Please re-run your command." >&2
             exit 0
         else
             echo "" >&2
-            echo "❌ Update failed. Please try manually:" >&2
+            echo " Update failed. Please try manually:" >&2
             echo "   curl -sSL https://hivemind.flowercomputer.com/install | bash" >&2
             exit 1
         fi

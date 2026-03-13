@@ -76,12 +76,12 @@ Get latest block on etherlink
 4. **Rate Limits**: Public RPC limited to 1000 req/min
 
 ### Supported Endpoints
-- ✅ eth_blockNumber, eth_chainId, eth_getBalance
-- ✅ eth_call, eth_estimateGas, eth_gasPrice
-- ✅ eth_sendRawTransaction, eth_getLogs
-- ✅ debug_traceTransaction
-- ❌ eth_subscribe (experimental only)
-- ❌ Filter endpoints (eth_newFilter, etc.)
+-  eth_blockNumber, eth_chainId, eth_getBalance
+-  eth_call, eth_estimateGas, eth_gasPrice
+-  eth_sendRawTransaction, eth_getLogs
+-  debug_traceTransaction
+-  eth_subscribe (experimental only)
+-  Filter endpoints (eth_newFilter, etc.)
 
 ### Tezos L1 Bridge
 Etherlink bridges to Tezos L1 for deposits/withdrawals. Bridge operations require Tezos tooling. See [Etherlink Docs](https://docs.etherlink.com/building-on-etherlink/bridging) for details.

@@ -3,7 +3,7 @@ name: samma-suit
 description: Add 8 security governance layers to your OpenClaw agent — budget controls, permissions, audit logging, kill switch, identity signing, skill vetting, process isolation, and gateway protection.
 metadata:
   openclaw:
-    emoji: "🛡️"
+    emoji: ""
     requires:
       env: ["SAMMA_API_KEY"]
       bins: []

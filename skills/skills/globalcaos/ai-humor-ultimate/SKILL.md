@@ -183,7 +183,7 @@ Pattern 4 (Domain Transfer) is the highest-yield pattern because it's pure bridg
 
 ### Bridge Quality Heuristic
 Good bridge: source and target share **structural** similarity but zero **surface** similarity.
-- ✅ "Code review" → "restaurant review" (both evaluate quality of someone's creation)
-- ✅ "Debugging" → "archaeology" (both excavate layers to find origin of problems)
-- ❌ "Code review" → "book review" (too close — both are literally reviews)
-- ❌ "Code review" → "supernova" (no structural parallel)
+-  "Code review" → "restaurant review" (both evaluate quality of someone's creation)
+-  "Debugging" → "archaeology" (both excavate layers to find origin of problems)
+-  "Code review" → "book review" (too close — both are literally reviews)
+-  "Code review" → "supernova" (no structural parallel)

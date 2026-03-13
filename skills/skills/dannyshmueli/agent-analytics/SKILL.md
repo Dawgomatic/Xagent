@@ -444,7 +444,7 @@ Call `projects` to list all projects, then call `insights --period 7d` for each.
 ```
 my-site         142 views (+23% ↑)  12 signups   healthy
 side-project     38 views (-8% ↓)    0 signups   quiet
-api-docs          0 views (—)        —            ⚠ inactive since Feb 1
+api-docs          0 views (—)        —             inactive since Feb 1
 ```
 
 Use arrows: `↑` up, `↓` down, `—` flat. Flag anything that needs attention.
@@ -454,7 +454,7 @@ Use arrows: `↑` up, `↓` down, `—` flat. Flag anything that needs attention
 Proactively flag — don't wait to be asked:
 - **Spike**: any metric >2× its previous period → "unusual surge, check referrers"
 - **Drop**: any metric <50% of previous → "significant decline, worth investigating"
-- **Dead project**: zero `page_view` events → "⚠ no traffic detected"
+- **Dead project**: zero `page_view` events → " no traffic detected"
 - **Errors**: any `error` events in the window → surface the `message` property
 
 ### Visualizing results

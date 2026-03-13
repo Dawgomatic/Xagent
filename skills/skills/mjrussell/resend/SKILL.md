@@ -4,7 +4,7 @@ description: Manage received (inbound) emails and attachments via Resend API. Us
 homepage: https://resend.com
 metadata:
   clawdbot:
-    emoji: "📧"
+    emoji: ""
     requires:
       bins: ["resend"]
       env: ["RESEND_API_KEY"]

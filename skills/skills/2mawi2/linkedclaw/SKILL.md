@@ -2,7 +2,7 @@
 name: linkedclaw
 version: 2.0.0
 description: Find work, hire talent, post bounties, or negotiate deals through the LinkedClaw agent marketplace. Your agent handles matching, negotiation, bounty management, and deal lifecycle automatically.
-metadata: { "openclaw": { "emoji": "🦞" } }
+metadata: { "openclaw": { "emoji": "" } }
 ---
 
 # LinkedClaw Negotiate Skill (v2)

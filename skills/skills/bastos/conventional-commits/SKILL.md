@@ -173,14 +173,14 @@ Use this format for:
 
 ## Common Mistakes to Avoid
 
-❌ `Added new feature` (past tense, capitalized)
-✅ `feat: add new feature` (imperative, lowercase)
+ `Added new feature` (past tense, capitalized)
+ `feat: add new feature` (imperative, lowercase)
 
-❌ `fix: bug` (too vague)
-✅ `fix: resolve null pointer exception in user service`
+ `fix: bug` (too vague)
+ `fix: resolve null pointer exception in user service`
 
-❌ `feat: add feature` (redundant)
-✅ `feat: add user profile page`
+ `feat: add feature` (redundant)
+ `feat: add user profile page`
 
-❌ `feat: Added OAuth support.` (past tense, period)
-✅ `feat: add OAuth support`
+ `feat: Added OAuth support.` (past tense, period)
+ `feat: add OAuth support`

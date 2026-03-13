@@ -17,7 +17,7 @@ function loadConfig() {
   const configPath = path.join(process.env.HOME, '.openclaw/workspace/config/daily-sales-digest.json');
   
   if (!fs.existsSync(configPath)) {
-    console.error('❌ 설정 파일이 없습니다:', configPath);
+    console.error(' 설정 파일이 없습니다:', configPath);
     process.exit(1);
   }
   
@@ -68,7 +68,7 @@ function detectAnomaly(config, date, threshold) {
   const data = loadData(config, date);
   
   if (!data) {
-    console.log('⚠️  데이터가 없습니다:', formatDate(date));
+    console.log('  데이터가 없습니다:', formatDate(date));
     return null;
   }
   
@@ -78,7 +78,7 @@ function detectAnomaly(config, date, threshold) {
   const yesterdayData = loadData(config, yesterday);
   
   if (!yesterdayData) {
-    console.log('⚠️  비교할 전일 데이터가 없습니다.');
+    console.log('  비교할 전일 데이터가 없습니다.');
     return null;
   }
   
@@ -105,15 +105,15 @@ function detectAnomaly(config, date, threshold) {
 
 // 알림 메시지 생성
 function formatAlert(alert) {
-  const emoji = alert.type === 'surge' ? '🚀' : '⚠️';
+  const emoji = alert.type === 'surge' ? '' : '';
   const verb = alert.type === 'surge' ? '급증' : '급감';
   const sign = alert.change >= 0 ? '+' : '';
   
   let message = `${emoji} 매출 이상 감지!\n\n`;
   message += `${alert.date} 매출이 전일 대비 ${Math.abs(alert.change * 100).toFixed(1)}% ${verb}했습니다.\n\n`;
-  message += `💰 오늘: ₩${alert.current.revenue.toLocaleString()}\n`;
-  message += `💰 어제: ₩${alert.previous.revenue.toLocaleString()}\n`;
-  message += `📈 변화: ${sign}₩${(alert.current.revenue - alert.previous.revenue).toLocaleString()} (${sign}${(alert.change * 100).toFixed(1)}%)\n`;
+  message += ` 오늘: ₩${alert.current.revenue.toLocaleString()}\n`;
+  message += ` 어제: ₩${alert.previous.revenue.toLocaleString()}\n`;
+  message += ` 변화: ${sign}₩${(alert.current.revenue - alert.previous.revenue).toLocaleString()} (${sign}${(alert.change * 100).toFixed(1)}%)\n`;
   message += `\n원인 분석이 필요합니다.`;
   
   return message;
@@ -122,7 +122,7 @@ function formatAlert(alert) {
 // Discord 전송
 function deliverDiscord(config, message) {
   if (!config.delivery.discord.enabled) {
-    console.error('❌ Discord 전송이 비활성화되어 있습니다.');
+    console.error(' Discord 전송이 비활성화되어 있습니다.');
     return;
   }
   
@@ -132,9 +132,9 @@ function deliverDiscord(config, message) {
     execSync(`openclaw message send --channel discord --target "${channelId}" --message "${message.replace(/"/g, '\\"')}"`, {
       stdio: 'inherit'
     });
-    console.log('✅ Discord 알림 전송 완료');
+    console.log(' Discord 알림 전송 완료');
   } catch (err) {
-    console.error('❌ Discord 전송 실패:', err.message);
+    console.error(' Discord 전송 실패:', err.message);
   }
 }
 
@@ -166,12 +166,12 @@ function main() {
     threshold = config.alerts.threshold || 0.3;
   }
   
-  console.log(`🔍 이상 탐지 중... (임계값: ±${(threshold * 100).toFixed(0)}%)`);
+  console.log(` 이상 탐지 중... (임계값: ±${(threshold * 100).toFixed(0)}%)`);
   
   const alert = detectAnomaly(config, date, threshold);
   
   if (!alert) {
-    console.log('✅ 정상 범위 내입니다.');
+    console.log(' 정상 범위 내입니다.');
     return;
   }
   

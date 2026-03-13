@@ -118,7 +118,7 @@ class BriefingFormatter:
     def _header(self, date: str) -> str:
         """Format header with date."""
         dt = datetime.strptime(date, "%Y-%m-%d")
-        return f"☀️  Morning Briefing ({dt.strftime('%b %d')})"
+        return f"  Morning Briefing ({dt.strftime('%b %d')})"
     
     def _sleep_line(self, sleep: SleepRecord) -> str:
         """Format sleep line with context."""
@@ -136,7 +136,7 @@ class BriefingFormatter:
             indicator = "✓"
         else:
             delta_str = f"↓{abs(delta_min)}min vs avg"
-            indicator = "⚠️" if abs(delta_min) > 60 else "○"
+            indicator = "" if abs(delta_min) > 60 else "○"
         
         # Format duration
         h = int(hours)
@@ -156,7 +156,7 @@ class BriefingFormatter:
         elif score >= 70:
             indicator = "○"
         else:
-            indicator = "⚠️"
+            indicator = ""
         
         if abs(delta) < 3:
             delta_str = "stable"
@@ -200,13 +200,13 @@ class BriefingFormatter:
         score = night.readiness.score
         
         if score >= 85:
-            status = "🟢 GREEN"
+            status = " GREEN"
             recommendation = "Optimal day. Ready for intensity."
         elif score >= 70:
-            status = "🟡 YELLOW"
+            status = " YELLOW"
             recommendation = "Moderate day. Avoid heavy training."
         else:
-            status = "🔴 RED"
+            status = " RED"
             recommendation = "Recovery day. Light activity only."
         
         return status, recommendation
@@ -280,7 +280,7 @@ def format_json_briefing(night: NightRecord, baseline: Optional[Baseline] = None
     status, recommendation = formatter._get_status_and_recommendation(night)
     
     # Extract status code (remove emoji)
-    # Status format: "🟢 GREEN" → "GREEN"
+    # Status format: " GREEN" → "GREEN"
     status_code = status.split()[-1] if status else "UNKNOWN"
     
     briefing = {
@@ -347,7 +347,7 @@ def format_hybrid_briefing(
     lines = []
     
     # === SECTION 1: Morning Briefing ===
-    lines.append(f"🌅 *Morning Briefing — {_format_date(night.date)}*")
+    lines.append(f" *Morning Briefing — {_format_date(night.date)}*")
     lines.append("─" * 24)
     
     # Sleep line with delta
@@ -362,8 +362,8 @@ def format_hybrid_briefing(
             delta_str = f"↑{delta_min}min vs avg"
         else:
             delta_str = f"↓{abs(delta_min)}min vs avg"
-        sleep_indicator = "✅" if abs(delta_min) < 60 else "⚠️"
-        lines.append(f"💤 *Sleep*: {h}h {m}m ({delta_str}) {sleep_indicator}")
+        sleep_indicator = "" if abs(delta_min) < 60 else ""
+        lines.append(f" *Sleep*: {h}h {m}m ({delta_str}) {sleep_indicator}")
     
     # Readiness line with delta
     if night.readiness:
@@ -375,8 +375,8 @@ def format_hybrid_briefing(
             delta_str = f"↑{int(delta)} vs baseline"
         else:
             delta_str = f"↓{abs(int(delta))} vs baseline"
-        ready_indicator = "✅" if score >= 70 else "⚠️"
-        lines.append(f"⚡ *Readiness*: {score} ({delta_str}) {ready_indicator}")
+        ready_indicator = "" if score >= 70 else ""
+        lines.append(f" *Readiness*: {score} ({delta_str}) {ready_indicator}")
         
         # Driver analysis (compact)
         drivers = _get_low_contributors(night.readiness)
@@ -393,7 +393,7 @@ def format_hybrid_briefing(
     # === SECTION 2: Trend Snapshot ===
     if week_data:
         lines.append("")
-        lines.append(f"*📊 7-Day Trends*")
+        lines.append(f"* 7-Day Trends*")
         lines.append("─" * 24)
         
         # 7-day averages with delta arrows

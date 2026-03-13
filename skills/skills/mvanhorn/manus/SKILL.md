@@ -6,7 +6,7 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   clawdbot:
-    emoji: "🤖"
+    emoji: ""
     primaryEnv: MANUS_API_KEY
     requires:
       bins: [curl, jq]

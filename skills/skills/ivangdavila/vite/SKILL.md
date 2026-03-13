@@ -1,7 +1,7 @@
 ---
 name: Vite
 description: Configure and optimize Vite for development, production builds, and library bundling.
-metadata: {"clawdbot":{"emoji":"⚡","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node"]},"os":["linux","darwin","win32"]}}
 ---
 
 # Vite Patterns

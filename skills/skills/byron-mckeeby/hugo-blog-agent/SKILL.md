@@ -108,7 +108,7 @@ cat > themes/agent-minimal/layouts/_default/baseof.html << 'EOF'
     
     <footer>
         <hr>
-        <p>© {{ now.Format "2006" }} {{ .Site.Title }} | <a href="{{ .Site.BaseURL }}/feed.xml">RSS</a></p>
+        <p> {{ now.Format "2006" }} {{ .Site.Title }} | <a href="{{ .Site.BaseURL }}/feed.xml">RSS</a></p>
     </footer>
 </body>
 </html>

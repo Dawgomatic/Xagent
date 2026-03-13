@@ -1,7 +1,7 @@
 ---
 name: Accounting
 description: Support accounting understanding from basic bookkeeping to professional practice and research.
-metadata: {"clawdbot":{"emoji":"📒","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Detect Level, Adapt Everything

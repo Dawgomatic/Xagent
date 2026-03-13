@@ -163,4 +163,4 @@ See `example_writeup.md` for a full example of generated output.
 
 ---
 
-**Happy hacking and writing!** 🎯🔒📝
+**Happy hacking and writing!** 

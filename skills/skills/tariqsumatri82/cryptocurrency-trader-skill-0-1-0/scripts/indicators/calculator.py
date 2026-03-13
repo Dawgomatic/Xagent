@@ -63,7 +63,7 @@ class IndicatorCalculator:
                 if not validation_report['passed']:
                     logger.error("Indicator validation failed")
                     logger.error(f"Issues: {', '.join(validation_report['critical_failures'])}")
-                    print(f"\n❌ INDICATOR VALIDATION FAILURE")
+                    print(f"\n INDICATOR VALIDATION FAILURE")
                     print(f"   Issues: {', '.join(validation_report['critical_failures'])}")
                     return {'error': 'Indicator validation failed'}
 

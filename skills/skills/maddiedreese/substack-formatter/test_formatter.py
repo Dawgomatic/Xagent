@@ -53,10 +53,10 @@ def test_all_formats():
         
         # Word count analysis
         original_words = len(test["content"].split())
-        print(f"\n📊 ANALYSIS:")
+        print(f"\n ANALYSIS:")
         print(f"• Original word count: {original_words}")
         print(f"• Target range: 50-120 words (optimal)")
-        print(f"• Status: {'✅ OPTIMAL' if 50 <= original_words <= 120 else '⚠️  Outside optimal range'}")
+        print(f"• Status: {' OPTIMAL' if 50 <= original_words <= 120 else '  Outside optimal range'}")
 
 def test_word_count_optimization():
     """Test how formatter handles different content lengths"""
@@ -88,17 +88,17 @@ def test_word_count_optimization():
         print(f"\n{name}: {word_count} words")
         print("-" * 40)
         print(formatted)
-        print(f"\nStatus: {'✅ Optimal length' if 50 <= word_count <= 120 else '⚠️ Consider editing for optimal engagement'}")
+        print(f"\nStatus: {' Optimal length' if 50 <= word_count <= 120 else ' Consider editing for optimal engagement'}")
 
 if __name__ == "__main__":
-    print("🧪 TESTING SUBSTACK FORMATTER")
+    print(" TESTING SUBSTACK FORMATTER")
     print("Based on patterns from 80+ viral Substack posts")
     
     test_all_formats()
     test_word_count_optimization()
     
     print(f"\n{'='*60}")
-    print("✅ ALL TESTS COMPLETE")
-    print("💡 To copy formatted content to clipboard for Substack:")
+    print(" ALL TESTS COMPLETE")
+    print(" To copy formatted content to clipboard for Substack:")
     print("   python3 copy_to_substack.py 'your_html_output_here'")
     print(f"{'='*60}")

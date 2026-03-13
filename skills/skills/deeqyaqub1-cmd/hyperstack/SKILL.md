@@ -5,7 +5,7 @@ user-invocable: true
 homepage: https://cascadeai.dev/hyperstack
 metadata:
   openclaw:
-    emoji: "🃏"
+    emoji: ""
     requires:
       env:
         - HYPERSTACK_API_KEY
@@ -49,7 +49,7 @@ Search the shared knowledge graph. Hybrid semantic + keyword matching.
 hs_search({ query: "authentication setup" })
 ```
 
-### hs_smart_search ✨ NEW in v1.0.18
+### hs_smart_search  NEW in v1.0.18
 Agentic RAG — automatically routes to the best retrieval mode (search, graph traversal, or impact analysis) based on the query. Use this when you're unsure which mode to use, or for natural language queries. Returns results plus the mode that was used.
 ```
 hs_smart_search({ query: "what depends on the auth system?" })
@@ -116,7 +116,7 @@ hs_decide({
 })
 ```
 
-### hs_commit ✨ NEW in v1.0.19
+### hs_commit  NEW in v1.0.19
 Commit a successful agent outcome as a permanent decision card, auto-linked to the source task via `decided` relation. Teaches agents to learn from what worked. Full version history, embeddings, and webhooks fire on commit.
 ```
 hs_commit({
@@ -139,7 +139,7 @@ When to use:
 - To build procedural memory — what worked, not just what was planned
 - Before closing a session — commit any decisions made so they persist
 
-### hs_prune ✨ NEW in v1.0.19
+### hs_prune  NEW in v1.0.19
 Remove stale cards that haven't been updated in N days and are not referenced by any other card. Pinned cards and TTL scratchpad cards are never pruned. Always run with `dry=true` first to preview.
 ```
 # Preview what would be pruned — safe, no deletions
@@ -189,7 +189,7 @@ hs_graph({ from: "auth-api", depth: 2 })
 hs_graph({ from: "auth-api", depth: 2, at: "2026-02-15T03:00:00Z" })
 ```
 
-### hs_impact ✨ NEW in v1.0.16
+### hs_impact  NEW in v1.0.16
 Reverse traversal — find everything that depends on or is affected by a given card.
 ```
 hs_impact({ slug: "use-clerk" })
@@ -202,7 +202,7 @@ hs_impact({ slug: "use-clerk" })
 hs_impact({ slug: "use-clerk", relation: "depends-on" })
 ```
 
-### hs_recommend ✨ NEW in v1.0.16
+### hs_recommend  NEW in v1.0.16
 Find cards most related to a given card by shared graph neighbourhood (co-citation scoring).
 ```
 hs_recommend({ slug: "use-stripe" })
@@ -222,7 +222,7 @@ hs_my_cards()
 Auto-extract cards from raw text. Zero LLM cost (regex-based).
 ```
 hs_ingest({ text: "We're using Next.js 14 and PostgreSQL. Alice decided to use Clerk for auth." })
-→ "✅ Created 3 cards from 78 chars"
+→ " Created 3 cards from 78 chars"
 ```
 
 ### hs_inbox
@@ -365,19 +365,19 @@ Business ($149/mo): 2,000 cards, 20 members, SSO
 
 ### v1.0.19 (Feb 20, 2026)
 
-#### ✨ `hs_prune` — Memory Pruning with Dry-Run
+####  `hs_prune` — Memory Pruning with Dry-Run
 Removes stale cards not updated in N days that are not referenced by any other card. Safety-first: linked cards, pinned cards, and TTL scratchpad cards are never touched. Always use `dry=true` first to preview what would be pruned before executing. Returns full list of what was pruned and what was protected with reasons.
 
-#### ✨ `hs_commit` — Feedback-Driven Memory (Agent Learning)
+####  `hs_commit` — Feedback-Driven Memory (Agent Learning)
 Commits a successful task outcome as a permanent `decision` card auto-linked to the source task via `decided` relation. Builds procedural memory — agents accumulate what worked, not just what was planned. Full version history, embeddings, and webhooks fire on every commit.
 
-#### ✨ `pinned` field on cards
+####  `pinned` field on cards
 Set `pinned: true` on any card to protect it from pruning permanently. Use for core architecture decisions, critical constraints, or any card that must never be deleted regardless of age. Exposed in all GET responses.
 
-#### ✨ `scratchpad` cardType
+####  `scratchpad` cardType
 New `scratchpad` cardType for temporary working memory. Combine with `ttl=` for auto-expiring cards. TTL scratchpad cards are excluded from pruning — they manage their own lifecycle.
 
-#### ✨ TTL lazy expiry
+####  TTL lazy expiry
 Cards with a `ttl` datetime auto-delete on next GET request after expiry. No cron job needed. Expiry count returned in list responses as `expired: N`.
 
 ### v1.0.18 (Feb 20, 2026)

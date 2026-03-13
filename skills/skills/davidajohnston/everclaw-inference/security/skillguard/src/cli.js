@@ -113,11 +113,11 @@ Options:
 
       const findings = scanner.scanContent(text, 'input');
       if (findings.length === 0) {
-        console.log('✅ No threats detected.');
+        console.log(' No threats detected.');
         process.exit(0);
       }
 
-      console.log(`⚠️ ${findings.length} finding(s):\n`);
+      console.log(` ${findings.length} finding(s):\n`);
       for (const f of findings) {
         console.log(`  ${f.severity.toUpperCase()} [${f.ruleId}] ${f.title}`);
         console.log(`    Match: ${f.match}`);
@@ -139,14 +139,14 @@ Options:
         const fullPath = join(batchDir, dir);
         const report = await scanner.scanDirectory(fullPath);
         results.push({ name: dir, score: report.score, risk: report.risk, findings: report.findings.length });
-        const icon = report.score >= 80 ? '✅' : report.score >= 50 ? '⚠️' : '🔴';
+        const icon = report.score >= 80 ? '' : report.score >= 50 ? '' : '';
         console.log(`  ${icon} ${dir.padEnd(30)} ${report.score}/100  ${report.risk.padEnd(8)} ${report.findings.length} finding(s)`);
       }
 
       console.log(`\n${results.length} skills scanned.`);
       const dangerous = results.filter(r => r.score < 50);
       if (dangerous.length > 0) {
-        console.log(`🔴 ${dangerous.length} skill(s) flagged as HIGH/CRITICAL risk.`);
+        console.log(` ${dangerous.length} skill(s) flagged as HIGH/CRITICAL risk.`);
       }
       process.exit(dangerous.length > 0 ? 1 : 0);
     }

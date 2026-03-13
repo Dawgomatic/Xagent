@@ -58,8 +58,8 @@ Before using this skill, ensure:
 
 | Service | Standard API | x402 Endpoint | Type | Status |
 |---------|-------------|---------------|------|--------|
-| Browserbase | `api.browserbase.com` | `x402.browserbase.com` | True x402 | ✅ Works |
-| Firecrawl | `api.firecrawl.dev/v1/search` | `api.firecrawl.dev/v1/x402/search` | Non-standard | ❌ Broken |
+| Browserbase | `api.browserbase.com` | `x402.browserbase.com` | True x402 |  Works |
+| Firecrawl | `api.firecrawl.dev/v1/search` | `api.firecrawl.dev/v1/x402/search` | Non-standard |  Broken |
 
 **Discovery tips:**
 - Check for `x402.` subdomain (e.g., `x402.browserbase.com`)
@@ -162,7 +162,7 @@ curl -s -X POST "https://api.thirdweb.com/v1/payments/x402/fetch?url=https://x40
 
 **x402 Endpoint:** `https://api.firecrawl.dev/v1/x402/search`  
 **Pricing:** $0.01/request  
-**Status:** ⚠️ Incomplete implementation - cannot be used with thirdweb
+**Status:**  Incomplete implementation - cannot be used with thirdweb
 
 > **WARNING:** Firecrawl's x402 implementation is non-standard and currently unusable for automated agents:
 > 
@@ -176,7 +176,7 @@ curl -s -X POST "https://api.thirdweb.com/v1/payments/x402/fetch?url=https://x40
 
 | Endpoint | Method | Status |
 |----------|--------|--------|
-| `/v1/x402/search` | POST | ❌ Non-functional for agents |
+| `/v1/x402/search` | POST |  Non-functional for agents |
 
 **Recommended alternatives:**
 1. **Firecrawl MCP** - If available in your environment (uses standard API key)

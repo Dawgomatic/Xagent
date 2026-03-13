@@ -116,7 +116,7 @@ async function cmdSearch(options) {
   const year = options.year ? parseInt(options.year) : null;
   const max = parseInt(options.max);
   
-  log(`\n🔍 Searching PMC: ${options.query}${year ? ` (${year})` : ''}`, 'cyan');
+  log(`\n Searching PMC: ${options.query}${year ? ` (${year})` : ''}`, 'cyan');
   
   const result = await pmc.searchPMC(options.query, { year, retmax: max });
   log(`   Found ${result.count} articles\n`, 'yellow');
@@ -136,18 +136,18 @@ async function cmdFetch(options) {
   
   const pmcid = options.pmcid.startsWith('PMC') ? options.pmcid : `PMC${options.pmcid}`;
   
-  log(`\n📥 Fetching full text: ${pmcid}`, 'cyan');
+  log(`\n Fetching full text: ${pmcid}`, 'cyan');
   
   const result = await pmc.fetchFullText(pmcid);
   
   if (!result.available) {
-    log(`   ⚠️  Not available: ${result.reason}`, 'yellow');
+    log(`     Not available: ${result.reason}`, 'yellow');
     return;
   }
   
   const parsed = pmc.parseJATS(result.xml);
   
-  log(`\n📄 ${parsed.title}`, 'green');
+  log(`\n ${parsed.title}`, 'green');
   console.log(`   ${c.dim}Type: ${parsed.articleType} | Keywords: ${parsed.keywords?.slice(0, 5).join(', ') || 'none'}${c.reset}`);
   
   console.log(`\n${c.yellow}Abstract:${c.reset}`);
@@ -157,7 +157,7 @@ async function cmdFetch(options) {
 }
 
 async function cmdTest() {
-  log('\n🧪 Testing with Journal of Stroke, 2025...\n', 'cyan');
+  log('\n Testing with Journal of Stroke, 2025...\n', 'cyan');
   
   const result = await pmc.searchPMC('"J Stroke"[journal]', { year: 2025, retmax: 10 });
   
@@ -168,21 +168,21 @@ async function cmdTest() {
   
   const summaries = await pmc.getSummaries(result.pmcids);
   
-  log(`📚 Sample articles (${summaries.length}):`, 'green');
+  log(` Sample articles (${summaries.length}):`, 'green');
   summaries.forEach((s, i) => {
     console.log(`   ${i + 1}. ${c.cyan}${s.pmcid}${c.reset} - ${s.title?.substring(0, 50)}...`);
   });
   
   // Test full text fetch on first
-  log('\n🔬 Testing full text fetch...', 'cyan');
+  log('\n Testing full text fetch...', 'cyan');
   const fullText = await pmc.fetchFullText(summaries[0].pmcid);
   
   if (fullText.available) {
     const parsed = pmc.parseJATS(fullText.xml);
-    log(`✅ Success: ${parsed.title?.substring(0, 60)}...`, 'green');
+    log(` Success: ${parsed.title?.substring(0, 60)}...`, 'green');
     log(`   Body: ${(parsed.body?.length || 0).toLocaleString()} chars`, 'dim');
   } else {
-    log(`⚠️  Full text not available: ${fullText.reason}`, 'yellow');
+    log(`  Full text not available: ${fullText.reason}`, 'yellow');
   }
 }
 

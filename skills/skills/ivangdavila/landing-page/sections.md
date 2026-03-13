@@ -138,5 +138,5 @@ Minimal. Don't distract from CTA.
 
 - Links: Privacy, Terms, Contact
 - Secondary nav if needed
-- © and company info
+-  and company info
 - NO competing CTAs, NO newsletter signup

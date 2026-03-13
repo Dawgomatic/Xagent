@@ -72,7 +72,7 @@ def require_email(args) -> str:
     email = resolve_email(args, prompt=False)
     if not email:
         print(
-            "❌ Missing Tesla email. Set TESLA_EMAIL or pass --email\n"
+            " Missing Tesla email. Set TESLA_EMAIL or pass --email\n"
             f"   Example: TESLA_EMAIL=\"you@email.com\" {_invocation('list')}",
             file=sys.stderr,
         )
@@ -85,7 +85,7 @@ def get_tesla(email: str):
     import teslapy
     
     def custom_auth(url):
-        print(f"\n🔐 Open this URL in your browser:\n{url}\n")
+        print(f"\n Open this URL in your browser:\n{url}\n")
         print("Log in to Tesla, then paste the final URL here")
         print("(it will start with https://auth.tesla.com/void/callback?...)")
         return input("\nCallback URL: ").strip()
@@ -94,7 +94,7 @@ def get_tesla(email: str):
     
     if not tesla.authorized:
         tesla.fetch_token()
-        print("✅ Authenticated successfully!")
+        print(" Authenticated successfully!")
 
     # Best-effort: keep the local OAuth cache file private.
     if CACHE_FILE.exists():
@@ -179,7 +179,7 @@ def get_vehicle(tesla, name: str = None):
     """Get vehicle by name/index, else default car, else first vehicle."""
     vehicles = tesla.vehicle_list()
     if not vehicles:
-        print("❌ No vehicles found on this account", file=sys.stderr)
+        print(" No vehicles found on this account", file=sys.stderr)
         sys.exit(1)
 
     target_name = name or resolve_default_car_name()
@@ -210,7 +210,7 @@ def get_vehicle(tesla, name: str = None):
                 f"   {idx}. {v.get('display_name')}" for idx, v in matches
             )
             print(
-                f"❌ Vehicle '{target_name}' is ambiguous (matched multiple vehicles).\n"
+                f" Vehicle '{target_name}' is ambiguous (matched multiple vehicles).\n"
                 "   Tip: use a more specific name, or choose by index: --car <N>\n"
                 f"Matches:\n{match_lines}\n\n"
                 f"All vehicles:\n{options}",
@@ -218,7 +218,7 @@ def get_vehicle(tesla, name: str = None):
             )
         else:
             print(
-                f"❌ Vehicle '{target_name}' not found.\n"
+                f" Vehicle '{target_name}' not found.\n"
                 "   Tip: you can pass --car with a partial name (substring match) or a 1-based index.\n"
                 f"Available vehicles:\n{options}",
                 file=sys.stderr,
@@ -242,12 +242,12 @@ def wake_vehicle(vehicle, allow_wake: bool = True) -> bool:
         return False
 
     try:
-        print("⏳ Waking vehicle...", file=sys.stderr)
+        print(" Waking vehicle...", file=sys.stderr)
         vehicle.sync_wake_up()
         return True
     except Exception as e:
         print(
-            f"❌ Failed to wake vehicle (state was: {state}). Try again, or run: {_invocation('wake')}\n"
+            f" Failed to wake vehicle (state was: {state}). Try again, or run: {_invocation('wake')}\n"
             f"   Details: {e}",
             file=sys.stderr,
         )
@@ -258,13 +258,13 @@ def cmd_auth(args):
     """Authenticate with Tesla."""
     email = resolve_email(args)
     if not email:
-        print("❌ Missing Tesla email. Set TESLA_EMAIL or pass --email", file=sys.stderr)
+        print(" Missing Tesla email. Set TESLA_EMAIL or pass --email", file=sys.stderr)
         sys.exit(2)
 
     tesla = get_tesla(email)
     vehicles = tesla.vehicle_list()
-    print(f"\n✅ Authentication cached at {CACHE_FILE}")
-    print(f"\n🚗 Found {len(vehicles)} vehicle(s):")
+    print(f"\n Authentication cached at {CACHE_FILE}")
+    print(f"\n Found {len(vehicles)} vehicle(s):")
     for v in vehicles:
         # Avoid printing VINs by default.
         print(f"   - {v['display_name']} ({v['state']})")
@@ -329,20 +329,20 @@ def _short_status(vehicle, data):
     inside_f = _c_to_f(inside_c) if inside_c is not None else None
     climate_on = climate.get('is_climate_on')
 
-    parts = [f"🚗 {vehicle['display_name']}"]
+    parts = [f" {vehicle['display_name']}"]
     if locked is not None:
-        parts.append(f"🔒 {_fmt_bool(locked, 'Locked', 'Unlocked')}")
+        parts.append(f" {_fmt_bool(locked, 'Locked', 'Unlocked')}")
     if batt is not None:
         if rng is not None:
-            parts.append(f"🔋 {batt}% ({rng:.0f} mi)")
+            parts.append(f" {batt}% ({rng:.0f} mi)")
         else:
-            parts.append(f"🔋 {batt}%")
+            parts.append(f" {batt}%")
     if charging:
-        parts.append(f"⚡ {charging}")
+        parts.append(f" {charging}")
     if inside_c is not None and inside_f is not None:
-        parts.append(f"🌡️ {inside_f:.0f}°F")
+        parts.append(f" {inside_f:.0f}°F")
     if climate_on is not None:
-        parts.append(f"❄️ {_fmt_bool(climate_on, 'On', 'Off')}")
+        parts.append(f" {_fmt_bool(climate_on, 'On', 'Off')}")
 
     return " • ".join(parts)
 
@@ -455,7 +455,7 @@ def _report(vehicle, data):
     vs = data.get('vehicle_state', {})
 
     lines = []
-    lines.append(f"🚗 {vehicle['display_name']}")
+    lines.append(f" {vehicle['display_name']}")
     lines.append(f"State: {vehicle.get('state')}")
 
     locked = vs.get('locked')
@@ -679,7 +679,7 @@ def _ensure_online_or_exit(vehicle, allow_wake: bool):
     state = vehicle.get('state')
     name = vehicle.get('display_name', 'Vehicle')
     print(
-        f"ℹ️ {name} is currently '{state}'. Skipping wake because --no-wake was set.\n"
+        f" {name} is currently '{state}'. Skipping wake because --no-wake was set.\n"
         f"   Re-run without --no-wake, or run: {_invocation('wake')}",
         file=sys.stderr,
     )
@@ -731,7 +731,7 @@ def cmd_status(args):
         print()
 
     # Human-friendly detailed view
-    print(f"🚗 {vehicle['display_name']}")
+    print(f" {vehicle['display_name']}")
     print(f"   State: {vehicle.get('state')}")
 
     batt = charge.get('battery_level')
@@ -775,7 +775,7 @@ def cmd_lock(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('LOCK')
-    print(f"🔒 {vehicle['display_name']} locked")
+    print(f" {vehicle['display_name']} locked")
 
 
 def cmd_unlock(args):
@@ -785,7 +785,7 @@ def cmd_unlock(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('UNLOCK')
-    print(f"🔓 {vehicle['display_name']} unlocked")
+    print(f" {vehicle['display_name']} unlocked")
 
 
 def cmd_climate(args):
@@ -822,7 +822,7 @@ def cmd_climate(args):
 
         inside = _fmt_temp_pair(climate.get('inside_temp'))
         outside = _fmt_temp_pair(climate.get('outside_temp'))
-        print(f"🚗 {vehicle['display_name']}")
+        print(f" {vehicle['display_name']}")
         if out.get('is_climate_on') is not None:
             print(f"Climate: {_fmt_bool(out.get('is_climate_on'), 'On', 'Off')}")
         if inside:
@@ -841,10 +841,10 @@ def cmd_climate(args):
 
     if args.action == 'on':
         vehicle.command('CLIMATE_ON')
-        print(f"❄️ {vehicle['display_name']} climate turned on")
+        print(f" {vehicle['display_name']} climate turned on")
     elif args.action == 'off':
         vehicle.command('CLIMATE_OFF')
-        print(f"🌡️ {vehicle['display_name']} climate turned off")
+        print(f" {vehicle['display_name']} climate turned off")
     elif args.action == 'temp':
         if args.value is None:
             raise ValueError("Missing temperature value (e.g., climate temp 72 or climate temp 22 --celsius)")
@@ -859,14 +859,14 @@ def cmd_climate(args):
 
         temp_c = (value - 32) * 5 / 9 if in_f else value
         vehicle.command('CHANGE_CLIMATE_TEMPERATURE_SETTING', driver_temp=temp_c, passenger_temp=temp_c)
-        print(f"🌡️ {vehicle['display_name']} temperature set to {value:g}°{'F' if in_f else 'C'}")
+        print(f" {vehicle['display_name']} temperature set to {value:g}°{'F' if in_f else 'C'}")
     elif args.action == 'defrost':
         if args.value is None or str(args.value).strip().lower() not in ('on', 'off'):
             raise ValueError("Missing defrost value. Use: climate defrost on|off")
 
         on = str(args.value).strip().lower() == 'on'
         vehicle.command('SET_PRECONDITIONING_MAX', on=on)
-        print(f"🧊 {vehicle['display_name']} max defrost {('enabled' if on else 'disabled')}")
+        print(f" {vehicle['display_name']} max defrost {('enabled' if on else 'disabled')}")
     else:
         raise ValueError(f"Unknown action: {args.action}")
 
@@ -922,7 +922,7 @@ def cmd_charge(args):
             print(json.dumps(out, indent=2))
             return
 
-        print(f"🔋 {vehicle['display_name']} Battery: {charge['battery_level']}%")
+        print(f" {vehicle['display_name']} Battery: {charge['battery_level']}%")
         print(f"   Range: {charge['battery_range']:.0f} mi")
 
         usable = charge.get('usable_battery_level')
@@ -966,13 +966,13 @@ def cmd_charge(args):
     if args.action == 'start':
         require_yes(args, 'charge start')
         vehicle.command('START_CHARGE')
-        print(f"⚡ {vehicle['display_name']} charging started")
+        print(f" {vehicle['display_name']} charging started")
         return
 
     if args.action == 'stop':
         require_yes(args, 'charge stop')
         vehicle.command('STOP_CHARGE')
-        print(f"🛑 {vehicle['display_name']} charging stopped")
+        print(f" {vehicle['display_name']} charging stopped")
         return
 
     if args.action == 'limit':
@@ -983,7 +983,7 @@ def cmd_charge(args):
         if pct < 50 or pct > 100:
             raise ValueError("Invalid charge limit percent. Expected 50–100")
         vehicle.command('CHANGE_CHARGE_LIMIT', percent=pct)
-        print(f"🎚️ {vehicle['display_name']} charge limit set to {pct}%")
+        print(f" {vehicle['display_name']} charge limit set to {pct}%")
         return
 
     if args.action == 'amps':
@@ -995,7 +995,7 @@ def cmd_charge(args):
             # Conservative guardrail. Many cars support 5-48A depending on setup.
             raise ValueError("Invalid amps. Expected 1–48")
         vehicle.command('CHARGING_AMPS', charging_amps=amps)
-        print(f"🔌 {vehicle['display_name']} charging amps set to {amps}A")
+        print(f" {vehicle['display_name']} charging amps set to {amps}A")
         return
 
     raise ValueError(f"Unknown action: {args.action}")
@@ -1046,7 +1046,7 @@ def cmd_scheduled_charging(args):
         if not mode and sched_pending is not None:
             mode = 'On' if sched_pending else 'Off'
 
-        print(f"🚗 {vehicle['display_name']}")
+        print(f" {vehicle['display_name']}")
         print(f"Scheduled charging: {mode or '(unknown)'}")
         if hhmm:
             print(f"Start time: {hhmm}")
@@ -1057,13 +1057,13 @@ def cmd_scheduled_charging(args):
 
     if args.action == 'off':
         vehicle.command('SCHEDULED_CHARGING', enable=False, time=0)
-        print(f"⏱️ {vehicle['display_name']} scheduled charging disabled")
+        print(f" {vehicle['display_name']} scheduled charging disabled")
         return
 
     if args.action == 'set':
         minutes = _parse_hhmm(args.time)
         vehicle.command('SCHEDULED_CHARGING', enable=True, time=minutes)
-        print(f"⏱️ {vehicle['display_name']} scheduled charging set to {_fmt_minutes_hhmm(minutes)}")
+        print(f" {vehicle['display_name']} scheduled charging set to {_fmt_minutes_hhmm(minutes)}")
         return
 
     raise ValueError(f"Unknown action: {args.action}")
@@ -1097,7 +1097,7 @@ def cmd_scheduled_departure(args):
         print(json.dumps(out, indent=2))
         return
 
-    print(f"🚗 {vehicle['display_name']}")
+    print(f" {vehicle['display_name']}")
     if out.get('scheduled_departure_enabled') is not None:
         print(f"Scheduled departure: {_fmt_bool(out.get('scheduled_departure_enabled'), 'On', 'Off')}")
     else:
@@ -1156,7 +1156,7 @@ def cmd_location(args):
     lat, lon = drive['latitude'], drive['longitude']
 
     if getattr(args, "yes", False):
-        print(f"📍 {vehicle['display_name']} Location (precise): {lat}, {lon}")
+        print(f" {vehicle['display_name']} Location (precise): {lat}, {lon}")
         print(f"   https://www.google.com/maps?q={lat},{lon}")
         return
 
@@ -1166,7 +1166,7 @@ def cmd_location(args):
     if lat_r is None or lon_r is None:
         raise ValueError("Invalid or missing location coordinates (try --digits 0..6)")
 
-    print(f"📍 {vehicle['display_name']} Location (approx): {lat_r}, {lon_r}")
+    print(f" {vehicle['display_name']} Location (approx): {lat_r}, {lon_r}")
     print(f"   https://www.google.com/maps?q={lat_r},{lon_r}")
     print("   (Use --yes for precise coordinates)")
 
@@ -1197,7 +1197,7 @@ def cmd_tires(args):
         }, indent=2))
         return
 
-    print(f"🚗 {vehicle['display_name']}")
+    print(f" {vehicle['display_name']}")
     print("Tire pressures (TPMS):")
     print(f"  FL: {fl or '(unknown)'}")
     print(f"  FR: {fr or '(unknown)'}")
@@ -1328,7 +1328,7 @@ def cmd_openings(args):
         print(json.dumps(out, indent=2))
         return
 
-    print(f"🚗 {vehicle['display_name']}")
+    print(f" {vehicle['display_name']}")
     if not out:
         print("Openings: (unavailable)")
         return
@@ -1355,7 +1355,7 @@ def cmd_trunk(args):
     which = 'front' if args.which == 'frunk' else 'rear'
     vehicle.command('ACTUATE_TRUNK', which_trunk=which)
     label = 'Frunk' if which == 'front' else 'Trunk'
-    print(f"🧳 {vehicle['display_name']} {label} toggled")
+    print(f" {vehicle['display_name']} {label} toggled")
 
 
 def cmd_windows(args):
@@ -1383,7 +1383,7 @@ def cmd_windows(args):
             print(json.dumps(out, indent=2))
             return
 
-        print(f"🚗 {vehicle['display_name']}")
+        print(f" {vehicle['display_name']}")
         if not out:
             print("Windows: (unavailable)")
             return
@@ -1399,11 +1399,11 @@ def cmd_windows(args):
     # Tesla API requires lat/lon parameters; 0/0 works for this endpoint.
     if args.action == 'vent':
         vehicle.command('WINDOW_CONTROL', command='vent', lat=0, lon=0)
-        print(f"🪟 {vehicle['display_name']} windows vented")
+        print(f" {vehicle['display_name']} windows vented")
         return
     if args.action == 'close':
         vehicle.command('WINDOW_CONTROL', command='close', lat=0, lon=0)
-        print(f"🪟 {vehicle['display_name']} windows closed")
+        print(f" {vehicle['display_name']} windows closed")
         return
 
     raise ValueError(f"Unknown action: {args.action}")
@@ -1533,7 +1533,7 @@ def cmd_seats(args):
             print(json.dumps(out, indent=2))
             return
 
-        print(f"🚗 {vehicle['display_name']}")
+        print(f" {vehicle['display_name']}")
         if not out:
             print("Seat heaters: (unavailable)")
             return
@@ -1555,7 +1555,7 @@ def cmd_seats(args):
             raise ValueError("Invalid level. Expected 0–3")
 
         vehicle.command("REMOTE_SEAT_HEATER_REQUEST", heater=heater, level=level)
-        print(f"🔥 {vehicle['display_name']} seat heater {heater} set to {level}")
+        print(f" {vehicle['display_name']} seat heater {heater} set to {level}")
         return
 
     raise ValueError(f"Unknown action: {args.action}")
@@ -1580,9 +1580,9 @@ def cmd_sentry(args):
             print(json.dumps({'sentry_mode': sentry}, indent=2))
             return
         if sentry is None:
-            print(f"🚗 {vehicle['display_name']}\nSentry: (unknown)")
+            print(f" {vehicle['display_name']}\nSentry: (unknown)")
         else:
-            print(f"🚗 {vehicle['display_name']}\nSentry: {_fmt_bool(sentry, 'On', 'Off')}")
+            print(f" {vehicle['display_name']}\nSentry: {_fmt_bool(sentry, 'On', 'Off')}")
         return
 
     # Mutating actions
@@ -1591,12 +1591,12 @@ def cmd_sentry(args):
 
     if args.action == 'on':
         vehicle.command('SET_SENTRY_MODE', on=True)
-        print(f"🛡️ {vehicle['display_name']} Sentry turned on")
+        print(f" {vehicle['display_name']} Sentry turned on")
         return
 
     if args.action == 'off':
         vehicle.command('SET_SENTRY_MODE', on=False)
-        print(f"🛡️ {vehicle['display_name']} Sentry turned off")
+        print(f" {vehicle['display_name']} Sentry turned off")
         return
 
     raise ValueError(f"Unknown action: {args.action}")
@@ -1609,12 +1609,12 @@ def cmd_honk(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('HONK_HORN')
-    print(f"📢 {vehicle['display_name']} honked!")
+    print(f" {vehicle['display_name']} honked!")
 
 
 def require_yes(args, action: str):
     if not getattr(args, "yes", False):
-        print(f"❌ Refusing to run '{action}' without --yes (safety gate)", file=sys.stderr)
+        print(f" Refusing to run '{action}' without --yes (safety gate)", file=sys.stderr)
         sys.exit(2)
 
 
@@ -1625,7 +1625,7 @@ def cmd_flash(args):
     vehicle = get_vehicle(tesla, args.car)
     wake_vehicle(vehicle)
     vehicle.command('FLASH_LIGHTS')
-    print(f"💡 {vehicle['display_name']} flashed lights!")
+    print(f" {vehicle['display_name']} flashed lights!")
 
 
 def _charge_port_status_json(vehicle, data: dict) -> dict:
@@ -1660,7 +1660,7 @@ def cmd_charge_port(args):
             print(json.dumps(out, indent=2))
             return
 
-        print(f"🔌 {vehicle.get('display_name')}")
+        print(f" {vehicle.get('display_name')}")
         print(f"   State: {vehicle.get('state')}")
         if out.get('charge_port_door_open') is not None:
             print(f"   Port door open: {_fmt_bool(out.get('charge_port_door_open'))}")
@@ -1678,10 +1678,10 @@ def cmd_charge_port(args):
 
     if args.action == 'open':
         vehicle.command('CHARGE_PORT_DOOR_OPEN')
-        print(f"🔌 {vehicle['display_name']} charge port opened")
+        print(f" {vehicle['display_name']} charge port opened")
     elif args.action == 'close':
         vehicle.command('CHARGE_PORT_DOOR_CLOSE')
-        print(f"🔌 {vehicle['display_name']} charge port closed")
+        print(f" {vehicle['display_name']} charge port closed")
     else:
         raise ValueError(f"Unknown action: {args.action}")
 
@@ -1690,9 +1690,9 @@ def cmd_wake(args):
     """Wake up the vehicle."""
     tesla = get_tesla(require_email(args))
     vehicle = get_vehicle(tesla, args.car)
-    print(f"⏳ Waking {vehicle['display_name']}...")
+    print(f" Waking {vehicle['display_name']}...")
     vehicle.sync_wake_up()
-    print(f"✅ {vehicle['display_name']} is awake")
+    print(f" {vehicle['display_name']} is awake")
 
 
 def cmd_summary(args):
@@ -1868,7 +1868,7 @@ def cmd_mileage(args):
 
     if args.action == "init":
         mileage_init_db(db_path)
-        print(f"✅ Mileage DB ready: {db_path}")
+        print(f" Mileage DB ready: {db_path}")
         return
 
     # record/status/export require DB
@@ -1878,7 +1878,7 @@ def cmd_mileage(args):
         tesla = get_tesla(require_email(args))
         vehicles = tesla.vehicle_list()
         if not vehicles:
-            print("❌ No vehicles found on this account", file=sys.stderr)
+            print(" No vehicles found on this account", file=sys.stderr)
             sys.exit(1)
 
         ts = int(time.time())
@@ -1960,7 +1960,7 @@ def cmd_mileage(args):
             return
 
         ok = sum(1 for r in results if r.get("recorded"))
-        print(f"✅ Recorded mileage: {ok}/{len(results)} vehicles")
+        print(f" Recorded mileage: {ok}/{len(results)} vehicles")
         for r in results:
             if r.get("recorded"):
                 print(f"- {r['vehicle']}: {r.get('odometer_mi'):.1f} mi")
@@ -2062,7 +2062,7 @@ def cmd_default_car(args):
     defaults = load_defaults()
     defaults["default_car"] = args.name
     save_defaults(defaults)
-    print(f"✅ Default car set to: {args.name}")
+    print(f" Default car set to: {args.name}")
     print(f"Saved to: {DEFAULTS_FILE}")
 
 
@@ -2294,16 +2294,16 @@ def main():
     try:
         commands[args.command](args)
     except KeyboardInterrupt:
-        print("\n⛔ Interrupted", file=sys.stderr)
+        print("\n Interrupted", file=sys.stderr)
         sys.exit(130)
     except Exception as e:
         debug = bool(getattr(args, "debug", False)) or os.environ.get("MY_TESLA_DEBUG") == "1"
         if debug:
             # Print both a friendly line and a full traceback.
-            print(f"❌ Error: {e}", file=sys.stderr)
+            print(f" Error: {e}", file=sys.stderr)
             traceback.print_exc()
         else:
-            print(f"❌ Error: {e}", file=sys.stderr)
+            print(f" Error: {e}", file=sys.stderr)
             print("   Tip: re-run with --debug for a full traceback", file=sys.stderr)
         sys.exit(1)
 

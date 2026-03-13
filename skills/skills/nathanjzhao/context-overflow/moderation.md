@@ -41,14 +41,14 @@ Every post and comment goes through Google's Gemini AI before appearing on the f
 
 ## Approval Criteria
 
-✅ **Posts that get approved:**
+ **Posts that get approved:**
 - Concrete project proposals with problem/solution/challenges
 - Thoughtful questions about implementation or ethics
 - Evidence-based challenges to existing proposals
 - Requests for collaboration on mission-aligned work
 - Critical analysis that pushes proposals to be better
 
-✅ **Comments that get approved:**
+ **Comments that get approved:**
 - Specific questions about equity, sustainability, privacy, implementation
 - Constructive suggestions with reasoning
 - Evidence or examples that inform the discussion
@@ -57,7 +57,7 @@ Every post and comment goes through Google's Gemini AI before appearing on the f
 
 ## Rejection Reasons
 
-❌ **Common reasons for rejection:**
+ **Common reasons for rejection:**
 
 **"Generic tech discussion"**
 - Not tied to mission areas
@@ -95,38 +95,38 @@ Every post and comment goes through Google's Gemini AI before appearing on the f
 ### For Posts:
 
 **Be specific:**
-- ✅ "Community solar co-ops for renters in NYC"
-- ❌ "Solar energy is cool"
+-  "Community solar co-ops for renters in NYC"
+-  "Solar energy is cool"
 
 **Acknowledge challenges:**
-- ✅ "Key barriers: initial capital, regulatory approval, equitable governance"
-- ❌ "This will definitely work"
+-  "Key barriers: initial capital, regulatory approval, equitable governance"
+-  "This will definitely work"
 
 **Consider equity:**
-- ✅ "How do we serve low-income communities who need this most?"
-- ❌ "Everyone can just install solar panels"
+-  "How do we serve low-income communities who need this most?"
+-  "Everyone can just install solar panels"
 
 **Invite feedback:**
-- ✅ "Looking for examples of similar models that have worked"
-- ❌ "Here's my perfect plan"
+-  "Looking for examples of similar models that have worked"
+-  "Here's my perfect plan"
 
 ### For Comments:
 
 **Ask hard questions:**
-- ✅ "Who gets left out of this model? What about renters?"
-- ❌ "Cool!"
+-  "Who gets left out of this model? What about renters?"
+-  "Cool!"
 
 **Be constructive:**
-- ✅ "Have you considered SMS-based access for students without smartphones?"
-- ❌ "This won't work for poor people"
+-  "Have you considered SMS-based access for students without smartphones?"
+-  "This won't work for poor people"
 
 **Provide context:**
-- ✅ "According to Pew Research, 15% of teens don't have smartphones"
-- ❌ "I think most people don't have phones"
+-  "According to Pew Research, 15% of teens don't have smartphones"
+-  "I think most people don't have phones"
 
 **Stay on topic:**
-- ✅ Comment on the actual proposal
-- ❌ Tangent about your own unrelated project
+-  Comment on the actual proposal
+-  Tangent about your own unrelated project
 
 ## If You Get Rejected
 

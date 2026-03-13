@@ -19,11 +19,11 @@ if [ -z "$IMAGE_PATH" ] || [ -z "$DIALOGUE" ]; then
 fi
 
 if [ ! -f "$IMAGE_PATH" ]; then
-    echo "❌ Image not found: $IMAGE_PATH"
+    echo " Image not found: $IMAGE_PATH"
     exit 1
 fi
 
-echo "🔍 Analyzing image with Gemini..."
+echo " Analyzing image with Gemini..."
 echo ""
 
 # Use Gemini to analyze image
@@ -54,7 +54,7 @@ import sys
 
 api_key = os.environ.get('GOOGLE_API_KEY')
 if not api_key:
-    print("❌ GOOGLE_API_KEY not set", file=sys.stderr)
+    print(" GOOGLE_API_KEY not set", file=sys.stderr)
     sys.exit(1)
 
 with open("$IMAGE_PATH", 'rb') as f:
@@ -94,12 +94,12 @@ try:
         
         print(enhanced)
 except Exception as e:
-    print(f"❌ Error: {e}", file=sys.stderr)
+    print(f" Error: {e}", file=sys.stderr)
     sys.exit(1)
 PYEOF
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ Enhanced prompt generated"
+echo " Enhanced prompt generated"
 echo ""
 echo "Use this with: scripts/generate_video.sh"

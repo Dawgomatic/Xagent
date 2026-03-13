@@ -105,7 +105,7 @@ newman run collection.json --reporters cli,html,json,junit \
 
 ### 5. Security Best Practices
 
-**❌ NEVER hardcode secrets in collections!**
+** NEVER hardcode secrets in collections!**
 
 Use environment variables:
 

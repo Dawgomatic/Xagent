@@ -7,7 +7,7 @@ description: >
   UniOne delivers billions of emails annually with 99.88% deliverability.
 metadata:
   openclaw:
-    emoji: "📧"
+    emoji: ""
     requires:
       env:
         - UNIONE_API_KEY

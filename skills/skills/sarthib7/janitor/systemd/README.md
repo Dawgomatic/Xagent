@@ -128,7 +128,7 @@ sudo systemctl status janitor-monitor@$USER
 #### 2. Install Enhanced OpenClaw Service (Optional)
 This replaces your existing OpenClaw service with one that includes pre-start cleanup.
 
-⚠️ **Warning**: This will replace your existing OpenClaw systemd service!
+ **Warning**: This will replace your existing OpenClaw systemd service!
 
 ```bash
 # Backup existing service (if any)

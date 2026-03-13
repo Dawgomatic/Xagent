@@ -1,7 +1,7 @@
 ---
 name: Mobile
 description: Build mobile applications with proper lifecycle handling, offline support, and platform conventions.
-metadata: {"clawdbot":{"emoji":"📱","os":["linux","darwin","win32"]}}
+metadata: {"clawdbot":{"emoji":"","os":["linux","darwin","win32"]}}
 ---
 
 ## Lifecycle Awareness

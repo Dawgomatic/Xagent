@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "🎭 Playwright Browser Setup for Clawdbot"
+echo " Playwright Browser Setup for Clawdbot"
 echo "========================================="
 
 # Colors
@@ -76,7 +76,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 "$SCRIPT_DIR/configure-clawdbot.sh" "$CHROME_PATH"
 
 echo ""
-echo -e "${GREEN}✅ Setup complete!${NC}"
+echo -e "${GREEN} Setup complete!${NC}"
 echo ""
 echo "Browser tool is now configured. Test with:"
 echo '  browser action=start profile=clawd'

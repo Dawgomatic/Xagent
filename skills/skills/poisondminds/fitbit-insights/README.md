@@ -1,29 +1,29 @@
 # Fitbit Fitness Insights - Clawdbot Skill
 
-🏋️ AI-powered insights from your Fitbit data!
+ AI-powered insights from your Fitbit data!
 
 ## What It Does
 
 Ask your AI assistant questions about your fitness data and get intelligent insights:
 
-- 📊 **Activity insights** - "How did I do this week?"
-- 💓 **Heart rate analysis** - "What was my heart rate during workouts?"
-- 😴 **Sleep tracking** - "How did I sleep last night?"
-- 🏃 **Workout analysis** - "Did I exercise today?"
-- 📈 **Trend analysis** - "Am I more active on weekdays or weekends?"
-- 🎯 **Goal tracking** - "Did I hit my step goal this week?"
+-  **Activity insights** - "How did I do this week?"
+-  **Heart rate analysis** - "What was my heart rate during workouts?"
+-  **Sleep tracking** - "How did I sleep last night?"
+-  **Workout analysis** - "Did I exercise today?"
+-  **Trend analysis** - "Am I more active on weekdays or weekends?"
+-  **Goal tracking** - "Did I hit my step goal this week?"
 
 ## Example Conversations
 
 **You:** "How did I sleep last night?"
 
-**AI:** "You slept 7.9 hours with 96% efficiency. Only woke up twice for 2 minutes total. That's excellent sleep quality! 😴"
+**AI:** "You slept 7.9 hours with 96% efficiency. Only woke up twice for 2 minutes total. That's excellent sleep quality! "
 
 ---
 
 **You:** "How active was I this week?"
 
-**AI:** "You averaged 8,234 steps/day this week (up 12% from last week!). Hit your 10k goal 4 out of 7 days. You logged CrossFit 3 times with 156 very active minutes total. Solid week! 💪"
+**AI:** "You averaged 8,234 steps/day this week (up 12% from last week!). Hit your 10k goal 4 out of 7 days. You logged CrossFit 3 times with 156 very active minutes total. Solid week! "
 
 ## Features
 
@@ -69,11 +69,11 @@ Full setup guide included in the skill package.
 
 ## Security & Privacy
 
-- ✅ **Read-only access** - Never writes to your Fitbit account
-- ✅ **OAuth 2.0** - Secure token-based authentication
-- ✅ **Auto-refresh** - Tokens refresh automatically
-- ✅ **No data storage** - Queries on-demand, nothing saved
-- ✅ **Your data** - Stays in your Fitbit account, never shared
+-  **Read-only access** - Never writes to your Fitbit account
+-  **OAuth 2.0** - Secure token-based authentication
+-  **Auto-refresh** - Tokens refresh automatically
+-  **No data storage** - Queries on-demand, nothing saved
+-  **Your data** - Stays in your Fitbit account, never shared
 
 ## Setup Time
 
@@ -118,10 +118,10 @@ Full setup guide included in the skill package.
 
 ---
 
-**Ready to get AI-powered fitness insights?** 🏋️✨
+**Ready to get AI-powered fitness insights?** 
 
 Download `fitbit.skill` and start asking questions about your fitness data!
 
 ---
 
-*Made with ❤️ for Fitbit users who want smarter fitness tracking*
+*Made with  for Fitbit users who want smarter fitness tracking*

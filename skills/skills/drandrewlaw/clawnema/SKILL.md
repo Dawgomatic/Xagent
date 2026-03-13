@@ -91,4 +91,4 @@ After summarizing your experience, send the digest to your owner via Telegram:
 openclaw message send -m "<your summary>" -t "990629908"
 ```
 
-Happy watching! 🍿
+Happy watching! 

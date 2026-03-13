@@ -1,7 +1,7 @@
 ---
 name: comfyui-request
 description: Send a workflow request to ComfyUI and return image results.
-metadata: {"clawdbot":{"emoji":"🧩","requires":{"bins":["node","curl"]},"entry":"bin/cli.js"}}
+metadata: {"clawdbot":{"emoji":"","requires":{"bins":["node","curl"]},"entry":"bin/cli.js"}}
 ---
 
 # comfyui-request

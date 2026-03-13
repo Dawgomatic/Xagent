@@ -16,17 +16,17 @@ REDIRECT_URI="http://127.0.0.1:8976/callback"
 # --- Preflight ---
 for cmd in curl jq openssl; do
   if ! command -v "$cmd" &>/dev/null; then
-    echo "❌ Missing required tool: $cmd"
+    echo " Missing required tool: $cmd"
     exit 1
   fi
 done
 
-echo "🔧 Coupler.io MCP Setup"
+echo " Coupler.io MCP Setup"
 echo "========================"
 echo ""
 
 # --- Step 1: Register OAuth client ---
-echo "📝 Step 1: Registering OAuth client..."
+echo " Step 1: Registering OAuth client..."
 REG_RESPONSE=$(curl -s -X POST "$AUTH_SERVER/oauth2/register" \
   -H "Content-Type: application/json" \
   -d '{
@@ -39,24 +39,24 @@ REG_RESPONSE=$(curl -s -X POST "$AUTH_SERVER/oauth2/register" \
 
 CLIENT_ID=$(echo "$REG_RESPONSE" | jq -r '.client_id // empty')
 if [[ -z "$CLIENT_ID" ]]; then
-  echo "❌ Client registration failed:"
+  echo " Client registration failed:"
   echo "$REG_RESPONSE"
   exit 1
 fi
-echo "   ✅ client_id: $CLIENT_ID"
+echo "    client_id: $CLIENT_ID"
 
 # --- Step 2: Generate PKCE ---
 echo ""
-echo "🔑 Step 2: Generating PKCE challenge..."
+echo " Step 2: Generating PKCE challenge..."
 CODE_VERIFIER=$(openssl rand -base64 32 | tr -d '=/+' | cut -c1-43)
 CODE_CHALLENGE=$(echo -n "$CODE_VERIFIER" | openssl dgst -sha256 -binary | base64 | tr -d '=' | tr '+/' '-_')
-echo "   ✅ PKCE ready"
+echo "    PKCE ready"
 
 # --- Step 3: Browser auth ---
 AUTH_URL="${AUTH_SERVER}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$REDIRECT_URI'))")&response_type=code&scope=mcp&code_challenge=${CODE_CHALLENGE}&code_challenge_method=S256"
 
 echo ""
-echo "🌐 Step 3: Browser authorization"
+echo " Step 3: Browser authorization"
 echo "   Opening browser & listening for callback on port 8976..."
 echo ""
 
@@ -95,7 +95,7 @@ if command -v open &>/dev/null; then
 elif command -v xdg-open &>/dev/null; then
   xdg-open "$AUTH_URL"
 else
-  echo "   ⚠️  Could not open browser automatically."
+  echo "     Could not open browser automatically."
   echo "   Open this URL manually:"
   echo "   $AUTH_URL"
 fi
@@ -107,14 +107,14 @@ AUTH_CODE=$(cat "$AUTH_CODE_FILE" 2>/dev/null)
 rm -f "$AUTH_CODE_FILE"
 
 if [[ -z "$AUTH_CODE" ]]; then
-  echo "❌ No authorization code received from callback."
+  echo " No authorization code received from callback."
   exit 1
 fi
-echo "   ✅ Authorization code received"
+echo "    Authorization code received"
 
 # --- Step 4: Exchange code for tokens ---
 echo ""
-echo "🔄 Step 4: Exchanging code for tokens..."
+echo " Step 4: Exchanging code for tokens..."
 TOKEN_RESPONSE=$(curl -s -X POST "$AUTH_SERVER/oauth2/token" \
   -d "grant_type=authorization_code&client_id=${CLIENT_ID}&code=${AUTH_CODE}&redirect_uri=${REDIRECT_URI}&code_verifier=${CODE_VERIFIER}")
 
@@ -122,15 +122,15 @@ ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token // empty')
 REFRESH_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.refresh_token // empty')
 
 if [[ -z "$ACCESS_TOKEN" ]]; then
-  echo "❌ Token exchange failed:"
+  echo " Token exchange failed:"
   echo "$TOKEN_RESPONSE"
   exit 1
 fi
-echo "   ✅ Tokens received"
+echo "    Tokens received"
 
 # --- Step 5: Save config ---
 echo ""
-echo "💾 Step 5: Saving configuration..."
+echo " Step 5: Saving configuration..."
 
 mkdir -p "$CONFIG_DIR"
 
@@ -167,11 +167,11 @@ EOF
 # --- Step 6: Secure files ---
 chmod 600 "$MCPORTER_CONFIG" "$OAUTH_STATE"
 
-echo "   ✅ config/mcporter.json (access token)"
-echo "   ✅ CPL/oauth-state.json (refresh token)"
-echo "   ✅ File permissions set to 600"
+echo "    config/mcporter.json (access token)"
+echo "    CPL/oauth-state.json (refresh token)"
+echo "    File permissions set to 600"
 
 echo ""
-echo "🎉 Setup complete! Test with:"
+echo " Setup complete! Test with:"
 echo "   mcporter call coupler.list-dataflows"
 echo ""

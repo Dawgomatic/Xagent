@@ -17,7 +17,7 @@ if (!tokenAddress || !amountMON) {
 
 const privateKey = process.env.NAD_PRIVATE_KEY || process.env.MONAD_PRIVATE_KEY;
 if (!privateKey) {
-  console.error('❌ Error: NAD_PRIVATE_KEY or MONAD_PRIVATE_KEY not set');
+  console.error(' Error: NAD_PRIVATE_KEY or MONAD_PRIVATE_KEY not set');
   process.exit(1);
 }
 
@@ -95,13 +95,13 @@ const dexRouterAbi = [
 ];
 
 async function main() {
-  console.log(`\n🔍 Buying ${amountMON} MON worth of token ${tokenAddress}...`);
+  console.log(`\n Buying ${amountMON} MON worth of token ${tokenAddress}...`);
   console.log(`   Network: ${network} (${chain.name})`);
   console.log(`   Wallet: ${account.address}`);
   console.log(`   Slippage: ${slippageBps} bps (${Number(slippageBps) / 100}%)\n`);
 
   const monAmount = parseEther(amountMON);
-  console.log('📊 Getting quote from LENS (nad.fun quote contract)...');
+  console.log(' Getting quote from LENS (nad.fun quote contract)...');
   const [router, amountOut] = await publicClient.readContract({
     address: config.LENS,
     abi: lensAbi,
@@ -115,7 +115,7 @@ async function main() {
   const isBondingCurve = router.toLowerCase() === config.BONDING_CURVE_ROUTER.toLowerCase();
   const isDEX = router.toLowerCase() === config.DEX_ROUTER.toLowerCase();
   if (!isBondingCurve && !isDEX) {
-    console.error(`❌ Unknown router: ${router}`);
+    console.error(` Unknown router: ${router}`);
     process.exit(1);
   }
   console.log(`   Market: ${isBondingCurve ? 'Bonding Curve' : 'DEX'}`);
@@ -127,7 +127,7 @@ async function main() {
 
   let hash;
   if (isBondingCurve) {
-    console.log('💰 Buying on bonding curve...');
+    console.log(' Buying on bonding curve...');
     const callData = encodeFunctionData({
       abi: bondingCurveRouterAbi,
       functionName: 'buy',
@@ -137,16 +137,16 @@ async function main() {
       account, to: router, data: callData, value: monAmount, chain
     });
   } else {
-    console.log('💱 Buying on DEX (wrap MON → WMON, then swap)...');
-    console.log('   1️⃣ Wrapping MON to WMON...');
+    console.log(' Buying on DEX (wrap MON → WMON, then swap)...');
+    console.log('    Wrapping MON to WMON...');
     const wrapData = encodeFunctionData({ abi: wmonAbi, functionName: 'deposit', args: [] });
     const wrapTx = await walletClient.sendTransaction({
       account, to: config.WMON, data: wrapData, value: monAmount, chain
     });
     console.log(`   Wrap TX: ${wrapTx}`);
     await publicClient.waitForTransactionReceipt({ hash: wrapTx });
-    console.log('   ✅ Wrapped');
-    console.log('   2️⃣ Approving DEX router...');
+    console.log('    Wrapped');
+    console.log('    Approving DEX router...');
     const approveData = encodeFunctionData({
       abi: erc20Abi, functionName: 'approve', args: [config.DEX_ROUTER, monAmount]
     });
@@ -154,8 +154,8 @@ async function main() {
       account, to: config.WMON, data: approveData, chain
     });
     await publicClient.waitForTransactionReceipt({ hash: approveTx });
-    console.log('   ✅ Approved');
-    console.log('   3️⃣ Swapping WMON for token...');
+    console.log('    Approved');
+    console.log('    Swapping WMON for token...');
     const path = [config.WMON, tokenAddress];
     const swapData = encodeFunctionData({
       abi: dexRouterAbi,
@@ -170,7 +170,7 @@ async function main() {
   console.log(`   TX submitted: ${hash}`);
   console.log('   Waiting for confirmation...');
   const receipt = await publicClient.waitForTransactionReceipt({ hash });
-  console.log(`\n✅ Buy complete! Block: ${receipt.blockNumber}`);
+  console.log(`\n Buy complete! Block: ${receipt.blockNumber}`);
   const balance = await publicClient.readContract({
     address: tokenAddress, abi: erc20Abi, functionName: 'balanceOf', args: [account.address]
   });
@@ -185,12 +185,12 @@ async function main() {
         });
       } catch {}
       await recordEntryPrice(tokenAddress, parseFloat(amountMON), account.address, tokenSymbol);
-      console.log(`   ✅ Entry price recorded: ${amountMON} MON`);
+      console.log(`    Entry price recorded: ${amountMON} MON`);
     } catch (e) {
-      console.log(`   ⚠️  Could not record entry price: ${e.message}`);
+      console.log(`     Could not record entry price: ${e.message}`);
     }
   }
-  console.log(`\n✅ Done! Explorer: https://explorer.monad.xyz/tx/${hash}\n`);
+  console.log(`\n Done! Explorer: https://explorer.monad.xyz/tx/${hash}\n`);
 }
 
 async function recordEntryPrice(tokenAddress, entryValueMON, walletAddress, tokenSymbol) {
@@ -220,6 +220,6 @@ async function recordEntryPrice(tokenAddress, entryValueMON, walletAddress, toke
 }
 
 main().catch(error => {
-  console.error('\n❌ Error:', error.message);
+  console.error('\n Error:', error.message);
   process.exit(1);
 });
