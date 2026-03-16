@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
 
 	"github.com/anthropics/anthropic-sdk-go"
 	"github.com/anthropics/anthropic-sdk-go/option"
@@ -63,7 +64,11 @@ func buildClaudeParams(messages []Message, tools []ToolDefinition, model string,
 	for _, msg := range messages {
 		switch msg.Role {
 		case "system":
-			system = append(system, anthropic.TextBlockParam{Text: msg.Content})
+			// SWE100821: Prompt caching — mark system prompt for Anthropic prefix caching (from Nanobot).
+			// Saves ~200ms latency + 90% cost on cached tokens.
+			block := anthropic.TextBlockParam{Text: msg.Content}
+			block.CacheControl = anthropic.NewCacheControlEphemeralParam()
+			system = append(system, block)
 		case "user":
 			if msg.ToolCallID != "" {
 				anthropicMessages = append(anthropicMessages,
@@ -124,7 +129,7 @@ func buildClaudeParams(messages []Message, tools []ToolDefinition, model string,
 
 func translateToolsForClaude(tools []ToolDefinition) []anthropic.ToolUnionParam {
 	result := make([]anthropic.ToolUnionParam, 0, len(tools))
-	for _, t := range tools {
+	for i, t := range tools {
 		tool := anthropic.ToolParam{
 			Name: t.Function.Name,
 			InputSchema: anthropic.ToolInputSchemaParam{
@@ -143,20 +148,26 @@ func translateToolsForClaude(tools []ToolDefinition) []anthropic.ToolUnionParam 
 			}
 			tool.InputSchema.Required = required
 		}
+		// SWE100821: Mark the last tool with cache_control so Anthropic caches
+		// system prompt + all tool definitions as a single prefix.
+		if i == len(tools)-1 {
+			tool.CacheControl = anthropic.NewCacheControlEphemeralParam()
+		}
 		result = append(result, anthropic.ToolUnionParam{OfTool: &tool})
 	}
 	return result
 }
 
 func parseClaudeResponse(resp *anthropic.Message) *LLMResponse {
-	var content string
+	// SWE100821: strings.Builder — was using content += (O(n²) allocation)
+	var sb strings.Builder
 	var toolCalls []ToolCall
 
 	for _, block := range resp.Content {
 		switch block.Type {
 		case "text":
 			tb := block.AsText()
-			content += tb.Text
+			sb.WriteString(tb.Text)
 		case "tool_use":
 			tu := block.AsToolUse()
 			var args map[string]interface{}
@@ -182,7 +193,7 @@ func parseClaudeResponse(resp *anthropic.Message) *LLMResponse {
 	}
 
 	return &LLMResponse{
-		Content:      content,
+		Content:      sb.String(),
 		ToolCalls:    toolCalls,
 		FinishReason: finishReason,
 		Usage: &UsageInfo{

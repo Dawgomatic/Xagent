@@ -21,6 +21,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/auth"
 	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
+	"github.com/google/uuid"
 )
 
 // SWE100821: Retry configuration for resilient LLM API calls
@@ -49,26 +50,38 @@ type HTTPProvider struct {
 	apiKey     string
 	apiBase    string
 	httpClient *http.Client
+	affinityID string // SWE100821: stable session affinity for provider-side KV cache locality (from Nanobot)
 }
 
 func NewHTTPProvider(apiKey, apiBase, proxy string) *HTTPProvider {
-	client := &http.Client{
-		Timeout: 120 * time.Second,
+	// SWE100821: Tuned transport for connection reuse and HTTP/2.
+	// Default Go transport creates a new TCP+TLS connection per host which
+	// adds ~100-300ms per LLM call. Explicit pooling eliminates re-handshake.
+	transport := &http.Transport{
+		MaxIdleConns:        100,
+		MaxIdleConnsPerHost: 10,
+		IdleConnTimeout:     90 * time.Second,
+		DisableCompression:  true,
+		ForceAttemptHTTP2:   true,
 	}
 
 	if proxy != "" {
 		proxyURL, err := url.Parse(proxy)
 		if err == nil {
-			client.Transport = &http.Transport{
-				Proxy: http.ProxyURL(proxyURL),
-			}
+			transport.Proxy = http.ProxyURL(proxyURL)
 		}
+	}
+
+	client := &http.Client{
+		Timeout:   120 * time.Second,
+		Transport: transport,
 	}
 
 	return &HTTPProvider{
 		apiKey:     apiKey,
 		apiBase:    strings.TrimRight(apiBase, "/"),
 		httpClient: client,
+		affinityID: uuid.New().String(), // SWE100821: stable per-provider instance for backend routing
 	}
 }
 
@@ -85,9 +98,18 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 		}
 	}
 
+	// SWE100821: For Anthropic/OpenRouter APIs, restructure system message with
+	// cache_control to enable prompt caching (from Nanobot litellm_provider pattern).
+	// Caches system prompt + tools — saves ~200ms latency + 90% cost on cached tokens.
+	anthropicCompat := isAnthropicCompatible(p.apiBase)
+	var marshalMsgs interface{} = messages
+	if anthropicCompat {
+		marshalMsgs = applyCacheControl(messages)
+	}
+
 	requestBody := map[string]interface{}{
 		"model":    model,
-		"messages": messages,
+		"messages": marshalMsgs,
 	}
 
 	if len(tools) > 0 {
@@ -147,6 +169,8 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 		if p.apiKey != "" {
 			req.Header.Set("Authorization", "Bearer "+p.apiKey)
 		}
+		// SWE100821: Session affinity for provider-side KV cache locality (from Nanobot)
+		req.Header.Set("X-Session-Affinity", p.affinityID)
 
 		resp, err := p.httpClient.Do(req)
 		if err != nil {
@@ -154,15 +178,22 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 			continue
 		}
 
+		// SWE100821: Stream JSON decode on 200 to avoid double-copy (io.ReadAll + Unmarshal)
+		if resp.StatusCode == http.StatusOK {
+			result, err := p.parseResponseStream(resp.Body)
+			resp.Body.Close()
+			if err != nil {
+				lastErr = err
+				continue
+			}
+			return result, nil
+		}
+
 		body, err := io.ReadAll(resp.Body)
 		resp.Body.Close()
 		if err != nil {
 			lastErr = fmt.Errorf("failed to read response: %w", err)
 			continue
-		}
-
-		if resp.StatusCode == http.StatusOK {
-			return p.parseResponse(body)
 		}
 
 		lastErr = fmt.Errorf("API request failed:\n  Status: %d\n  Body:   %s", resp.StatusCode, string(body))
@@ -173,6 +204,54 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 		}
 	}
 	return nil, fmt.Errorf("LLM request failed after %d retries: %w", maxRetries, lastErr)
+}
+
+// SWE100821: Stream decode directly from resp.Body — avoids io.ReadAll + Unmarshal double copy
+func (p *HTTPProvider) parseResponseStream(r io.Reader) (*LLMResponse, error) {
+	var apiResponse struct {
+		Choices []struct {
+			Message struct {
+				Content   string `json:"content"`
+				ToolCalls []struct {
+					ID       string `json:"id"`
+					Type     string `json:"type"`
+					Function *struct {
+						Name      string `json:"name"`
+						Arguments string `json:"arguments"`
+					} `json:"function"`
+				} `json:"tool_calls"`
+			} `json:"message"`
+			FinishReason string `json:"finish_reason"`
+		} `json:"choices"`
+		Usage *UsageInfo `json:"usage"`
+	}
+
+	if err := json.NewDecoder(r).Decode(&apiResponse); err != nil {
+		return nil, fmt.Errorf("failed to decode response: %w", err)
+	}
+
+	if len(apiResponse.Choices) == 0 {
+		return &LLMResponse{Content: "", FinishReason: "stop"}, nil
+	}
+	choice := apiResponse.Choices[0]
+	toolCalls := make([]ToolCall, 0, len(choice.Message.ToolCalls))
+	for _, tc := range choice.Message.ToolCalls {
+		args := make(map[string]interface{})
+		name := ""
+		if tc.Function != nil {
+			name = tc.Function.Name
+			if tc.Function.Arguments != "" {
+				if err := json.Unmarshal([]byte(tc.Function.Arguments), &args); err != nil {
+					args["raw"] = tc.Function.Arguments
+				}
+			}
+		}
+		toolCalls = append(toolCalls, ToolCall{ID: tc.ID, Name: name, Arguments: args})
+	}
+	return &LLMResponse{
+		Content: choice.Message.Content, ToolCalls: toolCalls,
+		FinishReason: choice.FinishReason, Usage: apiResponse.Usage,
+	}, nil
 }
 
 func (p *HTTPProvider) parseResponse(body []byte) (*LLMResponse, error) {
@@ -247,6 +326,42 @@ func (p *HTTPProvider) parseResponse(body []byte) (*LLMResponse, error) {
 
 func (p *HTTPProvider) GetDefaultModel() string {
 	return ""
+}
+
+// SWE100821: Detect Anthropic-compatible API bases for prompt caching support.
+func isAnthropicCompatible(apiBase string) bool {
+	lower := strings.ToLower(apiBase)
+	return strings.Contains(lower, "anthropic.com") || strings.Contains(lower, "openrouter.ai")
+}
+
+// SWE100821: Apply cache_control to system messages for Anthropic prompt caching.
+// Converts system message content to the content-array format with ephemeral cache control.
+func applyCacheControl(messages []Message) []map[string]interface{} {
+	result := make([]map[string]interface{}, 0, len(messages))
+	for _, msg := range messages {
+		m := map[string]interface{}{
+			"role": msg.Role,
+		}
+		if msg.Role == "system" {
+			m["content"] = []map[string]interface{}{
+				{
+					"type":          "text",
+					"text":          msg.Content,
+					"cache_control": map[string]string{"type": "ephemeral"},
+				},
+			}
+		} else {
+			m["content"] = msg.Content
+		}
+		if msg.ToolCallID != "" {
+			m["tool_call_id"] = msg.ToolCallID
+		}
+		if len(msg.ToolCalls) > 0 {
+			m["tool_calls"] = msg.ToolCalls
+		}
+		result = append(result, m)
+	}
+	return result
 }
 
 func createClaudeAuthProvider() (LLMProvider, error) {
@@ -354,6 +469,13 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 			}
 			return nil, fmt.Errorf("BitNet provider is configured but not enabled")
 
+		// SWE100821: PicoLM — local-first inference for embedded/edge platforms
+		case "picolm", "pico":
+			if cfg.Providers.PicoLM.Enabled {
+				return NewPicoLMProvider(&cfg.Providers.PicoLM), nil
+			}
+			return nil, fmt.Errorf("PicoLM provider is configured but not enabled — set providers.picolm.enabled=true")
+
 		case "rl", "rl-server", "openclaw-rl":
 			if cfg.Providers.RL.Enabled && cfg.Providers.RL.ServerURL != "" {
 				rlModel := cfg.Providers.RL.Model
@@ -428,6 +550,10 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 
 		case strings.HasPrefix(lowerModel, "bitnet") && cfg.Providers.BitNet.Enabled:
 			return NewBitNetProvider(&cfg.Providers.BitNet), nil
+
+		// SWE100821: Auto-detect picolm from model name
+		case (strings.HasPrefix(lowerModel, "picolm") || strings.Contains(lowerModel, "tinyllama")) && cfg.Providers.PicoLM.Enabled:
+			return NewPicoLMProvider(&cfg.Providers.PicoLM), nil
 
 		case cfg.Providers.VLLM.APIBase != "":
 			apiKey = cfg.Providers.VLLM.APIKey

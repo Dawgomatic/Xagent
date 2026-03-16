@@ -19,6 +19,9 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 )
 
+// SWE100821: Shared HTTP client for vision — was creating per request (TLS overhead)
+var visionHTTPClient = &http.Client{Timeout: 120 * time.Second}
+
 // VisionTool analyzes images using local Ollama vision models.
 type VisionTool struct {
 	ollamaURL string
@@ -117,7 +120,7 @@ func (t *VisionTool) Execute(ctx context.Context, args map[string]interface{}) *
 		}
 	}
 
-	client := &http.Client{Timeout: 120 * time.Second}
+	// SWE100821: reuse shared visionHTTPClient
 	req, err := http.NewRequestWithContext(ctx, "POST", t.ollamaURL+"/api/generate",
 		strings.NewReader(string(jsonData)))
 	if err != nil {
@@ -129,7 +132,7 @@ func (t *VisionTool) Execute(ctx context.Context, args map[string]interface{}) *
 	}
 	req.Header.Set("Content-Type", "application/json")
 
-	resp, err := client.Do(req)
+	resp, err := visionHTTPClient.Do(req)
 	if err != nil {
 		return &ToolResult{
 			ForLLM:  fmt.Sprintf("Vision model not available (is Ollama running with %s?): %v", model, err),

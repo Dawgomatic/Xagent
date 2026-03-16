@@ -151,3 +151,7 @@
 ## pkg/tools/phone.go
 - **Purpose:** Agent-facing PhoneTool implementing tools.Tool — exposes 13 actions (status, screenshot, shell, app_list, app_launch, tap, swipe, text, push, pull, install, raw) with auto-detection of Android/iOS.
 - **Duplicate search:** Searched `pkg/tools/` (has shell, browser, vision — no phone tool), `pkg/agent/` (no phone tool registration), `pkg/devices/` (events only, no tool interface). No existing phone tool found.
+
+## pkg/providers/picolm_provider.go
+- **Purpose:** PicoLM provider — local-first LLM inference via picolm C binary subprocess. Supports --json grammar mode for structured tool calling, --cache for KV persistence (skips prompt re-processing), and ARM NEON SIMD. 45MB RAM, 80KB binary, zero network, zero Python.
+- **Duplicate search:** Searched `pkg/providers/` (found `bitnet_provider.go` for local inference — different runtime, no KV cache, no JSON grammar; `http_provider.go` for API-based providers; no PicoLM). Searched `reference/picolm/` (upstream C binary exists but no Go integration). Searched `reference/picoclaw/` (has PicoLM config support but in separate project, not integrated into xagent). No existing PicoLM provider found.

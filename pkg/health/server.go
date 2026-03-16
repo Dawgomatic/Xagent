@@ -74,6 +74,10 @@ type Server struct {
 	startTime  time.Time
 	checkers   []ReadinessChecker
 	metrics    *Metrics
+	// SWE100821: Cached hwprofile — Detect() was called per /metricsz and /hwprofile request
+	hwCache     *hwprofile.Profile
+	hwCacheTime time.Time
+	hwCacheMu   sync.RWMutex
 }
 
 // NewServer creates a health server on host:port.
@@ -186,15 +190,36 @@ func (s *Server) handleReadyz(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"status": "ready"})
 }
 
+// SWE100821: Cached hardware profile — avoids Detect() (nvidia-smi, /proc reads) per HTTP request
+func (s *Server) cachedHWProfile() *hwprofile.Profile {
+	s.hwCacheMu.RLock()
+	if s.hwCache != nil && time.Since(s.hwCacheTime) < 60*time.Second {
+		p := s.hwCache
+		s.hwCacheMu.RUnlock()
+		return p
+	}
+	s.hwCacheMu.RUnlock()
+
+	s.hwCacheMu.Lock()
+	defer s.hwCacheMu.Unlock()
+	// Double-check after acquiring write lock
+	if s.hwCache != nil && time.Since(s.hwCacheTime) < 60*time.Second {
+		return s.hwCache
+	}
+	p := hwprofile.Detect()
+	s.hwCache = p
+	s.hwCacheTime = time.Now()
+	return p
+}
+
 // handleMetricsz returns basic operational metrics as JSON.
-// SWE100821: Lightweight metrics for embedded/edge systems without Prometheus.
 func (s *Server) handleMetricsz(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	snap := s.metrics.Snapshot()
 	snap["uptime_seconds"] = int(time.Since(s.startTime).Seconds())
-	// SWE100821: Include hardware tier + available RAM in metrics for monitoring
-	p := hwprofile.Detect()
+	// SWE100821: use cached profile instead of Detect() per request
+	p := s.cachedHWProfile()
 	snap["hw_tier"] = string(p.Tier)
 	snap["hw_ram_avail_mb"] = p.RAMAvailMB
 	snap["hw_cpu_cores"] = p.CPUCores
@@ -202,10 +227,10 @@ func (s *Server) handleMetricsz(w http.ResponseWriter, r *http.Request) {
 }
 
 // handleHWProfile returns the full hardware fingerprint and tuning recommendations.
-// SWE100821: Autonomous hardware detection for scalable high→low compute.
 func (s *Server) handleHWProfile(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	profile := hwprofile.Detect()
+	// SWE100821: use cached profile instead of Detect() per request
+	profile := s.cachedHWProfile()
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(profile.AsMap())
 }

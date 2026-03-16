@@ -6,6 +6,7 @@ package memory
 
 import (
 	"math"
+	"sort"
 	"strings"
 	"time"
 )
@@ -116,14 +117,10 @@ func (ms *MemoryScorer) RankMemories(points []MemoryPoint, referenceCounts map[u
 		scored = append(scored, ms.Score(p, refCount, 0.5)) // default novelty
 	}
 
-	// Sort by importance descending
-	for i := 0; i < len(scored); i++ {
-		for j := i + 1; j < len(scored); j++ {
-			if scored[j].ImportanceScore > scored[i].ImportanceScore {
-				scored[i], scored[j] = scored[j], scored[i]
-			}
-		}
-	}
+	// SWE100821: sort.Slice — was O(n²) bubble sort, now O(n log n)
+	sort.Slice(scored, func(i, j int) bool {
+		return scored[i].ImportanceScore > scored[j].ImportanceScore
+	})
 
 	return scored
 }

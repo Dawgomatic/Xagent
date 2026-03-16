@@ -16,6 +16,37 @@ const (
 	userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 )
 
+// SWE100821: Pre-compiled regex — were recompiling per search/fetch call
+var (
+	ddgLinkRe    = regexp.MustCompile(`<a[^>]*class="[^"]*result__a[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)</a>`)
+	ddgSnippetRe = regexp.MustCompile(`<a class="result__snippet[^"]*".*?>([\s\S]*?)</a>`)
+	stripTagsRe  = regexp.MustCompile(`<[^>]+>`)
+	scriptRe     = regexp.MustCompile(`<script[\s\S]*?</script>`)
+	styleRe      = regexp.MustCompile(`<style[\s\S]*?</style>`)
+	whitespaceRe = regexp.MustCompile(`\s+`)
+)
+
+// SWE100821: Shared HTTP clients — were creating new client per request (TLS handshake overhead)
+var (
+	searchHTTPClient = &http.Client{Timeout: 10 * time.Second}
+	fetchHTTPClient  = &http.Client{
+		Timeout: 60 * time.Second,
+		Transport: &http.Transport{
+			MaxIdleConns:        10,
+			MaxIdleConnsPerHost: 5,
+			IdleConnTimeout:     90 * time.Second,
+			DisableCompression:  false,
+			TLSHandshakeTimeout: 15 * time.Second,
+		},
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			if len(via) >= 5 {
+				return fmt.Errorf("stopped after 5 redirects")
+			}
+			return nil
+		},
+	}
+)
+
 type SearchProvider interface {
 	Search(ctx context.Context, query string, count int) (string, error)
 }
@@ -36,8 +67,8 @@ func (p *BraveSearchProvider) Search(ctx context.Context, query string, count in
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("X-Subscription-Token", p.apiKey)
 
-	client := &http.Client{Timeout: 10 * time.Second}
-	resp, err := client.Do(req)
+	// SWE100821: reuse shared searchHTTPClient
+	resp, err := searchHTTPClient.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("request failed: %w", err)
 	}
@@ -96,8 +127,8 @@ func (p *DuckDuckGoSearchProvider) Search(ctx context.Context, query string, cou
 
 	req.Header.Set("User-Agent", userAgent)
 
-	client := &http.Client{Timeout: 10 * time.Second}
-	resp, err := client.Do(req)
+	// SWE100821: reuse shared searchHTTPClient
+	resp, err := searchHTTPClient.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("request failed: %w", err)
 	}
@@ -118,8 +149,8 @@ func (p *DuckDuckGoSearchProvider) extractResults(html string, count int, query 
 	// Try finding the result links directly first, as they are the most critical
 	// Pattern: <a class="result__a" href="...">Title</a>
 	// The previous regex was a bit strict. Let's make it more flexible for attributes order/content
-	reLink := regexp.MustCompile(`<a[^>]*class="[^"]*result__a[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)</a>`)
-	matches := reLink.FindAllStringSubmatch(html, count+5)
+	// SWE100821: use pre-compiled ddgLinkRe
+	matches := ddgLinkRe.FindAllStringSubmatch(html, count+5)
 
 	if len(matches) == 0 {
 		return fmt.Sprintf("No results found or extraction failed. Query: %s", query), nil
@@ -136,8 +167,8 @@ func (p *DuckDuckGoSearchProvider) extractResults(html string, count int, query 
 
 	// A better regex approach: iterate through text and find matches in order
 	// But for now, let's grab all snippets too
-	reSnippet := regexp.MustCompile(`<a class="result__snippet[^"]*".*?>([\s\S]*?)</a>`)
-	snippetMatches := reSnippet.FindAllStringSubmatch(html, count+5)
+	// SWE100821: use pre-compiled ddgSnippetRe
+	snippetMatches := ddgSnippetRe.FindAllStringSubmatch(html, count+5)
 
 	maxItems := min(len(matches), count)
 
@@ -172,8 +203,8 @@ func (p *DuckDuckGoSearchProvider) extractResults(html string, count int, query 
 }
 
 func stripTags(content string) string {
-	re := regexp.MustCompile(`<[^>]+>`)
-	return re.ReplaceAllString(content, "")
+	// SWE100821: use pre-compiled stripTagsRe
+	return stripTagsRe.ReplaceAllString(content, "")
 }
 
 type WebSearchTool struct {
@@ -337,23 +368,8 @@ func (t *WebFetchTool) Execute(ctx context.Context, args map[string]interface{})
 
 	req.Header.Set("User-Agent", userAgent)
 
-	client := &http.Client{
-		Timeout: 60 * time.Second,
-		Transport: &http.Transport{
-			MaxIdleConns:        10,
-			IdleConnTimeout:     30 * time.Second,
-			DisableCompression:  false,
-			TLSHandshakeTimeout: 15 * time.Second,
-		},
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
-			if len(via) >= 5 {
-				return fmt.Errorf("stopped after 5 redirects")
-			}
-			return nil
-		},
-	}
-
-	resp, err := client.Do(req)
+	// SWE100821: reuse shared fetchHTTPClient (was creating new Transport per request)
+	resp, err := fetchHTTPClient.Do(req)
 	if err != nil {
 		return ErrorResult(fmt.Sprintf("request failed: %v", err))
 	}
@@ -410,17 +426,12 @@ func (t *WebFetchTool) Execute(ctx context.Context, args map[string]interface{})
 }
 
 func (t *WebFetchTool) extractText(htmlContent string) string {
-	re := regexp.MustCompile(`<script[\s\S]*?</script>`)
-	result := re.ReplaceAllLiteralString(htmlContent, "")
-	re = regexp.MustCompile(`<style[\s\S]*?</style>`)
-	result = re.ReplaceAllLiteralString(result, "")
-	re = regexp.MustCompile(`<[^>]+>`)
-	result = re.ReplaceAllLiteralString(result, "")
-
+	// SWE100821: use pre-compiled regex — was 5 MustCompile per web_fetch call
+	result := scriptRe.ReplaceAllLiteralString(htmlContent, "")
+	result = styleRe.ReplaceAllLiteralString(result, "")
+	result = stripTagsRe.ReplaceAllLiteralString(result, "")
 	result = strings.TrimSpace(result)
-
-	re = regexp.MustCompile(`\s+`)
-	result = re.ReplaceAllLiteralString(result, " ")
+	result = whitespaceRe.ReplaceAllLiteralString(result, " ")
 
 	lines := strings.Split(result, "\n")
 	var cleanLines []string

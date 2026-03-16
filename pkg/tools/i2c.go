@@ -9,6 +9,12 @@ import (
 	"runtime"
 )
 
+// SWE100821: Pre-compiled regex — was recompiling per detect/validate call
+var (
+	i2cBusRe   = regexp.MustCompile(`/dev/i2c-(\d+)`)
+	busIDDigit = regexp.MustCompile(`^\d+$`)
+)
+
 // I2CTool provides I2C bus interaction for reading sensors and controlling peripherals.
 type I2CTool struct{}
 
@@ -104,9 +110,9 @@ func (t *I2CTool) detect() *ToolResult {
 	}
 
 	buses := make([]busInfo, 0, len(matches))
-	re := regexp.MustCompile(`/dev/i2c-(\d+)`)
+	// SWE100821: use pre-compiled i2cBusRe
 	for _, m := range matches {
-		if sub := re.FindStringSubmatch(m); sub != nil {
+		if sub := i2cBusRe.FindStringSubmatch(m); sub != nil {
 			buses = append(buses, busInfo{Path: m, Bus: sub[1]})
 		}
 	}
@@ -117,8 +123,8 @@ func (t *I2CTool) detect() *ToolResult {
 
 // isValidBusID checks that a bus identifier is a simple number (prevents path injection)
 func isValidBusID(id string) bool {
-	matched, _ := regexp.MatchString(`^\d+$`, id)
-	return matched
+	// SWE100821: use pre-compiled busIDDigit
+	return busIDDigit.MatchString(id)
 }
 
 // parseI2CAddress extracts and validates an I2C address from args

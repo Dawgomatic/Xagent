@@ -20,11 +20,14 @@ import (
 
 // PersonalityTracker observes interaction patterns and proposes personality adaptations.
 type PersonalityTracker struct {
-	workspace   string
-	provider    providers.LLMProvider
-	model       string
+	workspace    string
+	provider     providers.LLMProvider
+	model        string
 	observations []Observation
-	profilePath string
+	profilePath  string
+	// SWE100821: Cache loaded profile — was reading disk on every ForSystemPrompt call
+	cachedProfile     *PersonalityProfile
+	cachedProfileTime time.Time
 }
 
 // Observation records a single interaction pattern data point.
@@ -211,7 +214,12 @@ func (pt *PersonalityTracker) GetDiff(since time.Time) string {
 	return sb.String()
 }
 
+// SWE100821: Cached profile load — was reading disk on every call (ForSystemPrompt, Analyze)
 func (pt *PersonalityTracker) loadProfile() *PersonalityProfile {
+	if pt.cachedProfile != nil && time.Since(pt.cachedProfileTime) < 30*time.Second {
+		return pt.cachedProfile
+	}
+
 	profile := &PersonalityProfile{
 		Traits: map[string]float64{
 			"verbosity":  0.5,
@@ -226,6 +234,8 @@ func (pt *PersonalityTracker) loadProfile() *PersonalityProfile {
 	}
 
 	json.Unmarshal(data, profile)
+	pt.cachedProfile = profile
+	pt.cachedProfileTime = time.Now()
 	return profile
 }
 
@@ -236,4 +246,7 @@ func (pt *PersonalityTracker) saveProfile(profile *PersonalityProfile) {
 		return
 	}
 	os.WriteFile(pt.profilePath, data, 0600)
+	// SWE100821: Invalidate cache on save
+	pt.cachedProfile = profile
+	pt.cachedProfileTime = time.Now()
 }

@@ -22,6 +22,9 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/health"
 )
 
+// SWE100821: Pre-compiled regex — was recompiling per /api/config request
+var sensitiveConfigRe = regexp.MustCompile(`(?i)"(api_key|token|secret|password|app_secret|access_token|bot_token|app_token|channel_secret|channel_access_token|client_secret|encrypt_key|verification_token)":\s*"[^"]*"`)
+
 // SWE100821: Regex for extracting [[wikilinks]] from vault notes (handles [[name]] and [[name|alias]])
 var wikilinkRe = regexp.MustCompile(`\[\[([^\]\|]+)(?:\|[^\]]+)?\]\]`)
 
@@ -612,8 +615,8 @@ func (d *Dashboard) handleConfig(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, map[string]string{"error": "cannot read config"})
 		return
 	}
-	sensitivePattern := regexp.MustCompile(`(?i)"(api_key|token|secret|password|app_secret|access_token|bot_token|app_token|channel_secret|channel_access_token|client_secret|encrypt_key|verification_token)":\s*"[^"]*"`)
-	redacted := sensitivePattern.ReplaceAllStringFunc(string(data), func(match string) string {
+	// SWE100821: use pre-compiled sensitiveConfigRe
+	redacted := sensitiveConfigRe.ReplaceAllStringFunc(string(data), func(match string) string {
 		parts := strings.SplitN(match, ":", 2)
 		if len(parts) == 2 && strings.TrimSpace(parts[1]) != `""` {
 			return parts[0] + `: "***REDACTED***"`

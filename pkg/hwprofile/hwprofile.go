@@ -26,7 +26,8 @@ const (
 	TierLow     Tier = "low"     // RPi4, 2-4 GB RAM
 	TierMid     Tier = "mid"     // x86_64, 8-16 GB RAM
 	TierHigh    Tier = "high"    // x86_64, 32+ GB RAM, many cores
-	TierGPU     Tier = "gpu"     // NVIDIA GPU detected with VRAM
+	TierGPU     Tier = "gpu"     // NVIDIA discrete GPU with VRAM
+	TierTegra   Tier = "tegra"   // SWE100821: Jetson Xavier/Orin — shared memory, local-first
 )
 
 // GPUInfo holds detected GPU details.
@@ -56,7 +57,8 @@ type Profile struct {
 // Recommendation holds tuning parameters derived from the hardware tier.
 // SWE100821: Maps hardware capability to optimal system configuration.
 type Recommendation struct {
-	OllamaModel       string  `json:"ollama_model"`
+	Provider          string  `json:"provider"`     // SWE100821: "ollama", "picolm", "bitnet"
+	OllamaModel       string  `json:"ollama_model"` // only used when Provider == "ollama"
 	MaxTokens         int     `json:"max_tokens"`
 	Temperature       float64 `json:"temperature"`
 	MaxToolIterations int     `json:"max_tool_iterations"`
@@ -64,6 +66,7 @@ type Recommendation struct {
 	MessageTimeoutSec int     `json:"message_timeout_sec"`
 	SessionPruneHours int     `json:"session_prune_hours"`
 	BusBufferSize     int     `json:"bus_buffer_size"`
+	DisablePlanner    bool    `json:"disable_planner"` // SWE100821: skip Plan-Act-Reflect on constrained hw
 }
 
 // cached singleton
@@ -104,6 +107,7 @@ func Detect() *Profile {
 }
 
 // Recommend returns tuning parameters for the detected hardware tier.
+// SWE100821: Now includes Provider field and Tegra-specific local-first path.
 func (p *Profile) Recommend() Recommendation {
 	switch p.Tier {
 	case TierGPU:
@@ -114,17 +118,33 @@ func (p *Profile) Recommend() Recommendation {
 			model = "llama3.1:8b"
 		}
 		return Recommendation{
+			Provider:          "ollama",
 			OllamaModel:       model,
 			MaxTokens:         8192,
 			Temperature:       0.7,
 			MaxToolIterations: 25,
 			MaxSubagents:      5,
 			MessageTimeoutSec: 300,
-			SessionPruneHours: 168, // 7 days
+			SessionPruneHours: 168,
 			BusBufferSize:     256,
+		}
+	// SWE100821: Tegra (Xavier/Orin) — shared memory, use PicoLM for local-first
+	case TierTegra:
+		return Recommendation{
+			Provider:          "picolm",
+			OllamaModel:       "tinyllama:1.1b",
+			MaxTokens:         256,
+			Temperature:       0.7,
+			MaxToolIterations: 10,
+			MaxSubagents:      1,
+			MessageTimeoutSec: 120,
+			SessionPruneHours: 48,
+			BusBufferSize:     32,
+			DisablePlanner:    true,
 		}
 	case TierHigh:
 		return Recommendation{
+			Provider:          "ollama",
 			OllamaModel:       "llama3.1:8b",
 			MaxTokens:         8192,
 			Temperature:       0.7,
@@ -136,6 +156,7 @@ func (p *Profile) Recommend() Recommendation {
 		}
 	case TierMid:
 		return Recommendation{
+			Provider:          "ollama",
 			OllamaModel:       "llama3.1:8b",
 			MaxTokens:         4096,
 			Temperature:       0.7,
@@ -147,25 +168,29 @@ func (p *Profile) Recommend() Recommendation {
 		}
 	case TierLow:
 		return Recommendation{
+			Provider:          "picolm",
 			OllamaModel:       "phi3:3.8b",
-			MaxTokens:         2048,
+			MaxTokens:         256,
 			Temperature:       0.5,
 			MaxToolIterations: 10,
 			MaxSubagents:      1,
-			MessageTimeoutSec: 600, // slower hardware, longer timeout
+			MessageTimeoutSec: 600,
 			SessionPruneHours: 24,
 			BusBufferSize:     32,
+			DisablePlanner:    true,
 		}
 	default: // TierMinimal
 		return Recommendation{
+			Provider:          "picolm",
 			OllamaModel:       "tinyllama:1.1b",
-			MaxTokens:         1024,
+			MaxTokens:         128,
 			Temperature:       0.3,
 			MaxToolIterations: 5,
 			MaxSubagents:      1,
 			MessageTimeoutSec: 900,
 			SessionPruneHours: 12,
 			BusBufferSize:     16,
+			DisablePlanner:    true,
 		}
 	}
 }
@@ -354,15 +379,16 @@ func readTegraGPUName() string {
 }
 
 // classify maps raw metrics to a compute tier.
+// SWE100821: Tegra now gets its own tier instead of being lumped with discrete GPUs.
 func classify(p *Profile) Tier {
-	// GPU always wins if present
+	// Discrete GPU always wins if present
 	if p.GPU.Detected && !p.GPU.IsTegra && p.GPU.VRAM_MB > 0 {
 		return TierGPU
 	}
 
-	// Tegra with lots of unified memory → GPU tier
-	if p.GPU.IsTegra && p.RAMTotalMB >= 8000 {
-		return TierGPU
+	// SWE100821: Tegra (Xavier/Orin) — shared memory, distinct from discrete GPU
+	if p.GPU.IsTegra {
+		return TierTegra
 	}
 
 	// RAM-based tiers
@@ -405,6 +431,7 @@ func (p *Profile) AsMap() map[string]interface{} {
 			"is_tegra": p.GPU.IsTegra,
 		},
 		"recommendation": map[string]interface{}{
+			"provider":            rec.Provider, // SWE100821
 			"ollama_model":        rec.OllamaModel,
 			"max_tokens":          rec.MaxTokens,
 			"temperature":         rec.Temperature,
@@ -413,6 +440,7 @@ func (p *Profile) AsMap() map[string]interface{} {
 			"message_timeout_sec": rec.MessageTimeoutSec,
 			"session_prune_hours": rec.SessionPruneHours,
 			"bus_buffer_size":     rec.BusBufferSize,
+			"disable_planner":    rec.DisablePlanner, // SWE100821
 		},
 		"detected_at": p.DetectedAt.Format(time.RFC3339),
 	}

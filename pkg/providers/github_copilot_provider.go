@@ -9,41 +9,46 @@ import (
 	copilot "github.com/github/copilot-sdk/go"
 )
 
+// SWE100821: Stores client reference so lifecycle is managed with the provider
 type GitHubCopilotProvider struct {
 	uri         string
-	connectMode string // `stdio` or `grpc``
-
-	session *copilot.Session
+	connectMode string
+	client      *copilot.Client
+	session     *copilot.Session
 }
 
 func NewGitHubCopilotProvider(uri string, connectMode string, model string) (*GitHubCopilotProvider, error) {
-
+	var client *copilot.Client
 	var session *copilot.Session
 	if connectMode == "" {
 		connectMode = "grpc"
 	}
 	switch connectMode {
-
 	case "stdio":
-		//todo
+		// TODO: implement stdio transport
 	case "grpc":
-		client := copilot.NewClient(&copilot.ClientOptions{
+		client = copilot.NewClient(&copilot.ClientOptions{
 			CLIUrl: uri,
 		})
 		if err := client.Start(context.Background()); err != nil {
-			return nil, fmt.Errorf("Can't connect to Github Copilot, https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#connecting-to-an-external-cli-server for details")
+			return nil, fmt.Errorf("can't connect to Github Copilot: %w", err)
 		}
-		defer client.Stop()
-		session, _ = client.CreateSession(context.Background(), &copilot.SessionConfig{
+		// SWE100821: removed `defer client.Stop()` — was killing the client before Chat() could use it
+		var err error
+		session, err = client.CreateSession(context.Background(), &copilot.SessionConfig{
 			Model: model,
 			Hooks: &copilot.SessionHooks{},
 		})
-
+		if err != nil {
+			client.Stop()
+			return nil, fmt.Errorf("failed to create copilot session: %w", err)
+		}
 	}
 
 	return &GitHubCopilotProvider{
 		uri:         uri,
 		connectMode: connectMode,
+		client:      client,
 		session:     session,
 	}, nil
 }

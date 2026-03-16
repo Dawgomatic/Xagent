@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -36,8 +37,10 @@ var (
 	mu           sync.RWMutex
 )
 
+// SWE100821: Added buffered writer — was doing unbuffered WriteString (1 syscall per log line)
 type Logger struct {
-	file *os.File
+	file   *os.File
+	writer *bufio.Writer
 }
 
 type LogEntry struct {
@@ -76,11 +79,30 @@ func EnableFileLogging(filePath string) error {
 		return fmt.Errorf("failed to open log file: %w", err)
 	}
 
+	if logger.writer != nil {
+		logger.writer.Flush()
+	}
 	if logger.file != nil {
 		logger.file.Close()
 	}
 
 	logger.file = file
+	// SWE100821: 8KB buffer — batches writes, reduces syscalls
+	logger.writer = bufio.NewWriterSize(file, 8192)
+
+	// SWE100821: Periodic flush to avoid stale data in buffer
+	go func() {
+		ticker := time.NewTicker(2 * time.Second)
+		defer ticker.Stop()
+		for range ticker.C {
+			mu.Lock()
+			if logger.writer != nil {
+				logger.writer.Flush()
+			}
+			mu.Unlock()
+		}
+	}()
+
 	log.Println("File logging enabled:", filePath)
 	return nil
 }
@@ -89,6 +111,10 @@ func DisableFileLogging() {
 	mu.Lock()
 	defer mu.Unlock()
 
+	if logger.writer != nil {
+		logger.writer.Flush()
+		logger.writer = nil
+	}
 	if logger.file != nil {
 		logger.file.Close()
 		logger.file = nil
@@ -109,17 +135,26 @@ func logMessage(level LogLevel, component string, message string, fields map[str
 		Fields:    fields,
 	}
 
-	if pc, file, line, ok := runtime.Caller(2); ok {
-		fn := runtime.FuncForPC(pc)
-		if fn != nil {
-			entry.Caller = fmt.Sprintf("%s:%d (%s)", file, line, fn.Name())
+	// SWE100821: runtime.Caller is expensive (~500ns) — only include for DEBUG/ERROR/FATAL
+	if level == DEBUG || level >= ERROR {
+		if pc, file, line, ok := runtime.Caller(2); ok {
+			fn := runtime.FuncForPC(pc)
+			if fn != nil {
+				entry.Caller = fmt.Sprintf("%s:%d (%s)", file, line, fn.Name())
+			}
 		}
 	}
 
-	if logger.file != nil {
+	// SWE100821: Write to buffered writer instead of raw file.WriteString
+	if logger.writer != nil {
 		jsonData, err := json.Marshal(entry)
 		if err == nil {
-			logger.file.WriteString(string(jsonData) + "\n")
+			logger.writer.Write(jsonData)
+			logger.writer.WriteByte('\n')
+		}
+		// Flush immediately on FATAL/ERROR for visibility
+		if level >= ERROR {
+			logger.writer.Flush()
 		}
 	}
 
@@ -150,12 +185,20 @@ func formatComponent(component string) string {
 	return fmt.Sprintf(" %s:", component)
 }
 
+// SWE100821: strings.Builder — avoids []string alloc + Join
 func formatFields(fields map[string]interface{}) string {
-	var parts []string
+	var sb strings.Builder
+	sb.WriteByte('{')
+	i := 0
 	for k, v := range fields {
-		parts = append(parts, fmt.Sprintf("%s=%v", k, v))
+		if i > 0 {
+			sb.WriteString(", ")
+		}
+		fmt.Fprintf(&sb, "%s=%v", k, v)
+		i++
 	}
-	return fmt.Sprintf("{%s}", strings.Join(parts, ", "))
+	sb.WriteByte('}')
+	return sb.String()
 }
 
 func Debug(message string) {

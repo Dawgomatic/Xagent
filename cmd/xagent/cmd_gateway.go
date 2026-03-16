@@ -58,7 +58,7 @@ func gatewayCmd() {
 	hwProfile := hwprofile.Detect()
 	rec := hwProfile.Recommend()
 	fmt.Printf("\n🔧 Hardware Profile: %s\n", hwProfile.Summary())
-	fmt.Printf("  • Tier: %s → recommended model: %s\n", hwProfile.Tier, rec.OllamaModel)
+	fmt.Printf("  • Tier: %s → recommended provider: %s, model: %s\n", hwProfile.Tier, rec.Provider, rec.OllamaModel)
 
 	// Auto-tune config from hardware profile (only if not explicitly overridden)
 	if cfg.Agents.Defaults.MaxTokens == 8192 { // default value = not explicitly set
@@ -70,6 +70,22 @@ func gatewayCmd() {
 		fmt.Printf("  • Auto-tuned max_tool_iterations: %d\n", rec.MaxToolIterations)
 	}
 
+	// SWE100821: Auto-switch to local provider on embedded platforms when no provider is explicitly set
+	if rec.Provider == "picolm" && cfg.Agents.Defaults.Provider == "" {
+		cfg.Providers.PicoLM.Enabled = true
+		cfg.Agents.Defaults.Provider = "picolm"
+		cfg.Agents.Defaults.Model = "picolm-local"
+		// Set KV cache path for system prompt reuse
+		if cfg.Providers.PicoLM.CachePath == "" {
+			cfg.Providers.PicoLM.CachePath = cfg.WorkspacePath() + "/picolm-system.kvc"
+		}
+		// Match thread count to detected cores
+		if cfg.Providers.PicoLM.Threads <= 0 || cfg.Providers.PicoLM.Threads == 4 {
+			cfg.Providers.PicoLM.Threads = hwProfile.CPUCores
+		}
+		fmt.Printf("  • Auto-switched to PicoLM (local-first, %d threads, KV cache enabled)\n", cfg.Providers.PicoLM.Threads)
+	}
+
 	provider, err := providers.CreateProvider(cfg)
 	if err != nil {
 		fmt.Printf("Error creating provider: %v\n", err)
@@ -79,9 +95,21 @@ func gatewayCmd() {
 	msgBus := bus.NewMessageBus()
 	agentLoop := agent.NewAgentLoop(cfg, msgBus, provider)
 
+	// SWE100821: Disable planner on embedded to eliminate 2+ LLM calls per message
+	if rec.DisablePlanner {
+		agentLoop.DisablePlanner()
+		agentLoop.EnableCompactPrompt()
+		fmt.Println("  • Planner disabled (embedded mode — single LLM call per message)")
+		fmt.Println("  • Compact prompt enabled (minimal system prompt for fast prefill)")
+	}
+
 	// SWE100821: Start resource watcher — dynamically switch model when tier changes
-	// Must be after agentLoop creation so the closure can capture the variable.
-	stopWatch := hwprofile.WatchResources(60*time.Second, func(old, cur *hwprofile.Profile) {
+	// Longer interval on embedded to reduce overhead (300s vs 60s)
+	watchInterval := 60 * time.Second
+	if rec.DisablePlanner {
+		watchInterval = 300 * time.Second
+	}
+	stopWatch := hwprofile.WatchResources(watchInterval, func(old, cur *hwprofile.Profile) {
 		logger.WarnCF("hwprofile", "Compute tier changed",
 			map[string]interface{}{
 				"old_tier":     string(old.Tier),

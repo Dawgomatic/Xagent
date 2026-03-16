@@ -161,19 +161,23 @@ func (dm *DreamMode) dream(ctx context.Context) {
 		return
 	}
 
-	material := ""
+	// SWE100821: strings.Builder — was using material += (O(n²) allocation)
+	var matBuilder strings.Builder
 	noteCount := 0
 	if recentNotes != "" {
-		material += "## Recent Daily Notes (last 7 days)\n\n" + recentNotes
-		noteCount = strings.Count(recentNotes, "# 20") // rough count by date headers
+		matBuilder.WriteString("## Recent Daily Notes (last 7 days)\n\n")
+		matBuilder.WriteString(recentNotes)
+		noteCount = strings.Count(recentNotes, "# 20")
 	}
 	if longTerm != "" {
-		material += "\n\n## Long-term Memory\n\n" + longTerm
+		matBuilder.WriteString("\n\n## Long-term Memory\n\n")
+		matBuilder.WriteString(longTerm)
 	}
-	// SWE100821: Append world model to dream material
 	if worldModelContent != "" {
-		material += "\n\n## Current World Model\n\n" + worldModelContent
+		matBuilder.WriteString("\n\n## Current World Model\n\n")
+		matBuilder.WriteString(worldModelContent)
 	}
+	material := matBuilder.String()
 
 	// SWE100821: Ask the LLM to reflect, including world model update instructions
 	dreamPrompt := fmt.Sprintf(`You are in dream mode — a quiet time for autonomous reflection.

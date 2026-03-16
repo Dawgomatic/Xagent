@@ -11,7 +11,8 @@ VERSION?=$(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 GIT_COMMIT=$(shell git rev-parse --short=8 HEAD 2>/dev/null || echo "dev")
 BUILD_TIME=$(shell date +%FT%T%z)
 GO_VERSION=$(shell $(GO) version | awk '{print $$3}')
-LDFLAGS=-ldflags "-X main.version=$(VERSION) -X main.gitCommit=$(GIT_COMMIT) -X main.buildTime=$(BUILD_TIME) -X main.goVersion=$(GO_VERSION)"
+# SWE100821: -s -w strips debug info and DWARF tables, reducing binary ~30% (from PicoClaw Makefile)
+LDFLAGS=-ldflags "-s -w -X main.version=$(VERSION) -X main.gitCommit=$(GIT_COMMIT) -X main.buildTime=$(BUILD_TIME) -X main.goVersion=$(GO_VERSION)"
 
 # Go variables
 GO?=go
@@ -88,6 +89,54 @@ build-all: generate
 	GOOS=darwin GOARCH=arm64 $(GO) build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY_NAME)-darwin-arm64 ./$(CMD_DIR)
 	GOOS=windows GOARCH=amd64 $(GO) build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY_NAME)-windows-amd64.exe ./$(CMD_DIR)
 	@echo "All builds complete"
+
+## xavier: Cross-compile for Jetson Xavier (ARM64) + bundle PicoLM for deployment (SWE100821)
+xavier: generate check-embed
+	@echo "Building xagent for Jetson Xavier (linux/arm64)..."
+	@mkdir -p $(BUILD_DIR)/xavier-deploy
+	GOOS=linux GOARCH=arm64 $(GO) build $(LDFLAGS) -o $(BUILD_DIR)/xavier-deploy/xagent ./$(CMD_DIR)
+	@echo "Cross-compiling PicoLM for ARM64..."
+	@if [ -d reference/picolm/picolm ]; then \
+		cd reference/picolm/picolm && \
+		$(MAKE) clean 2>/dev/null; \
+		if command -v aarch64-linux-gnu-gcc >/dev/null 2>&1; then \
+			$(MAKE) cross-pi && cp picolm ../../../$(BUILD_DIR)/xavier-deploy/picolm; \
+		else \
+			echo "  ⚠ aarch64-linux-gnu-gcc not found — PicoLM must be built on Xavier"; \
+			echo "  Install: sudo apt install gcc-aarch64-linux-gnu"; \
+		fi; \
+		cd ../../..; \
+	else \
+		echo "  ⚠ reference/picolm not found — run: git submodule update --init reference/picolm"; \
+	fi
+	@cp start.sh $(BUILD_DIR)/xavier-deploy/start.sh
+	@echo ""
+	@echo "Deploy bundle ready: $(BUILD_DIR)/xavier-deploy/"
+	@echo "  xagent         — ARM64 binary"
+	@echo "  picolm          — PicoLM inference binary (if cross-compiled)"
+	@echo "  start.sh        — Full installer"
+	@echo ""
+	@echo "Transfer to Xavier:"
+	@echo "  scp -r $(BUILD_DIR)/xavier-deploy/ xavier:~/xagent/"
+	@echo "  ssh xavier 'cd ~/xagent && bash start.sh'"
+
+## release: Build static release binary with CGO disabled (SWE100821: from PicoClaw pattern)
+release: generate check-embed
+	@echo "Building static release $(BINARY_NAME) for $(PLATFORM)/$(ARCH)..."
+	@mkdir -p $(BUILD_DIR)
+	@CGO_ENABLED=0 $(GO) build $(GOFLAGS) $(LDFLAGS) -o $(BINARY_PATH) ./$(CMD_DIR)
+	@echo "Release build complete: $(BINARY_PATH)"
+	@ln -sf $(BINARY_NAME)-$(PLATFORM)-$(ARCH) $(BUILD_DIR)/$(BINARY_NAME)
+
+## picolm-native: Build PicoLM with -march=native for host SIMD (SWE100821: 2-4x tok/s on ARM)
+picolm-native:
+	@if [ -d reference/picolm/picolm ]; then \
+		echo "Building PicoLM with native SIMD optimizations..."; \
+		cd reference/picolm/picolm && $(MAKE) native; \
+		echo "PicoLM built. Install: cd reference/picolm/picolm && sudo make install"; \
+	else \
+		echo "reference/picolm not found — run: git submodule update --init reference/picolm"; \
+	fi
 
 ## install: Install xagent to system and copy builtin skills
 install: build

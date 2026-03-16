@@ -9,6 +9,12 @@ import (
 	"runtime"
 )
 
+// SWE100821: Pre-compiled regex — was recompiling per list/parse call
+var (
+	spidevRe = regexp.MustCompile(`/dev/spidev(\d+\.\d+)`)
+	spiIDRe  = regexp.MustCompile(`^\d+\.\d+$`)
+)
+
 // SPITool provides SPI bus interaction for high-speed peripheral communication.
 type SPITool struct{}
 
@@ -106,9 +112,9 @@ func (t *SPITool) list() *ToolResult {
 	}
 
 	devices := make([]devInfo, 0, len(matches))
-	re := regexp.MustCompile(`/dev/spidev(\d+\.\d+)`)
+	// SWE100821: use pre-compiled spidevRe
 	for _, m := range matches {
-		if sub := re.FindStringSubmatch(m); sub != nil {
+		if sub := spidevRe.FindStringSubmatch(m); sub != nil {
 			devices = append(devices, devInfo{Path: m, Device: sub[1]})
 		}
 	}
@@ -123,8 +129,8 @@ func parseSPIArgs(args map[string]interface{}) (device string, speed uint32, mod
 	if !ok || dev == "" {
 		return "", 0, 0, 0, "device is required (e.g. \"2.0\" for /dev/spidev2.0)"
 	}
-	matched, _ := regexp.MatchString(`^\d+\.\d+$`, dev)
-	if !matched {
+	// SWE100821: use pre-compiled spiIDRe
+	if !spiIDRe.MatchString(dev) {
 		return "", 0, 0, 0, "invalid device identifier: must be in format \"X.Y\" (e.g. \"2.0\")"
 	}
 

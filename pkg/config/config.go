@@ -224,6 +224,7 @@ type ProvidersConfig struct {
 	Nvidia        ProviderConfig `json:"nvidia"`
 	GitHubCopilot ProviderConfig `json:"github_copilot"`
 	BitNet        BitNetConfig   `json:"bitnet"`
+	PicoLM        PicoLMConfig   `json:"picolm"` // SWE100821: Local-first inference for embedded/edge
 	RL            RLConfig       `json:"rl"`
 }
 
@@ -235,6 +236,20 @@ type BitNetConfig struct {
 	QuantType   string `json:"quant_type" env:"XAGENT_PROVIDERS_BITNET_QUANT_TYPE"` // e.g., "i2_s", "tl1"
 	ContextSize int    `json:"context_size" env:"XAGENT_PROVIDERS_BITNET_CONTEXT_SIZE"`
 	Threads     int    `json:"threads" env:"XAGENT_PROVIDERS_BITNET_THREADS"`
+}
+
+// SWE100821: PicoLMConfig configures the local PicoLM inference engine.
+// Pure C, 45MB RAM, 80KB binary, zero dependencies. Designed for
+// Jetson Xavier, Raspberry Pi, and other ARM/embedded platforms.
+type PicoLMConfig struct {
+	Enabled     bool    `json:"enabled" env:"XAGENT_PROVIDERS_PICOLM_ENABLED"`
+	Binary      string  `json:"binary" env:"XAGENT_PROVIDERS_PICOLM_BINARY"`             // path to picolm binary
+	ModelPath   string  `json:"model_path" env:"XAGENT_PROVIDERS_PICOLM_MODEL_PATH"`     // path to .gguf model file
+	MaxTokens   int     `json:"max_tokens" env:"XAGENT_PROVIDERS_PICOLM_MAX_TOKENS"`     // generation limit per call
+	Threads     int     `json:"threads" env:"XAGENT_PROVIDERS_PICOLM_THREADS"`            // CPU threads for matmul
+	ContextSize int     `json:"context_size" env:"XAGENT_PROVIDERS_PICOLM_CONTEXT_SIZE"` // context window override
+	Temperature float64 `json:"temperature" env:"XAGENT_PROVIDERS_PICOLM_TEMPERATURE"`
+	CachePath   string  `json:"cache_path" env:"XAGENT_PROVIDERS_PICOLM_CACHE_PATH"` // KV cache file (skip prefill on reuse)
 }
 
 // RLConfig configures the OpenClaw-RL reinforcement learning server.
@@ -369,14 +384,25 @@ func DefaultConfig() *Config {
 			VLLM:       ProviderConfig{},
 			Gemini:     ProviderConfig{},
 			Nvidia:     ProviderConfig{},
-			BitNet: BitNetConfig{
-				Enabled:     false,
-				Model:       "bitnet_b1_58-3B",
-				Runtime:     "python",
-				QuantType:   "i2_s",
-				ContextSize: 2048,
-				Threads:     4,
-			},
+		BitNet: BitNetConfig{
+			Enabled:     false,
+			Model:       "bitnet_b1_58-3B",
+			Runtime:     "python",
+			QuantType:   "i2_s",
+			ContextSize: 2048,
+			Threads:     4,
+		},
+		// SWE100821: PicoLM defaults — auto-enabled on Tegra/RPi by hwprofile
+		PicoLM: PicoLMConfig{
+			Enabled:     false,
+			Binary:      "picolm",
+			ModelPath:   "/opt/picolm/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+			MaxTokens:   256,
+			Threads:     4,
+			ContextSize: 2048,
+			Temperature: 0.7,
+			CachePath:   "",
+		},
 			RL: RLConfig{
 				Enabled:      false,
 				ServerURL:    "",
@@ -544,7 +570,8 @@ func (c *Config) Validate() (warnings []string, err error) {
 		c.Providers.Nvidia.APIKey != "" ||
 		c.Providers.GitHubCopilot.APIBase != "" ||
 		(c.Providers.RL.Enabled && c.Providers.RL.ServerURL != "") ||
-		c.Providers.BitNet.Enabled
+		c.Providers.BitNet.Enabled ||
+		c.Providers.PicoLM.Enabled // SWE100821: PicoLM is fully local, no API key needed
 
 	if !hasProvider {
 		// For CLI providers that don't need keys

@@ -11,6 +11,7 @@ import (
 
 	"github.com/Dawgomatic/Xagent/pkg/agent"
 	"github.com/Dawgomatic/Xagent/pkg/bus"
+	"github.com/Dawgomatic/Xagent/pkg/hwprofile"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/chzyer/readline"
@@ -53,6 +54,14 @@ func agentCmd() {
 
 	msgBus := bus.NewMessageBus()
 	agentLoop := agent.NewAgentLoop(cfg, msgBus, provider)
+
+	// SWE100821: Auto-detect embedded hw and enable compact prompt for PicoLM CLI
+	hwProfile := hwprofile.Detect()
+	hwRec := hwProfile.Recommend()
+	if hwRec.DisablePlanner {
+		agentLoop.DisablePlanner()
+		agentLoop.EnableCompactPrompt()
+	}
 
 	// Print agent startup info (only for interactive mode)
 	startupInfo := agentLoop.GetStartupInfo()

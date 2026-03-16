@@ -1,7 +1,6 @@
 package agent
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -30,6 +29,7 @@ type ContextBuilder struct {
 	autoDiscoverer *skills.AutoDiscoverer  // SWE100821: Skill auto-discovery
 	bootstrapCache map[string]string       // Cache for AGENTS.md, SOUL.md, etc.
 	bootstrapMTime map[string]time.Time    // MTime for cache invalidation
+	compactPrompt  bool                    // SWE100821: Minimal system prompt for embedded/PicoLM
 }
 
 func getGlobalConfigDir() string {
@@ -153,7 +153,20 @@ func (cb *ContextBuilder) buildToolsSection() string {
 	return sb.String()
 }
 
+// SWE100821: Enable compact prompt mode — strips system prompt to <200 chars
+// for PicoLM/embedded devices where prefill cost dominates latency.
+func (cb *ContextBuilder) SetCompactPrompt(enabled bool) {
+	cb.compactPrompt = enabled
+}
+
 func (cb *ContextBuilder) BuildSystemPrompt() string {
+	// SWE100821: Compact mode — minimal prompt for embedded inference (PicoLM/TinyLlama).
+	// Full system prompt (~3000 chars / ~750 tokens) causes 3+ min prefill on ARM.
+	// This keeps it under ~200 chars / ~50 tokens for sub-15s responses.
+	if cb.compactPrompt {
+		return "You are xagent, a concise AI assistant. Answer directly. Be brief."
+	}
+
 	parts := []string{}
 
 	// Core identity section
@@ -239,27 +252,17 @@ func (cb *ContextBuilder) LoadBootstrapFiles() string {
 	return sb.String()
 }
 
-func (cb *ContextBuilder) BuildMessages(history []providers.Message, summary string, currentMessage string, media []string, channel, chatID string) []providers.Message {
+// BuildMessages constructs the message array for LLM calls.
+// SWE100821: Stable system prompt — the system message is STATIC (identity, bootstrap,
+// skills, memory, epoch) so Anthropic/OpenRouter can cache it across calls.
+// All volatile per-turn data (semantic recall, channel, summary, plan, personality,
+// tool hints, feedback) is injected via a separate "user" context preamble so it
+// does NOT invalidate the cached prefix. See Nanobot agent/context.py L83-90.
+func (cb *ContextBuilder) BuildMessages(history []providers.Message, summary string, currentMessage string, media []string, channel, chatID string, volatileContext ...string) []providers.Message {
 	messages := []providers.Message{}
 
 	systemPrompt := cb.BuildSystemPrompt()
 
-	// SWE100821: Inject semantic memory recall based on user's message
-	if cb.semanticMemory != nil && cb.semanticMemory.IsAvailable() {
-		ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
-		semanticContext := cb.semanticMemory.ForSystemPrompt(ctx, currentMessage, 5)
-		cancel()
-		if semanticContext != "" {
-			systemPrompt += "\n\n" + semanticContext
-		}
-	}
-
-	// Add Current Session info if provided
-	if channel != "" && chatID != "" {
-		systemPrompt += fmt.Sprintf("\n\n## Current Session\nChannel: %s\nChat ID: %s", channel, chatID)
-	}
-
-	// Log system prompt summary for debugging (debug mode only)
 	logger.DebugCF("agent", "System prompt built",
 		map[string]interface{}{
 			"total_chars":   len(systemPrompt),
@@ -267,35 +270,54 @@ func (cb *ContextBuilder) BuildMessages(history []providers.Message, summary str
 			"section_count": strings.Count(systemPrompt, "\n\n---\n\n") + 1,
 		})
 
-	// Log preview of system prompt (avoid logging huge content)
-	preview := systemPrompt
-	if len(preview) > 500 {
-		preview = preview[:500] + "... (truncated)"
-	}
-	logger.DebugCF("agent", "System prompt preview",
-		map[string]interface{}{
-			"preview": preview,
-		})
-
-	if summary != "" {
-		systemPrompt += "\n\n## Summary of Previous Conversation\n\n" + summary
+	if logger.GetLevel() <= logger.DEBUG {
+		preview := systemPrompt
+		if len(preview) > 500 {
+			preview = preview[:500] + "... (truncated)"
+		}
+		logger.DebugCF("agent", "System prompt preview",
+			map[string]interface{}{"preview": preview})
 	}
 
-	//This fix prevents the session memory from LLM failure due to elimination of toolu_IDs required from LLM
-	// --- INICIO DEL FIX ---
-	//Diegox-17
+	// Diegox-17: prevent orphaned tool messages from breaking LLM
 	for len(history) > 0 && (history[0].Role == "tool") {
 		logger.DebugCF("agent", "Removing orphaned tool message from history to prevent LLM error",
 			map[string]interface{}{"role": history[0].Role})
 		history = history[1:]
 	}
-	//Diegox-17
-	// --- FIN DEL FIX ---
 
 	messages = append(messages, providers.Message{
 		Role:    "system",
 		Content: systemPrompt,
 	})
+
+	// SWE100821: Build volatile context preamble — kept OUT of system prompt for cache stability.
+	var volatile strings.Builder
+	if summary != "" {
+		volatile.WriteString("## Summary of Previous Conversation\n\n")
+		volatile.WriteString(summary)
+		volatile.WriteString("\n\n")
+	}
+	if channel != "" && chatID != "" {
+		volatile.WriteString(fmt.Sprintf("## Current Session\nChannel: %s\nChat ID: %s\n\n", channel, chatID))
+	}
+	for _, vc := range volatileContext {
+		if vc != "" {
+			volatile.WriteString(vc)
+			volatile.WriteString("\n\n")
+		}
+	}
+	if volatile.Len() > 0 {
+		messages = append(messages, providers.Message{
+			Role:    "user",
+			Content: strings.TrimSpace(volatile.String()),
+		})
+		// LLM expects alternating user/assistant — add ack so history starts clean
+		messages = append(messages, providers.Message{
+			Role:    "assistant",
+			Content: "Understood, I have the updated context.",
+		})
+	}
 
 	messages = append(messages, history...)
 

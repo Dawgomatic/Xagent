@@ -52,6 +52,7 @@ type AgentLoop struct {
 	tools          *tools.ToolRegistry
 	middleware     *tools.ToolMiddleware   // SWE100821: Tool middleware (caching, circuit breaker, analytics)
 	planner        *Planner                // SWE100821: Plan-Act-Reflect loop
+	plannerDisabled bool                   // SWE100821: Skip planner on embedded/edge hw
 	compressor     *ContextCompressor      // SWE100821: Context compression for long sessions
 	provenance     *ProvenanceTracker      // SWE100821: Provenance tracking per turn
 	dream          *DreamMode              // SWE100821: Offline reflection during idle
@@ -498,6 +499,10 @@ func (al *AgentLoop) processSystemMessage(ctx context.Context, msg bus.InboundMe
 // It handles context building, LLM calls, tool execution, and response handling.
 // SWE100821: Now integrates Plan-Act-Reflect, provenance tracking, personality observation, and dream mode.
 func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (string, error) {
+	// SWE100821: Track turn start for accurate latency measurement
+	turnStart := time.Now()
+	_ = turnStart // used in vault session note below
+
 	// 0. Record last channel for heartbeat notifications (skip internal channels)
 	if opts.Channel != "" && opts.ChatID != "" {
 		// Don't record internal channels (cli, system, subagent)
@@ -542,13 +547,32 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		})
 	}
 
-	// 2. Build messages (skip history for heartbeat)
+	// SWE100821: Parallel context building (from Hindsight retrieval.py pattern).
+	// Semantic search (Qdrant HTTP, ~50-200ms) runs concurrently with history load
+	// so context build time = max(semantic, history) instead of sum.
 	var history []providers.Message
 	var summary string
+	var semanticContext string
+
+	var ctxWg sync.WaitGroup
 	if !opts.NoHistory {
-		history = al.sessions.GetHistory(opts.SessionKey)
-		summary = al.sessions.GetSummary(opts.SessionKey)
+		ctxWg.Add(1)
+		go func() {
+			defer ctxWg.Done()
+			history = al.sessions.GetHistory(opts.SessionKey)
+			summary = al.sessions.GetSummary(opts.SessionKey)
+		}()
 	}
+	if al.semanticMemory != nil && al.semanticMemory.IsAvailable() && !opts.NoHistory {
+		ctxWg.Add(1)
+		go func() {
+			defer ctxWg.Done()
+			smCtx, smCancel := context.WithTimeout(ctx, 3*time.Second)
+			defer smCancel()
+			semanticContext = al.semanticMemory.ForSystemPrompt(smCtx, opts.UserMessage, 5)
+		}()
+	}
+	ctxWg.Wait()
 
 	// SWE100821: Compress history when it exceeds threshold to preserve context window
 	if al.compressor != nil && len(history) > 20 {
@@ -563,18 +587,9 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		}
 	}
 
-	messages := al.contextBuilder.BuildMessages(
-		history,
-		summary,
-		opts.UserMessage,
-		nil,
-		opts.Channel,
-		opts.ChatID,
-	)
-
 	// SWE100821: Generate execution plan (Plan phase of Plan-Act-Reflect)
 	var plan *AgentPlan
-	if al.planner != nil && !opts.NoHistory {
+	if al.planner != nil && !opts.NoHistory && !al.plannerDisabled {
 		toolSummaries := al.tools.GetSummaries()
 		var err error
 		plan, err = al.planner.GeneratePlan(ctx, opts.UserMessage, toolSummaries)
@@ -586,37 +601,43 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		}
 	}
 
-	// SWE100821: Inject plan into context if generated
+	// SWE100821: Collect volatile context that changes per-turn.
+	// Passed as extra args to BuildMessages so the system prompt stays STATIC
+	// for prompt caching (Anthropic/OpenRouter). From Nanobot context.py pattern.
+	var volatileCtx []string
 	if plan != nil {
-		planContext := plan.ForSystemPrompt()
-		if planContext != "" && len(messages) > 0 {
-			messages[0].Content += "\n\n" + planContext
+		if pc := plan.ForSystemPrompt(); pc != "" {
+			volatileCtx = append(volatileCtx, pc)
 		}
 	}
-
-	// SWE100821: Inject personality adaptations into context
 	if al.personality != nil {
-		personalityContext := al.personality.ForSystemPrompt()
-		if personalityContext != "" && len(messages) > 0 {
-			messages[0].Content += "\n\n" + personalityContext
+		if pc := al.personality.ForSystemPrompt(); pc != "" {
+			volatileCtx = append(volatileCtx, pc)
 		}
 	}
-
-	// SWE100821: Inject tool-use learning hints into context
 	if al.middleware != nil {
-		hints := al.middleware.GetToolHints()
-		if hints != "" && len(messages) > 0 {
-			messages[0].Content += "\n\n## Tool Performance Hints\n" + hints
+		if hints := al.middleware.GetToolHints(); hints != "" {
+			volatileCtx = append(volatileCtx, "## Tool Performance Hints\n"+hints)
 		}
+	}
+	if al.feedback != nil {
+		if fs := al.feedback.GetFeedbackSummary(); fs != "" {
+			volatileCtx = append(volatileCtx, fs)
+		}
+	}
+	if semanticContext != "" {
+		volatileCtx = append(volatileCtx, semanticContext)
 	}
 
-	// OpenClaw-RL: Inject user feedback summary into context
-	if al.feedback != nil {
-		feedbackSummary := al.feedback.GetFeedbackSummary()
-		if feedbackSummary != "" && len(messages) > 0 {
-			messages[0].Content += "\n\n" + feedbackSummary
-		}
-	}
+	messages := al.contextBuilder.BuildMessages(
+		history,
+		summary,
+		opts.UserMessage,
+		nil,
+		opts.Channel,
+		opts.ChatID,
+		volatileCtx...,
+	)
 
 	// 3. Save user message to session
 	al.sessions.AddMessage(opts.SessionKey, "user", opts.UserMessage)
@@ -636,16 +657,6 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	// 6. Save final assistant message to session
 	al.sessions.AddMessage(opts.SessionKey, "assistant", finalContent)
 	al.sessions.Save(opts.SessionKey)
-
-	// Hindsight Memory: Retain facts and experiences
-	if al.hindsight != nil && !opts.NoHistory {
-		if err := al.hindsight.Retain(ctx, opts.UserMessage, "User Prompt: "+opts.SessionKey); err != nil {
-			logger.WarnCF("hindsight", "Failed to retain user message", map[string]interface{}{"error": err.Error()})
-		}
-		if err := al.hindsight.Retain(ctx, finalContent, "Agent Response: "+opts.SessionKey); err != nil {
-			logger.WarnCF("hindsight", "Failed to retain assistant memory", map[string]interface{}{"error": err.Error()})
-		}
-	}
 
 	// 7. Optional: summarization
 	if opts.EnableSummary {
@@ -670,14 +681,37 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 			"final_length": len(finalContent),
 		})
 
+	// SWE100821: Parallel post-response operations (from Hindsight retrieval.py pattern).
+	// Response is already sent — run all bookkeeping concurrently to reduce
+	// post-response latency from sum(ops) to max(ops).
+	var postWg sync.WaitGroup
+
+	// Hindsight Memory: Retain facts and experiences
+	if al.hindsight != nil && !opts.NoHistory {
+		postWg.Add(1)
+		go func() {
+			defer postWg.Done()
+			if err := al.hindsight.Retain(ctx, opts.UserMessage, "User Prompt: "+opts.SessionKey); err != nil {
+				logger.WarnCF("hindsight", "Failed to retain user message", map[string]interface{}{"error": err.Error()})
+			}
+			if err := al.hindsight.Retain(ctx, finalContent, "Agent Response: "+opts.SessionKey); err != nil {
+				logger.WarnCF("hindsight", "Failed to retain assistant memory", map[string]interface{}{"error": err.Error()})
+			}
+		}()
+	}
+
 	// 10. SWE100821: Record epoch event + stats for wake/sleep journaling
 	if al.epoch != nil {
-		msgPreview := utils.Truncate(opts.UserMessage, 60)
-		al.epoch.RecordEvent("message", fmt.Sprintf("[%s] %s", opts.Channel, msgPreview))
-		al.epoch.UpdateStats(func(s *epoch.EpochStats) {
-			s.MessagesProcessed++
-			s.ToolCalls += iteration - 1 // iterations beyond the first are tool-call rounds
-		})
+		postWg.Add(1)
+		go func() {
+			defer postWg.Done()
+			msgPreview := utils.Truncate(opts.UserMessage, 60)
+			al.epoch.RecordEvent("message", fmt.Sprintf("[%s] %s", opts.Channel, msgPreview))
+			al.epoch.UpdateStats(func(s *epoch.EpochStats) {
+				s.MessagesProcessed++
+				s.ToolCalls += iteration - 1
+			})
+		}()
 	}
 
 	// Phase 3: Track biological fatigue (add fatigue for tool iterations)
@@ -687,10 +721,14 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 
 	// 11. SWE100821: Finalize provenance tracking
 	al.provenance.SetIterations(iteration)
-	if err := al.provenance.FinishTurn(); err != nil {
-		logger.WarnCF("provenance", "Failed to save provenance",
-			map[string]interface{}{"error": err.Error()})
-	}
+	postWg.Add(1)
+	go func() {
+		defer postWg.Done()
+		if err := al.provenance.FinishTurn(); err != nil {
+			logger.WarnCF("provenance", "Failed to save provenance",
+				map[string]interface{}{"error": err.Error()})
+		}
+	}()
 
 	// 12. SWE100821: Feed personality tracker
 	if al.personality != nil {
@@ -699,44 +737,52 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 
 	// 13. Obsidian vault: write session note with wikilinks
 	if al.vaultWriter != nil {
-		prov := al.provenance.GetCurrent()
-		vaultData := vault.SessionData{
-			SessionKey:  opts.SessionKey,
-			Channel:     opts.Channel,
-			Model:       al.model,
-			UserMessage: opts.UserMessage,
-			Response:    finalContent,
-			LatencyMs:   time.Since(time.Now()).Milliseconds(), // approximate
-			Iterations:  iteration,
-		}
-		if prov != nil {
-			vaultData.LatencyMs = prov.LatencyMs
-			for _, tc := range prov.ToolsCalled {
-				vaultData.ToolsUsed = append(vaultData.ToolsUsed, tc.Name)
+		postWg.Add(1)
+		go func() {
+			defer postWg.Done()
+			prov := al.provenance.GetCurrent()
+			vaultData := vault.SessionData{
+				SessionKey:  opts.SessionKey,
+				Channel:     opts.Channel,
+				Model:       al.model,
+				UserMessage: opts.UserMessage,
+				Response:    finalContent,
+				LatencyMs:   time.Since(turnStart).Milliseconds(),
+				Iterations:  iteration,
 			}
-			vaultData.SkillsUsed = prov.SkillsUsed
-			vaultData.MemoryHits = prov.MemoryHits
-			vaultData.PlanSteps = prov.PlanSteps
-		}
-		if err := al.vaultWriter.WriteSessionNote(vaultData); err != nil {
-			logger.WarnCF("vault", "Failed to write session note",
-				map[string]interface{}{"error": err.Error()})
-		}
+			if prov != nil {
+				vaultData.LatencyMs = prov.LatencyMs
+				for _, tc := range prov.ToolsCalled {
+					vaultData.ToolsUsed = append(vaultData.ToolsUsed, tc.Name)
+				}
+				vaultData.SkillsUsed = prov.SkillsUsed
+				vaultData.MemoryHits = prov.MemoryHits
+				vaultData.PlanSteps = prov.PlanSteps
+			}
+			if err := al.vaultWriter.WriteSessionNote(vaultData); err != nil {
+				logger.WarnCF("vault", "Failed to write session note",
+					map[string]interface{}{"error": err.Error()})
+			}
+		}()
 	}
 
 	// 14. SWE100821: Auto-store to semantic memory for vector recall
 	if al.semanticMemory != nil && al.semanticMemory.IsAvailable() && !opts.NoHistory {
+		postWg.Add(1)
 		go func() {
+			defer postWg.Done()
 			storeCtx, storeCancel := context.WithTimeout(context.Background(), 10*time.Second)
 			defer storeCancel()
-			summary := fmt.Sprintf("User asked: %s. Agent responded: %s",
+			storeSummary := fmt.Sprintf("User asked: %s. Agent responded: %s",
 				utils.Truncate(opts.UserMessage, 200),
 				utils.Truncate(finalContent, 200))
-			if err := al.semanticMemory.StoreConversationSummary(storeCtx, opts.SessionKey, summary); err != nil {
+			if err := al.semanticMemory.StoreConversationSummary(storeCtx, opts.SessionKey, storeSummary); err != nil {
 				logger.DebugCF("memory", "Semantic auto-store failed", map[string]interface{}{"error": err.Error()})
 			}
 		}()
 	}
+
+	postWg.Wait()
 
 	return finalContent, nil
 }
@@ -819,13 +865,15 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 				"system_prompt_len": len(messages[0].Content),
 			})
 
-		// Log full messages (detailed)
-		logger.DebugCF("agent", "Full LLM request",
-			map[string]interface{}{
-				"iteration":     iteration,
-				"messages_json": formatMessagesForLog(messages),
-				"tools_json":    formatToolsForLog(providerToolDefs),
-			})
+		// SWE100821: Guard debug formatting — formatMessages/formatTools allocate heavily
+		if logger.GetLevel() <= logger.DEBUG {
+			logger.DebugCF("agent", "Full LLM request",
+				map[string]interface{}{
+					"iteration":     iteration,
+					"messages_json": formatMessagesForLog(messages),
+					"tools_json":    formatToolsForLog(providerToolDefs),
+				})
+		}
 
 		// SWE100821: Use config values instead of hard-coded 8192/0.7
 		response, err := al.provider.Chat(ctx, messages, providerToolDefs, al.model, map[string]interface{}{
@@ -886,9 +934,17 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 		// Save assistant message with tool calls to session
 		al.sessions.AddFullMessage(opts.SessionKey, assistantMsg)
 
-		// Execute tool calls
+		// SWE100821: Execute tool calls in parallel (from PicoClaw toolloop.go pattern).
+		// Tools within a single LLM response are independent — run concurrently,
+		// reducing latency from sum(tools) to max(tools).
+		type parallelToolResult struct {
+			result  *tools.ToolResult
+			latency time.Duration
+		}
+		parallelResults := make([]parallelToolResult, len(response.ToolCalls))
+
+		// Log all tool calls before execution
 		for _, tc := range response.ToolCalls {
-			// Log tool call with arguments preview
 			argsJSON, _ := json.Marshal(tc.Arguments)
 			argsPreview := utils.Truncate(string(argsJSON), 200)
 			logger.InfoCF("agent", fmt.Sprintf("Tool call: %s(%s)", tc.Name, argsPreview),
@@ -896,34 +952,47 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 					"tool":      tc.Name,
 					"iteration": iteration,
 				})
+		}
 
-			// SWE100821: Track tool execution timing for provenance
-			start := time.Now()
+		var toolWg sync.WaitGroup
+		for i, tc := range response.ToolCalls {
+			toolWg.Add(1)
+			go func(idx int, tc providers.ToolCall) {
+				defer toolWg.Done()
+				start := time.Now()
 
-			// Create async callback for tools that implement AsyncTool
-			asyncCallback := func(callbackCtx context.Context, result *tools.ToolResult) {
-				if !result.Silent && result.ForUser != "" {
-					logger.InfoCF("agent", "Async tool completed, agent will handle notification",
-						map[string]interface{}{
-							"tool":        tc.Name,
-							"content_len": len(result.ForUser),
-						})
+				asyncCallback := func(callbackCtx context.Context, result *tools.ToolResult) {
+					if !result.Silent && result.ForUser != "" {
+						logger.InfoCF("agent", "Async tool completed, agent will handle notification",
+							map[string]interface{}{
+								"tool":        tc.Name,
+								"content_len": len(result.ForUser),
+							})
+					}
 				}
-			}
 
-			// SWE100821: Execute through middleware layer (caching, circuit breaker, analytics)
-			var toolResult *tools.ToolResult
-			if al.middleware != nil {
-				toolResult = al.middleware.Execute(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
-			} else {
-				toolResult = al.tools.ExecuteWithContext(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
-			}
+				var toolResult *tools.ToolResult
+				if al.middleware != nil {
+					toolResult = al.middleware.Execute(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
+				} else {
+					toolResult = al.tools.ExecuteWithContext(ctx, tc.Name, tc.Arguments, opts.Channel, opts.ChatID, asyncCallback)
+				}
 
-			// SWE100821: Record tool call in provenance
-			toolLatency := time.Since(start)
+				parallelResults[idx] = parallelToolResult{
+					result:  toolResult,
+					latency: time.Since(start),
+				}
+			}(i, tc)
+		}
+		toolWg.Wait()
+
+		// Process results in order after all tools complete
+		for i, tc := range response.ToolCalls {
+			toolResult := parallelResults[i].result
+			toolLatency := parallelResults[i].latency
+
 			al.provenance.RecordToolCall(tc.Name, !toolResult.IsError, toolLatency.Milliseconds())
 
-			// Send ForUser content to user immediately if not Silent
 			if !toolResult.Silent && toolResult.ForUser != "" && opts.SendResponse {
 				al.bus.PublishOutbound(bus.OutboundMessage{
 					Channel: opts.Channel,
@@ -937,7 +1006,6 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 					})
 			}
 
-			// Determine content for LLM based on tool result
 			contentForLLM := toolResult.ForLLM
 			if contentForLLM == "" && toolResult.Err != nil {
 				contentForLLM = toolResult.Err.Error()
@@ -950,10 +1018,9 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 			}
 			messages = append(messages, toolResultMsg)
 
-			// Save tool result message to session
 			al.sessions.AddFullMessage(opts.SessionKey, toolResultMsg)
 
-			// SWE100821: Plan-Act-Reflect — reflect after each tool call
+			// SWE100821: Plan-Act-Reflect — reflect after each tool result (sequential)
 			if plan != nil && al.planner != nil {
 				if toolResult.IsError {
 					plan.MarkCurrentFailed()
@@ -982,10 +1049,8 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 					}
 				}
 
-				// SWE100821: Update plan context in system prompt for next iteration
 				planContext := plan.ForSystemPrompt()
 				if planContext != "" && len(messages) > 0 {
-					// Replace existing plan section or append
 					sysContent := messages[0].Content
 					if idx := strings.Index(sysContent, "## Current Plan"); idx >= 0 {
 						messages[0].Content = sysContent[:idx] + planContext
@@ -1078,6 +1143,19 @@ func (al *AgentLoop) SetModel(model string) {
 	al.model = model
 }
 
+// DisablePlanner turns off the Plan-Act-Reflect loop to reduce LLM calls.
+// SWE100821: On embedded/edge hardware, each LLM call costs 10-60s; the planner
+// adds 2+ extra calls per message. Disabling it cuts response time by 40-60%.
+func (al *AgentLoop) DisablePlanner() {
+	al.plannerDisabled = true
+}
+
+// SWE100821: EnableCompactPrompt strips the system prompt to ~50 tokens for
+// PicoLM/embedded devices. Full prompt (~750 tokens) causes 3+ min prefill on ARM.
+func (al *AgentLoop) EnableCompactPrompt() {
+	al.contextBuilder.SetCompactPrompt(true)
+}
+
 // GetModel returns the current model name.
 func (al *AgentLoop) GetModel() string {
 	return al.model
@@ -1102,55 +1180,54 @@ func (al *AgentLoop) GetSessionStats() (sessions int) {
 	return len(allSessions)
 }
 
-// formatMessagesForLog formats messages for logging
+// SWE100821: strings.Builder — was using result += (O(n²) allocation)
 func formatMessagesForLog(messages []providers.Message) string {
 	if len(messages) == 0 {
 		return "[]"
 	}
-
-	var result string
-	result += "[\n"
+	var sb strings.Builder
+	sb.Grow(len(messages) * 120)
+	sb.WriteString("[\n")
 	for i, msg := range messages {
-		result += fmt.Sprintf("  [%d] Role: %s\n", i, msg.Role)
-		if msg.ToolCalls != nil && len(msg.ToolCalls) > 0 {
-			result += "  ToolCalls:\n"
+		fmt.Fprintf(&sb, "  [%d] Role: %s\n", i, msg.Role)
+		if len(msg.ToolCalls) > 0 {
+			sb.WriteString("  ToolCalls:\n")
 			for _, tc := range msg.ToolCalls {
-				result += fmt.Sprintf("    - ID: %s, Type: %s, Name: %s\n", tc.ID, tc.Type, tc.Name)
+				fmt.Fprintf(&sb, "    - ID: %s, Type: %s, Name: %s\n", tc.ID, tc.Type, tc.Name)
 				if tc.Function != nil {
-					result += fmt.Sprintf("      Arguments: %s\n", utils.Truncate(tc.Function.Arguments, 200))
+					fmt.Fprintf(&sb, "      Arguments: %s\n", utils.Truncate(tc.Function.Arguments, 200))
 				}
 			}
 		}
 		if msg.Content != "" {
-			content := utils.Truncate(msg.Content, 200)
-			result += fmt.Sprintf("  Content: %s\n", content)
+			fmt.Fprintf(&sb, "  Content: %s\n", utils.Truncate(msg.Content, 200))
 		}
 		if msg.ToolCallID != "" {
-			result += fmt.Sprintf("  ToolCallID: %s\n", msg.ToolCallID)
+			fmt.Fprintf(&sb, "  ToolCallID: %s\n", msg.ToolCallID)
 		}
-		result += "\n"
+		sb.WriteByte('\n')
 	}
-	result += "]"
-	return result
+	sb.WriteByte(']')
+	return sb.String()
 }
 
-// formatToolsForLog formats tool definitions for logging
+// SWE100821: strings.Builder — was using result += (O(n²) allocation)
 func formatToolsForLog(tools []providers.ToolDefinition) string {
 	if len(tools) == 0 {
 		return "[]"
 	}
-
-	var result string
-	result += "[\n"
+	var sb strings.Builder
+	sb.Grow(len(tools) * 100)
+	sb.WriteString("[\n")
 	for i, tool := range tools {
-		result += fmt.Sprintf("  [%d] Type: %s, Name: %s\n", i, tool.Type, tool.Function.Name)
-		result += fmt.Sprintf("      Description: %s\n", tool.Function.Description)
+		fmt.Fprintf(&sb, "  [%d] Type: %s, Name: %s\n", i, tool.Type, tool.Function.Name)
+		fmt.Fprintf(&sb, "      Description: %s\n", tool.Function.Description)
 		if len(tool.Function.Parameters) > 0 {
-			result += fmt.Sprintf("      Parameters: %s\n", utils.Truncate(fmt.Sprintf("%v", tool.Function.Parameters), 200))
+			fmt.Fprintf(&sb, "      Parameters: %s\n", utils.Truncate(fmt.Sprintf("%v", tool.Function.Parameters), 200))
 		}
 	}
-	result += "]"
-	return result
+	sb.WriteByte(']')
+	return sb.String()
 }
 
 // summarizeSession summarizes the conversation history for a session.

@@ -13,6 +13,9 @@ import (
 	"time"
 )
 
+// SWE100821: Pre-compiled regex — was recompiling per guardCommand call
+var shellPathRe = regexp.MustCompile(`[A-Za-z]:\\[^\\\"']+|/[^\s\"']+`)
+
 // SandboxExecutor abstracts sandboxed command execution (implemented by sandbox.NamespaceSandbox).
 type SandboxExecutor interface {
 	Execute(ctx context.Context, command, workDir string) (stdout, stderr string, exitCode int, err error)
@@ -218,8 +221,8 @@ func (t *ExecTool) guardCommand(command, cwd string) string {
 			return ""
 		}
 
-		pathPattern := regexp.MustCompile(`[A-Za-z]:\\[^\\\"']+|/[^\s\"']+`)
-		matches := pathPattern.FindAllString(cmd, -1)
+		// SWE100821: use pre-compiled shellPathRe
+		matches := shellPathRe.FindAllString(cmd, -1)
 
 		for _, raw := range matches {
 			p, err := filepath.Abs(raw)

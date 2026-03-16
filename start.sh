@@ -241,6 +241,104 @@ install_ollama() {
     log_success "Ollama installed and enabled"
 }
 
+# SWE100821: Install PicoLM local inference engine for Tegra/RPi platforms.
+# Builds the C binary from reference/picolm, downloads TinyLlama 1.1B model.
+# 45MB RAM, 80KB binary, zero deps — runs fully offline.
+install_picolm() {
+    log_info "Installing PicoLM local inference engine..."
+
+    PICOLM_SRC="$INSTALL_DIR/reference/picolm/picolm"
+    PICOLM_BIN="/usr/local/bin/picolm"
+    PICOLM_MODEL_DIR="/opt/picolm/models"
+    PICOLM_MODEL="$PICOLM_MODEL_DIR/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
+
+    # Build picolm from source
+    if [ -f "$PICOLM_BIN" ]; then
+        log_success "PicoLM binary already installed"
+    elif [ -d "$PICOLM_SRC" ]; then
+        log_info "Building PicoLM from source..."
+        cd "$PICOLM_SRC"
+
+        # SWE100821: Select build target based on platform
+        case $PLATFORM in
+            xavier)
+                make pi 2>&1 | tail -3
+                ;;
+            rpi4|rpi5)
+                make pi 2>&1 | tail -3
+                ;;
+            rpi3|rpi)
+                # 32-bit ARM
+                if [ "$(uname -m)" = "armv7l" ]; then
+                    make pi-arm32 2>&1 | tail -3
+                else
+                    make pi 2>&1 | tail -3
+                fi
+                ;;
+            *)
+                make native 2>&1 | tail -3
+                ;;
+        esac
+
+        if [ -f picolm ]; then
+            sudo install -m 755 picolm "$PICOLM_BIN"
+            log_success "PicoLM built and installed to $PICOLM_BIN"
+        else
+            log_error "PicoLM build failed. Check: cd $PICOLM_SRC && make native"
+            cd "$INSTALL_DIR"
+            return 1
+        fi
+        cd "$INSTALL_DIR"
+    else
+        log_warning "PicoLM source not found at $PICOLM_SRC (missing git submodule?)"
+        log_warning "Fix: git submodule update --init reference/picolm"
+        return 1
+    fi
+
+    # Download model
+    if [ -f "$PICOLM_MODEL" ]; then
+        log_success "PicoLM model already downloaded"
+    elif [ "$HAS_INTERNET" = true ]; then
+        log_info "Downloading TinyLlama 1.1B Q4_K_M (638 MB)..."
+        sudo mkdir -p "$PICOLM_MODEL_DIR"
+        sudo chown "$USER:$USER" "$PICOLM_MODEL_DIR"
+
+        # SWE100821: Use external storage if root is low on space
+        if [ -n "$EXT_STORAGE" ]; then
+            EXT_MODEL_DIR="$EXT_STORAGE/picolm/models"
+            mkdir -p "$EXT_MODEL_DIR"
+            wget -q --show-progress \
+                "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf" \
+                -O "$EXT_MODEL_DIR/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf" || {
+                    log_warning "Model download failed. PicoLM will not work until model is available."
+                    return 0
+                }
+            sudo ln -sf "$EXT_MODEL_DIR/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf" "$PICOLM_MODEL"
+        else
+            wget -q --show-progress \
+                "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf" \
+                -O "$PICOLM_MODEL" || {
+                    log_warning "Model download failed. PicoLM will not work until model is available."
+                    return 0
+                }
+        fi
+        log_success "PicoLM model downloaded (638 MB)"
+    else
+        log_warning "No internet — skipping model download. Transfer model manually to $PICOLM_MODEL"
+    fi
+
+    # Smoke test
+    if [ -f "$PICOLM_BIN" ] && [ -f "$PICOLM_MODEL" ]; then
+        log_info "Running PicoLM smoke test..."
+        SMOKE=$("$PICOLM_BIN" "$PICOLM_MODEL" -p "Hello" -n 5 -t 0 2>/dev/null | head -1)
+        if [ -n "$SMOKE" ]; then
+            log_success "PicoLM smoke test passed"
+        else
+            log_warning "PicoLM smoke test produced no output (may still work)"
+        fi
+    fi
+}
+
 # SWE100821: Hardware-aware model selection — correlates RAM, GPU VRAM, and platform
 detect_compute_tier() {
     RAM_KB=$(grep MemTotal /proc/meminfo | awk '{print $2}')
@@ -258,8 +356,11 @@ detect_compute_tier() {
     
     CPU_CORES=$(nproc 2>/dev/null || echo 1)
     
-    # Tier classification (mirrors pkg/hwprofile/hwprofile.go classify())
-    if [ "$GPU_VRAM_MB" -gt 0 ] && [ "$GPU_NAME" != "none" ]; then
+    # SWE100821: Tier classification (mirrors pkg/hwprofile/hwprofile.go classify())
+    # Tegra (Xavier/Orin) gets its own tier — shared memory, local-first inference
+    if [ "$GPU_NAME" = "Tegra" ]; then
+        COMPUTE_TIER="tegra"
+    elif [ "$GPU_VRAM_MB" -gt 0 ] && [ "$GPU_NAME" != "none" ]; then
         COMPUTE_TIER="gpu"
     elif [ "$RAM_MB" -ge 32000 ]; then
         COMPUTE_TIER="high"
@@ -275,9 +376,14 @@ detect_compute_tier() {
     log_success "Compute tier: $COMPUTE_TIER"
 }
 
-# SWE100821: Select Ollama model based on compute tier and VRAM
+# SWE100821: Select model based on compute tier and VRAM
 select_model() {
     case $COMPUTE_TIER in
+        # SWE100821: Tegra uses PicoLM, not Ollama — local-first, 45MB RAM
+        tegra)
+            MODEL="picolm-local"
+            USE_PICOLM=true
+            ;;
         gpu)
             if [ "$GPU_VRAM_MB" -ge 48000 ]; then
                 MODEL="llama3.1:70b"
@@ -293,14 +399,24 @@ select_model() {
             ;;
         high)   MODEL="llama3.1:8b" ;;
         mid)    MODEL="llama3.1:8b" ;;
-        low)    MODEL="phi3:3.8b" ;;
-        *)      MODEL="tinyllama:1.1b" ;;
+        low)
+            MODEL="picolm-local"
+            USE_PICOLM=true
+            ;;
+        *)
+            MODEL="picolm-local"
+            USE_PICOLM=true
+            ;;
     esac
 }
 
 # SWE100821: Select tuning parameters based on compute tier
 select_tuning() {
     case $COMPUTE_TIER in
+        # SWE100821: Tegra — PicoLM with tight token budget, planner disabled
+        tegra)
+            MAX_TOKENS=256; TEMPERATURE="0.7"; MAX_ITER=10; MAX_SUB=1; MSG_TIMEOUT=120
+            ;;
         gpu)
             MAX_TOKENS=8192; TEMPERATURE="0.7"; MAX_ITER=25; MAX_SUB=5; MSG_TIMEOUT=300
             ;;
@@ -311,10 +427,10 @@ select_tuning() {
             MAX_TOKENS=4096; TEMPERATURE="0.7"; MAX_ITER=15; MAX_SUB=3; MSG_TIMEOUT=300
             ;;
         low)
-            MAX_TOKENS=2048; TEMPERATURE="0.5"; MAX_ITER=10; MAX_SUB=1; MSG_TIMEOUT=600
+            MAX_TOKENS=256; TEMPERATURE="0.5"; MAX_ITER=10; MAX_SUB=1; MSG_TIMEOUT=600
             ;;
         *)
-            MAX_TOKENS=1024; TEMPERATURE="0.3"; MAX_ITER=5; MAX_SUB=1; MSG_TIMEOUT=900
+            MAX_TOKENS=128; TEMPERATURE="0.3"; MAX_ITER=5; MAX_SUB=1; MSG_TIMEOUT=900
             ;;
     esac
 }
@@ -333,7 +449,27 @@ download_model() {
     select_tuning
     
     log_info "Selected model: $MODEL (tier=$COMPUTE_TIER, max_tokens=$MAX_TOKENS)"
-    
+
+    # SWE100821: PicoLM tiers don't use Ollama for inference — skip pull
+    if [ "$USE_PICOLM" = true ]; then
+        log_info "Using PicoLM for inference — skipping Ollama model pull"
+        # Still persist the hw config for configure_xagent
+        cat > ~/.ollama_model << HWEOF
+MODEL=$MODEL
+COMPUTE_TIER=$COMPUTE_TIER
+MAX_TOKENS=$MAX_TOKENS
+TEMPERATURE=$TEMPERATURE
+MAX_ITER=$MAX_ITER
+MAX_SUB=$MAX_SUB
+MSG_TIMEOUT=$MSG_TIMEOUT
+RAM_MB=$RAM_MB
+GPU_VRAM_MB=$GPU_VRAM_MB
+CPU_CORES=$CPU_CORES
+USE_PICOLM=true
+HWEOF
+        return 0
+    fi
+
     ollama pull $MODEL > /dev/null 2>&1 || {
         log_warning "Failed to download model, will retry later"
         return
@@ -488,13 +624,38 @@ configure_xagent() {
             ;;
     esac
 
+    # SWE100821: Select provider config based on whether PicoLM is active
+    if [ "$USE_PICOLM" = true ]; then
+        PROVIDER_NAME="picolm"
+        PROVIDER_BLOCK='"vllm": {
+      "api_key": "not-needed",
+      "api_base": "http://localhost:11434/v1"
+    },
+    "picolm": {
+      "enabled": true,
+      "binary": "picolm",
+      "model_path": "/opt/picolm/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+      "max_tokens": '$MAX_TOKENS',
+      "threads": '$CPU_CORES',
+      "context_size": 2048,
+      "temperature": '$TEMPERATURE',
+      "cache_path": "~/.xagent/workspace/picolm-system.kvc"
+    }'
+    else
+        PROVIDER_NAME="vllm"
+        PROVIDER_BLOCK='"vllm": {
+      "api_key": "not-needed",
+      "api_base": "http://localhost:11434/v1"
+    }'
+    fi
+
     cat > ~/.xagent/config.json << EOF
 {
   "agents": {
     "defaults": {
       "workspace": "~/.xagent/workspace",
       "restrict_to_workspace": true,
-      "provider": "vllm",
+      "provider": "$PROVIDER_NAME",
       "model": "$MODEL",
       "max_tokens": $MAX_TOKENS,
       "temperature": $TEMPERATURE,
@@ -502,10 +663,7 @@ configure_xagent() {
     }
   },
   "providers": {
-    "vllm": {
-      "api_key": "not-needed",
-      "api_base": "http://localhost:11434/v1"
-    }
+    $PROVIDER_BLOCK
   },
   "channels": {},
   "tools": {
@@ -1009,6 +1167,11 @@ main() {
         install_ollama
         download_model
     fi
+
+    # SWE100821: Install PicoLM for local-first inference on Tegra/embedded
+    if [ "$USE_PICOLM" = true ] || [ "$PLATFORM" = "xavier" ]; then
+        install_picolm
+    fi
     
     install_xagent
     install_qdrant
@@ -1030,8 +1193,11 @@ main() {
     echo "Platform: $PLATFORM (Ubuntu $OS_VERSION)"
     echo "Python: $PYTHON_VERSION"
     echo "Ollama: $([ "$OLLAMA_SUPPORTED" = true ] && echo 'Installed' || echo 'Skipped')"
-    if [ "$OLLAMA_SUPPORTED" = true ]; then
-        echo "Model: $(cat ~/.ollama_model 2>/dev/null | cut -d= -f2 || echo 'Not set')"
+    if [ "$USE_PICOLM" = true ]; then
+        echo "Inference: PicoLM (local-first, 45MB RAM, zero network)"
+        echo "Model: TinyLlama 1.1B Q4_K_M (638 MB on disk)"
+    elif [ "$OLLAMA_SUPPORTED" = true ]; then
+        echo "Model: $(grep '^MODEL=' ~/.ollama_model 2>/dev/null | cut -d= -f2 || echo 'Not set')"
     fi
     echo ""
     echo "Services enabled for auto-start on boot:"
