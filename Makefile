@@ -71,7 +71,7 @@ generate:
 	@echo "Run generate complete"
 
 ## build: Build the xagent binary for current platform
-build: generate
+build: generate check-embed
 	@echo "Building $(BINARY_NAME) for $(PLATFORM)/$(ARCH)..."
 	@mkdir -p $(BUILD_DIR)
 	@$(GO) build $(GOFLAGS) $(LDFLAGS) -o $(BINARY_PATH) ./$(CMD_DIR)
@@ -131,9 +131,13 @@ test:
 fmt:
 	@$(GO) fmt ./...
 
-## deps: Update dependencies
+## check-embed: Verify embedded files exist before build (SWE100821)
+check-embed:
+	@test -f pkg/skills/catalog.json || (echo "ERROR: pkg/skills/catalog.json missing (required by //go:embed). Run 'git checkout pkg/skills/catalog.json' or rebuild the catalog." && exit 1)
+
+## deps: Update dependencies (SWE100821: scoped to cmd/pkg to avoid skills/ stray Go files)
 deps:
-	@$(GO) get -u ./...
+	@$(GO) get -u ./cmd/... ./pkg/...
 	@$(GO) mod tidy
 
 ## run: Build and run xagent

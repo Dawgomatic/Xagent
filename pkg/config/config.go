@@ -53,9 +53,10 @@ type Config struct {
 	Heartbeat HeartbeatConfig `json:"heartbeat"`
 	Devices   DevicesConfig   `json:"devices"`
 	Vault     VaultConfig     `json:"vault"`
-	MCP       MCPConfig       `json:"mcp"`   // SWE100821: Config-driven MCP server registration
-	Phone     PhoneConfig     `json:"phone"` // SWE100821: USB-attached phone access via ADB/libimobiledevice
-	mu        sync.RWMutex
+	MCP            MCPConfig            `json:"mcp"`             // SWE100821: Config-driven MCP server registration
+	Phone          PhoneConfig          `json:"phone"`           // SWE100821: USB-attached phone access via ADB/libimobiledevice
+	SemanticMemory SemanticMemoryConfig `json:"semantic_memory"` // SWE100821: Vector memory via Qdrant + Ollama embeddings
+	mu             sync.RWMutex
 }
 
 // SWE100821: MCPConfig holds config-driven MCP server definitions.
@@ -201,6 +202,16 @@ type PhoneConfig struct {
 	AutoDetect bool     `json:"auto_detect" env:"XAGENT_PHONE_AUTO_DETECT"`
 	Serial     string   `json:"serial" env:"XAGENT_PHONE_SERIAL"`
 	DenyShell  []string `json:"deny_shell"`
+}
+
+// SWE100821: SemanticMemoryConfig controls vector-based memory via Qdrant + Ollama embeddings.
+// When qdrant_url is reachable, the agent stores and retrieves memories by semantic similarity.
+// Falls back gracefully to file-based memory if Qdrant is unavailable.
+type SemanticMemoryConfig struct {
+	QdrantURL  string `json:"qdrant_url" env:"XAGENT_SEMANTIC_MEMORY_QDRANT_URL"`
+	OllamaURL  string `json:"ollama_url" env:"XAGENT_SEMANTIC_MEMORY_OLLAMA_URL"`
+	Collection string `json:"collection" env:"XAGENT_SEMANTIC_MEMORY_COLLECTION"`
+	EmbedModel string `json:"embed_model" env:"XAGENT_SEMANTIC_MEMORY_EMBED_MODEL"`
 }
 
 type ProvidersConfig struct {
@@ -414,6 +425,13 @@ func DefaultConfig() *Config {
 			AutoDetect: true,
 			Serial:     "",
 			DenyShell:  []string{},
+		},
+		// SWE100821: Semantic memory defaults — empty strings use hardcoded defaults in pkg/memory/semantic.go
+		SemanticMemory: SemanticMemoryConfig{
+			QdrantURL:  "http://localhost:6333",
+			OllamaURL:  "http://localhost:11434",
+			Collection: "xagent_memory",
+			EmbedModel: "nomic-embed-text",
 		},
 	}
 }

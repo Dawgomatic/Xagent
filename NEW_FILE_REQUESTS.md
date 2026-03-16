@@ -104,6 +104,10 @@
 - **Purpose:** Tests for vault sync — Export, Import, latest-writer-wins conflict resolution.
 - **Duplicate search:** Searched `pkg/agent2agent/*_test.go` — no sync tests. No existing test file found.
 
+## pkg/dashboard/dashboard_html.go
+- **Purpose:** Interactive dashboard HTML — tabbed SPA with memory editor, vault browser, epoch/provenance detail views, config viewer, and system metrics. Extracted from dashboard.go to keep Go handlers separate from the HTML const.
+- **Duplicate search:** Searched `pkg/dashboard/` (dashboard.go had inline `dashboardHTML` const — replaced and moved to separate file), `pkg/` (no other HTML templates). No duplicate found.
+
 ## pkg/dashboard/dashboard_test.go
 - **Purpose:** Tests for cognitive dashboard — HTML endpoint, state JSON, skills list via httptest.
 - **Duplicate search:** Searched `pkg/dashboard/*_test.go` — no dashboard tests. No existing test file found.

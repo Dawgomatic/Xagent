@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
@@ -39,15 +40,22 @@ func getGlobalConfigDir() string {
 	return filepath.Join(home, ".xagent")
 }
 
-func NewContextBuilder(workspace string) *ContextBuilder {
+func NewContextBuilder(workspace string, smCfg ...config.SemanticMemoryConfig) *ContextBuilder {
 	// builtin skills: skills directory in current project
 	// Use the skills/ directory under the current working directory
 	wd, _ := os.Getwd()
 	builtinSkillsDir := filepath.Join(wd, "skills")
 	globalSkillsDir := filepath.Join(getGlobalConfigDir(), "skills")
 
-	// SWE100821: Initialize semantic memory (Qdrant + Ollama embeddings)
-	semanticMem := memory.NewSemanticMemory("", "", "", "")
+	// SWE100821: Initialize semantic memory (Qdrant + Ollama embeddings) — config-driven
+	var qdrantURL, ollamaURL, collection, embedModel string
+	if len(smCfg) > 0 {
+		qdrantURL = smCfg[0].QdrantURL
+		ollamaURL = smCfg[0].OllamaURL
+		collection = smCfg[0].Collection
+		embedModel = smCfg[0].EmbedModel
+	}
+	semanticMem := memory.NewSemanticMemory(qdrantURL, ollamaURL, collection, embedModel)
 
 	// SWE100821: Initialize skill auto-discoverer
 	autoDisc := skills.NewAutoDiscoverer(workspace)

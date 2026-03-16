@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"strings"
 	"syscall"
 	"time"
@@ -229,11 +230,27 @@ func gatewayCmd() {
 	healthServer.RegisterHandler("/a2a", a2aHub.HTTPHandler())
 	fmt.Println("✓ A2A protocol enabled on /a2a")
 
-	// SWE100821: Wire cognitive dashboard into health server mux
+	// SWE100821: Wire interactive cognitive dashboard into health server mux
 	dash := dashboard.NewDashboard(cfg.WorkspacePath())
+	// SWE100821: Pass vault path, config path, and metrics for interactive features
+	if cfg.Vault.Enabled && cfg.Vault.Path != "" {
+		vaultPath := cfg.Vault.Path
+		if strings.HasPrefix(vaultPath, "~/") {
+			if home, err := os.UserHomeDir(); err == nil {
+				vaultPath = filepath.Join(home, vaultPath[2:])
+			}
+		}
+		dash.SetVaultPath(vaultPath)
+	}
+	dash.SetConfigPath(getConfigPath())
+	dash.SetMetrics(healthServer.GetMetrics())
+	// SWE100821: Wire chat handler — allows dashboard to send messages to the agent
+	dash.SetChatHandler(func(ctx context.Context, message, sessionKey string) (string, error) {
+		return agentLoop.ProcessDirect(ctx, message, sessionKey)
+	})
 	if mux := healthServer.GetMux(); mux != nil {
 		dash.SetupRoutes(mux)
-		fmt.Println("✓ Cognitive dashboard enabled on /dashboard")
+		fmt.Println("✓ Interactive dashboard enabled on /dashboard (chat, graph, memory, vault)")
 	}
 
 	healthServer.Start()

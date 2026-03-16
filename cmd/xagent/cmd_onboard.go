@@ -9,17 +9,37 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/config"
 )
 
+// SWE100821: --yes flag skips interactive prompts for scripted/non-TTY usage.
 func onboard() {
+	autoYes := false
+	for _, arg := range os.Args[2:] {
+		if arg == "--yes" || arg == "-y" {
+			autoYes = true
+			break
+		}
+	}
+
+	// SWE100821: Auto-skip prompt when stdin is not a terminal (systemd, Dockerfile, pipes)
+	if !autoYes {
+		if fi, err := os.Stdin.Stat(); err == nil && (fi.Mode()&os.ModeCharDevice) == 0 {
+			autoYes = true
+		}
+	}
+
 	configPath := getConfigPath()
 
 	if _, err := os.Stat(configPath); err == nil {
-		fmt.Printf("Config already exists at %s\n", configPath)
-		fmt.Print("Overwrite? (y/n): ")
-		var response string
-		fmt.Scanln(&response)
-		if response != "y" {
-			fmt.Println("Aborted.")
-			return
+		if autoYes {
+			fmt.Printf("Config exists at %s — overwriting (--yes)\n", configPath)
+		} else {
+			fmt.Printf("Config already exists at %s\n", configPath)
+			fmt.Print("Overwrite? (y/n): ")
+			var response string
+			fmt.Scanln(&response)
+			if response != "y" {
+				fmt.Println("Aborted.")
+				return
+			}
 		}
 	}
 

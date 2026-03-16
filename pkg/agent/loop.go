@@ -172,8 +172,8 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// SWE100821: Initialize agent identity (unique in space and time) + boot-time tracking
 	agentIdentity := identity.New(workspace)
 
-	// Create context builder and set tools registry + identity
-	contextBuilder := NewContextBuilder(workspace)
+	// SWE100821: Create context builder with semantic memory config
+	contextBuilder := NewContextBuilder(workspace, cfg.SemanticMemory)
 	contextBuilder.SetToolsRegistry(toolsRegistry)
 	contextBuilder.SetIdentity(agentIdentity)
 
@@ -236,8 +236,13 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// SWE100821: Attach personality tracker to sleep manager for auto-analysis
 	sleepManager.SetPersonality(personalityTracker)
 
-	// SWE100821: Create semantic memory (Qdrant + Ollama embeddings)
-	semanticMem := memory.NewSemanticMemory("", "", "", "")
+	// SWE100821: Create semantic memory (Qdrant + Ollama embeddings) — config-driven
+	semanticMem := memory.NewSemanticMemory(
+		cfg.SemanticMemory.QdrantURL,
+		cfg.SemanticMemory.OllamaURL,
+		cfg.SemanticMemory.Collection,
+		cfg.SemanticMemory.EmbedModel,
+	)
 
 	// Obsidian vault: create and initialize if enabled
 	var vw *vault.VaultWriter

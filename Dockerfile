@@ -26,8 +26,8 @@ RUN apk add --no-cache ca-certificates tzdata curl
 # Copy binary
 COPY --from=builder /src/build/xagent /usr/local/bin/xagent
 
-# Create xagent home directory
-RUN /usr/local/bin/xagent onboard
+# SWE100821: --yes avoids interactive prompt in non-TTY Docker build context
+RUN /usr/local/bin/xagent onboard --yes
 
 ENTRYPOINT ["xagent"]
 CMD ["gateway"]

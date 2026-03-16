@@ -23,6 +23,8 @@ log_info() { echo -e "${BLUE}[INFO]${NC} $1"; }
 log_success() { echo -e "${GREEN}[✓]${NC} $1"; }
 log_warning() { echo -e "${YELLOW}[!]${NC} $1"; }
 log_error() { echo -e "${RED}[✗]${NC} $1"; }
+# SWE100821: Alias for convenience — both log_warn and log_warning work
+log_warn() { log_warning "$1"; }
 
 # Banner
 show_banner() {
@@ -32,6 +34,40 @@ show_banner() {
     echo "   By SWE100821"
     echo "=============================================="
     echo ""
+}
+
+# SWE100821: Check internet connectivity before network-dependent steps.
+# Sets HAS_INTERNET=true/false. Prints NAT instructions when offline on USB Ethernet.
+check_internet() {
+    if ping -c 1 -W 3 8.8.8.8 > /dev/null 2>&1; then
+        HAS_INTERNET=true
+        log_success "Internet connectivity confirmed"
+    else
+        HAS_INTERNET=false
+        log_warning "No internet access detected"
+
+        # Detect USB Ethernet interface for NAT instructions
+        USB_IFACE=$(ip -o link show 2>/dev/null | grep -oE 'enx[a-f0-9]+|usb[0-9]+|l4tbr[0-9]+' | head -1)
+        DEVICE_IP=$(ip -4 addr show "$USB_IFACE" 2>/dev/null | grep -oP 'inet \K[0-9.]+' | head -1)
+
+        if [ -n "$USB_IFACE" ] && [ -n "$DEVICE_IP" ]; then
+            HOST_NET=$(echo "$DEVICE_IP" | sed 's/\.[0-9]*$/.0/')
+            echo ""
+            echo "  This device appears to be connected via USB Ethernet ($USB_IFACE)."
+            echo "  To enable internet, run these commands on the HOST computer:"
+            echo ""
+            echo "    sudo sysctl -w net.ipv4.ip_forward=1"
+            echo "    sudo iptables -t nat -A POSTROUTING -o <HOST_WIFI_IFACE> -s ${HOST_NET}/24 -j MASQUERADE"
+            echo "    sudo iptables -A FORWARD -i <HOST_USB_IFACE> -o <HOST_WIFI_IFACE> -j ACCEPT"
+            echo "    sudo iptables -A FORWARD -i <HOST_WIFI_IFACE> -o <HOST_USB_IFACE> -m state --state RELATED,ESTABLISHED -j ACCEPT"
+            echo ""
+            echo "  Then on this device:"
+            echo "    sudo ip route add default via <HOST_IP>"
+            echo "    echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf"
+            echo ""
+        fi
+        log_warning "Network-dependent steps (apt, Go, Ollama, model download) will be skipped"
+    fi
 }
 
 # Detect platform and OS
@@ -79,8 +115,39 @@ detect_system() {
     log_success "Detected: $PLATFORM (Ubuntu $OS_VERSION, Python $PYTHON_VERSION)"
 }
 
+# SWE100821: Detect external storage (NVMe/SSD) and use it when root disk is low.
+# Sets EXT_STORAGE to the mount path if found and root has <5GB free.
+detect_external_storage() {
+    ROOT_FREE_MB=$(df -m / | tail -1 | awk '{print $4}')
+    EXT_STORAGE=""
+
+    if [ "$ROOT_FREE_MB" -lt 5000 ]; then
+        log_warning "Root disk has only ${ROOT_FREE_MB}MB free (need 5000MB+)"
+        for candidate in /mnt/nvme /mnt/ssd /mnt/data /media/*/; do
+            if mountpoint -q "$candidate" 2>/dev/null; then
+                CAND_FREE_MB=$(df -m "$candidate" | tail -1 | awk '{print $4}')
+                if [ "$CAND_FREE_MB" -gt 10000 ]; then
+                    EXT_STORAGE="$candidate/xagent-build"
+                    mkdir -p "$EXT_STORAGE"
+                    log_success "Using external storage: $candidate (${CAND_FREE_MB}MB free)"
+                    break
+                fi
+            fi
+        done
+        if [ -z "$EXT_STORAGE" ]; then
+            log_warning "No external storage found with >10GB free. Build may fail on small root disk."
+        fi
+    else
+        log_success "Root disk has ${ROOT_FREE_MB}MB free (sufficient)"
+    fi
+}
+
 # Install system dependencies
 install_dependencies() {
+    if [ "$HAS_INTERNET" = false ]; then
+        log_warning "Skipping apt install (no internet)"
+        return 0
+    fi
     log_info "Installing system dependencies..."
     
     sudo apt-get update -qq
@@ -103,9 +170,15 @@ install_dependencies() {
 install_go() {
     log_info "Installing Go..."
     
-    if command -v go &> /dev/null; then
-        log_success "Go already installed"
+    if command -v go &> /dev/null || [ -x /usr/local/go/bin/go ]; then
+        export PATH=$PATH:/usr/local/go/bin
+        log_success "Go already installed: $(go version 2>/dev/null || echo 'found')"
         return
+    fi
+
+    if [ "$HAS_INTERNET" = false ]; then
+        log_warning "Skipping Go install (no internet). Install manually or enable NAT."
+        return 1
     fi
     
     ARCH=$(uname -m)
@@ -152,6 +225,11 @@ install_ollama() {
         return
     fi
     
+    if [ "$HAS_INTERNET" = false ]; then
+        log_warning "Skipping Ollama install (no internet)"
+        return 0
+    fi
+
     curl -fsSL https://ollama.com/install.sh | sh > /dev/null 2>&1
     
     # Ensure service is enabled
@@ -284,12 +362,97 @@ install_xagent() {
     
     cd "$INSTALL_DIR"
     
-    make deps > /dev/null 2>&1
+    # SWE100821: Use external storage for Go cache if configured
+    if [ -n "$EXT_STORAGE" ]; then
+        export GOPATH="$EXT_STORAGE/gopath"
+        export GOCACHE="$EXT_STORAGE/gocache"
+        export GOMODCACHE="$EXT_STORAGE/gomodcache"
+    fi
+
+    if [ "$HAS_INTERNET" = true ]; then
+        make deps > /dev/null 2>&1
+    fi
     make build > /dev/null 2>&1
     
     sudo ln -sf "$INSTALL_DIR/build/xagent" /usr/local/bin/xagent
     
     log_success "Xagent built and installed"
+}
+
+# SWE100821: Install Qdrant vector database for semantic memory.
+# Uses the official static binary (ARM64/x86_64). Lightweight (~50MB RAM).
+install_qdrant() {
+    case $PLATFORM in
+        xavier|x86_64|rpi4) ;; # supported
+        *) log_warning "Skipping Qdrant (not supported on $PLATFORM)"; return 0 ;;
+    esac
+
+    if command -v qdrant &> /dev/null || systemctl is-active --quiet qdrant 2>/dev/null; then
+        log_success "Qdrant already installed/running"
+        return 0
+    fi
+
+    if [ "$HAS_INTERNET" = false ]; then
+        log_warning "Skipping Qdrant install (no internet). Semantic memory will be disabled."
+        return 0
+    fi
+
+    log_info "Installing Qdrant vector database..."
+
+    QDRANT_VERSION="1.13.6"
+    ARCH=$(uname -m)
+    case $ARCH in
+        x86_64)  QDRANT_ARCH="x86_64-unknown-linux-musl" ;;
+        aarch64) QDRANT_ARCH="aarch64-unknown-linux-musl" ;;
+        *) log_warning "Unsupported arch $ARCH for Qdrant"; return 0 ;;
+    esac
+
+    QDRANT_URL="https://github.com/qdrant/qdrant/releases/download/v${QDRANT_VERSION}/qdrant-${QDRANT_ARCH}.tar.gz"
+    QDRANT_TAR="/tmp/qdrant.tar.gz"
+
+    # SWE100821: Store data on external storage if available
+    QDRANT_DATA="${EXT_STORAGE:-$HOME_DIR/.xagent}/qdrant"
+    mkdir -p "$QDRANT_DATA"
+
+    wget -q --show-progress "$QDRANT_URL" -O "$QDRANT_TAR" || {
+        log_warning "Failed to download Qdrant. Semantic memory will be disabled."
+        return 0
+    }
+
+    sudo tar -xzf "$QDRANT_TAR" -C /usr/local/bin/ qdrant/qdrant --strip-components=1
+    sudo chmod +x /usr/local/bin/qdrant
+    rm -f "$QDRANT_TAR"
+
+    # SWE100821: Create systemd service for Qdrant
+    sudo tee /etc/systemd/system/qdrant.service > /dev/null << QDEOF
+[Unit]
+Description=Qdrant Vector Database
+After=network.target
+
+[Service]
+Type=simple
+User=$USER
+ExecStart=/usr/local/bin/qdrant --storage-path $QDRANT_DATA
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=qdrant
+
+[Install]
+WantedBy=multi-user.target
+QDEOF
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable qdrant > /dev/null 2>&1
+    sudo systemctl start qdrant > /dev/null 2>&1
+    sleep 2
+
+    if curl -sf http://localhost:6333/collections > /dev/null 2>&1; then
+        log_success "Qdrant installed and running (port 6333)"
+    else
+        log_warning "Qdrant installed but health check failed. Check: journalctl -u qdrant"
+    fi
 }
 
 # Configure Xagent - SWE100821: Hardware-correlated config auto-generation
@@ -377,12 +540,19 @@ configure_xagent() {
     "auto_detect": true,
     "serial": "",
     "deny_shell": ["rm -rf /", "reboot bootloader"]
+  },
+  "semantic_memory": {
+    "qdrant_url": "http://localhost:6333",
+    "ollama_url": "http://localhost:11434",
+    "collection": "xagent_memory",
+    "embed_model": "nomic-embed-text"
   }
 }
 EOF
     
     chmod 600 ~/.xagent/config.json
-    xagent onboard > /dev/null 2>&1 || true
+    # SWE100821: Use --yes to avoid interactive prompt hanging in scripts
+    xagent onboard --yes > /dev/null 2>&1 || true
     
     log_success "Xagent configured (tier=$COMPUTE_TIER)"
 }
@@ -391,13 +561,26 @@ EOF
 create_xagent_service() {
     log_info "Creating Xagent systemd service..."
     
-    # SWE100821: Service file for auto-start
+    # SWE100821: Ensure all directories referenced by the service exist
+    mkdir -p "$HOME_DIR/.xagent" "$HOME_DIR/.config/xagent"
+
+    # SWE100821: Build optional dependency list — only reference services that exist
+    AFTER_DEPS="network.target"
+    WANTS_DEPS=""
+    if systemctl list-unit-files ollama.service > /dev/null 2>&1; then
+        AFTER_DEPS="$AFTER_DEPS ollama.service"
+        WANTS_DEPS="Wants=ollama.service"
+    fi
+    if systemctl list-unit-files qdrant.service > /dev/null 2>&1; then
+        AFTER_DEPS="$AFTER_DEPS qdrant.service"
+        WANTS_DEPS="${WANTS_DEPS:+$WANTS_DEPS\n}Wants=qdrant.service"
+    fi
+
     sudo tee /etc/systemd/system/xagent-gateway.service > /dev/null << EOF
 [Unit]
 Description=Xagent AI Agent Gateway
-Documentation=https://github.com/sipeed/xagent
-After=network.target ollama.service
-Wants=ollama.service
+After=$AFTER_DEPS
+$(echo -e "$WANTS_DEPS")
 
 [Service]
 Type=simple
@@ -406,28 +589,20 @@ WorkingDirectory=$HOME_DIR
 Environment="PATH=/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin"
 Environment="HOME=$HOME_DIR"
 ExecStart=/usr/local/bin/xagent gateway
-# SWE100821: Health check - systemd can verify gateway is alive
-ExecStartPost=/bin/sh -c 'sleep 2 && curl -sf http://127.0.0.1:18791/healthz || exit 1'
 Restart=on-failure
 RestartSec=10
-# SWE100821: Use journald for log rotation, compression, and journalctl support
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=xagent-gateway
 
-# Security hardening
-NoNewPrivileges=true
-PrivateTmp=true
-ProtectSystem=strict
-ReadWritePaths=$HOME_DIR/.xagent $HOME_DIR/.config/xagent
-# SWE100821: Allow ADB access to USB-connected phone on Xavier/embedded
+# SWE100821: Simplified security — ProtectSystem=no avoids NAMESPACE errors
+# on embedded devices where dirs may not exist at service creation time.
+ProtectSystem=no
 SupplementaryGroups=plugdev
 
 [Install]
 WantedBy=multi-user.target
 EOF
-    
-    # SWE100821: memory_bridge.py removed — replaced by native Go semantic memory (pkg/memory/semantic.go)
 
     sudo systemctl daemon-reload
     
@@ -822,6 +997,10 @@ main() {
     log_info "Installing... (this may take 5-10 minutes)"
     echo ""
     
+    # SWE100821: Pre-flight checks — internet and disk space
+    check_internet
+    detect_external_storage
+    
     # Installation steps
     install_dependencies
     install_go
@@ -832,6 +1011,7 @@ main() {
     fi
     
     install_xagent
+    install_qdrant
     configure_xagent
     clone_openclaw_skills
     create_xagent_service

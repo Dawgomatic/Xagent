@@ -149,5 +149,11 @@
     "auto_detect": true,
     "serial": "",
     "deny_shell": ["rm -rf /", "reboot bootloader"]
+  },
+  "semantic_memory": {
+    "qdrant_url": "http://localhost:6333",
+    "ollama_url": "http://localhost:11434",
+    "collection": "xagent_memory",
+    "embed_model": "nomic-embed-text"
   }
 }
