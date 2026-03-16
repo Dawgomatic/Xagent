@@ -177,13 +177,14 @@ func (sm *SemanticMemory) Search(ctx context.Context, query string, topK int) ([
 	return results, nil
 }
 
-// ForSystemPrompt searches for relevant memories and formats them for the system prompt.
+// ForSystemPrompt searches for relevant memories, ranks by importance, and formats for the system prompt.
+// SWE100821: Now uses MemoryScorer for multi-factor ranking instead of raw vector similarity.
 func (sm *SemanticMemory) ForSystemPrompt(ctx context.Context, userMessage string, maxResults int) string {
 	if !sm.IsAvailable() {
 		return ""
 	}
 
-	results, err := sm.Search(ctx, userMessage, maxResults)
+	results, err := sm.Search(ctx, userMessage, maxResults*2) // fetch extra for re-ranking
 	if err != nil {
 		logger.DebugCF("memory", "Semantic search failed", map[string]interface{}{"error": err.Error()})
 		return ""
@@ -193,13 +194,33 @@ func (sm *SemanticMemory) ForSystemPrompt(ctx context.Context, userMessage strin
 		return ""
 	}
 
+	// SWE100821: Apply multi-factor scoring (recency, salience, novelty, semantic)
+	scorer := DefaultScorer()
+	// Add user message keywords to salience detector for context-aware ranking
+	for _, word := range strings.Fields(strings.ToLower(userMessage)) {
+		if len(word) > 3 {
+			scorer.SalienceKeywords = append(scorer.SalienceKeywords, word)
+		}
+	}
+
+	ranked := scorer.RankMemories(results, nil)
+
 	var sb strings.Builder
 	sb.WriteString("## Relevant Memories (semantic recall)\n\n")
-	for i, r := range results {
-		if r.Score < 0.5 { // SWE100821: skip low-relevance results
+	shown := 0
+	for _, sm := range ranked {
+		if sm.ImportanceScore < 0.2 {
 			continue
 		}
-		sb.WriteString(fmt.Sprintf("%d. [%s, score=%.2f] %s\n", i+1, r.Source, r.Score, truncateStr(r.Text, 300)))
+		shown++
+		if shown > maxResults {
+			break
+		}
+		sb.WriteString(fmt.Sprintf("%d. [%s, importance=%.2f] %s\n", shown, sm.Point.Source, sm.ImportanceScore, truncateStr(sm.Point.Text, 300)))
+	}
+
+	if shown == 0 {
+		return ""
 	}
 
 	return sb.String()

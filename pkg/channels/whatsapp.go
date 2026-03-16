@@ -2,26 +2,32 @@ package channels
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
-	"log"
+	"os"
+	"path/filepath"
+	"strings"
 	"sync"
-	"time"
-
-	"github.com/gorilla/websocket"
 
 	"github.com/Dawgomatic/Xagent/pkg/bus"
 	"github.com/Dawgomatic/Xagent/pkg/config"
-	"github.com/Dawgomatic/Xagent/pkg/utils"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
+
+	_ "github.com/mattn/go-sqlite3"
+	"go.mau.fi/whatsmeow"
+	waProto "go.mau.fi/whatsmeow/binary/proto"
+	"go.mau.fi/whatsmeow/store/sqlstore"
+	"go.mau.fi/whatsmeow/types"
+	"go.mau.fi/whatsmeow/types/events"
+	waLog "go.mau.fi/whatsmeow/util/log"
+
+	"google.golang.org/protobuf/proto"
 )
 
 type WhatsAppChannel struct {
 	*BaseChannel
-	conn      *websocket.Conn
-	config    config.WhatsAppConfig
-	url       string
-	mu        sync.Mutex
-	connected bool
+	client *whatsmeow.Client
+	config config.WhatsAppConfig
+	mu     sync.Mutex
 }
 
 func NewWhatsAppChannel(cfg config.WhatsAppConfig, bus *bus.MessageBus) (*WhatsAppChannel, error) {
@@ -30,155 +36,170 @@ func NewWhatsAppChannel(cfg config.WhatsAppConfig, bus *bus.MessageBus) (*WhatsA
 	return &WhatsAppChannel{
 		BaseChannel: base,
 		config:      cfg,
-		url:         cfg.BridgeURL,
-		connected:   false,
 	}, nil
 }
 
 func (c *WhatsAppChannel) Start(ctx context.Context) error {
-	log.Printf("Starting WhatsApp channel connecting to %s...", c.url)
+	logger.InfoCF("whatsapp", "Starting native WhatsApp channel...", nil)
 
-	dialer := websocket.DefaultDialer
-	dialer.HandshakeTimeout = 10 * time.Second
-
-	conn, _, err := dialer.Dial(c.url, nil)
-	if err != nil {
-		return fmt.Errorf("failed to connect to WhatsApp bridge: %w", err)
+	// Set up SQLite Database for session storage
+	dbPath := c.config.SessionDB
+	if dbPath == "" {
+		home, _ := os.UserHomeDir()
+		dbPath = filepath.Join(home, ".xagent", "whatsapp.db")
+		os.MkdirAll(filepath.Dir(dbPath), 0755)
 	}
 
-	c.mu.Lock()
-	c.conn = conn
-	c.connected = true
-	c.mu.Unlock()
+	dbLog := waLog.Stdout("Database", "WARN", true)
+	// SWE100821: Updated to current whatsmeow API — context required
+	container, err := sqlstore.New(ctx, "sqlite3", fmt.Sprintf("file:%s?_foreign_keys=on", dbPath), dbLog)
+	if err != nil {
+		return fmt.Errorf("failed to init whatsapp database: %w", err)
+	}
+
+	deviceStore, err := container.GetFirstDevice(ctx)
+	if err != nil {
+		return fmt.Errorf("failed to get whatsapp device: %w", err)
+	}
+
+	clientLog := waLog.Stdout("Client", "WARN", true)
+	c.client = whatsmeow.NewClient(deviceStore, clientLog)
+	c.client.AddEventHandler(c.eventHandler)
+
+	if c.client.Store.ID == nil {
+		// New device, need to pair via QR code
+		qrChan, _ := c.client.GetQRChannel(context.Background())
+		err = c.client.Connect()
+		if err != nil {
+			return fmt.Errorf("failed to connect whatsapp client: %w", err)
+		}
+
+		for evt := range qrChan {
+			if evt.Event == "code" {
+				logger.InfoCF("whatsapp", "\n>>> WHATSAPP QR CODE SCANNED REQUIRED <<<\nScan the following string as a QR code or use a compatible terminal.", nil)
+				fmt.Println("================================================================")
+				fmt.Println("Scan this QR Code in WhatsApp -> Linked Devices -> Link a Device")
+				fmt.Println(evt.Code)
+				fmt.Println("================================================================")
+			} else {
+				logger.InfoCF("whatsapp", "Login event", map[string]interface{}{"event": evt.Event})
+			}
+		}
+	} else {
+		// Already logged in
+		err = c.client.Connect()
+		if err != nil {
+			return fmt.Errorf("failed to connect whatsapp client: %w", err)
+		}
+		logger.InfoCF("whatsapp", "WhatsApp channel connected natively.", nil)
+	}
 
 	c.setRunning(true)
-	log.Println("WhatsApp channel connected")
 
-	go c.listen(ctx)
+	// Keep the channel alive until context is cancelled
+	go func() {
+		<-ctx.Done()
+		c.Stop(context.Background())
+	}()
 
 	return nil
 }
 
 func (c *WhatsAppChannel) Stop(ctx context.Context) error {
-	log.Println("Stopping WhatsApp channel...")
-
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
-	if c.conn != nil {
-		if err := c.conn.Close(); err != nil {
-			log.Printf("Error closing WhatsApp connection: %v", err)
-		}
-		c.conn = nil
+	c.setRunning(false)
+	if c.client != nil {
+		c.client.Disconnect()
+		logger.InfoCF("whatsapp", "WhatsApp channel disconnected.", nil)
 	}
 
-	c.connected = false
-	c.setRunning(false)
-
 	return nil
+}
+
+func (c *WhatsAppChannel) eventHandler(evt interface{}) {
+	switch v := evt.(type) {
+	case *events.Message:
+		c.handleMessageEvent(v)
+	}
+}
+
+func (c *WhatsAppChannel) handleMessageEvent(msg *events.Message) {
+	// Ignore messages sent by us
+	if msg.Info.IsFromMe {
+		return
+	}
+
+	senderID := msg.Info.Sender.ToNonAD().String()
+	chatID := msg.Info.Chat.ToNonAD().String()
+
+	// Extract text content
+	var content string
+	if msg.Message.Conversation != nil {
+		content = msg.Message.GetConversation()
+	} else if msg.Message.ExtendedTextMessage != nil {
+		content = msg.Message.ExtendedTextMessage.GetText()
+	} else if msg.Message.ImageMessage != nil {
+		content = msg.Message.ImageMessage.GetCaption()
+	} else {
+		// Unsupported message type
+		return
+	}
+
+	content = strings.TrimSpace(content)
+	if content == "" {
+		return
+	}
+
+	metadata := map[string]string{
+		"message_id": msg.Info.ID,
+		"push_name":  msg.Info.PushName,
+	}
+
+	logger.DebugCF("whatsapp", "Received message", map[string]interface{}{
+		"sender":  senderID,
+		"chat":    chatID,
+		"content": content[:min(len(content), 50)],
+	})
+
+	// Route to Xagent core via BaseChannel handler
+	c.HandleMessage(senderID, chatID, content, nil, metadata)
 }
 
 func (c *WhatsAppChannel) Send(ctx context.Context, msg bus.OutboundMessage) error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
-	if c.conn == nil {
-		return fmt.Errorf("whatsapp connection not established")
+	if c.client == nil || !c.client.IsConnected() {
+		return fmt.Errorf("whatsapp client not connected")
 	}
 
-	payload := map[string]interface{}{
-		"type":    "message",
-		"to":      msg.ChatID,
-		"content": msg.Content,
-	}
-
-	data, err := json.Marshal(payload)
+	// Parse the target chat JID
+	jid, err := types.ParseJID(msg.ChatID)
 	if err != nil {
-		return fmt.Errorf("failed to marshal message: %w", err)
+		return fmt.Errorf("failed to parse chat JID %s: %w", msg.ChatID, err)
 	}
 
-	if err := c.conn.WriteMessage(websocket.TextMessage, data); err != nil {
-		return fmt.Errorf("failed to send message: %w", err)
+	waMsg := &waProto.Message{
+		Conversation: proto.String(msg.Content),
 	}
+
+	_, err = c.client.SendMessage(ctx, jid, waMsg)
+	if err != nil {
+		return fmt.Errorf("failed to send whatsapp message: %w", err)
+	}
+
+	logger.DebugCF("whatsapp", "Sent message", map[string]interface{}{
+		"chat": msg.ChatID,
+	})
 
 	return nil
 }
 
-func (c *WhatsAppChannel) listen(ctx context.Context) {
-	for c.IsRunning() {
-		select {
-		case <-ctx.Done():
-			return
-		default:
-			c.mu.Lock()
-			conn := c.conn
-			c.mu.Unlock()
-
-			if conn == nil {
-				time.Sleep(1 * time.Second)
-				continue
-			}
-
-			_, message, err := conn.ReadMessage()
-			if err != nil {
-				log.Printf("WhatsApp read error: %v", err)
-				time.Sleep(2 * time.Second)
-				continue
-			}
-
-			var msg map[string]interface{}
-			if err := json.Unmarshal(message, &msg); err != nil {
-				log.Printf("Failed to unmarshal WhatsApp message: %v", err)
-				continue
-			}
-
-			msgType, ok := msg["type"].(string)
-			if !ok {
-				continue
-			}
-
-			if msgType == "message" {
-				c.handleIncomingMessage(msg)
-			}
-		}
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-}
-
-func (c *WhatsAppChannel) handleIncomingMessage(msg map[string]interface{}) {
-	senderID, ok := msg["from"].(string)
-	if !ok {
-		return
-	}
-
-	chatID, ok := msg["chat"].(string)
-	if !ok {
-		chatID = senderID
-	}
-
-	content, ok := msg["content"].(string)
-	if !ok {
-		content = ""
-	}
-
-	var mediaPaths []string
-	if mediaData, ok := msg["media"].([]interface{}); ok {
-		mediaPaths = make([]string, 0, len(mediaData))
-		for _, m := range mediaData {
-			if path, ok := m.(string); ok {
-				mediaPaths = append(mediaPaths, path)
-			}
-		}
-	}
-
-	metadata := make(map[string]string)
-	if messageID, ok := msg["id"].(string); ok {
-		metadata["message_id"] = messageID
-	}
-	if userName, ok := msg["from_name"].(string); ok {
-		metadata["user_name"] = userName
-	}
-
-	log.Printf("WhatsApp message from %s: %s...", senderID, utils.Truncate(content, 50))
-
-	c.HandleMessage(senderID, chatID, content, mediaPaths, metadata)
+	return b
 }

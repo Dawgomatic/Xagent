@@ -2,8 +2,10 @@ package tools
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -206,5 +208,62 @@ func TestShellTool_RestrictToWorkspace(t *testing.T) {
 
 	if !strings.Contains(result.ForLLM, "blocked") && !strings.Contains(result.ForUser, "blocked") {
 		t.Errorf("Expected 'blocked' message for path traversal, got ForLLM: %s, ForUser: %s", result.ForLLM, result.ForUser)
+	}
+}
+
+// SWE100821: Sandbox wiring tests
+
+type mockSandbox struct {
+	stdout   string
+	stderr   string
+	exitCode int
+	err      error
+	called   bool
+	lastCmd  string
+}
+
+func (m *mockSandbox) Execute(ctx context.Context, command, workDir string) (string, string, int, error) {
+	m.called = true
+	m.lastCmd = command
+	return m.stdout, m.stderr, m.exitCode, m.err
+}
+
+// SWE100821: TestExecTool_WithSandbox — sandbox Execute is called on Linux
+func TestExecTool_WithSandbox(t *testing.T) {
+	sb := &mockSandbox{stdout: "sandboxed output", exitCode: 0}
+	tool := NewExecTool("", false)
+	tool.SetSandbox(sb)
+
+	result := tool.Execute(context.Background(), map[string]interface{}{"command": "echo test"})
+
+	if runtime.GOOS == "linux" {
+		if !sb.called {
+			t.Error("sandbox Execute should have been called")
+		}
+		if !strings.Contains(result.ForLLM, "sandboxed output") {
+			t.Errorf("expected sandbox output, got: %s", result.ForLLM)
+		}
+	}
+}
+
+// SWE100821: TestExecTool_SandboxError — sandbox error propagates as error result
+func TestExecTool_SandboxError(t *testing.T) {
+	sb := &mockSandbox{err: fmt.Errorf("sandbox failed")}
+	tool := NewExecTool("", false)
+	tool.SetSandbox(sb)
+
+	result := tool.Execute(context.Background(), map[string]interface{}{"command": "echo test"})
+	if runtime.GOOS == "linux" && !result.IsError {
+		t.Error("expected error result when sandbox fails")
+	}
+}
+
+// SWE100821: TestSetSandbox — verify sandbox field is set
+func TestSetSandbox(t *testing.T) {
+	tool := NewExecTool("", false)
+	sb := &mockSandbox{}
+	tool.SetSandbox(sb)
+	if tool.sandbox == nil {
+		t.Error("expected sandbox to be set")
 	}
 }

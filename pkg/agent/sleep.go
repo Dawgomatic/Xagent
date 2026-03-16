@@ -28,11 +28,12 @@ const (
 )
 
 type SleepManager struct {
-	epochMgr  *epoch.Manager
-	provider  providers.LLMProvider
-	msgBus    *bus.MessageBus
-	workspace string
-	tools     *tools.ToolRegistry
+	epochMgr    *epoch.Manager
+	provider    providers.LLMProvider
+	msgBus      *bus.MessageBus
+	workspace   string
+	tools       *tools.ToolRegistry
+	personality *PersonalityTracker // SWE100821: Personality analysis during sleep
 
 	lastActivity time.Time
 	idleTimeout  time.Duration
@@ -142,6 +143,11 @@ func (sm *SleepManager) checkSleep(ctx context.Context) {
 	}
 }
 
+// SetPersonality attaches the personality tracker for analysis during sleep.
+func (sm *SleepManager) SetPersonality(pt *PersonalityTracker) {
+	sm.personality = pt
+}
+
 // GetFatigueLevel safely retrieves the current fatigue level.
 func (sm *SleepManager) GetFatigueLevel() float64 {
 	var fatigue float64
@@ -163,13 +169,59 @@ func (sm *SleepManager) enterSleepCycle(ctx context.Context, initialFatigue floa
 
 	logger.InfoCF("sleep", fmt.Sprintf("Entering Continuous Improvement Sleep Cycle. Fatigue: %.2f", initialFatigue), nil)
 
+	// SWE100821: Run personality analysis at start of sleep cycle
+	if sm.personality != nil {
+		sleepAnalyzeCtx, analyzeCancel := context.WithTimeout(ctx, 30*time.Second)
+		if _, err := sm.personality.Analyze(sleepAnalyzeCtx); err != nil {
+			logger.WarnCF("sleep", "Personality analysis during sleep failed", map[string]interface{}{"error": err.Error()})
+		}
+		analyzeCancel()
+	}
+
 	// Subagent for continuous improvement
 	subMgr := tools.NewSubagentManager(sm.provider, "llama3", sm.workspace, sm.msgBus)
 	subMgr.SetTools(sm.tools) // Grant it access to read/write/exec files
 
-	improvementContext := `You are the Continuous Improvement Subagent running while Xagent sleeps.
-Your objective is to review recent interactions, research new methods on the web, pull github repos, and write new code/skills into the workspace to improve the framework.
-You do not need user permission. Work silently. When you are cancelled, save your progress and exit cleanly.`
+	// SWE100821: Structured provenance-based improvement pipeline
+	provenancePath := sm.workspace + "/provenance/"
+	skillOutputDir := sm.workspace + "/skills/auto-generated/"
+	improvementContext := fmt.Sprintf(`You are the Continuous Improvement Subagent running while Xagent sleeps.
+
+## Phase 1 — Provenance Analysis
+Read all JSONL files in %q. Each line is a JSON object with fields like:
+  {"tool": "...", "status": "error"|"success", "error": "...", "timestamp": "..."}
+Parse every line. Tally failures by (tool_name, error_message). Rank by frequency descending.
+
+## Phase 2 — Failure Pattern Extraction
+From the tally, select the top 3 failure patterns (tool + error). For each pattern:
+  - Summarize the root cause in 1-2 sentences.
+  - Propose a concrete mitigation: retry logic, input validation, fallback, or alternative tool.
+
+## Phase 3 — Skill Generation
+For each of the top 3 failure patterns, generate a SKILL.md file using the template:
+
+---
+# Skill: <descriptive_name>
+Trigger: <when this skill should activate>
+Steps:
+  1. <step>
+  2. <step>
+Fallback: <what to do if the skill itself fails>
+---
+
+Write each skill file to %q with filename pattern: fix_<tool>_<short_error>.md.
+
+## Phase 4 — Logging
+After writing all skill files, create a summary log entry at %q with:
+  - Timestamp
+  - Patterns found
+  - Skills generated (filenames)
+
+## Rules
+- You do not need user permission. Work silently.
+- When you are cancelled, save your progress and exit cleanly.
+- Do NOT fabricate provenance data; skip phases if no JSONL files exist.`,
+		provenancePath, skillOutputDir, sm.workspace+"/provenance/improvement_log.jsonl")
 
 	go func() {
 		// Run improvement loop

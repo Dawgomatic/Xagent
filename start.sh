@@ -89,6 +89,10 @@ install_dependencies() {
     PACKAGES="$PACKAGES libssl-dev libffi-dev pkg-config"
     PACKAGES="$PACKAGES python${PYTHON_VERSION} python${PYTHON_VERSION}-dev"
     PACKAGES="$PACKAGES python${PYTHON_VERSION}-venv python3-pip"
+    # SWE100821: Install ADB for USB phone control on Xavier/embedded platforms
+    case $PLATFORM in
+        xavier|rpi4|rpi3|rpi) PACKAGES="$PACKAGES android-tools-adb" ;;
+    esac
     
     sudo apt-get install -y $PACKAGES > /dev/null 2>&1
     
@@ -306,6 +310,21 @@ configure_xagent() {
     
     log_info "Config: model=$MODEL max_tokens=$MAX_TOKENS temp=$TEMPERATURE iterations=$MAX_ITER"
     
+    # SWE100821: Bind to 0.0.0.0 on xavier/rpi so host can reach monitoring
+    # endpoints over Ethernet-over-USB; localhost-only on x86_64 desktops.
+    case $PLATFORM in
+        xavier|rpi4|rpi3|rpi)
+            GATEWAY_HOST="0.0.0.0"
+            PHONE_ENABLED="true"
+            DEVICES_ENABLED="true"
+            ;;
+        *)
+            GATEWAY_HOST="127.0.0.1"
+            PHONE_ENABLED="false"
+            DEVICES_ENABLED="false"
+            ;;
+    esac
+
     cat > ~/.xagent/config.json << EOF
 {
   "agents": {
@@ -338,11 +357,26 @@ configure_xagent() {
     "enabled": false
   },
   "devices": {
-    "enabled": false
+    "enabled": $DEVICES_ENABLED,
+    "monitor_usb": $DEVICES_ENABLED
+  },
+  "vault": {
+    "enabled": true,
+    "path": "~/.xagent/vault"
+  },
+  "mcp": {
+    "servers": []
   },
   "gateway": {
-    "host": "127.0.0.1",
+    "host": "$GATEWAY_HOST",
     "port": 18790
+  },
+  "phone": {
+    "enabled": $PHONE_ENABLED,
+    "adb_path": "adb",
+    "auto_detect": true,
+    "serial": "",
+    "deny_shell": ["rm -rf /", "reboot bootloader"]
   }
 }
 EOF
@@ -386,36 +420,14 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ReadWritePaths=$HOME_DIR/.xagent $HOME_DIR/.config/xagent
+# SWE100821: Allow ADB access to USB-connected phone on Xavier/embedded
+SupplementaryGroups=plugdev
 
 [Install]
 WantedBy=multi-user.target
 EOF
     
-    # SWE100821: Memory bridge service (optional — requires Qdrant + pip deps)
-    if [ -f "$INSTALL_DIR/memory_bridge.py" ]; then
-        sudo tee /etc/systemd/system/memory-bridge.service > /dev/null << EOF
-[Unit]
-Description=Xagent Memory Bridge - SWE100821
-After=network.target ollama.service
-Wants=ollama.service
-
-[Service]
-Type=simple
-User=$USER
-WorkingDirectory=$INSTALL_DIR
-Environment="HOME=$HOME_DIR"
-ExecStart=/usr/bin/python3 $INSTALL_DIR/memory_bridge.py watch
-Restart=on-failure
-RestartSec=30
-StandardOutput=journal
-StandardError=journal
-SyslogIdentifier=memory-bridge
-
-[Install]
-WantedBy=multi-user.target
-EOF
-        log_success "Memory bridge service created (optional — enable with: sudo systemctl enable memory-bridge)"
-    fi
+    # SWE100821: memory_bridge.py removed — replaced by native Go semantic memory (pkg/memory/semantic.go)
 
     sudo systemctl daemon-reload
     

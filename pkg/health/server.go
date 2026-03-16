@@ -107,6 +107,23 @@ func (s *Server) GetMetrics() *Metrics {
 	return s.metrics
 }
 
+// RegisterHandler adds an HTTP handler at the given path.
+// SWE100821: Must be called before Start(). Used for A2A, dashboard, etc.
+func (s *Server) RegisterHandler(path string, handler http.Handler) {
+	if mux, ok := s.httpServer.Handler.(*http.ServeMux); ok {
+		mux.Handle(path, handler)
+	}
+}
+
+// GetMux returns the underlying ServeMux for direct route registration.
+// SWE100821: Used by the cognitive dashboard to register its routes.
+func (s *Server) GetMux() *http.ServeMux {
+	if mux, ok := s.httpServer.Handler.(*http.ServeMux); ok {
+		return mux
+	}
+	return nil
+}
+
 // SetReady marks the service as ready to serve traffic.
 func (s *Server) SetReady(ready bool) {
 	s.ready.Store(ready)

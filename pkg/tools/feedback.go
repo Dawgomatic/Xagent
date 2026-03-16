@@ -176,6 +176,39 @@ func (t *FeedbackTool) appendToLog(entry FeedbackEntry) error {
 	return err
 }
 
+// GetRewardSignal returns accumulated feedback as an RL reward signal.
+// SWE100821: Bridges user thumbs up/down directly into RL training.
+func (t *FeedbackTool) GetRewardSignal() float64 {
+	logFile := filepath.Join(t.workspace, "feedback", "feedback.jsonl")
+	data, err := os.ReadFile(logFile)
+	if err != nil {
+		return 0.0
+	}
+
+	var positive, negative, total int
+	for _, line := range strings.Split(strings.TrimSpace(string(data)), "\n") {
+		if line == "" {
+			continue
+		}
+		var entry FeedbackEntry
+		if err := json.Unmarshal([]byte(line), &entry); err != nil {
+			continue
+		}
+		total++
+		// SWE100821: +1 → positive, -1 → negative, 0 → neutral (counted but no effect).
+		if entry.Rating > 0 {
+			positive++
+		} else if entry.Rating < 0 {
+			negative++
+		}
+	}
+
+	if total == 0 {
+		return 0.0
+	}
+	return float64(positive-negative) / float64(total)
+}
+
 // GetRecentFeedback returns recent feedback entries for context injection.
 func (t *FeedbackTool) GetRecentFeedback() []FeedbackEntry {
 	t.mu.Lock()

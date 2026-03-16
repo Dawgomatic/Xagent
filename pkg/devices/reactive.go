@@ -133,6 +133,13 @@ func defaultReactions() []DeviceReaction {
 			Action:      " A network adapter ({device}) was connected.",
 			Cooldown:    5 * time.Minute,
 		},
+		// SWE100821: Phone USB detection
+		{
+			DeviceClass: "vendor_specific",
+			EventType:   "add",
+			Action:      " A phone ({device}) was connected via USB. Phone tools (ADB/libimobiledevice) are available.",
+			Cooldown:    5 * time.Minute,
+		},
 	}
 }
 

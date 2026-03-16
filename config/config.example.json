@@ -29,7 +29,7 @@
     },
     "whatsapp": {
       "enabled": false,
-      "bridge_url": "ws://localhost:3001",
+      "session_db": "~/.xagent/whatsapp.db",
       "allow_from": []
     },
     "feishu": {
@@ -128,5 +128,26 @@
   "gateway": {
     "host": "0.0.0.0",
     "port": 18790
+  },
+  "vault": {
+    "enabled": true,
+    "path": "~/.xagent/vault"
+  },
+  "mcp": {
+    "servers": [
+      {
+        "name": "example-server",
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
+        "enabled": false
+      }
+    ]
+  },
+  "phone": {
+    "enabled": false,
+    "adb_path": "adb",
+    "auto_detect": true,
+    "serial": "",
+    "deny_shell": ["rm -rf /", "reboot bootloader"]
   }
 }

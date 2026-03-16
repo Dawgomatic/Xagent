@@ -29,7 +29,23 @@ xagent agent -m "What can you do?"   # Talk to the agent
 
 **Self-Upgrading** -- The agent checks for updates weekly and can upgrade its own binary (with SHA256 verification), pull new models, and update the skills archive.
 
-**Secure by Default** -- Workspace sandboxing, command deny-lists, Chinese service blocklists, no telemetry, systemd hardening.
+**Secure by Default** -- Workspace sandboxing (Linux namespaces), command deny-lists, Chinese service blocklists, no telemetry, systemd hardening.
+
+**Plan-Act-Reflect Loop** -- Structured multi-step reasoning. The agent plans before acting, reflects after each tool call, and replans when needed.
+
+**Cognitive Memory Stack** -- Four-layer memory: semantic (vector search via Qdrant), hindsight (retain/recall/reflect), temporal (time-aware queries like "what happened yesterday"), and memory scoring (recency, salience, novelty, reference count).
+
+**Agent-to-Agent (A2A) Mesh** -- Peer discovery via UDP broadcast, hardware-aware task routing (GPU tasks routed to GPU peers), and shared vault synchronization across agents.
+
+**Model Context Protocol (MCP)** -- Connect to any MCP server (filesystem, database, API) and use its tools natively inside the agent loop. Config-driven, no code changes needed.
+
+**Cognitive Dashboard** -- Web UI at `/dashboard` for real-time agent introspection: epoch history, provenance logs, skill inventory, connected peers.
+
+**Skill Fitness & Composition** -- Skills are scored by success rate, usage, and recency. The agent can compose new skills from existing ones during sleep cycles.
+
+**Voice Conversation Loop** -- Full STT (Groq Whisper) to agent to TTS (Piper/espeak) pipeline for hands-free interaction.
+
+**Dynamic Model Switching** -- Automatically switches the LLM model when available compute changes (e.g., GPU becomes available or RAM pressure increases).
 
 ---
 
@@ -50,23 +66,29 @@ xagent agent -m "What can you do?"   # Talk to the agent
 ```
 cmd/xagent/         CLI entry point
 pkg/                Go packages
-  agent/            Agent loop, context builder, memory, sleep cycle
+  agent/            Agent loop, planner, context compression, personality, dream mode
+  memory/           Semantic, hindsight, temporal memory, scoring
+  tools/            Sandboxed tools (exec, filesystem, web, feedback)
   llmcheck/         Hardware detection, model scoring, Ollama client
-  tools/            Sandboxed tools (exec, filesystem, web, llm_check)
   channels/         Telegram, Discord, Slack, WhatsApp, LINE
   providers/        LLM backends (Ollama, OpenAI-compat, Anthropic)
   config/           Configuration management
-  skills/           Skill loader and installer
-  upgrade/          Self-upgrade system
-  hwprofile/        Hardware tier detection
+  skills/           Skill loader, fitness tracker, composer
+  upgrade/          Self-upgrade system (binary, models, RL checkpoints)
+  hwprofile/        Hardware tier detection and resource watching
   vault/            Obsidian-compatible knowledge vault and graph view
+  agent2agent/      A2A peer discovery, task routing, vault sync
+  mcp/              Model Context Protocol client
+  orchestration/    Multi-agent task DAG execution
+  dashboard/        Web UI for agent introspection
+  sensors/          Embodied cognition sensor monitor
+  voice/            STT/TTS voice conversation loop
+  sandbox/          Linux namespace sandbox for tool execution
+  health/           Health, readiness, and metrics endpoints
 workspace/          Built-in skills and agent identity files
 skills/             OpenClaw community skill archive (10,000+)
-reference/          Vanilla upstream repos (git submodules, read-only: hindsight, BitNet, openclaw-rl)
+reference/          Vanilla upstream repos (git submodules, read-only)
 start.sh            One-command installer
-skill_converter.py  Skill search, filter, and install tool
-memory_bridge.py    Optional Qdrant memory bridge
-docker-compose.rl   Optional RL server proxy and training loop setup
 Makefile            Build system
 ```
 

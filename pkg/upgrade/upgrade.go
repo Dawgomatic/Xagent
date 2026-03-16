@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"os/exec"
@@ -14,6 +15,13 @@ import (
 	"strings"
 	"time"
 )
+
+// SWE100821: RL checkpoint metadata returned by the RL server.
+type RLCheckpoint struct {
+	Path      string  `json:"path"`
+	Step      int     `json:"step"`
+	AvgReward float64 `json:"avg_reward"`
+}
 
 const (
 	githubAPIBase = "https://api.github.com/repos/Dawgomatic/Xagent"
@@ -217,6 +225,24 @@ func verifyChecksum(client *http.Client, checksumAsset *ReleaseAsset, binaryName
 }
 
 func UpgradeModel(model string) error {
+	// SWE100821: Check for RL checkpoint first, fall back to standard Ollama pull.
+	if model == "" || model == "xagent-rl" {
+		rlURL := os.Getenv("RL_SERVER_URL")
+		if rlURL != "" {
+			workspace := os.Getenv("XAGENT_WORKSPACE")
+			if workspace == "" {
+				workspace = filepath.Join(os.Getenv("HOME"), ".xagent")
+			}
+			newModel, err := UpgradeFromCheckpoint(rlURL, workspace)
+			if err != nil {
+				log.Printf("RL checkpoint upgrade failed, falling back: %v", err)
+			} else if newModel != "" {
+				fmt.Printf("RL model deployed: %s\n", newModel)
+				return nil
+			}
+		}
+	}
+
 	if model == "" {
 		modelFile := filepath.Join(os.Getenv("HOME"), ".ollama_model")
 		data, err := os.ReadFile(modelFile)
@@ -243,6 +269,57 @@ func UpgradeModel(model string) error {
 	}
 	fmt.Println("Model updated")
 	return nil
+}
+
+// UpgradeFromCheckpoint loads an RL-trained checkpoint and creates an Ollama model from it.
+// SWE100821: Closes the RL loop — training data → checkpoint → deployable model.
+func UpgradeFromCheckpoint(rlServerURL string, workspace string) (string, error) {
+	client := &http.Client{Timeout: httpTimeout}
+	resp, err := client.Get(rlServerURL + "/checkpoint/latest")
+	if err != nil {
+		return "", fmt.Errorf("fetching RL checkpoint: %w", err)
+	}
+	defer resp.Body.Close()
+
+	// SWE100821: No checkpoint available is not an error — just nothing to upgrade.
+	if resp.StatusCode == 404 {
+		return "", nil
+	}
+	if resp.StatusCode != 200 {
+		return "", fmt.Errorf("RL server returned HTTP %d", resp.StatusCode)
+	}
+
+	var ckpt RLCheckpoint
+	if err := json.NewDecoder(resp.Body).Decode(&ckpt); err != nil {
+		return "", fmt.Errorf("parsing checkpoint metadata: %w", err)
+	}
+	if ckpt.Path == "" {
+		return "", nil
+	}
+
+	// SWE100821: Build Ollama Modelfile from RL checkpoint.
+	modelfileContent := fmt.Sprintf("FROM %s\nSYSTEM \"Xagent RL-trained model (step %d, reward %.3f)\"", ckpt.Path, ckpt.Step, ckpt.AvgReward)
+
+	modelfileDir := filepath.Join(workspace, "rl")
+	if err := os.MkdirAll(modelfileDir, 0755); err != nil {
+		return "", fmt.Errorf("creating rl dir: %w", err)
+	}
+	modelfilePath := filepath.Join(modelfileDir, "Modelfile")
+	if err := os.WriteFile(modelfilePath, []byte(modelfileContent), 0644); err != nil {
+		return "", fmt.Errorf("writing Modelfile: %w", err)
+	}
+
+	// SWE100821: Shell out to ollama create.
+	modelName := "xagent-rl"
+	cmd := exec.Command("ollama", "create", modelName, "-f", modelfilePath)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return "", fmt.Errorf("ollama create %s: %w", modelName, err)
+	}
+
+	log.Printf("RL upgrade complete: model=%s step=%d avg_reward=%.3f", modelName, ckpt.Step, ckpt.AvgReward)
+	return modelName, nil
 }
 
 func UpgradeSkills(installDir string) error {

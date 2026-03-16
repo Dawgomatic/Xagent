@@ -10,8 +10,10 @@ import (
 	"time"
 
 	"github.com/Dawgomatic/Xagent/pkg/agent"
+	"github.com/Dawgomatic/Xagent/pkg/agent2agent"
 	"github.com/Dawgomatic/Xagent/pkg/bus"
 	"github.com/Dawgomatic/Xagent/pkg/channels"
+	"github.com/Dawgomatic/Xagent/pkg/dashboard" // SWE100821: Cognitive dashboard
 	"github.com/Dawgomatic/Xagent/pkg/devices"
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/health"
@@ -67,17 +69,6 @@ func gatewayCmd() {
 		fmt.Printf("  • Auto-tuned max_tool_iterations: %d\n", rec.MaxToolIterations)
 	}
 
-	// Start resource watcher for dynamic tier changes (e.g., RAM pressure)
-	stopWatch := hwprofile.WatchResources(60*time.Second, func(old, cur *hwprofile.Profile) {
-		logger.WarnCF("hwprofile", "Compute tier changed",
-			map[string]interface{}{
-				"old_tier":     string(old.Tier),
-				"new_tier":     string(cur.Tier),
-				"ram_avail_mb": cur.RAMAvailMB,
-			})
-	})
-	defer stopWatch()
-
 	provider, err := providers.CreateProvider(cfg)
 	if err != nil {
 		fmt.Printf("Error creating provider: %v\n", err)
@@ -86,6 +77,29 @@ func gatewayCmd() {
 
 	msgBus := bus.NewMessageBus()
 	agentLoop := agent.NewAgentLoop(cfg, msgBus, provider)
+
+	// SWE100821: Start resource watcher — dynamically switch model when tier changes
+	// Must be after agentLoop creation so the closure can capture the variable.
+	stopWatch := hwprofile.WatchResources(60*time.Second, func(old, cur *hwprofile.Profile) {
+		logger.WarnCF("hwprofile", "Compute tier changed",
+			map[string]interface{}{
+				"old_tier":     string(old.Tier),
+				"new_tier":     string(cur.Tier),
+				"ram_avail_mb": cur.RAMAvailMB,
+			})
+		newRec := cur.Recommend()
+		oldModel := agentLoop.GetModel()
+		if newRec.OllamaModel != oldModel {
+			agentLoop.SetModel(newRec.OllamaModel)
+			logger.InfoCF("hwprofile", "Dynamic model switch",
+				map[string]interface{}{
+					"old_model": oldModel,
+					"new_model": newRec.OllamaModel,
+					"reason":    fmt.Sprintf("tier changed %s -> %s", old.Tier, cur.Tier),
+				})
+		}
+	})
+	defer stopWatch()
 
 	// Print agent startup info
 	fmt.Println("\n📦 Agent Status:")
@@ -206,9 +220,25 @@ func gatewayCmd() {
 		checkers = append(checkers, health.OllamaChecker(ollamaBase))
 	}
 	healthServer := health.NewServer(cfg.Gateway.Host, healthPort, checkers...)
+
+	// SWE100821: Wire A2A protocol into gateway
+	a2aHub := agent2agent.NewA2AHub(agentLoop.GetIdentity().AgentID)
+	a2aHub.SetHandler(func(ctx context.Context, msg agent2agent.A2AMessage) (string, error) {
+		return agentLoop.ProcessDirect(ctx, msg.Payload, "a2a:"+msg.FromAgentID)
+	})
+	healthServer.RegisterHandler("/a2a", a2aHub.HTTPHandler())
+	fmt.Println("✓ A2A protocol enabled on /a2a")
+
+	// SWE100821: Wire cognitive dashboard into health server mux
+	dash := dashboard.NewDashboard(cfg.WorkspacePath())
+	if mux := healthServer.GetMux(); mux != nil {
+		dash.SetupRoutes(mux)
+		fmt.Println("✓ Cognitive dashboard enabled on /dashboard")
+	}
+
 	healthServer.Start()
 	healthServer.SetReady(true)
-	fmt.Printf("✓ Health check server on %s:%d (/healthz, /readyz, /metricsz, /hwprofile)\n", cfg.Gateway.Host, healthPort)
+	fmt.Printf("✓ Health check server on %s:%d (/healthz, /readyz, /metricsz, /hwprofile, /a2a, /dashboard)\n", cfg.Gateway.Host, healthPort)
 
 	fmt.Println("Press Ctrl+C to stop")
 

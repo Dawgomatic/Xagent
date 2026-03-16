@@ -13,6 +13,7 @@ RUN go mod download
 
 # Copy source and build
 COPY . .
+RUN go mod tidy
 RUN make build
 
 # ============================================================

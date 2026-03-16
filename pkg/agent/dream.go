@@ -11,6 +11,8 @@ package agent
 import (
 	"context"
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 	"sync"
 	"time"
@@ -143,11 +145,18 @@ func (dm *DreamMode) loop(ctx context.Context) {
 func (dm *DreamMode) dream(ctx context.Context) {
 	logger.InfoCF("dream", "Entering dream mode (offline reflection)", nil)
 
+	// SWE100821: Read WORLD_MODEL.md if it exists for causal-belief integration
+	worldModelPath := filepath.Join(dm.workspace, "WORLD_MODEL.md")
+	worldModelContent := ""
+	if data, err := os.ReadFile(worldModelPath); err == nil {
+		worldModelContent = string(data)
+	}
+
 	// Gather material to reflect on
 	recentNotes := dm.memory.GetRecentDailyNotes(7)
 	longTerm := dm.memory.ReadLongTerm()
 
-	if recentNotes == "" && longTerm == "" {
+	if recentNotes == "" && longTerm == "" && worldModelContent == "" {
 		logger.InfoCF("dream", "Nothing to dream about (no notes or memory)", nil)
 		return
 	}
@@ -161,8 +170,12 @@ func (dm *DreamMode) dream(ctx context.Context) {
 	if longTerm != "" {
 		material += "\n\n## Long-term Memory\n\n" + longTerm
 	}
+	// SWE100821: Append world model to dream material
+	if worldModelContent != "" {
+		material += "\n\n## Current World Model\n\n" + worldModelContent
+	}
 
-	// SWE100821: Ask the LLM to reflect
+	// SWE100821: Ask the LLM to reflect, including world model update instructions
 	dreamPrompt := fmt.Sprintf(`You are in dream mode — a quiet time for autonomous reflection.
 
 Review the following notes and memories. Think deeply about:
@@ -171,6 +184,12 @@ Review the following notes and memories. Think deeply about:
 3. Questions that remain unanswered
 4. Connections between different topics
 5. Insights that synthesize multiple observations
+
+Also update the WORLD_MODEL.md with new causal beliefs, updated models, and deprecated beliefs. Format as:
+WORLD_MODEL_UPDATES:
+ADD: <new causal belief or model>
+UPDATE: <existing belief> -> <revised belief>
+DEPRECATE: <belief that is no longer supported by evidence>
 
 Respond in this format:
 
@@ -186,6 +205,11 @@ QUESTIONS:
 - <open question 1>
 - <open question 2>
 
+WORLD_MODEL_UPDATES:
+ADD: ...
+UPDATE: ...
+DEPRECATE: ...
+
 Be concise. Focus on genuinely novel observations.
 
 MATERIAL:
@@ -194,7 +218,7 @@ MATERIAL:
 	resp, err := dm.provider.Chat(ctx, []providers.Message{
 		{Role: "user", Content: dreamPrompt},
 	}, nil, dm.model, map[string]interface{}{
-		"max_tokens":  1024,
+		"max_tokens":  1536,
 		"temperature": 0.8, // SWE100821: higher temperature for creative reflection
 	})
 
@@ -204,6 +228,16 @@ MATERIAL:
 	}
 
 	result := parseDreamResult(resp.Content, noteCount)
+
+	// SWE100821: Parse and persist WORLD_MODEL updates from dream output
+	wmUpdates := parseWorldModelUpdates(resp.Content)
+	if wmUpdates != "" {
+		if err := updateWorldModel(dm.workspace, wmUpdates); err != nil {
+			logger.WarnCF("dream", "Failed to update WORLD_MODEL.md", map[string]interface{}{"error": err.Error()})
+		} else {
+			logger.InfoCF("dream", "Updated WORLD_MODEL.md with dream insights", nil)
+		}
+	}
 
 	// Write insights to daily notes
 	if len(result.Insights) > 0 || len(result.Patterns) > 0 {
@@ -258,6 +292,47 @@ MATERIAL:
 			"insights":  len(result.Insights),
 			"questions": len(result.Questions),
 		})
+}
+
+// SWE100821: parseWorldModelUpdates extracts ADD/UPDATE/DEPRECATE lines from dream output.
+func parseWorldModelUpdates(content string) string {
+	var updates strings.Builder
+	inSection := false
+	for _, line := range strings.Split(content, "\n") {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "WORLD_MODEL_UPDATES:") {
+			inSection = true
+			continue
+		}
+		if inSection {
+			if strings.HasPrefix(trimmed, "ADD:") || strings.HasPrefix(trimmed, "UPDATE:") || strings.HasPrefix(trimmed, "DEPRECATE:") {
+				updates.WriteString(trimmed + "\n")
+			} else if trimmed == "" {
+				continue
+			} else {
+				break
+			}
+		}
+	}
+	return updates.String()
+}
+
+// SWE100821: updateWorldModel reads WORLD_MODEL.md, appends new content under today's date, and writes it back.
+func updateWorldModel(workspace, content string) error {
+	wmPath := filepath.Join(workspace, "WORLD_MODEL.md")
+
+	existing := ""
+	if data, err := os.ReadFile(wmPath); err == nil {
+		existing = string(data)
+	}
+
+	header := fmt.Sprintf("\n\n## %s — Dream Update\n\n", time.Now().Format("2006-01-02"))
+	updated := existing + header + content
+
+	if err := os.MkdirAll(filepath.Dir(wmPath), 0755); err != nil {
+		return err
+	}
+	return os.WriteFile(wmPath, []byte(updated), 0644)
 }
 
 func parseDreamResult(content string, noteCount int) DreamResult {

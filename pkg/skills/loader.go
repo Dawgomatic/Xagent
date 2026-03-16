@@ -276,6 +276,28 @@ func (sl *SkillsLoader) stripFrontmatter(content string) string {
 	return re.ReplaceAllString(content, "")
 }
 
+// GetRawMetadata returns the parsed YAML frontmatter of a skill as a map.
+// SWE100821: Used by dynamic tool registration to extract tool definitions.
+func (sl *SkillsLoader) GetRawMetadata(skillPath string) map[string]interface{} {
+	content, err := os.ReadFile(skillPath)
+	if err != nil {
+		return nil
+	}
+
+	fm := sl.extractFrontmatter(string(content))
+	if fm == "" {
+		return nil
+	}
+
+	// Parse YAML-like frontmatter into a map
+	result := make(map[string]interface{})
+	yamlMap := sl.parseSimpleYAML(fm)
+	for k, v := range yamlMap {
+		result[k] = v
+	}
+	return result
+}
+
 func escapeXML(s string) string {
 	s = strings.ReplaceAll(s, "&", "&amp;")
 	s = strings.ReplaceAll(s, "<", "&lt;")

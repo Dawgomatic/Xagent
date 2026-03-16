@@ -224,7 +224,7 @@ Qdrant-powered vector memory for semantic search across conversation history:
 
 ```bash
 # Requires Qdrant running on localhost:6333
-# Configured via memory_bridge.py
+# SWE100821: Now handled natively by pkg/memory/semantic.go
 ```
 
 ---
@@ -279,7 +279,7 @@ Location: `pkg/tools/approval.go`
 
 ## Integrated Semantic Memory
 
-Native Go Qdrant client replaces the disconnected Python memory_bridge.py:
+Native Go Qdrant client provides built-in semantic memory:
 
 - Auto-embeds conversation summaries and epoch journals via Ollama (`nomic-embed-text`)
 - On each new message, similarity-searches and injects top-k relevant memories into context
@@ -545,3 +545,152 @@ User-defined multi-step workflows as JSON files:
 Bridges the gap between cron jobs and full agent conversations. Supports cron, event, and manual triggers.
 
 Location: `pkg/workflows/recipe.go`
+
+---
+
+## Plan-Act-Reflect Loop
+
+Structured multi-step reasoning for complex tasks:
+
+1. **Plan** — The agent generates a numbered step plan before acting
+2. **Act** — Executes each step using available tools
+3. **Reflect** — After each tool call, evaluates progress, updates working notes
+4. **Replan** — If a step fails or the approach is wrong, generates a new plan (up to 2 replans)
+
+The current plan and scratchpad are injected into the system prompt so the LLM maintains awareness of where it is in the task.
+
+Location: `pkg/agent/planner.go`, integrated in `pkg/agent/loop.go`
+
+---
+
+## Context Compression
+
+Automatically compresses long conversation histories to stay within token limits. Uses a sliding window that preserves the system message and summarizes older turns, keeping the most recent exchanges intact.
+
+Location: `pkg/agent/compression.go`
+
+---
+
+## Personality Evolution
+
+Tracks the agent's communication style over time by observing response patterns (length, verbosity, tool usage). During sleep cycles, analyzes collected data to build a personality profile that influences future responses.
+
+Location: `pkg/agent/personality.go`
+
+---
+
+## Cognitive Memory Stack
+
+Four-layer memory system:
+
+- **Semantic Memory** — Vector search via Qdrant + Ollama embeddings. Multi-factor scoring (recency, salience, novelty, reference count) for retrieval ranking.
+- **Hindsight Memory** — Biomimetic retain/recall/reflect cycle. Retains important facts, recalls by hybrid search, reflects to synthesize mental models.
+- **Temporal Memory** — Time-bucketed index with natural language queries ("what happened yesterday", "last week"). Capped at 10,000 entries.
+- **Memory Scoring** — Weighted composite score: `0.3×recency + 0.3×salience + 0.2×novelty + 0.2×reference`.
+
+Location: `pkg/memory/`
+
+---
+
+## Agent-to-Agent (A2A) Communication
+
+Peer mesh network for multi-agent collaboration:
+
+- **Discovery** — UDP broadcast on port 18799, agents announce themselves every 30s
+- **Task Routing** — Hardware-aware: GPU tasks route to GPU peers, low-tier agents delegate to higher-tier peers
+- **Vault Sync** — Shares world-facts and mental-models directories between peers (latest-writer-wins)
+
+Location: `pkg/agent2agent/`
+
+---
+
+## Model Context Protocol (MCP)
+
+Config-driven MCP client that connects to any MCP-compliant server:
+
+```json
+{
+  "mcp": {
+    "servers": [
+      {
+        "name": "filesystem",
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
+        "enabled": true
+      }
+    ]
+  }
+}
+```
+
+Discovered tools are automatically registered in the agent's tool registry with server-name prefixing to avoid collisions.
+
+Location: `pkg/mcp/`, `pkg/agent/mcp_tools.go`
+
+---
+
+## Cognitive Dashboard
+
+Web UI served at `/dashboard` on the health server port (default 18791). Provides:
+
+- Real-time agent state (model, provider, uptime)
+- Epoch history timeline
+- Provenance log viewer
+- Skill inventory and fitness scores
+- Connected A2A peers
+
+Location: `pkg/dashboard/`
+
+---
+
+## Skill Fitness & Composition
+
+- **Fitness Tracking** — Each skill is scored by success rate, usage frequency, and recency. Low-fitness skills are flagged for deprecation.
+- **Skill Composition** — The agent can combine existing skills into new composite skills using LLM-driven synthesis. Frequently co-used skills are suggested for composition.
+
+Location: `pkg/skills/fitness.go`, `pkg/skills/composer.go`
+
+---
+
+## Voice Conversation Loop
+
+Full hands-free voice interaction pipeline:
+
+1. Audio capture via `arecord` (5-second chunks)
+2. Speech-to-text via Groq Whisper API
+3. Agent processing via `ProcessDirect`
+4. Text-to-speech via Piper or espeak
+5. Audio playback via `aplay`
+
+Location: `pkg/voice/loop.go`
+
+---
+
+## Dynamic Model Switching
+
+The hardware resource watcher monitors system resources every 60 seconds. When the compute tier changes (e.g., GPU becomes available, RAM pressure increases), the agent automatically switches to the optimal model for the new tier.
+
+Location: `pkg/hwprofile/`, wired in `cmd/xagent/cmd_gateway.go`
+
+---
+
+## Multi-Agent Orchestration
+
+The `decompose` tool enables the agent to break complex tasks into a directed acyclic graph (DAG) of subtasks, execute them via role-specialized subagents, and aggregate results.
+
+Location: `pkg/orchestration/`, `pkg/agent/orchestration_tool.go`
+
+---
+
+## Workspace Sandbox
+
+Linux namespace isolation for shell command execution:
+
+- Mount namespace (private `/tmp`)
+- PID namespace (isolated process tree)
+- Network namespace (optional network blocking)
+- Resource limits via cgroups
+
+Falls back to direct execution on non-Linux systems.
+
+Location: `pkg/sandbox/`

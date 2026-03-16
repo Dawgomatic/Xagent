@@ -24,6 +24,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
+	"github.com/Dawgomatic/Xagent/pkg/mcp"
 	"github.com/Dawgomatic/Xagent/pkg/memory"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/session"
@@ -51,13 +52,15 @@ type AgentLoop struct {
 	tools          *tools.ToolRegistry
 	middleware     *tools.ToolMiddleware   // SWE100821: Tool middleware (caching, circuit breaker, analytics)
 	planner        *Planner                // SWE100821: Plan-Act-Reflect loop
+	compressor     *ContextCompressor      // SWE100821: Context compression for long sessions
 	provenance     *ProvenanceTracker      // SWE100821: Provenance tracking per turn
 	dream          *DreamMode              // SWE100821: Offline reflection during idle
 	sleepManager   *SleepManager           // Phase 3: Continuous Improvement Sleep Cycle
 	personality    *PersonalityTracker     // SWE100821: Personality evolution
 	feedback       *tools.FeedbackTool     // OpenClaw-RL: User feedback for RL training
-	vaultWriter    *vault.VaultWriter      // Obsidian knowledge vault
+	vaultWriter    *vault.VaultWriter       // Obsidian knowledge vault
 	hindsight      *memory.HindsightMemory // Hindsight learning memory
+	semanticMemory *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
 	running        atomic.Bool
 	summarizing    sync.Map // Tracks which sessions are currently being summarized
 }
@@ -130,6 +133,11 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	// Browser: Headless web automation
 	registry.Register(tools.NewBrowserTool(workspace))
 
+	// SWE100821: Phone access via ADB/libimobiledevice
+	if cfg.Phone.Enabled {
+		registry.Register(tools.NewPhoneTool(workspace, cfg.Phone))
+	}
+
 	return registry, feedbackTool
 }
 
@@ -169,11 +177,48 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	contextBuilder.SetToolsRegistry(toolsRegistry)
 	contextBuilder.SetIdentity(agentIdentity)
 
+	// SWE100821: Register dynamic skill tools from SKILL.md frontmatter
+	if contextBuilder.skillsLoader != nil {
+		dynCount := registerDynamicSkillTools(contextBuilder.skillsLoader, toolsRegistry, workspace)
+		if dynCount > 0 {
+			logger.InfoCF("skills", "Registered dynamic skill tools", map[string]interface{}{"count": dynCount})
+		}
+	}
+
+	// SWE100821: Config-driven MCP server initialization
+	for _, serverCfg := range cfg.MCP.Servers {
+		if !serverCfg.Enabled {
+			continue
+		}
+		mcpCtx, mcpCancel := context.WithTimeout(context.Background(), 10*time.Second)
+		transport, err := mcp.NewStdioTransport(serverCfg.Command, serverCfg.Args, nil)
+		if err != nil {
+			logger.WarnCF("mcp", "Failed to start MCP server",
+				map[string]interface{}{"server": serverCfg.Name, "error": err.Error()})
+			mcpCancel()
+			continue
+		}
+		client := mcp.NewClient(serverCfg.Name, transport)
+		count, err := registerMCPTools(mcpCtx, client, toolsRegistry)
+		mcpCancel()
+		if err != nil {
+			logger.WarnCF("mcp", "MCP tool registration failed",
+				map[string]interface{}{"server": serverCfg.Name, "error": err.Error()})
+			client.Close()
+			continue
+		}
+		logger.InfoCF("mcp", "MCP server registered",
+			map[string]interface{}{"server": serverCfg.Name, "tools": count})
+	}
+
 	// SWE100821: Create tool middleware layer (caching, circuit breaker, analytics)
 	toolMiddleware := tools.NewToolMiddleware(toolsRegistry)
 
 	// SWE100821: Create planner for Plan-Act-Reflect loop
 	planner := NewPlanner(provider, cfg.Agents.Defaults.Model, cfg.Agents.Defaults.MaxTokens, cfg.Agents.Defaults.Temperature)
+
+	// SWE100821: Create context compressor for long sessions
+	compressor := NewContextCompressor(provider, nil, cfg.Agents.Defaults.Model, "")
 
 	// SWE100821: Create provenance tracker
 	provenance := NewProvenanceTracker(workspace)
@@ -187,6 +232,12 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// Phase 3: Create Sleep Manager
 	epochMgr := epoch.NewManager(workspace, agentIdentity)
 	sleepManager := NewSleepManager(epochMgr, provider, msgBus, workspace, toolsRegistry)
+
+	// SWE100821: Attach personality tracker to sleep manager for auto-analysis
+	sleepManager.SetPersonality(personalityTracker)
+
+	// SWE100821: Create semantic memory (Qdrant + Ollama embeddings)
+	semanticMem := memory.NewSemanticMemory("", "", "", "")
 
 	// Obsidian vault: create and initialize if enabled
 	var vw *vault.VaultWriter
@@ -208,6 +259,10 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 			vw = nil
 		} else {
 			hm = memory.NewHindsightMemory(vw, provider)
+			// SWE100821: Wire semantic memory and vault root into hindsight for recall
+			hm.SetSemanticMemory(semanticMem)
+			hm.SetVaultRoot(vaultPath)
+			hm.SetModel(cfg.Agents.Defaults.Model)
 		}
 	}
 
@@ -229,6 +284,7 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		tools:          toolsRegistry,
 		middleware:     toolMiddleware,     // SWE100821: middleware layer
 		planner:        planner,            // SWE100821: Plan-Act-Reflect
+		compressor:     compressor,         // SWE100821: context compression
 		provenance:     provenance,         // SWE100821: provenance tracking
 		dream:          dreamMode,          // SWE100821: dream mode
 		sleepManager:   sleepManager,       // Phase 3: sleep cycle
@@ -236,6 +292,7 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		feedback:       feedbackTool,       // OpenClaw-RL: feedback tool
 		vaultWriter:    vw,                 // Obsidian knowledge vault
 		hindsight:      hm,                 // Hindsight cognitive memory
+		semanticMemory: semanticMem,        // SWE100821: semantic memory
 		summarizing:    sync.Map{},
 	}
 }
@@ -487,6 +544,20 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		history = al.sessions.GetHistory(opts.SessionKey)
 		summary = al.sessions.GetSummary(opts.SessionKey)
 	}
+
+	// SWE100821: Compress history when it exceeds threshold to preserve context window
+	if al.compressor != nil && len(history) > 20 {
+		compressed, recent, compErr := al.compressor.CompressHistory(ctx, history)
+		if compErr == nil && compressed != "" {
+			if summary != "" {
+				summary += "\n\n" + compressed
+			} else {
+				summary = compressed
+			}
+			history = recent
+		}
+	}
+
 	messages := al.contextBuilder.BuildMessages(
 		history,
 		summary,
@@ -546,7 +617,8 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	al.sessions.AddMessage(opts.SessionKey, "user", opts.UserMessage)
 
 	// 4. Run LLM iteration loop
-	finalContent, iteration, err := al.runLLMIteration(ctx, messages, opts)
+	// SWE100821: Pass plan into iteration loop for Plan-Act-Reflect
+	finalContent, iteration, err := al.runLLMIteration(ctx, messages, opts, plan)
 	if err != nil {
 		return "", err
 	}
@@ -647,6 +719,20 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		}
 	}
 
+	// 14. SWE100821: Auto-store to semantic memory for vector recall
+	if al.semanticMemory != nil && al.semanticMemory.IsAvailable() && !opts.NoHistory {
+		go func() {
+			storeCtx, storeCancel := context.WithTimeout(context.Background(), 10*time.Second)
+			defer storeCancel()
+			summary := fmt.Sprintf("User asked: %s. Agent responded: %s",
+				utils.Truncate(opts.UserMessage, 200),
+				utils.Truncate(finalContent, 200))
+			if err := al.semanticMemory.StoreConversationSummary(storeCtx, opts.SessionKey, summary); err != nil {
+				logger.DebugCF("memory", "Semantic auto-store failed", map[string]interface{}{"error": err.Error()})
+			}
+		}()
+	}
+
 	return finalContent, nil
 }
 
@@ -698,8 +784,9 @@ func (al *AgentLoop) GetMiddleware() *tools.ToolMiddleware {
 }
 
 // runLLMIteration executes the LLM call loop with tool handling.
-// Returns the final content, iteration count, and any error.
-func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.Message, opts processOptions) (string, int, error) {
+// SWE100821: Now integrates Plan-Act-Reflect — reflects after each tool call,
+// advances/fails plan steps, and replans on dead-ends.
+func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.Message, opts processOptions, plan *AgentPlan) (string, int, error) {
 	iteration := 0
 	var finalContent string
 
@@ -722,8 +809,8 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 				"model":             al.model,
 				"messages_count":    len(messages),
 				"tools_count":       len(providerToolDefs),
-				"max_tokens":        8192,
-				"temperature":       0.7,
+				"max_tokens":        al.maxTokens,
+				"temperature":       al.temperature,
 				"system_prompt_len": len(messages[0].Content),
 			})
 
@@ -807,15 +894,9 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 
 			// SWE100821: Track tool execution timing for provenance
 			start := time.Now()
-			_ = start
 
 			// Create async callback for tools that implement AsyncTool
-			// NOTE: Following openclaw's design, async tools do NOT send results directly to users.
-			// Instead, they notify the agent via PublishInbound, and the agent decides
-			// whether to forward the result to the user (in processSystemMessage).
 			asyncCallback := func(callbackCtx context.Context, result *tools.ToolResult) {
-				// Log the async completion but don't send directly to user
-				// The agent will handle user notification via processSystemMessage
 				if !result.Silent && result.ForUser != "" {
 					logger.InfoCF("agent", "Async tool completed, agent will handle notification",
 						map[string]interface{}{
@@ -866,6 +947,53 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 
 			// Save tool result message to session
 			al.sessions.AddFullMessage(opts.SessionKey, toolResultMsg)
+
+			// SWE100821: Plan-Act-Reflect — reflect after each tool call
+			if plan != nil && al.planner != nil {
+				if toolResult.IsError {
+					plan.MarkCurrentFailed()
+					logger.InfoCF("planner", "Plan step failed",
+						map[string]interface{}{"tool": tc.Name, "step": currentStepDescription(plan)})
+				} else {
+					plan.AdvanceStep()
+				}
+
+				scratchpad, shouldReplan, reflectErr := al.planner.Reflect(ctx, plan, tc.Name, contentForLLM)
+				if reflectErr != nil {
+					logger.WarnCF("planner", "Reflection failed", map[string]interface{}{"error": reflectErr.Error()})
+				} else {
+					plan.Scratchpad = scratchpad
+
+					if shouldReplan && plan.Replans < 2 {
+						plan.Replans++
+						logger.InfoCF("planner", "Replanning", map[string]interface{}{"replan_count": plan.Replans})
+						toolSummaries := al.tools.GetSummaries()
+						newPlan, replanErr := al.planner.GeneratePlan(ctx, plan.Goal+"\n\nPrevious approach notes: "+scratchpad, toolSummaries)
+						if replanErr == nil && newPlan != nil {
+							newPlan.Replans = plan.Replans
+							newPlan.Scratchpad = scratchpad
+							plan = newPlan
+						}
+					}
+				}
+
+				// SWE100821: Update plan context in system prompt for next iteration
+				planContext := plan.ForSystemPrompt()
+				if planContext != "" && len(messages) > 0 {
+					// Replace existing plan section or append
+					sysContent := messages[0].Content
+					if idx := strings.Index(sysContent, "## Current Plan"); idx >= 0 {
+						messages[0].Content = sysContent[:idx] + planContext
+					} else {
+						messages[0].Content += "\n\n" + planContext
+					}
+				}
+			}
+		}
+
+		// SWE100821: Early exit if plan is fully complete
+		if plan != nil && plan.IsComplete() {
+			logger.InfoCF("planner", "Plan complete, finishing iteration loop", nil)
 		}
 	}
 
@@ -937,6 +1065,17 @@ func (al *AgentLoop) GetStartupInfo() map[string]interface{} {
 // SWE100821: Exposes identity for status/health endpoints.
 func (al *AgentLoop) GetIdentity() *identity.AgentIdentity {
 	return al.identity
+}
+
+// SetModel dynamically switches the LLM model used by the agent.
+// SWE100821: Called when hardware tier changes to adapt to available resources.
+func (al *AgentLoop) SetModel(model string) {
+	al.model = model
+}
+
+// GetModel returns the current model name.
+func (al *AgentLoop) GetModel() string {
+	return al.model
 }
 
 // SetEpoch attaches the epoch manager so the agent can journal events.

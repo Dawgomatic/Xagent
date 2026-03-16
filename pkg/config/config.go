@@ -53,7 +53,22 @@ type Config struct {
 	Heartbeat HeartbeatConfig `json:"heartbeat"`
 	Devices   DevicesConfig   `json:"devices"`
 	Vault     VaultConfig     `json:"vault"`
+	MCP       MCPConfig       `json:"mcp"`   // SWE100821: Config-driven MCP server registration
+	Phone     PhoneConfig     `json:"phone"` // SWE100821: USB-attached phone access via ADB/libimobiledevice
 	mu        sync.RWMutex
+}
+
+// SWE100821: MCPConfig holds config-driven MCP server definitions.
+type MCPConfig struct {
+	Servers []MCPServerConfig `json:"servers"`
+}
+
+// MCPServerConfig defines a single MCP server to connect to at startup.
+type MCPServerConfig struct {
+	Name    string   `json:"name"`
+	Command string   `json:"command"`
+	Args    []string `json:"args"`
+	Enabled bool     `json:"enabled"`
 }
 
 // VaultConfig configures the Obsidian-compatible knowledge vault.
@@ -92,7 +107,7 @@ type ChannelsConfig struct {
 
 type WhatsAppConfig struct {
 	Enabled   bool                `json:"enabled" env:"XAGENT_CHANNELS_WHATSAPP_ENABLED"`
-	BridgeURL string              `json:"bridge_url" env:"XAGENT_CHANNELS_WHATSAPP_BRIDGE_URL"`
+	SessionDB string              `json:"session_db" env:"XAGENT_CHANNELS_WHATSAPP_SESSION_DB"`
 	AllowFrom FlexibleStringSlice `json:"allow_from" env:"XAGENT_CHANNELS_WHATSAPP_ALLOW_FROM"`
 }
 
@@ -179,6 +194,15 @@ type DevicesConfig struct {
 	MonitorUSB bool `json:"monitor_usb" env:"XAGENT_DEVICES_MONITOR_USB"`
 }
 
+// SWE100821: PhoneConfig controls USB-attached phone access via ADB or libimobiledevice.
+type PhoneConfig struct {
+	Enabled    bool     `json:"enabled" env:"XAGENT_PHONE_ENABLED"`
+	ADBPath    string   `json:"adb_path" env:"XAGENT_PHONE_ADB_PATH"`
+	AutoDetect bool     `json:"auto_detect" env:"XAGENT_PHONE_AUTO_DETECT"`
+	Serial     string   `json:"serial" env:"XAGENT_PHONE_SERIAL"`
+	DenyShell  []string `json:"deny_shell"`
+}
+
 type ProvidersConfig struct {
 	Anthropic     ProviderConfig `json:"anthropic"`
 	OpenAI        ProviderConfig `json:"openai"`
@@ -262,7 +286,7 @@ func DefaultConfig() *Config {
 		Channels: ChannelsConfig{
 			WhatsApp: WhatsAppConfig{
 				Enabled:   false,
-				BridgeURL: "ws://localhost:3001",
+				SessionDB: "",
 				AllowFrom: FlexibleStringSlice{},
 			},
 			Telegram: TelegramConfig{
@@ -378,6 +402,18 @@ func DefaultConfig() *Config {
 		Vault: VaultConfig{
 			Enabled: true,
 			Path:    "~/.xagent/vault",
+		},
+		// SWE100821: Explicit empty MCP defaults for clarity
+		MCP: MCPConfig{
+			Servers: []MCPServerConfig{},
+		},
+		// SWE100821: Phone access defaults — disabled, auto-detect first device
+		Phone: PhoneConfig{
+			Enabled:    false,
+			ADBPath:    "adb",
+			AutoDetect: true,
+			Serial:     "",
+			DenyShell:  []string{},
 		},
 	}
 }

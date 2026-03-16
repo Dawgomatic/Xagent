@@ -13,12 +13,18 @@ import (
 	"time"
 )
 
+// SandboxExecutor abstracts sandboxed command execution (implemented by sandbox.NamespaceSandbox).
+type SandboxExecutor interface {
+	Execute(ctx context.Context, command, workDir string) (stdout, stderr string, exitCode int, err error)
+}
+
 type ExecTool struct {
 	workingDir          string
 	timeout             time.Duration
 	denyPatterns        []*regexp.Regexp
 	allowPatterns       []*regexp.Regexp
 	restrictToWorkspace bool
+	sandbox             SandboxExecutor // SWE100821: Optional namespace sandbox
 }
 
 func NewExecTool(workingDir string, restrict bool) *ExecTool {
@@ -102,39 +108,57 @@ func (t *ExecTool) Execute(ctx context.Context, args map[string]interface{}) *To
 		return ErrorResult(guardError)
 	}
 
-	cmdCtx, cancel := context.WithTimeout(ctx, t.timeout)
-	defer cancel()
+	// SWE100821: Execute via namespace sandbox if available, else direct exec
+	var output string
+	var err error
 
-	var cmd *exec.Cmd
-	if runtime.GOOS == "windows" {
-		cmd = exec.CommandContext(cmdCtx, "powershell", "-NoProfile", "-NonInteractive", "-Command", command)
-	} else {
-		cmd = exec.CommandContext(cmdCtx, "sh", "-c", command)
-	}
-	if cwd != "" {
-		cmd.Dir = cwd
-	}
-
-	var stdout, stderr bytes.Buffer
-	cmd.Stdout = &stdout
-	cmd.Stderr = &stderr
-
-	err := cmd.Run()
-	output := stdout.String()
-	if stderr.Len() > 0 {
-		output += "\nSTDERR:\n" + stderr.String()
-	}
-
-	if err != nil {
-		if cmdCtx.Err() == context.DeadlineExceeded {
-			msg := fmt.Sprintf("Command timed out after %v", t.timeout)
-			return &ToolResult{
-				ForLLM:  msg,
-				ForUser: msg,
-				IsError: true,
-			}
+	if t.sandbox != nil && runtime.GOOS == "linux" {
+		stdoutStr, stderrStr, exitCode, sandboxErr := t.sandbox.Execute(ctx, command, cwd)
+		output = stdoutStr
+		if stderrStr != "" {
+			output += "\nSTDERR:\n" + stderrStr
 		}
-		output += fmt.Sprintf("\nExit code: %v", err)
+		if sandboxErr != nil {
+			err = sandboxErr
+		} else if exitCode != 0 {
+			output += fmt.Sprintf("\nExit code: %d", exitCode)
+			err = fmt.Errorf("exit code %d", exitCode)
+		}
+	} else {
+		cmdCtx, cancel := context.WithTimeout(ctx, t.timeout)
+		defer cancel()
+
+		var cmd *exec.Cmd
+		if runtime.GOOS == "windows" {
+			cmd = exec.CommandContext(cmdCtx, "powershell", "-NoProfile", "-NonInteractive", "-Command", command)
+		} else {
+			cmd = exec.CommandContext(cmdCtx, "sh", "-c", command)
+		}
+		if cwd != "" {
+			cmd.Dir = cwd
+		}
+
+		var stdoutBuf, stderrBuf bytes.Buffer
+		cmd.Stdout = &stdoutBuf
+		cmd.Stderr = &stderrBuf
+
+		err = cmd.Run()
+		output = stdoutBuf.String()
+		if stderrBuf.Len() > 0 {
+			output += "\nSTDERR:\n" + stderrBuf.String()
+		}
+
+		if err != nil {
+			if cmdCtx.Err() == context.DeadlineExceeded {
+				msg := fmt.Sprintf("Command timed out after %v", t.timeout)
+				return &ToolResult{
+					ForLLM:  msg,
+					ForUser: msg,
+					IsError: true,
+				}
+			}
+			output += fmt.Sprintf("\nExit code: %v", err)
+		}
 	}
 
 	if output == "" {
@@ -235,4 +259,10 @@ func (t *ExecTool) SetAllowPatterns(patterns []string) error {
 		t.allowPatterns = append(t.allowPatterns, re)
 	}
 	return nil
+}
+
+// SetSandbox attaches a namespace sandbox for isolated command execution.
+// SWE100821: When set, commands run inside Linux namespaces with resource limits.
+func (t *ExecTool) SetSandbox(sb SandboxExecutor) {
+	t.sandbox = sb
 }
