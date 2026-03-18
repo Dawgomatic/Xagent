@@ -165,14 +165,35 @@ func (ad *AutoDiscoverer) loadCatalog() {
 		map[string]interface{}{"skills": len(ad.catalog)})
 }
 
+// SWE100821: Walk 2 levels deep to match archive <author>/<skill> layout
 func (ad *AutoDiscoverer) loadInstalled() {
 	entries, err := os.ReadDir(ad.installDir)
 	if err != nil {
 		return
 	}
 	for _, e := range entries {
-		if e.IsDir() {
+		if !e.IsDir() || strings.HasPrefix(e.Name(), ".") {
+			continue
+		}
+		dirPath := filepath.Join(ad.installDir, e.Name())
+
+		// Level 1: flat skill
+		if _, err := os.Stat(filepath.Join(dirPath, "SKILL.md")); err == nil {
 			ad.installedNames[e.Name()] = true
+			continue
+		}
+
+		// Level 2: author/skill
+		subEntries, err := os.ReadDir(dirPath)
+		if err != nil {
+			continue
+		}
+		for _, se := range subEntries {
+			if se.IsDir() {
+				if _, err := os.Stat(filepath.Join(dirPath, se.Name(), "SKILL.md")); err == nil {
+					ad.installedNames[se.Name()] = true
+				}
+			}
 		}
 	}
 }

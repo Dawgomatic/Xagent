@@ -60,15 +60,15 @@
 |-----------|----------|---------|
 | CLI entry | `cmd/xagent/main.go` | Command dispatch: agent, gateway, llm-check, skills, upgrade |
 | Agent loop | `pkg/agent/` | LLM conversation loop with tool calling |
-| Tool registry | `pkg/tools/` | Sandboxed tools: exec, filesystem, web, I2C/SPI, llm_check |
+| Tool registry | `pkg/tools/` | Sandboxed tools: exec, filesystem, web, I2C/SPI/USB, llm_check |
 | Channels | `pkg/channels/` | Telegram, Discord, Slack, WhatsApp, LINE adapters |
-| Providers | `pkg/providers/` | LLM backends: Ollama, OpenAI-compat, Anthropic, Codex |
+| Providers | `pkg/providers/` | LLM backends: Ollama, OpenAI-compat, Anthropic, Codex, PicoLM |
 | Config | `pkg/config/` | JSON config at `~/.xagent/config.json` |
 | Skills | `pkg/skills/` | Skill loader + installer (SKILL.md format) |
 | LLM Check | `pkg/llmcheck/` | Hardware detection, 4D model scoring, Ollama API client |
 | HW Profile | `pkg/hwprofile/` | Hardware tier detection for adaptive scaling |
 | Upgrade | `pkg/upgrade/` | Self-upgrade from GitHub releases with SHA256 verification |
-| Health | `pkg/health/` | HTTP health check endpoint |
+| Health | `pkg/health/` | HTTP health check endpoint + live metrics (LLM/tool/message counters) |
 | Heartbeat | `pkg/heartbeat/` | Periodic task scheduler |
 | Session | `pkg/session/` | Conversation history management |
 | Identity | `pkg/identity/` | Unique AgentID + per-boot SessionID + time tracking |
@@ -309,6 +309,8 @@ LLM Provider / RL Proxy (Port 30000)
 | Auto-Discovery | `pkg/skills/autodiscover.go` | Skill archive search on failure |
 | Dynamic Tools | `pkg/skills/dynamic_tools.go` | Skill-defined runtime tools |
 | Reactive Devices | `pkg/devices/reactive.go` | Hardware event → agent action |
+| USB Tool | `pkg/tools/usb.go` | USB device enumeration (lsusb / sysfs) |
+| PicoLM Provider | `pkg/providers/picolm_provider.go` | Local-first LLM via picolm C binary (45 MB RAM, ARM NEON) |
 | TTS | `pkg/voice/tts.go` | Piper/espeak text-to-speech |
 | Workflows | `pkg/workflows/recipe.go` | Composable multi-step recipes |
 

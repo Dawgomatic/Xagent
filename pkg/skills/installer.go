@@ -36,8 +36,15 @@ func NewSkillInstaller(workspace string) *SkillInstaller {
 	}
 }
 
+// SWE100821: Install skills into <author>/<skill>/ layout for consistency with archive
 func (si *SkillInstaller) InstallFromGitHub(ctx context.Context, repo string) error {
-	skillDir := filepath.Join(si.workspace, "skills", filepath.Base(repo))
+	parts := strings.SplitN(repo, "/", 2)
+	var skillDir string
+	if len(parts) == 2 {
+		skillDir = filepath.Join(si.workspace, "skills", parts[0], parts[1])
+	} else {
+		skillDir = filepath.Join(si.workspace, "skills", filepath.Base(repo))
+	}
 
 	if _, err := os.Stat(skillDir); err == nil {
 		return fmt.Errorf("skill '%s' already exists", filepath.Base(repo))
@@ -78,6 +85,7 @@ func (si *SkillInstaller) InstallFromGitHub(ctx context.Context, repo string) er
 	return nil
 }
 
+// SWE100821: Uninstall accepts both flat ("skill") and qualified ("author/skill") names
 func (si *SkillInstaller) Uninstall(skillName string) error {
 	skillDir := filepath.Join(si.workspace, "skills", skillName)
 
@@ -87,6 +95,14 @@ func (si *SkillInstaller) Uninstall(skillName string) error {
 
 	if err := os.RemoveAll(skillDir); err != nil {
 		return fmt.Errorf("failed to remove skill: %w", err)
+	}
+
+	// SWE100821: Clean up empty author dir after removing last skill
+	if strings.Contains(skillName, "/") {
+		authorDir := filepath.Dir(skillDir)
+		if entries, err := os.ReadDir(authorDir); err == nil && len(entries) == 0 {
+			os.Remove(authorDir)
+		}
 	}
 
 	return nil
@@ -124,48 +140,38 @@ func (si *SkillInstaller) ListAvailableSkills(ctx context.Context) ([]AvailableS
 	return skills, nil
 }
 
+// SWE100821: ListBuiltinSkills walks up to 2 levels deep, consistent with loader
 func (si *SkillInstaller) ListBuiltinSkills() []BuiltinSkill {
 	builtinSkillsDir := filepath.Join(filepath.Dir(si.workspace), "xagent", "skills")
 
-	entries, err := os.ReadDir(builtinSkillsDir)
+	var skills []BuiltinSkill
+	si.walkBuiltinDir(builtinSkillsDir, &skills)
+	return skills
+}
+
+func (si *SkillInstaller) walkBuiltinDir(root string, skills *[]BuiltinSkill) {
+	entries, err := os.ReadDir(root)
 	if err != nil {
-		return nil
+		return
 	}
 
-	var skills []BuiltinSkill
 	for _, entry := range entries {
-		if entry.IsDir() {
-			_ = entry
-			skillName := entry.Name()
-			skillFile := filepath.Join(builtinSkillsDir, skillName, "SKILL.md")
+		if !entry.IsDir() || strings.HasPrefix(entry.Name(), ".") {
+			continue
+		}
+		dirPath := filepath.Join(root, entry.Name())
+		skillFile := filepath.Join(dirPath, "SKILL.md")
 
-			data, err := os.ReadFile(skillFile)
-			description := ""
-			if err == nil {
-				content := string(data)
-				if idx := strings.Index(content, "\n"); idx > 0 {
-					firstLine := content[:idx]
-					if strings.Contains(firstLine, "description:") {
-						descLine := strings.Index(content[idx:], "\n")
-						if descLine > 0 {
-							description = strings.TrimSpace(content[idx+descLine : idx+descLine])
-						}
-					}
-				}
+		if _, err := os.Stat(skillFile); err == nil {
+			skill := BuiltinSkill{
+				Name:    entry.Name(),
+				Path:    skillFile,
+				Enabled: true,
 			}
-
-			// skill := BuiltinSkill{
-			// 	Name:    skillName,
-			// 	Path:    description,
-			// 	Enabled: true,
-			// }
-
-			status := "✓"
-			fmt.Printf("  %s  %s\n", status, entry.Name())
-			if description != "" {
-				fmt.Printf("    %s\n", description)
-			}
+			*skills = append(*skills, skill)
+			fmt.Printf("  ✓  %s\n", entry.Name())
+		} else {
+			si.walkBuiltinDir(dirPath, skills)
 		}
 	}
-	return skills
 }

@@ -15,6 +15,7 @@ This auto-detects your platform, installs all dependencies, builds Xagent, confi
 | Component | Purpose |
 |-----------|---------|
 | Go 1.26.0 | Build toolchain |
+| GCC + CGO | Required for `go-sqlite3` (WhatsApp session storage) |
 | Python 3.x | Memory bridge, skill converter |
 | Ollama | Local LLM inference server |
 | Xagent binary | AI agent (built from source) |

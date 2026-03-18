@@ -49,6 +49,18 @@ nano ~/.xagent/config.json
 ./manage.sh restart
 ```
 
+## Use PicoLM (embedded, no Ollama needed)
+
+For ultra-low-resource devices (45 MB RAM, ARM NEON):
+
+```bash
+# Edit config
+nano ~/.xagent/config.json
+# Set "provider": "picolm" with binary + model_path
+```
+
+---
+
 ## Install community skills
 
 ```bash

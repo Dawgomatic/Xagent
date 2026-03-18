@@ -42,9 +42,15 @@ func getGlobalConfigDir() string {
 
 func NewContextBuilder(workspace string, smCfg ...config.SemanticMemoryConfig) *ContextBuilder {
 	// builtin skills: skills directory in current project
-	// Use the skills/ directory under the current working directory
 	wd, _ := os.Getwd()
 	builtinSkillsDir := filepath.Join(wd, "skills")
+	// SWE100821: Handle cloned skill archives where structure is skills/skills/<author>/<skill>/
+	// If skills/skills/ exists and contains dirs, use the inner dir as the real root so the
+	// 2-level scanner sees <author>/<skill>/SKILL.md directly.
+	innerSkills := filepath.Join(builtinSkillsDir, "skills")
+	if info, err := os.Stat(innerSkills); err == nil && info.IsDir() {
+		builtinSkillsDir = innerSkills
+	}
 	globalSkillsDir := filepath.Join(getGlobalConfigDir(), "skills")
 
 	// SWE100821: Initialize semantic memory (Qdrant + Ollama embeddings) — config-driven
@@ -123,11 +129,13 @@ Your workspace is at: %s
 
 ## Important Rules
 
-1. **ALWAYS use tools** - When you need to perform an action (schedule reminders, send messages, execute commands, etc.), you MUST call the appropriate tool. Do NOT just say you'll do it or pretend to do it.
+1. **Use tools when needed** - When you need to perform an action (schedule reminders, send messages, execute commands, etc.), call the appropriate tool. Do NOT pretend to do it.
 
-2. **Be helpful and accurate** - When using tools, briefly explain what you're doing.
+2. **Respond with text after getting results** - Once you have the information from a tool call, respond directly to the user with a clear text answer. Do NOT keep calling tools after you have what you need.
 
-3. **Memory** - When remembering something, write to %s/memory/MEMORY.md`,
+3. **Be helpful and concise** - Summarize tool results for the user in a clear response.
+
+4. **Memory** - When remembering something, write to %s/memory/MEMORY.md`,
 		now, identitySection, runtimeStr, workspacePath, workspacePath, workspacePath, workspacePath, toolsSection, workspacePath)
 }
 
@@ -143,8 +151,8 @@ func (cb *ContextBuilder) buildToolsSection() string {
 
 	var sb strings.Builder
 	sb.WriteString("## Available Tools\n\n")
-	sb.WriteString("**CRITICAL**: You MUST use tools to perform actions. Do NOT pretend to execute commands or schedule tasks.\n\n")
-	sb.WriteString("You have access to the following tools:\n\n")
+	// SWE100821: Balanced instruction — use tools when needed, but respond after
+	sb.WriteString("Use tools to perform actions. After getting results, respond to the user with a clear text answer.\n\n")
 	for _, s := range summaries {
 		sb.WriteString(s)
 		sb.WriteString("\n")

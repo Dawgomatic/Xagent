@@ -9,6 +9,11 @@ import (
 	"strings"
 )
 
+// SWE100821: maxSkillsInPrompt caps how many skills are listed individually in
+// the system prompt. Beyond this, only a count is shown + auto-discovery hint.
+// Prevents blowing context window with 11K+ skill entries.
+const maxSkillsInPrompt = 50
+
 type SkillMetadata struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
@@ -23,9 +28,9 @@ type SkillInfo struct {
 
 type SkillsLoader struct {
 	workspace       string
-	workspaceSkills string // workspace skills (项目级别)
-	globalSkills    string // 全局 skills (~/.xagent/skills)
-	builtinSkills   string // 内置 skills
+	workspaceSkills string // workspace skills (project-level)
+	globalSkills    string // global skills (~/.xagent/skills)
+	builtinSkills   string // built-in skills
 }
 
 func NewSkillsLoader(workspace string, globalSkills string, builtinSkills string) *SkillsLoader {
@@ -37,129 +42,145 @@ func NewSkillsLoader(workspace string, globalSkills string, builtinSkills string
 	}
 }
 
+// ListSkills returns all discovered skills across workspace, global, and builtin roots.
+// SWE100821: Walks up to 2 levels deep to handle both flat (<skill>/SKILL.md) and
+// archive-style (<author>/<skill>/SKILL.md) directory layouts.
 func (sl *SkillsLoader) ListSkills() []SkillInfo {
+	seen := make(map[string]bool)
 	skills := make([]SkillInfo, 0)
 
-	if sl.workspaceSkills != "" {
-		if dirs, err := os.ReadDir(sl.workspaceSkills); err == nil {
-			for _, dir := range dirs {
-				if dir.IsDir() {
-					skillFile := filepath.Join(sl.workspaceSkills, dir.Name(), "SKILL.md")
-					if _, err := os.Stat(skillFile); err == nil {
-						info := SkillInfo{
-							Name:   dir.Name(),
-							Path:   skillFile,
-							Source: "workspace",
-						}
-						metadata := sl.getSkillMetadata(skillFile)
-						if metadata != nil {
-							info.Description = metadata.Description
-						}
-						skills = append(skills, info)
-					}
-				}
-			}
-		}
-	}
-
-	// 全局 skills (~/.xagent/skills) - 被 workspace skills 覆盖
-	if sl.globalSkills != "" {
-		if dirs, err := os.ReadDir(sl.globalSkills); err == nil {
-			for _, dir := range dirs {
-				if dir.IsDir() {
-					skillFile := filepath.Join(sl.globalSkills, dir.Name(), "SKILL.md")
-					if _, err := os.Stat(skillFile); err == nil {
-						// 检查是否已被 workspace skills 覆盖
-						exists := false
-						for _, s := range skills {
-							if s.Name == dir.Name() && s.Source == "workspace" {
-								exists = true
-								break
-							}
-						}
-						if exists {
-							continue
-						}
-
-						info := SkillInfo{
-							Name:   dir.Name(),
-							Path:   skillFile,
-							Source: "global",
-						}
-						metadata := sl.getSkillMetadata(skillFile)
-						if metadata != nil {
-							info.Description = metadata.Description
-						}
-						skills = append(skills, info)
-					}
-				}
-			}
-		}
-	}
-
-	if sl.builtinSkills != "" {
-		if dirs, err := os.ReadDir(sl.builtinSkills); err == nil {
-			for _, dir := range dirs {
-				if dir.IsDir() {
-					skillFile := filepath.Join(sl.builtinSkills, dir.Name(), "SKILL.md")
-					if _, err := os.Stat(skillFile); err == nil {
-						// 检查是否已被 workspace 或 global skills 覆盖
-						exists := false
-						for _, s := range skills {
-							if s.Name == dir.Name() && (s.Source == "workspace" || s.Source == "global") {
-								exists = true
-								break
-							}
-						}
-						if exists {
-							continue
-						}
-
-						info := SkillInfo{
-							Name:   dir.Name(),
-							Path:   skillFile,
-							Source: "builtin",
-						}
-						metadata := sl.getSkillMetadata(skillFile)
-						if metadata != nil {
-							info.Description = metadata.Description
-						}
-						skills = append(skills, info)
-					}
-				}
-			}
-		}
-	}
+	sl.scanRoot(sl.workspaceSkills, "workspace", seen, &skills)
+	sl.scanRoot(sl.globalSkills, "global", seen, &skills)
+	sl.scanRoot(sl.builtinSkills, "builtin", seen, &skills)
 
 	return skills
 }
 
+// scanRoot scans a skill root directory for SKILL.md files up to 2 levels deep.
+// Handles both flat (root/<skill>/SKILL.md) and nested (root/<author>/<skill>/SKILL.md).
+// Uses _meta.json for fast metadata when available to avoid reading every SKILL.md.
+func (sl *SkillsLoader) scanRoot(root, source string, seen map[string]bool, skills *[]SkillInfo) {
+	if root == "" {
+		return
+	}
+	dirs, err := os.ReadDir(root)
+	if err != nil {
+		return
+	}
+
+	for _, d := range dirs {
+		if !d.IsDir() || strings.HasPrefix(d.Name(), ".") {
+			continue
+		}
+		dirPath := filepath.Join(root, d.Name())
+
+		// Level 1: check for SKILL.md directly (flat layout)
+		skillFile := filepath.Join(dirPath, "SKILL.md")
+		if _, err := os.Stat(skillFile); err == nil {
+			sl.addSkill(d.Name(), skillFile, source, seen, skills)
+			continue
+		}
+
+		// Level 2: walk subdirectories (archive <author>/<skill> layout)
+		subDirs, err := os.ReadDir(dirPath)
+		if err != nil {
+			continue
+		}
+		for _, sd := range subDirs {
+			if !sd.IsDir() || strings.HasPrefix(sd.Name(), ".") {
+				continue
+			}
+			subSkillFile := filepath.Join(dirPath, sd.Name(), "SKILL.md")
+			if _, err := os.Stat(subSkillFile); err == nil {
+				// SWE100821: Use author/skill as the canonical name so skills
+				// from different authors with the same slug don't collide.
+				canonicalName := d.Name() + "/" + sd.Name()
+				sl.addSkill(canonicalName, subSkillFile, source, seen, skills)
+			}
+		}
+	}
+}
+
+// addSkill appends a skill if not already seen (workspace > global > builtin priority).
+func (sl *SkillsLoader) addSkill(name, skillFile, source string, seen map[string]bool, skills *[]SkillInfo) {
+	if seen[name] {
+		return
+	}
+	seen[name] = true
+
+	info := SkillInfo{
+		Name:   name,
+		Path:   skillFile,
+		Source: source,
+	}
+
+	// SWE100821: Try _meta.json first (pre-parsed, fast) before reading full SKILL.md
+	metaPath := filepath.Join(filepath.Dir(skillFile), "_meta.json")
+	if metaData, err := os.ReadFile(metaPath); err == nil {
+		var meta struct {
+			Slug        string `json:"slug"`
+			Description string `json:"description"`
+		}
+		if json.Unmarshal(metaData, &meta) == nil && meta.Description != "" {
+			info.Description = meta.Description
+			*skills = append(*skills, info)
+			return
+		}
+	}
+
+	metadata := sl.getSkillMetadata(skillFile)
+	if metadata != nil {
+		info.Description = metadata.Description
+	}
+	*skills = append(*skills, info)
+}
+
+// LoadSkill loads a skill's content by name. Accepts both flat names ("my-skill")
+// and author-qualified names ("author/skill-name").
 func (sl *SkillsLoader) LoadSkill(name string) (string, bool) {
-	// 1. 优先从 workspace skills 加载（项目级别）
-	if sl.workspaceSkills != "" {
-		skillFile := filepath.Join(sl.workspaceSkills, name, "SKILL.md")
+	// SWE100821: Search each root with both direct path and 2-level walk
+	for _, root := range []string{sl.workspaceSkills, sl.globalSkills, sl.builtinSkills} {
+		if root == "" {
+			continue
+		}
+		// Direct path: root/<name>/SKILL.md (handles both flat and author/skill)
+		skillFile := filepath.Join(root, name, "SKILL.md")
 		if content, err := os.ReadFile(skillFile); err == nil {
 			return sl.stripFrontmatter(string(content)), true
 		}
 	}
 
-	// 2. 其次从全局 skills 加载 (~/.xagent/skills)
-	if sl.globalSkills != "" {
-		skillFile := filepath.Join(sl.globalSkills, name, "SKILL.md")
-		if content, err := os.ReadFile(skillFile); err == nil {
-			return sl.stripFrontmatter(string(content)), true
-		}
-	}
-
-	// 3. 最后从内置 skills 加载
-	if sl.builtinSkills != "" {
-		skillFile := filepath.Join(sl.builtinSkills, name, "SKILL.md")
-		if content, err := os.ReadFile(skillFile); err == nil {
-			return sl.stripFrontmatter(string(content)), true
+	// Fallback: if name has no slash, search 2 levels deep by slug match
+	if !strings.Contains(name, "/") {
+		for _, root := range []string{sl.workspaceSkills, sl.globalSkills, sl.builtinSkills} {
+			if root == "" {
+				continue
+			}
+			if found, content := sl.findSkillBySlug(root, name); found {
+				return content, true
+			}
 		}
 	}
 
 	return "", false
+}
+
+// findSkillBySlug searches 2 levels deep for a skill matching the given slug name.
+func (sl *SkillsLoader) findSkillBySlug(root, slug string) (bool, string) {
+	dirs, err := os.ReadDir(root)
+	if err != nil {
+		return false, ""
+	}
+	for _, d := range dirs {
+		if !d.IsDir() {
+			continue
+		}
+		skillFile := filepath.Join(root, d.Name(), slug, "SKILL.md")
+		if content, err := os.ReadFile(skillFile); err == nil {
+			return true, sl.stripFrontmatter(string(content))
+		}
+	}
+	return false, ""
 }
 
 func (sl *SkillsLoader) LoadSkillsForContext(skillNames []string) string {
@@ -178,6 +199,9 @@ func (sl *SkillsLoader) LoadSkillsForContext(skillNames []string) string {
 	return strings.Join(parts, "\n\n---\n\n")
 }
 
+// BuildSkillsSummary returns a compact skill summary for the system prompt.
+// SWE100821: Capped to maxSkillsInPrompt to prevent context explosion with 11K+ skills.
+// Beyond the cap, shows count + auto-discovery hint instead of individual listings.
 func (sl *SkillsLoader) BuildSkillsSummary() string {
 	allSkills := sl.ListSkills()
 	if len(allSkills) == 0 {
@@ -186,18 +210,32 @@ func (sl *SkillsLoader) BuildSkillsSummary() string {
 
 	var lines []string
 	lines = append(lines, "<skills>")
-	for _, s := range allSkills {
+
+	displayCount := len(allSkills)
+	if displayCount > maxSkillsInPrompt {
+		displayCount = maxSkillsInPrompt
+	}
+
+	for i := 0; i < displayCount; i++ {
+		s := allSkills[i]
 		escapedName := escapeXML(s.Name)
 		escapedDesc := escapeXML(s.Description)
 		escapedPath := escapeXML(s.Path)
 
-		lines = append(lines, fmt.Sprintf("  <skill>"))
+		lines = append(lines, "  <skill>")
 		lines = append(lines, fmt.Sprintf("    <name>%s</name>", escapedName))
 		lines = append(lines, fmt.Sprintf("    <description>%s</description>", escapedDesc))
 		lines = append(lines, fmt.Sprintf("    <location>%s</location>", escapedPath))
 		lines = append(lines, fmt.Sprintf("    <source>%s</source>", s.Source))
 		lines = append(lines, "  </skill>")
 	}
+
+	// SWE100821: Show overflow count so the agent knows more exist
+	if len(allSkills) > maxSkillsInPrompt {
+		lines = append(lines, fmt.Sprintf("  <!-- %d more skills available. Use skill auto-discovery or 'xagent skills list' to find them. -->",
+			len(allSkills)-maxSkillsInPrompt))
+	}
+
 	lines = append(lines, "</skills>")
 
 	return strings.Join(lines, "\n")

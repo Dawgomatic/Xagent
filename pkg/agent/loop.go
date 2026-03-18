@@ -21,6 +21,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/bus"
 	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/constants"
+	"github.com/Dawgomatic/Xagent/pkg/health"
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
@@ -62,6 +63,7 @@ type AgentLoop struct {
 	vaultWriter    *vault.VaultWriter       // Obsidian knowledge vault
 	hindsight      *memory.HindsightMemory // Hindsight learning memory
 	semanticMemory *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
+	metrics        *health.Metrics         // SWE100821: Live metrics for dashboard System tab
 	running        atomic.Bool
 	summarizing    sync.Map // Tracks which sessions are currently being summarized
 }
@@ -104,9 +106,11 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	}
 	registry.Register(tools.NewWebFetchTool(50000))
 
-	// Hardware tools (I2C, SPI) - Linux only, returns error on other platforms
+	// Hardware tools (I2C, SPI, USB) - Linux only, returns error on other platforms
 	registry.Register(tools.NewI2CTool())
 	registry.Register(tools.NewSPITool())
+	// SWE100821: USB device enumeration so agent can see what's physically connected
+	registry.Register(tools.NewUSBTool())
 
 	// LLM hardware analysis and model recommendation
 	registry.Register(tools.NewLLMCheckTool())
@@ -425,6 +429,11 @@ func (al *AgentLoop) processMessage(ctx context.Context, msg bus.InboundMessage)
 			"sender_id":   msg.SenderID,
 			"session_key": msg.SessionKey,
 		})
+
+	// SWE100821: Increment message counter for dashboard metrics
+	if al.metrics != nil {
+		al.metrics.IncMessage()
+	}
 
 	// Route system messages to processSystemMessage
 	if msg.Channel == "system" {
@@ -840,6 +849,11 @@ func (al *AgentLoop) GetMiddleware() *tools.ToolMiddleware {
 func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.Message, opts processOptions, plan *AgentPlan) (string, int, error) {
 	iteration := 0
 	var finalContent string
+	// SWE100821: Track last tool call signature to detect infinite loops.
+	// Small models (llama3.1:8b, llama3.2:3b) sometimes call the same tool
+	// with identical args every iteration instead of returning a text response.
+	var lastToolSig string
+	repeatCount := 0
 
 	for iteration < al.maxIterations {
 		iteration++
@@ -876,10 +890,17 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 		}
 
 		// SWE100821: Use config values instead of hard-coded 8192/0.7
+		llmStart := time.Now()
 		response, err := al.provider.Chat(ctx, messages, providerToolDefs, al.model, map[string]interface{}{
 			"max_tokens":  al.maxTokens,
 			"temperature": al.temperature,
 		})
+		llmLatency := time.Since(llmStart)
+
+		// SWE100821: Record LLM call metrics for dashboard System tab
+		if al.metrics != nil {
+			al.metrics.RecordLLMCall(llmLatency, err != nil)
+		}
 
 		if err != nil {
 			logger.ErrorCF("agent", "LLM call failed",
@@ -912,6 +933,33 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 				"count":     len(response.ToolCalls),
 				"iteration": iteration,
 			})
+
+		// SWE100821: Detect tool call loops — if the model calls the same tool(s) with
+		// the same args 3+ times in a row, break the loop and return whatever content
+		// we have. Small models get stuck in infinite tool-call repetition.
+		currentSig := ""
+		for _, tc := range response.ToolCalls {
+			argsJSON, _ := json.Marshal(tc.Arguments)
+			currentSig += tc.Name + ":" + string(argsJSON) + ";"
+		}
+		if currentSig == lastToolSig {
+			repeatCount++
+			if repeatCount >= 2 {
+				logger.WarnCF("agent", "Tool call loop detected, breaking",
+					map[string]interface{}{
+						"tools":     toolNames,
+						"repeats":   repeatCount + 1,
+						"iteration": iteration,
+					})
+				if finalContent == "" && response.Content != "" {
+					finalContent = response.Content
+				}
+				break
+			}
+		} else {
+			repeatCount = 0
+		}
+		lastToolSig = currentSig
 
 		// Build assistant message with tool calls
 		assistantMsg := providers.Message{
@@ -991,7 +1039,22 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 			toolResult := parallelResults[i].result
 			toolLatency := parallelResults[i].latency
 
+			// SWE100821: Increment tool call counter for dashboard System tab
+			if al.metrics != nil {
+				al.metrics.IncToolCall()
+			}
 			al.provenance.RecordToolCall(tc.Name, !toolResult.IsError, toolLatency.Milliseconds())
+
+			// SWE100821: Capture message tool content so dashboard chat gets a response.
+			// When the LLM uses the message() tool, the content arg IS the agent's reply.
+			// Without this, ProcessDirect returns "" and dashboard shows "no response".
+			if tc.Name == "message" {
+				if contentVal, ok := tc.Arguments["content"]; ok {
+					if contentStr, ok := contentVal.(string); ok && contentStr != "" {
+						finalContent = contentStr
+					}
+				}
+			}
 
 			if !toolResult.Silent && toolResult.ForUser != "" && opts.SendResponse {
 				al.bus.PublishOutbound(bus.OutboundMessage{
@@ -1148,6 +1211,12 @@ func (al *AgentLoop) SetModel(model string) {
 // adds 2+ extra calls per message. Disabling it cuts response time by 40-60%.
 func (al *AgentLoop) DisablePlanner() {
 	al.plannerDisabled = true
+}
+
+// SWE100821: SetMetrics injects the health metrics pointer so the agent loop
+// can increment message, LLM call, and tool call counters for the dashboard.
+func (al *AgentLoop) SetMetrics(m *health.Metrics) {
+	al.metrics = m
 }
 
 // SWE100821: EnableCompactPrompt strips the system prompt to ~50 tokens for

@@ -98,9 +98,14 @@ func gatewayCmd() {
 	// SWE100821: Disable planner on embedded to eliminate 2+ LLM calls per message
 	if rec.DisablePlanner {
 		agentLoop.DisablePlanner()
-		agentLoop.EnableCompactPrompt()
 		fmt.Println("  • Planner disabled (embedded mode — single LLM call per message)")
-		fmt.Println("  • Compact prompt enabled (minimal system prompt for fast prefill)")
+		// SWE100821: Only enable compact prompt for PicoLM where prefill cost dominates.
+		// Ollama models (llama3.1, phi3, etc.) need the full system prompt for proper
+		// tool usage, identity, and response formatting.
+		if cfg.Agents.Defaults.Provider == "picolm" {
+			agentLoop.EnableCompactPrompt()
+			fmt.Println("  • Compact prompt enabled (minimal system prompt for fast prefill)")
+		}
 	}
 
 	// SWE100821: Start resource watcher — dynamically switch model when tier changes
@@ -272,6 +277,9 @@ func gatewayCmd() {
 	}
 	dash.SetConfigPath(getConfigPath())
 	dash.SetMetrics(healthServer.GetMetrics())
+	// SWE100821: Wire metrics into agent loop so LLM calls, tool calls, and messages
+	// are tracked and visible in the dashboard System tab.
+	agentLoop.SetMetrics(healthServer.GetMetrics())
 	// SWE100821: Wire chat handler — allows dashboard to send messages to the agent
 	dash.SetChatHandler(func(ctx context.Context, message, sessionKey string) (string, error) {
 		return agentLoop.ProcessDirect(ctx, message, sessionKey)

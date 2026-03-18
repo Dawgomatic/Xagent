@@ -152,6 +152,10 @@
 - **Purpose:** Agent-facing PhoneTool implementing tools.Tool — exposes 13 actions (status, screenshot, shell, app_list, app_launch, tap, swipe, text, push, pull, install, raw) with auto-detection of Android/iOS.
 - **Duplicate search:** Searched `pkg/tools/` (has shell, browser, vision — no phone tool), `pkg/agent/` (no phone tool registration), `pkg/devices/` (events only, no tool interface). No existing phone tool found.
 
+## pkg/tools/usb.go
+- **Purpose:** USB device enumeration tool — lists connected USB devices via `lsusb` or `/sys/bus/usb/devices/` sysfs. Actions: list (enumerate all devices), detail (show specific device info). Enables the agent to see what's physically connected.
+- **Duplicate search:** Searched `pkg/tools/` (has i2c.go, spi.go for bus tools; phone.go for ADB phone access — no generic USB enumeration), `pkg/devices/` (USB hotplug events but no enumeration tool), `pkg/` (no USB listing tool). No existing USB tool found.
+
 ## pkg/providers/picolm_provider.go
 - **Purpose:** PicoLM provider — local-first LLM inference via picolm C binary subprocess. Supports --json grammar mode for structured tool calling, --cache for KV persistence (skips prompt re-processing), and ARM NEON SIMD. 45MB RAM, 80KB binary, zero network, zero Python.
 - **Duplicate search:** Searched `pkg/providers/` (found `bitnet_provider.go` for local inference — different runtime, no KV cache, no JSON grammar; `http_provider.go` for API-based providers; no PicoLM). Searched `reference/picolm/` (upstream C binary exists but no Go integration). Searched `reference/picoclaw/` (has PicoLM config support but in separate project, not integrated into xagent). No existing PicoLM provider found.

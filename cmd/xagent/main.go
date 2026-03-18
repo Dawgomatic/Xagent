@@ -107,10 +107,15 @@ func main() {
 
 		workspace := cfg.WorkspacePath()
 		installer := skills.NewSkillInstaller(workspace)
-		// 获取全局配置目录和内置 skills 目录
 		globalDir := filepath.Dir(getConfigPath())
 		globalSkillsDir := filepath.Join(globalDir, "skills")
-		builtinSkillsDir := filepath.Join(globalDir, "xagent", "skills")
+		// SWE100821: Use skills/ under cwd as builtin root; handles cloned skill archives
+		// with nested skills/skills/<author>/<skill>/ layout.
+		wd, _ := os.Getwd()
+		builtinSkillsDir := filepath.Join(wd, "skills")
+		if innerSkills := filepath.Join(builtinSkillsDir, "skills"); dirExists(innerSkills) {
+			builtinSkillsDir = innerSkills
+		}
 		skillsLoader := skills.NewSkillsLoader(workspace, globalSkillsDir, builtinSkillsDir)
 
 		switch subcommand {
@@ -172,4 +177,10 @@ func printHelp() {
 	fmt.Println("  upgrade     Self-upgrade Xagent, models, and skills")
 	fmt.Println("  llm-check   Hardware analysis and optimal model recommendation")
 	fmt.Println("  version     Show version information")
+}
+
+// SWE100821: dirExists checks if a directory exists at the given path.
+func dirExists(path string) bool {
+	info, err := os.Stat(path)
+	return err == nil && info.IsDir()
 }

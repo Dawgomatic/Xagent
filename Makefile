@@ -64,11 +64,11 @@ BINARY_PATH=$(BUILD_DIR)/$(BINARY_NAME)-$(PLATFORM)-$(ARCH)
 # Default target
 all: build
 
-## generate: Run generate
+## generate: Run generate (SWE100821: scope to project dirs only — ./... scans reference/ and OOMs)
 generate:
 	@echo "Run generate..."
 	@rm -r ./$(CMD_DIR)/workspace 2>/dev/null || true
-	@$(GO) generate ./...
+	@$(GO) generate ./cmd/... ./pkg/...
 	@echo "Run generate complete"
 
 ## build: Build the xagent binary for current platform

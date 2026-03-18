@@ -66,6 +66,7 @@ The agent has access to sandboxed tools:
 | `web_fetch` | Fetch URL content |
 | `llm_check` | Hardware analysis, model recommendation, Ollama management |
 | `i2c` / `spi` | Hardware I/O (Linux) |
+| `usb` | USB device enumeration — list connected devices, detail view (Linux) |
 | `message` | Send messages to user via connected channels |
 | `spawn` | Launch sub-agents for parallel tasks |
 
@@ -79,7 +80,7 @@ Skills are markdown files (`SKILL.md`) that provide domain-specific knowledge an
 
 **Built-in skills:** Docker, SSH, Pi health, security, task decomposition, hardware I/O, skill creation, and more.
 
-**Community skills:** 10,000+ skills from the OpenClaw archive, searchable and installable via `skill_converter.py`.
+**Community skills:** 10,000+ skills from the OpenClaw archive, searchable and installable via `skill_converter.py`. The skill loader supports two-level scanning for both flat (`<skill>/SKILL.md`) and archive-style (`<author>/<skill>/SKILL.md`) layouts. Uses `_meta.json` for fast metadata when available and caps skills injected into the system prompt to prevent context explosion.
 
 **Create your own:**
 ```bash
@@ -144,6 +145,42 @@ Full Ollama REST API integration:
 - Benchmark models (tokens/sec)
 - Monitor running models
 - Auto-pull recommended model during install
+
+---
+
+## PicoLM Provider (Local-First Inference)
+
+Local-first LLM inference via the picolm C binary subprocess. Designed for ARM/embedded platforms where Ollama may be too heavy.
+
+| Feature | Detail |
+|---------|--------|
+| RAM usage | ~45 MB |
+| Binary size | ~80 KB |
+| Network | None required |
+| Python | None required |
+| Grammar mode | `--json` for structured tool-call output |
+| KV cache | `--cache` persists prompt context across calls (skips re-processing) |
+| SIMD | ARM NEON auto-detected |
+
+When the provider is set to `picolm`, the agent enables a compact system prompt to minimize prefill cost. Other providers (Ollama, OpenAI-compat) use the full system prompt for proper tool usage and identity formatting.
+
+```json
+{
+  "providers": {
+    "picolm": {
+      "binary": "/usr/local/bin/picolm",
+      "model_path": "/models/tinyllama-1.1b.gguf"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "provider": "picolm"
+    }
+  }
+}
+```
+
+Location: `pkg/providers/picolm_provider.go`
 
 ---
 
@@ -485,14 +522,16 @@ Automatic actions when hardware events occur:
 
 | Device Class | Event | Action |
 |-------------|-------|--------|
-| Camera | Plugged in | " Camera connected. I can help with photos." |
-| USB Storage | Plugged in | " USB storage connected. Want me to index it?" |
-| Audio | Plugged in | " Audio device connected. Voice mode available." |
-| USB Storage | Removed | " USB device disconnected." |
+| Camera | Plugged in | "Camera connected. I can help with photos." |
+| USB Storage | Plugged in | "USB storage connected. Want me to index it?" |
+| Audio | Plugged in | "Audio device connected. Voice mode available." |
+| USB Storage | Removed | "USB device disconnected." |
 
 Custom reactions can be added programmatically.
 
-Location: `pkg/devices/reactive.go`
+The `usb` tool also provides on-demand enumeration: the agent can list all connected USB devices (via `lsusb` or `/sys/bus/usb/devices/` sysfs fallback) and inspect individual device details.
+
+Location: `pkg/devices/reactive.go`, `pkg/tools/usb.go`
 
 ---
 
@@ -638,6 +677,9 @@ Web UI served at `/dashboard` on the health server port (default 18791). Provide
 - Provenance log viewer
 - Skill inventory and fitness scores
 - Connected A2A peers
+- **System tab** with live metrics: LLM call count, tool call count, message count, and per-call latency
+
+Metrics are wired from the agent loop into the health server, so every LLM call, tool invocation, and inbound message is tracked and visible in real time.
 
 Location: `pkg/dashboard/`
 
