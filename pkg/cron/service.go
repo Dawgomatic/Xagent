@@ -102,6 +102,13 @@ func (cs *CronService) Start() error {
 	return nil
 }
 
+// SWE100821: Expose running state for watchdog subsystem monitoring.
+func (cs *CronService) IsRunning() bool {
+	cs.mu.RLock()
+	defer cs.mu.RUnlock()
+	return cs.running
+}
+
 func (cs *CronService) Stop() {
 	cs.mu.Lock()
 	defer cs.mu.Unlock()

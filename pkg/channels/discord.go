@@ -33,6 +33,12 @@ func NewDiscordChannel(cfg config.DiscordConfig, bus *bus.MessageBus) (*DiscordC
 		return nil, fmt.Errorf("failed to create discord session: %w", err)
 	}
 
+	// SWE100821: Must declare Gateway Intents — without these the bot connects
+	// but receives zero message events (Discord requirement since April 2022).
+	session.Identify.Intents = discordgo.IntentsGuildMessages |
+		discordgo.IntentsDirectMessages |
+		discordgo.IntentsMessageContent
+
 	base := NewBaseChannel("discord", cfg, bus, cfg.AllowFrom)
 
 	return &DiscordChannel{

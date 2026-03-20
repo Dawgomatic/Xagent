@@ -124,6 +124,10 @@
 - **Purpose:** Tests for health server — healthz, readyz ready/not-ready, metricsz JSON keys, RegisterHandler.
 - **Duplicate search:** Searched `pkg/health/*_test.go` — no server tests. No existing test file found.
 
+## pkg/health/watchdog.go
+- **Purpose:** Subsystem watchdog — periodically checks all registered subsystems (Ollama, Qdrant, dashboard, heartbeat, agent loop), reports status, and auto-recovers external services via systemd restart. Exposes `GetStatus()` for the dashboard `/api/watchdog` endpoint.
+- **Duplicate search:** Searched `pkg/health/` (has `server.go` with `/healthz`, `/readyz`, `OllamaChecker` — no watchdog or subsystem-level monitoring), `pkg/hwprofile/` (has `WatchResources` for tier changes — different purpose, not subsystem health), `pkg/sensors/` (hardware sensor polling, not service monitoring), `cmd/xagent/` (no watchdog or process monitor). No existing watchdog found.
+
 ## pkg/upgrade/upgrade_test.go
 - **Purpose:** Tests for upgrade — UpgradeFromCheckpoint with unreachable URL error.
 - **Duplicate search:** Searched `pkg/upgrade/*_test.go` — no upgrade tests. No existing test file found.
@@ -151,6 +155,10 @@
 ## pkg/tools/phone.go
 - **Purpose:** Agent-facing PhoneTool implementing tools.Tool — exposes 13 actions (status, screenshot, shell, app_list, app_launch, tap, swipe, text, push, pull, install, raw) with auto-detection of Android/iOS.
 - **Duplicate search:** Searched `pkg/tools/` (has shell, browser, vision — no phone tool), `pkg/agent/` (no phone tool registration), `pkg/devices/` (events only, no tool interface). No existing phone tool found.
+
+## pkg/tools/skills_tool.go
+- **Purpose:** Agent-facing skills tool — search the 10K+ embedded catalog and install skills at runtime. Actions: search (keyword search), install (download from GitHub), list (show installed).
+- **Duplicate search:** Searched `pkg/tools/` (no skills tool), `pkg/agent/loop.go` (no skill search/install tool registered), `pkg/skills/` (has AutoDiscoverer and Installer but no tools.Tool wrapper). No existing skills tool found.
 
 ## pkg/tools/usb.go
 - **Purpose:** USB device enumeration tool — lists connected USB devices via `lsusb` or `/sys/bus/usb/devices/` sysfs. Actions: list (enumerate all devices), detail (show specific device info). Enables the agent to see what's physically connected.

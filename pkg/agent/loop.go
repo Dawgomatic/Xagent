@@ -29,6 +29,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/memory"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/session"
+	"github.com/Dawgomatic/Xagent/pkg/skills"
 	"github.com/Dawgomatic/Xagent/pkg/state"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
 	"github.com/Dawgomatic/Xagent/pkg/utils"
@@ -189,6 +190,15 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 			logger.InfoCF("skills", "Registered dynamic skill tools", map[string]interface{}{"count": dynCount})
 		}
 	}
+
+	// SWE100821: Register skills tool so the agent can search the 10K+ catalog
+	// and install skills at runtime instead of hallucinating skill names.
+	skillInstaller := skills.NewSkillInstaller(workspace)
+	toolsRegistry.Register(tools.NewSkillsTool(
+		contextBuilder.autoDiscoverer,
+		skillInstaller,
+		contextBuilder.skillsLoader,
+	))
 
 	// SWE100821: Config-driven MCP server initialization
 	for _, serverCfg := range cfg.MCP.Servers {
@@ -358,6 +368,23 @@ func (al *AgentLoop) Stop() {
 	if al.sleepManager != nil {
 		al.sleepManager.Stop()
 	}
+}
+
+// SWE100821: Expose running state for watchdog subsystem monitoring.
+func (al *AgentLoop) IsRunning() bool {
+	return al.running.Load()
+}
+
+// SWE100821: Expose internal subsystem health for watchdog monitoring.
+func (al *AgentLoop) IsSleepRunning() bool {
+	return al.sleepManager != nil && al.sleepManager.IsRunning()
+}
+
+func (al *AgentLoop) GetFatigueLevel() float64 {
+	if al.sleepManager != nil {
+		return al.sleepManager.GetFatigueLevel()
+	}
+	return 0
 }
 
 func (al *AgentLoop) RegisterTool(tool tools.Tool) {
@@ -658,6 +685,10 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		return "", err
 	}
 
+	// SWE100821: Strip JSON wrappers from responses — llama3.1:8b sometimes wraps
+	// its text response as {"type":"text","data":"actual response"} instead of just text.
+	finalContent = unwrapJSONResponse(finalContent)
+
 	// 5. Handle empty response
 	if finalContent == "" {
 		finalContent = opts.DefaultResponse
@@ -850,10 +881,17 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 	iteration := 0
 	var finalContent string
 	// SWE100821: Track last tool call signature to detect infinite loops.
-	// Small models (llama3.1:8b, llama3.2:3b) sometimes call the same tool
-	// with identical args every iteration instead of returning a text response.
 	var lastToolSig string
 	repeatCount := 0
+	// SWE100821: Track tool calls and results for fallback response synthesis.
+	// When the model exhausts iterations without producing text, we build a
+	// summary from what actually happened instead of "no response to give."
+	type toolLogEntry struct {
+		Name   string
+		Result string
+		IsErr  bool
+	}
+	var toolLog []toolLogEntry
 
 	for iteration < al.maxIterations {
 		iteration++
@@ -944,7 +982,9 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 		}
 		if currentSig == lastToolSig {
 			repeatCount++
-			if repeatCount >= 2 {
+			// SWE100821: Only break after 5 identical calls (was 3).
+			// For phone tasks, small models need more attempts.
+			if repeatCount >= 4 {
 				logger.WarnCF("agent", "Tool call loop detected, breaking",
 					map[string]interface{}{
 						"tools":     toolNames,
@@ -981,6 +1021,25 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 
 		// Save assistant message with tool calls to session
 		al.sessions.AddFullMessage(opts.SessionKey, assistantMsg)
+
+		// SWE100821: Intercept "response-as-tool-call" — llama3.1:8b never generates
+		// plain text. It wraps every response as a tool call with a single text arg
+		// (e.g. skills({response: "Here are the results..."})). Detect this and
+		// capture the text as finalContent instead of executing the broken tool call.
+		if captured := interceptResponseToolCall(response.ToolCalls); captured != "" {
+			finalContent = captured
+			logger.InfoCF("agent", "Intercepted response-as-tool-call",
+				map[string]interface{}{"len": len(captured), "iteration": iteration})
+			// Still need to add tool result messages so the conversation stays valid
+			for _, tc := range response.ToolCalls {
+				messages = append(messages, providers.Message{
+					Role:       "tool",
+					Content:    "OK",
+					ToolCallID: tc.ID,
+				})
+			}
+			break
+		}
 
 		// SWE100821: Execute tool calls in parallel (from PicoClaw toolloop.go pattern).
 		// Tools within a single LLM response are independent — run concurrently,
@@ -1045,13 +1104,37 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 			}
 			al.provenance.RecordToolCall(tc.Name, !toolResult.IsError, toolLatency.Milliseconds())
 
+			// SWE100821: Accumulate tool log for fallback response synthesis
+			logResult := toolResult.ForLLM
+			if len(logResult) > 200 {
+				logResult = logResult[:200] + "..."
+			}
+			toolLog = append(toolLog, toolLogEntry{Name: tc.Name, Result: logResult, IsErr: toolResult.IsError})
+
 			// SWE100821: Capture message tool content so dashboard chat gets a response.
-			// When the LLM uses the message() tool, the content arg IS the agent's reply.
-			// Without this, ProcessDirect returns "" and dashboard shows "no response".
+			// llama3.1:8b uses varied param names — check all.
 			if tc.Name == "message" {
-				if contentVal, ok := tc.Arguments["content"]; ok {
-					if contentStr, ok := contentVal.(string); ok && contentStr != "" {
-						finalContent = contentStr
+				for _, key := range []string{"content", "message", "text", "data", "response"} {
+					if contentVal, ok := tc.Arguments[key]; ok {
+						if contentStr, ok := contentVal.(string); ok && contentStr != "" {
+							finalContent = contentStr
+							break
+						}
+					}
+				}
+			}
+
+			// SWE100821: Small models (llama3.1:8b) wrap text responses as tool calls
+			// with {type:"text", data:"..."} instead of just returning text. Catch this
+			// pattern and extract the text as the final response.
+			if typeVal, ok := tc.Arguments["type"]; ok {
+				if typeStr, ok := typeVal.(string); ok && typeStr == "text" {
+					if dataVal, ok := tc.Arguments["data"]; ok {
+						if dataStr, ok := dataVal.(string); ok && dataStr != "" {
+							finalContent = dataStr
+							logger.InfoCF("agent", "Captured text-wrapped tool call as response",
+								map[string]interface{}{"tool": tc.Name, "len": len(dataStr)})
+						}
 					}
 				}
 			}
@@ -1072,6 +1155,21 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 			contentForLLM := toolResult.ForLLM
 			if contentForLLM == "" && toolResult.Err != nil {
 				contentForLLM = toolResult.Err.Error()
+			}
+
+			// SWE100821: Self-correction — when a tool call fails with "Unknown action",
+			// append valid actions so the model corrects itself instead of looping.
+			if toolResult.IsError && strings.Contains(contentForLLM, "Unknown action") {
+				if toolDef, ok := al.tools.Get(tc.Name); ok {
+					params := toolDef.Parameters()
+					if props, ok := params["properties"].(map[string]interface{}); ok {
+						if actionProp, ok := props["action"].(map[string]interface{}); ok {
+							if enum, ok := actionProp["enum"].([]string); ok {
+								contentForLLM += fmt.Sprintf("\n\nValid actions for %s: %s. Try a different approach — take a screenshot first to see the screen, then use tap/swipe/text to interact.", tc.Name, strings.Join(enum, ", "))
+							}
+						}
+					}
+				}
 			}
 
 			toolResultMsg := providers.Message{
@@ -1128,6 +1226,30 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 		if plan != nil && plan.IsComplete() {
 			logger.InfoCF("planner", "Plan complete, finishing iteration loop", nil)
 		}
+	}
+
+	// SWE100821: If iterations exhausted with no text response, build a summary
+	// from the tool call log instead of returning empty (which becomes
+	// "I've completed processing but have no response to give.")
+	if finalContent == "" && len(toolLog) > 0 {
+		var sb strings.Builder
+		sb.WriteString("Here's what I did:\n")
+		for _, entry := range toolLog {
+			status := "OK"
+			if entry.IsErr {
+				status = "failed"
+			}
+			sb.WriteString(fmt.Sprintf("- %s: %s", entry.Name, status))
+			if entry.Result != "" && !entry.IsErr {
+				sb.WriteString(fmt.Sprintf(" — %s", entry.Result))
+			} else if entry.IsErr && entry.Result != "" {
+				sb.WriteString(fmt.Sprintf(" (%s)", entry.Result))
+			}
+			sb.WriteString("\n")
+		}
+		finalContent = sb.String()
+		logger.InfoCF("agent", "Built fallback response from tool log",
+			map[string]interface{}{"tool_calls": len(toolLog), "len": len(finalContent)})
 	}
 
 	return finalContent, iteration, nil
@@ -1247,6 +1369,58 @@ func (al *AgentLoop) SetPreviousEpoch(rec *epoch.Record) {
 func (al *AgentLoop) GetSessionStats() (sessions int) {
 	allSessions := al.sessions.GetAllKeys()
 	return len(allSessions)
+}
+
+// SWE100821: interceptResponseToolCall detects when a small model wraps its text
+// response as a tool call argument. Returns the extracted text, or "" if this
+// looks like a legitimate tool call.
+// Pattern: tool({response: "long text..."}) or tool({message: "long text..."})
+// with no valid action/required params = the model is trying to respond, not act.
+func interceptResponseToolCall(toolCalls []providers.ToolCall) string {
+	if len(toolCalls) != 1 {
+		return ""
+	}
+	tc := toolCalls[0]
+	args := tc.Arguments
+
+	// If it has a valid "action" param, it's a real tool call
+	if _, hasAction := args["action"]; hasAction {
+		return ""
+	}
+
+	// Check for response-like keys with substantial text content
+	for _, key := range []string{"response", "message", "data", "text", "content", "answer", "result"} {
+		if val, ok := args[key]; ok {
+			if str, ok := val.(string); ok && len(str) > 20 {
+				return str
+			}
+		}
+	}
+
+	return ""
+}
+
+// SWE100821: unwrapJSONResponse strips JSON wrappers that small models add.
+// llama3.1:8b returns {"type":"text","data":"actual answer"} or {"content":"..."}
+// instead of plain text. Extract the actual text content.
+func unwrapJSONResponse(s string) string {
+	s = strings.TrimSpace(s)
+	if !strings.HasPrefix(s, "{") || !strings.HasSuffix(s, "}") {
+		return s
+	}
+	var wrapper map[string]interface{}
+	if err := json.Unmarshal([]byte(s), &wrapper); err != nil {
+		return s
+	}
+	// Try common wrapper patterns
+	for _, key := range []string{"data", "content", "text", "message", "response"} {
+		if val, ok := wrapper[key]; ok {
+			if str, ok := val.(string); ok && str != "" {
+				return str
+			}
+		}
+	}
+	return s
 }
 
 // SWE100821: strings.Builder — was using result += (O(n²) allocation)

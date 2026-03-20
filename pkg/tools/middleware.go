@@ -68,8 +68,10 @@ func NewToolMiddleware(registry *ToolRegistry) *ToolMiddleware {
 		cacheTTL:       5 * time.Minute,
 		cacheableTools: map[string]bool{"read_file": true, "list_dir": true, "web_fetch": true},
 		circuits:       make(map[string]*CircuitState),
-		failThreshold:  3,
-		cooldown:       30 * time.Second,
+		// SWE100821: Raised from 3/30s — small models retry with variations,
+		// tripping the breaker before they find the right approach
+		failThreshold:  10,
+		cooldown:       10 * time.Second,
 		analytics:      make(map[string]*ToolAnalytics),
 	}
 }

@@ -109,6 +109,13 @@ func (sm *SleepManager) Stop() {
 	}
 }
 
+// SWE100821: Expose running state for watchdog subsystem monitoring.
+func (sm *SleepManager) IsRunning() bool {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	return sm.running
+}
+
 func (sm *SleepManager) loop(ctx context.Context) {
 	ticker := time.NewTicker(5 * time.Minute)
 	defer ticker.Stop()

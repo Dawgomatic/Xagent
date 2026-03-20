@@ -216,10 +216,15 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 <div class="page" id="page-graph" style="padding:0">
   <div class="graph-wrap">
     <canvas id="graph-canvas"></canvas>
-    <div class="graph-controls">
+    <div class="graph-controls" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
       <button class="btn btn-sm" onclick="graphReset()">Reset</button>
       <button class="btn btn-sm" onclick="graphZoom(1.3)">+</button>
       <button class="btn btn-sm" onclick="graphZoom(0.7)">-</button>
+      <span style="color:var(--text-dim);font-size:.7rem;margin-left:8px">Min links</span>
+      <input id="graph-min-conn" type="number" min="0" max="50" value="1" style="width:48px;background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:2px 4px;font-size:.7rem" onchange="reloadGraph()">
+      <span style="color:var(--text-dim);font-size:.7rem">Max nodes</span>
+      <input id="graph-max-nodes" type="number" min="10" max="1000" value="150" style="width:56px;background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:2px 4px;font-size:.7rem" onchange="reloadGraph()">
+      <input id="graph-search" type="text" placeholder="Search nodes..." style="width:120px;background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:2px 6px;font-size:.7rem" oninput="filterGraphNodes()">
     </div>
     <div class="graph-legend" id="graph-legend"></div>
     <div class="graph-info" id="graph-info"></div>
@@ -241,7 +246,25 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 
 <!-- SKILLS -->
 <div class="page" id="page-skills">
-  <div class="section"><h3>Installed Skills</h3><div class="cards" id="skills-grid"><div class="empty">Loading...</div></div></div>
+  <div class="section">
+    <h3>Installed Skills</h3>
+    <div class="toolbar">
+      <input type="text" id="skill-search" class="chat-input" placeholder="Filter skills..." style="max-width:300px;min-height:36px;max-height:36px">
+      <span id="skill-count" style="font-size:.75rem;color:var(--text-dim)"></span>
+    </div>
+    <div class="split">
+      <div class="panel">
+        <div class="panel-header">Skills <span id="skill-list-count"></span></div>
+        <div class="panel-body" id="skills-list" style="max-height:calc(100vh - 260px)"><div class="empty">Loading...</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header" id="skill-detail-header">Select a skill</div>
+        <div class="panel-body pad" id="skill-detail-body" style="max-height:calc(100vh - 260px)">
+          <div class="empty">Click a skill to view its contents</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- CONFIG -->
@@ -259,6 +282,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
     <div class="card"><div class="label">LLM Failures</div><div class="value" id="sys-llm-fail">--</div></div>
     <div class="card"><div class="label">Avg LLM Latency</div><div class="value sm" id="sys-lat">--</div></div>
     <div class="card"><div class="label">Tool Calls</div><div class="value" id="sys-tool">--</div></div>
+  </div>
+  <div class="section" style="margin-bottom:16px">
+    <h3>Subsystem Watchdog</h3>
+    <div id="sys-watchdog" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px"><div class="empty">Loading...</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
     <div class="section"><h3>Cron Jobs</h3><div class="list" id="sys-cron"><div class="empty">Loading...</div></div></div>
@@ -305,7 +332,7 @@ function loadOverview() {
   api('/api/metrics').then(function(m){if(!m)return;setText('ov-llm',m.llm_calls_total!=null?m.llm_calls_total:'--');setText('ov-tools',m.tool_calls_total!=null?m.tool_calls_total:'--');setText('ov-latency',m.llm_avg_latency_ms!=null?Math.round(m.llm_avg_latency_ms)+'ms':'--');});
   api('/api/epochs').then(function(items){renderListItems('ov-epochs',items,function(e){return '<div class="list-item"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});
   api('/api/provenance').then(function(items){renderListItems('ov-prov',items,function(e){return '<div class="list-item"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});
-  api('/api/skills').then(function(items){renderListItems('ov-skills',items,function(e){var n=typeof e==='string'?e:e.name;return '<div class="list-item"><span>'+esc(n)+'</span></div>';});});
+  api('/api/skills').then(function(items){renderListItems('ov-skills',items,function(e){var n=e.path||e.name||JSON.stringify(e);return '<div class="list-item" style="cursor:pointer" onclick="navigate(\'skills\')"><span>'+esc(n)+'</span>'+(e.description?'<span class="time">'+esc(e.description)+'</span>':'')+'</div>';});});
   api('/api/peers').then(function(items){renderListItems('ov-peers',items,function(e){return '<div class="list-item"><span>'+esc(JSON.stringify(e))+'</span></div>';});});
 }
 
@@ -395,18 +422,39 @@ var gAnimId=null, gLoaded=false;
 var gHiddenGroups={};
 var GROUP_COLORS={Sessions:'#58a6ff',Daily:'#3fb950',Tools:'#d29922',Topics:'#a371f7',Dreams:'#79c0ff',Channels:'#e3b341',Models:'#f85149',World:'#56d364',Experiences:'#db61a2',MentalModels:'#bc8cff',Personality:'#f0883e',Other:'#8b949e'};
 
+var gSearchTerm='';
 function loadGraph() {
   if (gLoaded) return;
-  api('/api/vault/graph').then(function(d) {
+  reloadGraph();
+}
+function reloadGraph() {
+  var mc=document.getElementById('graph-min-conn');
+  var mn=document.getElementById('graph-max-nodes');
+  var minConn=mc?mc.value:'1';
+  var maxNodes=mn?mn.value:'150';
+  var url='/api/vault/graph?min_conn='+minConn+'&max_nodes='+maxNodes;
+  api(url).then(function(d) {
     if (!d || d.error) { document.getElementById('graph-stats').textContent = d&&d.error?d.error:'Error'; return; }
-    GN = (d.nodes||[]).map(function(n,i){ return {id:n.id,name:n.name,group:n.group,size:n.size,x:(Math.random()-0.5)*400,y:(Math.random()-0.5)*400,vx:0,vy:0}; });
+    // SWE100821: Assign initial positions by group for clustering
+    var groupAngles={};var gi=0;
+    var groups={};(d.nodes||[]).forEach(function(n){groups[n.group]=true;});
+    var gKeys=Object.keys(groups);
+    gKeys.forEach(function(g,i){groupAngles[g]=2*Math.PI*i/gKeys.length;});
+    GN = (d.nodes||[]).map(function(n){ var a=groupAngles[n.group]||0; var spread=150+Math.random()*100; return {id:n.id,name:n.name,group:n.group,size:n.size,x:Math.cos(a)*spread+(Math.random()-0.5)*80,y:Math.sin(a)*spread+(Math.random()-0.5)*80,vx:0,vy:0}; });
     GE = (d.edges||[]).map(function(e){ return {source:findNode(e.source),target:findNode(e.target)}; }).filter(function(e){return e.source!=null&&e.target!=null;});
-    document.getElementById('graph-stats').textContent = GN.length+' nodes, '+GE.length+' edges';
+    var statsText=GN.length+' nodes, '+GE.length+' edges';
+    if(d.total_files)statsText+=' (of '+d.total_files+' files)';
+    document.getElementById('graph-stats').textContent = statsText;
     buildLegend();
     gLoaded = true;
     gAlpha = 1;
     stepGraph();
   });
+}
+function filterGraphNodes(){
+  var el=document.getElementById('graph-search');
+  gSearchTerm=el?el.value.toLowerCase():'';
+  drawGraph();
 }
 
 function findNode(id){for(var i=0;i<GN.length;i++){if(GN[i].id===id)return i;}return null;}
@@ -444,20 +492,30 @@ function stepGraph(){
   if(gAlpha<0.001){drawGraph();return;}
   gAlpha*=0.985;
   var n=GN.length;
-  // Repulsion (all pairs)
+  // SWE100821: Compute group centroids for clustering force
+  var groupCX={},groupCY={},groupCnt={};
+  for(var i=0;i<n;i++){
+    if(gHiddenGroups[GN[i].group])continue;
+    var g=GN[i].group;
+    if(!groupCnt[g]){groupCX[g]=0;groupCY[g]=0;groupCnt[g]=0;}
+    groupCX[g]+=GN[i].x;groupCY[g]+=GN[i].y;groupCnt[g]++;
+  }
+  for(var g in groupCnt){groupCX[g]/=groupCnt[g];groupCY[g]/=groupCnt[g];}
+  // Repulsion (all pairs) — stronger for cross-group
   for(var i=0;i<n;i++){
     if(gHiddenGroups[GN[i].group])continue;
     for(var j=i+1;j<n;j++){
       if(gHiddenGroups[GN[j].group])continue;
       var dx=GN[j].x-GN[i].x, dy=GN[j].y-GN[i].y;
       var dist=Math.sqrt(dx*dx+dy*dy)||1;
-      var f=-600/(dist*dist)*gAlpha;
+      var repStr=GN[i].group===GN[j].group?400:800;
+      var f=-repStr/(dist*dist)*gAlpha;
       var fx=f*dx/dist, fy=f*dy/dist;
       GN[i].vx+=fx; GN[i].vy+=fy;
       GN[j].vx-=fx; GN[j].vy-=fy;
     }
   }
-  // Attraction (edges)
+  // Attraction (edges) — tighter for same-group
   for(var e=0;e<GE.length;e++){
     var si=GE[e].source, ti=GE[e].target;
     if(si==null||ti==null)continue;
@@ -465,18 +523,29 @@ function stepGraph(){
     if(gHiddenGroups[s.group]||gHiddenGroups[t.group])continue;
     var dx=t.x-s.x, dy=t.y-s.y;
     var dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var f=0.03*(dist-80)*gAlpha;
+    var idealLen=s.group===t.group?50:120;
+    var f=0.025*(dist-idealLen)*gAlpha;
     var fx=f*dx/dist, fy=f*dy/dist;
     s.vx+=fx; s.vy+=fy;
     t.vx-=fx; t.vy-=fy;
+  }
+  // SWE100821: Group clustering — gently pull nodes toward their group centroid
+  for(var i=0;i<n;i++){
+    if(gHiddenGroups[GN[i].group]||gDragNode===i)continue;
+    var g=GN[i].group;
+    if(groupCnt[g]>1){
+      var cx=groupCX[g],cy=groupCY[g];
+      GN[i].vx+=(cx-GN[i].x)*0.005*gAlpha;
+      GN[i].vy+=(cy-GN[i].y)*0.005*gAlpha;
+    }
   }
   // Centering + damping + integrate
   for(var i=0;i<n;i++){
     if(gHiddenGroups[GN[i].group])continue;
     if(gDragNode===i)continue;
-    GN[i].vx-=GN[i].x*0.01*gAlpha;
-    GN[i].vy-=GN[i].y*0.01*gAlpha;
-    GN[i].vx*=0.88; GN[i].vy*=0.88;
+    GN[i].vx-=GN[i].x*0.008*gAlpha;
+    GN[i].vy-=GN[i].y*0.008*gAlpha;
+    GN[i].vx*=0.85; GN[i].vy*=0.85;
     GN[i].x+=GN[i].vx; GN[i].y+=GN[i].vy;
   }
   drawGraph();
@@ -491,9 +560,16 @@ function drawGraph(){
   gCtx.scale(gScale, gScale);
   gCtx.translate(gPanX, gPanY);
 
-  // Edges
-  gCtx.strokeStyle='rgba(48,54,61,0.6)';
-  gCtx.lineWidth=0.5;
+  // SWE100821: Compute max connections for relative sizing
+  var maxConn=1;
+  for(var i=0;i<GN.length;i++){if(GN[i].size>maxConn)maxConn=GN[i].size;}
+
+  // SWE100821: Build search match set
+  var hasSearch=gSearchTerm.length>0;
+  var searchMatch={};
+  if(hasSearch){for(var i=0;i<GN.length;i++){if(GN[i].name.toLowerCase().indexOf(gSearchTerm)>=0)searchMatch[i]=true;}}
+
+  // Edges — opacity scales with whether endpoints are selected/searched
   for(var e=0;e<GE.length;e++){
     var si=GE[e].source, ti=GE[e].target;
     if(si==null||ti==null)continue;
@@ -502,39 +578,53 @@ function drawGraph(){
     gCtx.beginPath();
     gCtx.moveTo(s.x,s.y);
     gCtx.lineTo(t.x,t.y);
-    // Highlight edges connected to selected node
     if(gSelected!=null&&(si===gSelected||ti===gSelected)){
-      gCtx.strokeStyle='rgba(88,166,255,0.5)';
+      gCtx.strokeStyle='rgba(88,166,255,0.6)';
       gCtx.lineWidth=1.5;
+    } else if(hasSearch&&(searchMatch[si]||searchMatch[ti])){
+      gCtx.strokeStyle='rgba(88,166,255,0.3)';
+      gCtx.lineWidth=1;
     } else {
-      gCtx.strokeStyle='rgba(48,54,61,0.6)';
+      var edgeAlpha=hasSearch?0.08:(gSelected!=null?0.12:0.25);
+      gCtx.strokeStyle='rgba(48,54,61,'+edgeAlpha+')';
       gCtx.lineWidth=0.5;
     }
     gCtx.stroke();
   }
 
-  // Nodes
+  // Nodes — size by relative connection count, dim non-matches during search
   for(var i=0;i<GN.length;i++){
     var nd=GN[i];
     if(gHiddenGroups[nd.group])continue;
-    var r=Math.min(3+nd.size*1.5,16);
+    var r=3+Math.sqrt(nd.size/maxConn)*12;
     var col=GROUP_COLORS[nd.group]||'#8b949e';
+    var dimmed=hasSearch&&!searchMatch[i];
     gCtx.beginPath();
     gCtx.arc(nd.x, nd.y, r, 0, Math.PI*2);
+    gCtx.globalAlpha=dimmed?0.15:1;
     gCtx.fillStyle=col;
     if(i===gSelected){gCtx.fillStyle='#fff';gCtx.lineWidth=2;gCtx.strokeStyle=col;gCtx.stroke();}
-    if(i===gHover&&i!==gSelected){gCtx.lineWidth=1.5;gCtx.strokeStyle='#fff';gCtx.stroke();}
+    else if(hasSearch&&searchMatch[i]){gCtx.lineWidth=2;gCtx.strokeStyle='#fff';gCtx.stroke();}
+    else if(i===gHover){gCtx.lineWidth=1.5;gCtx.strokeStyle='#fff';gCtx.stroke();}
     gCtx.fill();
+    gCtx.globalAlpha=1;
   }
 
-  // Label for hovered/selected node
-  var labelNode = gHover != null ? gHover : gSelected;
-  if(labelNode!=null&&!gHiddenGroups[GN[labelNode].group]){
-    var nd=GN[labelNode];
-    gCtx.font='11px sans-serif';
+  // Labels — show for hovered, selected, search matches with high connections, and top nodes when zoomed
+  var labelNodes=[];
+  if(gHover!=null)labelNodes.push(gHover);
+  if(gSelected!=null&&gSelected!==gHover)labelNodes.push(gSelected);
+  if(hasSearch){for(var k in searchMatch){labelNodes.push(parseInt(k));}}
+  else if(gScale>1.5){for(var i=0;i<GN.length;i++){if(!gHiddenGroups[GN[i].group]&&GN[i].size>=maxConn*0.3)labelNodes.push(i);}}
+  for(var li=0;li<labelNodes.length;li++){
+    var idx=labelNodes[li];
+    if(idx==null||gHiddenGroups[GN[idx].group])continue;
+    var nd=GN[idx];
+    var lr=3+Math.sqrt(nd.size/maxConn)*12;
+    gCtx.font=(idx===gSelected||idx===gHover?'bold ':'')+' 11px sans-serif';
     gCtx.fillStyle='#f0f6fc';
     gCtx.textAlign='center';
-    gCtx.fillText(nd.name, nd.x, nd.y - Math.min(3+nd.size*1.5,16) - 5);
+    gCtx.fillText(nd.name, nd.x, nd.y - lr - 5);
   }
 
   gCtx.restore();
@@ -551,7 +641,7 @@ function graphNodeAt(wx,wy){
   return null;
 }
 
-function graphReset(){gScale=1;gPanX=0;gPanY=0;gAlpha=1;gSelected=null;gHiddenGroups={};buildLegend();stepGraph();}
+function graphReset(){gScale=1;gPanX=0;gPanY=0;gAlpha=1;gSelected=null;gHiddenGroups={};gSearchTerm='';gLoaded=false;var s=document.getElementById('graph-search');if(s)s.value='';buildLegend();reloadGraph();}
 function graphZoom(factor){gScale*=factor;if(gScale<0.1)gScale=0.1;if(gScale>10)gScale=10;drawGraph();}
 
 // Graph mouse events
@@ -639,8 +729,107 @@ function viewEpoch(name){api('/api/epoch/detail?name='+encodeURIComponent(name))
 function loadProvList(){api('/api/provenance').then(function(items){renderListItems('prov-list',items,function(e){return '<div class="list-item" onclick="viewProv(\''+esc(e.name)+'\')"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});}
 function viewProv(name){api('/api/provenance/detail?name='+encodeURIComponent(name)).then(function(recs){if(!recs)return;var h='<div class="detail-container"><div class="detail-header"><h4>'+esc(name)+' ('+recs.length+' records)</h4><span class="detail-close" onclick="this.closest(\'.detail-container\').remove()">&#10005;</span></div><div class="detail-body">';for(var i=0;i<recs.length;i++){h+='<div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)"><div class="json-view" style="max-height:200px">'+syntaxHL(recs[i])+'</div></div>';}h+='</div></div>';document.getElementById('prov-detail').innerHTML=h;});}
 
-// ===== Skills =====
-function loadSkillsGrid(){api('/api/skills').then(function(items){if(!items||items.length===0){document.getElementById('skills-grid').innerHTML='<div class="empty">No skills</div>';return;}document.getElementById('skills-grid').innerHTML=items.map(function(e){var n=typeof e==='string'?e:e.name;var dir=typeof e==='object'&&e.is_dir;return '<div class="card"><div class="label">'+(dir?'Skill Dir':'Skill File')+'</div><div class="value sm">'+esc(n)+'</div></div>';}).join('');});}
+// ===== Skills (SWE100821: split-panel with search, detail view) =====
+var _skillsData = [];
+function loadSkillsGrid(){
+  api('/api/skills').then(function(items){
+    _skillsData = items || [];
+    renderSkillsList(_skillsData);
+    document.getElementById('skill-count').textContent = _skillsData.length + ' skills';
+  });
+  var searchEl = document.getElementById('skill-search');
+  if (searchEl && !searchEl._bound) {
+    searchEl._bound = true;
+    searchEl.addEventListener('input', function(){
+      var q = this.value.toLowerCase();
+      var filtered = _skillsData.filter(function(s){
+        return (s.path||'').toLowerCase().indexOf(q) >= 0 ||
+               (s.description||'').toLowerCase().indexOf(q) >= 0 ||
+               (s.author||'').toLowerCase().indexOf(q) >= 0 ||
+               (s.name||'').toLowerCase().indexOf(q) >= 0;
+      });
+      renderSkillsList(filtered);
+    });
+  }
+}
+function renderSkillsList(items){
+  var el = document.getElementById('skills-list');
+  document.getElementById('skill-list-count').textContent = '(' + items.length + ')';
+  if(!items||items.length===0){el.innerHTML='<div class="empty">No skills found</div>';return;}
+  var grouped = {};
+  items.forEach(function(s){
+    var a = s.author || 'unknown';
+    if(!grouped[a]) grouped[a] = [];
+    grouped[a].push(s);
+  });
+  var authors = Object.keys(grouped).sort();
+  var h = '';
+  authors.forEach(function(author){
+    h += '<div style="padding:6px 14px;font-size:.7rem;color:var(--text-dim);background:rgba(255,255,255,.02);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.05em">' + esc(author) + ' (' + grouped[author].length + ')</div>';
+    grouped[author].forEach(function(s){
+      h += '<div class="list-item skill-item" data-path="' + esc(s.path) + '" onclick="viewSkill(\'' + esc(s.path) + '\')">';
+      h += '<div style="display:flex;flex-direction:column;gap:2px"><span style="color:var(--text-bright)">' + esc(s.name) + '</span>';
+      if(s.description) h += '<span style="font-size:.7rem;color:var(--text-dim)">' + esc(s.description) + '</span>';
+      h += '</div></div>';
+    });
+  });
+  el.innerHTML = h;
+}
+function viewSkill(path){
+  document.querySelectorAll('.skill-item').forEach(function(el){
+    el.classList.toggle('active', el.getAttribute('data-path') === path);
+  });
+  document.getElementById('skill-detail-header').textContent = path;
+  document.getElementById('skill-detail-body').innerHTML = '<div class="empty">Loading...</div>';
+  api('/api/skill/detail?path=' + encodeURIComponent(path)).then(function(d){
+    if(!d || d.error){
+      document.getElementById('skill-detail-body').innerHTML = '<div class="empty">' + esc(d && d.error || 'Not found') + '</div>';
+      return;
+    }
+    var content = d.content || '';
+    var body = content;
+    if(body.indexOf('---') === 0){
+      var end = body.indexOf('---', 3);
+      if(end > 0) body = body.substring(end + 3).trim();
+    }
+    var html = '<div style="margin-bottom:12px;display:flex;gap:8px;align-items:center">';
+    html += '<span style="font-size:.7rem;color:var(--text-dim)">Modified: ' + fmtTime(d.mod_time) + '</span>';
+    html += '</div>';
+    html += '<div class="content-view" style="white-space:pre-wrap;font-size:.8rem;line-height:1.6">' + renderSkillMD(body) + '</div>';
+    document.getElementById('skill-detail-body').innerHTML = html;
+  });
+}
+var BT3 = String.fromCharCode(96,96,96);
+var BT1 = String.fromCharCode(96);
+function renderSkillMD(md){
+  var lines = md.split('\n');
+  var out = '';
+  var inCode = false;
+  for(var i=0;i<lines.length;i++){
+    var L = lines[i];
+    if(L.trim().indexOf(BT3) === 0){
+      if(inCode){out += '</code></pre>'; inCode=false;}
+      else{out += '<pre style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px;overflow-x:auto;margin:8px 0"><code>'; inCode=true;}
+      continue;
+    }
+    if(inCode){out += esc(L) + '\n'; continue;}
+    if(L.match(/^### /)){out += '<h4 style="color:var(--accent);margin:12px 0 4px;font-size:.85rem">' + esc(L.substring(4)) + '</h4>'; continue;}
+    if(L.match(/^## /)){out += '<h3 style="color:var(--text-bright);margin:14px 0 6px;font-size:.95rem">' + esc(L.substring(3)) + '</h3>'; continue;}
+    if(L.match(/^# /)){out += '<h2 style="color:var(--text-bright);margin:16px 0 8px;font-size:1.1rem">' + esc(L.substring(2)) + '</h2>'; continue;}
+    if(L.match(/^- /)){out += '<div style="padding-left:16px;margin:2px 0"><span style="color:var(--accent);margin-right:6px">&#8226;</span>' + escInline(L.substring(2)) + '</div>'; continue;}
+    if(L.trim() === ''){out += '<br>'; continue;}
+    out += '<p style="margin:4px 0">' + escInline(L) + '</p>';
+  }
+  if(inCode) out += '</code></pre>';
+  return out;
+}
+function escInline(s){
+  s = esc(s);
+  var codeRe = new RegExp(BT1 + '([^' + BT1 + ']+)' + BT1, 'g');
+  s = s.replace(codeRe, '<code style="background:var(--bg);padding:1px 5px;border-radius:3px;font-size:.8em;color:var(--cyan)">$1</code>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong style="color:var(--text-bright)">$1</strong>');
+  return s;
+}
 
 // ===== Config =====
 function loadConfig(){api('/api/config').then(function(d){if(!d){document.getElementById('config-view').textContent='Error';return;}document.getElementById('config-view').innerHTML=syntaxHL(d);});}
@@ -648,6 +837,7 @@ function loadConfig(){api('/api/config').then(function(d){if(!d){document.getEle
 // ===== System =====
 function loadSystem(){
   api('/api/metrics').then(function(m){if(!m)return;setText('sys-uptime',m.uptime_seconds!=null?m.uptime_seconds:'--');setText('sys-msgs',m.messages_total!=null?m.messages_total:'--');setText('sys-errs',m.messages_errored!=null?m.messages_errored:'--');setText('sys-llm',m.llm_calls_total!=null?m.llm_calls_total:'--');setText('sys-llm-fail',m.llm_calls_failed!=null?m.llm_calls_failed:'--');setText('sys-lat',m.llm_avg_latency_ms!=null?Math.round(m.llm_avg_latency_ms)+'ms':'--');setText('sys-tool',m.tool_calls_total!=null?m.tool_calls_total:'--');});
+  api('/api/watchdog').then(function(d){var el=document.getElementById('sys-watchdog');if(!d||!d.subsystems||d.subsystems.length===0){el.innerHTML='<div class="empty">No subsystems registered</div>';return;}el.innerHTML=d.subsystems.map(function(s){var col=s.status==='up'?'#4ade80':s.status==='down'?'#f87171':'#facc15';var icon=s.status==='up'?'&#9679;':s.status==='down'?'&#9888;':'&#63;';var since=s.since?new Date(s.since).toLocaleTimeString():'--';var info=s.status==='down'&&s.message?'<div style="font-size:11px;color:#f87171;margin-top:4px">'+esc(s.message)+'</div>':'';var restarts=s.restarts>0?'<div style="font-size:11px;color:#facc15;margin-top:2px">Restarts: '+s.restarts+'</div>':'';return '<div style="background:#1e293b;border-left:3px solid '+col+';border-radius:6px;padding:12px"><div style="display:flex;align-items:center;gap:6px"><span style="color:'+col+';font-size:16px">'+icon+'</span><span style="font-weight:600;font-size:14px">'+esc(s.name)+'</span></div><div style="font-size:12px;color:#94a3b8;margin-top:4px">Since '+since+'</div>'+info+restarts+'</div>';}).join('');});
   api('/api/cron/jobs').then(function(items){if(!items||!Array.isArray(items)||items.length===0){document.getElementById('sys-cron').innerHTML='<div class="empty">No cron jobs</div>';return;}document.getElementById('sys-cron').innerHTML=items.map(function(j){var n=j.name||j.id||JSON.stringify(j);var s=j.schedule||j.cron||'';var en=j.enabled!==false?'active':'disabled';return '<div class="list-item"><span>'+esc(n)+'</span><span class="time">'+esc(s)+' ['+en+']</span></div>';}).join('');});
   api('/api/peers').then(function(items){renderListItems('sys-peers',items,function(e){return '<div class="list-item"><span>'+esc(JSON.stringify(e))+'</span></div>';});});
 }

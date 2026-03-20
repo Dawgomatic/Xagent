@@ -35,6 +35,9 @@ type Dashboard struct {
 	vaultPath   string
 	configPath  string
 	metrics     *health.Metrics
+	watchdog    *health.Watchdog
+	model       string // SWE100821: Active LLM model name
+	tier        string // SWE100821: Hardware tier
 	startTime   time.Time
 	chatHandler func(ctx context.Context, message, sessionKey string) (string, error)
 	chatMu      sync.Mutex
@@ -67,6 +70,12 @@ func (d *Dashboard) SetConfigPath(path string) { d.configPath = path }
 // SetMetrics injects the health metrics pointer for live stats.
 func (d *Dashboard) SetMetrics(m *health.Metrics) { d.metrics = m }
 
+// SWE100821: SetWatchdog injects the subsystem watchdog for /api/watchdog status.
+func (d *Dashboard) SetWatchdog(w *health.Watchdog) { d.watchdog = w }
+
+// SWE100821: SetModelInfo sets the active model and hardware tier for the overview.
+func (d *Dashboard) SetModelInfo(model, tier string) { d.model = model; d.tier = tier }
+
 // SetChatHandler sets the function called to process chat messages.
 // SWE100821: Signature matches agentLoop.ProcessDirect(ctx, content, sessionKey).
 func (d *Dashboard) SetChatHandler(fn func(ctx context.Context, message, sessionKey string) (string, error)) {
@@ -83,6 +92,8 @@ func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/api/epochs", d.handleEpochs)
 	mux.HandleFunc("/api/provenance", d.handleProvenance)
 	mux.HandleFunc("/api/skills", d.handleSkills)
+	// SWE100821: Serve individual skill SKILL.md content for dashboard detail view
+	mux.HandleFunc("/api/skill/detail", d.handleSkillDetail)
 	mux.HandleFunc("/api/peers", d.handlePeers)
 
 	// Memory APIs
@@ -104,6 +115,9 @@ func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/api/cron/jobs", d.handleCronJobs)
 	mux.HandleFunc("/api/metrics", d.handleMetrics)
 
+	// SWE100821: Watchdog API — subsystem health status
+	mux.HandleFunc("/api/watchdog", d.handleWatchdog)
+
 	// SWE100821: Chat API — async POST + polling GET
 	mux.HandleFunc("/api/chat", d.handleChat)
 }
@@ -120,24 +134,40 @@ func (d *Dashboard) handleDashboardPage(w http.ResponseWriter, r *http.Request) 
 func (d *Dashboard) handleState(w http.ResponseWriter, r *http.Request) {
 	uptime := time.Since(d.startTime).Truncate(time.Second).String()
 	fatigue := "low"
-	model := "unknown"
-	tier := "unknown"
 	messagesCount := 0
 
-	epochDir := filepath.Join(d.workspace, "epochs")
-	if entries, err := os.ReadDir(epochDir); err == nil && len(entries) > 0 {
-		sort.Slice(entries, func(i, j int) bool { return entries[i].Name() > entries[j].Name() })
-		latest := filepath.Join(epochDir, entries[0].Name())
-		if data, err := os.ReadFile(latest); err == nil {
-			var ep map[string]interface{}
-			if json.Unmarshal(data, &ep) == nil {
-				if stats, ok := ep["stats"].(map[string]interface{}); ok {
-					if mc, ok := stats["messages_processed"].(float64); ok {
-						messagesCount = int(mc)
+	// SWE100821: Use live model/tier from SetModelInfo, not epoch files
+	model := d.model
+	if model == "" {
+		model = "unknown"
+	}
+	tier := d.tier
+	if tier == "" {
+		tier = "unknown"
+	}
+
+	// SWE100821: Get live fatigue from metrics if available
+	if d.metrics != nil {
+		snap := d.metrics.Snapshot()
+		if total, ok := snap["messages_total"].(int64); ok {
+			messagesCount = int(total)
+		}
+	}
+
+	// Fallback to epoch files for message count if metrics not available
+	if messagesCount == 0 {
+		epochDir := filepath.Join(d.workspace, "epochs")
+		if entries, err := os.ReadDir(epochDir); err == nil && len(entries) > 0 {
+			sort.Slice(entries, func(i, j int) bool { return entries[i].Name() > entries[j].Name() })
+			latest := filepath.Join(epochDir, entries[0].Name())
+			if data, err := os.ReadFile(latest); err == nil {
+				var ep map[string]interface{}
+				if json.Unmarshal(data, &ep) == nil {
+					if stats, ok := ep["stats"].(map[string]interface{}); ok {
+						if mc, ok := stats["messages_processed"].(float64); ok {
+							messagesCount = int(mc)
+						}
 					}
-				}
-				if m, ok := ep["model"].(string); ok && m != "" {
-					model = m
 				}
 			}
 		}
@@ -160,32 +190,165 @@ func (d *Dashboard) handleProvenance(w http.ResponseWriter, r *http.Request) {
 	writeFileList(w, filepath.Join(d.workspace, "provenance"), false, 50)
 }
 
+// SWE100821: handleSkills walks both flat (skills/<name>/SKILL.md) and
+// author-qualified (skills/<author>/<skill>/SKILL.md) layouts.
 func (d *Dashboard) handleSkills(w http.ResponseWriter, r *http.Request) {
-	skillsDir := filepath.Join(d.workspace, "skills")
-	entries, err := os.ReadDir(skillsDir)
-	if err != nil {
-		writeJSON(w, []interface{}{})
+	type skillEntry struct {
+		Author      string `json:"author"`
+		Name        string `json:"name"`
+		Path        string `json:"path"`
+		Description string `json:"description,omitempty"`
+		ModTime     string `json:"mod_time,omitempty"`
+	}
+
+	var result []skillEntry
+	seen := map[string]bool{}
+
+	roots := []string{
+		filepath.Join(d.workspace, "skills"),
+		filepath.Join(d.workspace, "skills", "skills"),
+	}
+
+	for _, root := range roots {
+		entries, err := os.ReadDir(root)
+		if err != nil {
+			continue
+		}
+		for _, e := range entries {
+			if !e.IsDir() || strings.HasPrefix(e.Name(), ".") {
+				continue
+			}
+			dirPath := filepath.Join(root, e.Name())
+
+			// Check flat layout: skills/<name>/SKILL.md
+			flatMD := filepath.Join(dirPath, "SKILL.md")
+			if _, err := os.Stat(flatMD); err == nil {
+				path := e.Name()
+				if seen[path] {
+					continue
+				}
+				seen[path] = true
+				entry := skillEntry{Author: "local", Name: e.Name(), Path: path}
+				if info, err := e.Info(); err == nil {
+					entry.ModTime = info.ModTime().Format(time.RFC3339)
+				}
+				if data, err := os.ReadFile(flatMD); err == nil {
+					entry.Description = extractFrontmatterField(string(data), "description")
+				}
+				result = append(result, entry)
+				continue
+			}
+
+			// Check author layout: skills/<author>/<skill>/SKILL.md
+			subEntries, err := os.ReadDir(dirPath)
+			if err != nil {
+				continue
+			}
+			for _, sub := range subEntries {
+				if !sub.IsDir() || strings.HasPrefix(sub.Name(), ".") {
+					continue
+				}
+				subMD := filepath.Join(dirPath, sub.Name(), "SKILL.md")
+				if _, err := os.Stat(subMD); err != nil {
+					continue
+				}
+				path := e.Name() + "/" + sub.Name()
+				if seen[path] {
+					continue
+				}
+				seen[path] = true
+				entry := skillEntry{Author: e.Name(), Name: sub.Name(), Path: path}
+				if info, err := sub.Info(); err == nil {
+					entry.ModTime = info.ModTime().Format(time.RFC3339)
+				}
+
+				metaPath := filepath.Join(dirPath, sub.Name(), "_meta.json")
+				if metaData, err := os.ReadFile(metaPath); err == nil {
+					var meta struct {
+						DisplayName string `json:"displayName"`
+					}
+					if json.Unmarshal(metaData, &meta) == nil && meta.DisplayName != "" {
+						entry.Description = meta.DisplayName
+					}
+				}
+				if entry.Description == "" {
+					if data, err := os.ReadFile(subMD); err == nil {
+						entry.Description = extractFrontmatterField(string(data), "description")
+					}
+				}
+				result = append(result, entry)
+			}
+		}
+	}
+
+	if result == nil {
+		result = []skillEntry{}
+	}
+	sort.Slice(result, func(i, j int) bool { return result[i].Path < result[j].Path })
+	writeJSON(w, result)
+}
+
+// SWE100821: handleSkillDetail returns the full SKILL.md content for a given skill path.
+// GET /api/skill/detail?path=skill-name  (flat) or ?path=author/skill-name (qualified)
+func (d *Dashboard) handleSkillDetail(w http.ResponseWriter, r *http.Request) {
+	skillPath := r.URL.Query().Get("path")
+	if skillPath == "" {
+		http.Error(w, "missing ?path=author/skill", http.StatusBadRequest)
 		return
 	}
 
-	type skillEntry struct {
-		Name    string `json:"name"`
-		IsDir   bool   `json:"is_dir"`
-		ModTime string `json:"mod_time"`
+	clean := filepath.Clean(skillPath)
+	if strings.Contains(clean, "..") {
+		http.Error(w, "invalid path", http.StatusBadRequest)
+		return
 	}
 
-	result := make([]skillEntry, 0, len(entries))
-	for _, e := range entries {
-		if e.IsDir() || strings.HasSuffix(e.Name(), ".yaml") || strings.HasSuffix(e.Name(), ".yml") || strings.HasSuffix(e.Name(), ".md") {
-			info, _ := e.Info()
-			mt := ""
-			if info != nil {
-				mt = info.ModTime().Format(time.RFC3339)
-			}
-			result = append(result, skillEntry{Name: e.Name(), IsDir: e.IsDir(), ModTime: mt})
+	// Search in multiple roots, both flat and archive layout
+	roots := []string{
+		filepath.Join(d.workspace, "skills"),
+		filepath.Join(d.workspace, "skills", "skills"),
+	}
+
+	for _, root := range roots {
+		mdPath := filepath.Join(root, clean, "SKILL.md")
+		data, err := os.ReadFile(mdPath)
+		if err != nil {
+			continue
+		}
+		info, _ := os.Stat(mdPath)
+		mt := ""
+		if info != nil {
+			mt = info.ModTime().Format(time.RFC3339)
+		}
+		writeJSON(w, map[string]string{
+			"path":     clean,
+			"content":  string(data),
+			"mod_time": mt,
+		})
+		return
+	}
+
+	writeJSON(w, map[string]string{"error": "skill not found", "path": clean})
+}
+
+// extractFrontmatterField pulls a single field from YAML frontmatter (--- delimited).
+func extractFrontmatterField(content, field string) string {
+	if !strings.HasPrefix(content, "---") {
+		return ""
+	}
+	end := strings.Index(content[3:], "---")
+	if end < 0 {
+		return ""
+	}
+	fm := content[3 : 3+end]
+	for _, line := range strings.Split(fm, "\n") {
+		line = strings.TrimSpace(line)
+		prefix := field + ":"
+		if strings.HasPrefix(line, prefix) {
+			return strings.TrimSpace(strings.TrimPrefix(line, prefix))
 		}
 	}
-	writeJSON(w, result)
+	return ""
 }
 
 func (d *Dashboard) handlePeers(w http.ResponseWriter, r *http.Request) {
@@ -437,11 +600,36 @@ func (d *Dashboard) handleVaultNote(w http.ResponseWriter, r *http.Request) {
 
 // handleVaultGraph scans all vault .md files, extracts [[wikilinks]], and returns
 // a graph of nodes and edges for force-directed visualization.
-// SWE100821: Capped at 2000 files to bound memory and response time.
+// SWE100821: Supports query params for filtering:
+//   - min_conn=N  — only include nodes with >= N connections (default 1, hides orphans)
+//   - group=X     — only include nodes from this group (empty = all)
+//   - exclude=X,Y — comma-separated groups to exclude (e.g. "Sessions")
+//   - max_nodes=N — cap total nodes (default 200, sorted by connection count)
 func (d *Dashboard) handleVaultGraph(w http.ResponseWriter, r *http.Request) {
 	if d.vaultPath == "" {
 		writeJSON(w, map[string]interface{}{"error": "vault not configured", "nodes": []interface{}{}, "edges": []interface{}{}})
 		return
+	}
+
+	// SWE100821: Parse filter params
+	minConn := 1
+	if v := r.URL.Query().Get("min_conn"); v != "" {
+		if n, err := fmt.Sscanf(v, "%d", &minConn); n != 1 || err != nil {
+			minConn = 1
+		}
+	}
+	maxNodes := 200
+	if v := r.URL.Query().Get("max_nodes"); v != "" {
+		if n, err := fmt.Sscanf(v, "%d", &maxNodes); n != 1 || err != nil {
+			maxNodes = 200
+		}
+	}
+	filterGroup := r.URL.Query().Get("group")
+	excludeGroups := map[string]bool{}
+	if v := r.URL.Query().Get("exclude"); v != "" {
+		for _, g := range strings.Split(v, ",") {
+			excludeGroups[strings.TrimSpace(g)] = true
+		}
 	}
 
 	type graphNode struct {
@@ -456,8 +644,9 @@ func (d *Dashboard) handleVaultGraph(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Pass 1: collect all .md files and build a name→path lookup
-	nameLookup := map[string]string{} // lowercase(basename_no_ext) → relative_path
+	nameLookup := map[string]string{}
 	fileContents := map[string]string{}
+	fileGroups := map[string]string{}
 	fileCount := 0
 	const maxFiles = 2000
 
@@ -476,67 +665,89 @@ func (d *Dashboard) handleVaultGraph(w http.ResponseWriter, r *http.Request) {
 		base := strings.TrimSuffix(entry.Name(), ".md")
 		nameLookup[strings.ToLower(base)] = rel
 
-		data, err := os.ReadFile(path)
-		if err == nil {
+		parts := strings.SplitN(rel, string(os.PathSeparator), 2)
+		group := "Other"
+		if len(parts) >= 2 {
+			group = parts[0]
+		}
+		fileGroups[rel] = group
+
+		data, readErr := os.ReadFile(path)
+		if readErr == nil {
 			fileContents[rel] = string(data)
 		}
 		fileCount++
 		return nil
 	})
 
-	// Pass 2: build nodes and edges
+	// Pass 2: build edges and count connections
 	connectionCount := map[string]int{}
-	var edges []graphEdge
-	edgeSet := map[string]bool{} // deduplicate edges
+	type rawEdge struct{ src, dst string }
+	var allEdges []rawEdge
+	edgeSet := map[string]bool{}
 
 	for rel, content := range fileContents {
 		matches := wikilinkRe.FindAllStringSubmatch(content, -1)
 		for _, m := range matches {
 			linkName := strings.TrimSpace(m[1])
 			targetPath, ok := nameLookup[strings.ToLower(linkName)]
-			if !ok {
+			if !ok || targetPath == rel {
 				continue
 			}
-			if targetPath == rel {
-				continue // skip self-links
-			}
-
 			edgeKey := rel + "→" + targetPath
 			if edgeSet[edgeKey] {
 				continue
 			}
 			edgeSet[edgeKey] = true
-			edges = append(edges, graphEdge{Source: rel, Target: targetPath})
+			allEdges = append(allEdges, rawEdge{rel, targetPath})
 			connectionCount[rel]++
 			connectionCount[targetPath]++
 		}
 	}
 
-	// Build node list from all files that participate in at least one edge,
-	// plus all files regardless (so orphans are visible too)
-	nodeSet := map[string]bool{}
-	var nodes []graphNode
-
-	addNode := func(rel string) {
-		if nodeSet[rel] {
-			return
+	// SWE100821: Pass 3 — filter and rank nodes
+	type rankedNode struct {
+		rel   string
+		group string
+		conns int
+	}
+	var candidates []rankedNode
+	for rel := range fileContents {
+		group := fileGroups[rel]
+		conns := connectionCount[rel]
+		if conns < minConn {
+			continue
 		}
-		nodeSet[rel] = true
-		parts := strings.SplitN(rel, string(os.PathSeparator), 2)
-		group := "Other"
-		if len(parts) >= 2 {
-			group = parts[0]
+		if filterGroup != "" && group != filterGroup {
+			continue
 		}
-		name := strings.TrimSuffix(filepath.Base(rel), ".md")
-		size := connectionCount[rel]
-		if size < 1 {
-			size = 1
+		if excludeGroups[group] {
+			continue
 		}
-		nodes = append(nodes, graphNode{ID: rel, Name: name, Group: group, Size: size})
+		candidates = append(candidates, rankedNode{rel, group, conns})
+	}
+	sort.Slice(candidates, func(i, j int) bool {
+		return candidates[i].conns > candidates[j].conns
+	})
+	if len(candidates) > maxNodes {
+		candidates = candidates[:maxNodes]
 	}
 
-	for rel := range fileContents {
-		addNode(rel)
+	// Build final node set
+	nodeSet := map[string]bool{}
+	var nodes []graphNode
+	for _, c := range candidates {
+		nodeSet[c.rel] = true
+		name := strings.TrimSuffix(filepath.Base(c.rel), ".md")
+		nodes = append(nodes, graphNode{ID: c.rel, Name: name, Group: c.group, Size: c.conns})
+	}
+
+	// Only include edges where both endpoints survived filtering
+	var edges []graphEdge
+	for _, e := range allEdges {
+		if nodeSet[e.src] && nodeSet[e.dst] {
+			edges = append(edges, graphEdge{Source: e.src, Target: e.dst})
+		}
 	}
 
 	if nodes == nil {
@@ -547,8 +758,10 @@ func (d *Dashboard) handleVaultGraph(w http.ResponseWriter, r *http.Request) {
 	}
 
 	writeJSON(w, map[string]interface{}{
-		"nodes": nodes,
-		"edges": edges,
+		"nodes":       nodes,
+		"edges":       edges,
+		"total_files": fileCount,
+		"filtered":    len(candidates) < len(fileContents),
 	})
 }
 
@@ -656,6 +869,21 @@ func (d *Dashboard) handleMetrics(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	writeJSON(w, result)
+}
+
+// --- Watchdog API ---
+
+// SWE100821: handleWatchdog returns subsystem health status for the dashboard.
+func (d *Dashboard) handleWatchdog(w http.ResponseWriter, r *http.Request) {
+	if d.watchdog == nil {
+		writeJSON(w, map[string]interface{}{"subsystems": []interface{}{}, "all_healthy": true})
+		return
+	}
+	statuses := d.watchdog.GetStatus()
+	writeJSON(w, map[string]interface{}{
+		"subsystems":  statuses,
+		"all_healthy": d.watchdog.AllHealthy(),
+	})
 }
 
 // --- Chat API ---

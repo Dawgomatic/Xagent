@@ -21,7 +21,8 @@ var embeddedCatalogData []byte
 
 // SkillCatalogEntry represents a skill in the searchable archive.
 type SkillCatalogEntry struct {
-	Name        string   `json:"slug"` // Mapped to raw dict 'slug' keys
+	Owner       string   `json:"owner"`
+	Name        string   `json:"slug"`
 	Description string   `json:"description"`
 	Tags        []string `json:"tags"`
 	Category    string   `json:"category"`

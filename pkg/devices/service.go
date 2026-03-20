@@ -79,6 +79,13 @@ func (s *Service) Start(ctx context.Context) error {
 	return nil
 }
 
+// SWE100821: Expose running state for watchdog subsystem monitoring.
+func (s *Service) IsRunning() bool {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.cancel != nil
+}
+
 func (s *Service) Stop() {
 	s.mu.Lock()
 	defer s.mu.Unlock()

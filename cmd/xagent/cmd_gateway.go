@@ -277,6 +277,8 @@ func gatewayCmd() {
 	}
 	dash.SetConfigPath(getConfigPath())
 	dash.SetMetrics(healthServer.GetMetrics())
+	// SWE100821: Feed live model + tier to dashboard overview cards
+	dash.SetModelInfo(cfg.Agents.Defaults.Model, string(hwProfile.Tier))
 	// SWE100821: Wire metrics into agent loop so LLM calls, tool calls, and messages
 	// are tracked and visible in the dashboard System tab.
 	agentLoop.SetMetrics(healthServer.GetMetrics())
@@ -329,6 +331,88 @@ func gatewayCmd() {
 
 	go agentLoop.Run(ctx)
 
+	// SWE100821: Start dream mode — autonomous reflection during idle periods.
+	// After 2h idle, the agent reviews recent conversations, finds patterns,
+	// and updates its world model. Runs every 12h.
+	agentLoop.StartDreamMode(ctx)
+
+	// SWE100821: Subsystem watchdog — monitors all services, auto-recovers external deps
+	watchdog := health.NewWatchdog(30 * time.Second)
+
+	// Gateway self-check (dashboard lives here)
+	dashboardURL := fmt.Sprintf("http://127.0.0.1:%d/healthz", healthPort)
+	watchdog.Register(health.HTTPChecker("dashboard", dashboardURL, nil))
+
+	// Ollama LLM backend
+	if cfg.Providers.VLLM.APIBase != "" {
+		ollamaBase := strings.TrimSuffix(cfg.Providers.VLLM.APIBase, "/v1")
+		watchdog.Register(health.HTTPChecker("ollama", ollamaBase, health.SystemdRecover("ollama")))
+	}
+
+	// Qdrant vector DB (if configured)
+	if cfg.SemanticMemory.QdrantURL != "" {
+		watchdog.Register(health.HTTPChecker("qdrant", cfg.SemanticMemory.QdrantURL, health.SystemdRecover("qdrant")))
+	}
+
+	// Heartbeat service
+	watchdog.Register(health.CallbackChecker("heartbeat", func() error {
+		if !heartbeatService.IsRunning() {
+			return fmt.Errorf("heartbeat stopped")
+		}
+		return nil
+	}))
+
+	// Agent loop
+	watchdog.Register(health.CallbackChecker("agent_loop", func() error {
+		if !agentLoop.IsRunning() {
+			return fmt.Errorf("agent loop stopped")
+		}
+		return nil
+	}))
+
+	// SWE100821: Cron scheduler
+	watchdog.Register(health.CallbackChecker("cron", func() error {
+		if !cronService.IsRunning() {
+			return fmt.Errorf("cron stopped")
+		}
+		return nil
+	}))
+
+	// SWE100821: Sleep/fatigue manager
+	watchdog.Register(health.CallbackChecker("sleep_fatigue", func() error {
+		if !agentLoop.IsSleepRunning() {
+			return fmt.Errorf("sleep manager stopped")
+		}
+		fatigue := agentLoop.GetFatigueLevel()
+		if fatigue >= 0.9 {
+			return fmt.Errorf("fatigue critical: %.0f%%", fatigue*100)
+		}
+		return nil
+	}))
+
+	// SWE100821: Channels (Discord, Telegram, etc.)
+	watchdog.Register(health.CallbackChecker("channels", func() error {
+		enabled := channelManager.GetEnabledChannels()
+		if len(enabled) == 0 {
+			return fmt.Errorf("no channels enabled")
+		}
+		return nil
+	}))
+
+	// SWE100821: Device service (USB monitoring)
+	if cfg.Devices.Enabled {
+		watchdog.Register(health.CallbackChecker("devices", func() error {
+			if !deviceService.IsRunning() {
+				return fmt.Errorf("device service stopped")
+			}
+			return nil
+		}))
+	}
+
+	watchdog.Start()
+	dash.SetWatchdog(watchdog)
+	fmt.Println("✓ Subsystem watchdog started (30s interval)")
+
 	// SWE100821: Handle both SIGINT (Ctrl+C) and SIGTERM (systemctl stop)
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
@@ -350,6 +434,7 @@ func gatewayCmd() {
 	}
 
 	cancel()
+	watchdog.Stop()
 	deviceService.Stop()
 	heartbeatService.Stop()
 	cronService.Stop()

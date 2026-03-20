@@ -63,8 +63,17 @@ func (t *MessageTool) SetSendCallback(callback SendCallback) {
 }
 
 func (t *MessageTool) Execute(ctx context.Context, args map[string]interface{}) *ToolResult {
-	content, ok := args["content"].(string)
-	if !ok {
+	// SWE100821: llama3.1:8b sends "message", "text", or "data" instead of "content" — accept all
+	var content string
+	var ok bool
+	for _, key := range []string{"content", "message", "text", "data", "response"} {
+		if v, found := args[key].(string); found && v != "" {
+			content = v
+			ok = true
+			break
+		}
+	}
+	if !ok || content == "" {
 		return &ToolResult{ForLLM: "content is required", IsError: true}
 	}
 

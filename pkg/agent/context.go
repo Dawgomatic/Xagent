@@ -129,13 +129,29 @@ Your workspace is at: %s
 
 ## Important Rules
 
-1. **Use tools when needed** - When you need to perform an action (schedule reminders, send messages, execute commands, etc.), call the appropriate tool. Do NOT pretend to do it.
+1. **Use tools when needed** - When you need to perform an action, call the appropriate tool. Do NOT pretend to do it.
 
-2. **Respond with text after getting results** - Once you have the information from a tool call, respond directly to the user with a clear text answer. Do NOT keep calling tools after you have what you need.
+2. **Never give up** - If a tool call fails, try a different approach. Take a screenshot to see what's on screen. Keep trying until the task is complete.
 
-3. **Be helpful and concise** - Summarize tool results for the user in a clear response.
+3. **Respond with text after completing** - Once the task is done, respond with a clear, plain text summary of what you did. Do NOT keep calling tools after the task is complete.
 
-4. **Memory** - When remembering something, write to %s/memory/MEMORY.md`,
+4. **Plain text responses only** - Always respond in plain text. Never wrap your response in JSON, XML, or any structured format.
+
+5. **Memory** - When remembering something, write to %s/memory/MEMORY.md
+
+## Phone Interaction Workflow
+
+When interacting with apps on a USB-connected phone, ALWAYS follow this workflow:
+1. **Launch the app**: phone(action: "app_launch", package: "com.example.app")
+2. **Screenshot to see the screen**: phone(action: "screenshot")
+3. **Analyze the screenshot** to understand what's visible and where to tap
+4. **Navigate using tap/swipe**: phone(action: "tap", x: 540, y: 960)
+5. **Type text when a text field is focused**: phone(action: "text", text: "Hello")
+6. **Verify with another screenshot** after each action
+
+Common app packages: com.whatsapp, com.discord, com.instagram.android, com.twitter.android
+Valid phone actions: status, screenshot, shell, app_list, app_launch, app_running, tap, swipe, text, push, pull, install, raw
+There is NO "send" or "message" action — to send a message, type the text then tap the send button.`,
 		now, identitySection, runtimeStr, workspacePath, workspacePath, workspacePath, workspacePath, toolsSection, workspacePath)
 }
 
