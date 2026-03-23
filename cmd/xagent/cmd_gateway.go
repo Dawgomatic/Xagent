@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"os/exec"
 	"os/signal"
 	"path/filepath"
 	"strings"
@@ -24,6 +25,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/state"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
+	"github.com/Dawgomatic/Xagent/pkg/sensors"
 	"github.com/Dawgomatic/Xagent/pkg/voice"
 )
 
@@ -94,6 +96,11 @@ func gatewayCmd() {
 
 	msgBus := bus.NewMessageBus()
 	agentLoop := agent.NewAgentLoop(cfg, msgBus, provider)
+
+	// SWE100821: Prune stale sessions on startup (prevent unbounded growth)
+	if pruned := agentLoop.PruneSessions(7 * 24 * time.Hour); pruned > 0 {
+		fmt.Printf("  • Pruned %d stale sessions (>7 days old)\n", pruned)
+	}
 
 	// SWE100821: Disable planner on embedded to eliminate 2+ LLM calls per message
 	if rec.DisablePlanner {
@@ -286,6 +293,9 @@ func gatewayCmd() {
 	dash.SetChatHandler(func(ctx context.Context, message, sessionKey string) (string, error) {
 		return agentLoop.ProcessDirect(ctx, message, sessionKey)
 	})
+	// SWE100821: Wire tool list and fatigue to dashboard (sensors wired after perception init)
+	dash.SetToolLister(func() []string { return agentLoop.GetToolNames() })
+	dash.SetFatigueFunc(func() float64 { return agentLoop.GetFatigueLevel() })
 	if mux := healthServer.GetMux(); mux != nil {
 		dash.SetupRoutes(mux)
 		fmt.Println("✓ Interactive dashboard enabled on /dashboard (chat, graph, memory, vault)")
@@ -302,6 +312,22 @@ func gatewayCmd() {
 
 	epochManager.StartRolloverMonitor(ctx, 24*time.Hour)
 	fmt.Println("✓ Epoch 24h rollover monitor started")
+
+	// SWE100821: Periodic session pruning (daily, 7-day TTL)
+	go func() {
+		ticker := time.NewTicker(24 * time.Hour)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-ticker.C:
+				if n := agentLoop.PruneSessions(7 * 24 * time.Hour); n > 0 {
+					logger.InfoCF("sessions", "Pruned stale sessions", map[string]interface{}{"count": n})
+				}
+			}
+		}
+	}()
 
 	if err := cronService.Start(); err != nil {
 		fmt.Printf("Error starting cron service: %v\n", err)
@@ -325,6 +351,22 @@ func gatewayCmd() {
 		fmt.Println("✓ Device event service started")
 	}
 
+	// SWE100821: Perception subsystem — auto-discover and poll all sensor sources
+	sensors.SetDiscoveryWorkspace(cfg.WorkspacePath())
+	sensorMonitor := sensors.NewSensorMonitor(nil)
+	sensorMonitor.SetBus(&sensorBusAdapter{bus: msgBus})
+	sensorMonitor.DiscoverAndStart(ctx)
+	agentLoop.SetPerception(sensorMonitor)
+	// SWE100821: Wire sensor readings to dashboard (must be after sensorMonitor creation)
+	dash.SetSensorProvider(func() string { return sensorMonitor.ForSystemPrompt() })
+	fmt.Printf("✓ Perception subsystem started (%s)\n", sensorMonitor.SourceSummary())
+
+	// SWE100821: Register camera tool — agent-driven captures (on-demand + event triggers)
+	if camSrc := sensorMonitor.GetCameraSource(); camSrc != nil {
+		agentLoop.RegisterTool(tools.NewCameraTool(camSrc))
+		fmt.Println("✓ Camera tool registered (agent-driven captures enabled)")
+	}
+
 	if err := channelManager.StartAll(ctx); err != nil {
 		fmt.Printf("Error starting channels: %v\n", err)
 	}
@@ -334,7 +376,47 @@ func gatewayCmd() {
 	// SWE100821: Start dream mode — autonomous reflection during idle periods.
 	// After 2h idle, the agent reviews recent conversations, finds patterns,
 	// and updates its world model. Runs every 12h.
+	// Now also triggers hindsight reflection and memory consolidation after each dream.
 	agentLoop.StartDreamMode(ctx)
+
+	// SWE100821: Independent consolidation schedule — runs every 6h regardless of dream mode.
+	// Consolidation rolls up daily notes into weekly/monthly summaries.
+	// Previously only ran after dreams, but dreams need daily notes to trigger,
+	// creating a chicken-and-egg problem.
+	go func() {
+		ticker := time.NewTicker(6 * time.Hour)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-ticker.C:
+				agentLoop.RunConsolidation(ctx)
+			}
+		}
+	}()
+
+	// SWE100821: Proactive idle messaging — after 4h idle, EXA reviews goals and
+	// shares a thought or asks a question on the last active channel.
+	go startProactiveLoop(ctx, agentLoop)
+
+	// SWE100821: Voice loop — continuous mic→STT→agent→TTS→speaker.
+	// Only starts if Groq API key is set (for STT) and arecord is available (for mic input).
+	if groqKey := cfg.Providers.Groq.APIKey; groqKey != "" {
+		if _, err := exec.LookPath("arecord"); err == nil {
+			transcriber := voice.NewGroqTranscriber(groqKey)
+			voiceLoop := voice.NewVoiceLoop(transcriber, cfg.WorkspacePath())
+			voiceLoop.SetAgent(agentLoop)
+			go func() {
+				fmt.Println("✓ Voice loop started (arecord → Groq STT → agent → TTS)")
+				if err := voiceLoop.Start(ctx); err != nil && ctx.Err() == nil {
+					logger.WarnCF("voice", "Voice loop stopped", map[string]interface{}{"error": err.Error()})
+				}
+			}()
+		} else {
+			fmt.Println("  • Voice loop skipped (no arecord — install alsa-utils or attach USB mic)")
+		}
+	}
 
 	// SWE100821: Subsystem watchdog — monitors all services, auto-recovers external deps
 	watchdog := health.NewWatchdog(30 * time.Second)
@@ -390,20 +472,39 @@ func gatewayCmd() {
 		return nil
 	}))
 
-	// SWE100821: Channels (Discord, Telegram, etc.)
-	watchdog.Register(health.CallbackChecker("channels", func() error {
-		enabled := channelManager.GetEnabledChannels()
-		if len(enabled) == 0 {
-			return fmt.Errorf("no channels enabled")
-		}
-		return nil
-	}))
+	// SWE100821: Channels — only register watchdog if channels are configured.
+	// Previously always registered, causing permanent "down" in CLI-only mode.
+	if len(channelManager.GetEnabledChannels()) > 0 {
+		watchdog.Register(health.CallbackChecker("channels", func() error {
+			status := channelManager.GetStatus()
+			for name, s := range status {
+				if sm, ok := s.(map[string]interface{}); ok {
+					if running, ok := sm["running"].(bool); ok && !running {
+						return fmt.Errorf("channel %s is down", name)
+					}
+				}
+			}
+			return nil
+		}))
+	}
 
 	// SWE100821: Device service (USB monitoring)
 	if cfg.Devices.Enabled {
 		watchdog.Register(health.CallbackChecker("devices", func() error {
 			if !deviceService.IsRunning() {
 				return fmt.Errorf("device service stopped")
+			}
+			return nil
+		}))
+	}
+
+	// SWE100821: Perception subsystem health check — only register if sources were discovered.
+	// Without this guard, headless/containerized deployments show permanent "down" noise.
+	if summary := sensorMonitor.SourceSummary(); summary != "No sensor sources discovered" {
+		watchdog.Register(health.CallbackChecker("perception", func() error {
+			s := sensorMonitor.SourceSummary()
+			if s == "No sensor sources discovered" {
+				return fmt.Errorf("all sensor sources lost")
 			}
 			return nil
 		}))
@@ -434,12 +535,77 @@ func gatewayCmd() {
 	}
 
 	cancel()
+
+	// SWE100821: Use a fresh context for cleanup — the main ctx is already cancelled.
+	// Previously channelManager.StopAll used the cancelled ctx, causing cleanup to skip.
+	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer shutdownCancel()
+	_ = shutdownCtx // used below
+
 	watchdog.Stop()
+	sensorMonitor.Stop()
 	deviceService.Stop()
 	heartbeatService.Stop()
 	cronService.Stop()
 	agentLoop.Stop()
-	channelManager.StopAll(ctx)
+	channelManager.StopAll(shutdownCtx)
 	healthServer.Stop()
 	fmt.Println("✓ Gateway stopped")
+}
+
+// SWE100821: sensorBusAdapter bridges sensors.MessagePublisher (interface{}) to bus.MessageBus.
+// Sensor alerts are broadcast as system messages on the "cli:system" channel.
+type sensorBusAdapter struct {
+	bus *bus.MessageBus
+}
+
+// SWE100821: startProactiveLoop periodically checks if EXA should initiate a conversation.
+// After 4 hours of idle, EXA generates a proactive thought via the agent itself (using
+// ProcessDirect) and sends it to the last active channel. Runs every 2h.
+func startProactiveLoop(ctx context.Context, agentLoop *agent.AgentLoop) {
+	ticker := time.NewTicker(2 * time.Hour)
+	defer ticker.Stop()
+
+	lastProactive := time.Now()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			if time.Since(lastProactive) < 4*time.Hour {
+				continue
+			}
+
+			// Use ProcessDirect to let the agent generate its own proactive message
+			prompt := `You've been idle for a while. Check your goals (use the goals tool with action "review"), 
+look at your sensor readings, and share something interesting — a thought, observation, question, 
+or update on what you've been thinking about. Be conversational and natural. 
+If you have no goals yet, think about what you'd like to explore or learn.
+Keep it brief (1-3 sentences).`
+
+			resp, err := agentLoop.ProcessDirect(ctx, prompt, "proactive:idle")
+			if err != nil {
+				logger.WarnCF("proactive", "Failed to generate proactive message", map[string]interface{}{"error": err.Error()})
+				continue
+			}
+
+			if resp != "" {
+				agentLoop.SendProactive(resp)
+				lastProactive = time.Now()
+				logger.InfoCF("proactive", "Sent proactive message", map[string]interface{}{"len": len(resp)})
+			}
+		}
+	}
+}
+
+func (a *sensorBusAdapter) PublishOutbound(msg interface{}) {
+	if alertMap, ok := msg.(map[string]interface{}); ok {
+		content := fmt.Sprintf("[Sensor Alert] %v", alertMap["message"])
+		a.bus.PublishOutbound(bus.OutboundMessage{
+			Channel: "cli",
+			ChatID:  "system",
+			Content: content,
+		})
+	}
 }

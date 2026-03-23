@@ -64,7 +64,10 @@ type AgentLoop struct {
 	vaultWriter    *vault.VaultWriter       // Obsidian knowledge vault
 	hindsight      *memory.HindsightMemory // Hindsight learning memory
 	semanticMemory *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
+	temporalIndex  *memory.TemporalIndex   // SWE100821: Time-aware memory retrieval
+	consolidator   *memory.Consolidator    // SWE100821: Weekly/monthly memory rollup
 	metrics        *health.Metrics         // SWE100821: Live metrics for dashboard System tab
+	perception     PerceptionProvider      // SWE100821: Ambient sensor data for system prompt
 	running        atomic.Bool
 	summarizing    sync.Map // Tracks which sessions are currently being summarized
 }
@@ -79,6 +82,7 @@ type processOptions struct {
 	EnableSummary   bool   // Whether to trigger summarization
 	SendResponse    bool   // Whether to send response via bus
 	NoHistory       bool   // If true, don't load session history (for heartbeat)
+	MaxIterations   int    // SWE100821: Override max iterations (0 = use default)
 }
 
 // createToolRegistry creates a tool registry with common tools.
@@ -92,9 +96,16 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	registry.Register(tools.NewListDirTool(workspace, restrict))
 	registry.Register(tools.NewEditFileTool(workspace, restrict))
 	registry.Register(tools.NewAppendFileTool(workspace, restrict))
+	// SWE100821: GOALS.md project/goal tracking (list, add, update, review)
+	registry.Register(tools.NewGoalsTool(workspace))
 
-	// Shell execution
-	registry.Register(tools.NewExecTool(workspace, restrict))
+	// SWE100821: Shell execution — configurable network/script access
+	execTool := tools.NewExecToolWithConfig(workspace, restrict,
+		cfg.Tools.Exec.AllowNetwork, cfg.Tools.Exec.AllowScripts, cfg.Tools.Exec.DenyCommands)
+	if cfg.Tools.Exec.TimeoutSecs > 0 {
+		execTool.SetTimeout(time.Duration(cfg.Tools.Exec.TimeoutSecs) * time.Second)
+	}
+	registry.Register(execTool)
 
 	if searchTool := tools.NewWebSearchTool(tools.WebSearchToolOptions{
 		BraveAPIKey:          cfg.Tools.Web.Brave.APIKey,
@@ -105,7 +116,7 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	}); searchTool != nil {
 		registry.Register(searchTool)
 	}
-	registry.Register(tools.NewWebFetchTool(50000))
+	// SWE100821: web_fetch removed — fetch tool is a superset (GET + headers, same HTML stripping)
 
 	// Hardware tools (I2C, SPI, USB) - Linux only, returns error on other platforms
 	registry.Register(tools.NewI2CTool())
@@ -133,8 +144,8 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	feedbackTool := tools.NewFeedbackTool(workspace)
 	registry.Register(feedbackTool)
 
-	// Vision: Local image analysis via Ollama vision models
-	registry.Register(tools.NewVisionTool(workspace))
+	// SWE100821: Vision — configurable model (moondream on embedded, llava on desktop)
+	registry.Register(tools.NewVisionTool(workspace, cfg.Tools.Vision.Model, cfg.Tools.Vision.OllamaURL))
 
 	// Browser: Headless web automation
 	registry.Register(tools.NewBrowserTool(workspace))
@@ -247,6 +258,8 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 	// Phase 3: Create Sleep Manager
 	epochMgr := epoch.NewManager(workspace, agentIdentity)
 	sleepManager := NewSleepManager(epochMgr, provider, msgBus, workspace, toolsRegistry)
+	// SWE100821: Use the configured model for sleep subagent, not hardcoded "llama3"
+	sleepManager.SetModel(cfg.Agents.Defaults.Model)
 
 	// SWE100821: Attach personality tracker to sleep manager for auto-analysis
 	sleepManager.SetPersonality(personalityTracker)
@@ -258,6 +271,13 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		cfg.SemanticMemory.Collection,
 		cfg.SemanticMemory.EmbedModel,
 	)
+
+	// SWE100821: Temporal memory + consolidation — time-aware recall + periodic rollup
+	temporalIdx := memory.NewTemporalIndex(workspace)
+	consolidator := memory.NewConsolidator(workspace, provider, cfg.Agents.Defaults.Model)
+
+	// SWE100821: Register fetch tool (GoalsTool already registered in createToolRegistry)
+	toolsRegistry.Register(tools.NewFetchTool())
 
 	// Obsidian vault: create and initialize if enabled
 	var vw *vault.VaultWriter
@@ -291,11 +311,11 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		provider:       provider,
 		workspace:      workspace,
 		model:          cfg.Agents.Defaults.Model,
-		contextWindow:  cfg.Agents.Defaults.MaxTokens,
+		contextWindow:  resolveContextWindow(cfg.Agents.Defaults.ContextWindow, cfg.Agents.Defaults.MaxTokens),
 		maxIterations:  cfg.Agents.Defaults.MaxToolIterations,
 		maxTokens:      cfg.Agents.Defaults.MaxTokens,   // SWE100821: from config, not hard-coded
 		temperature:    cfg.Agents.Defaults.Temperature, // SWE100821: from config, not hard-coded
-		messageTimeout: 5 * time.Minute,                 // SWE100821: per-message timeout
+		messageTimeout: resolveMessageTimeout(cfg.Agents.Defaults.MessageTimeoutSecs), // SWE100821: configurable per-message timeout
 		identity:       agentIdentity,                   // SWE100821: unique identity + time tracking
 		epoch:          epochMgr,                        // Epoch lifecycle (wake/sleep journaling)
 		sessions:       sessionsManager,
@@ -313,6 +333,8 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		vaultWriter:    vw,                 // Obsidian knowledge vault
 		hindsight:      hm,                 // Hindsight cognitive memory
 		semanticMemory: semanticMem,        // SWE100821: semantic memory
+		temporalIndex:  temporalIdx,        // SWE100821: temporal memory
+		consolidator:   consolidator,       // SWE100821: memory consolidation
 		summarizing:    sync.Map{},
 	}
 }
@@ -431,6 +453,7 @@ func (al *AgentLoop) ProcessHeartbeat(ctx context.Context, content, channel, cha
 		EnableSummary:   false,
 		SendResponse:    false,
 		NoHistory:       true, // Don't load session history for heartbeat
+		MaxIterations:   8,    // SWE100821: Cap heartbeat — prevents runaway phone/tool spam
 	})
 }
 
@@ -467,7 +490,7 @@ func (al *AgentLoop) processMessage(ctx context.Context, msg bus.InboundMessage)
 		return al.processSystemMessage(ctx, msg)
 	}
 
-	// Process as user message
+	// SWE100821: Context compaction keeps messages bounded — no hard iteration cap needed
 	return al.runAgentLoop(ctx, processOptions{
 		SessionKey:      msg.SessionKey,
 		Channel:         msg.Channel,
@@ -664,6 +687,33 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	if semanticContext != "" {
 		volatileCtx = append(volatileCtx, semanticContext)
 	}
+	// SWE100821: Inject temporal memory — time-aware recall for "yesterday", "last week", etc.
+	if al.temporalIndex != nil {
+		if tc := al.temporalIndex.ForContext(opts.UserMessage); tc != "" {
+			volatileCtx = append(volatileCtx, tc)
+		}
+	}
+	// SWE100821: Inject fatigue level into context so the model is aware of its energy state.
+	// Previously fatigue was tracked but never shown to the LLM — purely decorative.
+	if al.sleepManager != nil {
+		fatigue := al.sleepManager.GetFatigueLevel()
+		if fatigue > 0.3 {
+			fatigueDesc := "moderate"
+			if fatigue > 0.7 {
+				fatigueDesc = "high"
+			}
+			volatileCtx = append(volatileCtx, fmt.Sprintf(
+				"## Energy Status\nYour fatigue level is %s (%.0f%%). Consider being more concise in responses.",
+				fatigueDesc, fatigue*100))
+		}
+	}
+
+	// SWE100821: Inject ambient sensor readings into agent context
+	if al.perception != nil {
+		if pc := al.perception.ForSystemPrompt(); pc != "" {
+			volatileCtx = append(volatileCtx, pc)
+		}
+	}
 
 	messages := al.contextBuilder.BuildMessages(
 		history,
@@ -696,7 +746,11 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 
 	// 6. Save final assistant message to session
 	al.sessions.AddMessage(opts.SessionKey, "assistant", finalContent)
-	al.sessions.Save(opts.SessionKey)
+	// SWE100821: Check save error — silent failures can lose the last turn on crash
+	if err := al.sessions.Save(opts.SessionKey); err != nil {
+		logger.WarnCF("session", "Failed to persist session",
+			map[string]interface{}{"session": opts.SessionKey, "error": err.Error()})
+	}
 
 	// 7. Optional: summarization
 	if opts.EnableSummary {
@@ -770,9 +824,55 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 		}
 	}()
 
-	// 12. SWE100821: Feed personality tracker
+	// 12. SWE100821: Feed personality tracker with tool names from provenance
 	if al.personality != nil {
-		al.personality.Observe(len(opts.UserMessage), len(finalContent), nil)
+		var toolNames []string
+		if prov := al.provenance.GetCurrent(); prov != nil {
+			for _, tc := range prov.ToolsCalled {
+				toolNames = append(toolNames, tc.Name)
+			}
+		}
+		al.personality.Observe(len(opts.UserMessage), len(finalContent), toolNames)
+	}
+
+	// SWE100821: Record conversation in temporal memory for time-based recall
+	if al.temporalIndex != nil && !opts.NoHistory {
+		postWg.Add(1)
+		go func() {
+			defer postWg.Done()
+			summary := utils.Truncate(opts.UserMessage, 120) + " → " + utils.Truncate(finalContent, 120)
+			al.temporalIndex.Add(memory.TemporalEntry{
+				Timestamp:  time.Now(),
+				TopicTags:  extractTopicTags(opts.UserMessage),
+				SessionKey: opts.SessionKey,
+				Summary:    summary,
+				Source:      opts.Channel,
+			})
+			// SWE100821: Persist temporal index to disk so data survives restarts
+			if err := al.temporalIndex.Save(); err != nil {
+				logger.WarnCF("temporal", "Failed to save temporal index",
+					map[string]interface{}{"error": err.Error()})
+			}
+		}()
+	}
+
+	// SWE100821: Write daily note after each conversation turn.
+	// Previously daily notes were only written from dream mode, creating a
+	// chicken-and-egg problem: dreams need notes, but notes were only written by dreams.
+	if !opts.NoHistory && finalContent != "" {
+		postWg.Add(1)
+		go func() {
+			defer postWg.Done()
+			noteEntry := fmt.Sprintf("## %s [%s]\n\n**User**: %s\n\n**Agent**: %s\n",
+				time.Now().Format("15:04"),
+				opts.Channel,
+				utils.Truncate(opts.UserMessage, 200),
+				utils.Truncate(finalContent, 300))
+			if err := al.contextBuilder.memory.AppendToday(noteEntry); err != nil {
+				logger.WarnCF("memory", "Failed to write daily note",
+					map[string]interface{}{"error": err.Error()})
+			}
+		}()
 	}
 
 	// 13. Obsidian vault: write session note with wikilinks
@@ -851,8 +951,9 @@ func (al *AgentLoop) StartDreamMode(ctx context.Context) {
 	})
 
 	// Obsidian vault: write dream notes when dream mode produces results
-	if al.vaultWriter != nil {
-		al.dream.SetDreamCallback(func(result DreamResult) {
+	// SWE100821: Also trigger hindsight reflection and memory consolidation after dreaming
+	al.dream.SetDreamCallback(func(result DreamResult) {
+		if al.vaultWriter != nil {
 			if err := al.vaultWriter.WriteDreamNote(vault.DreamData{
 				Insights:  result.Insights,
 				Patterns:  result.Patterns,
@@ -862,8 +963,32 @@ func (al *AgentLoop) StartDreamMode(ctx context.Context) {
 				logger.WarnCF("vault", "Failed to write dream note",
 					map[string]interface{}{"error": err.Error()})
 			}
-		})
-	}
+		}
+
+		// SWE100821: Hindsight reflect — synthesize mental models from dream topics
+		if len(result.Patterns) > 0 || len(result.Insights) > 0 {
+			var topics []string
+			for _, p := range result.Patterns {
+				topics = append(topics, p)
+			}
+			if len(topics) > 3 {
+				topics = topics[:3]
+			}
+			// SWE100821: Bounded context for post-dream work — prevents hung LLM from blocking forever
+			reflectCtx, reflectCancel := context.WithTimeout(context.Background(), 5*time.Minute)
+			go func() {
+				defer reflectCancel()
+				al.RunHindsightReflect(reflectCtx, topics)
+			}()
+		}
+
+		// SWE100821: Memory consolidation — roll up daily notes into weekly/monthly
+		consolidateCtx, consolidateCancel := context.WithTimeout(context.Background(), 5*time.Minute)
+		go func() {
+			defer consolidateCancel()
+			al.RunConsolidation(consolidateCtx)
+		}()
+	})
 
 	al.dream.Start(ctx)
 }
@@ -893,13 +1018,19 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 	}
 	var toolLog []toolLogEntry
 
-	for iteration < al.maxIterations {
+	// SWE100821: Use per-request cap if set (e.g. heartbeat), else global default
+	maxIter := al.maxIterations
+	if opts.MaxIterations > 0 {
+		maxIter = opts.MaxIterations
+	}
+
+	for iteration < maxIter {
 		iteration++
 
 		logger.DebugCF("agent", "LLM iteration",
 			map[string]interface{}{
 				"iteration": iteration,
-				"max":       al.maxIterations,
+				"max":       maxIter,
 			})
 
 		// Build tool definitions
@@ -951,13 +1082,22 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 
 		// Check if no tool calls - we're done
 		if len(response.ToolCalls) == 0 {
-			finalContent = response.Content
-			logger.InfoCF("agent", "LLM response without tool calls (direct answer)",
-				map[string]interface{}{
-					"iteration":     iteration,
-					"content_chars": len(finalContent),
-				})
-			break
+			// SWE100821: qwen2.5-coder emits tool calls as plain text content
+			// ({"name":"skills","arguments":{...}}) instead of using the tool_calls
+			// field. Try to parse content as a tool call and re-inject it.
+			if parsed := parseContentAsToolCall(response.Content); parsed != nil {
+				response.ToolCalls = []providers.ToolCall{*parsed}
+				logger.InfoCF("agent", "Recovered tool call from content JSON",
+					map[string]interface{}{"tool": parsed.Name, "iteration": iteration})
+			} else {
+				finalContent = response.Content
+				logger.InfoCF("agent", "LLM response without tool calls (direct answer)",
+					map[string]interface{}{
+						"iteration":     iteration,
+						"content_chars": len(finalContent),
+					})
+				break
+			}
 		}
 
 		// Log tool calls
@@ -1172,6 +1312,13 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 				}
 			}
 
+			// SWE100821: Suggest skills when a tool call fails — agent can install them itself
+			if toolResult.IsError && al.contextBuilder.autoDiscoverer != nil {
+				if suggestion := al.contextBuilder.autoDiscoverer.SuggestForError(tc.Name, contentForLLM); suggestion != "" {
+					contentForLLM += "\n\n" + suggestion
+				}
+			}
+
 			toolResultMsg := providers.Message{
 				Role:       "tool",
 				Content:    contentForLLM,
@@ -1222,9 +1369,98 @@ func (al *AgentLoop) runLLMIteration(ctx context.Context, messages []providers.M
 			}
 		}
 
-		// SWE100821: Early exit if plan is fully complete
+		// SWE100821: Break when plan is complete — stops wasted iterations
 		if plan != nil && plan.IsComplete() {
-			logger.InfoCF("planner", "Plan complete, finishing iteration loop", nil)
+			logger.InfoCF("planner", "Plan complete, exiting iteration loop", nil)
+			if finalContent == "" && response != nil && response.Content != "" {
+				finalContent = response.Content
+			}
+			break
+		}
+
+		// SWE100821: Context window compaction — prevents context overflow on small models.
+		// Every 8 iterations, compress older messages into a summary.
+		// Keeps: preamble (system + volatile context/ack), recent messages, and a compressed summary.
+		const compactEvery = 8
+		const keepRecent = 6
+
+		if iteration > 0 && iteration%compactEvery == 0 && len(messages) > keepRecent+4 {
+			// SWE100821: Find preamble end dynamically — BuildMessages layout is:
+			// [system, volatile_user?, volatile_ack?, ...history..., current_user, ...iteration_msgs]
+			// oldStart must skip past all preamble messages to avoid compacting them.
+			oldStart := 1 // skip system (idx 0)
+			for oldStart < len(messages) {
+				m := messages[oldStart]
+				if m.Role == "user" && m.Content == "Understood, I have the updated context." {
+					oldStart++
+					continue
+				}
+				if m.Role == "assistant" && m.Content == "Understood, I have the updated context." {
+					oldStart++
+					continue
+				}
+				// Check for volatile context preamble (contains session/summary markers)
+				if m.Role == "user" && (strings.Contains(m.Content, "## Summary of Previous") ||
+					strings.Contains(m.Content, "## Current Session") ||
+					strings.Contains(m.Content, "## Recent Activity")) {
+					oldStart++
+					continue
+				}
+				break
+			}
+
+			oldEnd := len(messages) - keepRecent
+			if oldEnd > oldStart {
+				var compactSummary strings.Builder
+				compactSummary.WriteString("Previous actions summary:\n")
+				for j := oldStart; j < oldEnd; j++ {
+					m := messages[j]
+					switch m.Role {
+					case "assistant":
+						if len(m.ToolCalls) > 0 {
+							for _, tc := range m.ToolCalls {
+								name := tc.Name
+								if tc.Function != nil {
+									name = tc.Function.Name
+								}
+								compactSummary.WriteString(fmt.Sprintf("- Called %s\n", name))
+							}
+						} else if m.Content != "" {
+							trunc := []rune(m.Content)
+							if len(trunc) > 100 {
+								compactSummary.WriteString(fmt.Sprintf("- Said: %s...\n", string(trunc[:100])))
+							} else {
+								compactSummary.WriteString(fmt.Sprintf("- Said: %s\n", string(trunc)))
+							}
+						}
+					case "tool":
+						trunc := []rune(m.Content)
+						if len(trunc) > 150 {
+							compactSummary.WriteString(fmt.Sprintf("  Result: %s...\n", string(trunc[:150])))
+						} else {
+							compactSummary.WriteString(fmt.Sprintf("  Result: %s\n", string(trunc)))
+						}
+					}
+				}
+
+				compacted := make([]providers.Message, 0, oldStart+1+keepRecent)
+				compacted = append(compacted, messages[:oldStart]...) // preamble
+				compacted = append(compacted, providers.Message{
+					Role:    "assistant",
+					Content: compactSummary.String(),
+				})
+				compacted = append(compacted, messages[len(messages)-keepRecent:]...)
+				oldLen := len(messages)
+				messages = compacted
+
+				logger.InfoCF("agent", "Context compacted",
+					map[string]interface{}{
+						"iteration":    iteration,
+						"old_messages": oldLen,
+						"new_messages": len(messages),
+						"preamble":     oldStart,
+					})
+			}
 		}
 	}
 
@@ -1341,6 +1577,16 @@ func (al *AgentLoop) SetMetrics(m *health.Metrics) {
 	al.metrics = m
 }
 
+// SWE100821: PerceptionProvider abstracts the sensor monitor for system prompt injection.
+type PerceptionProvider interface {
+	ForSystemPrompt() string
+}
+
+// SWE100821: SetPerception injects the sensor monitor so readings appear in the agent's context.
+func (al *AgentLoop) SetPerception(p PerceptionProvider) {
+	al.perception = p
+}
+
 // SWE100821: EnableCompactPrompt strips the system prompt to ~50 tokens for
 // PicoLM/embedded devices. Full prompt (~750 tokens) causes 3+ min prefill on ARM.
 func (al *AgentLoop) EnableCompactPrompt() {
@@ -1369,6 +1615,11 @@ func (al *AgentLoop) SetPreviousEpoch(rec *epoch.Record) {
 func (al *AgentLoop) GetSessionStats() (sessions int) {
 	allSessions := al.sessions.GetAllKeys()
 	return len(allSessions)
+}
+
+// SWE100821: PruneSessions removes sessions older than maxAge from memory and disk.
+func (al *AgentLoop) PruneSessions(maxAge time.Duration) int {
+	return al.sessions.PruneStale(maxAge)
 }
 
 // SWE100821: interceptResponseToolCall detects when a small model wraps its text
@@ -1400,9 +1651,38 @@ func interceptResponseToolCall(toolCalls []providers.ToolCall) string {
 	return ""
 }
 
+// SWE100821: parseContentAsToolCall detects when a model emits a tool call as
+// plain text content (e.g. {"name":"skills","arguments":{"action":"search",...}}).
+// Returns a reconstructed ToolCall if the pattern matches, nil otherwise.
+func parseContentAsToolCall(content string) *providers.ToolCall {
+	content = strings.TrimSpace(content)
+	if !strings.HasPrefix(content, "{") {
+		return nil
+	}
+	var parsed struct {
+		Name      string                 `json:"name"`
+		Arguments map[string]interface{} `json:"arguments"`
+	}
+	if err := json.Unmarshal([]byte(content), &parsed); err != nil {
+		return nil
+	}
+	if parsed.Name == "" || parsed.Arguments == nil {
+		return nil
+	}
+	argsJSON, _ := json.Marshal(parsed.Arguments)
+	return &providers.ToolCall{
+		ID:   fmt.Sprintf("recovered-%d", time.Now().UnixNano()),
+		Name: parsed.Name,
+		Arguments: parsed.Arguments,
+		Function: &providers.FunctionCall{
+			Name:      parsed.Name,
+			Arguments: string(argsJSON),
+		},
+	}
+}
+
 // SWE100821: unwrapJSONResponse strips JSON wrappers that small models add.
-// llama3.1:8b returns {"type":"text","data":"actual answer"} or {"content":"..."}
-// instead of plain text. Extract the actual text content.
+// Handles: {"data":"text"}, {"content":"text"}, {"name":"tool","arguments":{"response":"text"}}
 func unwrapJSONResponse(s string) string {
 	s = strings.TrimSpace(s)
 	if !strings.HasPrefix(s, "{") || !strings.HasSuffix(s, "}") {
@@ -1412,7 +1692,17 @@ func unwrapJSONResponse(s string) string {
 	if err := json.Unmarshal([]byte(s), &wrapper); err != nil {
 		return s
 	}
-	// Try common wrapper patterns
+	// Pattern: {"name":"...", "arguments":{"response":"text"}} — tool-call-as-response
+	if args, ok := wrapper["arguments"].(map[string]interface{}); ok {
+		for _, key := range []string{"response", "message", "text", "content", "answer", "result", "data"} {
+			if val, ok := args[key]; ok {
+				if str, ok := val.(string); ok && len(str) > 5 {
+					return str
+				}
+			}
+		}
+	}
+	// Pattern: {"data":"text"} or {"content":"text"}
 	for _, key := range []string{"data", "content", "text", "message", "response"} {
 		if val, ok := wrapper[key]; ok {
 			if str, ok := val.(string); ok && str != "" {
@@ -1421,6 +1711,27 @@ func unwrapJSONResponse(s string) string {
 		}
 	}
 	return s
+}
+
+// SWE100821: resolveMessageTimeout converts config seconds to Duration with sensible defaults.
+// 0 → 15 minutes (safe for ARM/embedded), explicit value used as-is.
+func resolveMessageTimeout(secs int) time.Duration {
+	if secs > 0 {
+		return time.Duration(secs) * time.Second
+	}
+	return 15 * time.Minute
+}
+
+// SWE100821: resolveContextWindow separates context window (model capacity) from max_tokens (output cap).
+// Priority: explicit context_window > max_tokens*4 heuristic > 8192 default.
+func resolveContextWindow(contextWindow, maxTokens int) int {
+	if contextWindow > 0 {
+		return contextWindow
+	}
+	if maxTokens > 0 {
+		return maxTokens * 4
+	}
+	return 8192
 }
 
 // SWE100821: strings.Builder — was using result += (O(n²) allocation)
@@ -1494,17 +1805,27 @@ func (al *AgentLoop) summarizeSession(sessionKey string) {
 	validMessages := make([]providers.Message, 0)
 	omitted := false
 
+	// SWE100821: Include tool messages in summarization — condense to "Tool: name → result_preview"
+	// so the summary retains what actions were taken and their outcomes.
 	for _, m := range toSummarize {
-		if m.Role != "user" && m.Role != "assistant" {
-			continue
-		}
-		// Estimate tokens for this message
 		msgTokens := len(m.Content) / 4
 		if msgTokens > maxMessageTokens {
 			omitted = true
 			continue
 		}
-		validMessages = append(validMessages, m)
+		switch m.Role {
+		case "user", "assistant":
+			validMessages = append(validMessages, m)
+		case "tool":
+			condensed := m.Content
+			if len(condensed) > 200 {
+				condensed = condensed[:200] + "..."
+			}
+			validMessages = append(validMessages, providers.Message{
+				Role:    "user",
+				Content: fmt.Sprintf("[Tool Result] %s", condensed),
+			})
+		}
 	}
 
 	if len(validMessages) == 0 {
@@ -1544,7 +1865,10 @@ func (al *AgentLoop) summarizeSession(sessionKey string) {
 	if finalSummary != "" {
 		al.sessions.SetSummary(sessionKey, finalSummary)
 		al.sessions.TruncateHistory(sessionKey, 4)
-		al.sessions.Save(sessionKey)
+		if err := al.sessions.Save(sessionKey); err != nil {
+			logger.WarnCF("session", "Failed to save summarized session",
+				map[string]interface{}{"session": sessionKey, "error": err.Error()})
+		}
 	}
 }
 
@@ -1579,4 +1903,90 @@ func (al *AgentLoop) estimateTokens(messages []providers.Message) int {
 		total += utf8.RuneCountInString(m.Content) / 3
 	}
 	return total
+}
+
+// SWE100821: GetToolNames returns all registered tool names for dashboard display.
+func (al *AgentLoop) GetToolNames() []string {
+	if al.tools == nil {
+		return nil
+	}
+	return al.tools.List()
+}
+
+// SWE100821: extractTopicTags pulls simple topic keywords from a message for temporal indexing.
+// Lightweight — no LLM call. Extracts nouns/keywords longer than 3 chars.
+func extractTopicTags(msg string) []string {
+	words := strings.Fields(strings.ToLower(msg))
+	seen := make(map[string]bool)
+	var tags []string
+	stopWords := map[string]bool{
+		"the": true, "and": true, "for": true, "are": true, "but": true,
+		"not": true, "you": true, "all": true, "can": true, "her": true,
+		"was": true, "one": true, "our": true, "out": true, "has": true,
+		"have": true, "that": true, "this": true, "with": true, "from": true,
+		"they": true, "been": true, "said": true, "each": true, "which": true,
+		"their": true, "will": true, "other": true, "about": true, "many": true,
+		"then": true, "them": true, "these": true, "some": true, "would": true,
+		"make": true, "like": true, "what": true, "when": true, "your": true,
+		"could": true, "there": true, "into": true, "just": true, "also": true,
+	}
+	for _, w := range words {
+		w = strings.Trim(w, ".,!?;:'\"()-[]{}") 
+		if len(w) <= 3 || stopWords[w] || seen[w] {
+			continue
+		}
+		seen[w] = true
+		tags = append(tags, w)
+		if len(tags) >= 5 {
+			break
+		}
+	}
+	return tags
+}
+
+// SWE100821: RunConsolidation triggers memory consolidation (weekly + monthly rollup).
+// Called from gateway cron or dream mode.
+func (al *AgentLoop) RunConsolidation(ctx context.Context) {
+	if al.consolidator == nil {
+		return
+	}
+	if err := al.consolidator.ConsolidateWeekly(ctx); err != nil {
+		logger.WarnCF("consolidation", "Weekly consolidation failed", map[string]interface{}{"error": err.Error()})
+	}
+	if err := al.consolidator.ConsolidateMonthly(ctx); err != nil {
+		logger.WarnCF("consolidation", "Monthly consolidation failed", map[string]interface{}{"error": err.Error()})
+	}
+}
+
+// SWE100821: RunHindsightReflect reflects on key topics from dream insights.
+// Called after dream mode produces results to synthesize mental models.
+func (al *AgentLoop) RunHindsightReflect(ctx context.Context, topics []string) {
+	if al.hindsight == nil {
+		return
+	}
+	for _, topic := range topics {
+		if err := al.hindsight.Reflect(ctx, topic); err != nil {
+			logger.WarnCF("hindsight", "Reflection failed", map[string]interface{}{
+				"topic": topic, "error": err.Error(),
+			})
+		}
+	}
+}
+
+// SWE100821: SendProactive sends a proactive message to the last active channel.
+// Used by dream mode, sensor alerts, and idle curiosity.
+func (al *AgentLoop) SendProactive(content string) {
+	channelKey := al.state.GetLastChannel()
+	if channelKey == "" {
+		return
+	}
+	parts := strings.SplitN(channelKey, ":", 2)
+	if len(parts) != 2 {
+		return
+	}
+	al.bus.PublishOutbound(bus.OutboundMessage{
+		Channel: parts[0],
+		ChatID:  parts[1],
+		Content: content,
+	})
 }

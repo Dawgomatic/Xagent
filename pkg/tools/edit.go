@@ -94,8 +94,14 @@ func (t *EditFileTool) Execute(ctx context.Context, args map[string]interface{})
 
 	newContent := strings.Replace(contentStr, oldText, newText, 1)
 
-	if err := os.WriteFile(resolvedPath, []byte(newContent), 0644); err != nil {
-		return ErrorResult(fmt.Sprintf("failed to write file: %v", err))
+	// SWE100821: Atomic write via temp file + rename — prevents corruption on crash mid-write.
+	tmpPath := resolvedPath + ".tmp"
+	if err := os.WriteFile(tmpPath, []byte(newContent), 0644); err != nil {
+		return ErrorResult(fmt.Sprintf("failed to write temp file: %v", err))
+	}
+	if err := os.Rename(tmpPath, resolvedPath); err != nil {
+		os.Remove(tmpPath)
+		return ErrorResult(fmt.Sprintf("failed to rename temp file: %v", err))
 	}
 
 	return SilentResult(fmt.Sprintf("File edited: %s", path))

@@ -2,7 +2,9 @@ package tools
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 
@@ -138,25 +140,36 @@ func (t *CronTool) addJob(args map[string]interface{}) *ToolResult {
 
 	var schedule cron.CronSchedule
 
-	// Check for at_seconds (one-time), every_seconds (recurring), or cron_expr
-	atSeconds, hasAt := args["at_seconds"].(float64)
-	everySeconds, hasEvery := args["every_seconds"].(float64)
+	// SWE100821: Use toFloat64 helper — JSON numbers from different providers arrive as
+	// float64, json.Number, int, or int64 depending on the decode path.
+	atSeconds, hasAt := toFloat64(args["at_seconds"])
+	everySeconds, hasEvery := toFloat64(args["every_seconds"])
 	cronExpr, hasCron := args["cron_expr"].(string)
 
-	// Priority: at_seconds > every_seconds > cron_expr
 	if hasAt {
+		if atSeconds <= 0 {
+			return ErrorResult("at_seconds must be positive")
+		}
 		atMS := time.Now().UnixMilli() + int64(atSeconds)*1000
 		schedule = cron.CronSchedule{
 			Kind: "at",
 			AtMS: &atMS,
 		}
 	} else if hasEvery {
+		if everySeconds <= 0 {
+			return ErrorResult("every_seconds must be positive")
+		}
 		everyMS := int64(everySeconds) * 1000
 		schedule = cron.CronSchedule{
 			Kind:    "every",
 			EveryMS: &everyMS,
 		}
 	} else if hasCron {
+		// SWE100821: Reject empty cron expressions — creates a "dead" job that never fires
+		cronExpr = strings.TrimSpace(cronExpr)
+		if cronExpr == "" {
+			return ErrorResult("cron_expr must not be empty")
+		}
 		schedule = cron.CronSchedule{
 			Kind: "cron",
 			Expr: cronExpr,
@@ -321,7 +334,29 @@ func (t *CronTool) ExecuteJob(ctx context.Context, job *cron.CronJob) string {
 		return fmt.Sprintf("Error: %v", err)
 	}
 
-	// Response is automatically sent via MessageBus by AgentLoop
-	_ = response // Will be sent by AgentLoop
+	_ = response
 	return "ok"
+}
+
+// SWE100821: toFloat64 normalizes numeric args from LLM tool calls. Different providers
+// and JSON decoders produce float64, json.Number, int, or int64 for the same field.
+func toFloat64(v interface{}) (float64, bool) {
+	if v == nil {
+		return 0, false
+	}
+	switch n := v.(type) {
+	case float64:
+		return n, true
+	case float32:
+		return float64(n), true
+	case int:
+		return float64(n), true
+	case int64:
+		return float64(n), true
+	case json.Number:
+		f, err := n.Float64()
+		return f, err == nil
+	default:
+		return 0, false
+	}
 }

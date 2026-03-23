@@ -71,15 +71,22 @@ func (c *Consolidator) ConsolidateWeekly(ctx context.Context) error {
 		return fmt.Errorf("failed to write weekly summary: %w", err)
 	}
 
-	// Archive the daily note files
+	// SWE100821: Archive daily note files — log rename errors instead of ignoring
+	archiveOK := 0
 	for _, f := range files {
 		archivePath := filepath.Join(c.archiveDir, filepath.Base(f))
-		os.Rename(f, archivePath)
+		if err := os.Rename(f, archivePath); err != nil {
+			logger.WarnCF("consolidation", "Failed to archive daily note",
+				map[string]interface{}{"file": f, "error": err.Error()})
+		} else {
+			archiveOK++
+		}
 	}
 
 	logger.InfoCF("consolidation", "Weekly consolidation complete",
 		map[string]interface{}{
 			"notes_consolidated": len(files),
+			"notes_archived":    archiveOK,
 			"summary_file":      summaryFile,
 		})
 
@@ -135,24 +142,36 @@ func (c *Consolidator) ConsolidateMonthly(ctx context.Context) error {
 		return fmt.Errorf("failed to write monthly summary: %w", err)
 	}
 
-	// Append key insights to MEMORY.md
+	// SWE100821: Append key insights to MEMORY.md — propagate write errors
 	memoryFile := filepath.Join(c.memoryDir, "MEMORY.md")
-	f, err := os.OpenFile(memoryFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
-	if err == nil {
+	if f, fErr := os.OpenFile(memoryFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600); fErr != nil {
+		logger.WarnCF("consolidation", "Failed to open MEMORY.md for append",
+			map[string]interface{}{"error": fErr.Error()})
+	} else {
 		insight := fmt.Sprintf("\n\n## Consolidated: %s\n%s\n", time.Now().AddDate(0, -1, 0).Format("January 2006"), summary)
-		f.WriteString(insight)
+		if _, wErr := f.WriteString(insight); wErr != nil {
+			logger.WarnCF("consolidation", "Failed to write to MEMORY.md",
+				map[string]interface{}{"error": wErr.Error()})
+		}
 		f.Close()
 	}
 
-	// Archive weekly files
+	// SWE100821: Archive weekly files — log rename errors
+	archiveOKM := 0
 	for _, fpath := range files {
 		archivePath := filepath.Join(c.archiveDir, filepath.Base(fpath))
-		os.Rename(fpath, archivePath)
+		if err := os.Rename(fpath, archivePath); err != nil {
+			logger.WarnCF("consolidation", "Failed to archive weekly note",
+				map[string]interface{}{"file": fpath, "error": err.Error()})
+		} else {
+			archiveOKM++
+		}
 	}
 
 	logger.InfoCF("consolidation", "Monthly consolidation complete",
 		map[string]interface{}{
 			"weeks_consolidated": len(files),
+			"weeks_archived":    archiveOKM,
 			"summary_file":      summaryFile,
 		})
 

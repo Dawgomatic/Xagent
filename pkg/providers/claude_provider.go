@@ -5,10 +5,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/anthropics/anthropic-sdk-go"
 	"github.com/anthropics/anthropic-sdk-go/option"
 	"github.com/Dawgomatic/Xagent/pkg/auth"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
 )
 
 type ClaudeProvider struct {
@@ -30,6 +32,7 @@ func NewClaudeProviderWithTokenSource(token string, tokenSource func() (string, 
 	return p
 }
 
+// SWE100821: Retry with exponential backoff on transient errors (429, 5xx, network).
 func (p *ClaudeProvider) Chat(ctx context.Context, messages []Message, tools []ToolDefinition, model string, options map[string]interface{}) (*LLMResponse, error) {
 	var opts []option.RequestOption
 	if p.tokenSource != nil {
@@ -45,12 +48,35 @@ func (p *ClaudeProvider) Chat(ctx context.Context, messages []Message, tools []T
 		return nil, err
 	}
 
-	resp, err := p.client.Messages.New(ctx, params, opts...)
-	if err != nil {
-		return nil, fmt.Errorf("claude API call: %w", err)
-	}
+	const maxRetries = 3
+	var lastErr error
+	for attempt := 0; attempt <= maxRetries; attempt++ {
+		if attempt > 0 {
+			delay := time.Duration(1<<uint(attempt-1)) * time.Second
+			logger.WarnCF("claude", "Retrying Claude API call", map[string]interface{}{
+				"attempt": attempt, "delay": delay.String(), "error": lastErr.Error(),
+			})
+			select {
+			case <-ctx.Done():
+				return nil, ctx.Err()
+			case <-time.After(delay):
+			}
+		}
 
-	return parseClaudeResponse(resp), nil
+		resp, err := p.client.Messages.New(ctx, params, opts...)
+		if err != nil {
+			lastErr = err
+			errStr := err.Error()
+			if strings.Contains(errStr, "429") || strings.Contains(errStr, "500") ||
+				strings.Contains(errStr, "502") || strings.Contains(errStr, "503") ||
+				strings.Contains(errStr, "overloaded") {
+				continue
+			}
+			return nil, fmt.Errorf("claude API call: %w", err)
+		}
+		return parseClaudeResponse(resp), nil
+	}
+	return nil, fmt.Errorf("claude API call failed after %d retries: %w", maxRetries, lastErr)
 }
 
 func (p *ClaudeProvider) GetDefaultModel() string {

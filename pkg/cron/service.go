@@ -270,8 +270,15 @@ func (cs *CronService) computeNextRun(schedule *CronSchedule, nowMS int64) *int6
 			return nil
 		}
 
-		// Use gronx to calculate next run time
+		// SWE100821: Apply TZ field — previously ignored, causing jobs to run in local time only
 		now := time.UnixMilli(nowMS)
+		if schedule.TZ != "" {
+			if loc, err := time.LoadLocation(schedule.TZ); err == nil {
+				now = now.In(loc)
+			} else {
+				log.Printf("[cron] invalid timezone '%s', using local: %v", schedule.TZ, err)
+			}
+		}
 		nextTime, err := gronx.NextTickAfter(schedule.Expr, now, false)
 		if err != nil {
 			log.Printf("[cron] failed to compute next run for expr '%s': %v", schedule.Expr, err)

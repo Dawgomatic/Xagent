@@ -4,11 +4,14 @@ package utils
 // Handles multi-byte Unicode characters properly.
 // If the string is truncated, "..." is appended to indicate truncation.
 func Truncate(s string, maxLen int) string {
+	// SWE100821: Guard against negative maxLen — would panic on runes[:negative]
+	if maxLen <= 0 {
+		return ""
+	}
 	runes := []rune(s)
 	if len(runes) <= maxLen {
 		return s
 	}
-	// Reserve 3 chars for "..."
 	if maxLen <= 3 {
 		return string(runes[:maxLen])
 	}

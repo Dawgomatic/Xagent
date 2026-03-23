@@ -195,11 +195,19 @@ func (plan *AgentPlan) AdvanceStep() {
 	}
 }
 
-// MarkCurrentFailed marks the current step as failed.
+// SWE100821: MarkCurrentFailed marks the current step as failed and promotes the
+// next pending step to in_progress. Without promotion, AdvanceStep becomes a no-op
+// (it only finds in_progress steps) and the plan stalls permanently.
 func (plan *AgentPlan) MarkCurrentFailed() {
 	for i := range plan.Steps {
 		if plan.Steps[i].Status == "in_progress" {
 			plan.Steps[i].Status = "failed"
+			for j := i + 1; j < len(plan.Steps); j++ {
+				if plan.Steps[j].Status == "pending" {
+					plan.Steps[j].Status = "in_progress"
+					return
+				}
+			}
 			return
 		}
 	}

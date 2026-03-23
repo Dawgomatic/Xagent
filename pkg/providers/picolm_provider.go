@@ -204,17 +204,14 @@ func looksLikeToolJSON(s string) bool {
 }
 
 // parseToolCalls extracts tool calls from picolm --json output.
+// SWE100821: Uses json.Decoder to find the first valid JSON object containing tool_calls,
+// instead of fragile first-brace/last-brace slicing which breaks on nested objects or
+// trailing text from the model.
 func (p *PicoLMProvider) parseToolCalls(content string) ([]ToolCall, string) {
-	// Find the JSON object in the output
 	start := strings.Index(content, "{")
 	if start < 0 {
 		return nil, content
 	}
-	end := strings.LastIndex(content, "}")
-	if end < start {
-		return nil, content
-	}
-	jsonStr := content[start : end+1]
 
 	var parsed struct {
 		ToolCalls []struct {
@@ -222,7 +219,10 @@ func (p *PicoLMProvider) parseToolCalls(content string) ([]ToolCall, string) {
 			Arguments map[string]interface{} `json:"arguments"`
 		} `json:"tool_calls"`
 	}
-	if err := json.Unmarshal([]byte(jsonStr), &parsed); err != nil {
+
+	// Try progressively from the first { using Decoder (handles nested braces correctly)
+	dec := json.NewDecoder(strings.NewReader(content[start:]))
+	if err := dec.Decode(&parsed); err != nil {
 		return nil, content
 	}
 

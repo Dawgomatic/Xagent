@@ -5,11 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/openai/openai-go/v3"
 	"github.com/openai/openai-go/v3/option"
 	"github.com/openai/openai-go/v3/responses"
 	"github.com/Dawgomatic/Xagent/pkg/auth"
+	"github.com/Dawgomatic/Xagent/pkg/logger"
 )
 
 type CodexProvider struct {
@@ -41,6 +43,7 @@ func NewCodexProviderWithTokenSource(token, accountID string, tokenSource func()
 	return p
 }
 
+// SWE100821: Retry with exponential backoff on transient errors (429, 5xx, network).
 func (p *CodexProvider) Chat(ctx context.Context, messages []Message, tools []ToolDefinition, model string, options map[string]interface{}) (*LLMResponse, error) {
 	var opts []option.RequestOption
 	if p.tokenSource != nil {
@@ -56,12 +59,34 @@ func (p *CodexProvider) Chat(ctx context.Context, messages []Message, tools []To
 
 	params := buildCodexParams(messages, tools, model, options)
 
-	resp, err := p.client.Responses.New(ctx, params, opts...)
-	if err != nil {
-		return nil, fmt.Errorf("codex API call: %w", err)
-	}
+	const maxRetries = 3
+	var lastErr error
+	for attempt := 0; attempt <= maxRetries; attempt++ {
+		if attempt > 0 {
+			delay := time.Duration(1<<uint(attempt-1)) * time.Second
+			logger.WarnCF("codex", "Retrying Codex API call", map[string]interface{}{
+				"attempt": attempt, "delay": delay.String(), "error": lastErr.Error(),
+			})
+			select {
+			case <-ctx.Done():
+				return nil, ctx.Err()
+			case <-time.After(delay):
+			}
+		}
 
-	return parseCodexResponse(resp), nil
+		resp, err := p.client.Responses.New(ctx, params, opts...)
+		if err != nil {
+			lastErr = err
+			errStr := err.Error()
+			if strings.Contains(errStr, "429") || strings.Contains(errStr, "500") ||
+				strings.Contains(errStr, "502") || strings.Contains(errStr, "503") {
+				continue
+			}
+			return nil, fmt.Errorf("codex API call: %w", err)
+		}
+		return parseCodexResponse(resp), nil
+	}
+	return nil, fmt.Errorf("codex API call failed after %d retries: %w", maxRetries, lastErr)
 }
 
 func (p *CodexProvider) GetDefaultModel() string {

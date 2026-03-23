@@ -133,7 +133,14 @@ func (vs *VaultSyncer) Import(entries []VaultEntry) error {
 			continue
 		}
 
-		fullPath := filepath.Join(vs.vaultRoot, entry.Path)
+		// SWE100821: Path traversal guard — entry.Path could be "../../../etc/passwd".
+		// Clean the path and verify it stays under vaultRoot after Join.
+		fullPath := filepath.Clean(filepath.Join(vs.vaultRoot, entry.Path))
+		if fullPath != vs.vaultRoot && !strings.HasPrefix(fullPath, vs.vaultRoot+string(filepath.Separator)) {
+			logger.WarnCF("vault-sync", "Rejected path traversal attempt",
+				map[string]interface{}{"path": entry.Path})
+			continue
+		}
 
 		// SWE100821: Latest-writer-wins — skip if local file is newer
 		if info, err := os.Stat(fullPath); err == nil {

@@ -156,12 +156,38 @@ func (dm *DreamMode) dream(ctx context.Context) {
 	recentNotes := dm.memory.GetRecentDailyNotes(7)
 	longTerm := dm.memory.ReadLongTerm()
 
-	if recentNotes == "" && longTerm == "" && worldModelContent == "" {
+	// SWE100821: Also pull goals and recent vault experiences for richer dream material.
+	// Previously only used daily notes + MEMORY.md + WORLD_MODEL.md, which was often thin.
+	goalsContent := ""
+	if data, err := os.ReadFile(filepath.Join(dm.workspace, "GOALS.md")); err == nil && len(data) > 0 {
+		goalsContent = string(data)
+	}
+	vaultExperiences := ""
+	expDir := filepath.Join(dm.workspace, "..", "vault", "Experiences")
+	if entries, err := os.ReadDir(expDir); err == nil && len(entries) > 0 {
+		var expBuf strings.Builder
+		count := 0
+		for i := len(entries) - 1; i >= 0 && count < 5; i-- {
+			if entries[i].IsDir() {
+				continue
+			}
+			if data, err := os.ReadFile(filepath.Join(expDir, entries[i].Name())); err == nil {
+				expBuf.WriteString(string(data))
+				expBuf.WriteString("\n---\n")
+				count++
+			}
+		}
+		vaultExperiences = expBuf.String()
+	}
+
+	if recentNotes == "" && longTerm == "" && worldModelContent == "" && goalsContent == "" {
 		logger.InfoCF("dream", "Nothing to dream about (no notes or memory)", nil)
+		dm.mu.Lock()
+		dm.lastDream = time.Now()
+		dm.mu.Unlock()
 		return
 	}
 
-	// SWE100821: strings.Builder — was using material += (O(n²) allocation)
 	var matBuilder strings.Builder
 	noteCount := 0
 	if recentNotes != "" {
@@ -176,6 +202,16 @@ func (dm *DreamMode) dream(ctx context.Context) {
 	if worldModelContent != "" {
 		matBuilder.WriteString("\n\n## Current World Model\n\n")
 		matBuilder.WriteString(worldModelContent)
+	}
+	// SWE100821: Goals give the dream mode awareness of the agent's self-directed projects
+	if goalsContent != "" {
+		matBuilder.WriteString("\n\n## Current Goals & Projects\n\n")
+		matBuilder.WriteString(goalsContent)
+	}
+	// SWE100821: Recent experiences provide concrete interaction context for pattern finding
+	if vaultExperiences != "" {
+		matBuilder.WriteString("\n\n## Recent Experiences (last 5)\n\n")
+		matBuilder.WriteString(vaultExperiences)
 	}
 	material := matBuilder.String()
 
@@ -219,15 +255,23 @@ Be concise. Focus on genuinely novel observations.
 MATERIAL:
 %s`, truncate(material, 3000))
 
-	resp, err := dm.provider.Chat(ctx, []providers.Message{
+	// SWE100821: Bounded timeout for dream LLM call — prevents hung provider from blocking forever
+	dreamCtx, dreamCancel := context.WithTimeout(ctx, 5*time.Minute)
+	defer dreamCancel()
+
+	resp, err := dm.provider.Chat(dreamCtx, []providers.Message{
 		{Role: "user", Content: dreamPrompt},
 	}, nil, dm.model, map[string]interface{}{
 		"max_tokens":  1536,
-		"temperature": 0.8, // SWE100821: higher temperature for creative reflection
+		"temperature": 0.8,
 	})
 
 	if err != nil {
 		logger.WarnCF("dream", "Dream reflection failed", map[string]interface{}{"error": err.Error()})
+		// SWE100821: Update lastDream on failure to prevent retry spam every 5 min
+		dm.mu.Lock()
+		dm.lastDream = time.Now()
+		dm.mu.Unlock()
 		return
 	}
 
@@ -299,6 +343,7 @@ MATERIAL:
 }
 
 // SWE100821: parseWorldModelUpdates extracts ADD/UPDATE/DEPRECATE lines from dream output.
+// Tolerates prose between directives — LLMs often add explanatory text.
 func parseWorldModelUpdates(content string) string {
 	var updates strings.Builder
 	inSection := false
@@ -308,14 +353,18 @@ func parseWorldModelUpdates(content string) string {
 			inSection = true
 			continue
 		}
-		if inSection {
-			if strings.HasPrefix(trimmed, "ADD:") || strings.HasPrefix(trimmed, "UPDATE:") || strings.HasPrefix(trimmed, "DEPRECATE:") {
-				updates.WriteString(trimmed + "\n")
-			} else if trimmed == "" {
-				continue
-			} else {
-				break
-			}
+		if !inSection {
+			continue
+		}
+		// Accept directive lines regardless of surrounding prose
+		if strings.HasPrefix(trimmed, "ADD:") || strings.HasPrefix(trimmed, "UPDATE:") || strings.HasPrefix(trimmed, "DEPRECATE:") {
+			updates.WriteString(trimmed + "\n")
+		}
+		// Stop on next section header (e.g., PATTERNS:, INSIGHTS:)
+		if strings.HasSuffix(trimmed, ":") && !strings.HasPrefix(trimmed, "ADD:") &&
+			!strings.HasPrefix(trimmed, "UPDATE:") && !strings.HasPrefix(trimmed, "DEPRECATE:") &&
+			!strings.HasPrefix(trimmed, "WORLD_MODEL_UPDATES:") && len(trimmed) > 2 {
+			break
 		}
 	}
 	return updates.String()

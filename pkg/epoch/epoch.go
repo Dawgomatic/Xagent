@@ -85,10 +85,15 @@ func (m *Manager) Wake() (*Record, error) {
 	}
 	m.mu.Unlock()
 
-	// Load the most recent completed epoch
+	// SWE100821: Distinguish "no previous epochs" (expected) from real I/O errors.
+	// Previously returned (nil, nil) for both, losing real errors silently.
 	prev, err := m.LoadLast()
 	if err != nil {
-		return nil, nil
+		if strings.Contains(err.Error(), "no previous epochs") {
+			return nil, nil
+		}
+		logger.WarnCF("epoch", "Failed to load previous epoch", map[string]interface{}{"error": err.Error()})
+		return nil, nil // non-fatal — agent can still start without prior epoch
 	}
 	return prev, nil
 }
@@ -146,10 +151,16 @@ func (m *Manager) LoadLast() (*Record, error) {
 		return nil, err
 	}
 
-	// Filter to .json files, sort by name descending (most recent first)
+	// SWE100821: Filter to timestamped .json files only (YYYYMMDD-HHMMSS-*.json).
+	// Non-timestamped files like "last.json" would sort lexically higher than digits,
+	// causing the wrong file to be loaded as the most recent epoch.
 	var jsonFiles []string
 	for _, e := range entries {
-		if !e.IsDir() && strings.HasSuffix(e.Name(), ".json") {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".json") {
+			continue
+		}
+		// Epoch files start with a date: 20YYMMDD-
+		if len(e.Name()) >= 9 && e.Name()[0:2] == "20" {
 			jsonFiles = append(jsonFiles, e.Name())
 		}
 	}

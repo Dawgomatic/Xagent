@@ -152,6 +152,14 @@ func (ms *MemoryStore) GetMemoryContext() string {
 		return ""
 	}
 
-	// SWE100821: strings.Builder — was using result += (O(n²) allocation)
-	return fmt.Sprintf("# Memory\n\n%s", strings.Join(parts, "\n\n---\n\n"))
+	result := fmt.Sprintf("# Memory\n\n%s", strings.Join(parts, "\n\n---\n\n"))
+
+	// SWE100821: Cap memory context to 8KB to prevent blowing LLM context on large MEMORY.md.
+	// Truncate on rune boundary and add notice so the model knows data was trimmed.
+	const maxMemoryCtx = 8192
+	runes := []rune(result)
+	if len(runes) > maxMemoryCtx {
+		result = string(runes[:maxMemoryCtx]) + "\n\n[Memory truncated — use memory tool for full access]"
+	}
+	return result
 }

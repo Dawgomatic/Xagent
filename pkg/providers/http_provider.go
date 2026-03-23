@@ -72,8 +72,10 @@ func NewHTTPProvider(apiKey, apiBase, proxy string) *HTTPProvider {
 		}
 	}
 
+	// SWE100821: 10 min timeout — 7B models on ARM (Xavier) need 2-3 min prefill for large prompts,
+	// and multi-turn tool loops can accumulate significant context over many iterations.
 	client := &http.Client{
-		Timeout:   120 * time.Second,
+		Timeout:   600 * time.Second,
 		Transport: transport,
 	}
 
@@ -112,11 +114,12 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 		"messages": marshalMsgs,
 	}
 
+	// SWE100821: Only send tool definitions — do NOT force response_format json_object.
+	// json_object mode conflicts with native tool_calls: model tries to emit JSON text
+	// instead of using the tool_calls response field, causing parse failures and loops.
 	if len(tools) > 0 {
 		requestBody["tools"] = tools
 		requestBody["tool_choice"] = "auto"
-		// Structured output: constrain LLM to valid JSON for reliable tool calling
-		requestBody["response_format"] = map[string]string{"type": "json_object"}
 	}
 
 	if maxTokens, ok := options["max_tokens"].(int); ok {

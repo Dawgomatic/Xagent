@@ -166,11 +166,19 @@ func (sm *SemanticMemory) Search(ctx context.Context, query string, topK int) ([
 	for _, r := range resp.Result {
 		text, _ := r.Payload["text"].(string)
 		source, _ := r.Payload["source"].(string)
+		// SWE100821: Parse created timestamp from payload for recency scoring
+		var created time.Time
+		if createdStr, ok := r.Payload["created"].(string); ok {
+			if t, err := time.Parse(time.RFC3339, createdStr); err == nil {
+				created = t
+			}
+		}
 		results = append(results, MemoryPoint{
-			ID:     r.ID,
-			Text:   text,
-			Source: source,
-			Score:  r.Score,
+			ID:      r.ID,
+			Text:    text,
+			Source:  source,
+			Score:   r.Score,
+			Created: created,
 		})
 	}
 
@@ -274,6 +282,13 @@ func (sm *SemanticMemory) embed(ctx context.Context, text string) ([]float64, er
 		return nil, fmt.Errorf("empty embedding returned")
 	}
 
+	// SWE100821: Validate dimension matches Qdrant collection — mismatched dim causes
+	// silent upsert/search failures. Catch early with a clear error message.
+	if len(result.Embedding) != embeddingDim {
+		return nil, fmt.Errorf("embedding dimension mismatch: model returned %d, collection expects %d (model=%s)",
+			len(result.Embedding), embeddingDim, sm.embedModel)
+	}
+
 	// Normalize
 	norm := 0.0
 	for _, v := range result.Embedding {
@@ -366,6 +381,7 @@ func (sm *SemanticMemory) qdrantPut(ctx context.Context, path string, body inter
 	return nil
 }
 
+// SWE100821: Check HTTP status — failed searches were returning garbage silently
 func (sm *SemanticMemory) qdrantPost(ctx context.Context, path string, body interface{}) ([]byte, error) {
 	data, err := json.Marshal(body)
 	if err != nil {
@@ -384,12 +400,24 @@ func (sm *SemanticMemory) qdrantPost(ctx context.Context, path string, body inte
 	}
 	defer resp.Body.Close()
 
-	return io.ReadAll(resp.Body)
+	respBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+	if resp.StatusCode >= 400 {
+		return nil, fmt.Errorf("qdrant POST %s returned %d: %s", path, resp.StatusCode, truncateStr(string(respBody), 200))
+	}
+	return respBody, nil
 }
 
+// SWE100821: Rune-safe truncation — byte slicing can split multibyte chars (CJK, emoji)
 func truncateStr(s string, maxLen int) string {
 	if len(s) <= maxLen {
 		return s
 	}
-	return s[:maxLen] + "..."
+	runes := []rune(s)
+	if len(runes) <= maxLen {
+		return s
+	}
+	return string(runes[:maxLen]) + "..."
 }

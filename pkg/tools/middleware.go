@@ -66,7 +66,8 @@ func NewToolMiddleware(registry *ToolRegistry) *ToolMiddleware {
 		postHooks:      make([]MiddlewareHook, 0),
 		cache:          make(map[string]*CacheEntry),
 		cacheTTL:       5 * time.Minute,
-		cacheableTools: map[string]bool{"read_file": true, "list_dir": true, "web_fetch": true},
+		// SWE100821: "web_fetch" renamed to "fetch" — cache key must match registered tool name
+		cacheableTools: map[string]bool{"read_file": true, "list_dir": true, "fetch": true},
 		circuits:       make(map[string]*CircuitState),
 		// SWE100821: Raised from 3/30s — small models retry with variations,
 		// tripping the breaker before they find the right approach

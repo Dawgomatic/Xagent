@@ -82,6 +82,21 @@ func (ti *TemporalIndex) Query(since, until time.Time, topicFilter string) []Tem
 	return results
 }
 
+// SWE100821: hasTemporalRef checks if a query contains a time-related phrase.
+var temporalKeywords = []string{
+	"yesterday", "today", "last week", "this week", "last month", "this month",
+	"earlier", "before", "remember when", "previously", "ago", "recent",
+}
+
+func hasTemporalRef(lower string) bool {
+	for _, kw := range temporalKeywords {
+		if strings.Contains(lower, kw) {
+			return true
+		}
+	}
+	return false
+}
+
 // ForSystemPrompt parses temporal references in query and returns formatted results.
 // Recognises: "yesterday", "today", "last week", "this week", "last month", "this month".
 func (ti *TemporalIndex) ForSystemPrompt(query string) string {
@@ -89,7 +104,6 @@ func (ti *TemporalIndex) ForSystemPrompt(query string) string {
 	now := time.Now()
 	var since, until time.Time
 
-	// SWE100821: Resolve natural-language temporal references
 	switch {
 	case strings.Contains(lower, "yesterday"):
 		y := now.AddDate(0, 0, -1)
@@ -116,7 +130,6 @@ func (ti *TemporalIndex) ForSystemPrompt(query string) string {
 		since = time.Date(now.Year(), now.Month(), 1, 0, 0, 0, 0, now.Location())
 		until = endOfDay(now)
 	default:
-		// No temporal reference detected — return last 7 days as default
 		since = startOfDay(now.AddDate(0, 0, -7))
 		until = endOfDay(now)
 	}
@@ -134,6 +147,37 @@ func (ti *TemporalIndex) ForSystemPrompt(query string) string {
 			e.Timestamp.Format("2006-01-02 15:04"),
 			e.Summary,
 			strings.Join(e.TopicTags, ", ")))
+	}
+	return sb.String()
+}
+
+// SWE100821: ForContext returns temporal memory only when relevant.
+// If the query has a temporal reference ("yesterday", "last week", etc.), returns
+// full temporal recall. Otherwise returns a compact recent-activity summary (last 24h,
+// capped at 5 entries) so the agent has ambient continuity without flooding context.
+func (ti *TemporalIndex) ForContext(query string) string {
+	lower := strings.ToLower(query)
+
+	if hasTemporalRef(lower) {
+		return ti.ForSystemPrompt(query)
+	}
+
+	now := time.Now()
+	results := ti.Query(startOfDay(now.AddDate(0, 0, -1)), endOfDay(now), "")
+	if len(results) == 0 {
+		return ""
+	}
+
+	cap := 5
+	if len(results) > cap {
+		results = results[len(results)-cap:]
+	}
+
+	var sb strings.Builder
+	sb.WriteString("## Recent Activity\n\n")
+	for _, e := range results {
+		sb.WriteString(fmt.Sprintf("- [%s] %s\n",
+			e.Timestamp.Format("15:04"), e.Summary))
 	}
 	return sb.String()
 }

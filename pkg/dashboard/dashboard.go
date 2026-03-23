@@ -31,17 +31,20 @@ var wikilinkRe = regexp.MustCompile(`\[\[([^\]\|]+)(?:\|[^\]]+)?\]\]`)
 // Dashboard provides an embedded HTTP dashboard for agent introspection.
 // SWE100821: Expanded with chat, vault graph, and full subsystem browsing.
 type Dashboard struct {
-	workspace   string
-	vaultPath   string
-	configPath  string
-	metrics     *health.Metrics
-	watchdog    *health.Watchdog
-	model       string // SWE100821: Active LLM model name
-	tier        string // SWE100821: Hardware tier
-	startTime   time.Time
-	chatHandler func(ctx context.Context, message, sessionKey string) (string, error)
-	chatMu      sync.Mutex
-	chatReqs    map[string]*chatReq
+	workspace      string
+	vaultPath      string
+	configPath     string
+	metrics        *health.Metrics
+	watchdog       *health.Watchdog
+	model          string // SWE100821: Active LLM model name
+	tier           string // SWE100821: Hardware tier
+	startTime      time.Time
+	chatHandler    func(ctx context.Context, message, sessionKey string) (string, error)
+	chatMu         sync.Mutex
+	chatReqs       map[string]*chatReq
+	sensorProvider func() string   // SWE100821: Returns formatted sensor readings
+	toolLister     func() []string // SWE100821: Returns registered tool names
+	fatigueFunc    func() float64  // SWE100821: Returns live fatigue level (0.0-1.0)
 }
 
 // chatReq tracks an in-flight chat request for async polling.
@@ -82,6 +85,15 @@ func (d *Dashboard) SetChatHandler(fn func(ctx context.Context, message, session
 	d.chatHandler = fn
 }
 
+// SWE100821: SetSensorProvider injects a function returning formatted sensor readings.
+func (d *Dashboard) SetSensorProvider(fn func() string) { d.sensorProvider = fn }
+
+// SWE100821: SetToolLister injects a function returning registered tool names.
+func (d *Dashboard) SetToolLister(fn func() []string) { d.toolLister = fn }
+
+// SWE100821: SetFatigueFunc injects a function returning live fatigue level (0.0-1.0).
+func (d *Dashboard) SetFatigueFunc(fn func() float64) { d.fatigueFunc = fn }
+
 // SetupRoutes registers all dashboard routes on the given mux.
 // SWE100821: Includes original, memory, vault, detail, config, chat, and graph APIs.
 func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
@@ -118,6 +130,11 @@ func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
 	// SWE100821: Watchdog API — subsystem health status
 	mux.HandleFunc("/api/watchdog", d.handleWatchdog)
 
+	// SWE100821: New APIs for sensors, tools, goals
+	mux.HandleFunc("/api/sensors", d.handleSensors)
+	mux.HandleFunc("/api/tools", d.handleTools)
+	mux.HandleFunc("/api/goals", d.handleGoals)
+
 	// SWE100821: Chat API — async POST + polling GET
 	mux.HandleFunc("/api/chat", d.handleChat)
 }
@@ -133,7 +150,21 @@ func (d *Dashboard) handleDashboardPage(w http.ResponseWriter, r *http.Request) 
 
 func (d *Dashboard) handleState(w http.ResponseWriter, r *http.Request) {
 	uptime := time.Since(d.startTime).Truncate(time.Second).String()
+	// SWE100821: Use live fatigue from provider instead of hardcoded "low"
 	fatigue := "low"
+	if d.fatigueFunc != nil {
+		f := d.fatigueFunc()
+		switch {
+		case f >= 0.8:
+			fatigue = fmt.Sprintf("critical (%.0f%%)", f*100)
+		case f >= 0.5:
+			fatigue = fmt.Sprintf("high (%.0f%%)", f*100)
+		case f >= 0.2:
+			fatigue = fmt.Sprintf("medium (%.0f%%)", f*100)
+		default:
+			fatigue = fmt.Sprintf("low (%.0f%%)", f*100)
+		}
+	}
 	messagesCount := 0
 
 	// SWE100821: Use live model/tier from SetModelInfo, not epoch files
@@ -966,6 +997,50 @@ func (d *Dashboard) handleChat(w http.ResponseWriter, r *http.Request) {
 	default:
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 	}
+}
+
+// --- Sensors API ---
+
+// SWE100821: handleSensors returns live sensor readings from the perception subsystem.
+func (d *Dashboard) handleSensors(w http.ResponseWriter, r *http.Request) {
+	if d.sensorProvider == nil {
+		writeJSON(w, map[string]interface{}{"readings": "", "available": false})
+		return
+	}
+	readings := d.sensorProvider()
+	writeJSON(w, map[string]interface{}{
+		"readings":  readings,
+		"available": readings != "",
+	})
+}
+
+// --- Tools API ---
+
+// SWE100821: handleTools returns the list of registered tool names.
+func (d *Dashboard) handleTools(w http.ResponseWriter, r *http.Request) {
+	if d.toolLister == nil {
+		writeJSON(w, []string{})
+		return
+	}
+	names := d.toolLister()
+	sort.Strings(names)
+	writeJSON(w, names)
+}
+
+// --- Goals API ---
+
+// SWE100821: handleGoals returns the GOALS.md file content.
+func (d *Dashboard) handleGoals(w http.ResponseWriter, r *http.Request) {
+	goalsPath := filepath.Join(d.workspace, "GOALS.md")
+	data, err := os.ReadFile(goalsPath)
+	if err != nil {
+		writeJSON(w, map[string]interface{}{"content": "", "exists": false})
+		return
+	}
+	writeJSON(w, map[string]interface{}{
+		"content": string(data),
+		"exists":  true,
+	})
 }
 
 // --- Helpers ---

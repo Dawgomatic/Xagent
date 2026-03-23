@@ -29,8 +29,12 @@ func validatePath(path, workspace string, restrict bool) (string, error) {
 		}
 	}
 
-	if restrict && !strings.HasPrefix(absPath, absWorkspace) {
-		return "", fmt.Errorf("access denied: path is outside the workspace")
+	// SWE100821: Require separator boundary — prefix-only check allows /workspace_other/
+	// to bypass restriction when workspace is /workspace. Also reject ".." in resolved path.
+	if restrict {
+		if absPath != absWorkspace && !strings.HasPrefix(absPath, absWorkspace+string(filepath.Separator)) {
+			return "", fmt.Errorf("access denied: path is outside the workspace")
+		}
 	}
 
 	return absPath, nil
@@ -75,6 +79,17 @@ func (t *ReadFileTool) Execute(ctx context.Context, args map[string]interface{})
 	resolvedPath, err := validatePath(path, t.workspace, t.restrict)
 	if err != nil {
 		return ErrorResult(err.Error())
+	}
+
+	// SWE100821: Cap file reads at 1MB to prevent memory exhaustion and LLM context overflow.
+	// Arbitrarily large files would be sent to the LLM as tool results.
+	const maxReadSize = 1024 * 1024
+	info, err := os.Stat(resolvedPath)
+	if err != nil {
+		return ErrorResult(fmt.Sprintf("failed to stat file: %v", err))
+	}
+	if info.Size() > maxReadSize {
+		return ErrorResult(fmt.Sprintf("file too large (%d bytes, max %d). Use exec with head/tail to read portions.", info.Size(), maxReadSize))
 	}
 
 	content, err := os.ReadFile(resolvedPath)
@@ -140,8 +155,14 @@ func (t *WriteFileTool) Execute(ctx context.Context, args map[string]interface{}
 		return ErrorResult(fmt.Sprintf("failed to create directory: %v", err))
 	}
 
-	if err := os.WriteFile(resolvedPath, []byte(content), 0644); err != nil {
+	// SWE100821: Atomic write via temp+rename — prevents corruption on crash mid-write
+	tmpPath := resolvedPath + ".tmp"
+	if err := os.WriteFile(tmpPath, []byte(content), 0644); err != nil {
 		return ErrorResult(fmt.Sprintf("failed to write file: %v", err))
+	}
+	if err := os.Rename(tmpPath, resolvedPath); err != nil {
+		os.Remove(tmpPath)
+		return ErrorResult(fmt.Sprintf("failed to rename temp file: %v", err))
 	}
 
 	return SilentResult(fmt.Sprintf("File written: %s", path))

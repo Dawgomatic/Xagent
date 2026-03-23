@@ -101,7 +101,8 @@ func (ad *AutoDiscoverer) SuggestForError(toolName, errorMsg string) string {
 		sb.WriteString(fmt.Sprintf("- **%s**: %s (tags: %s)\n",
 			r.Name, r.Description, strings.Join(r.Tags, ", ")))
 	}
-	sb.WriteString("\nInstall with: `xagent skills install <name>`")
+	// SWE100821: Direct agent to use the skills tool, not the CLI
+	sb.WriteString("\nInstall with: skills(action=\"install\", name=\"owner/slug\")")
 
 	return sb.String()
 }
@@ -111,17 +112,32 @@ func (ad *AutoDiscoverer) SuggestForTopic(topic string) []SkillCatalogEntry {
 	return ad.Search(topic, 3)
 }
 
-// ForSystemPrompt returns a skills-discovery section for the system prompt,
-// informing the agent that it can search for skills.
+// SWE100821: Updated prompt to instruct agent to actively USE the skills tool, not just suggest.
 func (ad *AutoDiscoverer) ForSystemPrompt() string {
 	if len(ad.catalog) == 0 {
 		return ""
 	}
-	return fmt.Sprintf(`## Skill Discovery
 
-You have access to a catalog of %d+ skills. If you encounter a task you cannot handle well,
-suggest relevant skills to the user. Skills can be searched by topic, tool name, or error message.
-The user can install skills with: xagent skills install <name>`, len(ad.catalog))
+	installed := len(ad.installedNames)
+
+	return fmt.Sprintf(`## Skills — Your Extensible Capabilities
+
+You have a **skills** tool with access to %d+ installable skills (%d currently installed).
+
+**USE the skills tool proactively:**
+- When you encounter an unfamiliar task, SEARCH for relevant skills: skills(action="search", query="<topic>")
+- When a search finds something useful, INSTALL it: skills(action="install", name="owner/slug")
+- Check what you already have: skills(action="list")
+- After a tool error, search for skills that handle that domain
+- When the user asks about capabilities you lack, search for a skill first before saying you cannot
+
+**When to search skills:**
+- Hardware interaction (sensors, GPIO, camera, audio)
+- Specialized domains (security, networking, databases, ML)
+- Automation tasks (monitoring, scheduling, data pipelines)
+- Any task where your built-in tools feel insufficient
+
+Do NOT tell the user to install skills manually — you can do it yourself with the skills tool.`, len(ad.catalog), installed)
 }
 
 func (ad *AutoDiscoverer) relevanceScore(skill SkillCatalogEntry, queryWords []string, queryLower string) float64 {

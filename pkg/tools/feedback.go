@@ -59,9 +59,10 @@ func (t *FeedbackTool) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type": "object",
 		"properties": map[string]interface{}{
+			// SWE100821: Removed broken emoji from description
 			"rating": map[string]interface{}{
 				"type":        "string",
-				"description": "User's rating: 'good' (), 'bad' (), or 'neutral'",
+				"description": "User's rating: 'good', 'bad', or 'neutral'",
 				"enum":        []string{"good", "bad", "neutral"},
 			},
 			"comment": map[string]interface{}{

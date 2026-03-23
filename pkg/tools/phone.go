@@ -187,7 +187,8 @@ func (t *PhoneTool) androidScreenshot(ctx context.Context, adb *phone.ADB, args 
 	if filename == "" {
 		filename = "phone_screenshot.png"
 	}
-	outPath := filepath.Join(t.workspace, filename)
+	// SWE100821: Use filepath.Base to prevent path traversal — "../../../etc/passwd" becomes "passwd"
+	outPath := filepath.Join(t.workspace, filepath.Base(filename))
 
 	if err := adb.Screenshot(ctx, outPath); err != nil {
 		return ErrorResult(fmt.Sprintf("Screenshot failed: %s", err))

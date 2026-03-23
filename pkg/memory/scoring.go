@@ -109,15 +109,51 @@ func (ms *MemoryScorer) computeReference(count int) float64 {
 	return math.Min(1.0, math.Log2(float64(count+1))/5.0)
 }
 
+// SWE100821: computeBatchNovelty returns per-point uniqueness ratio across the batch.
+// For each memory, counts what fraction of its 4+ char words don't appear in other memories.
+func computeBatchNovelty(points []MemoryPoint) map[uint64]float64 {
+	wordSets := make([]map[string]struct{}, len(points))
+	globalWords := make(map[string]int)
+
+	for i, p := range points {
+		words := make(map[string]struct{})
+		for _, w := range strings.Fields(strings.ToLower(p.Text)) {
+			if len(w) >= 4 {
+				words[w] = struct{}{}
+				globalWords[w]++
+			}
+		}
+		wordSets[i] = words
+	}
+
+	result := make(map[uint64]float64, len(points))
+	for i, p := range points {
+		if len(wordSets[i]) == 0 {
+			result[p.ID] = 0.5
+			continue
+		}
+		unique := 0
+		for w := range wordSets[i] {
+			if globalWords[w] <= 1 {
+				unique++
+			}
+		}
+		result[p.ID] = float64(unique) / float64(len(wordSets[i]))
+	}
+	return result
+}
+
 // RankMemories scores and sorts memories by importance (descending).
 func (ms *MemoryScorer) RankMemories(points []MemoryPoint, referenceCounts map[uint64]int) []ScoredMemory {
+	noveltyMap := computeBatchNovelty(points)
+
 	scored := make([]ScoredMemory, 0, len(points))
 	for _, p := range points {
 		refCount := referenceCounts[p.ID]
-		scored = append(scored, ms.Score(p, refCount, 0.5)) // default novelty
+		novelty := noveltyMap[p.ID]
+		scored = append(scored, ms.Score(p, refCount, novelty))
 	}
 
-	// SWE100821: sort.Slice — was O(n²) bubble sort, now O(n log n)
 	sort.Slice(scored, func(i, j int) bool {
 		return scored[i].ImportanceScore > scored[j].ImportanceScore
 	})

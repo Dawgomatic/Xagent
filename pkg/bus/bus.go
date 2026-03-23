@@ -2,7 +2,9 @@ package bus
 
 import (
 	"context"
+	"log"
 	"sync"
+	"sync/atomic"
 )
 
 type MessageBus struct {
@@ -10,23 +12,34 @@ type MessageBus struct {
 	outbound chan OutboundMessage
 	handlers map[string]MessageHandler
 	mu       sync.RWMutex
+	closed   atomic.Bool // SWE100821: guards against send-on-closed-channel panic
+	// SWE100821: Track dropped messages for observability
+	DroppedInbound  atomic.Int64
+	DroppedOutbound atomic.Int64
 }
 
+// SWE100821: Increased buffer from 100→500 — under burst load (multiple Discord channels,
+// sensor events, proactive messages) the old 100-slot buffer dropped user messages silently.
 func NewMessageBus() *MessageBus {
 	return &MessageBus{
-		inbound:  make(chan InboundMessage, 100),
-		outbound: make(chan OutboundMessage, 100),
+		inbound:  make(chan InboundMessage, 500),
+		outbound: make(chan OutboundMessage, 500),
 		handlers: make(map[string]MessageHandler),
 	}
 }
 
 // PublishInbound sends a message to the agent. Non-blocking: drops if buffer full.
-// SWE100821: Prevents goroutine leak when agent is slower than inbound rate.
 func (mb *MessageBus) PublishInbound(msg InboundMessage) {
+	// SWE100821: Guard against send-on-closed-channel panic during shutdown
+	if mb.closed.Load() {
+		return
+	}
 	select {
 	case mb.inbound <- msg:
 	default:
-		// Buffer full — drop message rather than blocking caller indefinitely
+		mb.DroppedInbound.Add(1)
+		log.Printf("[WARN] bus: inbound message dropped (buffer full, channel=%s, total_dropped=%d)",
+			msg.Channel, mb.DroppedInbound.Load())
 	}
 }
 
@@ -40,12 +53,16 @@ func (mb *MessageBus) ConsumeInbound(ctx context.Context) (InboundMessage, bool)
 }
 
 // PublishOutbound sends a response to a channel. Non-blocking: drops if buffer full.
-// SWE100821: Prevents goroutine leak when channel consumer is slow.
 func (mb *MessageBus) PublishOutbound(msg OutboundMessage) {
+	if mb.closed.Load() {
+		return
+	}
 	select {
 	case mb.outbound <- msg:
 	default:
-		// Buffer full — drop to avoid blocking the agent loop
+		mb.DroppedOutbound.Add(1)
+		log.Printf("[WARN] bus: outbound message dropped (buffer full, channel=%s, total_dropped=%d)",
+			msg.Channel, mb.DroppedOutbound.Load())
 	}
 }
 
@@ -71,7 +88,11 @@ func (mb *MessageBus) GetHandler(channel string) (MessageHandler, bool) {
 	return handler, ok
 }
 
+// SWE100821: Close marks the bus as closed before closing channels.
+// The closed flag prevents PublishInbound/PublishOutbound from panicking
+// with "send on closed channel" during concurrent shutdown.
 func (mb *MessageBus) Close() {
+	mb.closed.Store(true)
 	close(mb.inbound)
 	close(mb.outbound)
 }

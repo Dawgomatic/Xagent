@@ -12,7 +12,6 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
-	"github.com/Dawgomatic/Xagent/pkg/memory"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/skills"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
@@ -22,7 +21,6 @@ type ContextBuilder struct {
 	workspace      string
 	skillsLoader   *skills.SkillsLoader
 	memory         *MemoryStore
-	semanticMemory *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
 	tools          *tools.ToolRegistry     // Direct reference to tool registry
 	identity       *identity.AgentIdentity // SWE100821: Agent identity + time tracking
 	prevEpoch      *epoch.Record           // SWE100821: Previous epoch for wake-up recall
@@ -31,6 +29,8 @@ type ContextBuilder struct {
 	bootstrapMTime map[string]time.Time    // MTime for cache invalidation
 	compactPrompt  bool                    // SWE100821: Minimal system prompt for embedded/PicoLM
 }
+// SWE100821: Removed duplicate semanticMemory field — only AgentLoop's instance
+// is used for search/store. This one was never read, just wasting a Qdrant probe.
 
 func getGlobalConfigDir() string {
 	home, err := os.UserHomeDir()
@@ -40,7 +40,7 @@ func getGlobalConfigDir() string {
 	return filepath.Join(home, ".xagent")
 }
 
-func NewContextBuilder(workspace string, smCfg ...config.SemanticMemoryConfig) *ContextBuilder {
+func NewContextBuilder(workspace string, _ ...config.SemanticMemoryConfig) *ContextBuilder {
 	// builtin skills: skills directory in current project
 	wd, _ := os.Getwd()
 	builtinSkillsDir := filepath.Join(wd, "skills")
@@ -53,16 +53,6 @@ func NewContextBuilder(workspace string, smCfg ...config.SemanticMemoryConfig) *
 	}
 	globalSkillsDir := filepath.Join(getGlobalConfigDir(), "skills")
 
-	// SWE100821: Initialize semantic memory (Qdrant + Ollama embeddings) — config-driven
-	var qdrantURL, ollamaURL, collection, embedModel string
-	if len(smCfg) > 0 {
-		qdrantURL = smCfg[0].QdrantURL
-		ollamaURL = smCfg[0].OllamaURL
-		collection = smCfg[0].Collection
-		embedModel = smCfg[0].EmbedModel
-	}
-	semanticMem := memory.NewSemanticMemory(qdrantURL, ollamaURL, collection, embedModel)
-
 	// SWE100821: Initialize skill auto-discoverer
 	autoDisc := skills.NewAutoDiscoverer(workspace)
 
@@ -70,7 +60,6 @@ func NewContextBuilder(workspace string, smCfg ...config.SemanticMemoryConfig) *
 		workspace:      workspace,
 		skillsLoader:   skills.NewSkillsLoader(workspace, globalSkillsDir, builtinSkillsDir),
 		memory:         NewMemoryStore(workspace),
-		semanticMemory: semanticMem,
 		autoDiscoverer: autoDisc,
 		bootstrapCache: make(map[string]string),
 		bootstrapMTime: make(map[string]time.Time),
@@ -107,11 +96,12 @@ func (cb *ContextBuilder) getIdentity() string {
 `, cb.identity.ForSystemPrompt())
 	}
 
-	toolsSection := cb.buildToolsSection()
+	// SWE100821: Tool summaries removed from system prompt — native tool definitions
+	// (via API tool_calls schema) are sufficient and less likely to diverge.
+	// Phone workflow removed — phone tool description already covers valid actions.
+	return fmt.Sprintf(`# Agent
 
-	return fmt.Sprintf(`# xagent 
-
-You are xagent, a helpful AI assistant.
+You are an autonomous AI agent.
 
 ## Current Time
 %s
@@ -125,57 +115,18 @@ Your workspace is at: %s
 - Daily Notes: %s/memory/YYYYMM/YYYYMMDD.md
 - Skills: %s/skills/{skill-name}/SKILL.md
 
-%s
+## Rules
 
-## Important Rules
-
-1. **Use tools when needed** - When you need to perform an action, call the appropriate tool. Do NOT pretend to do it.
-
-2. **Never give up** - If a tool call fails, try a different approach. Take a screenshot to see what's on screen. Keep trying until the task is complete.
-
-3. **Respond with text after completing** - Once the task is done, respond with a clear, plain text summary of what you did. Do NOT keep calling tools after the task is complete.
-
-4. **Plain text responses only** - Always respond in plain text. Never wrap your response in JSON, XML, or any structured format.
-
-5. **Memory** - When remembering something, write to %s/memory/MEMORY.md
-
-## Phone Interaction Workflow
-
-When interacting with apps on a USB-connected phone, ALWAYS follow this workflow:
-1. **Launch the app**: phone(action: "app_launch", package: "com.example.app")
-2. **Screenshot to see the screen**: phone(action: "screenshot")
-3. **Analyze the screenshot** to understand what's visible and where to tap
-4. **Navigate using tap/swipe**: phone(action: "tap", x: 540, y: 960)
-5. **Type text when a text field is focused**: phone(action: "text", text: "Hello")
-6. **Verify with another screenshot** after each action
-
-Common app packages: com.whatsapp, com.discord, com.instagram.android, com.twitter.android
-Valid phone actions: status, screenshot, shell, app_list, app_launch, app_running, tap, swipe, text, push, pull, install, raw
-There is NO "send" or "message" action — to send a message, type the text then tap the send button.`,
-		now, identitySection, runtimeStr, workspacePath, workspacePath, workspacePath, workspacePath, toolsSection, workspacePath)
+1. **Use tools when needed** — call the appropriate tool. Do NOT pretend to perform actions.
+2. **Never give up** — if a tool fails, try a different approach. Keep trying until the task is complete.
+3. **Respond with text after completing** — summarize what you did. Do NOT keep calling tools after the task is done.
+4. **Plain text responses** — never wrap your final response in JSON or XML.
+5. **Memory** — write important information to %s/memory/MEMORY.md`,
+		now, identitySection, runtimeStr, workspacePath, workspacePath, workspacePath, workspacePath, workspacePath)
 }
 
-func (cb *ContextBuilder) buildToolsSection() string {
-	if cb.tools == nil {
-		return ""
-	}
-
-	summaries := cb.tools.GetSummaries()
-	if len(summaries) == 0 {
-		return ""
-	}
-
-	var sb strings.Builder
-	sb.WriteString("## Available Tools\n\n")
-	// SWE100821: Balanced instruction — use tools when needed, but respond after
-	sb.WriteString("Use tools to perform actions. After getting results, respond to the user with a clear text answer.\n\n")
-	for _, s := range summaries {
-		sb.WriteString(s)
-		sb.WriteString("\n")
-	}
-
-	return sb.String()
-}
+// SWE100821: buildToolsSection removed — tool definitions are sent via native API
+// tool schema (ToolToSchema in base.go), not duplicated as text in system prompt.
 
 // SWE100821: Enable compact prompt mode — strips system prompt to <200 chars
 // for PicoLM/embedded devices where prefill cost dominates latency.
@@ -218,10 +169,10 @@ The following skills extend your capabilities. To use a skill, read its SKILL.md
 		parts = append(parts, "# Previous Session\n\n"+epochContext)
 	}
 
-	// Memory context
+	// SWE100821: GetMemoryContext() already includes its own "# Memory" header
 	memoryContext := cb.memory.GetMemoryContext()
 	if memoryContext != "" {
-		parts = append(parts, "# Memory\n\n"+memoryContext)
+		parts = append(parts, memoryContext)
 	}
 
 	// SWE100821: Skill auto-discovery prompt
@@ -372,24 +323,6 @@ func (cb *ContextBuilder) AddAssistantMessage(messages []providers.Message, cont
 	return messages
 }
 
-func (cb *ContextBuilder) loadSkills() string {
-	allSkills := cb.skillsLoader.ListSkills()
-	if len(allSkills) == 0 {
-		return ""
-	}
-
-	var skillNames []string
-	for _, s := range allSkills {
-		skillNames = append(skillNames, s.Name)
-	}
-
-	content := cb.skillsLoader.LoadSkillsForContext(skillNames)
-	if content == "" {
-		return ""
-	}
-
-	return "# Skill Definitions\n\n" + content
-}
 
 // GetSkillsInfo returns information about loaded skills.
 func (cb *ContextBuilder) GetSkillsInfo() map[string]interface{} {

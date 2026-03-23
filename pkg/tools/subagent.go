@@ -105,8 +105,11 @@ func (sm *SubagentManager) Spawn(ctx context.Context, task, label, originChannel
 }
 
 func (sm *SubagentManager) runTask(ctx context.Context, task *SubagentTask, callback AsyncCallback) {
+	// SWE100821: Hold lock when updating shared task fields — GetTask/ListTasks read under RLock
+	sm.mu.Lock()
 	task.Status = "running"
 	task.Created = time.Now().UnixMilli()
+	sm.mu.Unlock()
 
 	// Build system prompt for subagent
 	systemPrompt := `You are a subagent. Complete the given task independently and report the result.
@@ -135,7 +138,6 @@ After completing the task, provide a clear summary of what was done.`
 	default:
 	}
 
-	// Run tool loop with access to tools
 	sm.mu.RLock()
 	tools := sm.tools
 	maxIter := sm.maxIterations
@@ -203,11 +205,17 @@ After completing the task, provide a clear summary of what was done.`
 	}
 }
 
+// SWE100821: Return a snapshot copy — callers previously got a pointer to internal state
+// that could be mutated concurrently by runTask.
 func (sm *SubagentManager) GetTask(taskID string) (*SubagentTask, bool) {
 	sm.mu.RLock()
 	defer sm.mu.RUnlock()
 	task, ok := sm.tasks[taskID]
-	return task, ok
+	if !ok {
+		return nil, false
+	}
+	snap := *task
+	return &snap, true
 }
 
 // ExecuteSync runs a subagent task synchronously and returns the textual result

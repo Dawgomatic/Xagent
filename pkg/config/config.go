@@ -89,8 +89,14 @@ type AgentDefaults struct {
 	Provider            string  `json:"provider" env:"XAGENT_AGENTS_DEFAULTS_PROVIDER"`
 	Model               string  `json:"model" env:"XAGENT_AGENTS_DEFAULTS_MODEL"`
 	MaxTokens           int     `json:"max_tokens" env:"XAGENT_AGENTS_DEFAULTS_MAX_TOKENS"`
+	// SWE100821: ContextWindow is the model's total context size (input+output) in tokens.
+	// Used for summarization thresholds. 0 = auto-detect from max_tokens*4 or 8192 default.
+	ContextWindow       int     `json:"context_window" env:"XAGENT_AGENTS_DEFAULTS_CONTEXT_WINDOW"`
 	Temperature         float64 `json:"temperature" env:"XAGENT_AGENTS_DEFAULTS_TEMPERATURE"`
 	MaxToolIterations   int     `json:"max_tool_iterations" env:"XAGENT_AGENTS_DEFAULTS_MAX_TOOL_ITERATIONS"`
+	// SWE100821: Per-message timeout in seconds. Covers entire processing (all LLM calls + tool iterations).
+	// 0 = default (5min desktop, 15min embedded). Set higher for slow hardware or complex multi-tool tasks.
+	MessageTimeoutSecs  int     `json:"message_timeout_secs" env:"XAGENT_AGENTS_DEFAULTS_MESSAGE_TIMEOUT_SECS"`
 }
 
 type ChannelsConfig struct {
@@ -292,8 +298,24 @@ type WebToolsConfig struct {
 	DuckDuckGo DuckDuckGoConfig `json:"duckduckgo"`
 }
 
+// SWE100821: Exec tool config — controls which shell commands are allowed/denied
+type ExecConfig struct {
+	AllowNetwork bool     `json:"allow_network" env:"XAGENT_TOOLS_EXEC_ALLOW_NETWORK"` // Allow curl, wget, ssh, etc.
+	AllowScripts bool     `json:"allow_scripts" env:"XAGENT_TOOLS_EXEC_ALLOW_SCRIPTS"` // Allow python3, node, etc.
+	DenyCommands []string `json:"deny_commands"`                                        // Additional deny regex patterns
+	TimeoutSecs  int      `json:"timeout_secs" env:"XAGENT_TOOLS_EXEC_TIMEOUT_SECS"`   // Command timeout (default 60)
+}
+
+// SWE100821: VisionConfig controls which Ollama vision model to use for image analysis
+type VisionConfig struct {
+	Model     string `json:"model" env:"XAGENT_TOOLS_VISION_MODEL"`          // Vision model name (default: moondream)
+	OllamaURL string `json:"ollama_url" env:"XAGENT_TOOLS_VISION_OLLAMA_URL"` // Ollama endpoint (default: http://localhost:11434)
+}
+
 type ToolsConfig struct {
-	Web WebToolsConfig `json:"web"`
+	Web    WebToolsConfig `json:"web"`
+	Exec   ExecConfig     `json:"exec"`
+	Vision VisionConfig   `json:"vision"` // SWE100821: Configurable vision model
 }
 
 func DefaultConfig() *Config {
@@ -411,8 +433,11 @@ func DefaultConfig() *Config {
 				FeedbackMode: "implicit",
 			},
 		},
+		// SWE100821: Default to localhost — dashboard has no auth, so binding to
+		// 0.0.0.0 exposes config/memory/chat to anyone on the LAN.
+		// Set to "0.0.0.0" explicitly in config.json if LAN access is intended.
 		Gateway: GatewayConfig{
-			Host: "0.0.0.0",
+			Host: "127.0.0.1",
 			Port: 18790,
 		},
 		Tools: ToolsConfig{
@@ -596,6 +621,24 @@ func (c *Config) Validate() (warnings []string, err error) {
 	// Warn if workspace path is empty
 	if c.Agents.Defaults.Workspace == "" {
 		warnings = append(warnings, "agents.defaults.workspace is empty; defaulting to current directory")
+	}
+
+	// SWE100821: Validate numeric bounds — 0 iterations means the LLM loop never runs,
+	// negative tokens/timeout cause undefined behavior.
+	if c.Agents.Defaults.MaxToolIterations < 0 {
+		err = fmt.Errorf("agents.defaults.max_tool_iterations cannot be negative (%d)", c.Agents.Defaults.MaxToolIterations)
+		return
+	}
+	if c.Agents.Defaults.MaxToolIterations == 0 {
+		warnings = append(warnings, "agents.defaults.max_tool_iterations is 0; agent will not use tools")
+	}
+	if c.Agents.Defaults.MaxTokens < 0 {
+		err = fmt.Errorf("agents.defaults.max_tokens cannot be negative (%d)", c.Agents.Defaults.MaxTokens)
+		return
+	}
+	if c.Agents.Defaults.MessageTimeoutSecs < 0 {
+		err = fmt.Errorf("agents.defaults.message_timeout_secs cannot be negative (%d)", c.Agents.Defaults.MessageTimeoutSecs)
+		return
 	}
 
 	return

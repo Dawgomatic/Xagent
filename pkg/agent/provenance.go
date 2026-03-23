@@ -162,11 +162,19 @@ func (pt *ProvenanceTracker) FinishTurn() error {
 	return nil
 }
 
-// GetCurrent returns the current in-progress provenance record (for system prompt).
+// SWE100821: GetCurrent returns a snapshot copy of the current provenance record.
+// Previously returned a pointer to internal state, which raced with FinishTurn
+// setting pt.current = nil from a concurrent goroutine.
 func (pt *ProvenanceTracker) GetCurrent() *ProvenanceRecord {
 	pt.mu.Lock()
 	defer pt.mu.Unlock()
-	return pt.current
+	if pt.current == nil {
+		return nil
+	}
+	snap := *pt.current
+	snap.ToolsCalled = make([]ToolProvenance, len(pt.current.ToolsCalled))
+	copy(snap.ToolsCalled, pt.current.ToolsCalled)
+	return &snap
 }
 
 // PruneOld removes provenance files older than maxAge.

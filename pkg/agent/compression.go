@@ -57,11 +57,22 @@ func (cc *ContextCompressor) CompressHistory(ctx context.Context, messages []pro
 	older := messages[:len(messages)-cc.recentWindowSize]
 	recent = messages[len(messages)-cc.recentWindowSize:]
 
-	// Skip system messages in compression
+	// SWE100821: Include tool results in compression (condensed) so the summary
+	// retains what actions were taken and their outcomes.
 	var toCompress []providers.Message
 	for _, m := range older {
-		if m.Role == "user" || m.Role == "assistant" {
+		switch m.Role {
+		case "user", "assistant":
 			toCompress = append(toCompress, m)
+		case "tool":
+			condensed := m.Content
+			if len(condensed) > 200 {
+				condensed = condensed[:200] + "..."
+			}
+			toCompress = append(toCompress, providers.Message{
+				Role:    "user",
+				Content: fmt.Sprintf("[Tool Result] %s", condensed),
+			})
 		}
 	}
 
@@ -112,9 +123,14 @@ CONVERSATION:
 	return compressed, recent, nil
 }
 
+// SWE100821: Rune-safe truncation — byte slicing can split multibyte chars (CJK, emoji).
 func truncateMsg(s string, maxLen int) string {
 	if len(s) <= maxLen {
 		return s
 	}
-	return s[:maxLen] + "..."
+	runes := []rune(s)
+	if len(runes) <= maxLen {
+		return s
+	}
+	return string(runes[:maxLen]) + "..."
 }

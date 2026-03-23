@@ -12,7 +12,9 @@ import (
 // SWE100821: maxSkillsInPrompt caps how many skills are listed individually in
 // the system prompt. Beyond this, only a count is shown + auto-discovery hint.
 // Prevents blowing context window with 11K+ skill entries.
-const maxSkillsInPrompt = 50
+// SWE100821: Lowered from 50 → 20 to keep system prompt under ~4K tokens on embedded devices.
+// Remaining skills are still discoverable via auto-discovery and `xagent skills list`.
+const maxSkillsInPrompt = 20
 
 type SkillMetadata struct {
 	Name        string `json:"name"`
@@ -138,13 +140,20 @@ func (sl *SkillsLoader) addSkill(name, skillFile, source string, seen map[string
 // LoadSkill loads a skill's content by name. Accepts both flat names ("my-skill")
 // and author-qualified names ("author/skill-name").
 func (sl *SkillsLoader) LoadSkill(name string) (string, bool) {
-	// SWE100821: Search each root with both direct path and 2-level walk
+	// SWE100821: Reject path traversal in skill names — LLM could request "../../../etc/passwd"
+	if strings.Contains(name, "..") || filepath.IsAbs(name) {
+		return "", false
+	}
+
 	for _, root := range []string{sl.workspaceSkills, sl.globalSkills, sl.builtinSkills} {
 		if root == "" {
 			continue
 		}
-		// Direct path: root/<name>/SKILL.md (handles both flat and author/skill)
-		skillFile := filepath.Join(root, name, "SKILL.md")
+		skillFile := filepath.Clean(filepath.Join(root, name, "SKILL.md"))
+		absRoot := filepath.Clean(root)
+		if !strings.HasPrefix(skillFile, absRoot+string(filepath.Separator)) {
+			continue
+		}
 		if content, err := os.ReadFile(skillFile); err == nil {
 			return sl.stripFrontmatter(string(content)), true
 		}

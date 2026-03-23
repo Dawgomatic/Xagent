@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/bwmarrin/discordgo"
@@ -66,6 +67,23 @@ func (c *DiscordChannel) Start(ctx context.Context) error {
 
 	c.ctx = ctx
 	c.session.AddHandler(c.handleMessage)
+
+	// SWE100821: Auto-reconnect on disconnect — discordgo has built-in reconnect
+	// but we add handlers to log state transitions and mark running status.
+	c.session.AddHandler(func(s *discordgo.Session, d *discordgo.Disconnect) {
+		logger.WarnCF("discord", "Discord disconnected, will auto-reconnect", nil)
+		c.setRunning(false)
+	})
+	c.session.AddHandler(func(s *discordgo.Session, r *discordgo.Resumed) {
+		logger.InfoCF("discord", "Discord session resumed", nil)
+		c.setRunning(true)
+	})
+	c.session.AddHandler(func(s *discordgo.Session, r *discordgo.Ready) {
+		logger.InfoCF("discord", "Discord ready", map[string]any{
+			"username": r.User.Username,
+		})
+		c.setRunning(true)
+	})
 
 	if err := c.session.Open(); err != nil {
 		return fmt.Errorf("failed to open discord session: %w", err)
@@ -215,8 +233,22 @@ func (c *DiscordChannel) handleMessage(s *discordgo.Session, m *discordgo.Messag
 				content = appendContent(content, fmt.Sprintf("[attachment: %s]", attachment.URL))
 			}
 		} else {
+			// SWE100821: Include filename, size, and content type so the model knows
+			// what kind of file it is and can use fetch/vision tools if appropriate.
 			mediaPaths = append(mediaPaths, attachment.URL)
-			content = appendContent(content, fmt.Sprintf("[attachment: %s]", attachment.URL))
+			desc := fmt.Sprintf("[file: %s", attachment.Filename)
+			if attachment.Size > 0 {
+				desc += fmt.Sprintf(", %dKB", attachment.Size/1024)
+			}
+			if attachment.ContentType != "" {
+				desc += fmt.Sprintf(", type=%s", attachment.ContentType)
+			}
+			isImage := strings.HasPrefix(attachment.ContentType, "image/")
+			if isImage {
+				desc += " — use vision tool to analyze"
+			}
+			desc += fmt.Sprintf(", url=%s]", attachment.URL)
+			content = appendContent(content, desc)
 		}
 	}
 

@@ -9,6 +9,7 @@ package agent
 import (
 	"context"
 	"fmt"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -32,6 +33,7 @@ type SleepManager struct {
 	provider    providers.LLMProvider
 	msgBus      *bus.MessageBus
 	workspace   string
+	model       string // SWE100821: Use configured model, not hardcoded "llama3"
 	tools       *tools.ToolRegistry
 	personality *PersonalityTracker // SWE100821: Personality analysis during sleep
 
@@ -56,7 +58,7 @@ func NewSleepManager(
 		workspace:    workspace,
 		tools:        tools,
 		lastActivity: time.Now(),
-		idleTimeout:  1 * time.Hour, // Initiate sleep if idle for 1 hour
+		idleTimeout:  15 * time.Minute, // SWE100821: Was 1h — too long to ever trigger on Xavier
 	}
 }
 
@@ -141,8 +143,8 @@ func (sm *SleepManager) checkSleep(ctx context.Context) {
 		isSleeping = s.IsSleeping
 	})
 
-	// Enter Sleep if we are highly fatigued AND idle
-	shouldSleep := !isSleeping && fatigue > 0.3 && idleDuration > sm.idleTimeout
+	// SWE100821: Enter sleep if fatigued AND idle — lowered from 0.3 to 0.15 (3 interactions)
+	shouldSleep := !isSleeping && fatigue > 0.15 && idleDuration > sm.idleTimeout
 	sm.mu.Unlock()
 
 	if shouldSleep {
@@ -153,6 +155,13 @@ func (sm *SleepManager) checkSleep(ctx context.Context) {
 // SetPersonality attaches the personality tracker for analysis during sleep.
 func (sm *SleepManager) SetPersonality(pt *PersonalityTracker) {
 	sm.personality = pt
+}
+
+// SWE100821: SetModel configures which LLM model the sleep subagent uses.
+func (sm *SleepManager) SetModel(model string) {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	sm.model = model
 }
 
 // GetFatigueLevel safely retrieves the current fatigue level.
@@ -185,8 +194,12 @@ func (sm *SleepManager) enterSleepCycle(ctx context.Context, initialFatigue floa
 		analyzeCancel()
 	}
 
-	// Subagent for continuous improvement
-	subMgr := tools.NewSubagentManager(sm.provider, "llama3", sm.workspace, sm.msgBus)
+	// SWE100821: Use configured model instead of hardcoded "llama3"
+	model := sm.model
+	if model == "" {
+		model = "qwen2.5-coder:7b"
+	}
+	subMgr := tools.NewSubagentManager(sm.provider, model, sm.workspace, sm.msgBus)
 	subMgr.SetTools(sm.tools) // Grant it access to read/write/exec files
 
 	// SWE100821: Structured provenance-based improvement pipeline
@@ -231,7 +244,14 @@ After writing all skill files, create a summary log entry at %q with:
 		provenancePath, skillOutputDir, sm.workspace+"/provenance/improvement_log.jsonl")
 
 	go func() {
-		// Run improvement loop
+		// SWE100821: Record actual sleep start for accurate fatigue recovery calculation.
+		// Previously used lastActivity which includes idle time before sleep.
+		sleepStart := time.Now()
+
+		// SWE100821: Ensure output directories exist before improvement cycle
+		os.MkdirAll(provenancePath, 0755)
+		os.MkdirAll(skillOutputDir, 0755)
+
 		ctxWithTimeout, runCancel := context.WithTimeout(sleepCtx, 1*time.Hour)
 		defer runCancel()
 
@@ -245,8 +265,8 @@ After writing all skill files, create a summary log entry at %q with:
 			logger.InfoCF("sleep", "Sleep cycle completed naturally.", nil)
 		}
 
-		// Calculate how much fatigue we recovered based on duration asleep
-		sleepDuration := time.Since(sm.lastActivity)
+		// SWE100821: Use actual sleep duration, not time since last activity
+		sleepDuration := time.Since(sleepStart)
 		hoursSlept := sleepDuration.Hours()
 		recovered := hoursSlept * FatigueDecayRate
 
@@ -256,7 +276,8 @@ After writing all skill files, create a summary log entry at %q with:
 				s.FatigueLevel = 0.0
 			}
 			s.IsSleeping = false
-			logger.InfoCF("sleep", fmt.Sprintf("Woke up. Recovered %.2f fatigue. Current Fatigue: %.2f", recovered, s.FatigueLevel), nil)
+			logger.InfoCF("sleep", fmt.Sprintf("Woke up. Slept %.1fh, recovered %.2f fatigue. Current: %.2f",
+				hoursSlept, recovered, s.FatigueLevel), nil)
 		})
 	}()
 }

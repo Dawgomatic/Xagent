@@ -138,12 +138,21 @@ func (c *BaseChannel) HandleMessage(senderID, chatID, content string, media []st
 		return
 	}
 
-	// SWE100821: Rate limit check before expensive LLM processing
+	// SWE100821: Rate limit check — send feedback instead of silent drop.
+	// Previously rate-limited messages were silently discarded, making the bot
+	// appear unresponsive to the user.
 	if c.isRateLimited(senderID) {
 		logger.WarnCF(c.name, "Rate limited", map[string]interface{}{
 			"sender_id": senderID,
 			"chat_id":   chatID,
 		})
+		if c.bus != nil {
+			c.bus.PublishOutbound(bus.OutboundMessage{
+				Channel: c.name,
+				ChatID:  chatID,
+				Content: "I'm processing your previous message. Please wait a moment before sending another.",
+			})
+		}
 		return
 	}
 

@@ -93,15 +93,45 @@ func (c *TelegramChannel) Start(ctx context.Context) error {
 		"username": c.bot.Username(),
 	})
 
+	// SWE100821: Reconnect loop — if the updates channel closes (network drop,
+	// Telegram server restart), re-establish long polling with backoff.
 	go func() {
+		currentUpdates := updates
 		for {
 			select {
 			case <-ctx.Done():
 				return
-			case update, ok := <-updates:
+			case update, ok := <-currentUpdates:
 				if !ok {
-					logger.InfoC("telegram", "Updates channel closed, reconnecting...")
-					return
+					logger.WarnCF("telegram", "Updates channel closed, reconnecting...", nil)
+					c.setRunning(false)
+					backoff := 5 * time.Second
+					for attempt := 1; ; attempt++ {
+						select {
+						case <-ctx.Done():
+							return
+						case <-time.After(backoff):
+						}
+						newUpdates, err := c.bot.UpdatesViaLongPolling(ctx, &telego.GetUpdatesParams{
+							Timeout: 30,
+						})
+						if err != nil {
+							logger.WarnCF("telegram", "Reconnect failed", map[string]interface{}{
+								"attempt": attempt, "error": err.Error(),
+							})
+							if backoff < 5*time.Minute {
+								backoff *= 2
+							}
+							continue
+						}
+						currentUpdates = newUpdates
+						c.setRunning(true)
+						logger.InfoCF("telegram", "Telegram reconnected", map[string]interface{}{
+							"attempt": attempt,
+						})
+						break
+					}
+					continue
 				}
 				if update.Message != nil {
 					c.handleMessage(ctx, update)
@@ -151,16 +181,22 @@ func (c *TelegramChannel) Send(ctx context.Context, msg bus.OutboundMessage) err
 		// Fallback to new message if edit fails
 	}
 
-	tgMsg := tu.Message(tu.ID(chatID), htmlContent)
-	tgMsg.ParseMode = telego.ModeHTML
+	// SWE100821: Split long messages into chunks — Telegram caps at 4096 chars per message.
+	// Without splitting, long agent responses fail with API errors.
+	const maxTgLen = 4096
+	chunks := splitTelegramMessage(htmlContent, maxTgLen)
 
-	if _, err = c.bot.SendMessage(ctx, tgMsg); err != nil {
-		logger.ErrorCF("telegram", "HTML parse failed, falling back to plain text", map[string]interface{}{
-			"error": err.Error(),
-		})
-		tgMsg.ParseMode = ""
-		_, err = c.bot.SendMessage(ctx, tgMsg)
-		return err
+	for _, chunk := range chunks {
+		tgMsg := tu.Message(tu.ID(chatID), chunk)
+		tgMsg.ParseMode = telego.ModeHTML
+
+		if _, err = c.bot.SendMessage(ctx, tgMsg); err != nil {
+			// Fallback to plain text if HTML fails
+			tgMsg.ParseMode = ""
+			if _, err = c.bot.SendMessage(ctx, tgMsg); err != nil {
+				return err
+			}
+		}
 	}
 
 	return nil
@@ -386,6 +422,18 @@ func parseChatID(chatIDStr string) (int64, error) {
 	return id, err
 }
 
+// SWE100821: Pre-compiled regex patterns — avoids recompiling on every message
+var (
+	reHeading    = regexp.MustCompile(`(?m)^#{1,6}\s+(.+)$`)
+	reBlockquote = regexp.MustCompile(`(?m)^>\s*(.*)$`)
+	reLink       = regexp.MustCompile(`\[([^\]]+)\]\(([^)]+)\)`)
+	reBold       = regexp.MustCompile(`\*\*(.+?)\*\*`)
+	reUnderBold  = regexp.MustCompile(`__(.+?)__`)
+	reItalic     = regexp.MustCompile(`_([^_]+)_`)
+	reStrike     = regexp.MustCompile(`~~(.+?)~~`)
+	reBullet     = regexp.MustCompile(`(?m)^[-*]\s+`)
+)
+
 func markdownToTelegramHTML(text string) string {
 	if text == "" {
 		return ""
@@ -397,19 +445,13 @@ func markdownToTelegramHTML(text string) string {
 	inlineCodes := extractInlineCodes(text)
 	text = inlineCodes.text
 
-	text = regexp.MustCompile(`^#{1,6}\s+(.+)$`).ReplaceAllString(text, "$1")
-
-	text = regexp.MustCompile(`^>\s*(.*)$`).ReplaceAllString(text, "$1")
-
+	text = reHeading.ReplaceAllString(text, "$1")
+	text = reBlockquote.ReplaceAllString(text, "$1")
 	text = escapeHTML(text)
+	text = reLink.ReplaceAllString(text, `<a href="$2">$1</a>`)
+	text = reBold.ReplaceAllString(text, "<b>$1</b>")
+	text = reUnderBold.ReplaceAllString(text, "<b>$1</b>")
 
-	text = regexp.MustCompile(`\[([^\]]+)\]\(([^)]+)\)`).ReplaceAllString(text, `<a href="$2">$1</a>`)
-
-	text = regexp.MustCompile(`\*\*(.+?)\*\*`).ReplaceAllString(text, "<b>$1</b>")
-
-	text = regexp.MustCompile(`__(.+?)__`).ReplaceAllString(text, "<b>$1</b>")
-
-	reItalic := regexp.MustCompile(`_([^_]+)_`)
 	text = reItalic.ReplaceAllStringFunc(text, func(s string) string {
 		match := reItalic.FindStringSubmatch(s)
 		if len(match) < 2 {
@@ -418,9 +460,8 @@ func markdownToTelegramHTML(text string) string {
 		return "<i>" + match[1] + "</i>"
 	})
 
-	text = regexp.MustCompile(`~~(.+?)~~`).ReplaceAllString(text, "<s>$1</s>")
-
-	text = regexp.MustCompile(`^[-*]\s+`).ReplaceAllString(text, "• ")
+	text = reStrike.ReplaceAllString(text, "<s>$1</s>")
+	text = reBullet.ReplaceAllString(text, "• ")
 
 	for i, code := range inlineCodes.codes {
 		escaped := escapeHTML(code)
@@ -488,4 +529,37 @@ func escapeHTML(text string) string {
 	text = strings.ReplaceAll(text, "<", "&lt;")
 	text = strings.ReplaceAll(text, ">", "&gt;")
 	return text
+}
+
+// SWE100821: splitTelegramMessage splits text into chunks that fit Telegram's 4096-char limit.
+// Splits on newline boundaries to avoid breaking words/HTML tags mid-line.
+func splitTelegramMessage(text string, maxLen int) []string {
+	if len([]rune(text)) <= maxLen {
+		return []string{text}
+	}
+
+	var chunks []string
+	runes := []rune(text)
+
+	for len(runes) > 0 {
+		if len(runes) <= maxLen {
+			chunks = append(chunks, string(runes))
+			break
+		}
+
+		// Find last newline within limit
+		chunk := runes[:maxLen]
+		splitAt := maxLen
+		for i := len(chunk) - 1; i > maxLen/2; i-- {
+			if chunk[i] == '\n' {
+				splitAt = i + 1
+				break
+			}
+		}
+
+		chunks = append(chunks, string(runes[:splitAt]))
+		runes = runes[splitAt:]
+	}
+
+	return chunks
 }

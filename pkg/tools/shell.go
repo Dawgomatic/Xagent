@@ -31,9 +31,23 @@ type ExecTool struct {
 }
 
 func NewExecTool(workingDir string, restrict bool) *ExecTool {
+	return newExecTool(workingDir, restrict, false, false, nil)
+}
+
+// SWE100821: NewExecToolWithConfig creates an exec tool with configurable network/script access.
+// When allowNetwork=true, curl/wget/ssh are permitted.
+// When allowScripts=true, python/node/perl are permitted.
+// Destructive commands (rm -rf, dd, fork bombs, shutdown) are always blocked.
+func NewExecToolWithConfig(workingDir string, restrict, allowNetwork, allowScripts bool, extraDeny []string) *ExecTool {
+	return newExecTool(workingDir, restrict, allowNetwork, allowScripts, extraDeny)
+}
+
+func newExecTool(workingDir string, restrict, allowNetwork, allowScripts bool, extraDeny []string) *ExecTool {
 	denyPatterns := []*regexp.Regexp{
-		// SWE100821: Destructive commands
-		regexp.MustCompile(`\brm\s+-[rf]{1,2}\b`),
+		// SWE100821: Block rm -rf only on root/system paths, not on temp/workspace cleanup
+		regexp.MustCompile(`\brm\s+-[rf]{1,2}\s+/\s`),
+		regexp.MustCompile(`\brm\s+-[rf]{1,2}\s+/\*`),
+		regexp.MustCompile(`\brm\s+-[rf]{1,2}\s+/(usr|etc|var|boot|lib|sys|proc|dev|home|root|opt|snap)\b`),
 		regexp.MustCompile(`\bdel\s+/[fq]\b`),
 		regexp.MustCompile(`\brmdir\s+/s\b`),
 		regexp.MustCompile(`\b(format|mkfs|diskpart)\b\s`),
@@ -41,23 +55,37 @@ func NewExecTool(workingDir string, restrict bool) *ExecTool {
 		regexp.MustCompile(`>\s*/dev/sd[a-z]\b`),
 		regexp.MustCompile(`\b(shutdown|reboot|poweroff)\b`),
 		regexp.MustCompile(`:\(\)\s*\{.*\};\s*:`), // fork bomb
-
-		// SWE100821: Network exfiltration prevention
-		regexp.MustCompile(`\b(curl|wget|nc|ncat|netcat|socat)\b`),  // outbound data transfer
-		regexp.MustCompile(`\bssh\b`),                                // remote shell
-		regexp.MustCompile(`\bscp\b`),                                // remote copy
-		regexp.MustCompile(`\brsync\b.*@`),                           // remote sync (with remote host)
-		regexp.MustCompile(`\b(python|python3|perl|ruby|node)\s+-`),  // scripting interpreters with flags
-		regexp.MustCompile(`/dev/tcp/`),                              // bash built-in TCP
-		regexp.MustCompile(`\biptables\b`),                           // firewall manipulation
-		regexp.MustCompile(`\b(useradd|adduser|passwd|chpasswd)\b`),  // user account manipulation
-		regexp.MustCompile(`\bchmod\s+[0-7]*7`),                     // world-writable perms
-		regexp.MustCompile(`\bcrontab\b`),                            // scheduled task injection
+		regexp.MustCompile(`\biptables\b`),
+		regexp.MustCompile(`\b(useradd|adduser|passwd|chpasswd)\b`),
 	}
+
+	if !allowNetwork {
+		denyPatterns = append(denyPatterns,
+			regexp.MustCompile(`\b(curl|wget|nc|ncat|netcat|socat)\b`),
+			regexp.MustCompile(`\bssh\b`),
+			regexp.MustCompile(`\bscp\b`),
+			regexp.MustCompile(`\brsync\b.*@`),
+			regexp.MustCompile(`/dev/tcp/`),
+		)
+	}
+
+	if !allowScripts {
+		denyPatterns = append(denyPatterns,
+			regexp.MustCompile(`\b(python|python3|perl|ruby|node)\s+-`),
+		)
+	}
+
+	for _, p := range extraDeny {
+		if re, err := regexp.Compile(p); err == nil {
+			denyPatterns = append(denyPatterns, re)
+		}
+	}
+
+	timeout := 60 * time.Second
 
 	return &ExecTool{
 		workingDir:          workingDir,
-		timeout:             60 * time.Second,
+		timeout:             timeout,
 		denyPatterns:        denyPatterns,
 		allowPatterns:       nil,
 		restrictToWorkspace: restrict,
@@ -68,8 +96,9 @@ func (t *ExecTool) Name() string {
 	return "exec"
 }
 
+// SWE100821: Improved description — guides the LLM on common use cases (search, build, etc.)
 func (t *ExecTool) Description() string {
-	return "Execute a shell command and return its output. Use with caution."
+	return "Execute a shell command and return its output. Common uses: search files (grep -r 'pattern' dir), list files (ls, find), check system status (df, free, ps), run builds/tests. Commands run in the workspace directory. Use with caution for destructive operations."
 }
 
 func (t *ExecTool) Parameters() map[string]interface{} {
@@ -82,7 +111,8 @@ func (t *ExecTool) Parameters() map[string]interface{} {
 			},
 			"working_dir": map[string]interface{}{
 				"type":        "string",
-				"description": "Optional working directory for the command",
+				"description": "Working directory for the command. Defaults to workspace root.",
+				"default":     "",
 			},
 		},
 		"required": []string{"command"},

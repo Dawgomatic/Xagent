@@ -3,6 +3,7 @@ package session
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -288,11 +289,14 @@ func (sm *SessionManager) loadSessions() error {
 		sessionPath := filepath.Join(sm.storage, file.Name())
 		data, err := os.ReadFile(sessionPath)
 		if err != nil {
+			log.Printf("[WARN] session: failed to read %s: %v", file.Name(), err)
 			continue
 		}
 
 		var session Session
 		if err := json.Unmarshal(data, &session); err != nil {
+			// SWE100821: Log corrupt session files instead of silently skipping
+			log.Printf("[WARN] session: corrupt JSON in %s: %v", file.Name(), err)
 			continue
 		}
 

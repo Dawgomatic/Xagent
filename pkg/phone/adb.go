@@ -244,9 +244,25 @@ func (a *ADB) SendSwipe(ctx context.Context, x1, y1, x2, y2, durationMs int) err
 }
 
 // SendText types text into the currently focused field.
+// SWE100821: Escape shell-special chars to prevent ADB shell injection.
+// The ADB "input text" command uses %s for spaces and requires escaping of
+// quotes, backslashes, parentheses, and other shell metacharacters.
 func (a *ADB) SendText(ctx context.Context, text string) error {
-	escaped := strings.ReplaceAll(text, " ", "%s")
-	_, err := a.Shell(ctx, fmt.Sprintf("input text '%s'", escaped))
+	r := strings.NewReplacer(
+		" ", "%s",
+		"'", "\\'",
+		"\"", "\\\"",
+		"\\", "\\\\",
+		"(", "\\(",
+		")", "\\)",
+		"&", "\\&",
+		";", "\\;",
+		"|", "\\|",
+		"$", "\\$",
+		"`", "\\`",
+	)
+	escaped := r.Replace(text)
+	_, err := a.Shell(ctx, fmt.Sprintf("input text %s", escaped))
 	return err
 }
 

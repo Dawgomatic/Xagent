@@ -147,6 +147,15 @@ func RunToolLoop(ctx context.Context, config ToolLoopConfig, messages []provider
 		}
 	}
 
+	// SWE100821: If the loop exhausted max iterations with only tool calls and no final
+	// text response, synthesize a summary instead of returning empty content.
+	// Callers (subagent, sleep) treat empty content as success, confusing users.
+	if finalContent == "" && iteration > 0 {
+		finalContent = fmt.Sprintf("[Tool loop completed %d iterations without a final text response]", iteration)
+		logger.WarnCF("toolloop", "Loop ended without text response",
+			map[string]any{"iterations": iteration, "max": config.MaxIterations})
+	}
+
 	return &ToolLoopResult{
 		Content:    finalContent,
 		Iterations: iteration,

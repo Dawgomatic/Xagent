@@ -130,6 +130,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
   <div class="nav-item" onclick="navigate('epochs')"><span class="nav-icon">&#8634;</span><span>Epochs</span></div>
   <div class="nav-item" onclick="navigate('provenance')"><span class="nav-icon">&#8618;</span><span>Provenance</span></div>
   <div class="nav-item" onclick="navigate('skills')"><span class="nav-icon">&#9733;</span><span>Skills</span></div>
+  <div class="nav-item" onclick="navigate('sensors')"><span class="nav-icon">&#9832;</span><span>Sensors</span></div>
+  <div class="nav-item" onclick="navigate('tools')"><span class="nav-icon">&#9874;</span><span>Tools</span></div>
   <div class="nav-item" onclick="navigate('config')"><span class="nav-icon">&#9881;</span><span>Config</span></div>
   <div class="nav-item" onclick="navigate('system')"><span class="nav-icon">&#9636;</span><span>System</span></div>
 </div>
@@ -158,7 +160,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
     <div class="section"><h3>Skills</h3><div class="list" id="ov-skills"><div class="empty">Loading...</div></div></div>
-    <div class="section"><h3>Peers</h3><div class="list" id="ov-peers"><div class="empty">Loading...</div></div></div>
+    <div class="section"><h3>Goals</h3><div class="list" id="ov-goals"><div class="empty">Loading...</div></div></div>
   </div>
 </div>
 
@@ -267,6 +269,26 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
   </div>
 </div>
 
+<!-- SENSORS -->
+<div class="page" id="page-sensors">
+  <div class="toolbar">
+    <button class="btn btn-primary" onclick="loadSensors()">Refresh</button>
+    <span class="status-msg" id="sensor-status"></span>
+  </div>
+  <div class="section">
+    <h3>Live Sensor Readings</h3>
+    <div class="content-view" id="sensor-readings" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;white-space:pre-wrap;font-family:'Cascadia Code','Fira Code',monospace;font-size:.85rem;line-height:1.8;min-height:200px">Loading...</div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="page" id="page-tools">
+  <div class="section">
+    <h3>Registered Tools</h3>
+    <div id="tools-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px"><div class="empty">Loading...</div></div>
+  </div>
+</div>
+
 <!-- CONFIG -->
 <div class="page" id="page-config">
   <div class="section"><h3>Agent Configuration (secrets redacted)</h3><div class="json-view" id="config-view"><div class="empty">Loading...</div></div></div>
@@ -297,8 +319,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 
 <script>
 // ===== Navigation =====
-var PAGES = ['overview','chat','memory','vault','graph','epochs','provenance','skills','config','system'];
-var TITLES = {overview:'Overview',chat:'Chat',memory:'Memory System',vault:'Obsidian Vault',graph:'Knowledge Graph',epochs:'Epoch History',provenance:'Provenance Log',skills:'Skills',config:'Configuration',system:'System & Metrics'};
+var PAGES = ['overview','chat','memory','vault','graph','epochs','provenance','skills','sensors','tools','config','system'];
+var TITLES = {overview:'Overview',chat:'Chat',memory:'Memory System',vault:'Obsidian Vault',graph:'Knowledge Graph',epochs:'Epoch History',provenance:'Provenance Log',skills:'Skills',sensors:'Sensors & Perception',tools:'Registered Tools',config:'Configuration',system:'System & Metrics'};
 var currentPage = 'overview';
 
 function navigate(page) {
@@ -316,7 +338,7 @@ function navigate(page) {
 }
 
 function loadPage(page) {
-  var loaders = {overview:loadOverview,chat:function(){},memory:loadMemoryPage,vault:loadVaultTree,graph:loadGraph,epochs:loadEpochsList,provenance:loadProvList,skills:loadSkillsGrid,config:loadConfig,system:loadSystem};
+  var loaders = {overview:loadOverview,chat:function(){},memory:loadMemoryPage,vault:loadVaultTree,graph:loadGraph,epochs:loadEpochsList,provenance:loadProvList,skills:loadSkillsGrid,sensors:loadSensors,tools:loadTools,config:loadConfig,system:loadSystem};
   if (loaders[page]) loaders[page]();
 }
 
@@ -333,7 +355,7 @@ function loadOverview() {
   api('/api/epochs').then(function(items){renderListItems('ov-epochs',items,function(e){return '<div class="list-item"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});
   api('/api/provenance').then(function(items){renderListItems('ov-prov',items,function(e){return '<div class="list-item"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});
   api('/api/skills').then(function(items){renderListItems('ov-skills',items,function(e){var n=e.path||e.name||JSON.stringify(e);return '<div class="list-item" style="cursor:pointer" onclick="navigate(\'skills\')"><span>'+esc(n)+'</span>'+(e.description?'<span class="time">'+esc(e.description)+'</span>':'')+'</div>';});});
-  api('/api/peers').then(function(items){renderListItems('ov-peers',items,function(e){return '<div class="list-item"><span>'+esc(JSON.stringify(e))+'</span></div>';});});
+  api('/api/goals').then(function(d){var el=document.getElementById('ov-goals');if(!d||!d.exists){el.innerHTML='<div class="empty">No goals yet</div>';return;}var lines=d.content.split('\n').filter(function(l){return l.trim().match(/^- \[/);});if(lines.length===0){el.innerHTML='<div class="empty">No goals yet</div>';return;}el.innerHTML=lines.slice(0,8).map(function(l){var col=l.indexOf('[x]')>=0?'var(--green)':l.indexOf('[ ]')>=0?'var(--accent)':l.indexOf('[~]')>=0?'var(--orange)':'var(--text-dim)';return '<div class="list-item" onclick="navigate(\'tools\')"><span style="color:'+col+'">'+esc(l.trim())+'</span></div>';}).join('');});
 }
 
 // ===== Chat =====
@@ -834,6 +856,59 @@ function escInline(s){
 // ===== Config =====
 function loadConfig(){api('/api/config').then(function(d){if(!d){document.getElementById('config-view').textContent='Error';return;}document.getElementById('config-view').innerHTML=syntaxHL(d);});}
 
+// ===== Sensors (SWE100821) =====
+function loadSensors(){
+  document.getElementById('sensor-status').textContent='Refreshing...';
+  api('/api/sensors').then(function(d){
+    document.getElementById('sensor-status').textContent='';
+    if(!d||!d.available){document.getElementById('sensor-readings').textContent='No sensor data available. Perception subsystem may not be running.';return;}
+    var raw=d.readings||'';
+    var el=document.getElementById('sensor-readings');
+    el.innerHTML=formatSensorReadings(raw);
+  });
+}
+function formatSensorReadings(raw){
+  if(!raw)return '<div class="empty">No readings</div>';
+  var lines=raw.split('\n');
+  var html='';
+  for(var i=0;i<lines.length;i++){
+    var L=lines[i];
+    if(L.match(/^##\s/)){html+='<div style="color:var(--accent);font-weight:600;font-size:1rem;margin:12px 0 6px">'+esc(L.replace(/^##\s*/,''))+'</div>';continue;}
+    if(L.match(/^###\s/)){html+='<div style="color:var(--cyan);font-weight:500;margin:8px 0 4px;font-size:.9rem">'+esc(L.replace(/^###\s*/,''))+'</div>';continue;}
+    if(L.trim().match(/^[\w\/]+:/)){
+      var parts=L.trim().split(':');
+      var name=parts[0].trim();
+      var val=parts.slice(1).join(':').trim();
+      var numVal=parseFloat(val);
+      var col='var(--text)';
+      if(!isNaN(numVal)){
+        if(name.indexOf('temp')>=0&&numVal>70)col='var(--red)';
+        else if(name.indexOf('temp')>=0&&numVal>50)col='var(--orange)';
+        else if(name.indexOf('ram')>=0&&numVal>80)col='var(--orange)';
+        else if(name.indexOf('disk')>=0&&numVal>85)col='var(--red)';
+        else if(name.indexOf('battery')>=0&&numVal<20)col='var(--red)';
+      }
+      html+='<div style="padding:3px 0 3px 16px;display:flex;gap:12px"><span style="color:var(--text-dim);min-width:140px">'+esc(name)+'</span><span style="color:'+col+';font-weight:500">'+esc(val)+'</span></div>';
+      continue;
+    }
+    if(L.trim())html+='<div style="padding:2px 0">'+esc(L)+'</div>';
+  }
+  return html||'<div class="empty">No readings</div>';
+}
+
+// ===== Tools (SWE100821) =====
+function loadTools(){
+  api('/api/tools').then(function(items){
+    var el=document.getElementById('tools-grid');
+    if(!items||items.length===0){el.innerHTML='<div class="empty">No tools registered</div>';return;}
+    var toolIcons={exec:'&#9881;',phone:'&#128241;',camera:'&#128247;',vision:'&#128065;',fetch:'&#127760;',goals:'&#127919;',skills:'&#9733;',web_search:'&#128269;',browser:'&#127760;',read_file:'&#128196;',write_file:'&#128221;',edit_file:'&#9998;',append_file:'&#128196;',list_directory:'&#128193;',message:'&#128172;',feedback:'&#128077;',vault:'&#128218;',spawn:'&#128101;',subagent:'&#128101;',cron:'&#9200;',i2c:'&#128268;',spi:'&#128268;',usb:'&#128268;',llm_check:'&#129302;'};
+    el.innerHTML=items.map(function(name){
+      var icon=toolIcons[name]||'&#9670;';
+      return '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;align-items:center;gap:10px"><span style="font-size:1.3rem">'+icon+'</span><span style="color:var(--text-bright);font-weight:500;font-size:.9rem">'+esc(name)+'</span></div>';
+    }).join('');
+  });
+}
+
 // ===== System =====
 function loadSystem(){
   api('/api/metrics').then(function(m){if(!m)return;setText('sys-uptime',m.uptime_seconds!=null?m.uptime_seconds:'--');setText('sys-msgs',m.messages_total!=null?m.messages_total:'--');setText('sys-errs',m.messages_errored!=null?m.messages_errored:'--');setText('sys-llm',m.llm_calls_total!=null?m.llm_calls_total:'--');setText('sys-llm-fail',m.llm_calls_failed!=null?m.llm_calls_failed:'--');setText('sys-lat',m.llm_avg_latency_ms!=null?Math.round(m.llm_avg_latency_ms)+'ms':'--');setText('sys-tool',m.tool_calls_total!=null?m.tool_calls_total:'--');});
@@ -857,7 +932,7 @@ function syntaxHL(obj){
 loadOverview();
 initGraphEvents();
 window.addEventListener('resize', function(){ if(currentPage==='graph') resizeGraphCanvas(); });
-setInterval(function(){ if(currentPage==='overview')loadOverview(); if(currentPage==='system')loadSystem(); },10000);
+setInterval(function(){ if(currentPage==='overview')loadOverview(); if(currentPage==='system')loadSystem(); if(currentPage==='sensors')loadSensors(); },10000);
 </script>
 </body>
 </html>` + ""

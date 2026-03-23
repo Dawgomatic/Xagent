@@ -12,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/Dawgomatic/Xagent/pkg/logger"
@@ -28,6 +29,8 @@ type PersonalityTracker struct {
 	// SWE100821: Cache loaded profile — was reading disk on every ForSystemPrompt call
 	cachedProfile     *PersonalityProfile
 	cachedProfileTime time.Time
+	// SWE100821: Mutex — Observe/Analyze/ForSystemPrompt can race from concurrent goroutines
+	mu sync.Mutex
 }
 
 // Observation records a single interaction pattern data point.
@@ -72,6 +75,9 @@ func NewPersonalityTracker(workspace string, provider providers.LLMProvider, mod
 
 // Observe records interaction data for personality analysis.
 func (pt *PersonalityTracker) Observe(userMsgLen, agentMsgLen int, toolsUsed []string) {
+	pt.mu.Lock()
+	defer pt.mu.Unlock()
+
 	pt.observations = append(pt.observations, Observation{
 		Timestamp:   time.Now(),
 		UserMsgLen:  userMsgLen,
@@ -79,7 +85,6 @@ func (pt *PersonalityTracker) Observe(userMsgLen, agentMsgLen int, toolsUsed []s
 		ToolsUsed:   toolsUsed,
 	})
 
-	// Flush observations periodically to avoid unbounded growth
 	if len(pt.observations) > 100 {
 		pt.observations = pt.observations[len(pt.observations)-50:]
 	}
@@ -88,7 +93,10 @@ func (pt *PersonalityTracker) Observe(userMsgLen, agentMsgLen int, toolsUsed []s
 // Analyze examines accumulated observations and proposes personality adaptations.
 // Call this periodically (e.g., weekly via cron).
 func (pt *PersonalityTracker) Analyze(ctx context.Context) (*PersonalityProfile, error) {
-	profile := pt.loadProfile()
+	pt.mu.Lock()
+	defer pt.mu.Unlock()
+
+	profile := pt.loadProfileLocked()
 
 	if len(pt.observations) < 10 {
 		return profile, nil // not enough data
@@ -145,8 +153,7 @@ func (pt *PersonalityTracker) Analyze(ctx context.Context) (*PersonalityProfile,
 	profile.TotalSamples += n
 	profile.LastUpdated = time.Now()
 
-	// Save profile
-	pt.saveProfile(profile)
+	pt.saveProfileLocked(profile)
 
 	// Clear processed observations
 	pt.observations = nil
@@ -164,7 +171,10 @@ func (pt *PersonalityTracker) Analyze(ctx context.Context) (*PersonalityProfile,
 
 // ForSystemPrompt returns personality guidance for the system prompt.
 func (pt *PersonalityTracker) ForSystemPrompt() string {
-	profile := pt.loadProfile()
+	pt.mu.Lock()
+	defer pt.mu.Unlock()
+
+	profile := pt.loadProfileLocked()
 	if profile.TotalSamples < 10 {
 		return ""
 	}
@@ -177,11 +187,13 @@ func (pt *PersonalityTracker) ForSystemPrompt() string {
 		sb.WriteString(fmt.Sprintf("- Preferred response length: %s\n", profile.PreferredLen))
 	}
 
+	// SWE100821: verbosity is derived from agent output length, not user preference.
+	// Frame it as observed style so the LLM doesn't hallucinate user intent.
 	if v, ok := profile.Traits["verbosity"]; ok {
 		if v < 0.3 {
-			sb.WriteString("- User prefers concise, direct responses\n")
+			sb.WriteString("- Your responses in this conversation tend to be concise\n")
 		} else if v > 0.7 {
-			sb.WriteString("- User appreciates detailed, thorough responses\n")
+			sb.WriteString("- Your responses in this conversation tend to be detailed\n")
 		}
 	}
 
@@ -194,7 +206,10 @@ func (pt *PersonalityTracker) ForSystemPrompt() string {
 
 // GetDiff returns a human-readable diff of personality changes since the given date.
 func (pt *PersonalityTracker) GetDiff(since time.Time) string {
-	profile := pt.loadProfile()
+	pt.mu.Lock()
+	defer pt.mu.Unlock()
+
+	profile := pt.loadProfileLocked()
 	var sb strings.Builder
 	sb.WriteString("## Personality Evolution\n\n")
 
@@ -214,8 +229,8 @@ func (pt *PersonalityTracker) GetDiff(since time.Time) string {
 	return sb.String()
 }
 
-// SWE100821: Cached profile load — was reading disk on every call (ForSystemPrompt, Analyze)
-func (pt *PersonalityTracker) loadProfile() *PersonalityProfile {
+// SWE100821: Cached profile load — caller must hold pt.mu.
+func (pt *PersonalityTracker) loadProfileLocked() *PersonalityProfile {
 	if pt.cachedProfile != nil && time.Since(pt.cachedProfileTime) < 30*time.Second {
 		return pt.cachedProfile
 	}
@@ -233,20 +248,35 @@ func (pt *PersonalityTracker) loadProfile() *PersonalityProfile {
 		return profile
 	}
 
-	json.Unmarshal(data, profile)
+	// SWE100821: Log corrupt profile instead of silently returning zeroed fields
+	if err := json.Unmarshal(data, profile); err != nil {
+		logger.WarnCF("personality", "Corrupt personality.json, using defaults",
+			map[string]interface{}{"error": err.Error()})
+		return profile
+	}
 	pt.cachedProfile = profile
 	pt.cachedProfileTime = time.Now()
 	return profile
 }
 
-func (pt *PersonalityTracker) saveProfile(profile *PersonalityProfile) {
-	os.MkdirAll(filepath.Dir(pt.profilePath), 0755)
-	data, err := json.MarshalIndent(profile, "", "  ")
-	if err != nil {
+// SWE100821: Caller must hold pt.mu. Errors are now logged instead of silently ignored.
+func (pt *PersonalityTracker) saveProfileLocked(profile *PersonalityProfile) {
+	if err := os.MkdirAll(filepath.Dir(pt.profilePath), 0755); err != nil {
+		logger.WarnCF("personality", "Failed to create state dir",
+			map[string]interface{}{"error": err.Error()})
 		return
 	}
-	os.WriteFile(pt.profilePath, data, 0600)
-	// SWE100821: Invalidate cache on save
+	data, err := json.MarshalIndent(profile, "", "  ")
+	if err != nil {
+		logger.WarnCF("personality", "Failed to marshal profile",
+			map[string]interface{}{"error": err.Error()})
+		return
+	}
+	if err := os.WriteFile(pt.profilePath, data, 0600); err != nil {
+		logger.WarnCF("personality", "Failed to save personality.json",
+			map[string]interface{}{"error": err.Error()})
+		return
+	}
 	pt.cachedProfile = profile
 	pt.cachedProfileTime = time.Now()
 }

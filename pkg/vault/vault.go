@@ -131,34 +131,35 @@ func (v *VaultWriter) WriteSessionNote(data SessionData) error {
 		truncStr(data.SessionKey, 30)))
 	sessionPath := filepath.Join(v.root, "Sessions", filename+".md")
 
+	// SWE100821: Propagate write errors instead of always returning nil.
+	// Previously all errors were logged but swallowed, so callers couldn't detect failure.
+	var writeErr error
 	func() {
 		unlock := v.lockFile(sessionPath)
 		defer unlock()
 		if err := os.WriteFile(sessionPath, []byte(note), 0644); err != nil {
-			logger.WarnCF("vault", "Failed to write session file", map[string]interface{}{"error": err.Error()})
+			writeErr = fmt.Errorf("write session file: %w", err)
 		}
 	}()
+	if writeErr != nil {
+		return writeErr
+	}
 
-	// Update daily note
 	dateStr := data.Timestamp.Format("2006-01-02")
 	v.appendDailyEntry(dateStr, data, topics)
 
-	// Update tool notes
 	for _, tool := range data.ToolsUsed {
 		v.updateToolNote(tool, data.SessionKey, data.Timestamp)
 	}
 
-	// Update topic notes
 	for _, topic := range topics {
 		v.updateTopicNote(topic, data.SessionKey, data.Timestamp, data.UserMessage)
 	}
 
-	// Update channel note
 	if data.Channel != "" {
 		v.updateChannelNote(data.Channel, data.SessionKey, data.Timestamp)
 	}
 
-	// Update model note
 	if data.Model != "" {
 		v.updateModelNote(data.Model, data.SessionKey, data.Timestamp)
 	}

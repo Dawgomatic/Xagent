@@ -5,6 +5,7 @@
 package hwprofile
 
 import (
+	"context"
 	"fmt"
 	"math"
 	"os"
@@ -339,8 +340,10 @@ func detectGPU(platform string) GPUInfo {
 		return info
 	}
 
-	// nvidia-smi for discrete GPUs
-	out, err := exec.Command("nvidia-smi",
+	// SWE100821: Timeout nvidia-smi — hung GPU driver can block detection indefinitely
+	nvidiaCtx, nvidiaCancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer nvidiaCancel()
+	out, err := exec.CommandContext(nvidiaCtx, "nvidia-smi",
 		"--query-gpu=name,memory.total,driver_version",
 		"--format=csv,noheader,nounits").Output()
 	if err != nil {
@@ -503,7 +506,10 @@ func WatchResources(interval time.Duration, onChange func(old, new *Profile)) fu
 // FindOllamaModels returns the list of locally available Ollama models.
 // SWE100821: Used to verify the recommended model is actually pulled.
 func FindOllamaModels() []string {
-	out, err := exec.Command("ollama", "list").Output()
+	// SWE100821: Timeout — ollama server may be unresponsive
+	ollamaCtx, ollamaCancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer ollamaCancel()
+	out, err := exec.CommandContext(ollamaCtx, "ollama", "list").Output()
 	if err != nil {
 		return nil
 	}

@@ -30,10 +30,17 @@ type VisionTool struct {
 }
 
 // NewVisionTool creates a vision tool connected to local Ollama.
-func NewVisionTool(workspace string) *VisionTool {
+// SWE100821: Accept configurable model/URL — embedded devices use moondream instead of llava.
+func NewVisionTool(workspace, model, ollamaURL string) *VisionTool {
+	if model == "" {
+		model = "moondream"
+	}
+	if ollamaURL == "" {
+		ollamaURL = "http://localhost:11434"
+	}
 	return &VisionTool{
-		ollamaURL: "http://localhost:11434",
-		model:     "llava",
+		ollamaURL: ollamaURL,
+		model:     model,
 		workspace: workspace,
 	}
 }
@@ -56,11 +63,14 @@ func (t *VisionTool) Parameters() map[string]interface{} {
 			},
 			"question": map[string]interface{}{
 				"type":        "string",
-				"description": "What to look for or ask about the image (default: 'Describe this image in detail')",
+				"description": "What to look for or ask about the image",
+				"default":     "Describe this image in detail",
 			},
+			// SWE100821: Default matches NewVisionTool (moondream for embedded)
 			"model": map[string]interface{}{
 				"type":        "string",
-				"description": "Vision model to use (default: llava). Options: llava, llama3.2-vision",
+				"description": "Vision model to use. Options: moondream, llava, llama3.2-vision",
+				"default":     "moondream",
 			},
 		},
 		"required": []string{"image_path"},

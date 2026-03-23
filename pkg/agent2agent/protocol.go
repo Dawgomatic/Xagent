@@ -44,12 +44,11 @@ type MessageHandler func(ctx context.Context, msg A2AMessage) (response string, 
 
 // A2AHub manages agent-to-agent communication.
 type A2AHub struct {
-	agentID     string
-	knownPeers  map[string]string // agentID -> endpoint URL
-	handler     MessageHandler
-	client      *http.Client
-	mu          sync.RWMutex
-	inbox       chan A2AMessage
+	agentID    string
+	knownPeers map[string]string // agentID -> endpoint URL
+	handler    MessageHandler
+	client     *http.Client
+	mu         sync.RWMutex
 }
 
 // NewA2AHub creates a new agent-to-agent communication hub.
@@ -58,7 +57,6 @@ func NewA2AHub(agentID string) *A2AHub {
 		agentID:    agentID,
 		knownPeers: make(map[string]string),
 		client:     &http.Client{Timeout: 30 * time.Second},
-		inbox:      make(chan A2AMessage, 100),
 	}
 }
 
@@ -170,7 +168,9 @@ func (h *A2AHub) HTTPHandler() http.HandlerFunc {
 			return
 		}
 
-		body, err := io.ReadAll(r.Body)
+		// SWE100821: Cap inbound body to 1MB to prevent DoS from oversized messages
+		const maxBody = 1024 * 1024
+		body, err := io.ReadAll(io.LimitReader(r.Body, maxBody))
 		if err != nil {
 			http.Error(w, "failed to read body", http.StatusBadRequest)
 			return
@@ -222,9 +222,16 @@ func (h *A2AHub) sendToEndpoint(ctx context.Context, endpoint string, msg A2AMes
 	}
 	defer resp.Body.Close()
 
-	respBody, err := io.ReadAll(resp.Body)
+	// SWE100821: Cap response body to prevent memory exhaustion from malicious peers
+	const maxBody = 1024 * 1024
+	respBody, err := io.ReadAll(io.LimitReader(resp.Body, maxBody))
 	if err != nil {
 		return nil, err
+	}
+
+	// SWE100821: Check HTTP status — non-2xx was silently parsed as partial/empty response
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		return nil, fmt.Errorf("a2a peer returned %d: %s", resp.StatusCode, string(respBody))
 	}
 
 	var a2aResp A2AResponse

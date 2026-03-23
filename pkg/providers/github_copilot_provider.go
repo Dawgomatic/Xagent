@@ -25,7 +25,8 @@ func NewGitHubCopilotProvider(uri string, connectMode string, model string) (*Gi
 	}
 	switch connectMode {
 	case "stdio":
-		// TODO: implement stdio transport
+		// SWE100821: stdio transport not implemented — fail loudly instead of returning nil session
+		return nil, fmt.Errorf("github copilot: stdio connect mode is not yet implemented; use 'grpc'")
 	case "grpc":
 		client = copilot.NewClient(&copilot.ClientOptions{
 			CLIUrl: uri,
@@ -68,11 +69,22 @@ func (p *GitHubCopilotProvider) Chat(ctx context.Context, messages []Message, to
 		})
 	}
 
-	fullcontent, _ := json.Marshal(out)
+	fullcontent, err := json.Marshal(out)
+	if err != nil {
+		return nil, fmt.Errorf("github copilot: marshal messages: %w", err)
+	}
 
-	content, _ := p.session.Send(ctx, copilot.MessageOptions{
+	// SWE100821: Guard against nil session — can happen if constructor was called with unknown mode
+	if p.session == nil {
+		return nil, fmt.Errorf("github copilot: session not initialized (connect_mode=%s)", p.connectMode)
+	}
+
+	content, err := p.session.Send(ctx, copilot.MessageOptions{
 		Prompt: string(fullcontent),
 	})
+	if err != nil {
+		return nil, fmt.Errorf("github copilot: send failed: %w", err)
+	}
 
 	return &LLMResponse{
 		FinishReason: "stop",

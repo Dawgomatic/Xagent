@@ -57,8 +57,11 @@ func NewManager(workspace string) *Manager {
 			}
 		}
 	} else {
-		// Load from new location
-		sm.load()
+		// SWE100821: Check load errors — corrupt JSON previously left zero state, and next
+		// SetLastChannel would overwrite the good file with empty defaults.
+		if err := sm.load(); err != nil {
+			log.Printf("[WARN] state: failed to load %s: %v (using defaults)", stateFile, err)
+		}
 	}
 
 	return sm

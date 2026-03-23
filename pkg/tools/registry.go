@@ -47,10 +47,15 @@ func (r *ToolRegistry) Execute(ctx context.Context, name string, args map[string
 // If the tool implements AsyncTool and a non-nil callback is provided,
 // the callback will be set on the tool before execution.
 func (r *ToolRegistry) ExecuteWithContext(ctx context.Context, name string, args map[string]interface{}, channel, chatID string, asyncCallback AsyncCallback) *ToolResult {
+	// SWE100821: Log tool name + arg keys only — full args can leak secrets (tokens, passwords)
+	argKeys := make([]string, 0, len(args))
+	for k := range args {
+		argKeys = append(argKeys, k)
+	}
 	logger.InfoCF("tool", "Tool execution started",
 		map[string]interface{}{
-			"tool": name,
-			"args": args,
+			"tool":     name,
+			"arg_keys": argKeys,
 		})
 
 	tool, ok := r.Get(name)

@@ -123,9 +123,13 @@ func DisableFileLogging() {
 }
 
 func logMessage(level LogLevel, component string, message string, fields map[string]interface{}) {
+	// SWE100821: Read level under lock — was racing with SetLevel
+	mu.RLock()
 	if level < currentLevel {
+		mu.RUnlock()
 		return
 	}
+	mu.RUnlock()
 
 	entry := LogEntry{
 		Level:     logLevelNames[level],
@@ -135,7 +139,6 @@ func logMessage(level LogLevel, component string, message string, fields map[str
 		Fields:    fields,
 	}
 
-	// SWE100821: runtime.Caller is expensive (~500ns) — only include for DEBUG/ERROR/FATAL
 	if level == DEBUG || level >= ERROR {
 		if pc, file, line, ok := runtime.Caller(2); ok {
 			fn := runtime.FuncForPC(pc)
@@ -145,16 +148,23 @@ func logMessage(level LogLevel, component string, message string, fields map[str
 		}
 	}
 
-	// SWE100821: Write to buffered writer instead of raw file.WriteString
-	if logger.writer != nil {
+	// SWE100821: Hold lock for writer access — was racing with EnableFileLogging/DisableFileLogging
+	mu.RLock()
+	w := logger.writer
+	mu.RUnlock()
+
+	if w != nil {
 		jsonData, err := json.Marshal(entry)
 		if err == nil {
-			logger.writer.Write(jsonData)
-			logger.writer.WriteByte('\n')
-		}
-		// Flush immediately on FATAL/ERROR for visibility
-		if level >= ERROR {
-			logger.writer.Flush()
+			mu.Lock()
+			if logger.writer != nil {
+				logger.writer.Write(jsonData)
+				logger.writer.WriteByte('\n')
+				if level >= ERROR {
+					logger.writer.Flush()
+				}
+			}
+			mu.Unlock()
 		}
 	}
 

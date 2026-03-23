@@ -72,10 +72,12 @@ func DownloadFile(url, filename string, opts DownloadOptions) string {
 		return ""
 	}
 
-	// Generate unique filename with UUID prefix to prevent conflicts
+	// SWE100821: safeName already includes the extension; appending ext again caused
+	// double extensions like "photo.jpg.jpg". Strip extension from safeName first.
 	ext := filepath.Ext(filename)
 	safeName := SanitizeFilename(filename)
-	localPath := filepath.Join(mediaDir, uuid.New().String()[:8]+"_"+safeName+ext)
+	nameNoExt := strings.TrimSuffix(safeName, ext)
+	localPath := filepath.Join(mediaDir, uuid.New().String()[:8]+"_"+nameNoExt+ext)
 
 	// Create HTTP request
 	req, err := http.NewRequest("GET", url, nil)
