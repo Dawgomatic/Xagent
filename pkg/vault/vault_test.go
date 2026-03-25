@@ -62,13 +62,23 @@ func TestWriteSessionNote(t *testing.T) {
 		t.Fatalf("WriteSessionNote failed: %v", err)
 	}
 
-	// Check session note exists
+	// Check session note exists (skip Sessions/Archive subdir)
 	sessions, _ := os.ReadDir(filepath.Join(dir, "Sessions"))
-	if len(sessions) == 0 {
+	var sessionName string
+	for _, e := range sessions {
+		if e.IsDir() {
+			continue
+		}
+		if strings.HasSuffix(strings.ToLower(e.Name()), ".md") {
+			sessionName = e.Name()
+			break
+		}
+	}
+	if sessionName == "" {
 		t.Fatal("no session notes created")
 	}
 
-	content, _ := os.ReadFile(filepath.Join(dir, "Sessions", sessions[0].Name()))
+	content, _ := os.ReadFile(filepath.Join(dir, "Sessions", sessionName))
 	note := string(content)
 
 	// Verify frontmatter

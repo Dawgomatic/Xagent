@@ -633,8 +633,8 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	}
 	ctxWg.Wait()
 
-	// SWE100821: Compress history when it exceeds threshold to preserve context window
-	if al.compressor != nil && len(history) > 20 {
+	// SWE100821: Compress history when it exceeds threshold to preserve context window (higher = more "short-term" recall before summarization)
+	if al.compressor != nil && len(history) > 40 {
 		compressed, recent, compErr := al.compressor.CompressHistory(ctx, history)
 		if compErr == nil && compressed != "" {
 			if summary != "" {

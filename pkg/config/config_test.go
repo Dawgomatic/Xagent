@@ -13,6 +13,9 @@ func TestDefaultConfig_HeartbeatEnabled(t *testing.T) {
 	if !cfg.Heartbeat.Enabled {
 		t.Error("Heartbeat should be enabled by default")
 	}
+	if cfg.Heartbeat.Interval != 60 {
+		t.Errorf("Heartbeat interval should default to 60 minutes, got %d", cfg.Heartbeat.Interval)
+	}
 }
 
 // TestDefaultConfig_WorkspacePath verifies workspace path is correctly set
@@ -62,16 +65,15 @@ func TestDefaultConfig_Temperature(t *testing.T) {
 	}
 }
 
-// TestDefaultConfig_Gateway verifies gateway defaults
+// TestDefaultConfig_Gateway verifies gateway defaults — SWE100821: max-capability defaults bind all interfaces with remote_access
 func TestDefaultConfig_Gateway(t *testing.T) {
 	cfg := DefaultConfig()
 
-	// SWE100821: Default is loopback; use gateway.remote_access or host 0.0.0.0 for VPN/Tailscale
-	if cfg.Gateway.Host != "127.0.0.1" {
-		t.Error("Gateway host should default to loopback")
+	if cfg.Gateway.Host != "0.0.0.0" {
+		t.Error("Gateway host should default to all interfaces for max-capability config")
 	}
-	if cfg.Gateway.RemoteAccess {
-		t.Error("Gateway remote_access should be off by default")
+	if !cfg.Gateway.RemoteAccess {
+		t.Error("Gateway remote_access should be on by default")
 	}
 	if cfg.Gateway.Port == 0 {
 		t.Error("Gateway port should have default value")
@@ -107,34 +109,14 @@ func TestDefaultConfig_Providers(t *testing.T) {
 	}
 }
 
-// TestDefaultConfig_Channels verifies channels are disabled by default
+// TestDefaultConfig_Channels verifies channel flags are on by default — SWE100821: credentials still required in channels/manager.go
 func TestDefaultConfig_Channels(t *testing.T) {
 	cfg := DefaultConfig()
-
-	// Verify all channels are disabled by default
-	if cfg.Channels.WhatsApp.Enabled {
-		t.Error("WhatsApp should be disabled by default")
-	}
-	if cfg.Channels.Telegram.Enabled {
-		t.Error("Telegram should be disabled by default")
-	}
-	if cfg.Channels.Feishu.Enabled {
-		t.Error("Feishu should be disabled by default")
-	}
-	if cfg.Channels.Discord.Enabled {
-		t.Error("Discord should be disabled by default")
-	}
-	if cfg.Channels.MaixCam.Enabled {
-		t.Error("MaixCam should be disabled by default")
-	}
-	if cfg.Channels.QQ.Enabled {
-		t.Error("QQ should be disabled by default")
-	}
-	if cfg.Channels.DingTalk.Enabled {
-		t.Error("DingTalk should be disabled by default")
-	}
-	if cfg.Channels.Slack.Enabled {
-		t.Error("Slack should be disabled by default")
+	ch := cfg.Channels
+	if !ch.WhatsApp.Enabled || !ch.Telegram.Enabled || !ch.Feishu.Enabled || !ch.Discord.Enabled ||
+		!ch.MaixCam.Enabled || !ch.QQ.Enabled || !ch.DingTalk.Enabled || !ch.Slack.Enabled ||
+		!ch.LINE.Enabled || !ch.OneBot.Enabled {
+		t.Error("All channel enabled flags should be true by default")
 	}
 }
 
@@ -148,6 +130,12 @@ func TestDefaultConfig_WebTools(t *testing.T) {
 	}
 	if cfg.Tools.Web.Brave.APIKey != "" {
 		t.Error("Brave API key should be empty by default")
+	}
+	if !cfg.Tools.Web.Brave.Enabled {
+		t.Error("Brave search should be enabled by default")
+	}
+	if !cfg.Tools.Exec.AllowNetwork || !cfg.Tools.Exec.AllowScripts {
+		t.Error("Exec allow_network and allow_scripts should be true by default")
 	}
 	if cfg.Tools.Web.DuckDuckGo.MaxResults != 5 {
 		t.Error("Expected DuckDuckGo MaxResults 5, got ", cfg.Tools.Web.DuckDuckGo.MaxResults)
@@ -191,8 +179,8 @@ func TestConfig_Complete(t *testing.T) {
 	if cfg.Agents.Defaults.MaxToolIterations == 0 {
 		t.Error("MaxToolIterations should not be zero")
 	}
-	if cfg.Gateway.Host != "127.0.0.1" {
-		t.Error("Gateway host should default to loopback")
+	if cfg.Gateway.Host != "0.0.0.0" {
+		t.Error("Gateway host should default to all interfaces")
 	}
 	if cfg.Gateway.Port == 0 {
 		t.Error("Gateway port should have default value")

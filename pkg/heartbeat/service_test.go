@@ -16,7 +16,7 @@ func TestExecuteHeartbeat_Async(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 30, true)
+	hs := NewHeartbeatService(tmpDir, 30, true, "")
 	hs.stopChan = make(chan struct{}) // Enable for testing
 
 	asyncCalled := false
@@ -54,7 +54,7 @@ func TestExecuteHeartbeat_Error(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 30, true)
+	hs := NewHeartbeatService(tmpDir, 30, true, "")
 	hs.stopChan = make(chan struct{}) // Enable for testing
 
 	hs.SetHandler(func(prompt, channel, chatID string) *tools.ToolResult {
@@ -92,7 +92,7 @@ func TestExecuteHeartbeat_Silent(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 30, true)
+	hs := NewHeartbeatService(tmpDir, 30, true, "")
 	hs.stopChan = make(chan struct{}) // Enable for testing
 
 	hs.SetHandler(func(prompt, channel, chatID string) *tools.ToolResult {
@@ -130,7 +130,7 @@ func TestHeartbeatService_StartStop(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 1, true)
+	hs := NewHeartbeatService(tmpDir, 1, true, "")
 
 	err = hs.Start()
 	if err != nil {
@@ -149,7 +149,7 @@ func TestHeartbeatService_Disabled(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 1, false)
+	hs := NewHeartbeatService(tmpDir, 1, false, "")
 
 	if hs.enabled != false {
 		t.Error("Expected service to be disabled")
@@ -166,7 +166,7 @@ func TestExecuteHeartbeat_NilResult(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 30, true)
+	hs := NewHeartbeatService(tmpDir, 30, true, "")
 	hs.stopChan = make(chan struct{}) // Enable for testing
 
 	hs.SetHandler(func(prompt, channel, chatID string) *tools.ToolResult {
@@ -188,7 +188,7 @@ func TestLogPath(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 30, true)
+	hs := NewHeartbeatService(tmpDir, 30, true, "")
 
 	// Write a log entry
 	hs.log("INFO", "Test log entry")
@@ -208,7 +208,7 @@ func TestHeartbeatFilePath(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	hs := NewHeartbeatService(tmpDir, 30, true)
+	hs := NewHeartbeatService(tmpDir, 30, true, "")
 
 	// Trigger default template creation
 	hs.buildPrompt()
@@ -217,5 +217,18 @@ func TestHeartbeatFilePath(t *testing.T) {
 	expectedPath := filepath.Join(tmpDir, "HEARTBEAT.md")
 	if _, err := os.Stat(expectedPath); os.IsNotExist(err) {
 		t.Errorf("Expected HEARTBEAT.md at %s, but it doesn't exist", expectedPath)
+	}
+}
+
+// TestResolveNotifyTarget_DiscordOverride verifies SWE100821: fixed Discord channel wins over last_channel state
+func TestResolveNotifyTarget_DiscordOverride(t *testing.T) {
+	tmpDir := t.TempDir()
+	hs := NewHeartbeatService(tmpDir, 30, true, "123456789012345678")
+	if err := hs.state.SetLastChannel("telegram:999"); err != nil {
+		t.Fatal(err)
+	}
+	ch, id := hs.resolveNotifyTarget()
+	if ch != "discord" || id != "123456789012345678" {
+		t.Fatalf("resolveNotifyTarget = %q %q, want discord + snowflake", ch, id)
 	}
 }

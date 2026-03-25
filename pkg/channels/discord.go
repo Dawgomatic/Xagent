@@ -7,12 +7,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bwmarrin/discordgo"
 	"github.com/Dawgomatic/Xagent/pkg/bus"
 	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/utils"
 	"github.com/Dawgomatic/Xagent/pkg/voice"
+	"github.com/bwmarrin/discordgo"
 )
 
 const (
@@ -276,7 +276,16 @@ func (c *DiscordChannel) handleMessage(s *discordgo.Session, m *discordgo.Messag
 		"is_dm":        fmt.Sprintf("%t", m.GuildID == ""),
 	}
 
-	c.HandleMessage(senderID, m.ChannelID, content, mediaPaths, metadata)
+	// SWE100821: session_key_mode guild_user — one conversation per user per server (cross-channel memory); default is per Discord channel
+	sessionKey := fmt.Sprintf("%s:%s", c.name, m.ChannelID)
+	if strings.ToLower(strings.TrimSpace(c.config.SessionKeyMode)) == "guild_user" {
+		if m.GuildID != "" {
+			sessionKey = fmt.Sprintf("discord:guild:%s:user:%s", m.GuildID, senderID)
+		} else {
+			sessionKey = fmt.Sprintf("discord:dm:%s", senderID)
+		}
+	}
+	c.HandleMessageWithSessionKey(senderID, m.ChannelID, sessionKey, content, mediaPaths, metadata)
 }
 
 func (c *DiscordChannel) downloadAttachment(url, filename string) string {

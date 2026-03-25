@@ -23,7 +23,7 @@ import (
 
 const (
 	minIntervalMinutes     = 5
-	defaultIntervalMinutes = 30
+	defaultIntervalMinutes = 60 // SWE100821: align with config DefaultConfig hourly heartbeat
 )
 
 // HeartbeatHandler is the function type for handling heartbeat.
@@ -39,12 +39,14 @@ type HeartbeatService struct {
 	handler   HeartbeatHandler
 	interval  time.Duration
 	enabled   bool
-	mu        sync.RWMutex
-	stopChan  chan struct{}
+	// SWE100821: Optional Discord channel snowflake — when set, heartbeat delivery uses this channel instead of last active channel
+	discordNotifyChannelID string
+	mu                     sync.RWMutex
+	stopChan               chan struct{}
 }
 
-// NewHeartbeatService creates a new heartbeat service
-func NewHeartbeatService(workspace string, intervalMinutes int, enabled bool) *HeartbeatService {
+// NewHeartbeatService creates a new heartbeat service. discordNotifyChannelID may be empty.
+func NewHeartbeatService(workspace string, intervalMinutes int, enabled bool, discordNotifyChannelID string) *HeartbeatService {
 	// Apply minimum interval
 	if intervalMinutes < minIntervalMinutes && intervalMinutes != 0 {
 		intervalMinutes = minIntervalMinutes
@@ -55,10 +57,11 @@ func NewHeartbeatService(workspace string, intervalMinutes int, enabled bool) *H
 	}
 
 	return &HeartbeatService{
-		workspace: workspace,
-		interval:  time.Duration(intervalMinutes) * time.Minute,
-		enabled:   enabled,
-		state:     state.NewManager(workspace),
+		workspace:              workspace,
+		interval:               time.Duration(intervalMinutes) * time.Minute,
+		enabled:                enabled,
+		state:                  state.NewManager(workspace),
+		discordNotifyChannelID: strings.TrimSpace(discordNotifyChannelID),
 	}
 }
 
@@ -170,12 +173,8 @@ func (hs *HeartbeatService) executeHeartbeat() {
 		return
 	}
 
-	// Get last channel info for context
-	lastChannel := hs.state.GetLastChannel()
-	channel, chatID := hs.parseLastChannel(lastChannel)
-
-	// Debug log for channel resolution
-	hs.logInfo("Resolved channel: %s, chatID: %s (from lastChannel: %s)", channel, chatID, lastChannel)
+	channel, chatID := hs.resolveNotifyTarget()
+	hs.logInfo("Heartbeat notify target: channel=%s chatID=%s", channel, chatID)
 
 	result := handler(prompt, channel, chatID)
 
@@ -300,17 +299,9 @@ func (hs *HeartbeatService) sendResponse(response string) {
 		return
 	}
 
-	// Get last channel from state
-	lastChannel := hs.state.GetLastChannel()
-	if lastChannel == "" {
-		hs.logInfo("No last channel recorded, heartbeat result not sent")
-		return
-	}
-
-	platform, userID := hs.parseLastChannel(lastChannel)
-
-	// Skip internal channels that can't receive messages
+	platform, userID := hs.resolveNotifyTarget()
 	if platform == "" || userID == "" {
+		hs.logInfo("No heartbeat delivery target (set heartbeat.discord_notify_channel_id or chat with the bot once)")
 		return
 	}
 
@@ -346,6 +337,19 @@ func (hs *HeartbeatService) parseLastChannel(lastChannel string) (platform, user
 	}
 
 	return platform, userID
+}
+
+// resolveNotifyTarget returns channel name and chat/user ID for outbound heartbeat.
+// SWE100821: Prefer discord_notify_channel_id when set; else last non-internal channel from state.
+func (hs *HeartbeatService) resolveNotifyTarget() (platform, chatID string) {
+	hs.mu.RLock()
+	discordID := hs.discordNotifyChannelID
+	hs.mu.RUnlock()
+	if discordID != "" {
+		return "discord", discordID
+	}
+	lastChannel := hs.state.GetLastChannel()
+	return hs.parseLastChannel(lastChannel)
 }
 
 // logInfo logs an informational message to the heartbeat log

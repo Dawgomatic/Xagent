@@ -84,7 +84,9 @@ func (v *VaultWriter) Init() error {
 
 	dirs := []string{
 		"Sessions",
+		"Sessions/Archive",
 		"Daily",
+		"Daily/Consolidated",
 		"Tools",
 		"Topics",
 		"Dreams",
@@ -448,7 +450,9 @@ This vault is automatically maintained by **xagent**. Open it in [Obsidian](http
 | Folder | Contents |
 |--------|----------|
 | Sessions/ | One note per conversation turn — hub nodes linking everything |
+| Sessions/Archive/ | SWE100821: Full session bodies after daily consolidation (stubs remain in Sessions/) |
 | Daily/ | Daily aggregates — timeline spine of the graph |
+| Daily/Consolidated/ | SWE100821: Rollup indexes after consolidation |
 | Tools/ | One note per tool — shows usage patterns |
 | Topics/ | Extracted topics — shows recurring themes |
 | Dreams/ | Dream mode reflections — autonomous insights |

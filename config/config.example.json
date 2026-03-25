@@ -2,7 +2,7 @@
   "agents": {
     "defaults": {
       "workspace": "~/.xagent/workspace",
-      "restrict_to_workspace": true,
+      "restrict_to_workspace": false,
       "model": "glm-4.7",
       "max_tokens": 8192,
       "temperature": 0.7,
@@ -11,49 +11,56 @@
   },
   "channels": {
     "telegram": {
-      "enabled": false,
+      "enabled": true,
       "token": "YOUR_TELEGRAM_BOT_TOKEN",
       "proxy": "",
       "allow_from": ["YOUR_USER_ID"]
     },
     "discord": {
-      "enabled": false,
+      "enabled": true,
       "token": "YOUR_DISCORD_BOT_TOKEN",
-      "allow_from": []
+      "allow_from": [],
+      "session_key_mode": "guild_user"
     },
     "maixcam": {
-      "enabled": false,
+      "enabled": true,
       "host": "0.0.0.0",
       "port": 18790,
       "allow_from": []
     },
     "whatsapp": {
-      "enabled": false,
+      "enabled": true,
       "session_db": "~/.xagent/whatsapp.db",
       "allow_from": []
     },
     "feishu": {
-      "enabled": false,
+      "enabled": true,
       "app_id": "",
       "app_secret": "",
       "encrypt_key": "",
       "verification_token": "",
       "allow_from": []
     },
+    "qq": {
+      "enabled": true,
+      "app_id": "",
+      "app_secret": "",
+      "allow_from": []
+    },
     "dingtalk": {
-      "enabled": false,
+      "enabled": true,
       "client_id": "YOUR_CLIENT_ID",
       "client_secret": "YOUR_CLIENT_SECRET",
       "allow_from": []
     },
     "slack": {
-      "enabled": false,
+      "enabled": true,
       "bot_token": "xoxb-YOUR-BOT-TOKEN",
       "app_token": "xapp-YOUR-APP-TOKEN",
       "allow_from": []
     },
     "line": {
-      "enabled": false,
+      "enabled": true,
       "channel_secret": "YOUR_LINE_CHANNEL_SECRET",
       "channel_access_token": "YOUR_LINE_CHANNEL_ACCESS_TOKEN",
       "webhook_host": "0.0.0.0",
@@ -62,7 +69,7 @@
       "allow_from": []
     },
     "onebot": {
-      "enabled": false,
+      "enabled": true,
       "ws_url": "ws://127.0.0.1:3001",
       "access_token": "",
       "reconnect_interval": 5,
@@ -107,32 +114,75 @@
     "moonshot": {
       "api_key": "sk-xxx",
       "api_base": ""
+    },
+    "bitnet": {
+      "enabled": true,
+      "model": "bitnet_b1_58-3B",
+      "runtime": "python",
+      "quant_type": "i2_s",
+      "context_size": 2048,
+      "threads": 4
+    },
+    "picolm": {
+      "enabled": true,
+      "binary": "picolm",
+      "model_path": "/opt/picolm/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+      "max_tokens": 256,
+      "threads": 4,
+      "context_size": 2048,
+      "temperature": 0.7,
+      "cache_path": ""
+    },
+    "rl": {
+      "enabled": true,
+      "server_url": "",
+      "api_key": "",
+      "model": "qwen3-4b",
+      "feedback_mode": "implicit"
     }
   },
   "tools": {
     "web": {
-      "search": {
+      "brave": {
+        "enabled": true,
         "api_key": "YOUR_BRAVE_API_KEY",
         "max_results": 5
+      },
+      "duckduckgo": {
+        "enabled": true,
+        "max_results": 5
       }
+    },
+    "exec": {
+      "allow_network": true,
+      "allow_scripts": true,
+      "deny_commands": [],
+      "timeout_secs": 60
+    },
+    "vision": {
+      "model": "",
+      "ollama_url": "http://localhost:11434"
     }
   },
   "heartbeat": {
     "enabled": true,
-    "interval": 30
+    "interval": 60,
+    "discord_notify_channel_id": "YOUR_DISCORD_TEXT_CHANNEL_SNOWFLAKE_ID"
   },
   "devices": {
-    "enabled": false,
+    "enabled": true,
     "monitor_usb": true
   },
   "gateway": {
-    "host": "127.0.0.1",
+    "host": "0.0.0.0",
     "port": 18790,
-    "remote_access": false
+    "remote_access": true
   },
   "vault": {
     "enabled": true,
-    "path": "~/.xagent/vault"
+    "path": "~/.xagent/vault",
+    "consolidate_daily": true,
+    "consolidate_hour_utc": 4
   },
   "mcp": {
     "servers": [
@@ -140,12 +190,12 @@
         "name": "example-server",
         "command": "npx",
         "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
-        "enabled": false
+        "enabled": true
       }
     ]
   },
   "phone": {
-    "enabled": false,
+    "enabled": true,
     "adb_path": "adb",
     "auto_detect": true,
     "serial": "",
@@ -159,7 +209,7 @@
   },
   "self_improve": {
     "enabled": true,
-    "interval_hours": 168,
+    "interval_hours": 24,
     "repo_path": "",
     "branch_prefix": "feature",
     "auto_push": true,

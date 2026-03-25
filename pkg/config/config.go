@@ -91,6 +91,9 @@ type MCPServerConfig struct {
 type VaultConfig struct {
 	Enabled bool   `json:"enabled" env:"XAGENT_VAULT_ENABLED"`
 	Path    string `json:"path" env:"XAGENT_VAULT_PATH"` // default: ~/.xagent/vault
+	// SWE100821: Once per UTC day, move full session bodies to Sessions/Archive/YYYY-MM-DD/ and leave stubs (graph stays linked)
+	ConsolidateDaily   bool `json:"consolidate_daily" env:"XAGENT_VAULT_CONSOLIDATE_DAILY"`
+	ConsolidateHourUTC int  `json:"consolidate_hour_utc" env:"XAGENT_VAULT_CONSOLIDATE_HOUR_UTC"` // 0–23, default 4
 }
 
 type AgentsConfig struct {
@@ -153,6 +156,8 @@ type DiscordConfig struct {
 	Enabled   bool                `json:"enabled" env:"XAGENT_CHANNELS_DISCORD_ENABLED"`
 	Token     string              `json:"token" env:"XAGENT_CHANNELS_DISCORD_TOKEN"`
 	AllowFrom FlexibleStringSlice `json:"allow_from" env:"XAGENT_CHANNELS_DISCORD_ALLOW_FROM"`
+	// SWE100821: session_key_mode — "channel" (default): one session per Discord channel; "guild_user": one session per user per server (shared across channels), DMs use discord:dm:<user_id>
+	SessionKeyMode string `json:"session_key_mode" env:"XAGENT_CHANNELS_DISCORD_SESSION_KEY_MODE"`
 }
 
 type MaixCamConfig struct {
@@ -206,8 +211,10 @@ type OneBotConfig struct {
 }
 
 type HeartbeatConfig struct {
-	Enabled  bool `json:"enabled" env:"XAGENT_HEARTBEAT_ENABLED"`
-	Interval int  `json:"interval" env:"XAGENT_HEARTBEAT_INTERVAL"` // minutes, min 5
+	Enabled bool `json:"enabled" env:"XAGENT_HEARTBEAT_ENABLED"`
+	Interval int  `json:"interval" env:"XAGENT_HEARTBEAT_INTERVAL"` // minutes, min 5; 0 = default 60
+	// SWE100821: If set, periodic heartbeat always posts to this Discord channel (snowflake ID), even when last activity was elsewhere
+	DiscordNotifyChannelID string `json:"discord_notify_channel_id" env:"XAGENT_HEARTBEAT_DISCORD_NOTIFY_CHANNEL_ID"`
 }
 
 type DevicesConfig struct {
@@ -341,7 +348,7 @@ func DefaultConfig() *Config {
 		Agents: AgentsConfig{
 			Defaults: AgentDefaults{
 				Workspace:           "~/.xagent/workspace",
-				RestrictToWorkspace: true,
+				RestrictToWorkspace: false, // SWE100821: false = tools can read/exec outside ~/.xagent/workspace (full host access; tighten if needed)
 				Provider:            "",
 				Model:               "glm-4.7",
 				MaxTokens:           8192,
@@ -349,19 +356,20 @@ func DefaultConfig() *Config {
 				MaxToolIterations:   20,
 			},
 		},
+		// SWE100821: Max-capability defaults — channel structs register only when credentials exist (see channels/manager.go); flags stay on so adding tokens works without flipping booleans
 		Channels: ChannelsConfig{
 			WhatsApp: WhatsAppConfig{
-				Enabled:   false,
+				Enabled:   true,
 				SessionDB: "",
 				AllowFrom: FlexibleStringSlice{},
 			},
 			Telegram: TelegramConfig{
-				Enabled:   false,
+				Enabled:   true,
 				Token:     "",
 				AllowFrom: FlexibleStringSlice{},
 			},
 			Feishu: FeishuConfig{
-				Enabled:           false,
+				Enabled:           true,
 				AppID:             "",
 				AppSecret:         "",
 				EncryptKey:        "",
@@ -369,36 +377,37 @@ func DefaultConfig() *Config {
 				AllowFrom:         FlexibleStringSlice{},
 			},
 			Discord: DiscordConfig{
-				Enabled:   false,
-				Token:     "",
-				AllowFrom: FlexibleStringSlice{},
+				Enabled:        true,
+				Token:          "",
+				AllowFrom:      FlexibleStringSlice{},
+				SessionKeyMode: "", // SWE100821: empty = per-Discord-channel session; set "guild_user" in config for cross-channel memory in a server
 			},
 			MaixCam: MaixCamConfig{
-				Enabled:   false,
+				Enabled:   true,
 				Host:      "0.0.0.0",
 				Port:      18790,
 				AllowFrom: FlexibleStringSlice{},
 			},
 			QQ: QQConfig{
-				Enabled:   false,
+				Enabled:   true,
 				AppID:     "",
 				AppSecret: "",
 				AllowFrom: FlexibleStringSlice{},
 			},
 			DingTalk: DingTalkConfig{
-				Enabled:      false,
+				Enabled:      true,
 				ClientID:     "",
 				ClientSecret: "",
 				AllowFrom:    FlexibleStringSlice{},
 			},
 			Slack: SlackConfig{
-				Enabled:   false,
+				Enabled:   true,
 				BotToken:  "",
 				AppToken:  "",
 				AllowFrom: FlexibleStringSlice{},
 			},
 			LINE: LINEConfig{
-				Enabled:            false,
+				Enabled:            true,
 				ChannelSecret:      "",
 				ChannelAccessToken: "",
 				WebhookHost:        "0.0.0.0",
@@ -407,7 +416,7 @@ func DefaultConfig() *Config {
 				AllowFrom:          FlexibleStringSlice{},
 			},
 			OneBot: OneBotConfig{
-				Enabled:            false,
+				Enabled:            true,
 				WSUrl:              "ws://127.0.0.1:3001",
 				AccessToken:        "",
 				ReconnectInterval:  5,
@@ -424,45 +433,44 @@ func DefaultConfig() *Config {
 			VLLM:       ProviderConfig{},
 			Gemini:     ProviderConfig{},
 			Nvidia:     ProviderConfig{},
-		BitNet: BitNetConfig{
-			Enabled:     false,
-			Model:       "bitnet_b1_58-3B",
-			Runtime:     "python",
-			QuantType:   "i2_s",
-			ContextSize: 2048,
-			Threads:     4,
-		},
-		// SWE100821: PicoLM defaults — auto-enabled on Tegra/RPi by hwprofile
-		PicoLM: PicoLMConfig{
-			Enabled:     false,
-			Binary:      "picolm",
-			ModelPath:   "/opt/picolm/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
-			MaxTokens:   256,
-			Threads:     4,
-			ContextSize: 2048,
-			Temperature: 0.7,
-			CachePath:   "",
-		},
+			// SWE100821: Local/alternate backends on — Validate() treats BitNet/PicoLM as sufficient without cloud keys
+			BitNet: BitNetConfig{
+				Enabled:     true,
+				Model:       "bitnet_b1_58-3B",
+				Runtime:     "python",
+				QuantType:   "i2_s",
+				ContextSize: 2048,
+				Threads:     4,
+			},
+			// SWE100821: PicoLM defaults — auto-enabled on Tegra/RPi by hwprofile
+			PicoLM: PicoLMConfig{
+				Enabled:     true,
+				Binary:      "picolm",
+				ModelPath:   "/opt/picolm/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+				MaxTokens:   256,
+				Threads:     4,
+				ContextSize: 2048,
+				Temperature: 0.7,
+				CachePath:   "",
+			},
 			RL: RLConfig{
-				Enabled:      false,
+				Enabled:      true,
 				ServerURL:    "",
 				APIKey:       "",
 				Model:        "qwen3-4b",
 				FeedbackMode: "implicit",
 			},
 		},
-		// SWE100821: Default to localhost — dashboard has no auth, so binding to
-		// 0.0.0.0 exposes config/memory/chat to anyone who can reach the port.
-		// Use gateway.remote_access (or XAGENT_GATEWAY_REMOTE_ACCESS=1) for VPN/Tailscale.
+		// SWE100821: Max-capability — dashboard still has no auth; bind all interfaces + remote_access for LAN/VPN reachability (restrict via firewall/Tailscale ACLs)
 		Gateway: GatewayConfig{
-			Host:         "127.0.0.1",
+			Host:         "0.0.0.0",
 			Port:         18790,
-			RemoteAccess: false,
+			RemoteAccess: true,
 		},
 		Tools: ToolsConfig{
 			Web: WebToolsConfig{
 				Brave: BraveConfig{
-					Enabled:    false,
+					Enabled:    true,
 					APIKey:     "",
 					MaxResults: 5,
 				},
@@ -471,26 +479,39 @@ func DefaultConfig() *Config {
 					MaxResults: 5,
 				},
 			},
+			// SWE100821: Unrestricted exec defaults — curl/ssh/python allowed; destructive patterns still blocked in pkg/tools/shell.go
+			Exec: ExecConfig{
+				AllowNetwork: true,
+				AllowScripts: true,
+				DenyCommands: []string{},
+				TimeoutSecs:  60,
+			},
+			Vision: VisionConfig{},
 		},
 		Heartbeat: HeartbeatConfig{
-			Enabled:  true,
-			Interval: 30, // default 30 minutes
+			Enabled:                true,
+			Interval:               60, // SWE100821: hourly by default; min 5 in heartbeat service
+			DiscordNotifyChannelID: "",
 		},
+		// SWE100821: USB device enumeration on by default (see tools/devices)
 		Devices: DevicesConfig{
-			Enabled:    false,
+			Enabled:    true,
 			MonitorUSB: true,
 		},
 		Vault: VaultConfig{
-			Enabled: true,
-			Path:    "~/.xagent/vault",
+			Enabled:            true,
+			Path:               "~/.xagent/vault",
+			ConsolidateDaily:   false, // SWE100821: set true to shrink graph bodies daily (data kept under Sessions/Archive/)
+			ConsolidateHourUTC: 4,
 		},
 		// SWE100821: Explicit empty MCP defaults for clarity
 		MCP: MCPConfig{
 			Servers: []MCPServerConfig{},
 		},
 		// SWE100821: Phone access defaults — disabled, auto-detect first device
+		// SWE100821: Phone tool registered when enabled (ADB/iOS paths)
 		Phone: PhoneConfig{
-			Enabled:    false,
+			Enabled:    true,
 			ADBPath:    "adb",
 			AutoDetect: true,
 			Serial:     "",
@@ -522,6 +543,11 @@ func LoadConfig(path string) (*Config, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		if os.IsNotExist(err) {
+			// SWE100821: Missing config file still honors env + remote_access host expansion (same as JSON path)
+			if err := env.Parse(cfg); err != nil {
+				return nil, err
+			}
+			cfg.applyGatewayRemoteAccess()
 			return cfg, nil
 		}
 		return nil, err
@@ -667,6 +693,11 @@ func (c *Config) Validate() (warnings []string, err error) {
 		warnings = append(warnings, "gateway.remote_access: listening on all interfaces; /dashboard has no auth — restrict with Tailscale ACLs or VPN only")
 	}
 
+	// SWE100821: Full exec capability — user explicitly opted into max defaults or config
+	if c.Tools.Exec.AllowNetwork && c.Tools.Exec.AllowScripts {
+		warnings = append(warnings, "tools.exec: allow_network and allow_scripts are both true — agent can run network and script commands; review deny_commands and workspace restriction")
+	}
+
 	// Warn if workspace path is empty
 	if c.Agents.Defaults.Workspace == "" {
 		warnings = append(warnings, "agents.defaults.workspace is empty; defaulting to current directory")
@@ -704,6 +735,24 @@ func (c *Config) Validate() (warnings []string, err error) {
 		}
 		if c.Agents.Defaults.RestrictToWorkspace {
 			warnings = append(warnings, "self_improve with restrict_to_workspace=true: read_file/write_file/exec cwd may be limited to the workspace folder — if the git clone lives outside it, set restrict_to_workspace false or point workspace at the repo root")
+		}
+	}
+
+	// SWE100821: Discord session key mode — invalid values fall back to per-channel in code; warn here
+	if m := strings.ToLower(strings.TrimSpace(c.Channels.Discord.SessionKeyMode)); m != "" && m != "channel" && m != "guild_user" {
+		warnings = append(warnings, "channels.discord.session_key_mode: use \"channel\" or \"guild_user\" (unknown value ignored)")
+	}
+	if c.Heartbeat.Enabled && strings.TrimSpace(c.Heartbeat.DiscordNotifyChannelID) != "" && !c.Channels.Discord.Enabled {
+		warnings = append(warnings, "heartbeat.discord_notify_channel_id is set but channels.discord.enabled is false; enable Discord or remove notify channel id")
+	}
+
+	if c.Vault.ConsolidateDaily {
+		if c.Vault.ConsolidateHourUTC < 0 || c.Vault.ConsolidateHourUTC > 23 {
+			err = fmt.Errorf("vault.consolidate_hour_utc must be 0–23, got %d", c.Vault.ConsolidateHourUTC)
+			return
+		}
+		if !c.Vault.Enabled {
+			warnings = append(warnings, "vault.consolidate_daily is true but vault.enabled is false; consolidation will not run")
 		}
 	}
 

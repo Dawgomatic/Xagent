@@ -253,27 +253,72 @@ func MergeConfig(existing, incoming *config.Config) *config.Config {
 		existing.Providers.Gemini = incoming.Providers.Gemini
 	}
 
-	if !existing.Channels.Telegram.Enabled && incoming.Channels.Telegram.Enabled {
-		existing.Channels.Telegram = incoming.Channels.Telegram
+	// SWE100821: Merge when channel turns on, or when both already enabled but existing has no credentials (max-default enabled flags)
+	mergeChannel := func(wasOff func() bool, fillIfEmpty func() bool, apply func()) {
+		if wasOff() {
+			apply()
+			return
+		}
+		if fillIfEmpty() {
+			apply()
+		}
 	}
-	if !existing.Channels.Discord.Enabled && incoming.Channels.Discord.Enabled {
-		existing.Channels.Discord = incoming.Channels.Discord
-	}
-	if !existing.Channels.WhatsApp.Enabled && incoming.Channels.WhatsApp.Enabled {
-		existing.Channels.WhatsApp = incoming.Channels.WhatsApp
-	}
-	if !existing.Channels.Feishu.Enabled && incoming.Channels.Feishu.Enabled {
-		existing.Channels.Feishu = incoming.Channels.Feishu
-	}
-	if !existing.Channels.QQ.Enabled && incoming.Channels.QQ.Enabled {
-		existing.Channels.QQ = incoming.Channels.QQ
-	}
-	if !existing.Channels.DingTalk.Enabled && incoming.Channels.DingTalk.Enabled {
-		existing.Channels.DingTalk = incoming.Channels.DingTalk
-	}
-	if !existing.Channels.MaixCam.Enabled && incoming.Channels.MaixCam.Enabled {
-		existing.Channels.MaixCam = incoming.Channels.MaixCam
-	}
+	mergeChannel(
+		func() bool { return !existing.Channels.Telegram.Enabled && incoming.Channels.Telegram.Enabled },
+		func() bool {
+			return existing.Channels.Telegram.Enabled && incoming.Channels.Telegram.Enabled &&
+				existing.Channels.Telegram.Token == "" && incoming.Channels.Telegram.Token != ""
+		},
+		func() { existing.Channels.Telegram = incoming.Channels.Telegram },
+	)
+	mergeChannel(
+		func() bool { return !existing.Channels.Discord.Enabled && incoming.Channels.Discord.Enabled },
+		func() bool {
+			return existing.Channels.Discord.Enabled && incoming.Channels.Discord.Enabled &&
+				existing.Channels.Discord.Token == "" && incoming.Channels.Discord.Token != ""
+		},
+		func() { existing.Channels.Discord = incoming.Channels.Discord },
+	)
+	mergeChannel(
+		func() bool { return !existing.Channels.WhatsApp.Enabled && incoming.Channels.WhatsApp.Enabled },
+		func() bool {
+			return existing.Channels.WhatsApp.Enabled && incoming.Channels.WhatsApp.Enabled &&
+				existing.Channels.WhatsApp.SessionDB == "" && incoming.Channels.WhatsApp.SessionDB != ""
+		},
+		func() { existing.Channels.WhatsApp = incoming.Channels.WhatsApp },
+	)
+	mergeChannel(
+		func() bool { return !existing.Channels.Feishu.Enabled && incoming.Channels.Feishu.Enabled },
+		func() bool {
+			return existing.Channels.Feishu.Enabled && incoming.Channels.Feishu.Enabled &&
+				existing.Channels.Feishu.AppID == "" && incoming.Channels.Feishu.AppID != ""
+		},
+		func() { existing.Channels.Feishu = incoming.Channels.Feishu },
+	)
+	mergeChannel(
+		func() bool { return !existing.Channels.QQ.Enabled && incoming.Channels.QQ.Enabled },
+		func() bool {
+			return existing.Channels.QQ.Enabled && incoming.Channels.QQ.Enabled &&
+				existing.Channels.QQ.AppID == "" && incoming.Channels.QQ.AppID != ""
+		},
+		func() { existing.Channels.QQ = incoming.Channels.QQ },
+	)
+	mergeChannel(
+		func() bool { return !existing.Channels.DingTalk.Enabled && incoming.Channels.DingTalk.Enabled },
+		func() bool {
+			return existing.Channels.DingTalk.Enabled && incoming.Channels.DingTalk.Enabled &&
+				existing.Channels.DingTalk.ClientID == "" && incoming.Channels.DingTalk.ClientID != ""
+		},
+		func() { existing.Channels.DingTalk = incoming.Channels.DingTalk },
+	)
+	mergeChannel(
+		func() bool { return !existing.Channels.MaixCam.Enabled && incoming.Channels.MaixCam.Enabled },
+		func() bool {
+			return existing.Channels.MaixCam.Enabled && incoming.Channels.MaixCam.Enabled &&
+				existing.Channels.MaixCam.Host == "" && incoming.Channels.MaixCam.Host != ""
+		},
+		func() { existing.Channels.MaixCam = incoming.Channels.MaixCam },
+	)
 
 	if existing.Tools.Web.Brave.APIKey == "" {
 		existing.Tools.Web.Brave = incoming.Tools.Web.Brave

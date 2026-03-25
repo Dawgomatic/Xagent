@@ -43,8 +43,8 @@ type BaseChannel struct {
 	name      string
 	allowList []string
 	// SWE100821: Rate limiter - tracks message timestamps per sender
-	rateMu    sync.Mutex
-	rateMap   map[string][]time.Time
+	rateMu  sync.Mutex
+	rateMap map[string][]time.Time
 }
 
 func NewBaseChannel(name string, config interface{}, bus *bus.MessageBus, allowList []string) *BaseChannel {
@@ -156,9 +156,36 @@ func (c *BaseChannel) HandleMessage(senderID, chatID, content string, media []st
 		return
 	}
 
-	// Build session key: channel:chatID
 	sessionKey := fmt.Sprintf("%s:%s", c.name, chatID)
+	c.publishInbound(senderID, chatID, sessionKey, content, media, metadata)
+}
 
+// HandleMessageWithSessionKey publishes an inbound message with an explicit session key for history.
+// SWE100821: Discord uses this for session_key_mode guild_user (shared history across text channels).
+func (c *BaseChannel) HandleMessageWithSessionKey(senderID, chatID, sessionKey, content string, media []string, metadata map[string]string) {
+	if !c.IsAllowed(senderID) {
+		return
+	}
+
+	if c.isRateLimited(senderID) {
+		logger.WarnCF(c.name, "Rate limited", map[string]interface{}{
+			"sender_id": senderID,
+			"chat_id":   chatID,
+		})
+		if c.bus != nil {
+			c.bus.PublishOutbound(bus.OutboundMessage{
+				Channel: c.name,
+				ChatID:  chatID,
+				Content: "I'm processing your previous message. Please wait a moment before sending another.",
+			})
+		}
+		return
+	}
+
+	c.publishInbound(senderID, chatID, sessionKey, content, media, metadata)
+}
+
+func (c *BaseChannel) publishInbound(senderID, chatID, sessionKey, content string, media []string, metadata map[string]string) {
 	msg := bus.InboundMessage{
 		RequestID:  genRequestID(), // SWE100821: trace ID for log correlation
 		Channel:    c.name,

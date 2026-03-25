@@ -1,5 +1,9 @@
 # New File Requests
 
+## pkg/vault/consolidate.go
+- **Purpose:** Daily Obsidian vault consolidation — moves full session note bodies to `Sessions/Archive/YYYY-MM-DD/`, replaces with stubs + wikilinks, writes `Daily/Consolidated/` rollups; scheduler in `StartDailyArchiveScheduler`.
+- **Duplicate search:** `pkg/agent/loop.go` `RunConsolidation` (memory/dream rollup, not vault files), `pkg/vault/vault.go` (writes notes only), `pkg/cron/` (generic jobs). No duplicate file-level vault archiver.
+
 ## cmd/xagent/workspace/GOALS.md
 - **Purpose:** Seed `GOALS.md` in the default workspace so the dashboard Overview and `goals` tool have initial active goals; users edit or replace via tool or file.
 - **Duplicate search:** `pkg/tools/goals.go` (`defaultGoalsMarkdown()` empty sections only), `glob **/GOALS.md` under repo (none in `cmd/xagent/workspace` before this), `IDENTITY.md` has a generic "Goals" bullet list but not the EXA checkbox format. No duplicate tracked workspace goals file.

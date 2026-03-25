@@ -24,9 +24,10 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
 	"github.com/Dawgomatic/Xagent/pkg/selfimprove"
+	"github.com/Dawgomatic/Xagent/pkg/sensors"
 	"github.com/Dawgomatic/Xagent/pkg/state"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
-	"github.com/Dawgomatic/Xagent/pkg/sensors"
+	"github.com/Dawgomatic/Xagent/pkg/vault" // SWE100821: Obsidian vault daily consolidation
 	"github.com/Dawgomatic/Xagent/pkg/voice"
 )
 
@@ -190,10 +191,12 @@ func gatewayCmd() {
 	// Setup cron tool and service
 	cronService := setupCronTool(agentLoop, msgBus, cfg.WorkspacePath())
 
+	// SWE100821: discord_notify_channel_id sends periodic heartbeat to a fixed channel (optional)
 	heartbeatService := heartbeat.NewHeartbeatService(
 		cfg.WorkspacePath(),
 		cfg.Heartbeat.Interval,
 		cfg.Heartbeat.Enabled,
+		cfg.Heartbeat.DiscordNotifyChannelID,
 	)
 	heartbeatService.SetBus(msgBus)
 	heartbeatService.SetHandler(func(prompt, channel, chatID string) *tools.ToolResult {
@@ -313,6 +316,21 @@ func gatewayCmd() {
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
+
+	// SWE100821: Daily vault consolidation — archive yesterday's session bodies (UTC), keep stubs for graph links
+	if cfg.Vault.Enabled && cfg.Vault.ConsolidateDaily {
+		vaultPath := cfg.Vault.Path
+		if vaultPath == "" {
+			vaultPath = filepath.Join(cfg.WorkspacePath(), "vault")
+		}
+		if strings.HasPrefix(vaultPath, "~/") {
+			if home, err := os.UserHomeDir(); err == nil {
+				vaultPath = filepath.Join(home, vaultPath[2:])
+			}
+		}
+		vault.StartDailyArchiveScheduler(ctx, vaultPath, cfg.Vault.ConsolidateHourUTC)
+		fmt.Println("✓ Vault daily consolidation scheduled (UTC → Sessions/Archive/, stubs remain)")
+	}
 
 	epochManager.StartRolloverMonitor(ctx, 24*time.Hour)
 	fmt.Println("✓ Epoch 24h rollover monitor started")
