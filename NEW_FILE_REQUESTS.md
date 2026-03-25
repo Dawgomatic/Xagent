@@ -1,5 +1,9 @@
 # New File Requests
 
+## cmd/xagent/workspace/GOALS.md
+- **Purpose:** Seed `GOALS.md` in the default workspace so the dashboard Overview and `goals` tool have initial active goals; users edit or replace via tool or file.
+- **Duplicate search:** `pkg/tools/goals.go` (`defaultGoalsMarkdown()` empty sections only), `glob **/GOALS.md` under repo (none in `cmd/xagent/workspace` before this), `IDENTITY.md` has a generic "Goals" bullet list but not the EXA checkbox format. No duplicate tracked workspace goals file.
+
 ## pkg/agent/skill_tools.go
 - **Purpose:** Adapts `skills.DynamicTool` to `tools.Tool` interface; registers SKILL.md-declared tools in the tool registry.
 - **Duplicate search:** Searched `pkg/agent/` (no skill-to-tool bridge), `pkg/skills/dynamic_tools.go` (has DynamicTool but returns DynamicToolResult, not tools.ToolResult), `pkg/tools/` (no skill adapter). No existing adapter found.
