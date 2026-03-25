@@ -47,6 +47,13 @@ func (c *Consolidator) ConsolidateWeekly(ctx context.Context) error {
 	now := time.Now()
 	weekStart := now.AddDate(0, 0, -7)
 
+	// SWE100821: upgrade_period — start of scheduled weekly rollup
+	logger.InfoCF("upgrade_period", "consolidation weekly started",
+		map[string]interface{}{
+			"window_from": weekStart.Format(time.RFC3339),
+			"window_to":   now.Format(time.RFC3339),
+		})
+
 	// Collect daily notes from the past week
 	notes, files := c.collectDailyNotes(weekStart, now)
 	if len(notes) == 0 {
@@ -67,9 +74,12 @@ func (c *Consolidator) ConsolidateWeekly(ctx context.Context) error {
 	os.MkdirAll(filepath.Dir(summaryFile), 0755)
 
 	header := fmt.Sprintf("# Weekly Summary: %s to %s\n\n", weekStart.Format("2006-01-02"), now.Format("2006-01-02"))
-	if err := os.WriteFile(summaryFile, []byte(header+summary), 0600); err != nil {
+	written := header + summary
+	if err := os.WriteFile(summaryFile, []byte(written), 0600); err != nil {
 		return fmt.Errorf("failed to write weekly summary: %w", err)
 	}
+	logger.InfoCF("upgrade_period", "weekly summary file written",
+		map[string]interface{}{"path": summaryFile, "bytes": len(written)})
 
 	// SWE100821: Archive daily note files — log rename errors instead of ignoring
 	archiveOK := 0
@@ -89,6 +99,13 @@ func (c *Consolidator) ConsolidateWeekly(ctx context.Context) error {
 			"notes_archived":    archiveOK,
 			"summary_file":      summaryFile,
 		})
+	// SWE100821: upgrade_period — mirror for grep/metrics
+	logger.InfoCF("upgrade_period", "consolidation weekly finished",
+		map[string]interface{}{
+			"notes_consolidated": len(files),
+			"notes_archived":     archiveOK,
+			"summary_file":       summaryFile,
+		})
 
 	return nil
 }
@@ -98,9 +115,24 @@ func (c *Consolidator) ConsolidateWeekly(ctx context.Context) error {
 func (c *Consolidator) ConsolidateMonthly(ctx context.Context) error {
 	weeklyDir := filepath.Join(c.memoryDir, "weekly")
 	entries, err := os.ReadDir(weeklyDir)
-	if err != nil || len(entries) < 4 {
-		return nil // not enough weekly summaries yet
+	if err != nil {
+		if os.IsNotExist(err) {
+			logger.InfoCF("upgrade_period", "consolidation monthly skipped: no weekly directory yet", nil)
+		} else {
+			logger.WarnCF("upgrade_period", "consolidation monthly: read weekly dir failed",
+				map[string]interface{}{"error": err.Error(), "dir": weeklyDir})
+		}
+		return nil
 	}
+	if len(entries) < 4 {
+		// SWE100821: upgrade_period — explicit skip (was silent)
+		logger.InfoCF("upgrade_period", "consolidation monthly skipped: need at least 4 weekly files",
+			map[string]interface{}{"weekly_file_count": len(entries)})
+		return nil
+	}
+
+	logger.InfoCF("upgrade_period", "consolidation monthly started",
+		map[string]interface{}{"weekly_candidates": len(entries)})
 
 	var notes []string
 	var files []string
@@ -124,6 +156,7 @@ func (c *Consolidator) ConsolidateMonthly(ctx context.Context) error {
 	}
 
 	if len(notes) == 0 {
+		logger.InfoCF("upgrade_period", "consolidation monthly skipped: no stale weekly files to roll up", nil)
 		return nil
 	}
 
@@ -138,9 +171,12 @@ func (c *Consolidator) ConsolidateMonthly(ctx context.Context) error {
 	os.MkdirAll(filepath.Dir(summaryFile), 0755)
 
 	header := fmt.Sprintf("# Monthly Summary: %s\n\n", time.Now().AddDate(0, -1, 0).Format("January 2006"))
-	if err := os.WriteFile(summaryFile, []byte(header+summary), 0600); err != nil {
+	monthlyBody := header + summary
+	if err := os.WriteFile(summaryFile, []byte(monthlyBody), 0600); err != nil {
 		return fmt.Errorf("failed to write monthly summary: %w", err)
 	}
+	logger.InfoCF("upgrade_period", "monthly summary file written",
+		map[string]interface{}{"path": summaryFile, "bytes": len(monthlyBody)})
 
 	// SWE100821: Append key insights to MEMORY.md — propagate write errors
 	memoryFile := filepath.Join(c.memoryDir, "MEMORY.md")
@@ -152,6 +188,13 @@ func (c *Consolidator) ConsolidateMonthly(ctx context.Context) error {
 		if _, wErr := f.WriteString(insight); wErr != nil {
 			logger.WarnCF("consolidation", "Failed to write to MEMORY.md",
 				map[string]interface{}{"error": wErr.Error()})
+		} else {
+			// SWE100821: upgrade_period — long-term memory append during monthly rollup
+			logger.InfoCF("upgrade_period", "MEMORY.md appended from monthly consolidation",
+				map[string]interface{}{
+					"path":        memoryFile,
+					"bytes_added": len(insight),
+				})
 		}
 		f.Close()
 	}
@@ -173,6 +216,12 @@ func (c *Consolidator) ConsolidateMonthly(ctx context.Context) error {
 			"weeks_consolidated": len(files),
 			"weeks_archived":    archiveOKM,
 			"summary_file":      summaryFile,
+		})
+	logger.InfoCF("upgrade_period", "consolidation monthly finished",
+		map[string]interface{}{
+			"weeks_consolidated": len(files),
+			"weeks_archived":     archiveOKM,
+			"summary_file":       summaryFile,
 		})
 
 	return nil

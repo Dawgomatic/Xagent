@@ -181,6 +181,9 @@ func gatewayCmd() {
 	// Prune old epochs (keep last 30, delete anything older than 90 days)
 	if pruned := epochManager.PruneOld(90*24*time.Hour, 30); pruned > 0 {
 		logger.InfoCF("epoch", "Pruned old epochs", map[string]interface{}{"pruned": pruned})
+		// SWE100821: upgrade_period — boot-time prune summary (per-file logs in epoch.PruneOld)
+		logger.InfoCF("upgrade_period", "startup epoch prune batch complete",
+			map[string]interface{}{"files_removed": pruned, "max_age": "90d", "min_keep": 30})
 	}
 
 	// Setup cron tool and service

@@ -315,7 +315,17 @@ MATERIAL:
 			}
 		}
 
-		dm.memory.AppendToday(dreamNote.String())
+		note := dreamNote.String()
+		if err := dm.memory.AppendToday(note); err != nil {
+			logger.WarnCF("dream", "Failed to append dream daily note", map[string]interface{}{"error": err.Error()})
+		} else {
+			// SWE100821: upgrade_period — dream idle reflection wrote to disk
+			logger.InfoCF("upgrade_period", "dream daily note append",
+				map[string]interface{}{
+					"path":          dm.memory.TodayNotePath(),
+					"bytes_appended": len(note),
+				})
+		}
 	}
 
 	// Optionally notify user of the most interesting insight
@@ -385,7 +395,17 @@ func updateWorldModel(workspace, content string) error {
 	if err := os.MkdirAll(filepath.Dir(wmPath), 0755); err != nil {
 		return err
 	}
-	return os.WriteFile(wmPath, []byte(updated), 0644)
+	if err := os.WriteFile(wmPath, []byte(updated), 0644); err != nil {
+		return err
+	}
+	// SWE100821: upgrade_period — world model file touched during dream
+	logger.InfoCF("upgrade_period", "WORLD_MODEL.md updated from dream",
+		map[string]interface{}{
+			"path":            wmPath,
+			"total_bytes":     len(updated),
+			"directive_bytes": len(content),
+		})
+	return nil
 }
 
 func parseDreamResult(content string, noteCount int) DreamResult {

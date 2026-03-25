@@ -1950,12 +1950,17 @@ func (al *AgentLoop) RunConsolidation(ctx context.Context) {
 	if al.consolidator == nil {
 		return
 	}
+	// SWE100821: upgrade_period — full consolidation tick (6h gateway cron + post-dream)
+	start := time.Now()
+	logger.InfoCF("upgrade_period", "consolidation run started", nil)
 	if err := al.consolidator.ConsolidateWeekly(ctx); err != nil {
 		logger.WarnCF("consolidation", "Weekly consolidation failed", map[string]interface{}{"error": err.Error()})
 	}
 	if err := al.consolidator.ConsolidateMonthly(ctx); err != nil {
 		logger.WarnCF("consolidation", "Monthly consolidation failed", map[string]interface{}{"error": err.Error()})
 	}
+	logger.InfoCF("upgrade_period", "consolidation run finished",
+		map[string]interface{}{"duration_ms": time.Since(start).Milliseconds()})
 }
 
 // SWE100821: RunHindsightReflect reflects on key topics from dream insights.

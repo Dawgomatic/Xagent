@@ -39,6 +39,11 @@ func NewMemoryStore(workspace string) *MemoryStore {
 	}
 }
 
+// TodayNotePath returns today's daily note path (for logging). Reused: getTodayFile.
+func (ms *MemoryStore) TodayNotePath() string {
+	return ms.getTodayFile()
+}
+
 // getTodayFile returns the path to today's daily note file (memory/YYYYMM/YYYYMMDD.md).
 func (ms *MemoryStore) getTodayFile() string {
 	today := time.Now().Format("20060102") // YYYYMMDD

@@ -137,9 +137,20 @@ func (m *Manager) Sleep(reflection string) error {
 	m.current.Reflection = reflection
 
 	// Write the epoch record
-	if err := m.saveCurrent(); err != nil {
+	path, err := m.saveCurrent()
+	if err != nil {
 		return fmt.Errorf("epoch: failed to save: %w", err)
 	}
+	// SWE100821: upgrade_period — audit trail for epoch journal on shutdown
+	logger.InfoCF("upgrade_period", "epoch sleep journal written",
+		map[string]interface{}{
+			"path":                path,
+			"session_id":          m.current.SessionID,
+			"messages_processed":  m.current.Stats.MessagesProcessed,
+			"tool_calls":          m.current.Stats.ToolCalls,
+			"reflection_len":      len(reflection),
+			"events_recorded":     len(m.current.Events),
+		})
 
 	return nil
 }
@@ -241,9 +252,10 @@ func (m *Manager) GetCurrent() *Record {
 
 // saveCurrent writes the current epoch record to disk.
 // Filename: <boot_timestamp>-<session_id_prefix>.json for chronological sorting.
-func (m *Manager) saveCurrent() error {
+// Returns the written file path, or empty string if nothing to save.
+func (m *Manager) saveCurrent() (string, error) {
 	if m.current == nil {
-		return nil
+		return "", nil
 	}
 
 	// Filename uses boot timestamp for natural sort order
@@ -256,20 +268,20 @@ func (m *Manager) saveCurrent() error {
 
 	data, err := json.MarshalIndent(m.current, "", "  ")
 	if err != nil {
-		return err
+		return "", err
 	}
 
 	filePath := filepath.Join(m.dir, filename)
 	tmpFile := filePath + ".tmp"
 	if err := os.WriteFile(tmpFile, data, 0644); err != nil {
-		return err
+		return "", err
 	}
 	if err := os.Rename(tmpFile, filePath); err != nil {
 		os.Remove(tmpFile)
-		return err
+		return "", err
 	}
 
-	return nil
+	return filePath, nil
 }
 
 // PruneOld removes epoch records older than maxAge, keeping at least minKeep.
@@ -302,8 +314,16 @@ func (m *Manager) PruneOld(maxAge time.Duration, minKeep int) int {
 			continue
 		}
 		if info.ModTime().Before(cutoff) {
-			os.Remove(filepath.Join(m.dir, f))
+			full := filepath.Join(m.dir, f)
+			if err := os.Remove(full); err != nil {
+				logger.WarnCF("upgrade_period", "failed to prune old epoch file",
+					map[string]interface{}{"file": f, "error": err.Error()})
+				continue
+			}
 			pruned++
+			// SWE100821: upgrade_period — log each pruned epoch file
+			logger.InfoCF("upgrade_period", "pruned old epoch file",
+				map[string]interface{}{"file": f, "mod_time": info.ModTime().Format(time.RFC3339)})
 		}
 	}
 
@@ -325,9 +345,24 @@ func (m *Manager) Rollover(reflection string) error {
 	m.current.Reflection = reflection
 
 	// Write the old epoch record to disk
-	if err := m.saveCurrent(); err != nil {
+	path, err := m.saveCurrent()
+	if err != nil {
 		return fmt.Errorf("epoch: failed to save during rollover: %w", err)
 	}
+	oldSession := m.current.SessionID
+	oldBoot := m.current.BootTime
+	oldUptime := m.current.Uptime
+	// SWE100821: upgrade_period — rollover completes prior epoch on disk
+	logger.InfoCF("upgrade_period", "epoch rollover persisted completed epoch",
+		map[string]interface{}{
+			"path":         path,
+			"session_id":   oldSession,
+			"boot_time":    oldBoot.Format(time.RFC3339),
+			"uptime":       oldUptime,
+			"reflection":   reflection,
+			"msg_count":    m.current.Stats.MessagesProcessed,
+			"tool_calls":   m.current.Stats.ToolCalls,
+		})
 
 	// Carry over state to the new epoch journal
 	newRecord := &Record{
@@ -342,6 +377,13 @@ func (m *Manager) Rollover(reflection string) error {
 	}
 
 	m.current = newRecord
+	// SWE100821: upgrade_period — new epoch is in-memory until next sleep/rollover
+	logger.InfoCF("upgrade_period", "epoch rollover started new epoch",
+		map[string]interface{}{
+			"session_id":      newRecord.SessionID,
+			"boot_time":       newRecord.BootTime.Format(time.RFC3339),
+			"carried_fatigue": newRecord.Stats.FatigueLevel,
+		})
 	return nil
 }
 
