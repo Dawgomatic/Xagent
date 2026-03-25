@@ -32,6 +32,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .page.active{display:block}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:24px}
+/* SWE100821: Overview — system block diagram container */
+.sys-diagram-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:8px;overflow-x:auto}
+.sys-diagram-wrap svg{min-width:620px;width:100%;max-width:920px;display:block;margin:0 auto}
+.sys-arch-caption{font-size:.75rem;color:var(--text-dim);margin-bottom:10px;line-height:1.4}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px}
 .card .label{font-size:.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
 .card .value{font-size:1.4rem;font-weight:600;color:var(--text-bright)}
@@ -153,6 +157,80 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
     <div class="card"><div class="label">LLM Calls</div><div class="value" id="ov-llm">--</div></div>
     <div class="card"><div class="label">Tool Calls</div><div class="value" id="ov-tools">--</div></div>
     <div class="card"><div class="label">Avg Latency</div><div class="value sm" id="ov-latency">--</div></div>
+  </div>
+  <!-- SWE100821: System block diagram on Overview -->
+  <div class="section sys-arch-section">
+    <h3>System architecture</h3>
+    <p class="sys-arch-caption">Data and control flow across the HTTP surface, agent runtime, persistence, and observability.</p>
+    <div class="sys-diagram-wrap" role="img" aria-label="Xagent system block diagram">
+      <svg viewBox="0 0 920 268" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <marker id="sys-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="#58a6ff"/>
+          </marker>
+          <marker id="sys-arrow-dim" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <polygon points="0 0, 6 3, 0 6" fill="#6e7681"/>
+          </marker>
+        </defs>
+        <text x="460" y="18" text-anchor="middle" fill="#8b949e" font-size="11" font-family="Segoe UI,system-ui,sans-serif">Request path</text>
+        <rect x="24" y="32" width="118" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="83" y="54" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Clients</text>
+        <text x="83" y="68" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">channels / CLI</text>
+        <rect x="168" y="28" width="168" height="56" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+        <text x="252" y="50" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Dashboard HTTP</text>
+        <text x="252" y="66" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">/dashboard · /api/*</text>
+        <rect x="364" y="28" width="168" height="56" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="448" y="50" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Agent runtime</text>
+        <text x="448" y="66" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">LLM loop + tools</text>
+        <rect x="560" y="28" width="148" height="56" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="634" y="50" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Model API</text>
+        <text x="634" y="66" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">external LLM</text>
+        <line x1="142" y1="56" x2="166" y2="56" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#sys-arrow)"/>
+        <line x1="336" y1="56" x2="360" y2="56" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#sys-arrow)"/>
+        <line x1="532" y1="56" x2="556" y2="56" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#sys-arrow)"/>
+        <text x="460" y="108" text-anchor="middle" fill="#8b949e" font-size="11" font-family="Segoe UI,system-ui,sans-serif">State &amp; knowledge</text>
+        <rect x="80" y="118" width="152" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="156" y="140" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Memory</text>
+        <text x="156" y="156" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">long-term · daily</text>
+        <rect x="252" y="118" width="152" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="328" y="140" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Obsidian vault</text>
+        <text x="328" y="156" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">notes · wikilinks</text>
+        <rect x="424" y="118" width="152" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="500" y="138" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Skills</text>
+        <text x="500" y="154" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">SKILL.md · MCP</text>
+        <rect x="596" y="118" width="152" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="672" y="138" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Config</text>
+        <text x="672" y="154" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">workspace JSON</text>
+        <rect x="768" y="118" width="128" height="52" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="832" y="138" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Sensors</text>
+        <text x="832" y="154" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">perception</text>
+        <line x1="448" y1="84" x2="156" y2="116" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="448" y1="84" x2="328" y2="116" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="448" y1="84" x2="500" y2="116" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="448" y1="84" x2="672" y2="116" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="448" y1="84" x2="832" y2="116" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <text x="460" y="198" text-anchor="middle" fill="#8b949e" font-size="11" font-family="Segoe UI,system-ui,sans-serif">Observability</text>
+        <rect x="120" y="208" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="190" y="232" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Epochs</text>
+        <text x="190" y="246" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">runs</text>
+        <rect x="288" y="208" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="358" y="232" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Provenance</text>
+        <text x="358" y="246" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">audit log</text>
+        <rect x="456" y="208" width="160" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="536" y="232" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Metrics</text>
+        <text x="536" y="246" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">health · latency</text>
+        <rect x="644" y="208" width="156" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <text x="722" y="228" text-anchor="middle" fill="#f0f6fc" font-size="12" font-weight="600" font-family="Segoe UI,system-ui,sans-serif">Watchdog</text>
+        <text x="722" y="244" text-anchor="middle" fill="#8b949e" font-size="9.5" font-family="Segoe UI,system-ui,sans-serif">subsystems</text>
+        <line x1="252" y1="170" x2="190" y2="206" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="328" y1="170" x2="358" y2="206" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="500" y1="170" x2="536" y2="206" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="672" y1="170" x2="536" y2="206" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="832" y1="170" x2="722" y2="206" stroke="#6e7681" stroke-width="1.2" marker-end="url(#sys-arrow-dim)"/>
+        <line x1="252" y1="56" x2="190" y2="204" stroke="#30363d" stroke-width="1" stroke-dasharray="4 3" opacity="0.85"/>
+        <line x1="252" y1="56" x2="358" y2="204" stroke="#30363d" stroke-width="1" stroke-dasharray="4 3" opacity="0.85"/>
+      </svg>
+    </div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
     <div class="section"><h3>Recent Epochs</h3><div class="list" id="ov-epochs"><div class="empty">Loading...</div></div></div>

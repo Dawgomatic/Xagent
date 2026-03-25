@@ -670,7 +670,7 @@ Location: `pkg/mcp/`, `pkg/agent/mcp_tools.go`
 
 ## Cognitive Dashboard
 
-Web UI served at `/dashboard` on the health server port (default 18791). Provides:
+Web UI served at `/dashboard` on the health server port (default `gateway.port + 1`, i.e. **18791** when `gateway.port` is 18790). Provides:
 
 - Real-time agent state (model, provider, uptime)
 - Epoch history timeline
@@ -680,6 +680,13 @@ Web UI served at `/dashboard` on the health server port (default 18791). Provide
 - **System tab** with live metrics: LLM call count, tool call count, message count, and per-call latency
 
 Metrics are wired from the agent loop into the health server, so every LLM call, tool invocation, and inbound message is tracked and visible in real time.
+
+**Remote access (Tailscale / VPN):** The dashboard has **no authentication**. For phone access off-LAN, use Tailscale on the host and your phone, then either:
+
+- Set `"remote_access": true` under `gateway` (or `XAGENT_GATEWAY_REMOTE_ACCESS=1`), which binds loopback-only configs to `0.0.0.0` so the health server is reachable on the Tailscale interface; open `http://<tailscale-ip>:18791/dashboard`, or
+- Set `"host": "0.0.0.0"` explicitly (same exposure model; `start.sh` already does this on Xavier/RPi).
+
+**SWE100821:** `pkg/config/config.go` — `GatewayConfig.RemoteAccess`, `applyGatewayRemoteAccess`.
 
 Location: `pkg/dashboard/`
 

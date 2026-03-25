@@ -27,6 +27,14 @@ xagent agent
 ./manage.sh restart     # Restart everything
 ```
 
+## Dashboard from another device (Tailscale / VPN)
+
+The dashboard is not authenticated. For access from a phone or off your LAN, use Tailscale (or similar) on the host and client, then open `http://<host-tailscale-ip>:18791/dashboard` (if `gateway.port` is 18790).
+
+If `gateway.host` is still `127.0.0.1`, set `"remote_access": true` under `gateway` in `~/.xagent/config.json`, or `export XAGENT_GATEWAY_REMOTE_ACCESS=1` before starting the gateway. `start.sh` already sets `host` to `0.0.0.0` on Jetson Xavier / Raspberry Pi.
+
+<!-- SWE100821: remote_access docs mirror pkg/config GatewayConfig -->
+
 ## Find the best model for your hardware
 
 ```bash

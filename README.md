@@ -41,7 +41,7 @@ xagent agent -m "What can you do?"   # Talk to the agent
 
 **Model Context Protocol (MCP)** -- Connect to any MCP server (filesystem, database, API) and use its tools natively inside the agent loop. Config-driven, no code changes needed.
 
-**Cognitive Dashboard** -- Web UI at `/dashboard` for real-time agent introspection: epoch history, provenance logs, skill inventory, connected peers. Live metrics track LLM calls, tool calls, messages, and latency in the System tab.
+**Cognitive Dashboard** -- Web UI at `/dashboard` (health port = `gateway.port + 1`, default 18791) for real-time agent introspection: epoch history, provenance logs, skill inventory, connected peers. Live metrics track LLM calls, tool calls, messages, and latency in the System tab. For phone/VPN access off-LAN, set `gateway.remote_access` or `XAGENT_GATEWAY_REMOTE_ACCESS=1` (or `gateway.host` `0.0.0.0`) and use Tailscale or another VPN; the dashboard has no auth — see [docs/features.md](docs/features.md#cognitive-dashboard).
 
 **Skill Fitness & Composition** -- Skills are scored by success rate, usage, and recency. The agent can compose new skills from existing ones during sleep cycles.
 

@@ -98,6 +98,8 @@ func (d *Dashboard) SetFatigueFunc(fn func() float64) { d.fatigueFunc = fn }
 // SWE100821: Includes original, memory, vault, detail, config, chat, and graph APIs.
 func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/dashboard", d.handleDashboardPage)
+	// SWE100821: Browsers often request /dashboard/ — without this, net/http returns 404 for /dashboard/
+	mux.HandleFunc("/dashboard/", d.handleDashboardPage)
 
 	// Original APIs
 	mux.HandleFunc("/api/state", d.handleState)

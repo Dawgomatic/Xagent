@@ -277,9 +277,13 @@ type ProviderConfig struct {
 	ConnectMode string `json:"connect_mode,omitempty" env:"XAGENT_PROVIDERS_{{.Name}}_CONNECT_MODE"` //only for Github Copilot, `stdio` or `grpc`
 }
 
+// GatewayConfig controls the gateway HTTP server and the health server (dashboard is on port+1).
+// SWE100821: RemoteAccess — when true, loopback-only host is upgraded to 0.0.0.0 so Tailscale/VPN
+// clients can reach /dashboard; dashboard still has no auth (use Tailscale ACLs).
 type GatewayConfig struct {
-	Host string `json:"host" env:"XAGENT_GATEWAY_HOST"`
-	Port int    `json:"port" env:"XAGENT_GATEWAY_PORT"`
+	Host         string `json:"host" env:"XAGENT_GATEWAY_HOST"`
+	Port         int    `json:"port" env:"XAGENT_GATEWAY_PORT"`
+	RemoteAccess bool   `json:"remote_access" env:"XAGENT_GATEWAY_REMOTE_ACCESS"`
 }
 
 type BraveConfig struct {
@@ -434,11 +438,12 @@ func DefaultConfig() *Config {
 			},
 		},
 		// SWE100821: Default to localhost — dashboard has no auth, so binding to
-		// 0.0.0.0 exposes config/memory/chat to anyone on the LAN.
-		// Set to "0.0.0.0" explicitly in config.json if LAN access is intended.
+		// 0.0.0.0 exposes config/memory/chat to anyone who can reach the port.
+		// Use gateway.remote_access (or XAGENT_GATEWAY_REMOTE_ACCESS=1) for VPN/Tailscale.
 		Gateway: GatewayConfig{
-			Host: "127.0.0.1",
-			Port: 18790,
+			Host:         "127.0.0.1",
+			Port:         18790,
+			RemoteAccess: false,
 		},
 		Tools: ToolsConfig{
 			Web: WebToolsConfig{
@@ -506,7 +511,22 @@ func LoadConfig(path string) (*Config, error) {
 		return nil, err
 	}
 
+	// SWE100821: Opt-in bind for Tailscale/VPN — after JSON + env merge
+	cfg.applyGatewayRemoteAccess()
+
 	return cfg, nil
+}
+
+// applyGatewayRemoteAccess sets gateway.host to 0.0.0.0 when remote_access is enabled
+// and host is still loopback-only. Explicit non-loopback hosts are left unchanged.
+func (c *Config) applyGatewayRemoteAccess() {
+	if c == nil || !c.Gateway.RemoteAccess {
+		return
+	}
+	h := strings.TrimSpace(c.Gateway.Host)
+	if h == "" || h == "127.0.0.1" || strings.EqualFold(h, "localhost") {
+		c.Gateway.Host = "0.0.0.0"
+	}
 }
 
 func SaveConfig(path string, cfg *Config) error {
@@ -616,6 +636,11 @@ func (c *Config) Validate() (warnings []string, err error) {
 	if c.Gateway.Port < 1 || c.Gateway.Port > 65535 {
 		err = fmt.Errorf("gateway.port %d is invalid (must be 1-65535)", c.Gateway.Port)
 		return
+	}
+
+	// SWE100821: Remote access surfaces unauthenticated dashboard on all interfaces
+	if c.Gateway.RemoteAccess && c.Gateway.Host == "0.0.0.0" {
+		warnings = append(warnings, "gateway.remote_access: listening on all interfaces; /dashboard has no auth — restrict with Tailscale ACLs or VPN only")
 	}
 
 	// Warn if workspace path is empty

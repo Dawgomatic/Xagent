@@ -1,6 +1,8 @@
 package config
 
 import (
+	"os"
+	"path/filepath"
 	"testing"
 )
 
@@ -64,8 +66,12 @@ func TestDefaultConfig_Temperature(t *testing.T) {
 func TestDefaultConfig_Gateway(t *testing.T) {
 	cfg := DefaultConfig()
 
-	if cfg.Gateway.Host != "0.0.0.0" {
-		t.Error("Gateway host should have default value")
+	// SWE100821: Default is loopback; use gateway.remote_access or host 0.0.0.0 for VPN/Tailscale
+	if cfg.Gateway.Host != "127.0.0.1" {
+		t.Error("Gateway host should default to loopback")
+	}
+	if cfg.Gateway.RemoteAccess {
+		t.Error("Gateway remote_access should be off by default")
 	}
 	if cfg.Gateway.Port == 0 {
 		t.Error("Gateway port should have default value")
@@ -168,13 +174,37 @@ func TestConfig_Complete(t *testing.T) {
 	if cfg.Agents.Defaults.MaxToolIterations == 0 {
 		t.Error("MaxToolIterations should not be zero")
 	}
-	if cfg.Gateway.Host != "0.0.0.0" {
-		t.Error("Gateway host should have default value")
+	if cfg.Gateway.Host != "127.0.0.1" {
+		t.Error("Gateway host should default to loopback")
 	}
 	if cfg.Gateway.Port == 0 {
 		t.Error("Gateway port should have default value")
 	}
 	if !cfg.Heartbeat.Enabled {
 		t.Error("Heartbeat should be enabled by default")
+	}
+}
+
+// TestLoadConfig_GatewayRemoteAccess verifies SWE100821: remote_access expands loopback to 0.0.0.0
+func TestLoadConfig_GatewayRemoteAccess(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "config.json")
+	raw := `{"agents":{"defaults":{"model":"m","max_tokens":1,"max_tool_iterations":1,"temperature":0.1}},"providers":{"vllm":{"api_base":"http://localhost:11434/v1"}},"gateway":{"host":"127.0.0.1","port":18790,"remote_access":true}}`
+	if err := os.WriteFile(path, []byte(raw), 0600); err != nil {
+		t.Fatal(err)
+	}
+	cfg, err := LoadConfig(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.Gateway.Host != "0.0.0.0" {
+		t.Errorf("expected 0.0.0.0 with remote_access, got %q", cfg.Gateway.Host)
+	}
+	warns, valErr := cfg.Validate()
+	if valErr != nil {
+		t.Fatal(valErr)
+	}
+	if len(warns) == 0 {
+		t.Error("expected remote_access validation warning")
 	}
 }
