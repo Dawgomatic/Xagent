@@ -154,17 +154,20 @@ func TestDefaultConfig_WebTools(t *testing.T) {
 	}
 }
 
-// TestDefaultConfig_SelfImproveDisabled verifies autonomous self-improve is opt-in
-func TestDefaultConfig_SelfImproveDisabled(t *testing.T) {
+// TestDefaultConfig_SelfImproveDefaults verifies autonomous self-improve defaults (on, push, feature prefix)
+func TestDefaultConfig_SelfImproveDefaults(t *testing.T) {
 	cfg := DefaultConfig()
-	if cfg.SelfImprove.Enabled {
-		t.Error("self_improve should be disabled by default")
+	if !cfg.SelfImprove.Enabled {
+		t.Error("self_improve should be enabled by default")
 	}
 	if cfg.SelfImprove.IntervalHours != 168 {
 		t.Errorf("expected interval 168h, got %d", cfg.SelfImprove.IntervalHours)
 	}
-	if cfg.SelfImprove.AutoPush {
-		t.Error("auto_push should be false by default")
+	if !cfg.SelfImprove.AutoPush {
+		t.Error("auto_push should be true by default")
+	}
+	if cfg.SelfImprove.BranchPrefix != "feature" {
+		t.Errorf("expected branch_prefix feature, got %q", cfg.SelfImprove.BranchPrefix)
 	}
 }
 

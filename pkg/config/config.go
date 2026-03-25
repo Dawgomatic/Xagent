@@ -61,13 +61,13 @@ type Config struct {
 }
 
 // SelfImproveConfig schedules autonomous improvement passes (web research + code + tests + git).
-// SWE100821: Disabled by default; enabling implies you accept risk of automated edits — use a branch + review.
+// SWE100821: Default on; each run uses a new branch named branch_prefix/<kebab-feature-slug> and pushes when auto_push is true.
 type SelfImproveConfig struct {
 	Enabled              bool     `json:"enabled"`
 	IntervalHours        int      `json:"interval_hours"`         // 0 = 168 (weekly)
 	RepoPath             string   `json:"repo_path"`              // empty: walk up from workspace for .git
-	BranchPrefix         string   `json:"branch_prefix"`          // default autonomous/self-improve
-	AutoPush             bool     `json:"auto_push"`              // push to remote (needs SSH/credentials)
+	BranchPrefix         string   `json:"branch_prefix"`          // first path segment; full branch = prefix + "/" + feature slug (you choose slug)
+	AutoPush             bool     `json:"auto_push"`              // push new branch to remote (needs SSH/credentials)
 	RemoteName           string   `json:"remote_name"`            // default origin
 	AllowedPathPrefixes  []string `json:"allowed_path_prefixes"`  // repo-relative allowlist for edits
 	InitialDelayMins     int      `json:"initial_delay_mins"`     // 0 = 30 before first run
@@ -504,11 +504,11 @@ func DefaultConfig() *Config {
 			EmbedModel: "nomic-embed-text",
 		},
 		SelfImprove: SelfImproveConfig{
-			Enabled:             false,
+			Enabled:             true,
 			IntervalHours:       168,
 			RepoPath:            "",
-			BranchPrefix:        "autonomous/self-improve",
-			AutoPush:            false,
+			BranchPrefix:        "feature",
+			AutoPush:            true,
 			RemoteName:          "origin",
 			AllowedPathPrefixes: nil,
 			InitialDelayMins:    30,

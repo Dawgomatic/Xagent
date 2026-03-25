@@ -1,7 +1,7 @@
 // Package selfimprove runs periodic autonomous improvement passes: the agent researches,
-// edits allowed paths in the Git repo, runs tests, commits, and optionally pushes.
+// edits allowed paths in the Git repo, runs tests, and pushes a new feature-named branch when configured.
 // Reused: agent loop ProcessDirect pattern from cmd/xagent/cmd_gateway.go (proactive loop).
-// SWE100821: Disabled by default; requires explicit config and Git credentials on the host.
+// SWE100821: Enabled by default; auto_push requires Git credentials on the host.
 package selfimprove
 
 import (
@@ -104,9 +104,8 @@ func (r *Runner) runOnce(ctx context.Context, cfg *config.Config, ar AgentRunner
 	runLog := filepath.Join(logDir, "run-"+ts+".md")
 	prefix := si.BranchPrefix
 	if prefix == "" {
-		prefix = "autonomous/self-improve"
+		prefix = "feature"
 	}
-	branch := fmt.Sprintf("%s-%s", prefix, time.Now().UTC().Format("20060102-150405"))
 	remote := si.RemoteName
 	if remote == "" {
 		remote = "origin"
@@ -116,10 +115,10 @@ func (r *Runner) runOnce(ctx context.Context, cfg *config.Config, ar AgentRunner
 		allowed = []string{"pkg/", "cmd/", "docs/", "config/"}
 	}
 
-	prompt := buildPrompt(repo, workspace, branch, remote, si.AutoPush, allowed)
+	prompt := buildPrompt(repo, workspace, prefix, remote, si.AutoPush, allowed)
 
-	header := fmt.Sprintf("# Self-improve run %s\n\n- repo: `%s`\n- branch: `%s`\n- auto_push: %v\n\n---\n\n## Prompt\n\n%s\n\n---\n\n## Agent output\n\n",
-		ts, repo, branch, si.AutoPush, prompt)
+	header := fmt.Sprintf("# Self-improve run %s\n\n- repo: `%s`\n- branch namespace: `%s/<feature-slug>` (you name the slug)\n- auto_push: %v\n\n---\n\n## Prompt\n\n%s\n\n---\n\n## Agent output\n\n",
+		ts, repo, prefix, si.AutoPush, prompt)
 	if err := os.WriteFile(runLog, []byte(header), 0644); err != nil {
 		logger.ErrorCF("self_improve", "write run log", map[string]interface{}{"error": err.Error()})
 		return
@@ -160,30 +159,37 @@ func truncateForSummary(s string, max int) string {
 	return s[:max] + "\n\n…(truncated in log.md; see run file for full output)…"
 }
 
-func buildPrompt(repoRoot, agentWorkspace, branch, remote string, autoPush bool, allowed []string) string {
+func buildPrompt(repoRoot, agentWorkspace, branchPrefix, remote string, autoPush bool, allowed []string) string {
 	ap := "**Allowed path prefixes (edit ONLY under these relative to repo root):**\n"
 	for _, p := range allowed {
 		ap += fmt.Sprintf("- `%s`\n", p)
 	}
-	push := "Do **not** run `git push`. Commit locally only; the user will push."
+	push := "Do **not** run git push. Commit locally only."
 	if autoPush {
-		push = fmt.Sprintf(`After a successful commit, push with:
+		push = fmt.Sprintf(`After a successful commit on your new branch, push it:
 cd %q && git push -u %s HEAD
-Only if SSH or a credential helper is already configured — never put tokens in files or commit messages.`, repoRoot, remote)
+Use the exact branch name you created (prefix + slug). SSH or credential helper must already be configured — never put tokens in files or commit messages.`, repoRoot, remote)
 	}
+	ex := fmt.Sprintf("%s/add-dashboard-export, %s/self-improve-runner-tests", branchPrefix, branchPrefix)
 	return fmt.Sprintf(`You are running a **scheduled autonomous self-improvement** pass for the Xagent codebase.
 
 ## Repository
 - **Git root:** %q
 - **Agent workspace** (memory/skills; not necessarily the repo): %q
-- **Create and use branch:** %q (checkout from main/master as appropriate)
+- **Branch namespace (prefix):** %q — you must create a **brand-new branch** for this run only.
+
+## Branch naming (required)
+1. Choose a **short kebab-case slug** that names the feature or improvement (e.g. add-metrics-export, refactor-cron-validation, dashboard-cache-headers).
+2. Full branch name: PREFIX + "/" + slug where PREFIX is %q. Examples: %s
+3. If the work is a **large feature** (multiple packages, new APIs, substantial behavior), the slug should still be a **single descriptive phrase** (not a timestamp). One branch per run; name the branch after that feature.
+4. Do not reuse an existing branch name; if unsure, append a short suffix like -v2 only after checking git branch -a.
 
 ## Your mission
-1. Use **web_search** (and **fetch** if needed) to find 1–3 concrete, small improvements relevant to a Go AI agent (patterns, libraries, UX, tests, docs). Stay high-signal; avoid unrelated stacks.
-2. **read_file** / **list_directory** to inspect only files under the allowed prefixes.
-3. Implement **one small, testable improvement** (prefer: bugfix, test, doc clarity, minor feature behind existing patterns).
-4. Run **exec** from repo root: run "go test ./..." or a narrower path if full tree is too heavy. Fix failures before committing.
-5. **git** via **exec**: git status, git checkout -b (branch), git add (only allowed paths), git commit with a conventional message. Never add secrets or config keys.
+1. Use **web_search** (and **fetch** if needed) to find concrete improvements relevant to a Go AI agent (patterns, libraries, UX, tests, docs). Prefer ideas that can become a **feature-sized** change when appropriate; otherwise a focused fix is fine.
+2. **read_file** / **list_directory** only under allowed prefixes.
+3. Implement the improvement: for a **large feature**, cover tests and wiring; for a small fix, keep scope tight.
+4. Run **exec** from repo root: "go test" on affected packages (or ./... if reasonable). Fix failures before committing.
+5. **git** via **exec**: fetch latest base if needed, git checkout main or master (or default branch), git pull, then **git checkout -b %s/<your-slug>** (replace <your-slug> with the kebab name you chose), git add (only allowed paths), git commit with a conventional message. Never add secrets or config keys.
 
 %s
 
@@ -194,6 +200,6 @@ Only if SSH or a credential helper is already configured — never put tokens in
 
 %s
 
-End with a short summary of what changed and what remains.`,
-		repoRoot, agentWorkspace, branch, ap, push)
+End with a short summary: branch name, what changed, and what remains.`,
+		repoRoot, agentWorkspace, branchPrefix, branchPrefix, ex, branchPrefix, ap, push)
 }

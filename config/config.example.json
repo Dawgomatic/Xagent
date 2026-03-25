@@ -158,11 +158,11 @@
     "embed_model": "nomic-embed-text"
   },
   "self_improve": {
-    "enabled": false,
+    "enabled": true,
     "interval_hours": 168,
     "repo_path": "",
-    "branch_prefix": "autonomous/self-improve",
-    "auto_push": false,
+    "branch_prefix": "feature",
+    "auto_push": true,
     "remote_name": "origin",
     "allowed_path_prefixes": ["pkg/", "cmd/", "docs/", "config/"],
     "initial_delay_mins": 30
