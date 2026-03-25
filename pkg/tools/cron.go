@@ -46,7 +46,8 @@ func (t *CronTool) Name() string {
 
 // Description returns the tool description
 func (t *CronTool) Description() string {
-	return "Schedule reminders, tasks, or system commands. IMPORTANT: When user asks to be reminded or scheduled, you MUST call this tool. Use 'at_seconds' for one-time reminders (e.g., 'remind me in 10 minutes' → at_seconds=600). Use 'every_seconds' ONLY for recurring tasks (e.g., 'every 2 hours' → every_seconds=7200). Use 'cron_expr' for complex recurring schedules. Use 'command' to execute shell commands directly."
+	// SWE100821: Models often say "yes" without calling this tool — description states that is invalid.
+	return "Schedule reminders, tasks, or system commands. CRITICAL: A reminder is NOT scheduled until this tool returns success. Do not tell the user it is set unless you called cron add and got a job id. For a specific clock time (e.g. 'tomorrow 9:28'), prefer 'at_rfc3339' with timezone (e.g. 2026-03-25T09:28:00-05:00). Use 'at_seconds' only for relative delays (e.g. 10 minutes → 600). Use 'every_seconds' ONLY for recurring tasks. Use 'cron_expr' for recurring wall-clock schedules. Use 'command' to run shell commands."
 }
 
 // Parameters returns the tool parameters schema
@@ -69,7 +70,11 @@ func (t *CronTool) Parameters() map[string]interface{} {
 			},
 			"at_seconds": map[string]interface{}{
 				"type":        "integer",
-				"description": "One-time reminder: seconds from now when to trigger (e.g., 600 for 10 minutes later). Use this for one-time reminders like 'remind me in 10 minutes'.",
+				"description": "One-time reminder: seconds from now (e.g. 600 = 10 min). For 'tomorrow 9:28' style times, prefer at_rfc3339 to avoid math errors.",
+			},
+			"at_rfc3339": map[string]interface{}{
+				"type":        "string",
+				"description": "One-time reminder at absolute time (RFC3339 with offset), e.g. 2026-03-25T09:28:00-07:00 for local 9:28. Server validates future time. Use this for 'remind me at 9:28 tomorrow' after computing the calendar instant.",
 			},
 			"every_seconds": map[string]interface{}{
 				"type":        "integer",
@@ -145,8 +150,40 @@ func (t *CronTool) addJob(args map[string]interface{}) *ToolResult {
 	atSeconds, hasAt := toFloat64(args["at_seconds"])
 	everySeconds, hasEvery := toFloat64(args["every_seconds"])
 	cronExpr, hasCron := args["cron_expr"].(string)
+	atRFCStr, _ := args["at_rfc3339"].(string)
+	atRFCStr = strings.TrimSpace(atRFCStr)
+	hasAtRFC := atRFCStr != ""
 
+	// SWE100821: Exactly one schedule mode — avoids ambiguous or silently wrong reminders.
+	nModes := 0
+	if hasAtRFC {
+		nModes++
+	}
 	if hasAt {
+		nModes++
+	}
+	if hasEvery {
+		nModes++
+	}
+	if hasCron && strings.TrimSpace(cronExpr) != "" {
+		nModes++
+	}
+	if nModes > 1 {
+		return ErrorResult("use exactly one of: at_rfc3339, at_seconds, every_seconds, cron_expr")
+	}
+
+	switch {
+	case hasAtRFC:
+		atTime, err := parseRFC3339OneShot(atRFCStr)
+		if err != nil {
+			return ErrorResult("at_rfc3339: " + err.Error())
+		}
+		atMS := atTime.UnixMilli()
+		schedule = cron.CronSchedule{
+			Kind: "at",
+			AtMS: &atMS,
+		}
+	case hasAt:
 		if atSeconds <= 0 {
 			return ErrorResult("at_seconds must be positive")
 		}
@@ -155,7 +192,7 @@ func (t *CronTool) addJob(args map[string]interface{}) *ToolResult {
 			Kind: "at",
 			AtMS: &atMS,
 		}
-	} else if hasEvery {
+	case hasEvery:
 		if everySeconds <= 0 {
 			return ErrorResult("every_seconds must be positive")
 		}
@@ -164,7 +201,7 @@ func (t *CronTool) addJob(args map[string]interface{}) *ToolResult {
 			Kind:    "every",
 			EveryMS: &everyMS,
 		}
-	} else if hasCron {
+	case hasCron:
 		// SWE100821: Reject empty cron expressions — creates a "dead" job that never fires
 		cronExpr = strings.TrimSpace(cronExpr)
 		if cronExpr == "" {
@@ -174,8 +211,8 @@ func (t *CronTool) addJob(args map[string]interface{}) *ToolResult {
 			Kind: "cron",
 			Expr: cronExpr,
 		}
-	} else {
-		return ErrorResult("one of at_seconds, every_seconds, or cron_expr is required")
+	default:
+		return ErrorResult("one of at_rfc3339, at_seconds, every_seconds, or cron_expr is required")
 	}
 
 	// Read deliver parameter, default to true
@@ -336,6 +373,22 @@ func (t *CronTool) ExecuteJob(ctx context.Context, job *cron.CronJob) string {
 
 	_ = response
 	return "ok"
+}
+
+// parseRFC3339OneShot parses a one-shot reminder instant and ensures it is not in the past.
+// SWE100821: Prefer this over LLM-computed at_seconds for "tomorrow 9:28" style requests.
+func parseRFC3339OneShot(s string) (time.Time, error) {
+	t, err := time.Parse(time.RFC3339, s)
+	if err != nil {
+		t, err = time.Parse(time.RFC3339Nano, s)
+		if err != nil {
+			return time.Time{}, fmt.Errorf("expected RFC3339 time with zone offset, e.g. 2026-03-25T09:28:00-05:00: %w", err)
+		}
+	}
+	if t.Before(time.Now()) {
+		return time.Time{}, fmt.Errorf("time must be in the future (got %s)", t.Format(time.RFC3339))
+	}
+	return t, nil
 }
 
 // SWE100821: toFloat64 normalizes numeric args from LLM tool calls. Different providers
