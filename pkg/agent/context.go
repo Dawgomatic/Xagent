@@ -25,7 +25,7 @@ type ContextBuilder struct {
 	identity       *identity.AgentIdentity // SWE100821: Agent identity + time tracking
 	prevEpoch      *epoch.Record           // SWE100821: Previous epoch for wake-up recall
 	autoDiscoverer *skills.AutoDiscoverer  // SWE100821: Skill auto-discovery
-	bootstrapCache map[string]string       // Cache for AGENTS.md, SOUL.md, etc.
+	bootstrapCache map[string]string       // Cache for AGENTS.md, AGENT.md, SOUL.md, etc.
 	bootstrapMTime map[string]time.Time    // MTime for cache invalidation
 	compactPrompt  bool                    // SWE100821: Minimal system prompt for embedded/PicoLM
 }
@@ -188,8 +188,10 @@ The following skills extend your capabilities. To use a skill, read its SKILL.md
 }
 
 func (cb *ContextBuilder) LoadBootstrapFiles() string {
+	// SWE100821: AGENTS.md + AGENT.md — migrate/onboarding may only ship AGENTS.md; AGENT.md holds expanded operator contract.
 	bootstrapFiles := []string{
 		"AGENTS.md",
+		"AGENT.md",
 		"SOUL.md",
 		"USER.md",
 		"IDENTITY.md",
