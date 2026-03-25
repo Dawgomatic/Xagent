@@ -702,6 +702,9 @@ func (c *Config) Validate() (warnings []string, err error) {
 		if c.SelfImprove.AutoPush {
 			warnings = append(warnings, "self_improve.auto_push: ensure Git credentials (SSH) and review branch protection; never store tokens in repo")
 		}
+		if c.Agents.Defaults.RestrictToWorkspace {
+			warnings = append(warnings, "self_improve with restrict_to_workspace=true: read_file/write_file/exec cwd may be limited to the workspace folder — if the git clone lives outside it, set restrict_to_workspace false or point workspace at the repo root")
+		}
 	}
 
 	return
