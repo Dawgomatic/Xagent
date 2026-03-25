@@ -56,7 +56,21 @@ type Config struct {
 	MCP            MCPConfig            `json:"mcp"`             // SWE100821: Config-driven MCP server registration
 	Phone          PhoneConfig          `json:"phone"`           // SWE100821: USB-attached phone access via ADB/libimobiledevice
 	SemanticMemory SemanticMemoryConfig `json:"semantic_memory"` // SWE100821: Vector memory via Qdrant + Ollama embeddings
+	SelfImprove    SelfImproveConfig    `json:"self_improve"`    // SWE100821: Periodic autonomous repo improvement via agent
 	mu             sync.RWMutex
+}
+
+// SelfImproveConfig schedules autonomous improvement passes (web research + code + tests + git).
+// SWE100821: Disabled by default; enabling implies you accept risk of automated edits — use a branch + review.
+type SelfImproveConfig struct {
+	Enabled              bool     `json:"enabled"`
+	IntervalHours        int      `json:"interval_hours"`         // 0 = 168 (weekly)
+	RepoPath             string   `json:"repo_path"`              // empty: walk up from workspace for .git
+	BranchPrefix         string   `json:"branch_prefix"`          // default autonomous/self-improve
+	AutoPush             bool     `json:"auto_push"`              // push to remote (needs SSH/credentials)
+	RemoteName           string   `json:"remote_name"`            // default origin
+	AllowedPathPrefixes  []string `json:"allowed_path_prefixes"`  // repo-relative allowlist for edits
+	InitialDelayMins     int      `json:"initial_delay_mins"`     // 0 = 30 before first run
 }
 
 // SWE100821: MCPConfig holds config-driven MCP server definitions.
@@ -489,6 +503,16 @@ func DefaultConfig() *Config {
 			Collection: "xagent_memory",
 			EmbedModel: "nomic-embed-text",
 		},
+		SelfImprove: SelfImproveConfig{
+			Enabled:             false,
+			IntervalHours:       168,
+			RepoPath:            "",
+			BranchPrefix:        "autonomous/self-improve",
+			AutoPush:            false,
+			RemoteName:          "origin",
+			AllowedPathPrefixes: nil,
+			InitialDelayMins:    30,
+		},
 	}
 }
 
@@ -664,6 +688,20 @@ func (c *Config) Validate() (warnings []string, err error) {
 	if c.Agents.Defaults.MessageTimeoutSecs < 0 {
 		err = fmt.Errorf("agents.defaults.message_timeout_secs cannot be negative (%d)", c.Agents.Defaults.MessageTimeoutSecs)
 		return
+	}
+
+	// SWE100821: Autonomous self-improve — warn on risky settings
+	if c.SelfImprove.Enabled {
+		if c.SelfImprove.IntervalHours < 0 {
+			err = fmt.Errorf("self_improve.interval_hours cannot be negative (%d)", c.SelfImprove.IntervalHours)
+			return
+		}
+		if c.SelfImprove.IntervalHours > 0 && c.SelfImprove.IntervalHours < 24 {
+			warnings = append(warnings, "self_improve.interval_hours < 24: frequent automated edits; consider weekly (168) or higher")
+		}
+		if c.SelfImprove.AutoPush {
+			warnings = append(warnings, "self_improve.auto_push: ensure Git credentials (SSH) and review branch protection; never store tokens in repo")
+		}
 	}
 
 	return

@@ -154,6 +154,20 @@ func TestDefaultConfig_WebTools(t *testing.T) {
 	}
 }
 
+// TestDefaultConfig_SelfImproveDisabled verifies autonomous self-improve is opt-in
+func TestDefaultConfig_SelfImproveDisabled(t *testing.T) {
+	cfg := DefaultConfig()
+	if cfg.SelfImprove.Enabled {
+		t.Error("self_improve should be disabled by default")
+	}
+	if cfg.SelfImprove.IntervalHours != 168 {
+		t.Errorf("expected interval 168h, got %d", cfg.SelfImprove.IntervalHours)
+	}
+	if cfg.SelfImprove.AutoPush {
+		t.Error("auto_push should be false by default")
+	}
+}
+
 // TestConfig_Complete verifies all config fields are set
 func TestConfig_Complete(t *testing.T) {
 	cfg := DefaultConfig()

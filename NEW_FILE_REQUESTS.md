@@ -4,6 +4,10 @@
 - **Purpose:** Seed `GOALS.md` in the default workspace so the dashboard Overview and `goals` tool have initial active goals; users edit or replace via tool or file.
 - **Duplicate search:** `pkg/tools/goals.go` (`defaultGoalsMarkdown()` empty sections only), `glob **/GOALS.md` under repo (none in `cmd/xagent/workspace` before this), `IDENTITY.md` has a generic "Goals" bullet list but not the EXA checkbox format. No duplicate tracked workspace goals file.
 
+## pkg/selfimprove/
+- **Purpose:** Periodic autonomous improvement loop — `ProcessDirect` with a fixed prompt (web search, edit allowlisted paths, `go test`, git commit, optional push); logs under `workspace/self-improve/`.
+- **Duplicate search:** `pkg/upgrade/` (user-initiated upgrades only), `cmd_gateway` proactive loop (idle chat, not repo edits), `pkg/cron` (scheduling infra, not self-modify). No duplicate.
+
 ## pkg/agent/context.go (bootstrap `AGENT.md`)
 - **Purpose:** Load `AGENT.md` alongside `AGENTS.md` so expanded operator docs in the workspace are injected into the system prompt (OpenClaw/migrate still use `AGENTS.md` as the primary migrate filename).
 - **Duplicate search:** `LoadBootstrapFiles` listed only `AGENTS.md`; `cmd/xagent/workspace/AGENT.md` existed but was never loaded. `reference/picoclaw` uses `AGENTS.md` only — no conflict; second file is additive.

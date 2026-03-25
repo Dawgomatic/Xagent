@@ -23,6 +23,7 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/hwprofile"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/providers"
+	"github.com/Dawgomatic/Xagent/pkg/selfimprove"
 	"github.com/Dawgomatic/Xagent/pkg/state"
 	"github.com/Dawgomatic/Xagent/pkg/tools"
 	"github.com/Dawgomatic/Xagent/pkg/sensors"
@@ -375,6 +376,12 @@ func gatewayCmd() {
 	}
 
 	go agentLoop.Run(ctx)
+
+	// SWE100821: Periodic autonomous self-improvement (web research + code + tests + git; logs under workspace/self-improve/)
+	if cfg.SelfImprove.Enabled {
+		selfimprove.NewRunner().Start(ctx, cfg, agentLoop)
+		fmt.Println("✓ Self-improve loop enabled (logs: workspace/self-improve/)")
+	}
 
 	// SWE100821: Start dream mode — autonomous reflection during idle periods.
 	// After 2h idle, the agent reviews recent conversations, finds patterns,
