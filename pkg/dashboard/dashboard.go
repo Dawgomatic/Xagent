@@ -144,6 +144,8 @@ func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
 // handleDashboardPage serves the embedded interactive HTML dashboard.
 func (d *Dashboard) handleDashboardPage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	// SWE100821: HTML is embedded at build time — avoid caching stale dashboard after upgrades
+	w.Header().Set("Cache-Control", "no-store, must-revalidate")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprint(w, dashboardHTML)
 }
