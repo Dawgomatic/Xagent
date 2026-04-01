@@ -29,7 +29,7 @@ var sensitiveConfigRe = regexp.MustCompile(`(?i)"(api_key|token|secret|password|
 var wikilinkRe = regexp.MustCompile(`\[\[([^\]\|]+)(?:\|[^\]]+)?\]\]`)
 
 // Dashboard provides an embedded HTTP dashboard for agent introspection.
-// SWE100821: Expanded with chat, vault graph, and full subsystem browsing.
+// SWE100821: Expanded with chat, vault graph, full subsystem browsing, and task queue.
 type Dashboard struct {
 	workspace      string
 	vaultPath      string
@@ -42,9 +42,11 @@ type Dashboard struct {
 	chatHandler    func(ctx context.Context, message, sessionKey string) (string, error)
 	chatMu         sync.Mutex
 	chatReqs       map[string]*chatReq
-	sensorProvider func() string   // SWE100821: Returns formatted sensor readings
-	toolLister     func() []string // SWE100821: Returns registered tool names
-	fatigueFunc    func() float64  // SWE100821: Returns live fatigue level (0.0-1.0)
+	sensorProvider func() string      // SWE100821: Returns formatted sensor readings
+	toolLister     func() []string    // SWE100821: Returns registered tool names
+	fatigueFunc    func() float64     // SWE100821: Returns live fatigue level (0.0-1.0)
+	taskLister     func() interface{}             // SWE100821: Returns serializable task list
+	gcStatusFunc   func() map[string]interface{}  // SWE100821: Returns GC last run + fatigue stats
 }
 
 // chatReq tracks an in-flight chat request for async polling.
@@ -94,6 +96,12 @@ func (d *Dashboard) SetToolLister(fn func() []string) { d.toolLister = fn }
 // SWE100821: SetFatigueFunc injects a function returning live fatigue level (0.0-1.0).
 func (d *Dashboard) SetFatigueFunc(fn func() float64) { d.fatigueFunc = fn }
 
+	// SWE100821: SetTaskLister injects a function returning the serializable task list.
+func (d *Dashboard) SetTaskLister(fn func() interface{}) { d.taskLister = fn }
+
+// SWE100821: SetGCStatusFunc injects a function returning GC last-run time and fatigue.
+func (d *Dashboard) SetGCStatusFunc(fn func() map[string]interface{}) { d.gcStatusFunc = fn }
+
 // SetupRoutes registers all dashboard routes on the given mux.
 // SWE100821: Includes original, memory, vault, detail, config, chat, and graph APIs.
 func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
@@ -139,6 +147,9 @@ func (d *Dashboard) SetupRoutes(mux *http.ServeMux) {
 
 	// SWE100821: Chat API — async POST + polling GET
 	mux.HandleFunc("/api/chat", d.handleChat)
+
+	// SWE100821: Task queue API
+	mux.HandleFunc("/api/tasks", d.handleTasks)
 }
 
 // handleDashboardPage serves the embedded interactive HTML dashboard.
@@ -208,13 +219,27 @@ func (d *Dashboard) handleState(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	writeJSON(w, map[string]interface{}{
+	// SWE100821: Include live system time so dashboard can display it without a separate endpoint
+	now := time.Now()
+	zone, offsetSecs := now.Local().Zone()
+	resp := map[string]interface{}{
 		"uptime":         uptime,
 		"fatigue":        fatigue,
 		"messages_count": messagesCount,
 		"model":          model,
 		"tier":           tier,
-	})
+		"current_time":   now.UTC().Format("2006-01-02 15:04:05 UTC"),
+		"local_time":     now.Local().Format("2006-01-02 15:04:05 MST"),
+		"timezone":       fmt.Sprintf("%s (UTC%+.1f)", zone, float64(offsetSecs)/3600.0),
+		"unix":           now.UTC().Unix(),
+	}
+	// SWE100821: Inject GC status (last run, next scheduled) for dashboard overview
+	if d.gcStatusFunc != nil {
+		for k, v := range d.gcStatusFunc() {
+			resp[k] = v
+		}
+	}
+	writeJSON(w, resp)
 }
 
 func (d *Dashboard) handleEpochs(w http.ResponseWriter, r *http.Request) {
@@ -1045,6 +1070,17 @@ func (d *Dashboard) handleGoals(w http.ResponseWriter, r *http.Request) {
 		"content": string(data),
 		"exists":  true,
 	})
+}
+
+// --- Tasks API ---
+
+// SWE100821: handleTasks returns the full task list for the dashboard task tab.
+func (d *Dashboard) handleTasks(w http.ResponseWriter, r *http.Request) {
+	if d.taskLister == nil {
+		writeJSON(w, []interface{}{})
+		return
+	}
+	writeJSON(w, d.taskLister())
 }
 
 // --- Helpers ---

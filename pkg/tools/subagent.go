@@ -35,6 +35,9 @@ type SubagentManager struct {
 	maxIterations int
 	nextID        int
 	sem           chan struct{} // SWE100821: Semaphore for concurrency control
+	// SWE100821: rootCtx is the gateway lifetime context — subagent goroutines must use this,
+	// NOT the per-message ctx, which is cancelled as soon as the main agent finishes its turn.
+	rootCtx context.Context
 }
 
 func NewSubagentManager(provider providers.LLMProvider, defaultModel, workspace string, bus *bus.MessageBus) *SubagentManager {
@@ -48,7 +51,18 @@ func NewSubagentManager(provider providers.LLMProvider, defaultModel, workspace 
 		maxIterations: 10,
 		nextID:        1,
 		sem:           make(chan struct{}, maxConcurrentSubagents),
+		rootCtx:       context.Background(), // safe default; overridden by SetRootContext
 	}
+}
+
+// SetRootContext sets the long-lived gateway context for background subagent goroutines.
+// Must be called before any Spawn() calls. The per-message ctx passed to Spawn is only
+// used for semaphore acquisition; the goroutine itself runs under rootCtx.
+// SWE100821: Fixes subagents being killed when the parent message turn ends.
+func (sm *SubagentManager) SetRootContext(ctx context.Context) {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	sm.rootCtx = ctx
 }
 
 // SetTools sets the tool registry for subagent execution.
@@ -92,10 +106,13 @@ func (sm *SubagentManager) Spawn(ctx context.Context, task, label, originChannel
 	}
 	sm.tasks[taskID] = subagentTask
 
-	// Start task in background with context cancellation support
+	// SWE100821: Use rootCtx (gateway lifetime) not the per-message ctx.
+	// Per-message ctx is cancelled when the main agent finishes its turn, which would
+	// kill background subagents mid-execution.
+	spawnCtx := sm.rootCtx
 	go func() {
 		defer func() { <-sm.sem }() // SWE100821: Release semaphore slot on completion
-		sm.runTask(ctx, subagentTask, callback)
+		sm.runTask(spawnCtx, subagentTask, callback)
 	}()
 
 	if label != "" {

@@ -137,6 +137,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
   <div class="nav-item" onclick="navigate('sensors')"><span class="nav-icon">&#9832;</span><span>Sensors</span></div>
   <div class="nav-item" onclick="navigate('tools')"><span class="nav-icon">&#9874;</span><span>Tools</span></div>
   <div class="nav-item" onclick="navigate('config')"><span class="nav-icon">&#9881;</span><span>Config</span></div>
+  <div class="nav-item" onclick="navigate('tasks')"><span class="nav-icon">&#9654;</span><span>Tasks</span></div>
   <div class="nav-item" onclick="navigate('system')"><span class="nav-icon">&#9636;</span><span>System</span></div>
 </div>
 
@@ -153,6 +154,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
     <div class="card"><div class="label">Fatigue</div><div class="value" id="ov-fatigue">--</div></div>
     <div class="card"><div class="label">Messages</div><div class="value" id="ov-messages">--</div></div>
     <div class="card"><div class="label">Model</div><div class="value sm" id="ov-model">--</div></div>
+    <div class="card"><div class="label">System Time</div><div class="value sm" id="ov-systime">--</div></div>
+    <div class="card"><div class="label">Timezone</div><div class="value sm" id="ov-timezone">--</div></div>
+    <div class="card"><div class="label">Last GC</div><div class="value sm" id="ov-gc-last">--</div></div>
+    <div class="card"><div class="label">Next GC</div><div class="value sm" id="ov-gc-next">--</div></div>
     <div class="card"><div class="label">Tier</div><div class="value" id="ov-tier">--</div></div>
     <div class="card"><div class="label">LLM Calls</div><div class="value" id="ov-llm">--</div></div>
     <div class="card"><div class="label">Tool Calls</div><div class="value" id="ov-tools">--</div></div>
@@ -372,9 +377,27 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
   <div class="section"><h3>Agent Configuration (secrets redacted)</h3><div class="json-view" id="config-view"><div class="empty">Loading...</div></div></div>
 </div>
 
+<!-- TASKS -->
+<!-- SWE100821: Task queue tab — shows pending/in-progress/done tasks with pipeline status -->
+<div class="page" id="page-tasks">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" onclick="filterTasks('')">All</button>
+      <button class="btn" onclick="filterTasks('pending')">Pending</button>
+      <button class="btn" onclick="filterTasks('in_progress')">In Progress</button>
+      <button class="btn" onclick="filterTasks('testing')">Testing</button>
+      <button class="btn" onclick="filterTasks('done')">Done</button>
+      <button class="btn" onclick="filterTasks('failed')">Failed</button>
+    </div>
+    <button class="btn" onclick="loadTasks()" style="margin-left:auto">&#8635; Refresh</button>
+  </div>
+  <div id="tasks-list"><div class="empty">Loading tasks…</div></div>
+</div>
+
 <!-- SYSTEM -->
 <div class="page" id="page-system">
   <div class="cards" id="sys-cards">
+    <div class="card"><div class="label">System Time</div><div class="value sm" id="sys-systime">--</div></div>
     <div class="card"><div class="label">Uptime (s)</div><div class="value" id="sys-uptime">--</div></div>
     <div class="card"><div class="label">Messages</div><div class="value" id="sys-msgs">--</div></div>
     <div class="card"><div class="label">Errors</div><div class="value" id="sys-errs">--</div></div>
@@ -416,7 +439,7 @@ function navigate(page) {
 }
 
 function loadPage(page) {
-  var loaders = {overview:loadOverview,chat:function(){},memory:loadMemoryPage,vault:loadVaultTree,graph:loadGraph,epochs:loadEpochsList,provenance:loadProvList,skills:loadSkillsGrid,sensors:loadSensors,tools:loadTools,config:loadConfig,system:loadSystem};
+  var loaders = {overview:loadOverview,chat:function(){},memory:loadMemoryPage,vault:loadVaultTree,graph:loadGraph,epochs:loadEpochsList,provenance:loadProvList,skills:loadSkillsGrid,sensors:loadSensors,tools:loadTools,config:loadConfig,tasks:loadTasks,system:loadSystem};
   if (loaders[page]) loaders[page]();
 }
 
@@ -427,8 +450,21 @@ function fmtTime(t) { if (!t) return ''; try { return new Date(t).toLocaleString
 function renderListItems(id, items, fn) { var el = document.getElementById(id); if (!el) return; if (!items || items.length===0){el.innerHTML='<div class="empty">None</div>';return;} el.innerHTML=items.map(fn).join(''); }
 
 // ===== Overview =====
+// SWE100821: Live clock — ticks every second from the server-synced unix offset
+var _ovTimeBase=null,_ovTimerID=null;
+function startLiveClock(serverUnix){
+  if(_ovTimerID){clearInterval(_ovTimerID);}
+  var drift=Date.now()-serverUnix*1000;
+  _ovTimerID=setInterval(function(){
+    var now=new Date(Date.now()-drift);
+    var s=now.getUTCFullYear()+'-'+pad2(now.getUTCMonth()+1)+'-'+pad2(now.getUTCDate())+' '+pad2(now.getUTCHours())+':'+pad2(now.getUTCMinutes())+':'+pad2(now.getUTCSeconds())+' UTC';
+    setText('ov-systime',s);
+    setText('sys-systime',s);
+  },1000);
+}
+function pad2(n){return n<10?'0'+n:''+n;}
 function loadOverview() {
-  api('/api/state').then(function(s){if(!s)return;setText('ov-uptime',s.uptime);setText('ov-fatigue',s.fatigue);setText('ov-messages',s.messages_count!=null?s.messages_count:'--');setText('ov-model',s.model);setText('ov-tier',s.tier);});
+  api('/api/state').then(function(s){if(!s)return;setText('ov-uptime',s.uptime);setText('ov-fatigue',s.fatigue);setText('ov-messages',s.messages_count!=null?s.messages_count:'--');setText('ov-model',s.model);setText('ov-tier',s.tier);if(s.unix){startLiveClock(s.unix);}if(s.timezone){setText('ov-timezone',s.timezone);}if(s.gc_last_run){setText('ov-gc-last',s.gc_last_run);}if(s.gc_next_run){setText('ov-gc-next',s.gc_next_run);}});
   api('/api/metrics').then(function(m){if(!m)return;setText('ov-llm',m.llm_calls_total!=null?m.llm_calls_total:'--');setText('ov-tools',m.tool_calls_total!=null?m.tool_calls_total:'--');setText('ov-latency',m.llm_avg_latency_ms!=null?Math.round(m.llm_avg_latency_ms)+'ms':'--');});
   api('/api/epochs').then(function(items){renderListItems('ov-epochs',items,function(e){return '<div class="list-item"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});
   api('/api/provenance').then(function(items){renderListItems('ov-prov',items,function(e){return '<div class="list-item"><span>'+esc(e.name)+'</span><span class="time">'+fmtTime(e.mod_time)+'</span></div>';});});
@@ -988,6 +1024,42 @@ function loadTools(){
 }
 
 // ===== System =====
+// SWE100821: Tasks tab — load and filter task queue
+var _allTasks=[];
+var _taskFilter='';
+function loadTasks(){
+  api('/api/tasks').then(function(items){
+    _allTasks=Array.isArray(items)?items:[];
+    renderTasks();
+  });
+}
+function filterTasks(status){_taskFilter=status;renderTasks();}
+var STATUS_COLORS={'pending':'#facc15','in_progress':'#60a5fa','testing':'#a78bfa','done':'#4ade80','failed':'#f87171','cancelled':'#94a3b8'};
+function renderTasks(){
+  var el=document.getElementById('tasks-list');
+  if(!el)return;
+  var items=_taskFilter?_allTasks.filter(function(t){return t.status===_taskFilter;}):_allTasks;
+  if(!items||items.length===0){el.innerHTML='<div class="empty">No tasks'+((_taskFilter)?' with status "'+_taskFilter+'"':'')+'. Ask the agent to create one.</div>';return;}
+  el.innerHTML=items.slice().reverse().map(function(t){
+    var col=STATUS_COLORS[t.status]||'#94a3b8';
+    var branch=t.branch?'<span style="font-size:11px;color:#60a5fa;margin-left:8px">&#9135; '+esc(t.branch)+'</span>':'';
+    var err=t.error?'<div style="color:#f87171;font-size:12px;margin-top:4px">&#9888; '+esc(t.error)+'</div>':'';
+    var result=t.result?'<details style="margin-top:8px"><summary style="cursor:pointer;font-size:12px;color:#94a3b8">Result / output</summary><pre style="font-size:11px;white-space:pre-wrap;color:#e2e8f0;max-height:200px;overflow-y:auto">'+esc(t.result.slice(0,3000))+'</pre></details>':'';
+    var pri=['','&#9675;','&#9675;&#9675;','&#9679;','&#9679;&#9679;','&#9733;'][t.priority]||'';
+    return '<div style="background:#1e293b;border-left:4px solid '+col+';border-radius:6px;padding:14px;margin-bottom:10px">'+
+      '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">'+
+      '<span style="font-size:11px;background:'+col+';color:#0f172a;border-radius:4px;padding:2px 7px;font-weight:700">'+esc(t.status)+'</span>'+
+      '<span style="font-size:11px;color:#94a3b8;background:#0f172a;border-radius:4px;padding:2px 6px">'+esc(t.type)+'</span>'+
+      '<span style="font-size:12px;color:#94a3b8">'+pri+'</span>'+
+      '<span style="font-weight:600;font-size:14px">'+esc(t.title)+'</span>'+branch+
+      '</div>'+
+      '<div style="font-size:12px;color:#94a3b8;margin-top:6px">'+esc(t.id)+' &nbsp;·&nbsp; '+fmtTime(t.created_at)+'</div>'+
+      '<div style="font-size:13px;color:#cbd5e1;margin-top:6px;white-space:pre-wrap">'+esc(t.description.slice(0,300))+(t.description.length>300?'…':'')+'</div>'+
+      err+result+
+      '</div>';
+  }).join('');
+}
+
 function loadSystem(){
   api('/api/metrics').then(function(m){if(!m)return;setText('sys-uptime',m.uptime_seconds!=null?m.uptime_seconds:'--');setText('sys-msgs',m.messages_total!=null?m.messages_total:'--');setText('sys-errs',m.messages_errored!=null?m.messages_errored:'--');setText('sys-llm',m.llm_calls_total!=null?m.llm_calls_total:'--');setText('sys-llm-fail',m.llm_calls_failed!=null?m.llm_calls_failed:'--');setText('sys-lat',m.llm_avg_latency_ms!=null?Math.round(m.llm_avg_latency_ms)+'ms':'--');setText('sys-tool',m.tool_calls_total!=null?m.tool_calls_total:'--');});
   api('/api/watchdog').then(function(d){var el=document.getElementById('sys-watchdog');if(!d||!d.subsystems||d.subsystems.length===0){el.innerHTML='<div class="empty">No subsystems registered</div>';return;}el.innerHTML=d.subsystems.map(function(s){var col=s.status==='up'?'#4ade80':s.status==='down'?'#f87171':'#facc15';var icon=s.status==='up'?'&#9679;':s.status==='down'?'&#9888;':'&#63;';var since=s.since?new Date(s.since).toLocaleTimeString():'--';var info=s.status==='down'&&s.message?'<div style="font-size:11px;color:#f87171;margin-top:4px">'+esc(s.message)+'</div>':'';var restarts=s.restarts>0?'<div style="font-size:11px;color:#facc15;margin-top:2px">Restarts: '+s.restarts+'</div>':'';return '<div style="background:#1e293b;border-left:3px solid '+col+';border-radius:6px;padding:12px"><div style="display:flex;align-items:center;gap:6px"><span style="color:'+col+';font-size:16px">'+icon+'</span><span style="font-weight:600;font-size:14px">'+esc(s.name)+'</span></div><div style="font-size:12px;color:#94a3b8;margin-top:4px">Since '+since+'</div>'+info+restarts+'</div>';}).join('');});

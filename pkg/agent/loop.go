@@ -21,8 +21,8 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/bus"
 	"github.com/Dawgomatic/Xagent/pkg/config"
 	"github.com/Dawgomatic/Xagent/pkg/constants"
-	"github.com/Dawgomatic/Xagent/pkg/health"
 	"github.com/Dawgomatic/Xagent/pkg/epoch"
+	"github.com/Dawgomatic/Xagent/pkg/health"
 	"github.com/Dawgomatic/Xagent/pkg/identity"
 	"github.com/Dawgomatic/Xagent/pkg/logger"
 	"github.com/Dawgomatic/Xagent/pkg/mcp"
@@ -37,39 +37,40 @@ import (
 )
 
 type AgentLoop struct {
-	bus            *bus.MessageBus
-	provider       providers.LLMProvider
-	workspace      string
-	model          string
-	contextWindow  int // Maximum context window size in tokens
-	maxIterations  int
-	maxTokens      int                     // SWE100821: LLM max_tokens from config (was hard-coded)
-	temperature    float64                 // SWE100821: LLM temperature from config (was hard-coded)
-	messageTimeout time.Duration           // SWE100821: Per-message timeout to prevent one slow call blocking all
-	identity       *identity.AgentIdentity // SWE100821: Unique agent identity + time tracking
-	epoch          *epoch.Manager          // SWE100821: Epoch lifecycle (wake/sleep journaling)
-	sessions       *session.SessionManager
-	state          *state.Manager
-	contextBuilder *ContextBuilder
-	tools          *tools.ToolRegistry
-	middleware     *tools.ToolMiddleware   // SWE100821: Tool middleware (caching, circuit breaker, analytics)
-	planner        *Planner                // SWE100821: Plan-Act-Reflect loop
-	plannerDisabled bool                   // SWE100821: Skip planner on embedded/edge hw
-	compressor     *ContextCompressor      // SWE100821: Context compression for long sessions
-	provenance     *ProvenanceTracker      // SWE100821: Provenance tracking per turn
-	dream          *DreamMode              // SWE100821: Offline reflection during idle
-	sleepManager   *SleepManager           // Phase 3: Continuous Improvement Sleep Cycle
-	personality    *PersonalityTracker     // SWE100821: Personality evolution
-	feedback       *tools.FeedbackTool     // OpenClaw-RL: User feedback for RL training
-	vaultWriter    *vault.VaultWriter       // Obsidian knowledge vault
-	hindsight      *memory.HindsightMemory // Hindsight learning memory
-	semanticMemory *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
-	temporalIndex  *memory.TemporalIndex   // SWE100821: Time-aware memory retrieval
-	consolidator   *memory.Consolidator    // SWE100821: Weekly/monthly memory rollup
-	metrics        *health.Metrics         // SWE100821: Live metrics for dashboard System tab
-	perception     PerceptionProvider      // SWE100821: Ambient sensor data for system prompt
-	running        atomic.Bool
-	summarizing    sync.Map // Tracks which sessions are currently being summarized
+	bus             *bus.MessageBus
+	provider        providers.LLMProvider
+	workspace       string
+	model           string
+	contextWindow   int // Maximum context window size in tokens
+	maxIterations   int
+	maxTokens       int                     // SWE100821: LLM max_tokens from config (was hard-coded)
+	temperature     float64                 // SWE100821: LLM temperature from config (was hard-coded)
+	messageTimeout  time.Duration           // SWE100821: Per-message timeout to prevent one slow call blocking all
+	identity        *identity.AgentIdentity // SWE100821: Unique agent identity + time tracking
+	epoch           *epoch.Manager          // SWE100821: Epoch lifecycle (wake/sleep journaling)
+	sessions        *session.SessionManager
+	state           *state.Manager
+	contextBuilder  *ContextBuilder
+	tools           *tools.ToolRegistry
+	middleware      *tools.ToolMiddleware   // SWE100821: Tool middleware (caching, circuit breaker, analytics)
+	planner         *Planner                // SWE100821: Plan-Act-Reflect loop
+	plannerDisabled bool                    // SWE100821: Skip planner on embedded/edge hw
+	compressor      *ContextCompressor      // SWE100821: Context compression for long sessions
+	provenance      *ProvenanceTracker      // SWE100821: Provenance tracking per turn
+	dream           *DreamMode              // SWE100821: Offline reflection during idle
+	sleepManager    *SleepManager           // Phase 3: Continuous Improvement Sleep Cycle
+	personality     *PersonalityTracker     // SWE100821: Personality evolution
+	feedback        *tools.FeedbackTool     // OpenClaw-RL: User feedback for RL training
+	vaultWriter     *vault.VaultWriter      // Obsidian knowledge vault
+	hindsight       *memory.HindsightMemory // Hindsight learning memory
+	semanticMemory  *memory.SemanticMemory  // SWE100821: Vector-based semantic memory
+	temporalIndex   *memory.TemporalIndex   // SWE100821: Time-aware memory retrieval
+	consolidator    *memory.Consolidator    // SWE100821: Weekly/monthly memory rollup
+	subagentMgr     *tools.SubagentManager  // SWE100821: Stored so gateway can inject root ctx
+	metrics         *health.Metrics         // SWE100821: Live metrics for dashboard System tab
+	perception      PerceptionProvider      // SWE100821: Ambient sensor data for system prompt
+	running         atomic.Bool
+	summarizing     sync.Map // Tracks which sessions are currently being summarized
 }
 
 // processOptions configures how a message is processed
@@ -98,6 +99,8 @@ func createToolRegistry(workspace string, restrict bool, cfg *config.Config, msg
 	registry.Register(tools.NewAppendFileTool(workspace, restrict))
 	// SWE100821: GOALS.md project/goal tracking (list, add, update, review)
 	registry.Register(tools.NewGoalsTool(workspace))
+	// SWE100821: Temporal awareness — agent can query current time/date/uptime
+	registry.Register(tools.NewTimeTool(time.Now()))
 
 	// SWE100821: Shell execution — configurable network/script access
 	execTool := tools.NewExecToolWithConfig(workspace, restrict,
@@ -313,11 +316,11 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		model:          cfg.Agents.Defaults.Model,
 		contextWindow:  resolveContextWindow(cfg.Agents.Defaults.ContextWindow, cfg.Agents.Defaults.MaxTokens),
 		maxIterations:  cfg.Agents.Defaults.MaxToolIterations,
-		maxTokens:      cfg.Agents.Defaults.MaxTokens,   // SWE100821: from config, not hard-coded
-		temperature:    cfg.Agents.Defaults.Temperature, // SWE100821: from config, not hard-coded
+		maxTokens:      cfg.Agents.Defaults.MaxTokens,                                 // SWE100821: from config, not hard-coded
+		temperature:    cfg.Agents.Defaults.Temperature,                               // SWE100821: from config, not hard-coded
 		messageTimeout: resolveMessageTimeout(cfg.Agents.Defaults.MessageTimeoutSecs), // SWE100821: configurable per-message timeout
-		identity:       agentIdentity,                   // SWE100821: unique identity + time tracking
-		epoch:          epochMgr,                        // Epoch lifecycle (wake/sleep journaling)
+		identity:       agentIdentity,                                                 // SWE100821: unique identity + time tracking
+		epoch:          epochMgr,                                                      // Epoch lifecycle (wake/sleep journaling)
 		sessions:       sessionsManager,
 		state:          stateManager,
 		contextBuilder: contextBuilder,
@@ -335,7 +338,18 @@ func NewAgentLoop(cfg *config.Config, msgBus *bus.MessageBus, provider providers
 		semanticMemory: semanticMem,        // SWE100821: semantic memory
 		temporalIndex:  temporalIdx,        // SWE100821: temporal memory
 		consolidator:   consolidator,       // SWE100821: memory consolidation
+		subagentMgr:    subagentManager,    // SWE100821: stored for SetSubagentRootContext
 		summarizing:    sync.Map{},
+	}
+}
+
+// SetSubagentRootContext injects the long-lived gateway context into the subagent manager.
+// Call this once after NewAgentLoop, before Run(), so background subagents are not
+// killed when a per-message context is cancelled.
+// SWE100821: Fixes subagents dying when parent message turn ends.
+func (al *AgentLoop) SetSubagentRootContext(ctx context.Context) {
+	if al.subagentMgr != nil {
+		al.subagentMgr.SetRootContext(ctx)
 	}
 }
 
@@ -633,7 +647,12 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 	}
 	ctxWg.Wait()
 
-	// SWE100821: Compress history when it exceeds threshold to preserve context window (higher = more "short-term" recall before summarization)
+	// SWE100821: PicoLM — cap raw history before prefill (avoids huge prompts; distillation is also an LLM call)
+	if strings.Contains(strings.ToLower(al.model), "picolm") && len(history) > 28 {
+		history = history[len(history)-24:]
+	}
+
+	// SWE100821: Compress history when it exceeds threshold to preserve context window (higher = more recall before distill)
 	if al.compressor != nil && len(history) > 40 {
 		compressed, recent, compErr := al.compressor.CompressHistory(ctx, history)
 		if compErr == nil && compressed != "" {
@@ -846,7 +865,7 @@ func (al *AgentLoop) runAgentLoop(ctx context.Context, opts processOptions) (str
 				TopicTags:  extractTopicTags(opts.UserMessage),
 				SessionKey: opts.SessionKey,
 				Summary:    summary,
-				Source:      opts.Channel,
+				Source:     opts.Channel,
 			})
 			// SWE100821: Persist temporal index to disk so data survives restarts
 			if err := al.temporalIndex.Save(); err != nil {
@@ -1652,30 +1671,76 @@ func interceptResponseToolCall(toolCalls []providers.ToolCall) string {
 }
 
 // SWE100821: parseContentAsToolCall detects when a model emits a tool call as
-// plain text content (e.g. {"name":"skills","arguments":{"action":"search",...}}).
-// Returns a reconstructed ToolCall if the pattern matches, nil otherwise.
+// plain text content instead of the tool_calls API field. Handles two formats:
+//
+//   Flat:    {"name":"exec","arguments":{...}}          (llama3.1:8b, qwen2.5-coder)
+//   Wrapped: {"tool_calls":[{"name":"exec","arguments":{...}}]}  (qwen2.5-coder, some Ollama builds)
+//
+// Returns the first reconstructed ToolCall, or nil if no pattern matches.
 func parseContentAsToolCall(content string) *providers.ToolCall {
 	content = strings.TrimSpace(content)
+
+	// Strip markdown code fences so ```json {...} ``` is handled
+	if strings.HasPrefix(content, "```") {
+		if end := strings.LastIndex(content, "```"); end > 3 {
+			content = strings.TrimSpace(content[3:end])
+			// strip optional language tag (e.g. "json\n")
+			if nl := strings.Index(content, "\n"); nl >= 0 && nl < 10 {
+				content = strings.TrimSpace(content[nl+1:])
+			}
+		}
+	}
+
 	if !strings.HasPrefix(content, "{") {
 		return nil
 	}
-	var parsed struct {
+
+	// SWE100821: Try wrapped format first: {"tool_calls":[{"name":"...","arguments":{...}}]}
+	// qwen2.5-coder:7b and some Ollama builds emit this as plain text content.
+	var wrapped struct {
+		ToolCalls []struct {
+			Name      string                 `json:"name"`
+			Arguments map[string]interface{} `json:"arguments"`
+		} `json:"tool_calls"`
+	}
+	if err := json.Unmarshal([]byte(content), &wrapped); err == nil && len(wrapped.ToolCalls) > 0 {
+		tc := wrapped.ToolCalls[0]
+		if tc.Name != "" {
+			args := tc.Arguments
+			if args == nil {
+				args = map[string]interface{}{}
+			}
+			argsJSON, _ := json.Marshal(args)
+			return &providers.ToolCall{
+				ID:        fmt.Sprintf("recovered-%d", time.Now().UnixNano()),
+				Name:      tc.Name,
+				Arguments: args,
+				Function: &providers.FunctionCall{
+					Name:      tc.Name,
+					Arguments: string(argsJSON),
+				},
+			}
+		}
+	}
+
+	// SWE100821: Try flat format: {"name":"exec","arguments":{...}}
+	var flat struct {
 		Name      string                 `json:"name"`
 		Arguments map[string]interface{} `json:"arguments"`
 	}
-	if err := json.Unmarshal([]byte(content), &parsed); err != nil {
+	if err := json.Unmarshal([]byte(content), &flat); err != nil {
 		return nil
 	}
-	if parsed.Name == "" || parsed.Arguments == nil {
+	if flat.Name == "" || flat.Arguments == nil {
 		return nil
 	}
-	argsJSON, _ := json.Marshal(parsed.Arguments)
+	argsJSON, _ := json.Marshal(flat.Arguments)
 	return &providers.ToolCall{
-		ID:   fmt.Sprintf("recovered-%d", time.Now().UnixNano()),
-		Name: parsed.Name,
-		Arguments: parsed.Arguments,
+		ID:        fmt.Sprintf("recovered-%d", time.Now().UnixNano()),
+		Name:      flat.Name,
+		Arguments: flat.Arguments,
 		Function: &providers.FunctionCall{
-			Name:      parsed.Name,
+			Name:      flat.Name,
 			Arguments: string(argsJSON),
 		},
 	}
@@ -1931,7 +1996,7 @@ func extractTopicTags(msg string) []string {
 		"could": true, "there": true, "into": true, "just": true, "also": true,
 	}
 	for _, w := range words {
-		w = strings.Trim(w, ".,!?;:'\"()-[]{}") 
+		w = strings.Trim(w, ".,!?;:'\"()-[]{}")
 		if len(w) <= 3 || stopWords[w] || seen[w] {
 			continue
 		}

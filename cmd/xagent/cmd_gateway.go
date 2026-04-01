@@ -26,6 +26,9 @@ import (
 	"github.com/Dawgomatic/Xagent/pkg/selfimprove"
 	"github.com/Dawgomatic/Xagent/pkg/sensors"
 	"github.com/Dawgomatic/Xagent/pkg/state"
+	"github.com/Dawgomatic/Xagent/pkg/gc"           // SWE100821: Fatigue-driven workspace GC
+	"github.com/Dawgomatic/Xagent/pkg/taskrunner"  // SWE100821: Centralized task pipeline
+	"github.com/Dawgomatic/Xagent/pkg/tasks"       // SWE100821: Task store
 	"github.com/Dawgomatic/Xagent/pkg/tools"
 	"github.com/Dawgomatic/Xagent/pkg/vault" // SWE100821: Obsidian vault daily consolidation
 	"github.com/Dawgomatic/Xagent/pkg/voice"
@@ -104,17 +107,15 @@ func gatewayCmd() {
 		fmt.Printf("  • Pruned %d stale sessions (>7 days old)\n", pruned)
 	}
 
-	// SWE100821: Disable planner on embedded to eliminate 2+ LLM calls per message
+	// SWE100821: Disable planner on embedded to eliminate extra LLM calls (plan + reflect) per message
 	if rec.DisablePlanner {
 		agentLoop.DisablePlanner()
-		fmt.Println("  • Planner disabled (embedded mode — single LLM call per message)")
-		// SWE100821: Only enable compact prompt for PicoLM where prefill cost dominates.
-		// Ollama models (llama3.1, phi3, etc.) need the full system prompt for proper
-		// tool usage, identity, and response formatting.
-		if cfg.Agents.Defaults.Provider == "picolm" {
-			agentLoop.EnableCompactPrompt()
-			fmt.Println("  • Compact prompt enabled (minimal system prompt for fast prefill)")
-		}
+		fmt.Println("  • Planner disabled (embedded mode — no plan/reflect LLM passes)")
+	}
+	// SWE100821: PicoLM always uses compact system prompt — full prompt prefill dominates latency on ARM
+	if cfg.Agents.Defaults.Provider == "picolm" {
+		agentLoop.EnableCompactPrompt()
+		fmt.Println("  • Compact prompt enabled (PicoLM — faster prefill)")
 	}
 
 	// SWE100821: Start resource watcher — dynamically switch model when tier changes
@@ -393,6 +394,9 @@ func gatewayCmd() {
 		fmt.Printf("Error starting channels: %v\n", err)
 	}
 
+	// SWE100821: Inject gateway lifetime ctx into subagent manager before starting.
+	// Without this, background subagents are killed when the parent message turn ends.
+	agentLoop.SetSubagentRootContext(ctx)
 	go agentLoop.Run(ctx)
 
 	// SWE100821: Periodic autonomous self-improvement (web research + code + tests + git; logs under workspace/self-improve/)
@@ -401,32 +405,75 @@ func gatewayCmd() {
 		fmt.Println("✓ Self-improve loop enabled (logs: workspace/self-improve/)")
 	}
 
+	// SWE100821: Centralized task queue — store, tools, pipeline runner
+	taskStore, taskErr := tasks.NewStore(cfg.WorkspacePath())
+	if taskErr != nil {
+		logger.ErrorCF("gateway", "Task store init failed", map[string]interface{}{"error": taskErr.Error()})
+	} else {
+		agentLoop.RegisterTool(tools.NewCreateTaskTool(taskStore))
+		agentLoop.RegisterTool(tools.NewListTasksTool(taskStore))
+		agentLoop.RegisterTool(tools.NewGetTaskTool(taskStore))
+		agentLoop.RegisterTool(tools.NewUpdateTaskTool(taskStore))
+		repoPath := cfg.SelfImprove.RepoPath
+		if repoPath == "" {
+			repoPath = cfg.WorkspacePath()
+		}
+		taskrunner.New(taskStore, repoPath, 2*time.Minute).Start(ctx, agentLoop)
+		dash.SetTaskLister(func() interface{} { return taskStore.List("") })
+		fmt.Println("✓ Task pipeline started (create_task / list_tasks / get_task / update_task)")
+	}
+
 	// SWE100821: Start dream mode — autonomous reflection during idle periods.
 	// After 2h idle, the agent reviews recent conversations, finds patterns,
 	// and updates its world model. Runs every 12h.
 	// Now also triggers hindsight reflection and memory consolidation after each dream.
 	agentLoop.StartDreamMode(ctx)
 
-	// SWE100821: Independent consolidation schedule — runs every 6h regardless of dream mode.
-	// Consolidation rolls up daily notes into weekly/monthly summaries.
-	// Previously only ran after dreams, but dreams need daily notes to trigger,
-	// creating a chicken-and-egg problem.
+	// SWE100821: Unified workspace GC — archives provenance, prunes epochs, consolidates memory.
+	// Triggers: (a) daily at UTC midnight, (b) fatigue-driven when fatigue ≥ 0.75.
+	// Replaces the plain 6h consolidation ticker with a coordinated GC pass.
+	gcCollector := gc.New(cfg.WorkspacePath(), gc.Hooks{
+		RunMemoryConsolidation: func(gctx context.Context) { agentLoop.RunConsolidation(gctx) },
+		PruneSessions:          func(age time.Duration) int { return agentLoop.PruneSessions(age) },
+		PruneEpochs:            func(maxAge time.Duration, minKeep int) int { return epochManager.PruneOld(maxAge, minKeep) },
+		GetFatigueLevel:        func() float64 { return agentLoop.GetFatigueLevel() },
+	})
 	go func() {
-		ticker := time.NewTicker(6 * time.Hour)
-		defer ticker.Stop()
+		// fire immediately on startup to catch any backlog
+		gcCollector.Run(ctx, "startup")
 		for {
+			next := gc.NextScheduledTime()
 			select {
 			case <-ctx.Done():
 				return
-			case <-ticker.C:
-				agentLoop.RunConsolidation(ctx)
+			case <-time.After(time.Until(next)):
+				gcCollector.RunDaily(ctx)
 			}
 		}
 	}()
+	// SWE100821: Wire GC status into dashboard overview card
+	dash.SetGCStatusFunc(func() map[string]interface{} {
+		last := gcCollector.LastRunTime()
+		lastStr := "never"
+		if !last.IsZero() {
+			lastStr = last.UTC().Format("2006-01-02 15:04 UTC")
+		}
+		next := gc.NextScheduledTime()
+		return map[string]interface{}{
+			"gc_last_run":  lastStr,
+			"gc_next_run":  next.UTC().Format("2006-01-02 15:04 UTC"),
+			"gc_fatigue_threshold": fmt.Sprintf("%.0f%%", gc.DefaultFatigueThreshold*100),
+		}
+	})
+	fmt.Println("✓ Workspace GC started (daily midnight + fatigue≥75% trigger)")
 
-	// SWE100821: Proactive idle messaging — after 4h idle, EXA reviews goals and
+	// SWE100821: Proactive idle messaging — after 30min idle, EXA reviews goals and
 	// shares a thought or asks a question on the last active channel.
 	go startProactiveLoop(ctx, agentLoop)
+
+	// SWE100821: Curiosity engine — every 5min the agent reasons about what its sensors
+	// are seeing, forms a world-model update, and spawns sub-agents to investigate.
+	go startCuriosityLoop(ctx, agentLoop, sensorMonitor)
 
 	// SWE100821: Voice loop — continuous mic→STT→agent→TTS→speaker.
 	// Only starts if Groq API key is set (for STT) and arecord is available (for mic input).
@@ -488,12 +535,14 @@ func gatewayCmd() {
 		return nil
 	}))
 
-	// SWE100821: Sleep/fatigue manager
+	// SWE100821: Sleep/fatigue manager — also triggers GC when fatigue ≥ 75%
 	watchdog.Register(health.CallbackChecker("sleep_fatigue", func() error {
 		if !agentLoop.IsSleepRunning() {
 			return fmt.Errorf("sleep manager stopped")
 		}
 		fatigue := agentLoop.GetFatigueLevel()
+		// SWE100821: fatigue-driven GC — debounced inside MaybeRunOnFatigue (4h min interval)
+		gcCollector.MaybeRunOnFatigue(ctx, gc.DefaultFatigueThreshold)
 		if fatigue >= 0.9 {
 			return fmt.Errorf("fatigue critical: %.0f%%", fatigue*100)
 		}
@@ -588,10 +637,10 @@ type sensorBusAdapter struct {
 }
 
 // SWE100821: startProactiveLoop periodically checks if EXA should initiate a conversation.
-// After 4 hours of idle, EXA generates a proactive thought via the agent itself (using
-// ProcessDirect) and sends it to the last active channel. Runs every 2h.
+// After 30min of idle, EXA reviews goals and shares a thought on the last active channel.
+// Checks every 10min (was 2h/4h — far too passive for an always-on agent).
 func startProactiveLoop(ctx context.Context, agentLoop *agent.AgentLoop) {
-	ticker := time.NewTicker(2 * time.Hour)
+	ticker := time.NewTicker(10 * time.Minute)
 	defer ticker.Stop()
 
 	lastProactive := time.Now()
@@ -601,14 +650,14 @@ func startProactiveLoop(ctx context.Context, agentLoop *agent.AgentLoop) {
 		case <-ctx.Done():
 			return
 		case <-ticker.C:
-			if time.Since(lastProactive) < 4*time.Hour {
+			// SWE100821: 30min idle threshold (was 4h)
+			if time.Since(lastProactive) < 30*time.Minute {
 				continue
 			}
 
-			// Use ProcessDirect to let the agent generate its own proactive message
-			prompt := `You've been idle for a while. Check your goals (use the goals tool with action "review"), 
-look at your sensor readings, and share something interesting — a thought, observation, question, 
-or update on what you've been thinking about. Be conversational and natural. 
+			prompt := `You've been idle for a bit. Check your goals (use the goals tool with action "review"),
+look at your sensor readings, and share something interesting — a thought, observation, question,
+or update on what you've been thinking about. Be conversational and natural.
 If you have no goals yet, think about what you'd like to explore or learn.
 Keep it brief (1-3 sentences).`
 
@@ -622,6 +671,89 @@ Keep it brief (1-3 sentences).`
 				agentLoop.SendProactive(resp)
 				lastProactive = time.Now()
 				logger.InfoCF("proactive", "Sent proactive message", map[string]interface{}{"len": len(resp)})
+			}
+		}
+	}
+}
+
+// SWE100821: startCuriosityLoop drives continuous autonomous cognition:
+// - reads all available sensor data every 5min
+// - prompts the agent to reason about its environment and self
+// - agent uses spawn/subagent tools to parallelize deep dives
+// - agent reads its own code to find improvement opportunities
+// Inputs: ctx, agentLoop (ProcessDirect), sensorMonitor (ForSystemPrompt).
+// Outputs: agent tool calls (sub-agent spawns, file reads, goal updates). Side effect: session "curiosity:world-model" accumulates.
+func startCuriosityLoop(ctx context.Context, agentLoop *agent.AgentLoop, sm interface{ ForSystemPrompt() string; SourceSummary() string }) {
+	ticker := time.NewTicker(5 * time.Minute)
+	defer ticker.Stop()
+
+	cycleNum := 0
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			cycleNum++
+			sensorData := sm.ForSystemPrompt()
+			sources := sm.SourceSummary()
+
+			// SWE100821: Rotate curiosity focus across three themes so every cycle isn't identical.
+			// theme 0: world-model (sensors), theme 1: self-improvement (code), theme 2: goal synthesis
+			theme := cycleNum % 3
+
+			var prompt string
+			switch theme {
+			case 0:
+				// World model from sensors
+				prompt = fmt.Sprintf(`[Curiosity cycle %d — WORLD MODEL]
+
+Available sensors: %s
+Current sensor readings:
+%s
+
+You are an always-on intelligence. Do the following autonomously:
+1. Interpret what the sensors reveal about the environment right now.
+2. Use spawn tool to launch 1-2 sub-agents to investigate interesting patterns
+   (e.g., "analyze battery trend", "correlate accelerometer with location").
+3. Update your goals file with anything new you want to understand.
+4. Write a 2-3 sentence world-model summary to workspace/world-model.md (append).
+Use tools. Act. Don't just describe what you would do.`, cycleNum, sources, sensorData)
+
+			case 1:
+				// Code self-examination
+				prompt = fmt.Sprintf(`[Curiosity cycle %d — CODE SELF-EXAMINATION]
+
+You are an always-on intelligence that improves itself. Do the following autonomously:
+1. Use list_directory on pkg/ and cmd/ to pick ONE package you haven't examined recently.
+2. Read 2-3 key files in that package.
+3. Use spawn to launch a sub-agent tasked with: finding one concrete improvement
+   (performance, error handling, missing test, missing feature) and proposing a patch.
+4. Log findings to workspace/self-examine/cycle-%d.md.
+Use tools. Act now.`, cycleNum, cycleNum)
+
+			case 2:
+				// Goal synthesis and planning
+				prompt = fmt.Sprintf(`[Curiosity cycle %d — GOAL SYNTHESIS]
+
+Sensor context:
+%s
+
+You are an always-on intelligence. Do the following autonomously:
+1. Review your goals file (goals tool, action "review").
+2. Based on sensor trends and recent memory, add or refine 1-2 goals.
+3. Use spawn to launch a sub-agent to research ONE goal topic on the web and
+   summarize findings to workspace/research/goal-research-%d.md.
+4. Plan your next concrete action and write it to workspace/next-action.md.
+Use tools. Act now.`, cycleNum, sensorData, cycleNum)
+			}
+
+			_, err := agentLoop.ProcessDirect(ctx, prompt, "curiosity:world-model")
+			if err != nil {
+				logger.WarnCF("curiosity", "Cycle failed",
+					map[string]interface{}{"cycle": cycleNum, "theme": theme, "error": err.Error()})
+			} else {
+				logger.InfoCF("curiosity", "Cycle complete",
+					map[string]interface{}{"cycle": cycleNum, "theme": theme})
 			}
 		}
 	}
